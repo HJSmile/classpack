@@ -5,7 +5,7 @@ DND5e classpack for fvtt
 使用方法：  
 打开安装MOD界面，复制以下路径
 
-    https://github.com/HJSmile/classpack/releases/download/latest/module.json
+    https://github.com/HJSmile/classpack/releases/latest/download/module.json
 
 粘贴至以下位置后，点击安装
 
