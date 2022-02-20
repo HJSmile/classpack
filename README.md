@@ -6,7 +6,7 @@
 使用方法：  
 打开安装MOD界面，复制以下路径
 
-    https://raw.githubusercontent.com/TravelingK/classpack/master/dnd5e_classpack/module.json
+    https://raw.githubusercontent.com/HJSmile/classpack/master/dnd5e_classpack/module.json
 
 粘贴至以下位置后，点击安装
 
