@@ -2,18 +2,31 @@
   "name": "dnd5e_classpack",
   "title": "DND5E职业包",
   "description": "包含了职业表和按环分类的法术包，方便车卡，包含部分UA规则，DM可以根据需要进行修改",
-  "version": "1.5",
+  "version": "1.6",
   "author": "classpack社区",
   "systems": ["dnd5e"],
   "scripts": [],
   "styles": [],
   "packs": [
-   
 {
       "label": "随机表",
       "entity": "RollTable",
       "name": "rtable",
       "path": "packs/rtable.db",
+      "system": "dnd5e"
+    },
+{
+      "label": "模组物品",
+      "entity": "Item",
+      "name": "moditems",
+      "path": "packs/moditems.db",
+      "system": "dnd5e"
+    },
+{
+      "label": "DMG宝石与艺术品",
+      "entity": "Item",
+      "name": "loots",
+      "path": "packs/loots.db",
       "system": "dnd5e"
     },
 {
@@ -45,7 +58,7 @@
       "system": "dnd5e"
     },
 {
-      "label": "法术合集",
+      "label": "法术",
       "entity": "Item",
       "name": "new-icon",
       "path": "packs/new-icon.db",
@@ -66,7 +79,7 @@
       "system": "dnd5e"
     },
 {
-      "label": "物品（SRD）",
+      "label": "DMG与PHB物品",
       "entity": "Item",
       "name": "itempack",
       "path": "packs/itempack.db",
@@ -94,9 +107,12 @@
       "system": "dnd5e"
     }
   ],
+  "esmodules": [
+    "/scripts/module.js"
+  ],
   "url": "https://github.com/HJSmile/classpack",
-  "minimumCoreVersion": "0.5.0",
-  "compatibleCoreVersion": "0.6.5",
+  "minimumCoreVersion": "9",
+  "compatibleCoreVersion": "9.249",
   "manifest": "https://raw.githubusercontent.com/HJSmile/classpack/master/dnd5e_classpack/module.json",
   "download": "https://github.com/HJSmile/classpack/raw/master/dnd5e_classpack.zip"
 }
