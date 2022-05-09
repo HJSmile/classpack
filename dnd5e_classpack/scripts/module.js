@@ -869,7 +869,7 @@ Hooks.on("ready", () => {
                     "features": {
                         "3": ["Compendium.dnd5e_classpack.extra-ability.Sdemym6EHOjHhXJq", "Compendium.dnd5e_classpack.extra-ability.Vlx0VdQ9V61wHX9I"],
                         "6": ["Compendium.dnd5e_classpack.extra-ability.H5J2aANa4OhuuPmv"],
-                        "10": ["Compendium.dnd5e_classpack.extra-ability.QXOrwsPs3IqQfONF"],
+                        "10": ["Compendium.dnd5e_classpack.new-icon.umqpL5B9ccbkpJtJ", "Compendium.dnd5e_classpack.enew-icon.WO2nFm8xEVkX4KJy", "Compendium.dnd5e_classpack.extra-ability.QXOrwsPs3IqQfONF"],
                         "14": ["Compendium.dnd5e_classpack.extra-ability.lQSmrRreRFq0Q3aO"]
                     }
                 },
@@ -925,9 +925,9 @@ Hooks.on("ready", () => {
                     "label": "Path of the Totem Warrior",
                     "source": "PHB pg. 50; SCAG pg. 121",
                     "features": {
-                        "3": ["Compendium.dnd5e_classpack.class-abilityphb.r7HdDVLs4VxK3T1U", "Compendium.dnd5e_classpack.class-abilityphb.oXP001ztwbZ2nnUc", "Compendium.dnd5e_classpack.class-abilityphb.aobP4yqQzY681HRN"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.3JUEqJSbgArlUBR5", "Compendium.dnd5e_classpack.new-icon.aCbWarazGEZ7fMnd", "Compendium.dnd5e_classpack.class-abilityphb.r7HdDVLs4VxK3T1U", "Compendium.dnd5e_classpack.class-abilityphb.oXP001ztwbZ2nnUc", "Compendium.dnd5e_classpack.class-abilityphb.aobP4yqQzY681HRN"],
                         "6": ["Compendium.dnd5e_classpack.class-abilityphb.2EbsfqHHYJMnnoQi"],
-                        "10": ["Compendium.dnd5e_classpack.class-abilityphb.1pk5XMPy4CuaDeO1"],
+                        "10": ["Compendium.dnd5e_classpack.new-icon.tnDSVQwVqkmqWFPP", "Compendium.dnd5e_classpack.class-abilityphb.1pk5XMPy4CuaDeO1"],
                         "14": ["Compendium.dnd5e_classpack.class-abilityphb.rS0upWPdwCmMxmY3"]                    }
                 },
                 "狂热者": {
@@ -961,7 +961,7 @@ Hooks.on("ready", () => {
                     "source": "XGE pg. 14",
                     "features": {
                         "3": ["Compendium.dnd5e_classpack.extra-ability.q3eNDUv8ger0r7lQ", "Compendium.dnd5e_classpack.extra-ability.GUKctWtG0m69VgFk", "Compendium.dnd5e_classpack.extra-ability.2JSV2d5Xm2DBvXFz"],
-                        "6": ["Compendium.dnd5e_classpack.extra-ability.xe5xbHMQAWZ9q2ET"],
+                        "6": ["Compendium.dnd5e_classpack.new-icon.Ja6HpsLeGA9MQ0Rm", "Compendium.dnd5e_classpack.extra-ability.xe5xbHMQAWZ9q2ET"],
                         "14": ["Compendium.dnd5e_classpack.extra-ability.ocvcBCV6uWcdfnIu"]
                     }
                 },
@@ -1033,10 +1033,14 @@ Hooks.on("ready", () => {
                     "label": "Arcana Domain",
                     "source": "SCAG pg. 125",
                     "features": {
-                        "1": ["Compendium.dnd5e_classpack.class-abilityphb.CxPygB0IU9zF8enz","Compendium.dnd5e_classpack.class-abilityphb.r57TOU3WO8K1DIWt"],
+                        "1": ["Compendium.dnd5e_classpack.new-icon.cGO3m3Xu4mtPegr4", "Compendium.dnd5e_classpack.new-icon.q0FYQJX9EBseJ9KN", "Compendium.dnd5e_classpack.class-abilityphb.CxPygB0IU9zF8enz","Compendium.dnd5e_classpack.class-abilityphb.r57TOU3WO8K1DIWt"],
                         "2": ["Compendium.dnd5e_classpack.class-abilityphb.IoLt42lBA9INvZmR"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.JXjHc37DKcHrPtNz", "Compendium.dnd5e_classpack.new-icon.14a3v5NF5h5Lgm9J"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.as6xgBANCbyoWPXX", "Compendium.dnd5e_classpack.new-icon.Vrzu8xpLMvOvOnx6"],
                         "6": ["Compendium.dnd5e_classpack.class-abilityphb.h2sxtB8TTKCKWx4u"],
+                        "7": ["Compendium.dnd5e_classpack.new-icon.uF6bn9CQaLwvmxwv", "Compendium.dnd5e_classpack.new-icon.Xvbp5UwtqRWUmxqB"],
                         "8": ["Compendium.dnd5e_classpack.class-abilityphb.lTR0ojCE1yFRvIjT"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.PmucSbzqmGhwisuE", "Compendium.dnd5e_classpack.new-icon.mcQ5lehafMClomzc"],
                         "17": ["Compendium.dnd5e_classpack.class-abilityphb.Bre1FogGHSxQmZYl"]
                         
                     }
@@ -1045,10 +1049,14 @@ Hooks.on("ready", () => {
                     "label": "Death Domain",
                     "source": "DMG pg. 96",
                     "features": {
-                        "1": ["Compendium.dnd5e_classpack.extra-ability.jDdEN3Im7kyYhI69","Compendium.dnd5e_classpack.extra-ability.YW2NTcJkg9hHYpCy"],
+                        "1": ["Compendium.dnd5e_classpack.new-icon.DEl8kc5vGwLCNYpR", "Compendium.dnd5e_classpack.new-icon.PZQqlG5R6G24aWtm", "Compendium.dnd5e_classpack.extra-ability.jDdEN3Im7kyYhI69","Compendium.dnd5e_classpack.extra-ability.YW2NTcJkg9hHYpCy"],
                         "2": ["Compendium.dnd5e_classpack.extra-ability.BAYFDeCiaMYHQZRw"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.5GWYJBfc1aZ6415M", "Compendium.dnd5e_classpack.new-icon.VRvKmIZL44nZWKaa"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.xYpJGRI4xcMa41kO", "Compendium.dnd5e_classpack.new-icon.FKjra48NDHtB4518"],
                         "6": ["Compendium.dnd5e_classpack.extra-ability.XLAACVfQbbmNrhQk"],
+                        "7": ["Compendium.dnd5e_classpack.new-icon.AVumturalJuP4paw", "Compendium.dnd5e_classpack.new-icon.4gLdaCM7rxoNhj8d"],
                         "8": ["Compendium.dnd5e_classpack.extra-ability.5RpPB6Lwkva1meGG"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.XK3IvcqPquyj1W3P", "Compendium.dnd5e_classpack.new-icon.T39k39dbE2poIFc5"],
                         "17": ["Compendium.dnd5e_classpack.extra-ability.hpaOlH1qrWKtRwaY"]
                         
                     }
@@ -1057,10 +1065,14 @@ Hooks.on("ready", () => {
                     "label": "Forge Domain",
                     "source": "XGE pg. 18",
                     "features": {
-                        "1": ["Compendium.dnd5e_classpack.extra-ability.QwJc4R8XGcqifWRo", "Compendium.dnd5e_classpack.extra-ability.g473FXNMREvpFY5E"],
+                        "1": ["Compendium.dnd5e_classpack.new-icon.tyshE8ZcV1Xniej3", "Compendium.dnd5e_classpack.new-icon.73yB6CHxGk3Np5ME", "Compendium.dnd5e_classpack.extra-ability.QwJc4R8XGcqifWRo", "Compendium.dnd5e_classpack.extra-ability.g473FXNMREvpFY5E"],
                         "2": ["Compendium.dnd5e_classpack.extra-ability.DzcewKuAHAUP8yEn"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.tf3EIMrOkbZvOxSz", "Compendium.dnd5e_classpack.new-icon.14a3v5NF5h5Lgm9J"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.srjt2KPpCAtQGe7W", "Compendium.dnd5e_classpack.new-icon.DBrh7ALD21UoUApP"],
                         "6": ["Compendium.dnd5e_classpack.extra-ability.ddR4tv41KTeUD0Gg"],
+                        "7": ["Compendium.dnd5e_classpack.new-icon.u7JAeqMO5fYhTnMy", "Compendium.dnd5e_classpack.new-icon.agTzLRmgNSVghaGk"],
                         "8": ["Compendium.dnd5e_classpack.extra-ability.ja5LpMic3gboQVSl"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.Lub4e9tYHMHeVo7Y", "Compendium.dnd5e_classpack.new-icon.Zwe287Drdl1TkG8e"],
                         "17": ["Compendium.dnd5e_classpack.extra-ability.keGYCFUIfX3MhjeI"]
                         
                     }
@@ -1069,22 +1081,29 @@ Hooks.on("ready", () => {
                     "label": "Grave Domain",
                     "source": "XGE pg. 19",
                     "features": {                        
-                        "1": ["Compendium.dnd5e_classpack.extra-ability.O58fjWGmw7bI6kmN", "Compendium.dnd5e_classpack.extra-ability.IlZZD1Jbpz94jgIG", "Compendium.dnd5e_classpack.extra-ability.BTVtgBSei6QUdcsB"],
+                        "1": ["Compendium.dnd5e_classpack.new-icon.EslxcnZE2B9JYgF1", "Compendium.dnd5e_classpack.new-icon.XT4GwLQNAuPvtnrF", "Compendium.dnd5e_classpack.new-icon.DEl8kc5vGwLCNYpR", "Compendium.dnd5e_classpack.extra-ability.O58fjWGmw7bI6kmN", "Compendium.dnd5e_classpack.extra-ability.IlZZD1Jbpz94jgIG", "Compendium.dnd5e_classpack.extra-ability.BTVtgBSei6QUdcsB"],
                         "2": ["Compendium.dnd5e_classpack.extra-ability.dnHKTpzYGpMYiEvW"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.uzWirpWyQshzp1l0", "Compendium.dnd5e_classpack.new-icon.VRvKmIZL44nZWKaa"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.TkFsGmyAeHknESJ4", "Compendium.dnd5e_classpack.new-icon.FKjra48NDHtB4518"],
                         "6": ["Compendium.dnd5e_classpack.extra-ability.LDGNpqngq73M9oZs"],
+                        "7": ["Compendium.dnd5e_classpack.new-icon.AVumturalJuP4paw", "Compendium.dnd5e_classpack.new-icon.4gLdaCM7rxoNhj8d"],
                         "8": ["Compendium.dnd5e_classpack.class-abilityphb.lTR0ojCE1yFRvIjT"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.XK3IvcqPquyj1W3P", "Compendium.dnd5e_classpack.new-icon.63gAxMpLpbVW9Oja"],
                         "17": ["Compendium.dnd5e_classpack.extra-ability.TI7ZZ9FmrvtlVlzi"]
-                        
                     }
                 },
                 "知识领域": {
                     "label": "Knowledge Domain",
                     "source": "PHB pg. 59",
                     "features": {
-                        "1": ["Compendium.dnd5e_classpack.class-abilityphb.CxPygB0IU9zF8enz","Compendium.dnd5e_classpack.class-abilityphb.r57TOU3WO8K1DIWt"],
+                        "1": ["Compendium.dnd5e_classpack.new-icon.Ja6HpsLeGA9MQ0Rm", "Compendium.dnd5e_classpack.new-icon.tyshE8ZcV1Xniej3", "Compendium.dnd5e_classpack.class-abilityphb.CxPygB0IU9zF8enz","Compendium.dnd5e_classpack.class-abilityphb.r57TOU3WO8K1DIWt"],
                         "2": ["Compendium.dnd5e_classpack.class-abilityphb.IoLt42lBA9INvZmR"],
-                        "6": ["Compendium.dnd5e_classpack.class-abilityphb.h2sxtB8TTKCKWx4u"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.umqpL5B9ccbkpJtJ", "Compendium.dnd5e_classpack.new-icon.Ubl35siOKv9ihW2M"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.VT60UFGIZOZhPgMi", "Compendium.dnd5e_classpack.new-icon.o9GQEt4fYw6WjpB0"],
+                        "7": ["Compendium.dnd5e_classpack.new-icon.uF6bn9CQaLwvmxwv", "Compendium.dnd5e_classpack.new-icon.MZ1jwLEJukFjSv1a"],
+                        "6": ["Compendium.dnd5e_classpack.new-icon.Ubl35siOKv9ihW2M", "Compendium.dnd5e_classpack.class-abilityphb.h2sxtB8TTKCKWx4u"],
                         "8": ["Compendium.dnd5e_classpack.class-abilityphb.lTR0ojCE1yFRvIjT"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.YJI4AeSEGPKf169b", "Compendium.dnd5e_classpack.new-icon.OA4mCsVxg6nUrLjV"],
                         "17": ["Compendium.dnd5e_classpack.class-abilityphb.Bre1FogGHSxQmZYl"]
                         
                     }
@@ -1093,10 +1112,14 @@ Hooks.on("ready", () => {
                     "label": "Life Domain",
                     "source": "PHB pg. 60",
                     "features": {
-                        "1": ["Compendium.dnd5e_classpack.class-abilityphb.tHd38VNgzWPp4kT2","Compendium.dnd5e_classpack.class-abilityphb.JKRSuJBfZnXIx8Zu"],
+                        "1": ["Compendium.dnd5e_classpack.new-icon.U1GNY4potyr0c6mq", "Compendium.dnd5e_classpack.new-icon.a5wqDP53A5UvGvSK", "Compendium.dnd5e_classpack.class-abilityphb.tHd38VNgzWPp4kT2","Compendium.dnd5e_classpack.class-abilityphb.JKRSuJBfZnXIx8Zu"],
                         "2": ["Compendium.dnd5e_classpack.class-abilityphb.cVCWDgOyiytOouwE"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.I1C2EQxwynPd7dOC", "Compendium.dnd5e_classpack.new-icon.uLEtdTC6yBxuLNFe"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.dU8oQCE5dA1qZ6TD", "Compendium.dnd5e_classpack.new-icon.TkFsGmyAeHknESJ4"],
                         "6": ["Compendium.dnd5e_classpack.class-abilityphb.jo4tImzlVO1EqvZj"],
+                        "7": ["Compendium.dnd5e_classpack.new-icon.4gLdaCM7rxoNhj8d", "Compendium.dnd5e_classpack.new-icon.LPXdi1HhVx8kJWYy"],
                         "8": ["Compendium.dnd5e_classpack.class-abilityphb.twDzAZCJeSqZnLTW"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.UBLAtJuRhRB3GokC", "Compendium.dnd5e_classpack.new-icon.63gAxMpLpbVW9Oja"],
                         "17": ["Compendium.dnd5e_classpack.class-abilityphb.mSQMj6rZxjKtCe7i"]
                     
                     }
@@ -1105,10 +1128,14 @@ Hooks.on("ready", () => {
                     "label": "Light Domain",
                     "source": "PHB pg. 60",
                     "features": {
-                        "1": ["Compendium.dnd5e_classpack.class-abilityphb.doB8RcjWIUPgtoaY","Compendium.dnd5e_classpack.class-abilityphb.4lIfviMB7iNh8W9X"],
+                        "1": ["Compendium.dnd5e_classpack.new-icon.CB9z74KJLWMplGuz", "Compendium.dnd5e_classpack.new-icon.sLkNbDcU39qcVt14", "Compendium.dnd5e_classpack.new-icon.rW5ZoeX4jjZw4hBO", "Compendium.dnd5e_classpack.class-abilityphb.doB8RcjWIUPgtoaY","Compendium.dnd5e_classpack.class-abilityphb.4lIfviMB7iNh8W9X"],
                         "2": ["Compendium.dnd5e_classpack.class-abilityphb.mZK4784I0vq8h7Ug"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.TEZY0aYJtnuU4FlW", "Compendium.dnd5e_classpack.new-icon.IkgKSSiBuGa5TPLB"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.uRF0L8no150cYca4", "Compendium.dnd5e_classpack.new-icon.Uh3zcz4PO4DXP3Dj"],
                         "6": ["Compendium.dnd5e_classpack.class-abilityphb.thQvk0Pz73NwGhgr"],
+                        "7": ["Compendium.dnd5e_classpack.new-icon.LPXdi1HhVx8kJWYy", "Compendium.dnd5e_classpack.new-icon.agTzLRmgNSVghaGk"],
                         "8": ["Compendium.dnd5e_classpack.class-abilityphb.lTR0ojCE1yFRvIjT"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.Q8XNvy4kwTSQVizo", "Compendium.dnd5e_classpack.new-icon.OA4mCsVxg6nUrLjV"],
                         "17": ["Compendium.dnd5e_classpack.class-abilityphb.v1Lepy3QhD41otYW"]
     
                     }
@@ -1117,10 +1144,14 @@ Hooks.on("ready", () => {
                     "label": "Nature Domain",
                     "source": "PHB pg. 61",
                     "features": {
-                        "1": ["Compendium.dnd5e_classpack.class-abilityphb.tMGlwbQZmzZZqBcZ","Compendium.dnd5e_classpack.class-abilityphb.ZLgr8uSYlPn3jYNq"],
+                        "1": ["Compendium.dnd5e_classpack.new-icon.t09Fa4kTkkIgMoDu", "Compendium.dnd5e_classpack.new-icon.3JUEqJSbgArlUBR5", "Compendium.dnd5e_classpack.class-abilityphb.tMGlwbQZmzZZqBcZ","Compendium.dnd5e_classpack.class-abilityphb.ZLgr8uSYlPn3jYNq"],
                         "2": ["Compendium.dnd5e_classpack.class-abilityphb.eVa5T71KMiaceD5z"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.YbdMfI7wNgrKkpRK", "Compendium.dnd5e_classpack.new-icon.1oL8DBOVZMuhaKpw"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.1TP8dARdcRojx7P1", "Compendium.dnd5e_classpack.new-icon.WLWSZA4pZSGb0Mku"],
                         "6": ["Compendium.dnd5e_classpack.class-abilityphb.vLPURGuDHBKlghiC"],
+                        "7": ["Compendium.dnd5e_classpack.new-icon.xaSXewdCx3aWtczk", "Compendium.dnd5e_classpack.new-icon.AAXts6UWV351MjQ4"],
                         "8": ["Compendium.dnd5e_classpack.class-abilityphb.zFXd6nXmOKpnmHDR"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.eGYMgP3fmIUQEXMm", "Compendium.dnd5e_classpack.new-icon.UqkkLccwOWYk8aO1"],
                         "17": ["Compendium.dnd5e_classpack.class-abilityphb.vHm8PpQAYp05Aw3W"]
 
                     }
@@ -1129,10 +1160,14 @@ Hooks.on("ready", () => {
                     "label": "Order Domain",
                     "source": "GGR pg. 25",
                     "features": {
-                        "1": ["Compendium.dnd5e_classpack.extra-ability.YavkIboZpQRIX1nC", "Compendium.dnd5e_classpack.extra-ability.nPHVVZk27pA42YF0"],
+                        "1": ["Compendium.dnd5e_classpack.new-icon.Ja6HpsLeGA9MQ0Rm", "Compendium.dnd5e_classpack.new-icon.eatsvLyUqyzEFzCv", "Compendium.dnd5e_classpack.extra-ability.YavkIboZpQRIX1nC", "Compendium.dnd5e_classpack.extra-ability.nPHVVZk27pA42YF0"],
                         "2": ["Compendium.dnd5e_classpack.extra-ability.uYIQZYjQxOmOslD1"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.syHHJlRPS4rVwCQA", "Compendium.dnd5e_classpack.new-icon.T4zFq0zTHnzZeO9t"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.6PTF3SN0jxkEqv6W", "Compendium.dnd5e_classpack.new-icon.2AgiR8EQ7IglGbci"],
                         "6": ["Compendium.dnd5e_classpack.extra-ability.pkGt4Q7woUwRpSM3"],
+                        "7": ["Compendium.dnd5e_classpack.new-icon.RpBbOYseLZCFXaFY", "Compendium.dnd5e_classpack.new-icon.Fw3U8sQwWSPVoisW"],
                         "8": ["Compendium.dnd5e_classpack.extra-ability.p3ygdJ5jnwNfzLQL"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.7tphgwQJI7dKIyfE", "Compendium.dnd5e_classpack.new-icon.JudswpO6E5GBlyfQ"],
                         "17": ["Compendium.dnd5e_classpack.extra-ability.43ixbr7CHIZP2QHF"]
                         
                     }
@@ -1141,10 +1176,14 @@ Hooks.on("ready", () => {
                     "label": "Peace Domain",
                     "source": "TCE pg. 32",
                     "features": {
-                        "1": ["Compendium.dnd5e_classpack.extra-ability.u2Od3MkybTkLRKoi", "Compendium.dnd5e_classpack.extra-ability.39vgDk1ARYUxfuoE"],
+                        "1": ["Compendium.dnd5e_classpack.new-icon.eatsvLyUqyzEFzCv", "Compendium.dnd5e_classpack.new-icon.FbxdKcDpSPWuGTLA", "Compendium.dnd5e_classpack.extra-ability.u2Od3MkybTkLRKoi", "Compendium.dnd5e_classpack.extra-ability.39vgDk1ARYUxfuoE"],
                         "2": ["Compendium.dnd5e_classpack.extra-ability.oHj6AFAm66d9qYd7"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.hAL0Dxp9w7gvkfZm", "Compendium.dnd5e_classpack.new-icon.DLyjjM6qTHBCSFCx"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.dU8oQCE5dA1qZ6TD", "Compendium.dnd5e_classpack.new-icon.kRO1zjPXuOLm4qUU"],
                         "6": ["Compendium.dnd5e_classpack.extra-ability.viW2PkM3OfKDK0o9"],
+                        "7": ["Compendium.dnd5e_classpack.new-icon.ujZGFLEqgI0L6oli", "Compendium.dnd5e_classpack.new-icon.cdeQPacCcm540OPy"],
                         "8": ["Compendium.dnd5e_classpack.class-abilityphb.lTR0ojCE1yFRvIjT"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.7dqplcsKNYQgRh2S", "Compendium.dnd5e_classpack.new-icon.mdnvLsKRorF3cx5S"],
                         "17": ["Compendium.dnd5e_classpack.extra-ability.fP9l4SdYuSPi0ofQ"]
                         
                     }
@@ -1153,10 +1192,14 @@ Hooks.on("ready", () => {
                     "label": "Twilight Domain",
                     "source": "TCE pg. 32",
                     "features": {
-                        "1": ["Compendium.dnd5e_classpack.extra-ability.A9dd7W5SHwlq5gSd", "Compendium.dnd5e_classpack.extra-ability.2hMuY5PjvH1Nc345"],
+                        "1": ["Compendium.dnd5e_classpack.new-icon.sLkNbDcU39qcVt14", "Compendium.dnd5e_classpack.new-icon.hFHF7vm3FYyTN288", "Compendium.dnd5e_classpack.extra-ability.A9dd7W5SHwlq5gSd", "Compendium.dnd5e_classpack.extra-ability.2hMuY5PjvH1Nc345"],
                         "2": ["Compendium.dnd5e_classpack.extra-ability.RF3cORN1AMVCqgJu"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.Vf5ZLLqRsGSy5ckY", "Compendium.dnd5e_classpack.new-icon.AYqzOw6GE7NT3FhJ"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.XfYgB18GC8OgETjG", "Compendium.dnd5e_classpack.new-icon.r32GM0pRthbUBqeT"],
                         "6": ["Compendium.dnd5e_classpack.extra-ability.p7OsDJ8ZBJvkvkTs"],
+                        "7": ["Compendium.dnd5e_classpack.new-icon.9WDd3gopYOGyYnrT", "Compendium.dnd5e_classpack.new-icon.Au584WRiGch84PXI"],
                         "8": ["Compendium.dnd5e_classpack.class-abilityphb.twDzAZCJeSqZnLTW"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.Y7NbrJlvdfWKm57j", "Compendium.dnd5e_classpack.new-icon.nTjAezWWIOZnxoB1"],
                         "17": ["Compendium.dnd5e_classpack.extra-ability.sYXqPwtRX6En37x5"]
                         
                     }
@@ -1165,10 +1208,14 @@ Hooks.on("ready", () => {
                     "label": "Tempest Domain",
                     "source": "PHB pg. 62",
                     "features": {
-                        "1": ["Compendium.dnd5e_classpack.class-abilityphb.OsMkJnpRRYWaE3qf","Compendium.dnd5e_classpack.class-abilityphb.dI7KL2rEB6d8k7pV"],
+                        "1": ["Compendium.dnd5e_classpack.new-icon.rKLSWNBCS8eqGUll", "Compendium.dnd5e_classpack.new-icon.8GM6YBgYFPIcFXKg", "Compendium.dnd5e_classpack.class-abilityphb.OsMkJnpRRYWaE3qf","Compendium.dnd5e_classpack.class-abilityphb.dI7KL2rEB6d8k7pV"],
                         "2": ["Compendium.dnd5e_classpack.class-abilityphb.G8l86fHFRdjOXoXM"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.cGIrpk6h4Rf8QKV6", "Compendium.dnd5e_classpack.new-icon.3m0QZZAQfR4jXS9q"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.KPqCiGUT62tcmfgY", "Compendium.dnd5e_classpack.new-icon.InxRn0MsZsH5wslj"],
                         "6": ["Compendium.dnd5e_classpack.class-abilityphb.Rhx36WAuOqLOYRJ5"],
+                        "7": ["Compendium.dnd5e_classpack.new-icon.9zy4xObdmQFW9VP7", "Compendium.dnd5e_classpack.new-icon.u2MG84qW8YLuECHa"],
                         "8": ["Compendium.dnd5e_classpack.class-abilityphb.9ahRcGMbDsVDR5rk"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.h5iJ31zaIfqt8OgP", "Compendium.dnd5e_classpack.new-icon.eGYMgP3fmIUQEXMm"],
                         "17": ["Compendium.dnd5e_classpack.class-abilityphb.3GXYmjb9SvTmfKyt"]
 
                     }
@@ -1177,10 +1224,14 @@ Hooks.on("ready", () => {
                     "label": "Trickery Domain",
                     "source": "PHB pg. 62",
                     "features": {
-                        "1": ["Compendium.dnd5e_classpack.class-abilityphb.HjJQaxxRrNkWvCYn","Compendium.dnd5e_classpack.class-abilityphb.4UZBXET3ClUytJIk"],
+                        "1": ["Compendium.dnd5e_classpack.new-icon.QFBZcGORjnBRgAYo", "Compendium.dnd5e_classpack.new-icon.ju3LXSi72l6vso3l", "Compendium.dnd5e_classpack.class-abilityphb.HjJQaxxRrNkWvCYn","Compendium.dnd5e_classpack.class-abilityphb.4UZBXET3ClUytJIk"],
                         "2": ["Compendium.dnd5e_classpack.class-abilityphb.PK84Jh3pT2YwJNrs"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.1EkQSAH6o8WMxUU3", "Compendium.dnd5e_classpack.new-icon.lPGqq33qbJb90exM"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.bj6fUAFiJScoI6wb", "Compendium.dnd5e_classpack.new-icon.as6xgBANCbyoWPXX"],
                         "6": ["Compendium.dnd5e_classpack.class-abilityphb.pEnYqBvJaBPzM6Ln"],
+                        "7": ["Compendium.dnd5e_classpack.new-icon.u86hMx0ODfccAtu8", "Compendium.dnd5e_classpack.new-icon.IXs3Neqbl8xaT3yk"],
                         "8": ["Compendium.dnd5e_classpack.class-abilityphb.bL8nc4GGebRJI37Y"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.JudswpO6E5GBlyfQ", "Compendium.dnd5e_classpack.new-icon.O865yy87cPevGeMj"],
                         "17": ["Compendium.dnd5e_classpack.class-abilityphb.pqaQT0sBD078d34X"]
 
                     }
@@ -1189,18 +1240,22 @@ Hooks.on("ready", () => {
                     "label": "War Domain",
                     "source": "PHB pg. 63",
                     "features": {
-                        "1": ["Compendium.dnd5e_classpack.class-abilityphb.DGfOAuOmgdIqDiZ4","Compendium.dnd5e_classpack.class-abilityphb.7RFh84vxihQvSquc"],
+                        "1": ["Compendium.dnd5e_classpack.new-icon.tT6AXKxZZGclrwhr", "Compendium.dnd5e_classpack.new-icon.FHot3Ii2ShP2NEt1", "Compendium.dnd5e_classpack.class-abilityphb.DGfOAuOmgdIqDiZ4","Compendium.dnd5e_classpack.class-abilityphb.7RFh84vxihQvSquc"],
                         "2": ["Compendium.dnd5e_classpack.class-abilityphb.VFkQmfci51y0y4SF"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.14a3v5NF5h5Lgm9J", "Compendium.dnd5e_classpack.new-icon.uLEtdTC6yBxuLNFe"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.SrPArp6F9Ixot8Mh", "Compendium.dnd5e_classpack.new-icon.RPhG8GsHq9wkUygO"],
                         "6": ["Compendium.dnd5e_classpack.class-abilityphb.4nO4oKxSZbeuMIHB"],
+                        "7": ["Compendium.dnd5e_classpack.new-icon.OZMc9g7XaWuRc36J", "Compendium.dnd5e_classpack.new-icon.8xmyW0Ynz0z7Kt3X"],
                         "8": ["Compendium.dnd5e_classpack.class-abilityphb.PqJo80b2AFVhBFfU"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.Q8XNvy4kwTSQVizo", "Compendium.dnd5e_classpack.new-icon.abm5MgV3kejSatZt"],
                         "17": ["Compendium.dnd5e_classpack.class-abilityphb.A3lm64FQLjvfTpm7"]
 
                     }
                 }
             },
             "features": {
-                "1": ["Compendium.dnd5e_classpack.class-abilityphb.P92k8OSu7UBA9EUy", "Compendium.dnd5e_classpack.extra-ability.Cnl1XvqavxBl4WUo"],
-                "2": ["Compendium.dnd5e_classpack.class-abilityphb.WPevnsjK8Cjd9Fcl","Compendium.dnd5e_classpack.extra-ability.0DjKOCFyAb5mljbS"],
+                "1": ["Compendium.dnd5e_classpack.class-abilityphb.fdrypzReS8PCtLFN", "Compendium.dnd5e_classpack.class-abilityphb.P92k8OSu7UBA9EUy", "Compendium.dnd5e_classpack.extra-ability.Cnl1XvqavxBl4WUo"],
+                "2": ["Compendium.dnd5e_classpack.class-abilityphb.IYuxMvRIO9feIxSe", "Compendium.dnd5e_classpack.class-abilityphb.WPevnsjK8Cjd9Fcl","Compendium.dnd5e_classpack.extra-ability.0DjKOCFyAb5mljbS"],
                 "4": ["Compendium.dnd5e_classpack.extra-ability.FXRY6408tUuCLPqZ"],
                 "5": ["Compendium.dnd5e_classpack.class-abilityphb.0FpisRRfprr7PL8Y"],
                 "8": ["Compendium.dnd5e_classpack.extra-ability.d1FlrNgFQiucJHbz"],
@@ -1216,7 +1271,7 @@ Hooks.on("ready", () => {
                         "2": ["Compendium.dnd5e_classpack.extra-ability.nLlDb604g3coSoQ4","dnd5e_classpack.extra-ability.PxhqtGi9J3Doht6W"],
                         "6": ["Compendium.dnd5e_classpack.extra-ability.j5MquMAXBmJjVtQE"],                        
                         "10": ["Compendium.dnd5e_classpack.extra-ability.aLEYUnmaQ9DDdcv4"],
-                        "14": ["Compendium.dnd5e_classpack.extra-ability.vm6YnuatC67kIL5z"],
+                        "14": ["Compendium.dnd5e_classpack.new-icon.40z4HpFVUux7h03S", "Compendium.dnd5e_classpack.new-icon.OA4mCsVxg6nUrLjV", "Compendium.dnd5e_classpack.new-icon.mcQ5lehafMClomzc", "Compendium.dnd5e_classpack.extra-ability.vm6YnuatC67kIL5z"],
                         
                     }
                 },
@@ -1238,7 +1293,7 @@ Hooks.on("ready", () => {
                         "2": ["Compendium.dnd5e_classpack.class-abilityphb.ubKkZCuWMutmjDEC","Compendium.dnd5e_classpack.class-abilityphb.FV1TIQ5RYeA1xmmd","Compendium.dnd5e_classpack.class-abilityphb.ijZofJOPxlO9qWBn"],
                         "6": ["Compendium.dnd5e_classpack.class-abilityphb.Z3o2l9hwadEVQ7Jr"],
                         "10": ["Compendium.dnd5e_classpack.class-abilityphb.OmTuj1py6pWML0RO"],
-                        "14": ["Compendium.dnd5e_classpack.class-abilityphb.JpPGxvX1JGOlwXa9"]
+                        "14": ["Compendium.dnd5e_classpack.new-icon.RzU9orr1mmUeZOcl", "Compendium.dnd5e_classpack.class-abilityphb.JpPGxvX1JGOlwXa9"]
                     }
                 },
                 "牧人之环": {
@@ -1256,7 +1311,7 @@ Hooks.on("ready", () => {
                     "label": "星辰结社 Circle of Stars（TCE）",
                     "source": "TCE pg. 38",
                     "features": {
-                        "2": ["Compendium.dnd5e_classpack.extra-ability.ZEEnUo1rdVKhwi4r","Compendium.dnd5e_classpack.extra-ability.XuddfP5pfKqJL4NP","Compendium.dnd5e_classpack.extra-ability.YMjgmId32dyhNhY3"],
+                        "2": ["Compendium.dnd5e_classpack.extra-ability.qCQtq2qCdWT5wduu", "Compendium.dnd5e_classpack.extra-ability.3c678QuDLdblTLXm", "Compendium.dnd5e_classpack.extra-ability.aiNtDThsxYEkpNr9","Compendium.dnd5e_classpack.new-icon.QiU2ZZ09lBye0Iy4", "Compendium.dnd5e_classpack.new-icon.PHYXwNkXSdJjDCSD", "Compendium.dnd5e_classpack.extra-ability.ZEEnUo1rdVKhwi4r","Compendium.dnd5e_classpack.extra-ability.XuddfP5pfKqJL4NP","Compendium.dnd5e_classpack.extra-ability.YMjgmId32dyhNhY3"],
                         "6": ["Compendium.dnd5e_classpack.extra-ability.beHICAkM6dJJZi1X"],
                         "10": ["Compendium.dnd5e_classpack.extra-ability.h5qHOk6IYIB73din"],
                         "14": ["Compendium.dnd5e_classpack.extra-ability.1d0UIp7RHG48TRBU"]
@@ -1267,8 +1322,12 @@ Hooks.on("ready", () => {
                     "label": "野火结社 Circle of Wildfire（TCE）",
                     "source": "TCE pg. 39",
                     "features": {
-                        "2": ["Compendium.dnd5e_classpack.extra-ability.1OH2IVGfO4fYd5y6","Compendium.dnd5e_classpack.extra-ability.2JbjMYpSiJM5QotY"],
+                        "2": ["Compendium.dnd5e_classpack.new-icon.CB9z74KJLWMplGuz", "Compendium.dnd5e_classpack.new-icon.a5wqDP53A5UvGvSK", "Compendium.dnd5e_classpack.extra-ability.1OH2IVGfO4fYd5y6","Compendium.dnd5e_classpack.extra-ability.2JbjMYpSiJM5QotY"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.TEZY0aYJtnuU4FlW", "Compendium.dnd5e_classpack.new-icon.IkgKSSiBuGa5TPLB"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.1TP8dARdcRojx7P1", "Compendium.dnd5e_classpack.new-icon.TkFsGmyAeHknESJ4"],
                         "6": ["Compendium.dnd5e_classpack.extra-ability.1gcaaO8XwATHOiaM"],
+                        "7": ["Compendium.dnd5e_classpack.new-icon.9WDd3gopYOGyYnrT", "Compendium.dnd5e_classpack.new-icon.AdWubx1kFJLe8QDa"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.Q8XNvy4kwTSQVizo", "Compendium.dnd5e_classpack.new-icon.UBLAtJuRhRB3GokC"],
                         "10": ["Compendium.dnd5e_classpack.extra-ability.jbF707c18X2M5EYm"],
                         "14": ["Compendium.dnd5e_classpack.extra-ability.lpXTu82vnVcwUUIH"]
                         
@@ -1278,8 +1337,12 @@ Hooks.on("ready", () => {
                     "label": "孢子结社 Circle of Spores（GGR）",
                     "source": "GGR pg. 26",
                     "features": {
-                        "2": ["Compendium.dnd5e_classpack.extra-ability.FbhwZkQGMDZCnhIy","Compendium.dnd5e_classpack.extra-ability.XvZtgLjExeMcMxrd","Compendium.dnd5e_classpack.extra-ability.RakISgKJ0fWy44XM"],
+                        "2": ["Compendium.dnd5e_classpack.new-icon.JyNtTLwpaHOZqdZx","Compendium.dnd5e_classpack.extra-ability.FbhwZkQGMDZCnhIy","Compendium.dnd5e_classpack.extra-ability.XvZtgLjExeMcMxrd","Compendium.dnd5e_classpack.extra-ability.RakISgKJ0fWy44XM"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.uzWirpWyQshzp1l0", "Compendium.dnd5e_classpack.new-icon.5GWYJBfc1aZ6415M"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.xYpJGRI4xcMa41kO", "Compendium.dnd5e_classpack.new-icon.gjE6zBmfdUOwXiae"],
                         "6": ["Compendium.dnd5e_classpack.extra-ability.esOkyryLICY1Aew7"],
+                        "7": ["Compendium.dnd5e_classpack.new-icon.AVumturalJuP4paw", "Compendium.dnd5e_classpack.new-icon.MZ1jwLEJukFjSv1a"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.T39k39dbE2poIFc5", "Compendium.dnd5e_classpack.new-icon.gbHBG4jYU3I06JQO"],
                         "10": ["Compendium.dnd5e_classpack.extra-ability.lRPmBxHLeaBTnDC0"],
                         "14": ["Compendium.dnd5e_classpack.extra-ability.JjY7TB5xHKcQR8wm"]
                         
@@ -1288,7 +1351,7 @@ Hooks.on("ready", () => {
             },
             "features": {
                 "1": ["Compendium.dnd5e_classpack.class-abilityphb.xUZMbvYPBSmVCAHd", "Compendium.dnd5e_classpack.class-abilityphb.OGIREDqYEX5P0Xdh", "Compendium.dnd5e_classpack.extra-ability.Js0Gw3ObrSuyKZPO"],
-                "2": ["Compendium.dnd5e_classpack.class-abilityphb.pORTgCToV9NLPWo1", "Compendium.dnd5e_classpack.extra-ability.OskQEW6LVtTAJKVm"],
+                "2": ["Compendium.dnd5e_classpack.new-icon.daB7oGSKy1BglKlt", "Compendium.dnd5e_classpack.class-abilityphb.V2vrjxj04CXhNYMz", "Compendium.dnd5e_classpack.class-abilityphb.pORTgCToV9NLPWo1", "Compendium.dnd5e_classpack.extra-ability.OskQEW6LVtTAJKVm"],
                 "4": ["Compendium.dnd5e_classpack.extra-ability.xzAp6LCqoEml2umc"],
                 "18": ["Compendium.dnd5e_classpack.class-abilityphb.5d8U2W2vIBuFue1U", "Compendium.dnd5e_classpack.class-abilityphb.2dlJQLxsZZZNLeXS"],
                 "20": ["Compendium.dnd5e_classpack.class-abilityphb.pU8Ta1hNwQbbit6o"]
@@ -1321,10 +1384,10 @@ Hooks.on("ready", () => {
                     "source": "TCE pg. 42",
                     "features": {
                         "3": ["Compendium.dnd5e_classpack.extra-ability.0ojpWyRTzAiDiaSg", "Compendium.dnd5e_classpack.extra-ability.sE0eWBfIdzrqoNWO"],
-                        "7": ["Compendium.dnd5e_classpack.extra-ability.0eSDePMWApq9RHqv"],
+                        "7": ["Compendium.dnd5e_classpack.extra-ability.6s7P6OwuQlVpfnDQ", "Compendium.dnd5e_classpack.extra-ability.dkpQJsciaVomruu7", "Compendium.dnd5e_classpack.extra-ability.0eSDePMWApq9RHqv"],
                         "10": ["Compendium.dnd5e_classpack.extra-ability.gUogqXt5i3DjyA2j"],
                         "15": ["Compendium.dnd5e_classpack.extra-ability.2dqkKB0KNItEKuCk"],
-                        "18": ["Compendium.dnd5e_classpack.extra-ability.QNiJ6nJvw24FCLm0"]
+                        "18": ["Compendium.dnd5e_classpack.new-icon.MTNfEcCXSJZ2m2nG", "Compendium.dnd5e_classpack.extra-ability.QNiJ6nJvw24FCLm0"]
                     }
                 },
                 "紫龙骑士": {
@@ -1341,7 +1404,7 @@ Hooks.on("ready", () => {
                     "label": "Battle Master",
                     "source": "PHB pg. 73",
                     "features": {
-                        "3": ["Compendium.dnd5e_classpack.class-abilityphb.Rv7ONO9srHsLqFuV", "Compendium.dnd5e_classpack.class-abilityphb.SU3RYIYcwg1MmRGV", "Compendium.dnd5e_classpack.class-abilityphb.ZT9vj0Gq45jYM7ne"],
+                        "3": ["Compendium.dnd5e_classpack.class-abilityphb.CRu7K83gIxlVL5sX", "Compendium.dnd5e_classpack.class-abilityphb.Rv7ONO9srHsLqFuV", "Compendium.dnd5e_classpack.class-abilityphb.SU3RYIYcwg1MmRGV", "Compendium.dnd5e_classpack.class-abilityphb.ZT9vj0Gq45jYM7ne"],
                         "7": ["Compendium.dnd5e_classpack.class-abilityphb.DKWVj0Nu3c7Bv76Q"],
                         "10": ["Compendium.dnd5e_classpack.class-abilityphb.MNPSY97vJ2u3g4PT"],
                         "15": ["Compendium.dnd5e_classpack.class-abilityphb.XhIrfJzwfR4ldXHy"]
@@ -1442,10 +1505,8 @@ Hooks.on("ready", () => {
                     "label": "Way of the Four Elements",
                     "source": "PHB pg. 80",
                     "features": {
-                        "3": ["Compendium.dnd5e_classpack.class-abilityphb.ndnAw0FSNdgUSPim", "Compendium.dnd5e_classpack.class-abilityphb.pKBXwROhJId7m0tZ", "Compendium.dnd5e_classpack.class-abilityphb.HNXXulgGVJSfkgZR"],
-                        "6": ["Compendium.dnd5e_classpack.class-abilityphb.HNXXulgGVJSfkgZR"],
-                        "11": ["Compendium.dnd5e_classpack.class-abilityphb.HNXXulgGVJSfkgZR"],
-                        "17": ["Compendium.dnd5e_classpack.class-abilityphb.HNXXulgGVJSfkgZR"]                    }
+                        "3": ["Compendium.dnd5e_classpack.class-abilityphb.dS3D3l0jf4I5zVAA", "Compendium.dnd5e_classpack.class-abilityphb.ndnAw0FSNdgUSPim", "Compendium.dnd5e_classpack.class-abilityphb.pKBXwROhJId7m0tZ", "Compendium.dnd5e_classpack.class-abilityphb.HNXXulgGVJSfkgZR"],
+                        "6": ["Compendium.dnd5e_classpack.class-abilityphb.HNXXulgGVJSfkgZR"],                 }
                 },
                 "剑圣宗": {
                     "label": "Way of the Kensei",
@@ -1473,7 +1534,7 @@ Hooks.on("ready", () => {
                     "features": {
                         "3": ["Compendium.dnd5e_classpack.class-abilityphb.JfCTruTZhUVm9SWx", "Compendium.dnd5e_classpack.class-abilityphb.TW6ka5woO73clsGX"],
                         "6": ["Compendium.dnd5e_classpack.class-abilityphb.8IqfprzJPrSYSlsd"],
-                        "11": ["Compendium.dnd5e_classpack.class-abilityphb.Y3yZcHJQTw2VMf0R"],
+                        "11": ["Compendium.dnd5e_classpack.new-icon.FbxdKcDpSPWuGTLA", "Compendium.dnd5e_classpack.class-abilityphb.Y3yZcHJQTw2VMf0R"],
                         "17": ["Compendium.dnd5e_classpack.class-abilityphb.0rjI9c9iLX50a2CN"]
                     }
                 },
@@ -1481,7 +1542,7 @@ Hooks.on("ready", () => {
                     "label": "Way of Shadow",
                     "source": "PHB pg. 80",
                     "features": {
-                        "3": ["Compendium.dnd5e_classpack.class-abilityphb.03z3O2R0yjG5RjMu", "Compendium.dnd5e_classpack.class-abilityphb.n66xQiXILwEoWhdh"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.UyQ9nYcQlFdEbmeV", "Compendium.dnd5e_classpack.new-icon.YssPbm6Mm2QFW3zT", "Compendium.dnd5e_classpack.new-icon.lPGqq33qbJb90exM", "Compendium.dnd5e_classpack.new-icon.K8KLs8zFHqBZittr", "Compendium.dnd5e_classpack.new-icon.ErbvJsxASx22Goxe", "Compendium.dnd5e_classpack.class-abilityphb.03z3O2R0yjG5RjMu", "Compendium.dnd5e_classpack.class-abilityphb.n66xQiXILwEoWhdh"],
                         "6": ["Compendium.dnd5e_classpack.class-abilityphb.MRfEvqfr4WOy3o1B"],
                         "11": ["Compendium.dnd5e_classpack.class-abilityphb.s4tzLI8KXF9tiun2"],
                         "17": ["Compendium.dnd5e_classpack.class-abilityphb.3w3Qbw7LhmuYQSE5"]                        
@@ -1492,7 +1553,7 @@ Hooks.on("ready", () => {
                     "source": "XGE pg. 35; SCAG pg. 131",
                     "features": {
                         "3": ["Compendium.dnd5e_classpack.extra-ability.vpKflKr85FPEv4nk", "Compendium.dnd5e_classpack.extra-ability.lWw9NHXiINtblmGx"],
-                        "6": ["Compendium.dnd5e_classpack.extra-ability.8fO6wjfLt8LT8lg7"],
+                        "6": ["Compendium.dnd5e_classpack.new-icon.CB9z74KJLWMplGuz", "Compendium.dnd5e_classpack.extra-ability.8fO6wjfLt8LT8lg7"],
                         "11": ["Compendium.dnd5e_classpack.extra-ability.5xnWV6pqjvB7lgls"],
                         "17": ["Compendium.dnd5e_classpack.extra-ability.pAZgHzJITmplpYbQ"]
                         
@@ -1500,8 +1561,8 @@ Hooks.on("ready", () => {
                 }
             },
             "features": {
-                "1": ["Compendium.dnd5e_classpack.class-abilityphb.Wa5rowRAXPUbeKzG", "Compendium.dnd5e_classpack.class-abilityphb.Prusg4IgGeNrNNwy"],
-                "2": ["Compendium.dnd5e_classpack.class-abilityphb.2N9lOBZ0UerzDM55", "Compendium.dnd5e_classpack.class-abilityphb.UykmHdtrGsqkDcFs", "Compendium.dnd5e_classpack.extra-ability.zAUzDT6vLeJjvnUT"],
+                "1": ["Compendium.dnd5e_classpack.itempack.4F88CDFD627BADD4", "Compendium.dnd5e_classpack.class-abilityphb.Wa5rowRAXPUbeKzG", "Compendium.dnd5e_classpack.class-abilityphb.Prusg4IgGeNrNNwy"],
+                "2": ["Compendium.dnd5e_classpack.class-abilityphb.vLuoFN1x3tRWTPdm", "Compendium.dnd5e_classpack.class-abilityphb.wsvuM0qXEMnmo6bk", "Compendium.dnd5e_classpack.class-abilityphb.gLPcfpXUf336nV4G", "Compendium.dnd5e_classpack.class-abilityphb.2N9lOBZ0UerzDM55", "Compendium.dnd5e_classpack.class-abilityphb.UykmHdtrGsqkDcFs", "Compendium.dnd5e_classpack.extra-ability.zAUzDT6vLeJjvnUT"],
                 "3": ["Compendium.dnd5e_classpack.class-abilityphb.s6PwD9DZrVZSB4r5", "Compendium.dnd5e_classpack.class-abilityphb.1hdifLtf7qAjBGP3", "Compendium.dnd5e_classpack.extra-ability.ECu6x73eCp8IKGq7"],
                 "4": ["Compendium.dnd5e_classpack.class-abilityphb.MFSL5ot6qZFel6C2", "Compendium.dnd5e_classpack.extra-ability.8JJgEqQGD4xj4to4"],
                 "5": ["Compendium.dnd5e_classpack.class-abilityphb.WKQXfXbifuoCk1V1", "Compendium.dnd5e_classpack.class-abilityphb.14O6CITjoeogTaqf", "Compendium.dnd5e_classpack.extra-ability.1E19Tn2jHof6kqSZ"],
@@ -1511,7 +1572,7 @@ Hooks.on("ready", () => {
                 "13": ["Compendium.dnd5e_classpack.class-abilityphb.vobByE1T8iW8ggJZ"],
                 "14": ["Compendium.dnd5e_classpack.class-abilityphb.tcuXIM5hk4cb5c03"],
                 "15": ["Compendium.dnd5e_classpack.class-abilityphb.K7GwsfS6i8sCugxS"],
-                "18": ["Compendium.dnd5e_classpack.class-abilityphb.7SMeMDnJf7WuBqXU"],
+                "18": ["Compendium.dnd5e_classpack.new-icon.iPlnHVKnED0Oqb66", "Compendium.dnd5e_classpack.class-abilityphb.7SMeMDnJf7WuBqXU"],
                 "20": ["Compendium.dnd5e_classpack.class-abilityphb.JydvPtWlT45b8xp0"]
             },
         },
@@ -1521,18 +1582,26 @@ Hooks.on("ready", () => {
                     "label": "Oath of the Ancients",
                     "source": "PHB pg. 86",
                     "features": {
-                        "3": ["Compendium.dnd5e_classpack.class-abilityphb.ens1skD9MjlLxHJh", "Compendium.dnd5e_classpack.class-abilityphb.dVMyaxrKsymm2yhL", "Compendium.dnd5e_classpack.class-abilityphb.2cgAxjikz2zE4uuU"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.kAJS0ooYqHMVzyYX", "Compendium.dnd5e_classpack.new-icon.3JUEqJSbgArlUBR5", "Compendium.dnd5e_classpack.class-abilityphb.ens1skD9MjlLxHJh", "Compendium.dnd5e_classpack.class-abilityphb.dVMyaxrKsymm2yhL", "Compendium.dnd5e_classpack.class-abilityphb.2cgAxjikz2zE4uuU"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.Vf5ZLLqRsGSy5ckY", "Compendium.dnd5e_classpack.new-icon.Cnzcy1Tu7gt6xYHm"],
                         "7": ["Compendium.dnd5e_classpack.class-abilityphb.zznXRd14AEB7Cjyu"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.1TP8dARdcRojx7P1", "Compendium.dnd5e_classpack.new-icon.DBrh7ALD21UoUApP"],
+                        "13": ["Compendium.dnd5e_classpack.new-icon.u2MG84qW8YLuECHa", "Compendium.dnd5e_classpack.new-icon.8xmyW0Ynz0z7Kt3X"],
                         "15": ["Compendium.dnd5e_classpack.class-abilityphb.myclcU3mAu6UKosl"],
+                        "17": ["Compendium.dnd5e_classpack.new-icon.tnDSVQwVqkmqWFPP", "Compendium.dnd5e_classpack.new-icon.UqkkLccwOWYk8aO1"],
                         "20": ["Compendium.dnd5e_classpack.class-abilityphb.UOKoqDYnsL6PgV4k"]                    }
                 },
                 "征服之誓": {
                     "label": "Oath of Conquest",
                     "source": "SCAG pg. 128",
                     "features": {
-                        "3": ["Compendium.dnd5e_classpack.extra-ability.FDeshu0CHiVdxvCp", "Compendium.dnd5e_classpack.extra-ability.5TenPB4x7b6FubXO", "Compendium.dnd5e_classpack.extra-ability.GVKQPsXXOPkZHp8H"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.l1SThGbqPfk8SZa7", "Compendium.dnd5e_classpack.new-icon.Ja6HpsLeGA9MQ0Rm", "Compendium.dnd5e_classpack.extra-ability.FDeshu0CHiVdxvCp", "Compendium.dnd5e_classpack.extra-ability.5TenPB4x7b6FubXO", "Compendium.dnd5e_classpack.extra-ability.GVKQPsXXOPkZHp8H"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.syHHJlRPS4rVwCQA", "Compendium.dnd5e_classpack.new-icon.uLEtdTC6yBxuLNFe"],
                         "7": ["Compendium.dnd5e_classpack.extra-ability.eDwmwZd0yMESrMjf"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.kqh0eV640hXk4flg", "Compendium.dnd5e_classpack.new-icon.wnJNHkm5kThiJixx"],
+                        "13": ["Compendium.dnd5e_classpack.new-icon.xaSXewdCx3aWtczk", "Compendium.dnd5e_classpack.new-icon.8xmyW0Ynz0z7Kt3X"],
                         "15": ["Compendium.dnd5e_classpack.extra-ability.a5aIsWVx11LjqlS4"],
+                        "17": ["Compendium.dnd5e_classpack.new-icon.T39k39dbE2poIFc5", "Compendium.dnd5e_classpack.new-icon.JudswpO6E5GBlyfQ"],
                         "20": ["Compendium.dnd5e_classpack.extra-ability.jHxwPXj6zU9OtE78"]
                     }
                 },
@@ -1540,36 +1609,52 @@ Hooks.on("ready", () => {
                     "label": "Oath of the Crown",
                     "source": "SCAG pg. 132",
                     "features": {
-                        "3": ["Compendium.dnd5e_classpack.extra-ability.AmbEZk7frSDZJ0s5", "Compendium.dnd5e_classpack.extra-ability.xOBdlv4Zjgee9YqR", "Compendium.dnd5e_classpack.extra-ability.W9HrZ4ShSAcrZmRL"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.Ja6HpsLeGA9MQ0Rm", "Compendium.dnd5e_classpack.new-icon.C2KWIIG69H9UWb9e", "Compendium.dnd5e_classpack.extra-ability.AmbEZk7frSDZJ0s5", "Compendium.dnd5e_classpack.extra-ability.xOBdlv4Zjgee9YqR", "Compendium.dnd5e_classpack.extra-ability.W9HrZ4ShSAcrZmRL"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.DLyjjM6qTHBCSFCx", "Compendium.dnd5e_classpack.new-icon.T4zFq0zTHnzZeO9t"],
                         "7": ["Compendium.dnd5e_classpack.extra-ability.bSCZVMQSSZKxYCPP"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.XfYgB18GC8OgETjG", "Compendium.dnd5e_classpack.new-icon.SrPArp6F9Ixot8Mh"],
+                        "13": ["Compendium.dnd5e_classpack.new-icon.lopw7wVkPoE7gbNu", "Compendium.dnd5e_classpack.new-icon.LPXdi1HhVx8kJWYy"],
                         "15": ["Compendium.dnd5e_classpack.extra-ability.loa1FeErjePHZ0VG"],
+                        "17": ["Compendium.dnd5e_classpack.new-icon.Y7NbrJlvdfWKm57j", "Compendium.dnd5e_classpack.new-icon.QdYv5sEuGwinew7D"],
                         "20": ["Compendium.dnd5e_classpack.extra-ability.l17hcUnMwg8jKByw"]                     }
                 },
                 "荣耀之誓": {
                     "label": "Oath of the Glory",
                     "source": "TCE pg. 53",
                     "features": {
-                        "3": ["Compendium.dnd5e_classpack.extra-ability.9buzNONalBOaemQE", "Compendium.dnd5e_classpack.extra-ability.Pjul6aKNCszIRenl", "Compendium.dnd5e_classpack.extra-ability.ThMexbKa7IGupvI1"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.l1SThGbqPfk8SZa7", "Compendium.dnd5e_classpack.new-icon.Ja6HpsLeGA9MQ0Rm", "Compendium.dnd5e_classpack.extra-ability.9buzNONalBOaemQE", "Compendium.dnd5e_classpack.extra-ability.Pjul6aKNCszIRenl", "Compendium.dnd5e_classpack.extra-ability.ThMexbKa7IGupvI1"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.syHHJlRPS4rVwCQA", "Compendium.dnd5e_classpack.new-icon.uLEtdTC6yBxuLNFe"],
                         "7": ["Compendium.dnd5e_classpack.extra-ability.Px6U4uzpuITF8G2V"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.kqh0eV640hXk4flg", "Compendium.dnd5e_classpack.new-icon.wnJNHkm5kThiJixx"],
+                        "13": ["Compendium.dnd5e_classpack.new-icon.xaSXewdCx3aWtczk", "Compendium.dnd5e_classpack.new-icon.8xmyW0Ynz0z7Kt3X"],
                         "15": ["Compendium.dnd5e_classpack.extra-ability.VBR3UzO0EwZ0pdHk"],
+                        "17": ["Compendium.dnd5e_classpack.new-icon.T39k39dbE2poIFc5", "Compendium.dnd5e_classpack.new-icon.JudswpO6E5GBlyfQ"],
                         "20": ["Compendium.dnd5e_classpack.extra-ability.bag3ib2jXUYCe535"]                     }
                 },
                 "守望之誓": {
                     "label": "Oath of the Watchers",
                     "source": "TCE pg. 54",
                     "features": {
-                        "3": ["Compendium.dnd5e_classpack.extra-ability.9e501Yzw4iBL4Csm", "Compendium.dnd5e_classpack.extra-ability.pv3tLoLy9ENwld0e", "Compendium.dnd5e_classpack.extra-ability.8QWuVUvYP7CQ6ERH"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.xS2Astj9zhhqw7el", "Compendium.dnd5e_classpack.new-icon.cGO3m3Xu4mtPegr4", "Compendium.dnd5e_classpack.extra-ability.9e501Yzw4iBL4Csm", "Compendium.dnd5e_classpack.extra-ability.pv3tLoLy9ENwld0e", "Compendium.dnd5e_classpack.extra-ability.8QWuVUvYP7CQ6ERH"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.Vf5ZLLqRsGSy5ckY", "Compendium.dnd5e_classpack.new-icon.AYqzOw6GE7NT3FhJ"],
                         "7": ["Compendium.dnd5e_classpack.extra-ability.ZRXJv8SMKCUK53Xu"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.895yeeloz2EhpEYC", "Compendium.dnd5e_classpack.new-icon.VT60UFGIZOZhPgMi"],
+                        "13": ["Compendium.dnd5e_classpack.new-icon.ujZGFLEqgI0L6oli", "Compendium.dnd5e_classpack.new-icon.lopw7wVkPoE7gbNu"],
                         "15": ["Compendium.dnd5e_classpack.extra-ability.qbFSJVzyStMuTGX8"],
+                        "17": ["Compendium.dnd5e_classpack.new-icon.abm5MgV3kejSatZt", "Compendium.dnd5e_classpack.new-icon.OA4mCsVxg6nUrLjV"],
                         "20": ["Compendium.dnd5e_classpack.extra-ability.rt2w2oWZgdNmOm3n"]                     }
                 },
                 "奉献之誓": {
                     "label": "Oath of Devotion",
                     "source": "PHB pg. 85",
                     "features": {
-                        "3": ["Compendium.dnd5e_classpack.class-abilityphb.mL3xxpCqIcDwamuv", "Compendium.dnd5e_classpack.class-abilityphb.BfziXRGboEVxEJfh", "Compendium.dnd5e_classpack.class-abilityphb.VJDt6aGJebxE7rhl"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.IuzXxwP3EhWGhtXC", "Compendium.dnd5e_classpack.new-icon.FbxdKcDpSPWuGTLA", "Compendium.dnd5e_classpack.class-abilityphb.mL3xxpCqIcDwamuv", "Compendium.dnd5e_classpack.class-abilityphb.BfziXRGboEVxEJfh", "Compendium.dnd5e_classpack.class-abilityphb.VJDt6aGJebxE7rhl"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.I1C2EQxwynPd7dOC", "Compendium.dnd5e_classpack.new-icon.T4zFq0zTHnzZeO9t"],
                         "7": ["Compendium.dnd5e_classpack.class-abilityphb.XcGsM5MYiVjACsY6"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.dU8oQCE5dA1qZ6TD", "Compendium.dnd5e_classpack.new-icon.as6xgBANCbyoWPXX"],
+                        "13": ["Compendium.dnd5e_classpack.new-icon.OZMc9g7XaWuRc36J", "Compendium.dnd5e_classpack.new-icon.LPXdi1HhVx8kJWYy"],
                         "15": ["Compendium.dnd5e_classpack.class-abilityphb.5pXdPGlMXTfBnSVa"],
+                        "17": ["Compendium.dnd5e_classpack.new-icon.7tphgwQJI7dKIyfE", "Compendium.dnd5e_classpack.new-icon.Q8XNvy4kwTSQVizo"],
                         "20": ["Compendium.dnd5e_classpack.class-abilityphb.69Ly1nZ7GmRbxEWt"]
                     }
                 },
@@ -1577,9 +1662,13 @@ Hooks.on("ready", () => {
                     "label": "Oathbreaker",
                     "source": "DMG pg. 97",
                     "features": {
-                        "3": ["Compendium.dnd5e_classpack.extra-ability.to46aUxJL6QaSqWj", "Compendium.dnd5e_classpack.extra-ability.WYwc4UQBzV8IhvR6", "Compendium.dnd5e_classpack.extra-ability.odSeRNvb2P8PIUOp"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.Qh8PTvCxR44isqVO", "Compendium.dnd5e_classpack.new-icon.Fl4lOWHo82WLp3g7", "Compendium.dnd5e_classpack.extra-ability.to46aUxJL6QaSqWj", "Compendium.dnd5e_classpack.extra-ability.WYwc4UQBzV8IhvR6", "Compendium.dnd5e_classpack.extra-ability.odSeRNvb2P8PIUOp"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.otAaRLMc7OfxRYAw", "Compendium.dnd5e_classpack.new-icon.UyQ9nYcQlFdEbmeV"],
                         "7": ["Compendium.dnd5e_classpack.extra-ability.33uiZeA8YUJ27xSh"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.xYpJGRI4xcMa41kO", "Compendium.dnd5e_classpack.new-icon.kqh0eV640hXk4flg"],
+                        "13": ["Compendium.dnd5e_classpack.new-icon.AVumturalJuP4paw", "Compendium.dnd5e_classpack.new-icon.MZ1jwLEJukFjSv1a"],
                         "15": ["Compendium.dnd5e_classpack.extra-ability.Kz5Ylv8DxVzoXvV9"],
+                        "17": ["Compendium.dnd5e_classpack.new-icon.gbHBG4jYU3I06JQO", "Compendium.dnd5e_classpack.new-icon.JudswpO6E5GBlyfQ"],
                         "20": ["Compendium.dnd5e_classpack.extra-ability.yGK1lxcpwIjRMIV2"]                        
                     }
                 },
@@ -1587,19 +1676,26 @@ Hooks.on("ready", () => {
                     "label": "Oath of Redemption",
                     "source": "XGE pg. 38",
                     "features": {
-                        
-                        "3": ["Compendium.dnd5e_classpack.extra-ability.kxT6i5CJyRj6PEdq", "Compendium.dnd5e_classpack.extra-ability.OiCopLiGu5RAozZl", "Compendium.dnd5e_classpack.extra-ability.vzqFME5OV7DyzHmy"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.FbxdKcDpSPWuGTLA", "Compendium.dnd5e_classpack.new-icon.hFHF7vm3FYyTN288", "Compendium.dnd5e_classpack.extra-ability.kxT6i5CJyRj6PEdq", "Compendium.dnd5e_classpack.extra-ability.OiCopLiGu5RAozZl", "Compendium.dnd5e_classpack.extra-ability.vzqFME5OV7DyzHmy"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.6MYwBtZurc8Zw1ac", "Compendium.dnd5e_classpack.new-icon.syHHJlRPS4rVwCQA"],
                         "7": ["Compendium.dnd5e_classpack.extra-ability.hhdcnaUYZaV2iWIl"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.895yeeloz2EhpEYC", "Compendium.dnd5e_classpack.new-icon.BbpCbjCXt14a08Jp"],
+                        "13": ["Compendium.dnd5e_classpack.new-icon.cdeQPacCcm540OPy", "Compendium.dnd5e_classpack.new-icon.8xmyW0Ynz0z7Kt3X"],
                         "15": ["Compendium.dnd5e_classpack.extra-ability.aI6Gc7MU4uZ621kr"],
+                        "17": ["Compendium.dnd5e_classpack.new-icon.abm5MgV3kejSatZt", "Compendium.dnd5e_classpack.new-icon.31jKHMGJ0vlqdvQU"],
                         "20": ["Compendium.dnd5e_classpack.extra-ability.ky0dMTWSMVEztfGF"]                    }
                 },
                 "复仇之誓": {
                     "label": "Oath of Vengeance",
                     "source": "PHB pg. 87",
                     "features": {
-                        "3": ["Compendium.dnd5e_classpack.class-abilityphb.nFI8ma2ld9E9GwBk", "Compendium.dnd5e_classpack.class-abilityphb.7nwusoIaAEN4QtdU", "Compendium.dnd5e_classpack.class-abilityphb.9tHkjupIEW3QqBa2"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.XT4GwLQNAuPvtnrF", "Compendium.dnd5e_classpack.new-icon.EvKYUkiYevVt0lkq", "Compendium.dnd5e_classpack.class-abilityphb.nFI8ma2ld9E9GwBk", "Compendium.dnd5e_classpack.class-abilityphb.7nwusoIaAEN4QtdU", "Compendium.dnd5e_classpack.class-abilityphb.9tHkjupIEW3QqBa2"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.syHHJlRPS4rVwCQA", "Compendium.dnd5e_classpack.new-icon.Cnzcy1Tu7gt6xYHm"],
                         "7": ["Compendium.dnd5e_classpack.class-abilityphb.Z0wwVSUtN7YlJNeg"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.YLYeCtTmbjIZsPvN", "Compendium.dnd5e_classpack.new-icon.DBrh7ALD21UoUApP"],
+                        "13": ["Compendium.dnd5e_classpack.new-icon.lopw7wVkPoE7gbNu", "Compendium.dnd5e_classpack.new-icon.u86hMx0ODfccAtu8"],
                         "15": ["Compendium.dnd5e_classpack.class-abilityphb.X7VhirgyfXKUNPdu"],
+                        "17": ["Compendium.dnd5e_classpack.new-icon.abm5MgV3kejSatZt", "Compendium.dnd5e_classpack.new-icon.OA4mCsVxg6nUrLjV"],
                         "20": ["Compendium.dnd5e_classpack.class-abilityphb.8zoMnbYdejOaDvXu"]
                     }
                 }
@@ -1607,7 +1703,7 @@ Hooks.on("ready", () => {
             "features": {
                 "1": ["Compendium.dnd5e_classpack.class-abilityphb.8zAjaNHqw1utneKU","Compendium.dnd5e_classpack.class-abilityphb.mvfsL7Pp6aCSn6uh"],
                 "2": ["Compendium.dnd5e_classpack.class-abilityphb.qV59DzEZQ58IAzfm","Compendium.dnd5e_classpack.class-abilityphb.0LbuXQnP6LC0gn3H","Compendium.dnd5e_classpack.class-abilityphb.RSqZldNaZcEiziGq","Compendium.dnd5e_classpack.extra-ability.384mTNKNQe0BgK5C","Compendium.dnd5e_classpack.extra-ability.wfzlpRPC5owayAq5"],
-                "3": ["Compendium.dnd5e_classpack.class-abilityphb.SmQiBIv2W4VpQAFU","Compendium.dnd5e_classpack.class-abilityphb.3J9VuFAJehLvYKHX","Compendium.dnd5e_classpack.extra-ability.0eaSz6EHRtN6yv8o"],
+                "3": ["Compendium.dnd5e_classpack.class-abilityphb.3eyfqXMTJMG9AxYH", "Compendium.dnd5e_classpack.class-abilityphb.SmQiBIv2W4VpQAFU","Compendium.dnd5e_classpack.class-abilityphb.3J9VuFAJehLvYKHX","Compendium.dnd5e_classpack.extra-ability.0eaSz6EHRtN6yv8o"],
                 "4": ["Compendium.dnd5e_classpack.extra-ability.eSkokko4kmkFhvbR"],
                 "5": ["Compendium.dnd5e_classpack.class-abilityphb.WKQXfXbifuoCk1V1"],
                 "6": ["Compendium.dnd5e_classpack.class-abilityphb.QE4gvV6X8gTjJcb9"],
@@ -1622,7 +1718,7 @@ Hooks.on("ready", () => {
                     "label": "Beast Master",
                     "source": "PHB pg. 93",
                     "features": {
-                        "3": ["Compendium.dnd5e_classpack.class-abilityphb.mUATGpvjvoM2PzRn", "Compendium.dnd5e_classpack.class-abilityphb.iPIlsq9L8FVE9Xl0"],
+                        "3": ["Compendium.dnd5e_classpack.extra-ability.Ca2x1hsbXMPVWj2V", "Compendium.dnd5e_classpack.class-abilityphb.mUATGpvjvoM2PzRn", "Compendium.dnd5e_classpack.class-abilityphb.iPIlsq9L8FVE9Xl0"],
                         "7": ["Compendium.dnd5e_classpack.class-abilityphb.lPzkZMe78KvTeWnt"],
                         "11": ["Compendium.dnd5e_classpack.class-abilityphb.aQe0FoRTxkUcPobL"],
                         "15": ["Compendium.dnd5e_classpack.class-abilityphb.bY0TuufYqltHn6nN"]
@@ -1632,40 +1728,58 @@ Hooks.on("ready", () => {
                     "label": "Fey Wanderer",
                     "source": "TCE pg. 58",
                     "features": {
-                        "3": ["Compendium.dnd5e_classpack.extra-ability.Qr4YJIOYH0ArVQVT", "Compendium.dnd5e_classpack.extra-ability.4sBphHebB1yIIcaO", "Compendium.dnd5e_classpack.extra-ability.0MMEa2Ks0eC5Gvs9"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.QFBZcGORjnBRgAYo", "Compendium.dnd5e_classpack.extra-ability.Qr4YJIOYH0ArVQVT", "Compendium.dnd5e_classpack.extra-ability.4sBphHebB1yIIcaO", "Compendium.dnd5e_classpack.extra-ability.0MMEa2Ks0eC5Gvs9"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.Cnzcy1Tu7gt6xYHm"],
                         "7": ["Compendium.dnd5e_classpack.extra-ability.J3kFXzNNsl6MAAYH"],
-                        "11": ["Compendium.dnd5e_classpack.extra-ability.DcQOhZPhVZbslq9W"],
-                        "15": ["Compendium.dnd5e_classpack.extra-ability.zQWK8f7vSXGh4fp4"]
+                        "9": ["Compendium.dnd5e_classpack.new-icon.as6xgBANCbyoWPXX"],
+                        "11": ["Compendium.dnd5e_classpack.new-icon.p12lhL5QyiAvgpTx", "Compendium.dnd5e_classpack.extra-ability.DcQOhZPhVZbslq9W"],
+                        "13": ["Compendium.dnd5e_classpack.new-icon.u86hMx0ODfccAtu8"],
+                        "15": ["Compendium.dnd5e_classpack.new-icon.Cnzcy1Tu7gt6xYHm", "Compendium.dnd5e_classpack.extra-ability.zQWK8f7vSXGh4fp4"],
+                        "17": ["Compendium.dnd5e_classpack.new-icon.nTjAezWWIOZnxoB1"]
+
                     }
                 },
                 "集群守卫": {
                     "label": "Swarmkeeper",
                     "source": "TCE pg. 59",
                     "features": {
-                        "3": ["Compendium.dnd5e_classpack.extra-ability.6rwXriorWeuTTrvn", "Compendium.dnd5e_classpack.extra-ability.PTCrPW76ym8UFl6t"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.sLkNbDcU39qcVt14", "Compendium.dnd5e_classpack.extra-ability.6rwXriorWeuTTrvn", "Compendium.dnd5e_classpack.extra-ability.PTCrPW76ym8UFl6t"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.oopuSIBsaXzQKw1Q"],
                         "7": ["Compendium.dnd5e_classpack.extra-ability.x5rkrFYjoYkkY1jj"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.gjE6zBmfdUOwXiae"],
                         "11": ["Compendium.dnd5e_classpack.extra-ability.ib0ifxFwCSyC0MQs"],
-                        "15": ["Compendium.dnd5e_classpack.extra-ability.IMV7fmo8A5rk0rzm"]
+                        "13": ["Compendium.dnd5e_classpack.new-icon.uF6bn9CQaLwvmxwv"],
+                        "15": ["Compendium.dnd5e_classpack.extra-ability.IMV7fmo8A5rk0rzm"],
+                        "17": ["Compendium.dnd5e_classpack.new-icon.eGYMgP3fmIUQEXMm"]
                     }
                 },
                 "幽域追踪者": {
                     "label": "Gloom Stalker",
                     "source": "XGE pg. 41",
                     "features": {
-                        "3": ["Compendium.dnd5e_classpack.extra-ability.NOlqB0w6MVAEHyVZ", "Compendium.dnd5e_classpack.extra-ability.HFbxNO9vpaxzbBFH", "Compendium.dnd5e_classpack.extra-ability.xY023jpDjfgyXQ1Q"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.ju3LXSi72l6vso3l", "Compendium.dnd5e_classpack.extra-ability.NOlqB0w6MVAEHyVZ", "Compendium.dnd5e_classpack.extra-ability.HFbxNO9vpaxzbBFH", "Compendium.dnd5e_classpack.extra-ability.xY023jpDjfgyXQ1Q"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.NddIAsoWizuASEW2"],
                         "7": ["Compendium.dnd5e_classpack.extra-ability.QskjWm8kaoUH0aGB"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.wnJNHkm5kThiJixx"],
                         "11": ["Compendium.dnd5e_classpack.extra-ability.lvgd0LAWO41fbYRk"],
-                        "15": ["Compendium.dnd5e_classpack.extra-ability.PdBrw1PES4UJnlVT"]
+                        "13": ["Compendium.dnd5e_classpack.new-icon.Au584WRiGch84PXI"],
+                        "15": ["Compendium.dnd5e_classpack.extra-ability.PdBrw1PES4UJnlVT"],
+                        "17": ["Compendium.dnd5e_classpack.new-icon.pur5TFHAEgLmx0pz"]
                     }
                 },
                 "边界行者": {
                     "label": "Horizon Walker",
                     "source": "XGE pg. 42",
                     "features": {
-                        "3": ["Compendium.dnd5e_classpack.extra-ability.FrwqtWbSJPp4hEHR", "Compendium.dnd5e_classpack.extra-ability.uKJYBwLgpjfLT7VB", "Compendium.dnd5e_classpack.extra-ability.7BefhtXtZoz4BHvd"],
-                        "7": ["Compendium.dnd5e_classpack.extra-ability.bDYWBvMmi2yL8YEa"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.IuzXxwP3EhWGhtXC", "Compendium.dnd5e_classpack.extra-ability.FrwqtWbSJPp4hEHR", "Compendium.dnd5e_classpack.extra-ability.uKJYBwLgpjfLT7VB", "Compendium.dnd5e_classpack.extra-ability.7BefhtXtZoz4BHvd"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.Cnzcy1Tu7gt6xYHm"],
+                        "7": ["Compendium.dnd5e_classpack.new-icon.2dKpsNn8QZWECFtd", "Compendium.dnd5e_classpack.extra-ability.bDYWBvMmi2yL8YEa"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.YLYeCtTmbjIZsPvN"],
                         "11": ["Compendium.dnd5e_classpack.extra-ability.pe25DA4ut0EIbs7s"],
-                        "15": ["Compendium.dnd5e_classpack.extra-ability.SFFwY3txdXNZ2f9z"]
+                        "13": ["Compendium.dnd5e_classpack.new-icon.lopw7wVkPoE7gbNu"],
+                        "15": ["Compendium.dnd5e_classpack.extra-ability.SFFwY3txdXNZ2f9z"],
+                        "17": ["Compendium.dnd5e_classpack.new-icon.mcQ5lehafMClomzc"]
+
                     }
                 },
                 "猎人": {
@@ -1682,21 +1796,26 @@ Hooks.on("ready", () => {
                     "label": "Monster Slayer",
                     "source": "XGE pg. 43",
                     "features": {
-                        "3": ["Compendium.dnd5e_classpack.extra-ability.nQnwOjutRDrXuq8v", "Compendium.dnd5e_classpack.extra-ability.kIUKnDJ9qdscR3zt", "Compendium.dnd5e_classpack.extra-ability.zJRRsdKNnidyjqQD"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.IuzXxwP3EhWGhtXC", "Compendium.dnd5e_classpack.extra-ability.nQnwOjutRDrXuq8v", "Compendium.dnd5e_classpack.extra-ability.kIUKnDJ9qdscR3zt", "Compendium.dnd5e_classpack.extra-ability.zJRRsdKNnidyjqQD"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.T4zFq0zTHnzZeO9t"],
                         "7": ["Compendium.dnd5e_classpack.extra-ability.YMVLurWdUfCApbPa"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.Vrzu8xpLMvOvOnx6"],
                         "11": ["Compendium.dnd5e_classpack.extra-ability.6tL2DF7EFrYNcZki"],
-                        "15": ["Compendium.dnd5e_classpack.extra-ability.FghPh1QoXjq2lH5W"]
+                        "13": ["Compendium.dnd5e_classpack.new-icon.lopw7wVkPoE7gbNu"],
+                        "15": ["Compendium.dnd5e_classpack.extra-ability.FghPh1QoXjq2lH5W"],
+                        "17": ["Compendium.dnd5e_classpack.new-icon.abm5MgV3kejSatZt"]
                     }
                 }
             },
             "features": {
-                "1": ["Compendium.dnd5e_classpack.class-abilityphb.FxSEAmMXMIcv4iWm", "Compendium.dnd5e_classpack.class-abilityphb.KVZtpKSvwrkYSE5p", "Compendium.dnd5e_classpack.extra-ability.X9xPihIslNck5bCk", "Compendium.dnd5e_classpack.extra-ability.KyGD0UqLk90Er2cd"],
+                "1": ["Compendium.dnd5e_classpack.extra-ability.dyR8ImgN3MyQCMJ1", "Compendium.dnd5e_classpack.class-abilityphb.FxSEAmMXMIcv4iWm", "Compendium.dnd5e_classpack.class-abilityphb.KVZtpKSvwrkYSE5p", "Compendium.dnd5e_classpack.extra-ability.X9xPihIslNck5bCk", "Compendium.dnd5e_classpack.extra-ability.KyGD0UqLk90Er2cd"],
                 "2": ["Compendium.dnd5e_classpack.class-abilityphb.0LbuXQnP6LC0gn3H", "Compendium.dnd5e_classpack.class-abilityphb.teW7ffezIYtEGx5h", "Compendium.dnd5e_classpack.extra-ability.W8IgV3zZSWduIjd0", "Compendium.dnd5e_classpack.extra-ability.wfzlpRPC5owayAq5", "Compendium.dnd5e_classpack.extra-ability.IyU8WAr5a0PGGWZM"],
                 "3": ["Compendium.dnd5e_classpack.class-abilityphb.7ogU5SrAvrawwEr5", "Compendium.dnd5e_classpack.class-abilityphb.NPczR8Kl9DEMDnFV", "Compendium.dnd5e_classpack.extra-ability.1ViKFKTqfFSHAiM5"],
                 "4": ["Compendium.dnd5e_classpack.extra-ability.bCzTP0sFVSM7nsNl"],
                 "5": ["Compendium.dnd5e_classpack.class-abilityphb.WKQXfXbifuoCk1V1"],
+                "6": ["Compendium.dnd5e_classpack.extra-ability.WYSbzjOzh5IVQYR1"],
                 "8": ["Compendium.dnd5e_classpack.class-abilityphb.w6bZZy3zdggmKRlX"],
-                "10": ["Compendium.dnd5e_classpack.class-abilityphb.qr1XQlGLHVsZANuQ", "Compendium.dnd5e_classpack.extra-ability.RjUIBp4J1ZHC9bw2"],
+                "10": ["Compendium.dnd5e_classpack.extra-ability.xFXT58CpzavsEswS", "Compendium.dnd5e_classpack.class-abilityphb.qr1XQlGLHVsZANuQ", "Compendium.dnd5e_classpack.extra-ability.RjUIBp4J1ZHC9bw2"],
                 "14": ["Compendium.dnd5e_classpack.class-abilityphb.A6o650nPX9zbLgJB"],
                 "18": ["Compendium.dnd5e_classpack.class-abilityphb.l2zPQBfuItspcSAI"],
                 "20": ["Compendium.dnd5e_classpack.class-abilityphb.V7VI6TXZ7LJzP8Fd"]
@@ -1708,7 +1827,7 @@ Hooks.on("ready", () => {
                     "label": "Arcane Trickster",
                     "source": "PHB pg. 97",
                     "features": {
-                        "3": ["Compendium.dnd5e_classpack.class-abilityphb.TZfiRBH2QabmhuM3", "Compendium.dnd5e_classpack.class-abilityphb.NRhGcdao9Vi76LUJ", "Compendium.dnd5e_classpack.class-abilityphb.OkEBRnUrptHMigtY"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.H5gghxp0hfT3BAlC", "Compendium.dnd5e_classpack.class-abilityphb.TZfiRBH2QabmhuM3", "Compendium.dnd5e_classpack.class-abilityphb.NRhGcdao9Vi76LUJ", "Compendium.dnd5e_classpack.class-abilityphb.OkEBRnUrptHMigtY"],
                         "9": ["Compendium.dnd5e_classpack.class-abilityphb.hSu5qmz3cfRPZBEi"],
                         "13": ["Compendium.dnd5e_classpack.class-abilityphb.yvY7WMTxyZNEwW9h"],
                         "17": ["Compendium.dnd5e_classpack.class-abilityphb.Ny7aYganLo78DUfw"]                    }
@@ -1832,8 +1951,12 @@ Hooks.on("ready", () => {
                     "label": "Clockwork Soul",
                     "source": "TCE pg. 68",
                     "features": {
-                        "1": ["Compendium.dnd5e_classpack.extra-ability.E7IXEz4SVc0bXppU", "Compendium.dnd5e_classpack.extra-ability.6qqLbKy8xduVuv7b"],
+                        "1": ["Compendium.dnd5e_classpack.new-icon.xS2Astj9zhhqw7el", "Compendium.dnd5e_classpack.new-icon.IuzXxwP3EhWGhtXC", "Compendium.dnd5e_classpack.extra-ability.E7IXEz4SVc0bXppU", "Compendium.dnd5e_classpack.extra-ability.6qqLbKy8xduVuv7b"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.hAL0Dxp9w7gvkfZm", "Compendium.dnd5e_classpack.new-icon.I1C2EQxwynPd7dOC"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.as6xgBANCbyoWPXX", "Compendium.dnd5e_classpack.new-icon.DBrh7ALD21UoUApP"],
                         "6": ["Compendium.dnd5e_classpack.extra-ability.6jGuuF5BdCqhifqA"],
+                        "7": ["Compendium.dnd5e_classpack.new-icon.OZMc9g7XaWuRc36J", "Compendium.dnd5e_classpack.new-icon.46SldCNyO92qIwfQ"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.7dqplcsKNYQgRh2S", "Compendium.dnd5e_classpack.new-icon.31jKHMGJ0vlqdvQU"],
                         "14": ["Compendium.dnd5e_classpack.extra-ability.lFSt9wCshR8yCdUK"],
                         "18": ["Compendium.dnd5e_classpack.extra-ability.4xZZ0tToXgEQ8hhs"]                        
                     }
@@ -1842,8 +1965,12 @@ Hooks.on("ready", () => {
                     "label": "Aberrant Mind",
                     "source": "TCE pg. 66",
                     "features": {
-                        "1": ["Compendium.dnd5e_classpack.extra-ability.m4xHGaSl3IeNSUQM", "Compendium.dnd5e_classpack.extra-ability.r0PYs1ZzHMS20cU7"],
+                        "1": ["Compendium.dnd5e_classpack.new-icon.Eodwq0Zfd8ecEhdy", "Compendium.dnd5e_classpack.new-icon.j8wwbcc1tlY9hLRf", "Compendium.dnd5e_classpack.new-icon.Il0iA9nttKqh0ACr", "Compendium.dnd5e_classpack.extra-ability.m4xHGaSl3IeNSUQM", "Compendium.dnd5e_classpack.extra-ability.r0PYs1ZzHMS20cU7"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.6MYwBtZurc8Zw1ac", "Compendium.dnd5e_classpack.new-icon.YuGbz9k5JXA0kIgT"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.eT0LfvbxuKfMuRbs", "Compendium.dnd5e_classpack.new-icon.kRO1zjPXuOLm4qUU"],
                         "6": ["Compendium.dnd5e_classpack.extra-ability.4LK5hBpIFgx8ttxC","Compendium.dnd5e_classpack.extra-ability.vfELd9NsqO9ILVUz"],
+                        "7": ["Compendium.dnd5e_classpack.new-icon.JMAmXdzvxTU27pP2", "Compendium.dnd5e_classpack.new-icon.kkahnA5EClqV0LWA"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.mdnvLsKRorF3cx5S", "Compendium.dnd5e_classpack.new-icon.MTNfEcCXSJZ2m2nG"],
                         "14": ["Compendium.dnd5e_classpack.extra-ability.sZd00Pspnz3w6xkN"],
                         "18": ["Compendium.dnd5e_classpack.extra-ability.YzNkv97GG9DyVg7F"]                        
                     }
@@ -1853,6 +1980,7 @@ Hooks.on("ready", () => {
                     "source": "XGE pg. 50",
                     "features": {
                         "1": ["Compendium.dnd5e_classpack.extra-ability.2mHUbEdRsx9jwwOb", "Compendium.dnd5e_classpack.extra-ability.m58A5U9dXzc4PTBY", "Compendium.dnd5e_classpack.extra-ability.Zm7oGfXl3kxVN3EZ"],
+                        "3": ["Compendium.dnd5e_classpack.new-icon.UyQ9nYcQlFdEbmeV"],
                         "6": ["Compendium.dnd5e_classpack.extra-ability.qUzTbACHrzXHj4c1"],
                         "14": ["Compendium.dnd5e_classpack.extra-ability.5Ihf64ozVvDdDguh"],
                         "18": ["Compendium.dnd5e_classpack.extra-ability.CaBccRLDcKon8zuS"]                        
@@ -1902,7 +2030,7 @@ Hooks.on("ready", () => {
                     "label": "The Celestial",
                     "source": "XGE pg. 54",
                     "features": {
-                        "1": ["Compendium.dnd5e_classpack.extra-ability.bxUXWvE9SbYEdjqL", "Compendium.dnd5e_classpack.extra-ability.YZgLwcsl9vy77A3P", "Compendium.dnd5e_classpack.extra-ability.s8snvQrvRsN7YeaH"],
+                        "1": ["Compendium.dnd5e_classpack.new-icon.rW5ZoeX4jjZw4hBO", "Compendium.dnd5e_classpack.new-icon.yu8LatUOZ08ORwSU", "Compendium.dnd5e_classpack.extra-ability.bxUXWvE9SbYEdjqL", "Compendium.dnd5e_classpack.extra-ability.YZgLwcsl9vy77A3P", "Compendium.dnd5e_classpack.extra-ability.s8snvQrvRsN7YeaH"],
                         "6": ["Compendium.dnd5e_classpack.extra-ability.pLTSRjy7SLsMcuhm"],
                         "10": ["Compendium.dnd5e_classpack.extra-ability.c9cngYUCPCjGvMOi"],
                         "14": ["Compendium.dnd5e_classpack.extra-ability.c0gGX4Cu8ZXvxR8f"]                    }
@@ -1954,7 +2082,7 @@ Hooks.on("ready", () => {
                     "features": {
                         "1": ["Compendium.dnd5e_classpack.extra-ability.dJAbTGhVw9DFET4M", "Compendium.dnd5e_classpack.extra-ability.AO1g9WjlmCTq9KE8"],
                         "6": ["Compendium.dnd5e_classpack.extra-ability.wQDaggN9HXyh11bG", "Compendium.dnd5e_classpack.extra-ability.9Plsb93N8fdRkpoo"],
-                        "10": ["Compendium.dnd5e_classpack.extra-ability.aJhiEEOneWfQG6Ge"],
+                        "10": ["Compendium.dnd5e_classpack.new-icon.JMAmXdzvxTU27pP2", "Compendium.dnd5e_classpack.extra-ability.aJhiEEOneWfQG6Ge"],
                         "14": ["Compendium.dnd5e_classpack.extra-ability.eZMKbK1TDBqqB70K"]
                         
                     }
@@ -1963,7 +2091,7 @@ Hooks.on("ready", () => {
                     "label": "The Undying",
                     "source": "SCAG pg. 139",
                     "features": {
-                        "1": ["Compendium.dnd5e_classpack.extra-ability.dDtkcy3Nx0OGUR2d", "Compendium.dnd5e_classpack.extra-ability.1ijPpQjLqsCpk3E8"],
+                        "1": ["Compendium.dnd5e_classpack.new-icon.EslxcnZE2B9JYgF1", "Compendium.dnd5e_classpack.extra-ability.dDtkcy3Nx0OGUR2d", "Compendium.dnd5e_classpack.extra-ability.1ijPpQjLqsCpk3E8"],
                         "6": ["Compendium.dnd5e_classpack.extra-ability.5FYxkwe3rwfnDmFl"],
                         "10": ["Compendium.dnd5e_classpack.extra-ability.mX6HNUMT8cphwRpE"],
                         "14": ["Compendium.dnd5e_classpack.extra-ability.Z6odF8yvJWuJHaw3"]                    }
@@ -2096,7 +2224,7 @@ Hooks.on("ready", () => {
                     "label": "School of Illusion",
                     "source": "PHB pg. 118",
                     "features": {
-                        "2": ["Compendium.dnd5e_classpack.class-abilityphb.FKM8XV470VEMYzdt","Compendium.dnd5e_classpack.class-abilityphb.lnr4PHCReFAzQhXg"],
+                        "2": ["Compendium.dnd5e_classpack.new-icon.ErbvJsxASx22Goxe", "Compendium.dnd5e_classpack.class-abilityphb.FKM8XV470VEMYzdt","Compendium.dnd5e_classpack.class-abilityphb.lnr4PHCReFAzQhXg"],
                         "6": ["Compendium.dnd5e_classpack.class-abilityphb.vn5jPYjB6w0GmfCY"],
                         "10": ["Compendium.dnd5e_classpack.class-abilityphb.Dwrhd7TijJRyg4iN"],
                         "14": ["Compendium.dnd5e_classpack.class-abilityphb.utiy2TGJ0Ue1P3RL"]
@@ -2108,7 +2236,7 @@ Hooks.on("ready", () => {
                     "source": "PHB pg. 118",
                     "features": {
                         "2": ["Compendium.dnd5e_classpack.class-abilityphb.xNaE4nfTQyCsYQMD","Compendium.dnd5e_classpack.class-abilityphb.XHazIacJHm3jGfsR"],
-                        "6": ["Compendium.dnd5e_classpack.class-abilityphb.O6VMpcdq8i6MU019"],
+                        "6": ["Compendium.dnd5e_classpack.new-icon.xYpJGRI4xcMa41kO", "Compendium.dnd5e_classpack.class-abilityphb.O6VMpcdq8i6MU019"],
                         "10": ["Compendium.dnd5e_classpack.class-abilityphb.7MgH1b7mbP19BVlQ"],
                         "14": ["Compendium.dnd5e_classpack.class-abilityphb.mXDgKc1aeLtMczOM"]
 
@@ -2120,8 +2248,8 @@ Hooks.on("ready", () => {
                     "features": {
                         "2": ["Compendium.dnd5e_classpack.class-abilityphb.fXbyHBPF1joFYcgj","Compendium.dnd5e_classpack.class-abilityphb.rGPhfj41nL52J4nQ"],
                         "6": ["Compendium.dnd5e_classpack.class-abilityphb.zX6GFGKuX3nerGYF"],
-                        "10": ["Compendium.dnd5e_classpack.class-abilityphb.fb6lKUXt35Xu6gPx"],
-                        "14": ["Compendium.dnd5e_classpack.class-abilityphb.C1ampwBXw9dQWxDw"]
+                        "10": ["Compendium.dnd5e_classpack.new-icon.IXs3Neqbl8xaT3yk", "Compendium.dnd5e_classpack.class-abilityphb.fb6lKUXt35Xu6gPx"],
+                        "14": ["Compendium.dnd5e_classpack.new-icon.63gAxMpLpbVW9Oja", "Compendium.dnd5e_classpack.class-abilityphb.C1ampwBXw9dQWxDw"]
                         
                     }
                 },
@@ -2151,37 +2279,49 @@ Hooks.on("ready", () => {
                     "label": "Alchemist",
                     "source": "TCE pg. 14",
                     "features": {
-                        "3": ["Compendium.dnd5e_classpack.extra-ability.Mbve5vcutPLRe7MJ", "Compendium.dnd5e_classpack.extra-ability.sGggioh8w6WTNUbD"],
-                        "5": ["Compendium.dnd5e_classpack.extra-ability.i7WUteJZQLyoN9Jn"],
-                        "9": ["Compendium.dnd5e_classpack.extra-ability.VJHMkz9DNOnuIsQ8"],
-                        "15": ["Compendium.dnd5e_classpack.extra-ability.FRsOak029n5r5Gi2"]
-                        
+                        "3": ["Compendium.dnd5e_classpack.new-icon.L6dK0A5IfpiXRhdm", "Compendium.dnd5e_classpack.new-icon.PZQqlG5R6G24aWtm", "Compendium.dnd5e_classpack.extra-ability.Mbve5vcutPLRe7MJ", "Compendium.dnd5e_classpack.extra-ability.sGggioh8w6WTNUbD"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.TEZY0aYJtnuU4FlW", "Compendium.dnd5e_classpack.new-icon.jR5afVVOCCwjkbz2", "Compendium.dnd5e_classpack.extra-ability.i7WUteJZQLyoN9Jn"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.gjE6zBmfdUOwXiae", "Compendium.dnd5e_classpack.new-icon.6PTF3SN0jxkEqv6W", "Compendium.dnd5e_classpack.extra-ability.VJHMkz9DNOnuIsQ8"],
+                        "13": ["Compendium.dnd5e_classpack.new-icon.AVumturalJuP4paw", "Compendium.dnd5e_classpack.new-icon.4gLdaCM7rxoNhj8d"],
+                        "15": ["Compendium.dnd5e_classpack.new-icon.7dqplcsKNYQgRh2S", "Compendium.dnd5e_classpack.new-icon.nCLJRsp7CWAACqGE", "Compendium.dnd5e_classpack.extra-ability.FRsOak029n5r5Gi2"],
+                        "17": ["Compendium.dnd5e_classpack.new-icon.T39k39dbE2poIFc5", "Compendium.dnd5e_classpack.new-icon.63gAxMpLpbVW9Oja"]
+
                     }
                 },
                 "魔炮师": {
                     "label": "Artillerist",
                     "source": "TCE pg. 15",
                     "features": {
-                        "3": ["Compendium.dnd5e_classpack.extra-ability.LNfcTaOrXMOayKyK", "Compendium.dnd5e_classpack.extra-ability.yaiCR2TIRre4E5Yi"],
-                        "5": ["Compendium.dnd5e_classpack.extra-ability.nVVkNjWXJYpSgNHB"],
-                        "9": ["Compendium.dnd5e_classpack.extra-ability.XjFLK1XZERDlvQua"],
-                        "15": ["Compendium.dnd5e_classpack.extra-ability.NmrLpsDbfOtBO6we"]                        
+                        "3": ["Compendium.dnd5e_classpack.extra-ability.Lrza2kTrMaxpVtAn", "Compendium.dnd5e_classpack.extra-ability.OdvtbOfnUru8HxOx", "Compendium.dnd5e_classpack.extra-ability.kpdFpp8QYwoOCnig", "Compendium.dnd5e_classpack.new-icon.6EjLIIN4ug7eSp4P", "Compendium.dnd5e_classpack.new-icon.8GM6YBgYFPIcFXKg", "Compendium.dnd5e_classpack.extra-ability.LNfcTaOrXMOayKyK", "Compendium.dnd5e_classpack.extra-ability.yaiCR2TIRre4E5Yi"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.IkgKSSiBuGa5TPLB", "Compendium.dnd5e_classpack.new-icon.3m0QZZAQfR4jXS9q", "Compendium.dnd5e_classpack.extra-ability.nVVkNjWXJYpSgNHB"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.Uh3zcz4PO4DXP3Dj", "Compendium.dnd5e_classpack.new-icon.WLWSZA4pZSGb0Mku", "Compendium.dnd5e_classpack.extra-ability.XjFLK1XZERDlvQua"],
+                        "13": ["Compendium.dnd5e_classpack.new-icon.u2MG84qW8YLuECHa", "Compendium.dnd5e_classpack.new-icon.agTzLRmgNSVghaGk"],
+                        "15": ["Compendium.dnd5e_classpack.extra-ability.NmrLpsDbfOtBO6we"],
+                        "17": ["Compendium.dnd5e_classpack.new-icon.z9HXB89B3uO5NHW8", "Compendium.dnd5e_classpack.new-icon.31jKHMGJ0vlqdvQU"]                      
                     }
                 },
                 "战地匠师": {
                     "label": "Battle Smith",
                     "source": "TCE pg. 18",
                     "features": {
-                        "3": ["Compendium.dnd5e_classpack.extra-ability.9DryG6ut4sWR92bm", "Compendium.dnd5e_classpack.extra-ability.mu9IA3SphVBRiv63"],
-                        "5": ["Compendium.dnd5e_classpack.class-abilityphb.WKQXfXbifuoCk1V1"],
-                        "9": ["Compendium.dnd5e_classpack.extra-ability.Cst5SSYPhKUEAtf1"],
-                        "15": ["Compendium.dnd5e_classpack.extra-ability.6XNKdSZKaddzjZ1F"]                    }
+                        "3": ["Compendium.dnd5e_classpack.new-icon.eatsvLyUqyzEFzCv", "Compendium.dnd5e_classpack.new-icon.6EjLIIN4ug7eSp4P", "Compendium.dnd5e_classpack.extra-ability.9DryG6ut4sWR92bm", "Compendium.dnd5e_classpack.extra-ability.mu9IA3SphVBRiv63"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.JTEqFylsjhdBhz3c", "Compendium.dnd5e_classpack.new-icon.DLyjjM6qTHBCSFCx", "Compendium.dnd5e_classpack.class-abilityphb.WKQXfXbifuoCk1V1"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.XfYgB18GC8OgETjG", "Compendium.dnd5e_classpack.new-icon.Ijq7k3y3AZoC76VF", "Compendium.dnd5e_classpack.extra-ability.Cst5SSYPhKUEAtf1"],
+                        "13": ["Compendium.dnd5e_classpack.new-icon.ujZGFLEqgI0L6oli", "Compendium.dnd5e_classpack.new-icon.AdWubx1kFJLe8QDa"],
+                        "15": ["Compendium.dnd5e_classpack.extra-ability.6XNKdSZKaddzjZ1F"],
+                        "17": ["Compendium.dnd5e_classpack.new-icon.2CIeVJ6dzmDcGfic", "Compendium.dnd5e_classpack.new-icon.UBLAtJuRhRB3GokC"]
+                    }
                 },
                 "装甲师": {
                     "label": "Armorer",
                     "source": "TCE pg. 17",
                     "features": {
-                        
+                        "3": ["Compendium.dnd5e_classpack.new-icon.q0FYQJX9EBseJ9KN", "Compendium.dnd5e_classpack.new-icon.8GM6YBgYFPIcFXKg", "Compendium.dnd5e_classpack.extra-ability.r3tVSxF9RqK4P2Bf", "Compendium.dnd5e_classpack.extra-ability.wefEDw2QaHeaBZig", "Compendium.dnd5e_classpack.extra-ability.RblUGsE7qH9JxlZi"],
+                        "5": ["Compendium.dnd5e_classpack.new-icon.1EkQSAH6o8WMxUU3", "Compendium.dnd5e_classpack.new-icon.3m0QZZAQfR4jXS9q", "Compendium.dnd5e_classpack.class-abilityphb.WKQXfXbifuoCk1V1"],
+                        "9": ["Compendium.dnd5e_classpack.new-icon.BbpCbjCXt14a08Jp", "Compendium.dnd5e_classpack.new-icon.dHg72reVMXYFu4lR", "Compendium.dnd5e_classpack.extra-ability.9ezZhCxEiUIrw48w"],
+                        "13": ["Compendium.dnd5e_classpack.new-icon.AdWubx1kFJLe8QDa", "Compendium.dnd5e_classpack.new-icon.Au584WRiGch84PXI"],
+                        "15": ["Compendium.dnd5e_classpack.extra-ability.KyeKeVKvTJbZdiBG"],
+                        "17": ["Compendium.dnd5e_classpack.new-icon.EoIuyVnLAF4DyTO7", "Compendium.dnd5e_classpack.new-icon.31jKHMGJ0vlqdvQU"]
                     }
                 }
             },
