@@ -1,70 +1,82 @@
 {
   "name": "dnd5e_classpack",
   "title": "DND5E职业包",
-  "description": "包含了职业表和按环分类的法术包，方便车卡，包含部分UA规则，DM可以根据需要进行修改",
-  "version": "1.6.2",
+  "description": "<p>包含了职业表和按环分类的法术包，方便车卡，包含部分UA规则，DM可以根据需要进行修改。</p><p><b>注意：该版本最低需要 FVTT v10 与 DND v2.0.0</b></p>",
+  "version": "2.0.0",
   "author": "classpack社区",
-  "systems": ["dnd5e"],
-  "scripts": [],
-  "styles": [],
+  "authors": [
+    {
+      "name": "classpack社区",
+      "url": "https://github.com/HJSmile/classpack"
+    }
+  ],
+  "systems": [
+    "dnd5e"
+  ],
+  "scripts": [
+    
+  ],
+  "styles": [
+    
+  ],
   "packs": [
-{
+    {
       "label": "随机表",
       "entity": "RollTable",
       "name": "rtable",
       "path": "packs/rtable.db",
       "system": "dnd5e"
     },
-{
+    {
       "label": "模组物品",
       "entity": "Item",
       "name": "moditems",
       "path": "packs/moditems.db",
       "system": "dnd5e"
     },
-{
+    {
       "label": "DMG宝石与艺术品",
       "entity": "Item",
       "name": "loots",
       "path": "packs/loots.db",
       "system": "dnd5e"
     },
-{
+    {
       "label": "扩展职业特性",
       "entity": "Item",
       "name": "extra-ability",
       "path": "packs/extra-ability.db",
       "system": "dnd5e"
     },
-{
+    {
       "label": "职业表",
       "entity": "JournalEntry",
       "name": "class-table",
       "path": "packs/class-table.db",
       "system": "dnd5e"
     },
-{
-     "label": "职业列表",
+    {
+      "label": "职业列表",
       "entity": "Item",
       "name": "classes-new",
       "path": "packs/classes-new.db",
       "system": "dnd5e"
     },
-{
-      "label": "PHB职业特性（新图标）",
+    {
+      "label": "PHB职业特性",
       "entity": "Item",
       "name": "class-abilityphb",
       "path": "packs/class-abilityphb.db",
       "system": "dnd5e"
     },
-{
+    {
       "label": "法术",
       "entity": "Item",
       "name": "new-icon",
       "path": "packs/new-icon.db",
       "system": "dnd5e"
     },
-{
+    {
       "label": "种族特性",
       "entity": "Item",
       "name": "racial-traits",
@@ -78,7 +90,7 @@
       "path": "packs/races.db",
       "system": "dnd5e"
     },
-{
+    {
       "label": "DMG与PHB物品",
       "entity": "Item",
       "name": "itempack",
@@ -92,14 +104,14 @@
       "path": "packs/spell-table.db",
       "system": "dnd5e"
     },
-{
+    {
       "label": "专长（补全）",
       "entity": "Item",
       "name": "feats-all",
       "path": "packs/feats-all.db",
       "system": "dnd5e"
     },
-{
+    {
       "label": "子职列表",
       "entity": "Item",
       "name": "subclass",
@@ -128,13 +140,12 @@
       "system": "dnd5e"
     }
   ],
-  "esmodules": [
-    "/scripts/module.js"
-  ],
   "url": "https://github.com/HJSmile/classpack",
- 
-  "minimumCoreVersion": "0.6.0",
-  "compatibleCoreVersion": "9.999",
+  "minimumCoreVersion": "10",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10"
+  },
   "manifest": "https://raw.githubusercontent.com/HJSmile/classpack/master/dnd5e_classpack/module.json",
   "download": "https://github.com/HJSmile/classpack/raw/master/dnd5e_classpack.zip"
 }
