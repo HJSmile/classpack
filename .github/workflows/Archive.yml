@@ -1,0 +1,37 @@
+name: AutoArchive
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: montudor/action-zip@v1
+
+      - name: Zip output
+        run: zip -qq -r dnd5e_classpack.zip dnd5e_classpack
+      - name: switching from HTTPS to SSH
+        run: git remote set-url origin ${{ secrets.gitInfo }}
+      - name: update
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git status
+          git add .
+          git commit -m "Auto updating Archive"
+      - name: Push changes
+        uses: ad-m/github-push-action@master      
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+ 
