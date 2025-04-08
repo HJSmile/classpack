@@ -1,7 +1,7 @@
 {
   "title": "DND5E职业包",
   "description": "<p>包含了职业表和按环分类的法术包，方便车卡，包含部分UA规则，DM可以根据需要进行修改。BUG反馈与建议：Q群1083272094</p><p><b>注意：需要搭配 FVTT v11 与 DND5e v3.0.0以上版本使用</b></p>",
-  "version": "3.2.0",
+  "version": "4.0.2",
   "authors": [
     {
       "name": "classpack社区",
@@ -211,27 +211,30 @@
   "url": "https://github.com/HJSmile/classpack",
   "compatibility": {
     "minimum": "11",
-    "verified": "11",
+    "verified": "12",
     "maximum": "12"
   },
   "manifest": "https://raw.githubusercontent.com/HJSmile/classpack/master/dnd5e_classpack/module.json",
   "download": "https://github.com/HJSmile/classpack/raw/master/dnd5e_classpack.zip",
   "id": "dnd5e_classpack",
   "relationships": {
-    "systems": [
-      {
-        "id": "dnd5e",
-        "type": "system",
-        "compatibility": {}
-      }
-    ],
-    "recommends": [
-      {
-        "id": "dnd5e_DMTools",
-        "type": "module",
-        "manifest": "https://raw.githubusercontent.com/feederze/DMTools/main/module.json",
-        "compatibility": {}
-      }
-    ]
+    "relationships": {
+      "systems": [
+        {
+          "id": "dnd5e",
+          "type": "system",
+          "compatibility": {
+            "minimum": "4.0.0"
+          }
+        }
+      ],
+      "recommends": [
+        {
+          "id": "dnd5e_DMTools",
+          "type": "module",
+          "manifest": "https://raw.githubusercontent.com/feederze/DMTools/main/module.json",
+          "compatibility": {}
+        }
+      ]
+    }
   }
-}
