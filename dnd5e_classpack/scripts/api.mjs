@@ -27,10 +27,12 @@ import { socketFunctions } from "./api/socket-functions.mjs";
 import { moveTokens, registerMovementActions } from "./api/movement.mjs";
 import { tokenDocument } from "./api/geometry.mjs";
 import { checkCompatibility, isCompatibleVersion } from "./compatibility.mjs";
+import { registerMigrationSettings, notifyPendingMigrations, worldMigrations } from "./migrations/index.mjs";
 
 const api = {
   socket: null,
   compatibility: null,
+  migrations: worldMigrations,
   DialogApp: ClasspackDialogApp,
   Crosshairs: ClasspackCrosshairs,
   Teleport: ClasspackTeleport,
@@ -165,6 +167,7 @@ api.firstOwner = firstOwner;
  * -------------------------------------------------------------------------- */
 
 Hooks.once("init", () => {
+  registerMigrationSettings();
   registerHandlebarsHelpers();
   registerMovementActions();
   const module = game.modules?.get?.(MODULE_ID);
@@ -194,6 +197,7 @@ Hooks.once("socketlib.ready", () => {
 
 Hooks.once("ready", () => {
   api.compatibility = checkCompatibility();
+  notifyPendingMigrations();
   Hooks.callAll("dnd5eClasspackReady", api);
 });
 
