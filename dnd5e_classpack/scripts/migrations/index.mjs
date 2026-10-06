@@ -73,9 +73,13 @@ function semanticGroups(docs) {
     const own = provenance(item.toObject(true), item.documentName);
     let source = own.source;
     if (own.conflicting && own.classpack) {reviews.push({uuid:item.uuid,reason:"conflicting-provenance"}); continue;}
-    if (!own.hasSource && item.parent?.documentName === "Actor") {
+    if (item.parent?.documentName === "Actor") {
       const parent = provenance(item.parent.toObject(true), "Actor");
-      if (parent.source) source = `${parent.source}.Item.${item.id}`;
+      const candidate = parent.source ? `${parent.source}.Item.${item.id}` : null;
+      if (bySource.has(candidate)) {
+        if (!own.hasSource || own.classpack) source = candidate;
+        else {reviews.push({uuid:item.uuid,source:own.source,reason:"foreign-embedded-provenance",actorSource:parent.source}); continue;}
+      }
     }
     const entry = bySource.get(source);
     if (!entry) continue;
