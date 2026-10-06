@@ -8,13 +8,13 @@
       "_id": "WoWRQwMS4Au7F0JL",
       "disabled": false,
       "duration": {
-        "value": 1,
-        "units": "turns",
-        "expiry": "turnStart",
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
         "expired": false
       },
       "origin": null,
-      "transfer": true,
+      "transfer": false,
       "flags": {},
       "tint": "#ffffff",
       "_stats": {
@@ -37,7 +37,7 @@
             "key": "system.attributes.movement.speeds.fly",
             "value": 30,
             "priority": null,
-            "type": "add",
+            "type": "upgrade",
             "phase": "initial",
             "_id": "9pj0dfMKR5PhtnwU",
             "conditions": "{}",
@@ -57,7 +57,7 @@
           "statuses": []
         }
       },
-      "description": "",
+      "description": "<p>提供30尺飞行速度，持续到着陆。每回合结束下降5尺；若本回合水平飞行不足30尺，则着陆或坠落。高度、水平移动与着陆需手动判定，着陆后移除此效果。</p>",
       "statuses": [],
       "sort": 0,
       "start": null,
@@ -162,7 +162,7 @@
             "allowed": false,
             "max": ""
           },
-          "spellSlot": true
+          "spellSlot": false
         },
         "description": {
           "chatFlavor": "",
@@ -170,12 +170,18 @@
         },
         "duration": {
           "concentration": false,
-          "units": "inst",
-          "special": "",
-          "override": false,
+          "units": "spec",
+          "special": "持续到着陆；每回合末下降与着陆条件按描述手动处理",
+          "override": true,
           "expiry": null
         },
-        "effects": [],
+        "effects": [
+          {
+            "_id": "WoWRQwMS4Au7F0JL",
+            "uuid": null,
+            "level": {}
+          }
+        ],
         "range": {
           "units": "self",
           "special": "",
@@ -193,13 +199,13 @@
             "stationary": false
           },
           "affects": {
-            "count": "",
-            "type": "",
+            "count": "1",
+            "type": "self",
             "choice": false,
             "special": ""
           },
           "prompt": true,
-          "override": false
+          "override": true
         },
         "uses": {
           "spent": 0,

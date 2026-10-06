@@ -88,7 +88,7 @@ for (const file of git(["diff","--name-only","-z",macroBaseline,cleanup,"--","dn
 }
 assert.ok(entries.length > 250);
 const catalog = {version: 2, baseline, semantic, cleanup, intermediate, entries,
-  deferred: ["alpha.4 semantic additions, including Tortle AC", "5 remaining source audit ERROR", "unknown midi/DAE/CPR semantics", "active Actor effects are preserved; only owned Item templates and reviewed Macro commands are patched"]};
+  deferred: ["alpha.4 semantic additions, including Tortle AC", "alpha.7 source repairs await runtime validation", "unknown midi/DAE/CPR semantics", "active Actor effects are preserved; only owned Item templates and reviewed Macro commands are patched"]};
 const output = path.join(repo, "dnd5e_classpack/scripts/migrations/catalog.mjs");
 await fs.mkdir(path.dirname(output), {recursive: true});
 const {entries: rows, ...metadata} = catalog;
