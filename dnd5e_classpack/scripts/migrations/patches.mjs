@@ -69,7 +69,8 @@ export function evaluateTargets(item, entry) {
     for (const patch of target.patches) {
       const current = fieldState(data, patch.path);
       if (equal(current, patch.after)) continue;
-      if (!equal(current, patch.before)) {reviews.push({target: target.kind, id: target.id, path: patch.path, reason: "customized-or-unrecognized-field", current, expectedOld: patch.before}); continue;}
+      const knownStates = [patch.before,...(patch.beforeAlternatives ?? []).map(a=>a.state)];
+      if (!knownStates.some(state=>equal(current,state))) {reviews.push({target: target.kind, id: target.id, path: patch.path, reason: "customized-or-unrecognized-field", current, expectedOld: patch.before}); continue;}
       Object.assign(updates, updateField(patch.path,patch.after));
       before[patch.path] = current;
       expected.push({path: patch.path, state: patch.after});

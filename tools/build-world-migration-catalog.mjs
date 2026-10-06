@@ -10,6 +10,8 @@ const git = args => execFileSync("git", ["-c", "core.autocrlf=false", ...args], 
 const baseline = "274c9685";
 const semantic = "da816aa8";
 const cleanup = "4b33aff0";
+const intermediate = "ded66f41";
+const intermediateFiles = new Set(git(["diff","--name-only","-z",intermediate,semantic,"--","dnd5e_classpack/packs"]).split("\0").filter(Boolean));
 const files = [...new Set([
   ...git(["diff", "--name-only", "-z", baseline, semantic, "--", "dnd5e_classpack/packs"]).split("\0"),
   ...git(["diff", "--name-only", "-z", `${cleanup}^`, cleanup, "--", "dnd5e_classpack/packs"]).split("\0")
@@ -31,7 +33,7 @@ function differences(before, after, prefix = "") {
   }
   return patches;
 }
-function collect(before, after, source, container = null) {
+function collect(before, after, source, container = null, middle = null) {
   assert.equal(before._id, after._id);
   const targets = [];
   const itemFields = differences(before, after);
@@ -42,10 +44,24 @@ function collect(before, after, source, container = null) {
     const patches = differences(old, next);
     if (patches.length) targets.push({kind: "ActiveEffect", id: old._id, type: old.type, patches});
   }
+  for (const target of targets) {
+    const data = target.kind === "Item" ? middle : middle?.effects?.find(e=>e._id===target.id);
+    if (!data) continue;
+    for (const patch of target.patches) {
+      let value=data, present=true;
+      for (const key of patch.path.split(".")) {
+        if (!value || !Object.hasOwn(value,key)) {present=false;break;}
+        value=value[key];
+      }
+      const known=present?{present:true,value}:{present:false};
+      if (!isDeepStrictEqual(known,patch.before) && !isDeepStrictEqual(known,patch.after)) patch.beforeAlternatives=[{revision:intermediate,state:known}];
+    }
+  }
   if (targets.length) entries.push({source, container, itemId: before._id, itemType: before.type, name: after.name, targets});
 }
 for (const file of files) {
   const before = read(baseline, file), after = read(semantic, file);
+  const middle = intermediateFiles.has(file) ? read(intermediate,file) : null;
   // The alpha.4 additions await runtime validation; they are deliberately absent.
   if (["n9RjfSJ88RfFhO1T", "BLNE7S7l2uTkx7w6"].includes(after._id)) {
     const cleaned = read(cleanup, file);
@@ -57,9 +73,9 @@ for (const file of files) {
       const next = after.items.find(i => i._id === old._id);
       assert.ok(next);
       const actor = `Compendium.dnd5e_classpack.${pack}.Actor.${before._id}`;
-      collect(old, next, `${actor}.Item.${old._id}`, actor);
+      collect(old, next, `${actor}.Item.${old._id}`, actor, middle?.items.find(i=>i._id===old._id));
     }
-  } else collect(before, after, `Compendium.dnd5e_classpack.${pack}.Item.${before._id}`);
+  } else collect(before, after, `Compendium.dnd5e_classpack.${pack}.Item.${before._id}`, null, middle);
 }
 const macroBaseline = "12233a31";
 for (const file of git(["diff","--name-only","-z",macroBaseline,cleanup,"--","dnd5e_classpack/packs/macro"]).split("\0").filter(p=>p.endsWith(".json"))) {
@@ -71,7 +87,7 @@ for (const file of git(["diff","--name-only","-z",macroBaseline,cleanup,"--","dn
     targets:[{kind:"Macro",patches:[{path:"command",before:{present:true,value:before.command},after:{present:true,value:after.command}}]}]});
 }
 assert.ok(entries.length > 250);
-const catalog = {version: 2, baseline, semantic, cleanup, entries,
+const catalog = {version: 2, baseline, semantic, cleanup, intermediate, entries,
   deferred: ["alpha.4 semantic additions, including Tortle AC", "5 remaining source audit ERROR", "unknown midi/DAE/CPR semantics", "active Actor effects are preserved; only owned Item templates and reviewed Macro commands are patched"]};
 const output = path.join(repo, "dnd5e_classpack/scripts/migrations/catalog.mjs");
 await fs.mkdir(path.dirname(output), {recursive: true});
