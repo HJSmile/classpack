@@ -8,9 +8,9 @@
 
 黑触手、信仰守卫、英雄宴保留现有内容，相关自动化后续重写。怪物合集未纳入本轮使用验收。
 
-`6.0.0-beta.1` 发布后，在“安装模组”的 Manifest URL 中填入：
+`6.0.0-beta.2` 发布后，在“安装模组”的 Manifest URL 中填入：
 
-    https://github.com/observer1236/classpack/releases/download/v6.0.0-beta.1/module.json
+    https://github.com/observer1236/classpack/releases/download/v6.0.0-beta.2/module.json
 
 后续测试版使用对应版本的安装链接。也可以将发布的 ZIP 解压到 Foundry 数据目录的 `Data/modules/` 中。
 
