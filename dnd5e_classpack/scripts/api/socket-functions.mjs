@@ -10,6 +10,8 @@ import { ClasspackDialogApp } from "./dialog-app.mjs";
  * -------------------------------------------------------------------------- */
 
 const socketFunctions = {
+  resourceConsume: request => globalThis.dnd5eClasspack.resources.consumeOnGM(request),
+  rollInterventionResolve: request => globalThis.dnd5eClasspack.rollInterventions.resolve(request),
   /**
    * Open a dialog on the executing client. Args are forwarded to
    * ClasspackDialogApp.dialog and the dialog result is returned to the caller.

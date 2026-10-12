@@ -29,6 +29,12 @@ import { tokenDocument } from "./api/geometry.mjs";
 import { checkCompatibility, isCompatibleVersion } from "./compatibility.mjs";
 import { registerMigrationSettings, notifyPendingMigrations, worldMigrations } from "./migrations/index.mjs";
 
+import { createAutomationRegistry } from "./api/automations.mjs";
+import { createResourceApi } from "./api/resources.mjs";
+import { createRollApi } from "./api/rolls.mjs";
+import { createRollInterventionApi } from "./api/roll-interventions.mjs";
+import { registerLucky2014 } from "./api/lucky2014.mjs";
+
 const api = {
   socket: null,
   compatibility: null,
@@ -161,6 +167,11 @@ const api = {
 
 api.dialogUtils = createDialogUtils((...args) => api.dialog(...args));
 api.firstOwner = firstOwner;
+api.automations = createAutomationRegistry();
+api.resources = createResourceApi(api);
+api.rolls = createRollApi(api);
+api.rollInterventions = createRollInterventionApi(api);
+api.lucky2014 = registerLucky2014(api);
 
 /* -------------------------------------------------------------------------- *
  *  Registration
@@ -168,6 +179,8 @@ api.firstOwner = firstOwner;
 
 Hooks.once("init", () => {
   registerMigrationSettings();
+  api.lucky2014.registerSettings();
+  api.rollInterventions.installEffectFilter();
   registerHandlebarsHelpers();
   registerMovementActions();
   const module = game.modules?.get?.(MODULE_ID);
@@ -197,6 +210,14 @@ Hooks.once("socketlib.ready", () => {
 
 Hooks.once("ready", () => {
   api.compatibility = checkCompatibility();
+  try {
+    if (game.modules.get("midi-qol")?.active && api.socket && globalThis.libWrapper) {
+      api.lucky2014.prepareLegacyBridge();
+      api.rollInterventions.install();
+      api.rolls.install();
+      api.rollInterventions.refreshActors();
+    }
+  } catch (error) { log("error", "Roll automation initialization failed:", error); }
   notifyPendingMigrations();
   Hooks.callAll("dnd5eClasspackReady", api);
 });
