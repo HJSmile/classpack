@@ -133,7 +133,7 @@
     "target": {
       "affects": {
         "choice": false,
-        "type": ""
+        "type": "creatureOrObject"
       },
       "template": {
         "units": "ft",
@@ -167,8 +167,7 @@
       "vocal",
       "somatic",
       "concentration",
-      "ritual",
-      "mgc"
+      "ritual"
     ],
     "activities": {
       "dnd5eactivity000": {
@@ -197,13 +196,7 @@
           "override": false,
           "expiry": null
         },
-        "effects": [
-          {
-            "_id": "FoYq5rKL3p9fzj8b",
-            "uuid": null,
-            "level": {}
-          }
-        ],
+        "effects": [],
         "range": {
           "override": false,
           "units": "self"
@@ -285,17 +278,20 @@
           "rollAs": "target"
         },
         "otherActivityId": "none",
-        "img": null,
+        "img": "",
         "behaviors": [],
         "flags": {},
         "visibility": {
-          "level": {},
+          "level": {
+            "min": null,
+            "max": null
+          },
           "requireAttunement": false,
           "requireIdentification": false,
           "requireMagic": false
         },
         "regionBehavior": {
-          "enabled": false,
+          "enabled": true,
           "dispositionFilter": -1,
           "excludeSource": true,
           "oncePerTurn": true,
@@ -303,7 +299,13 @@
           "regionVisibility": 2,
           "attachToken": "default",
           "templateOrigin": "default",
-          "rules": []
+          "rules": [
+            {
+              "trigger": "entry",
+              "action": "applyEffect",
+              "targetId": "FoYq5rKL3p9fzj8b"
+            }
+          ]
         },
         "regionLight": {
           "enabled": false,
@@ -316,7 +318,8 @@
           "animationSpeed": 5,
           "animationIntensity": 5
         },
-        "otherActivityAsParentType": true
+        "otherActivityAsParentType": true,
+        "name": ""
       }
     },
     "identifier": "silence",

@@ -34,13 +34,41 @@
       "idv": false,
       "ida": false
     },
-    "dnd5e": {}
+    "dnd5e": {},
+    "dae": {
+      "macro": {
+        "name": "匕首之云Cloud of Daggers",
+        "img": "modules/dnd5e_classpack/Nicons/Ability_Rogue_FanofKnives.png",
+        "type": "script",
+        "scope": "global",
+        "command": "",
+        "author": "dvg25zW2MvzsvMOU",
+        "ownership": {
+          "default": 3
+        },
+        "_id": null,
+        "folder": null,
+        "sort": 0,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.368",
+          "systemId": "dnd5e",
+          "systemVersion": "6.0.5",
+          "createdTime": null,
+          "modifiedTime": null,
+          "lastModifiedBy": null,
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null
+        }
+      }
+    }
   },
   "img": "icons/skills/melee/weapons-crossed-daggers-orange.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"><div class=\"description \"><p>你在施法距离内指定一点，并以该点为中心，将一个边长5尺的立方区域充满魔法创造的旋转匕首。生物在区域内开始其回合，或者在一个回合内第一次进入该区域时将受到4d4 的挥砍伤害。</p></div><div class=\"description \"><p> </p></div><div class=\"description \"><p>升环施法效应。</p></div><div class=\"description \"><p>使用3 环或更高法术位施展该法术时，你使用的法术位每比2 环高一环，法术的伤害就增加2d4。</p></div><div class=\"description \"><p> </p></div></div>",
+      "value": "<div class=\"description \"><div class=\"description \"><p>你在施法距离内指定一点，并以该点为中心，将一个边长5尺的立方区域充满魔法创造的旋转匕首。生物在区域内开始其回合，或者在一个回合内第一次进入该区域时将受到4d4 的挥砍伤害。</p><p>升环施法效应。</p><p>使用3 环或更高法术位施展该法术时，你使用的法术位每比2 环高一环，法术的伤害就增加2d4。</p></div></div>",
       "chat": ""
     },
     "source": {
@@ -96,8 +124,7 @@
       "vocal",
       "somatic",
       "material",
-      "concentration",
-      "mgc"
+      "concentration"
     ],
     "activities": {
       "lWMraFbZud2ikOy3": {
@@ -177,8 +204,8 @@
         "useConditionReason": "",
         "effectConditionText": "",
         "macroData": {
-          "name": "",
-          "command": ""
+          "name": "Midi伤害",
+          "command": "if (args[0].macroPass !== \"templatePlaced\") return;\n\nfor (const uuid of workflow.templateUuids) {\n  const region = await fromUuid(uuid);\n  if (region?.documentName !== \"Region\") continue;\n\n  const behavior = region.behaviors.find(b =>\n    b.type === \"midi-qol.regionActivity\" &&\n    b.system.sourceItemUuid === workflow.item.uuid\n  );\n  if (!behavior) continue;\n\n  const rules = foundry.utils.deepClone(behavior.system.rules);\n  const turnEnd = rules.find(r =>\n    r.trigger === \"turnEnd\" && r.action === \"useActivity\"\n  );\n  if (!turnEnd) continue;\n  console.log(turnEnd)\n\n  // 已有相同 Entry 规则时，不重复添加。\n  if (rules.some(r =>\n    r.trigger === \"entry\" &&\n    r.action === \"useActivity\" &&\n    r.targetUuid === turnEnd.targetUuid\n  )) continue;\n\n  rules.push({\n    trigger: \"entry\",\n    action: \"useActivity\",\n    targetUuid: turnEnd.targetUuid\n  });\n\n  await MidiQOL.socket().executeAsGM(\"setupRegion\", {\n    regionUuid: region.uuid,\n    update: {\n      behaviors: [{\n        _id: behavior.id,\n        system: { rules }\n      }]\n    }\n  });\n};\nif (args[0].macroPass !== \"postSave\") return;\n\nconst combat = game.combat;\nif (!combat?.active) return;\n\n// 成功和失败都算已经触发；按角色去重。\nconst actorIds = new Set(\n  [...workflow.saves, ...workflow.failedSaves]\n    .map(token => token.actor?.id)\n    .filter(Boolean)\n);\nif (!actorIds.size) return;\n\nconst turn = `${combat.round}.${combat.turn}`;\n\nfor (const uuid of workflow.templateUuids) {\n  const region = await fromUuid(uuid);\n  if (region?.documentName !== \"Region\") continue;\n\n  const behavior = region.behaviors.find(b =>\n    b.type === \"midi-qol.regionActivity\" &&\n    b.system.sourceItemUuid === workflow.item.uuid &&\n    b.system.oncePerTurn\n  );\n  if (!behavior) continue;\n\n  // 登记到区域后续使用的豁免活动，而非初次施法活动。\n  const entry = behavior.system.rules.find(r =>\n    r.trigger === \"entry\" && r.action === \"useActivity\"\n  );\n  if (!entry?.targetUuid) continue;\n\n  const activityKey = entry.targetUuid.split(\".\").at(-1);\n\n  for (const actorId of actorIds) {\n    const key =\n      `regionTriggers.${behavior.id}.${actorId}-${activityKey}`;\n\n    if (game.user.isGM) {\n      await combat.setFlag(\"midi-qol\", key, turn);\n    } else {\n      // 当前版本的此接口也支持通过 UUID 修改 Combat。\n      await MidiQOL.socket().executeAsGM(\"_gmSetFlag\", {\n        actorUuid: combat.uuid,\n        base: \"midi-qol\",\n        key,\n        value: turn\n      });\n    }\n  }\n}"
         },
         "ignoreTraits": {
           "idi": false,
@@ -227,16 +254,190 @@
           "rollAs": "target"
         },
         "name": "",
-        "img": null,
+        "img": "",
         "behaviors": [],
         "flags": {},
         "visibility": {
-          "level": {},
+          "level": {
+            "min": null,
+            "max": null
+          },
           "requireAttunement": false,
           "requireIdentification": false,
           "requireMagic": false
         },
-        "otherActivityId": null,
+        "otherActivityId": "",
+        "regionBehavior": {
+          "enabled": true,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": [
+            {
+              "trigger": "turnStart",
+              "action": "useActivity",
+              "targetId": "damageautomation"
+            }
+          ]
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
+      },
+      "2ty7eyApZqvNRbxK": {
+        "type": "damage",
+        "name": "DamageAutomation",
+        "_id": "2ty7eyApZqvNRbxK",
+        "img": "",
+        "sort": 100000,
+        "activation": {
+          "type": "action",
+          "override": true,
+          "condition": ""
+        },
+        "behaviors": [],
+        "consumption": {
+          "scaling": {
+            "allowed": false
+          },
+          "spellSlot": false,
+          "targets": []
+        },
+        "description": {
+          "value": "",
+          "chatFlavor": ""
+        },
+        "duration": {
+          "units": "inst",
+          "expiry": null,
+          "concentration": false,
+          "override": true
+        },
+        "effects": [],
+        "flags": {},
+        "range": {
+          "units": "self",
+          "override": true,
+          "special": ""
+        },
+        "target": {
+          "template": {
+            "contiguous": false,
+            "stationary": false,
+            "units": "ft",
+            "type": ""
+          },
+          "affects": {
+            "choice": false,
+            "type": ""
+          },
+          "override": true,
+          "prompt": true
+        },
+        "uses": {
+          "spent": 0,
+          "recovery": [],
+          "max": ""
+        },
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "damage": {
+          "critical": {
+            "allow": false
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              },
+              "number": 4,
+              "denomination": 4,
+              "bonus": "",
+              "modifiers": [],
+              "types": [
+                "slashing"
+              ],
+              "scaling": {
+                "mode": "whole",
+                "number": 2,
+                "formula": ""
+              }
+            }
+          ]
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": "none",
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
         "regionBehavior": {
           "enabled": false,
           "dispositionFilter": -1,

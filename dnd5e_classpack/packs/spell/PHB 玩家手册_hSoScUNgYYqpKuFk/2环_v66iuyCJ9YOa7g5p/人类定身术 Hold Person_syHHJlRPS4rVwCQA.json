@@ -68,7 +68,7 @@
           "item": "Compendium.dnd5e_classpack.spell.Item.syHHJlRPS4rVwCQA",
           "message": null
         },
-        "conditions": "{}",
+        "conditions": "[{\"k\":\"details.type.value\",\"o\":\"exact\",\"v\":\"humanoid\"}]",
         "magical": true
       },
       "disabled": false,
@@ -97,7 +97,9 @@
           "selfTarget": false,
           "selfTargetAlways": false,
           "dontApply": false,
-          "macroRepeat": "none"
+          "macroRepeat": "none",
+          "applicationMode": "default",
+          "expiryMode": "default"
         },
         "dnd5e": {
           "riders": {}
@@ -147,7 +149,7 @@
     "target": {
       "affects": {
         "type": "creature",
-        "count": "1",
+        "count": "@item.level - 1",
         "choice": false,
         "special": "[\"human\", \"humanoid\"].includes(raceOrType)"
       },
@@ -181,8 +183,7 @@
       "vocal",
       "somatic",
       "material",
-      "concentration",
-      "mgc"
+      "concentration"
     ],
     "activities": {
       "dnd5eactivity000": {

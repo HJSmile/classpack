@@ -44,7 +44,7 @@
       "origin": null,
       "transfer": false,
       "_id": "5VOrC80ki3h1Y2Qs",
-      "type": "base",
+      "type": "auraeffects.aura",
       "system": {
         "changes": [
           {
@@ -79,13 +79,28 @@
           "message": null
         },
         "conditions": "{}",
-        "magical": true
+        "magical": true,
+        "showRadius": false,
+        "applyToSelf": true,
+        "bestFormula": "",
+        "canStack": false,
+        "collisionType": "move",
+        "color": null,
+        "combatOnly": false,
+        "disableOnHidden": true,
+        "distanceFormula": "30",
+        "disposition": 1,
+        "evaluatePreApply": false,
+        "overrideName": "",
+        "script": "",
+        "stashedChanges": [],
+        "stashedStatuses": []
       },
       "disabled": false,
       "duration": {
-        "value": null,
+        "value": 3600,
         "units": "seconds",
-        "expiry": null,
+        "expiry": "turnStart",
         "expired": false
       },
       "description": "",
@@ -103,13 +118,19 @@
           "stackable": "noneName",
           "showIcon": false,
           "durationExpression": "",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "default",
+          "expiryMode": "default",
+          "macroRepeat": "none"
         },
         "dnd5e": {
           "riders": {}
         },
         "core": {
           "overlay": false
+        },
+        "auraeffects": {
+          "originalType": "base"
         }
       },
       "_stats": {
@@ -153,7 +174,7 @@
     "target": {
       "affects": {
         "choice": false,
-        "type": ""
+        "type": "self"
       },
       "template": {
         "units": "ft",
@@ -184,8 +205,7 @@
     },
     "properties": [
       "vocal",
-      "concentration",
-      "mgc"
+      "concentration"
     ],
     "activities": {
       "dnd5eactivity000": {
@@ -218,7 +238,10 @@
           {
             "_id": "5VOrC80ki3h1Y2Qs",
             "uuid": null,
-            "level": {}
+            "level": {
+              "min": null,
+              "max": null
+            }
           }
         ],
         "range": {
@@ -230,12 +253,14 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "stationary": false
+            "stationary": false,
+            "type": ""
           },
           "affects": {
-            "choice": false
+            "choice": false,
+            "type": "self"
           },
-          "override": false
+          "override": true
         },
         "uses": {
           "spent": 0,
@@ -302,11 +327,14 @@
           "rollAs": "target"
         },
         "otherActivityId": "none",
-        "img": null,
+        "img": "",
         "behaviors": [],
         "flags": {},
         "visibility": {
-          "level": {},
+          "level": {
+            "min": null,
+            "max": null
+          },
           "requireAttunement": false,
           "requireIdentification": false,
           "requireMagic": false
@@ -333,7 +361,8 @@
           "animationSpeed": 5,
           "animationIntensity": 5
         },
-        "otherActivityAsParentType": true
+        "otherActivityAsParentType": true,
+        "name": ""
       }
     },
     "identifier": "circle-of-power",
