@@ -108,7 +108,7 @@
   ],
   "system": {
     "description": {
-      "value": "<p>你试图将目标生物束缚在一个只有他自己能感知的幻觉牢房中。在距离内你可见的一个生物必须进行智力豁免检定。如果目标免疫魅惑，它在这次豁免中自动成功。若豁免成功，目标受到5d10精神伤害，同时法术结束。若豁免失败，在造成5d10精神伤害的同时你立即创造出环绕目标所在空间的某种危险区域。你也许会让目标感觉到自己被烈火、被浮动的刀锋、被可怕的獠牙所包围。<br>无论你采用什么形式的幻象，目标都不能越过它看到或听到任何事物，并且在法术持续时间内被束缚。如果目标移动出幻象，穿过它进行一次近战攻击检定，或尝试用身体的任何部分穿过它，目标受到10d10精神伤害，然后法术结束。</p>",
+      "value": "<p>你试图将目标生物束缚在一个只有他自己能感知的幻觉牢房中。在距离内你可见的一个生物必须进行智力豁免检定。如果目标免疫魅惑，它在这次豁免中自动成功。若豁免成功，目标受到5d10心灵伤害，同时法术结束。若豁免失败，在造成5d10心灵伤害的同时你立即创造出环绕目标所在空间的某种危险区域。你也许会让目标感觉到自己被烈火、被浮动的刀锋、被可怕的獠牙所包围。 无论你采用什么形式的幻象，目标都不能越过它看到或听到任何事物，并且在法术持续时间内被束缚。如果目标移动出幻象，穿过它进行一次近战攻击检定，或尝试用身体的任何部分穿过它，目标受到10d10心灵伤害，然后法术结束。</p>",
       "chat": ""
     },
     "source": {
@@ -162,8 +162,7 @@
     },
     "properties": [
       "somatic",
-      "concentration",
-      "mgc"
+      "concentration"
     ],
     "activities": {
       "dnd5eactivity000": {
@@ -196,8 +195,11 @@
           {
             "_id": "vP39Ils1v92w5Ys6",
             "uuid": null,
-            "level": {},
-            "onSave": false
+            "onSave": false,
+            "level": {
+              "min": null,
+              "max": null
+            }
           }
         ],
         "range": {
@@ -254,7 +256,8 @@
             "calculation": "spellcasting",
             "formula": ""
           },
-          "visible": true
+          "visible": true,
+          "bonus": ""
         },
         "sort": 0,
         "useConditionText": "",
@@ -296,7 +299,7 @@
           "forceDamageDialog": "default",
           "otherActivityAsParentType": true,
           "removeChatButtons": "default",
-          "magicEffect": false,
+          "magicEffect": true,
           "magicDamage": false,
           "noConcentrationCheck": false,
           "skipConcentrationCheck": false,
@@ -315,7 +318,10 @@
         "behaviors": [],
         "flags": {},
         "visibility": {
-          "level": {},
+          "level": {
+            "min": null,
+            "max": null
+          },
           "requireAttunement": false,
           "requireIdentification": false,
           "requireMagic": false
