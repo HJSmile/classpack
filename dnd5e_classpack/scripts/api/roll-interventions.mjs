@@ -76,6 +76,13 @@ export function createRollInterventionApi(api) {
             return { ...candidate, user, reveal, spend: action === 'spend' };
           }));
           const spenders = answers.filter(answer => answer.spend);
+          const originalDie = api.rolls.primaryD20(context.roll);
+          const original = {
+            originalFormula: context.roll.formula,
+            originalAdvantageMode: context.roll.options.advantageMode,
+            originalCount: originalDie.results.length,
+            originalResults: api.rolls.d20Candidates(context.roll).map(({ index, raw }) => ({ index, raw }))
+          };
           let state = candidates.length ? 'declined' : 'unavailable', audit = {};
           if (spenders.length) {
             const receipt = await api.resources.commitLocal(spenders.map(candidate => ({
@@ -94,8 +101,13 @@ export function createRollInterventionApi(api) {
             }
           }
           context.roll.options.classpackInterventions ??= {};
+          const selectedIndex = api.rolls.primaryD20(context.roll).results.findIndex(result => result.active && !result.rerolled);
+          const selectedResult = api.rolls.primaryD20(context.roll).results[selectedIndex];
           context.roll.options.classpackInterventions[id] = {
-            requestId: request.id, state, spentActors: spenders.map(candidate => candidate.actor.uuid), ...audit
+            requestId: request.id, label: provider.label ?? id, state,
+            spentActors: spenders.map(candidate => candidate.actor.uuid), ...original, ...audit,
+            selectedIndex, selectedResult: selectedResult?.result,
+            selectedCounted: selectedResult?.count ?? selectedResult?.result
           };
         }
       } catch (error) {
@@ -115,8 +127,9 @@ export function createRollInterventionApi(api) {
   function installEffectFilter() {
     if (filterInstalled || !game.modules.get('midi-qol')?.active || !globalThis.libWrapper) return false;
     libWrapper.register(MODULE_ID, 'CONFIG.ActiveEffect.documentClass.prototype.shouldApplyChange', function(wrapped, change, options) {
-      return suppressLegacyChange(this, change) ? false : wrapped(change, options);
-    }, 'MIXED');
+      const applicable = wrapped(change, options);
+      return suppressLegacyChange(this, change) ? false : applicable;
+    }, 'WRAPPER');
     filterInstalled = true; return true;
   }
   function install() {

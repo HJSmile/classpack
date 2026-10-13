@@ -32,6 +32,7 @@ import { registerMigrationSettings, notifyPendingMigrations, worldMigrations } f
 import { createAutomationRegistry } from "./api/automations.mjs";
 import { createResourceApi } from "./api/resources.mjs";
 import { createRollApi } from "./api/rolls.mjs";
+import { createRollDisplayApi } from "./api/roll-display.mjs";
 import { createRollInterventionApi } from "./api/roll-interventions.mjs";
 import { registerLucky2014 } from "./api/lucky2014.mjs";
 
@@ -170,6 +171,7 @@ api.firstOwner = firstOwner;
 api.automations = createAutomationRegistry();
 api.resources = createResourceApi(api);
 api.rolls = createRollApi(api);
+api.rollDisplay = createRollDisplayApi();
 api.rollInterventions = createRollInterventionApi(api);
 api.lucky2014 = registerLucky2014(api);
 
@@ -210,6 +212,7 @@ Hooks.once("socketlib.ready", () => {
 
 Hooks.once("ready", () => {
   api.compatibility = checkCompatibility();
+  api.rollDisplay.install();
   try {
     if (game.modules.get("midi-qol")?.active && api.socket && globalThis.libWrapper) {
       api.lucky2014.prepareLegacyBridge();
