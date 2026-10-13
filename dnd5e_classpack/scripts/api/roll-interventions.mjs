@@ -67,8 +67,9 @@ export function createRollInterventionApi(api) {
             const user = api.firstOwner(candidate.actor) ?? game.users.activeGM;
             if (!user?.active) throw new Error('The decision controller disconnected.');
             const reveal = user.isGM || !['blind', 'blindroll'].includes(context.rollMode);
-            const dice = api.rolls.d20Candidates(context.roll).map(choice =>
-              `<span class="cp-roll-die">${reveal ? choice.raw : '?'}</span>`).join('');
+            const dice = api.rolls.d20Display(context.roll, { reveal });
+            const strategy = provider.selectionStrategy?.(context, candidate);
+            const useLabel = strategy === 'highest' ? '使用（取高）' : strategy === 'lowest' ? '使用（取低）' : '使用';
             const actorPrefix = `${context.actor.name}：`;
             const rollLabel = String(context.label ?? context.type);
             const detail = context.activity?.item?.name ?? (rollLabel.startsWith(actorPrefix)
@@ -76,8 +77,8 @@ export function createRollInterventionApi(api) {
             const subject = candidate.actor.uuid === context.actor.uuid ? detail : `${context.actor.name} · ${detail}`;
             const action = await api.dialogUtils.buttonDialog(`${provider.label} · ${candidate.actor.name}`,
               `<div class="cp-roll-context"><span>${escape(subject)}</span><span class="cp-roll-remaining">剩余 ${api.resources.remaining(candidate.item)}</span></div>
-               <div class="cp-roll-dice">${dice}</div>`,
-              [['使用', 'spend', { tooltip: `消耗 ${candidate.amount ?? 1} 次` }], ['跳过', 'decline']],
+               ${dice}`,
+              [[useLabel, 'spend', { tooltip: `消耗 ${candidate.amount ?? 1} 次` }], ['跳过', 'decline']],
               { userId: user.id, width: 360, compact: true, displayAsRows: false });
             return { ...candidate, user, reveal, spend: action === 'spend' };
           }));

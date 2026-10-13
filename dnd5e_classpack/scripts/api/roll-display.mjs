@@ -47,7 +47,8 @@ export function createRollDisplayApi() {
     for (const decision of decisions) {
       const entry = doc.createElement('div'), heading = doc.createElement('strong'), detail = doc.createElement('span');
       entry.className = 'classpack-roll-intervention';
-      heading.textContent = `${decision.label ?? decision.id}：`;
+      const strategy = decision.strategy === 'highest' ? '（取高）' : decision.strategy === 'lowest' ? '（取低）' : '';
+      heading.textContent = `${decision.label ?? decision.id}${strategy}：`;
       detail.textContent = decision.state === 'cancelled'
         ? '互相抵消，无额外骰。'
         : `原骰 ${decision.originalResults.map(result => result.raw).join(' / ')} · `

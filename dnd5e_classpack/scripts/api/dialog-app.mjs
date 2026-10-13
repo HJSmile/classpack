@@ -164,6 +164,8 @@ class ClasspackDialogApp extends HandlebarsApplicationMixin(ApplicationV2) {
           slots: options.map(option => ({
             ...common(option),
             value: option.options?.value,
+            dice: option.options?.dice,
+            diceClasses: option.options?.diceClasses,
             tooltip: option.options?.tooltip,
             reference: option.options?.reference
           }))

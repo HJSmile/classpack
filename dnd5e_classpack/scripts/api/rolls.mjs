@@ -17,6 +17,23 @@ export function createRollApi(api) {
       return [{ key: `original-${index}`, index, raw: result.result, active: !!result.active }];
     });
   }
+  function d20Classes(value, { reveal = true, classes = '' } = {}) {
+    const native = reveal ? String(classes).split(/\s+/).filter(name => /^[a-z][\w-]*$/i.test(name)
+      && !['discarded', 'rerolled', 'exploded'].includes(name)) : [];
+    if (reveal && !classes) {
+      if (value === 1) native.push('min');
+      else if (value === 20) native.push('max');
+    }
+    return [...new Set(['roll', 'd20', ...native])].join(' ');
+  }
+  function d20Display(roll, { reveal = true } = {}) {
+    const tooltip = primaryD20(roll).getTooltipData?.();
+    const dice = d20Candidates(roll).map(choice => {
+      const classes = d20Classes(choice.raw, { reveal, classes: tooltip?.rolls?.[choice.index]?.classes });
+      return `<li class="${classes}">${reveal ? choice.raw : '?'}</li>`;
+    }).join('');
+    return `<div class="dice-tooltip cp-roll-dice"><div class="dice"><ol class="dice-rolls">${dice}</ol></div></div>`;
+  }
   function selectD20(original, { additionalResults = [], selected, includeDiscarded = true } = {}) {
     const choices = d20Candidates(original, { includeDiscarded });
     const roll = CONFIG.Dice.D20Roll.fromData(clone(original.toJSON())), die = primaryD20(roll);
@@ -44,11 +61,35 @@ export function createRollApi(api) {
     return roll;
   }
   function replaceD20(original, value) { return selectD20(original, { additionalResults: [value], selected: 'extra' }); }
+  function selectD20By(original, { additionalResults = [], strategy = 'highest', includeDiscarded = true } = {}) {
+    if (!['highest', 'lowest'].includes(strategy)) throw new Error('Unknown d20 selection strategy.');
+    const die = primaryD20(original), direction = strategy === 'highest' ? 1 : -1;
+    const candidates = d20Candidates(original, { includeDiscarded }).map(choice => ({
+      ...choice, counted: die.results[choice.index].count ?? choice.raw
+    }));
+    additionalResults.forEach((raw, index) => {
+      if (!Number.isInteger(raw) || raw < 1 || raw > 20) throw new Error('An additional d20 result must be 1–20.');
+      let counted = raw;
+      if (Number.isFinite(die.options?.minimum)) counted = Math.max(counted, die.options.minimum);
+      if (Number.isFinite(die.options?.maximum)) counted = Math.min(counted, die.options.maximum);
+      candidates.push({ key: additionalResults.length === 1 ? 'extra' : `extra-${index}`, raw, counted, active: false });
+    });
+    candidates.sort((a, b) => direction * (b.counted - a.counted || b.raw - a.raw)
+      || Number(b.active) - Number(a.active));
+    const selected = candidates[0]?.key;
+    return { roll: selectD20(original, { additionalResults, selected, includeDiscarded }),
+      audit: { selected, additionalResults, strategy } };
+  }
   async function selectD20Dialog(roll, { additionalResults = [], user, label = '选择 d20', includeDiscarded = true, reveal = true } = {}) {
     const choices = d20Candidates(roll, { includeDiscarded });
-    const buttons = choices.map((choice, i) => [`原骰 ${i + 1}`, choice.key, { value: reveal ? choice.raw : '?' }]);
+    const tooltip = primaryD20(roll).getTooltipData?.();
+    const buttons = choices.map((choice, i) => [`原骰 ${i + 1}`, choice.key, {
+      value: reveal ? choice.raw : '?', dice: true,
+      diceClasses: d20Classes(choice.raw, { reveal, classes: tooltip?.rolls?.[choice.index]?.classes })
+    }]);
     additionalResults.forEach((value, i) => buttons.push([
-      `额外骰 ${i + 1}`, additionalResults.length === 1 ? 'extra' : `extra-${i}`, { value: reveal ? value : '?' }
+      `额外骰 ${i + 1}`, additionalResults.length === 1 ? 'extra' : `extra-${i}`,
+      { value: reveal ? value : '?', dice: true, diceClasses: d20Classes(value, { reveal }) }
     ]));
     const defaultKey = choices.find(choice => choice.active)?.key ?? choices[0]?.key;
     let selected;
@@ -146,6 +187,6 @@ export function createRollApi(api) {
     installed = true;
     return true;
   }
-  return Object.freeze({ primaryD20, d20Candidates, selectD20, replaceD20, selectD20Dialog,
+  return Object.freeze({ primaryD20, d20Candidates, d20Display, selectD20, selectD20By, replaceD20, selectD20Dialog,
     syncNaturalResults, registerInterceptor, dispatch, prepare, install, get installed() { return installed; } });
 }
