@@ -226,12 +226,12 @@
     "dnd5e": {},
     "dae": {
       "macro": {
-        "name": "奥术回想",
+        "name": "奥术回想 Arcane Recovery",
         "img": "icons/skills/trades/academics-book-study-runes.webp",
         "type": "script",
         "scope": "global",
-        "command": "// 奥术回想 - 物品宏形式\n// 点击角色卡内的专属能力或物品时使用\n// 兼容 FoundryVTT DND5e\n \nif (!actor) return ui.notifications.warn(\"没有找到角色！\");\nif (!item) return ui.notifications.warn(\"没有找到奥术回想ArcaneRecovery物品！\");\n \n// 检查使用次数\nconst uses = item.system.uses?.value ?? 0;\nconst usesMax = item.system.uses?.max ?? 1;\nif (uses < 1) {\n  return ui.notifications.warn(\"奥术回想已没有剩余使用次数！\");\n}\n \n// 先消耗一次\nawait item.update({\"system.uses.value\": uses - 1});\n \n// 以下为奥术回想的主要功能\nconst wizardLevel = actor.items.find(i => i.type===\"class\" && i.name===\"法师wizard\")?.system.levels;\nif (!wizardLevel) return ui.notifications.warn(\"找不到你的法师等级！\");\n \nconst maxPoints = Math.ceil(wizardLevel / 2);\nconst slotLevels = [1,2,3,4,5];\n \nlet maxRecoverable = {};\nslotLevels.forEach(lvl => {\n  const total = getProperty(actor.system, `spells.spell${lvl}.max`) ?? 0;\n  const used = total - (getProperty(actor.system, `spells.spell${lvl}.value`) ?? 0);\n  maxRecoverable[lvl] = Math.max(0, used);\n});\n \nlet content = `<form><div>你最多可恢复一共 <b>${maxPoints}</b> 环法术位（注意奥术回想所恢复的单个环位最高不能超过5环）：</div>`;\nslotLevels.forEach(lvl => {\n  content += `\n    <div class=\"form-group\">\n      <label>${lvl}环（已消耗: ${maxRecoverable[lvl]}）:</label>\n      <input type=\"number\" min=\"0\" max=\"${maxRecoverable[lvl]}\" value=\"0\" id=\"arcane-lvl${lvl}\">\n    </div>\n  `;\n});\ncontent += `</form>`;\n \nnew Dialog({\n  title: \"奥术回想 - 恢复法术位\",\n  content,\n  buttons: {\n    confirm: {\n      label: \"恢复\",\n      callback: async (html) => {\n        let totalSpent = 0;\n        let restoreData = {};\nslotLevels.forEach(lvl => {\n          let n = Number(html.find(`#arcane-lvl${lvl}`).val()) || 0;\n          n = Math.min(n, maxRecoverable[lvl]);\n          totalSpent += lvl * n;\n          restoreData[lvl] = n;\n});\n        if (totalSpent === 0) {\n          return ui.notifications.warn(\"你没有选择恢复任何法术位。\");\n}\n        if (totalSpent > maxPoints) {\n          return ui.notifications.warn(`你选择的法术位总环数为${totalSpent}，已超过最大可恢复点数${maxPoints}！`);\n}\n \n        // 更新法术位\n        let updates = {};\nslotLevels.forEach(lvl => {\n          if (restoreData[lvl] > 0) {\n            const path = `system.spells.spell${lvl}.value`;\n            const cur = getProperty(actor, path) ?? 0;\n            updates[path] = Math.min(\n              cur + restoreData[lvl],\n              getProperty(actor.system, `spells.spell${lvl}.max`) ?? 0\n            );\n}\n});\n \n        await actor.update(updates);\n \n        // 聊天提示\n        let txt = `${actor.name} 用奥术回想恢复了：`;\n        txt += slotLevels.filter(lvl => restoreData[lvl]>0).map(lvl=>`${restoreData[lvl]}个${lvl}环`).join(\"，\");\n        txt += `（共消耗点数${totalSpent}，最大可用${maxPoints}）`;\n        ChatMessage.create({\n          speaker: ChatMessage.getSpeaker({actor: actor}),\n          content: txt\n});\n}\n    },\n    cancel: { label: \"取消\" }\n}\n}).render(true);",
-        "author": "WqWGW8MuBm7BNHxt",
+        "command": "",
+        "author": "dvg25zW2MvzsvMOU",
         "ownership": {
           "default": 3
         },
@@ -240,14 +240,15 @@
         "sort": 0,
         "flags": {},
         "_stats": {
-          "coreVersion": "12.343",
+          "coreVersion": "14.369",
           "systemId": "dnd5e",
-          "systemVersion": "4.3.9",
+          "systemVersion": "6.0.6",
           "createdTime": null,
           "modifiedTime": null,
           "lastModifiedBy": null,
           "compendiumSource": null,
-          "duplicateSource": null
+          "duplicateSource": null,
+          "exportSource": null
         }
       }
     }

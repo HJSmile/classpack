@@ -27,7 +27,35 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {}
+    "dnd5e": {},
+    "dae": {
+      "macro": {
+        "name": "巨武器大师 Great Weapon Master",
+        "img": "icons/weapons/hammers/hammer-double-glowing-yellow.webp",
+        "type": "script",
+        "scope": "global",
+        "command": "// 专长物品自带 OnUse 宏。挂载 preAttackRoll、preCheckHits、postDamageRoll、postActiveEffects。\nconst pass = args[0].macroPass;\nconst attacker = macroItem.actor;\nconst attack = workflow.item;\nconst bonus = attack.getFlag(\"world\", \"greatWeaponMasterBonus\");\nconst combat = game.combat;\nconst ownTurn = combat?.combatant?.tokenId === workflow.tokenId;\n\n// 收藏的效用物品：先选原武器，取消时不消耗附赠动作。\nif (pass === \"preItemRoll\" && bonus) {\n  if (workflow.targets.size !== 1) {\n    ui.notifications.warn(\"请指定一个附赠攻击目标。\");\n    return false;\n  }\n  const weapons = attacker.items.filter(i => i.type === \"weapon\" && i.system.equipped\n    && i.system.activities.some(a => a.type === \"attack\" && a.getActionType() === \"mwak\"));\n  if (!weapons.length) return false;\n  const selectedWeapon = weapons.length === 1 ? weapons[0] : await dnd5eClasspack.dialogUtils.selectDocumentDialog(\n    \"巨武器大师 · 选择武器\", \"\", weapons,\n    { userId: dnd5eClasspack.firstOwner(attacker, true) }\n  );\n  if (!selectedWeapon) return false;\n  workflow.greatWeaponMasterWeapon = selectedWeapon.id;\n  return;\n}\n\nif (pass === \"postActiveEffects\" && bonus) {\n  if (workflow.greatWeaponMasterUsed) return;\n  workflow.greatWeaponMasterUsed = true;\n  const selectedWeapon = attacker.items.get(workflow.greatWeaponMasterWeapon);\n  if (selectedWeapon) await MidiQOL.completeItemUse(selectedWeapon, {\n    chooseActivity: true,\n    midiOptions: {\n      targetUuids: [...workflow.targets].map(t => t.document.uuid),\n      workflowOptions: {\n        notBonusAction: true, notReaction: true, greatWeaponMasterAttack: true,\n        attackMode: selectedWeapon.system.attackModes.find(m => [\"oneHanded\", \"twoHanded\"].includes(m.value))?.value\n      }\n    }\n  });\n  await fromUuidSync(attack.getFlag(\"dnd5e\", \"dependentOn\"))?.delete();\n  return;\n}\n\nif (attack.type !== \"weapon\" || workflow.activity.type !== \"attack\") return;\nconst melee = workflow.activity.getActionType(workflow.attackMode) === \"mwak\";\nconst heavy = attack.system.properties.has(\"hvy\") && attack.system.proficiencyMultiplier > 0;\n\nif (pass === \"preAttackRoll\") {\n  const activity = workflow.activity;\n  const previous = workflow.greatWeaponMaster;\n  const originalBonus = previous?.activity === activity ? previous.originalBonus : activity.attack.bonus;\n  const originalDialog = previous?.activity === activity ? previous.originalDialog : activity.midiProperties.forceRollDialog;\n  activity.attack.bonus = originalBonus;\n  activity.midiProperties.forceRollDialog = originalDialog;\n  // 每次攻击都重新询问，不使用可重置的 attackRollCount 作为技能使用限制。\n  workflow.greatWeaponMaster = { activity, originalBonus, originalDialog, enabled: false };\n  if (heavy && workflow.activity.getActionType() === \"mwak\") workflow.greatWeaponMaster.enabled = await dnd5eClasspack.dialogUtils.confirm(\n    \"巨武器大师\", \"<p>攻击 −5，命中伤害 +10。</p>\",\n    { userId: dnd5eClasspack.firstOwner(attacker, true) }\n  );\n  const state = workflow.greatWeaponMaster;\n  if (state.enabled) {\n    activity.attack.bonus = originalBonus ? `(${originalBonus}) - 5[巨武器大师]` : \"-5[巨武器大师]\";\n  }\n  return;\n}\n\nconst state = workflow.greatWeaponMaster;\nif (!state) return;\nif (pass === \"preCheckHits\") {\n  if ((state.enabled || workflow.workflowOptions.greatWeaponMasterAttack) && !melee) {\n    workflow.aborted = true;\n    ui.notifications.warn(\"巨武器大师攻击必须使用近战模式。\");\n    return;\n  }\n  if (!heavy || !melee) {\n    state.enabled = false;\n  }\n} else if (pass === \"postDamageRoll\") {\n  if (!state.enabled || state.damageCount === workflow.damageRollCount) return;\n  const rolls = [...workflow.damageRolls];\n  if (!rolls.length) return;\n  rolls[0] = MidiQOL.addRollTo(rolls[0], await new Roll(\"10[巨武器大师]\").evaluate());\n  await workflow.setDamageRolls(rolls);\n  state.damageCount = workflow.damageRollCount;\n} else if (pass === \"postActiveEffects\") {\n  const damages = workflow.damageList?.length ? workflow.damageList : [workflow.damageItem];\n  const killed = damages.some(d => d?.wasHit !== false && d?.oldHP > 0 && d.newHP <= 0 && d.hpDamage > 0);\n  if (!melee || (combat?.started && !ownTurn) || (!workflow.isCritical && !killed)) return;\n  if (state.created || attacker.items.some(i => i.getFlag(\"world\", \"greatWeaponMasterBonus\")\n    && i.system.uses.value > 0)) return;\n  state.created = true;\n\n  const [effect] = await attacker.createEmbeddedDocuments(\"ActiveEffect\", [{\n    name: \"巨武器大师：附赠攻击\", type: \"base\", img: macroItem.img,\n    origin: macroItem.uuid, duration: { expiry: \"targetEnd\" }\n  }]);\n  const id = foundry.utils.randomID();\n  const [temporary] = await attacker.createEmbeddedDocuments(\"Item\", [{\n    name: \"巨武器大师：附赠攻击\", type: \"feat\", img: macroItem.img, effects: [],\n    system: {\n      uses: { max: \"1\", spent: 0, recovery: [] },\n      activities: { [id]: {\n        _id: id, name: \"附赠攻击\", type: \"utility\",\n        activation: { type: \"bonus\", cost: 1 },\n        target: { affects: { type: \"creature\", count: \"1\" } },\n        consumption: { targets: [{ type: \"itemUses\", target: \"\", value: \"1\" }] }\n      } }\n    },\n    flags: {\n      world: { greatWeaponMasterBonus: true }, dnd5e: { dependentOn: effect.uuid },\n      \"midi-qol\": { onUseMacroName: `[preItemRoll]ItemMacro.${macroItem.uuid},[postActiveEffects]ItemMacro.${macroItem.uuid}` }\n    }\n  }]);\n  await attacker.system.addFavorite({ type: \"item\", id: foundry.utils.buildRelativeUuid(temporary, attacker) });\n  await foundry.documents.ChatMessage.implementation.create({\n    speaker: foundry.documents.ChatMessage.getSpeaker({ actor: attacker, token: workflow.token?.document }),\n    content: await foundry.applications.ux.TextEditor.enrichHTML(\n      `<div class=\"chat-card\"><p><strong>巨武器大师：附赠攻击可用</strong></p>\n      <p>可用附赠动作发动一次近战武器攻击。</p>\n      <p>@UUID[${temporary.uuid}]{附赠攻击} 已加入角色收藏。</p></div>`,\n      { relativeTo: attacker }\n    )\n  });\n}",
+        "author": "dvg25zW2MvzsvMOU",
+        "ownership": {
+          "default": 3
+        },
+        "_id": null,
+        "folder": null,
+        "sort": 0,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.369",
+          "systemId": "dnd5e",
+          "systemVersion": "6.0.6",
+          "createdTime": null,
+          "modifiedTime": null,
+          "lastModifiedBy": null,
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null
+        }
+      }
+    }
   },
   "img": "icons/weapons/hammers/hammer-double-glowing-yellow.webp",
   "system": {
@@ -43,7 +71,7 @@
     },
     "cover": null,
     "uses": {
-      "max": "0",
+      "max": "",
       "spent": 0,
       "recovery": []
     },
@@ -52,166 +80,7 @@
       "subtype": ""
     },
     "requirements": "",
-    "activities": {
-      "dnd5eactivity000": {
-        "_id": "dnd5eactivity000",
-        "type": "utility",
-        "activation": {
-          "type": "special",
-          "value": 0,
-          "condition": "",
-          "override": false
-        },
-        "consumption": {
-          "targets": [],
-          "scaling": {
-            "allowed": false,
-            "max": ""
-          },
-          "spellSlot": true
-        },
-        "description": {
-          "chatFlavor": "",
-          "value": ""
-        },
-        "duration": {
-          "concentration": false,
-          "units": "inst",
-          "special": "",
-          "override": false,
-          "expiry": null
-        },
-        "effects": [
-          {
-            "_id": "gRBkT5XGeqYmaqF1",
-            "uuid": null,
-            "level": {}
-          }
-        ],
-        "range": {
-          "units": "self",
-          "special": "",
-          "override": false
-        },
-        "target": {
-          "template": {
-            "count": "",
-            "contiguous": false,
-            "type": "",
-            "size": "",
-            "width": "",
-            "height": "",
-            "units": "ft",
-            "stationary": false
-          },
-          "affects": {
-            "count": "",
-            "type": "self",
-            "choice": false,
-            "special": ""
-          },
-          "prompt": true,
-          "override": false
-        },
-        "uses": {
-          "spent": 0,
-          "max": "",
-          "recovery": []
-        },
-        "roll": {
-          "formula": "",
-          "name": "",
-          "prompt": false,
-          "visible": false
-        },
-        "sort": 0,
-        "img": null,
-        "behaviors": [],
-        "flags": {},
-        "visibility": {
-          "level": {},
-          "requireAttunement": false,
-          "requireIdentification": false,
-          "requireMagic": false
-        },
-        "useConditionText": "",
-        "useConditionReason": "",
-        "effectConditionText": "",
-        "otherActivityId": null,
-        "macroData": {
-          "name": "",
-          "command": ""
-        },
-        "ignoreTraits": {
-          "idi": false,
-          "idr": false,
-          "idv": false,
-          "ida": false,
-          "idm": false
-        },
-        "midiProperties": {
-          "ignoreTraits": [],
-          "triggeredActivityId": "none",
-          "triggeredActivityConditionText": "",
-          "triggeredActivityTargets": "targets",
-          "triggeredActivityRollAs": "self",
-          "triggeredActivityConsume": true,
-          "triggeredActivityConfigure": true,
-          "autoConsume": false,
-          "forceConsumeDialog": "default",
-          "forceRollDialog": "default",
-          "forceDamageDialog": "default",
-          "confirmTargets": "default",
-          "autoTargetType": "any",
-          "autoTargetAction": "default",
-          "automationOnly": false,
-          "otherActivityCompatible": true,
-          "otherActivityAsParentType": true,
-          "identifier": "",
-          "displayActivityName": false,
-          "rollMode": "default",
-          "chooseEffects": false,
-          "toggleEffect": false,
-          "ignoreFullCover": false,
-          "removeChatButtons": "default",
-          "magicEffect": false,
-          "magicDamage": false,
-          "noConcentrationCheck": false,
-          "skipConcentrationCheck": false,
-          "autoCEEffects": "default"
-        },
-        "isOverTimeFlag": false,
-        "overTimeProperties": {
-          "saveRemoves": true,
-          "rollAs": "target",
-          "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
-        },
-        "regionBehavior": {
-          "enabled": false,
-          "dispositionFilter": -1,
-          "excludeSource": true,
-          "oncePerTurn": true,
-          "wallRestriction": "none",
-          "regionVisibility": 2,
-          "attachToken": "default",
-          "templateOrigin": "default",
-          "rules": []
-        },
-        "regionLight": {
-          "enabled": false,
-          "dim": 0,
-          "bright": 0,
-          "color": null,
-          "alpha": 0.5,
-          "luminosity": 0.5,
-          "animationType": "",
-          "animationSpeed": 5,
-          "animationIntensity": 5
-        },
-        "otherActivityAsParentType": true
-      }
-    },
+    "activities": {},
     "identifier": "",
     "advancement": {},
     "crewed": false,
@@ -229,7 +98,7 @@
   "effects": [
     {
       "name": "巨武器大师",
-      "origin": null,
+      "origin": "Compendium.dnd5e_classpack.feats-all.Item.kQmEVRSXBdXHaI7v",
       "duration": {
         "value": null,
         "units": "seconds",
@@ -239,7 +108,7 @@
       "disabled": false,
       "_id": "gRBkT5XGeqYmaqF1",
       "description": "",
-      "transfer": false,
+      "transfer": true,
       "statuses": [],
       "flags": {
         "dae": {
@@ -251,9 +120,10 @@
           "dontApply": false,
           "stackable": "noneName",
           "durationExpression": "",
-          "specialDuration": [
-            "1Attack:mwak"
-          ]
+          "specialDuration": [],
+          "applicationMode": "default",
+          "expiryMode": "default",
+          "macroRepeat": "none"
         },
         "core": {
           "overlay": false
@@ -276,24 +146,44 @@
       "system": {
         "changes": [
           {
-            "key": "system.rolls.attack.mwak.bonus",
-            "value": "- 5",
-            "priority": 20,
-            "type": "add",
+            "key": "flags.midi-qol.onUseMacroName",
+            "type": "custom",
+            "value": "ItemMacro,preCheckHits",
             "phase": "initial",
-            "_id": "GKIZNhylLQnXCsVR",
+            "_id": "yQ3j9srTv9Pr2uqu",
             "conditions": "{}",
-            "replacement": ""
+            "replacement": "",
+            "priority": null
           },
           {
-            "key": "system.rolls.damage.mwak.bonus",
-            "value": "+ 10",
-            "priority": 20,
-            "type": "add",
+            "key": "flags.midi-qol.onUseMacroName",
+            "type": "custom",
+            "value": "ItemMacro,postDamageRoll",
             "phase": "initial",
-            "_id": "cYyPvYeskN8Aw32K",
+            "_id": "zsIckbhcmGl4RrjZ",
             "conditions": "{}",
-            "replacement": ""
+            "replacement": "",
+            "priority": null
+          },
+          {
+            "key": "flags.midi-qol.onUseMacroName",
+            "type": "custom",
+            "value": "ItemMacro,preAttackRoll",
+            "phase": "initial",
+            "_id": "3ufaLDzticmzDzxN",
+            "conditions": "{}",
+            "replacement": "",
+            "priority": null
+          },
+          {
+            "key": "flags.midi-qol.onUseMacroName",
+            "type": "custom",
+            "value": "ItemMacro,postActiveEffects",
+            "phase": "initial",
+            "_id": "FI7ADIAJAN6PPOnp",
+            "conditions": "{}",
+            "replacement": "",
+            "priority": null
           }
         ],
         "origin": {
