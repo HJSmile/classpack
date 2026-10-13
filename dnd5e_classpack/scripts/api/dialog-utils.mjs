@@ -24,13 +24,13 @@ export function createDialogUtils(openDialog) {
    * A grid/list of labelled submit buttons.
    * `buttons` is an array of `[label, name, options?]` tuples.
    */
-  async function buttonDialog(title, content, buttons, { displayAsRows = true, userId = game.user.id, width = 400 } = {}) {
+  async function buttonDialog(title, content, buttons, { displayAsRows = true, userId = game.user.id, width = 400, compact = false } = {}) {
     const inputs = [["button", buttons.map(([label, name, options]) => ({
       label,
       name,
       options: options ?? {}
     })), { displayAsRows }]];
-    const result = await dialog(title, content, inputs, undefined, { userId, width });
+    const result = await dialog(title, content, inputs, undefined, { userId, width, compact });
     return result?.buttons ?? false;
   }
 

@@ -46,16 +46,15 @@ export function createRollApi(api) {
   function replaceD20(original, value) { return selectD20(original, { additionalResults: [value], selected: 'extra' }); }
   async function selectD20Dialog(roll, { additionalResults = [], user, label = '选择 d20', includeDiscarded = true, reveal = true } = {}) {
     const choices = d20Candidates(roll, { includeDiscarded });
-    const buttons = choices.map((choice, i) => [`原骰 ${i + 1}${reveal ? `：${choice.raw}` : '（隐藏）'}`, choice.key]);
+    const buttons = choices.map((choice, i) => [`原骰 ${i + 1}`, choice.key, { value: reveal ? choice.raw : '?' }]);
     additionalResults.forEach((value, i) => buttons.push([
-      `额外骰 ${i + 1}${reveal ? `：${value}` : '（隐藏）'}`, additionalResults.length === 1 ? 'extra' : `extra-${i}`
+      `额外骰 ${i + 1}`, additionalResults.length === 1 ? 'extra' : `extra-${i}`, { value: reveal ? value : '?' }
     ]));
     const defaultKey = choices.find(choice => choice.active)?.key ?? choices[0]?.key;
     let selected;
     try {
-      selected = await api.dialogUtils.buttonDialog(label,
-        '<p>请选择最终使用的 d20。其他已掷骰值及原有优劣势不变。关闭窗口将保留原有效骰。</p>',
-        buttons, { userId: user.id });
+      selected = await api.dialogUtils.buttonDialog(label, '', buttons,
+        { userId: user.id, width: 360, compact: true, displayAsRows: false });
     } catch (error) { console.warn(`[${MODULE_ID}] Selection closed or controller disconnected.`, error); }
     if (!buttons.some(button => button[1] === selected)) selected = defaultKey;
     return { roll: selectD20(roll, { additionalResults, selected, includeDiscarded }), audit: { selected, additionalResults } };

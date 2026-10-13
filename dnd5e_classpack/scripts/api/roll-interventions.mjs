@@ -67,18 +67,25 @@ export function createRollInterventionApi(api) {
             const user = api.firstOwner(candidate.actor) ?? game.users.activeGM;
             if (!user?.active) throw new Error('The decision controller disconnected.');
             const reveal = user.isGM || !['blind', 'blindroll'].includes(context.rollMode);
-            const dice = reveal ? api.rolls.d20Candidates(context.roll).map(choice => choice.raw).join('、') : '隐藏（盲骰）';
-            const action = await api.dialogUtils.buttonDialog(`${provider.label}：${candidate.actor.name}`,
-              `<p>${escape(context.label)}</p><p>原始 d20：${escape(dice)}。尚未公布结算结果。</p>
-               <p>剩余次数：${api.resources.remaining(candidate.item)}。是否使用？消耗 ${candidate.amount ?? 1} 次。</p>
-               ${provider.cancelOnMultipleActors ? '<p>多个不同生物同时使用时，各消耗次数并抵消，不产生额外骰。</p>' : ''}`,
-              [['使用', 'spend'], ['不使用', 'decline']], { userId: user.id });
+            const dice = api.rolls.d20Candidates(context.roll).map(choice =>
+              `<span class="cp-roll-die">${reveal ? choice.raw : '?'}</span>`).join('');
+            const actorPrefix = `${context.actor.name}：`;
+            const rollLabel = String(context.label ?? context.type);
+            const detail = context.activity?.item?.name ?? (rollLabel.startsWith(actorPrefix)
+              ? rollLabel.slice(actorPrefix.length) : rollLabel);
+            const subject = candidate.actor.uuid === context.actor.uuid ? detail : `${context.actor.name} · ${detail}`;
+            const action = await api.dialogUtils.buttonDialog(`${provider.label} · ${candidate.actor.name}`,
+              `<div class="cp-roll-context"><span>${escape(subject)}</span><span class="cp-roll-remaining">剩余 ${api.resources.remaining(candidate.item)}</span></div>
+               <div class="cp-roll-dice">${dice}</div>`,
+              [['使用', 'spend', { tooltip: `消耗 ${candidate.amount ?? 1} 次` }], ['跳过', 'decline']],
+              { userId: user.id, width: 360, compact: true, displayAsRows: false });
             return { ...candidate, user, reveal, spend: action === 'spend' };
           }));
           const spenders = answers.filter(answer => answer.spend);
           const originalDie = api.rolls.primaryD20(context.roll);
           const original = {
             originalFormula: context.roll.formula,
+            originalD20Formula: originalDie.formula,
             originalAdvantageMode: context.roll.options.advantageMode,
             originalCount: originalDie.results.length,
             originalResults: api.rolls.d20Candidates(context.roll).map(({ index, raw }) => ({ index, raw }))
@@ -91,7 +98,6 @@ export function createRollInterventionApi(api) {
             receipts.push(receipt);
             if (provider.cancelOnMultipleActors && new Set(spenders.map(candidate => candidate.actor.uuid)).size > 1) {
               state = 'cancelled';
-              api.rolls.primaryD20(context.roll).options.flavor = `${provider.label}互相抵消（没有额外骰）`;
             } else {
               const result = await provider.apply(context, { spenders });
               if (Array.isArray(result?.roll?.terms)) context.roll = result.roll;

@@ -42,17 +42,17 @@ export function createRollDisplayApi() {
     const breakdown = diceNode.matches('button') && diceNode.nextElementSibling?.matches('.roll-breakdown')
       ? diceNode.nextElementSibling : null;
     const note = doc.createElement('div');
-    note.className = 'dice-flavor classpack-roll-interventions';
+    note.className = 'classpack-roll-interventions';
     note.style.whiteSpace = 'normal';
     for (const decision of decisions) {
-      const entry = doc.createElement('div'), heading = doc.createElement('strong'), detail = doc.createElement('div');
+      const entry = doc.createElement('div'), heading = doc.createElement('strong'), detail = doc.createElement('span');
       entry.className = 'classpack-roll-intervention';
-      heading.textContent = `${decision.label ?? decision.id}（原检定：${decision.mode}）`;
+      heading.textContent = `${decision.label ?? decision.id}：`;
       detail.textContent = decision.state === 'cancelled'
-        ? '互相抵消：没有额外 d20，保留原检定。'
-        : `原骰：${decision.originalResults.map(result => result.raw).join('、')}；`
-          + `${decision.additionalResults.length ? `额外骰：${decision.additionalResults.join('、')}；` : ''}`
-          + `选用：${decision.selectedText}`;
+        ? '互相抵消，无额外骰。'
+        : `原骰 ${decision.originalResults.map(result => result.raw).join(' / ')} · `
+          + `${decision.additionalResults.length ? `额外 ${decision.additionalResults.join(' / ')} · ` : ''}`
+          + `选用 ${decision.selectedText}`;
       entry.append(heading, detail); note.append(entry);
     }
     if (diceNode.matches('button')) {
@@ -61,11 +61,12 @@ export function createRollDisplayApi() {
     diceNode.dataset.classpackInterventions = 'true';
     const selected = decisions.findLast(decision => decision.state === 'selected');
     if (selected) {
-      const formula = roll.terms.map((term, index) => index === 0 ? String((roll.d20 ?? term).total)
+      const originalD20 = decisions[0].originalD20Formula
+        ?? decisions[0].originalFormula?.match(/^\s*(?:\d+)?d20(?:[A-Za-z0-9=<>]+)?(?:\[[^\]]*\])?/i)?.[0];
+      const formula = originalD20 && roll.terms.map((term, index) => index === 0 ? originalD20
         : term.formula ?? term.operator ?? String(term.number ?? '')).join(' ');
       for (const node of [diceNode, breakdown].filter(Boolean).flatMap(root => [...root.querySelectorAll('.dice-formula')])) {
-        node.textContent = formula;
-        node.title = `原始检定公式：${selected.originalFormula ?? roll.formula}`;
+        if (formula) node.textContent = formula;
       }
       const dice = diceNode.querySelector('.dice-tooltip .dice-rolls') ?? breakdown?.querySelector('.dice-tooltip .dice-rolls');
       if (dice) [...dice.children].forEach((node, index) => {
@@ -79,8 +80,8 @@ export function createRollDisplayApi() {
     const section = diceNode.closest('.midi-qol-attack-roll'), label = section?.querySelector('.midi-roll-label');
     if (label) {
       for (const node of [...label.childNodes]) if (node.nodeType === 3) node.remove();
-      const attack = game.i18n?.localize('DND5E.Attack') ?? '攻击';
-      label.prepend(doc.createTextNode(`${attack}（原检定：${decisions[0].mode}） · ${decisions.map(d => d.label ?? d.id).join('、')}`));
+      const attack = decisions[0].originalAdvantageMode ? decisions[0].mode : game.i18n?.localize('DND5E.Attack') ?? '攻击';
+      label.prepend(doc.createTextNode(`${attack} · ${decisions.map(d => d.label ?? d.id).join('、')}`));
     }
     return true;
   }

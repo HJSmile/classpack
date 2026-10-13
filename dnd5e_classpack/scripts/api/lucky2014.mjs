@@ -25,10 +25,8 @@ export function registerLucky2014(api) {
       const extra = (await new Roll('1d20').evaluate({ allowInteractive: false })).total;
       const spender = spenders[0];
       const result = await api.rolls.selectD20Dialog(context.roll, {
-        additionalResults: [extra], user: spender.user, label: `幸运选骰：${spender.actor.name}`, reveal: spender.reveal
+        additionalResults: [extra], user: spender.user, label: `幸运选骰 · ${spender.actor.name}`, reveal: spender.reveal
       });
-      const die = api.rolls.primaryD20(result.roll);
-      die.options.flavor = [die.options.flavor, `幸运选骰：${spender.actor.name}`].filter(Boolean).join('；');
       return result;
     },
     suppressLegacyChange(effect, change) {

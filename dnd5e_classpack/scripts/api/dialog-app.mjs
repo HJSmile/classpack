@@ -28,9 +28,11 @@ class ClasspackDialogApp extends HandlebarsApplicationMixin(ApplicationV2) {
     const position = {};
     if (Number.isFinite(options?.width)) position.width = options.width;
     if (Number.isFinite(options?.height)) position.height = options.height;
+    else if (options?.compact) position.height = "auto";
 
     super({
       ...(options?.id ? { id: options.id } : {}),
+      ...(options?.compact ? { classes: ["classpack-dialog-compact"] } : {}),
       position
     });
 
@@ -38,6 +40,7 @@ class ClasspackDialogApp extends HandlebarsApplicationMixin(ApplicationV2) {
     this.content = content;
     this.inputs = inputs ?? [];
     this.buttons = buttons;
+    this.compact = options?.compact === true;
   }
 
   static DEFAULT_OPTIONS = {
@@ -160,6 +163,7 @@ class ClasspackDialogApp extends HandlebarsApplicationMixin(ApplicationV2) {
           rows,
           slots: options.map(option => ({
             ...common(option),
+            value: option.options?.value,
             tooltip: option.options?.tooltip,
             reference: option.options?.reference
           }))
@@ -307,7 +311,7 @@ class ClasspackDialogApp extends HandlebarsApplicationMixin(ApplicationV2) {
       const group = this.buildGroup(type, options ?? [], config);
       if (group) groups.push(group);
     }
-    return { content: this.content, groups, buttons: this.buildFooter() };
+    return { content: this.content, groups, buttons: this.buildFooter(), compact: this.compact };
   }
 
   async _prepareContext() {
