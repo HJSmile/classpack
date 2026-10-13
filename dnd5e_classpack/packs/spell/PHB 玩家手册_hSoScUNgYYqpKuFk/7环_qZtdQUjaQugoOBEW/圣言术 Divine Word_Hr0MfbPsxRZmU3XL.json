@@ -22,7 +22,8 @@
       "effectCondition": "",
       "removeAttackDamageButtons": "default",
       "reactionCondition": "",
-      "otherCondition": ""
+      "otherCondition": "",
+      "onUseMacroName": "[postSave]ActivityMacro,[postActiveEffects]ActivityMacro"
     },
     "dnd5e": {}
   },
@@ -32,9 +33,9 @@
       "description": "- A blinded creature can't see and automatically fails any ability check that requires sight.<br>- Attack rolls against the creature have advantage, and the creature's attack rolls have disadvantage.",
       "disabled": false,
       "duration": {
-        "value": null,
-        "units": "seconds",
-        "expiry": null,
+        "value": 10,
+        "units": "minutes",
+        "expiry": "turnStart",
         "expired": false
       },
       "flags": {
@@ -114,9 +115,9 @@
       "description": "- A deafened creature can't hear and automatically fails any ability check that requires hearing.",
       "disabled": false,
       "duration": {
-        "value": null,
-        "units": "seconds",
-        "expiry": null,
+        "value": 1,
+        "units": "minutes",
+        "expiry": "turnStart",
         "expired": false
       },
       "flags": {
@@ -314,8 +315,8 @@
         "useConditionReason": "",
         "effectConditionText": "",
         "macroData": {
-          "name": "",
-          "command": ""
+          "name": "圣言术时长",
+          "command": "const pass = args[0]?.macroPass;\nif (![\"postSave\", \"postActiveEffects\"].includes(pass)) return;\nconst cast = typeof workflow !== \"undefined\" ? workflow : null;\nif (!cast?.item || !cast.activity) return;\nconst stateKey = \"classpackDivineWordDuration\";\nconst sourceIds = [\"iAROMWu8N7fETOUD\", \"hcsEt21qxn7nXE9A\"];\nif (pass === \"postSave\") {\n  const actors = {};\n  for (const target of cast.targets ?? []) {\n    const actor = target.actor ?? target.document?.actor;\n    if (!actor || actors[actor.uuid]) continue;\n    actors[actor.uuid] = {\n      hp: Number(actor.system.attributes.hp.value),\n      beforeIds: Array.from(actor.effects, effect => effect.id)\n    };\n  }\n  cast[stateKey] = { actors, message: cast.itemCardUuid };\n  return;\n}\nconst snapshot = cast[stateKey];\nif (!snapshot) {\n  ui.notifications.warn(\"圣言术：缺少豁免阶段记录，未自动调整效应时长。\");\n  return;\n}\nconst sources = new Map(sourceIds.map(id => [id, cast.item.effects.get(id)?.uuid]));\nconst seen = new Set();\nfor (const target of cast.failedSaves ?? []) {\n  const actor = target.actor ?? target.document?.actor;\n  if (!actor || seen.has(actor.uuid)) continue;\n  seen.add(actor.uuid);\n  const prior = snapshot.actors[actor.uuid];\n  if (!prior || !Number.isFinite(prior.hp)) continue;\n  const updates = [], removals = [];\n  for (const effect of actor.effects) {\n    const origin = effect.system?.origin;\n    const profile = origin?.profile;\n    const id = sourceIds.includes(profile) && origin?.activity === cast.activity.uuid\n      ? profile\n      : sourceIds.find(id => sources.get(id) && [effect._stats?.duplicateSource,\n          effect._stats?.compendiumSource].includes(sources.get(id)));\n    if (!id) continue;\n    const belongsToCast = (snapshot.message && origin?.message === snapshot.message)\n      || !prior.beforeIds.includes(effect.id);\n    if (!belongsToCast) continue;\n    // 即死与异界放逐仍交由现有流程/人工处理；不留下错误的限时耳聋或目盲。\n    if (prior.hp <= 20 || prior.hp > 50 || (id === sourceIds[0] && prior.hp > 40)) {\n      removals.push(effect.id);\n      continue;\n    }\n    const value = prior.hp <= 30 ? 60 : prior.hp <= 40 ? 10 : 1;\n    const update = { _id: effect.id, \"duration.value\": value,\n      \"duration.units\": \"minutes\", \"duration.expiry\": \"turnStart\" };\n    // 21–30 HP 档的震慑与耳聋由同一个 AE 承载，随该 AE 一起结束。\n    if (id === sourceIds[1] && prior.hp <= 30) {\n      update.statuses = [...new Set([...(effect.statuses ?? []), \"stunned\"])];\n    }\n    updates.push(update);\n  }\n  if (game.user.isGM || actor.isOwner) {\n    if (removals.length) await actor.deleteEmbeddedDocuments(\"ActiveEffect\", removals);\n    if (updates.length) await actor.updateEmbeddedDocuments(\"ActiveEffect\", updates);\n  } else {\n    const socket = globalThis.MidiQOL?.socket?.();\n    if (!socket) {\n      ui.notifications.warn(`圣言术：无法调整 ${actor.name} 的效应，请由 GM 处理。`);\n      continue;\n    }\n    if (removals.length) await socket.executeAsGM(\"deleteEffects\", { actorUuid: actor.uuid, effectsToDelete: removals });\n    if (updates.length) await socket.executeAsGM(\"updateEffects\", { actorUuid: actor.uuid, updates });\n  }\n  if (prior.hp <= 20) ui.notifications.info(`圣言术：${actor.name} 的 HP 不超过 20，请按法术描述处理即死。`);\n}\n"
         },
         "ignoreTraits": {
           "idi": false,

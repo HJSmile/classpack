@@ -198,7 +198,8 @@
           "animationType": "",
           "animationSpeed": 5,
           "animationIntensity": 5
-        }
+        },
+        "name": "停留在实体内的力场伤害"
       },
       "PzgA1UA8Q8NxzjE0": {
         "type": "utility",
@@ -222,12 +223,19 @@
           "value": ""
         },
         "duration": {
-          "units": "inst",
+          "units": "minute",
           "concentration": false,
           "override": false,
-          "expiry": null
+          "expiry": null,
+          "value": "10"
         },
-        "effects": [],
+        "effects": [
+          {
+            "_id": "vSijTZvtSwJq8sI8",
+            "uuid": null,
+            "level": {}
+          }
+        ],
         "range": {
           "override": false,
           "units": "self",
@@ -242,7 +250,7 @@
           },
           "affects": {
             "choice": false,
-            "type": ""
+            "type": "self"
           },
           "override": false,
           "prompt": true
@@ -311,7 +319,7 @@
           "rollAs": "target"
         },
         "otherActivityId": "none",
-        "name": "",
+        "name": "幽灵漫步（形态）",
         "img": "",
         "behaviors": [],
         "flags": {},
@@ -363,13 +371,13 @@
       "_id": "vSijTZvtSwJq8sI8",
       "disabled": false,
       "duration": {
-        "value": null,
-        "units": "seconds",
-        "expiry": null,
+        "value": 10,
+        "units": "minutes",
+        "expiry": "turnStart",
         "expired": false
       },
       "origin": "Compendium.dnd5e_classpack.extra-ability.4k8CkHDM05RJUQF4",
-      "transfer": true,
+      "transfer": false,
       "flags": {},
       "tint": "#ffffff",
       "_stats": {
