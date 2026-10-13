@@ -31,7 +31,7 @@
     "dae": {
       "macro": {
         "name": "汲能术Enervation",
-        "img": "modules/dnd5e_classpack/Nicons/spell_priest_voidsear.png",
+        "img": "icons/magic/unholy/strike-body-life-soul-purple.webp",
         "type": "script",
         "scope": "global",
         "command": "const workflow = args[0]?.workflow;\nif (!workflow) return console.log(\"宏触发但 workflow 不存在\");\nconsole.log(\"【调试】damageDetail:\", workflow.damageDetail);\n\nlet necroticTotal = 0;\n// 遍历 damageDetail（数组，每项包含 damageType & damage）\nif (Array.isArray(workflow.damageDetail)) {\n  workflow.damageDetail.forEach(entry => {\n    if (entry.type === \"necrotic\") necroticTotal += (entry.damage || 0);\n  });\n}\n\nif (necroticTotal === 0) {\n  return console.log(\"未造成黯蚀伤害，跳过治疗\");\n}\n\nconst healAmount = Math.floor(necroticTotal / 2);\nconsole.log(`黯蚀伤害总计 ${necroticTotal} → 回复 ${healAmount}`);\n\nlet casterToken = null;\nif (workflow.tokenUuid) {\n  const doc = await fromUuid(workflow.tokenUuid);\n  casterToken = doc?.object ?? null;\n} else if (workflow.tokenId) {\n  casterToken = canvas.tokens.get(workflow.tokenId);\n} else {\n  casterToken = canvas.tokens.controlled[0];\n}\nif (!casterToken) return console.log(\"无法找到施法者 token\");\n\nawait MidiQOL.applyTokenDamage(\n  [{ type: \"healing\", damage: healAmount }],\n  healAmount,\n  new Set([casterToken]),\n  workflow,\n  null\n);\n\nChatMessage.create({\n  content: `${casterToken.name} 从黯蚀伤害 ${necroticTotal} 中回复了 ${healAmount} 点生命（只针对黯蚀伤害）`\n});\n\nconsole.log(\"治疗已应用，仅针对黯蚀伤害\");",

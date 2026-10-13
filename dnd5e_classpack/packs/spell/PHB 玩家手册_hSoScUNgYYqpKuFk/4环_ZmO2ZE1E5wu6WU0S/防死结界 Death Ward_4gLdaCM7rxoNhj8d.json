@@ -28,7 +28,7 @@
     "dae": {
       "macro": {
         "name": "防死结界 Death Ward",
-        "img": "modules/dnd5e_classpack/Nicons/Ability_Creature_Cursed_01.png",
+        "img": "icons/magic/life/ankh-shadow-green.webp",
         "type": "script",
         "scope": "global",
         "command": "(async () => {\n  const mode = args[0];\n  console.log(`🛡️ 防死结界(高级) Macro triggered, mode: ${mode}`, args);\n\n  const last = args.at(-1);\n  const token = canvas.tokens.get(last.tokenId);\n  const actor = token?.actor;\n  if (!actor) return console.warn(\"❌ No actor found for 防死结界\");\n\n  // ✅ 创建时：仅等待触发\n  if (mode === \"on\") {\n    console.log(\"✅ 防死结界 created — waiting for HP drop.\");\n    return;\n  }\n\n  // ✅ 删除时：恢复 1 HP\n  if (mode === \"off\") {\n    console.log(\"💀 防死结界 removed — restoring 1 HP to\", actor.name);\n    const currentHP = actor.system.attributes.hp.value;\n    await actor.update({ \"system.attributes.hp.value\": Math.max(currentHP, 1) });\n\n    ChatMessage.create({\n      speaker: { token: token.id, actor: actor.id },\n      content: `<p>🛡️ <strong>${actor.name}</strong> 受到防死结界保护，濒死时恢复了 <b>1</b> 点生命！</p>`\n    });\n    return;\n  }\n\n  // ✅ 额外：拦截伤害，防止 HP 掉到 0 以下\n  const currentHP = actor.system.attributes.hp.value;\n  if (currentHP <= 1) {\n    console.log(`🛡️ ${actor.name} 的 HP 已被防死结界保护，阻止致命伤害`);\n    await actor.update({ \"system.attributes.hp.value\": 1 });\n  }\n})();",

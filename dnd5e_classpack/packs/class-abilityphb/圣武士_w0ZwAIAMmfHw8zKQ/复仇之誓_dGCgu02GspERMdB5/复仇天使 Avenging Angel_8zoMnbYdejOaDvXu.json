@@ -702,7 +702,7 @@
     "dae": {
       "macro": {
         "name": "复仇天使 Avenging Angel",
-        "img": "modules/dnd5e_classpack/Nicons/Ability_Priest_Archangel.png",
+        "img": "icons/magic/holy/angel-wings-gray.webp",
         "type": "script",
         "scope": "global",
         "command": "if (args[0] == 'off') return;\n\nif (!effect?.getFlag(\"auraeffects\", \"fromAura\")) return;\n\n// 初次激活时，真正的豁免已经由 Save Activity 完成\nif (effect.getFlag(\"dae\", \"threatAuraInitial\")) return;\n\nconst activationActivity = fromUuidSync(\n  effect.getFlag(\"dae\", \"activity\")\n);\n\nconst saveActivity = activationActivity?.item?.system.activities.find(\n  a => a.type === \"save\"\n);\n\nif (!saveActivity) return;\n\nconst targetUuid =\n  token?.document?.uuid ??\n  actor?.getActiveTokens(false, true)?.[0]?.document?.uuid;\n\nif (!targetUuid) return;\n\nawait MidiQOL.completeActivityUse(\n  saveActivity,\n  {\n    midiOptions: {\n      targetUuids: [targetUuid],\n      ignoreUserTargets: true,\n      workflowOptions: {\n        noOnUseMacro: true,\n        noTargetOnUseMacro: true,\n        noProvokeReaction: true\n      }\n    }\n  },\n  { configure: false },\n  { create: true }\n);",

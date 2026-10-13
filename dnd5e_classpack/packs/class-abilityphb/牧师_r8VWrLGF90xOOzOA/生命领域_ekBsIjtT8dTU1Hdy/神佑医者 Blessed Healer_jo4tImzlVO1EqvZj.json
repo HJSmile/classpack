@@ -148,7 +148,7 @@
     "dae": {
       "macro": {
         "name": "神佑医者",
-        "img": "modules/dnd5e_classpack/Nicons/Ability_Paladin_SelflessHealer.png",
+        "img": "icons/magic/light/orbs-hand-gray.webp",
         "type": "script",
         "scope": "global",
         "command": "const version = \"12.4.7\";\ntry {\n    if (rolledItem.type !== \"spell\" || rolledActivity.actionType !== \"heal\") return;\n    // no healing done?\n    if (workflow.v3Damages) {\n        if (!Object.entries(workflow.v3Damages).some(entry => {\n            const [uuid, damages] = entry;\n            return damages.appliedDamage < 0;\n        })) return;\n    } else if (!(workflow.damageList?.some(li => li.oldHP < li.newHP))) return;\n    // only targets self?\n    \n    if (!(workflow.hitTargets.some(t => t.uuid !== workflow.tokenUuid))) return;\n    // await (new Promise(resolve => setTimeout(resolve, 100)))\n    \n    \n    const tactor = workflow.actor;\n    const spellLevel = args[0].spellLevel;\n    const currentHP = tactor.system.attributes.hp.value;\n    const newHP = Math.min(tactor.system.attributes.hp.max, tactor.system.attributes.hp.value + 2 + spellLevel);\n    ChatMessage.create({content: `${tactor.name} cures ${newHP - currentHP} HP of bonus healing`})\n    return tactor.update({\"system.attributes.hp.value\": newHP});\n} catch (err) {\n    console.error(`${macroItem.name} - Blessed Healer ${version}`, err);\n}",

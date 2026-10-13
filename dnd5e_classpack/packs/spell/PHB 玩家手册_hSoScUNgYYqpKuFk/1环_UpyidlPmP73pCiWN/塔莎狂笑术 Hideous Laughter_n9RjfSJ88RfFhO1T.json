@@ -28,7 +28,7 @@
     "dae": {
       "macro": {
         "name": "塔莎狂笑术 Hideous Laughter",
-        "img": "modules/dnd5e_classpack/Nicons/httpsvignettewikianocookienetwowimages999Spellmiscemotionhappypngrevisionlatestcb20090317211041pathprefixru.png",
+        "img": "icons/magic/control/mouth-smile-deception-purple.webp",
         "type": "script",
         "scope": "global",
         "command": "const activity = macroItem.system.activities.find(a => a.name === 'SaveOnDamage');\nif (!activity) return;\nconst actor = args[0].actor;\nconst actorUuid = actor.uuid\nconst effectsToRemove = actor.appliedEffects.filter(e => e.name == macroItem.name).map(e => e.id);\nconst target = new Set([args[0].options.token]);\nconst usage = {\n  midiOptions: {\n    workflowOptions: {\n      targetsToUse: target,\n      isDamageSave: true,\n      autoConsumeResource: \"both\"\n    }\n  }\n};\nconst dialog = {create : false};\nconst DamageSaveWorkflow = await MidiQOL.completeActivityUse(activity,usage,dialog);\nif (DamageSaveWorkflow.saves.has(args[0].options.token)){\n  await MidiQOL.removeEffects({\n    actorUuid: actor.uuid,\n    effects: effectsToRemove\n  });\n}",

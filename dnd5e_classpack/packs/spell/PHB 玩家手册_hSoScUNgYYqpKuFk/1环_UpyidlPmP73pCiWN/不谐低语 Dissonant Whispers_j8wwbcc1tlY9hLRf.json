@@ -31,7 +31,7 @@
     "dae": {
       "macro": {
         "name": "不谐低语 Dissonant Whispers",
-        "img": "modules/dnd5e_classpack/Nicons/httpcloud3steamusercontentcomugc842585341025537431C8D829D636A4FF883DA7B75CB91A77B63ECEA582.jpg",
+        "img": "icons/magic/sonic/scream-wail-shout-teal.webp",
         "type": "script",
         "scope": "global",
         "command": "const workflow = args[0].workflow;\n\nconst DEAFENED = CONFIG.specialStatusEffects?.DEAF ?? \"deafened\";\n\nfor (const t of workflow.targets) {\n  const actor = t.actor;\n  if (!actor?.statuses.has(DEAFENED)) continue;\n\n  await MidiQOL.createEffects({\n    actorUuid: actor.uuid,\n    effects: [\n      {\n        name: \"Deafened Auto Save\",\n        icon: \"icons/svg/upgrade.svg\",\n        origin: workflow.item?.uuid,\n        transfer: false,\n        disabled: false,\n        changes: [\n          {\n            key: \"flags.midi-qol.success.ability.save.all\",\n            mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,\n            value: \"true\",\n            priority: 10\n          }\n        ],\n        flags: {\n          dae: {\n            specialDuration: [\"isSave\"]\n          }\n        }\n      }\n    ]\n  });\n}",

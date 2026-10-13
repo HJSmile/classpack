@@ -33,7 +33,7 @@
     "dae": {
       "macro": {
         "name": "浓酸球Vitriolic Sphere",
-        "img": "modules/dnd5e_classpack/Nicons/spell_fire_ragnaros_lavaboltgreen.png",
+        "img": "icons/magic/acid/orb-bubble-smoke-drip.webp",
         "type": "script",
         "scope": "global",
         "command": "(async () => {\n  // 确认宏触发时 args[0] 存在“on”或“off”\n  const hook = args[0];\n  const tokenD = canvas.tokens.get(args[1]?.tokenId);\n  if (!tokenD) return;\n\n  if (hook === \"off\") {\n    // 效果创建时：立即造成 5d10 力场伤害\n    const roll = await new Roll(\"5d4[acid]\").roll({async: true});\n    await new MidiQOL.DamageOnlyWorkflow(\n      actor,\n      token,\n      roll.total,\n      'acid',\n      tokenD ? [tokenD] : [],\n      roll,\n      { flavor: \"浓酸球派生伤害\" }\n    );\n  }\n  // hook === \"on\" 时，无操作\n})();",
