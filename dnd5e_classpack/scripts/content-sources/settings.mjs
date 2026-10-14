@@ -1,10 +1,12 @@
 import { MODULE_ID } from "./policy.mjs";
 
+let cachedSettings;
+const invalidateSettings = () => { cachedSettings = undefined; };
 export function getContentSettings() {
-  return { enabled: game.settings.get(MODULE_ID, "contentSourceFiltering"),
-    sources: game.settings.get(MODULE_ID, "contentSources") ?? {},
+  return cachedSettings ??= Object.freeze({ enabled: game.settings.get(MODULE_ID, "contentSourceFiltering"),
+    sources: Object.freeze({ ...game.settings.get(MODULE_ID, "contentSources") ?? {} }),
     ua: game.settings.get(MODULE_ID, "contentUA"), thirdParty: game.settings.get(MODULE_ID, "contentThirdParty"),
-    dunamancy: game.settings.get(MODULE_ID, "contentDunamancyPermission") };
+    dunamancy: game.settings.get(MODULE_ID, "contentDunamancyPermission") });
 }
 
 export function registerContentSettings(catalog) {
@@ -13,8 +15,8 @@ export function registerContentSettings(catalog) {
     ["contentUA", "允许 UA 内容", "显示并允许选择 ClassPack 中的未定之奥秘内容。", true],
     ["contentThirdParty", "允许第三方内容", "显示并允许选择 ClassPack 中的第三方内容。", true],
     ["contentDunamancyPermission", "允许其他职业选择秘迹学法术", "默认仅时间魔法与重力魔法子职业可选择；开启表示 DM 许可其他施法职业选择。", false]
-  ]) game.settings.register(MODULE_ID, key, { name, hint, scope: "world", config: true, type: Boolean, default: value, requiresReload: true });
-  game.settings.register(MODULE_ID, "contentSources", { scope: "world", config: false, type: Object, default: {}, requiresReload: true });
+  ]) game.settings.register(MODULE_ID, key, { name, hint, scope: "world", config: true, type: Boolean, default: value, requiresReload: true, onChange: invalidateSettings });
+  game.settings.register(MODULE_ID, "contentSources", { scope: "world", config: false, type: Object, default: {}, requiresReload: true, onChange: invalidateSettings });
   const { ApplicationV2 } = foundry.applications.api;
   class ContentSourceConfig extends ApplicationV2 {
     static DEFAULT_OPTIONS = { id: "classpack-content-sources", tag: "form", window: { title: "ClassPack 内容来源" },

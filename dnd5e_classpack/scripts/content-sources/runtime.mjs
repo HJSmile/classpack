@@ -44,7 +44,7 @@ export function installContentFiltering(policy) {
         filters.additional.spelllist = { ...filters.additional.spelllist, [policy.catalog.dunamancy.list]: 1 };
       }
       const blocked = policy.blocked({ ...scope, lists });
-      if (blocked.length) filters.arbitrary.push({ o: "NOT", v: { k: "uuid", o: "in", v: blocked } });
+      if (blocked.length) filters.arbitrary.push({ o: "NOT", v: { k: "uuid", o: "in", v: new Set(blocked) } });
       return original.call(this, { ...context, filters }, ...rest);
     });
     wrap(apps.ItemChoiceFlow.prototype, "_prepareContentContext", original => async function (...args) {

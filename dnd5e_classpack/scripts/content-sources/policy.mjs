@@ -12,45 +12,78 @@ export function sourceUuid(entry) {
 }
 export function createContentPolicy(catalog, settings) {
   const dunamancy = new Set(catalog.dunamancy.uuids);
-  function enabled(book) {
-    return !settings().enabled || !book || settings().sources[book] !== false;
+  const entries = Object.entries(catalog.entries).map(([uuid, meta]) => ({ uuid, meta, books: sourceBooks(meta) }));
+  let lastState, signature, staticAllowed, staticBlocked;
+  const enabledIn = (book, state) => !state.enabled || !book || state.sources[book] !== false;
+  function publicationAllowed(meta, books, state) {
+    return !state.enabled || ((!books.length || books.some(book => enabledIn(book, state)))
+      && (!meta.ua || state.ua) && (!meta.thirdParty || state.thirdParty));
   }
-  function source(entry) {
-    const uuid = sourceUuid(entry);
+  // Cache only publication rules. Actor, class and advancement decisions live for one operation.
+  function configuration() {
+    const state = settings();
+    if (state === lastState && Object.isFrozen(state) && Object.isFrozen(state.sources)) return state;
+    const key = JSON.stringify([state.enabled, state.ua, state.thirdParty,
+      Object.entries(state.sources).sort(([a], [b]) => a.localeCompare(b))]);
+    if (key !== signature) {
+      signature = key; staticAllowed = new Map(); staticBlocked = [];
+      for (const { uuid, meta, books } of entries) {
+        const allowed = !!publicationAllowed(meta, books, state);
+        staticAllowed.set(uuid, allowed);
+        if (!allowed) staticBlocked.push(uuid);
+      }
+    }
+    lastState = state;
+    return state;
+  }
+  function enabled(book) { return enabledIn(book, settings()); }
+  function metadata(entry, uuid) {
     if (!uuid?.startsWith(`Compendium.${MODULE_ID}.`)) return null;
     return catalog.entries[uuid] ?? { book: entry?.system?.source?.book || null, ua: false, thirdParty: false };
   }
+  function source(entry) { return metadata(entry, sourceUuid(entry)); }
   function owned(actor, id) {
     return Array.from(actor?.items ?? []).some(item => sourceUuid(item)?.split(".").at(-1) === id);
   }
-  function permitsDunamancy(actor, lists = ["class:wizard"]) {
-    return settings().dunamancy || (Array.from(lists).includes("class:wizard") && Array.from(actor?.itemTypes?.subclass ?? [])
+  function dunamancyPermitted(actor, lists, state) {
+    return state.dunamancy || (Array.from(lists).includes("class:wizard") && Array.from(actor?.itemTypes?.subclass ?? [])
       .some(item => catalog.dunamancy.subclasses.includes(item.system.identifier)));
   }
-  function allowed(entry, context = {}) {
-    const uuid = sourceUuid(entry), meta = source(entry);
-    if (!meta) return true;
-    if (context.fixed) return true;
-    const state = settings();
-    const books = sourceBooks(meta);
-    if (state.enabled && ((books.length && !books.some(enabled)) || (meta.ua && !state.ua) || (meta.thirdParty && !state.thirdParty))) return false;
+  function permitsDunamancy(actor, lists = ["class:wizard"]) { return dunamancyPermitted(actor, lists, settings()); }
+  function operation(context, state) {
+    if (context.fixed) return { fixed: true, state };
     const rules = context.advancement?.flags?.[MODULE_ID]?.content;
-    if (rules?.requiresItem && !owned(context.actor, rules.requiresItem)) return false;
-    if (rules?.requires?.some(book => !enabled(book))) return false;
+    const denied = !!((rules?.requiresItem && !owned(context.actor, rules.requiresItem))
+      || rules?.requires?.some(book => !enabledIn(book, state)));
     const lists = context.lists ?? (context.advancement?.configuration?.restriction?.list ?? []);
     const classes = Array.from(lists).filter(l => l.startsWith("class:")).map(l => l.slice(6));
     const classId = context.classIdentifier ?? rules?.classIdentifier;
     if (classId && !classes.includes(classId)) classes.push(classId);
-    if (meta.type === "spell" && classes.length) {
-      if (dunamancy.has(uuid)) return permitsDunamancy(context.actor, classes.map(c => "class:" + c));
-      const qualifications = classes.map(c => meta.spellClasses?.[c]).filter(Boolean);
-      if (qualifications.length && !qualifications.some(q => q.requires.every(enabled))) return false;
+    return { state, denied, classes,
+      dunamancy: classes.length && dunamancyPermitted(context.actor, classes.map(c => "class:" + c), state) };
+  }
+  function evaluate(entry, op, uuid = sourceUuid(entry)) {
+    const meta = metadata(entry, uuid);
+    if (!meta || op.fixed) return true;
+    const publication = staticAllowed.has(uuid) ? staticAllowed.get(uuid) : publicationAllowed(meta, sourceBooks(meta), op.state);
+    if (!publication || op.denied) return false;
+    if (meta.type === "spell" && op.classes.length) {
+      if (dunamancy.has(uuid)) return !!op.dunamancy;
+      const qualifications = op.classes.map(c => meta.spellClasses?.[c]).filter(Boolean);
+      if (qualifications.length && !qualifications.some(q => q.requires.every(book => enabledIn(book, op.state)))) return false;
     }
     return true;
   }
+  function allowed(entry, context = {}) {
+    const uuid = sourceUuid(entry);
+    if (!metadata(entry, uuid) || context.fixed) return true;
+    return evaluate(entry, operation(context, configuration()), uuid);
+  }
   function blocked(context = {}) {
-    const hidden = new Set(Object.keys(catalog.entries).filter(uuid => !allowed(uuid, context)));
-    if (settings().enabled) for (const group of catalog.reprints ?? []) {
+    const state = configuration(), op = operation(context, state);
+    const hidden = op.fixed ? new Set() : !op.denied && !op.classes.length ? new Set(staticBlocked)
+      : new Set(entries.filter(({ uuid }) => !evaluate(uuid, op, uuid)).map(({ uuid }) => uuid));
+    if (state.enabled) for (const group of catalog.reprints ?? []) {
       const available = group.filter(uuid => !hidden.has(uuid));
       const preferred = available.find(uuid => source(uuid).book === "TCE") ?? available[0];
       for (const uuid of available) if (uuid !== preferred) hidden.add(uuid);
@@ -58,8 +91,9 @@ export function createContentPolicy(catalog, settings) {
     return Array.from(hidden);
   }
   function filterCandidates(rows, context = {}) {
-    let result = rows.filter(row => row.checked || allowed(row.uuid ?? row, context));
-    if (!settings().enabled) return result;
+    const state = configuration(), op = operation(context, state);
+    let result = rows.filter(row => row.checked || evaluate(row.uuid ?? row, op));
+    if (!state.enabled) return result;
     for (const group of catalog.reprints ?? []) {
       const available = result.filter(row => group.includes(sourceUuid(row)));
       const checked = available.filter(row => row.checked);
