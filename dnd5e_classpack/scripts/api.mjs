@@ -25,6 +25,7 @@ import { createDialogUtils } from "./api/dialog-utils.mjs";
 import { calculatePushUpdates } from "./api/push.mjs";
 import { socketFunctions } from "./api/socket-functions.mjs";
 import { createActorItems, addFavorite } from "./api/actor-items.mjs";
+import { hideActivity, installActivityVisibility } from "./api/activity-visibility.mjs";
 import { moveTokens, registerMovementActions } from "./api/movement.mjs";
 import { tokenDocument } from "./api/geometry.mjs";
 import { checkCompatibility, isCompatibleVersion } from "./compatibility.mjs";
@@ -40,6 +41,7 @@ import { registerLucky2014 } from "./api/lucky2014.mjs";
 const api = {
   createActorItems,
   addFavorite,
+  hideActivity,
   socket: null,
   compatibility: null,
   migrations: worldMigrations,
@@ -215,6 +217,7 @@ Hooks.once("socketlib.ready", () => {
 
 Hooks.once("ready", () => {
   api.compatibility = checkCompatibility();
+  installActivityVisibility();
   api.rollDisplay.install();
   try {
     if (game.modules.get("midi-qol")?.active && api.socket && globalThis.libWrapper) {

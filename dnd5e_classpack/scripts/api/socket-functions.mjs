@@ -5,6 +5,7 @@
 import { moveTokens } from "./movement.mjs";
 import { ClasspackDialogApp } from "./dialog-app.mjs";
 import { createActorItemsOnGM, addFavoriteOnGM } from "./actor-items.mjs";
+import { hideActivityOnGM } from "./activity-visibility.mjs";
 
 /* -------------------------------------------------------------------------- *
  *  Local API + socket functions
@@ -13,6 +14,7 @@ import { createActorItemsOnGM, addFavoriteOnGM } from "./actor-items.mjs";
 const socketFunctions = {
   createActorItems: createActorItemsOnGM,
   addFavorite: addFavoriteOnGM,
+  hideActivity: hideActivityOnGM,
   resourceConsume: request => globalThis.dnd5eClasspack.resources.consumeOnGM(request),
   rollInterventionResolve: request => globalThis.dnd5eClasspack.rollInterventions.resolve(request),
   /**
