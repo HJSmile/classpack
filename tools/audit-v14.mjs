@@ -138,7 +138,17 @@ export async function auditRepository(root) {
         const token = tokens[index];
         if (token.kind === "identifier") {
           const measuredTemplate = member(tokens, index, "MeasuredTemplate");
-          if (token.value === "MeasuredTemplate" || measuredTemplate) issue("measured-template-api", measuredTemplate ?? token, "Legacy MeasuredTemplate API");
+          if (token.value === "MeasuredTemplate" || measuredTemplate) {
+            const candidate = measuredTemplate ?? token;
+            const position = measuredTemplate ? tokens.indexOf(candidate, index + 1) : index;
+            const propertyKey = tokens[position + 1]?.value === ":"
+              && ["{", ","].includes(tokens[position - 1]?.value);
+            const flagPath = tokens.slice(Math.max(0, position - 8), position + 1).map(part => part.value).join("");
+            // V14 template Regions retain this core flag; it is not a document API.
+            const coreFlag = /flags(?:\.|\?\.)core(?:\.|\?\.)MeasuredTemplate$/.test(flagPath)
+              || /flags\[core\]\[MeasuredTemplate$/.test(flagPath);
+            if (!propertyKey && !coreFlag) issue("measured-template-api", candidate, "Legacy MeasuredTemplate API");
+          }
           if (token.value === "canvas" && member(tokens, index, "templates")) issue("canvas-templates-api", token, "Legacy canvas.templates API");
           if (token.value === "MidiQOL" && member(tokens, index, "DamageOnlyWorkflow")) issue("damage-only-workflow", token, "Midi damage-only workflow requires runtime review");
           if (token.value === "MidiQOL" && member(tokens, index, "moveToken")) issue("midi-move-token", token, "Midi moveToken requires movement review");
