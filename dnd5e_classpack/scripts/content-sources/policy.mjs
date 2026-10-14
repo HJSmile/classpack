@@ -1,7 +1,9 @@
 export const MODULE_ID = "dnd5e_classpack";
 export const canonicalUuid = uuid => uuid?.replace(/^Compendium\.dnd5e_classpack\.([^.]+)\.([A-Za-z0-9]{16})$/, "Compendium.dnd5e_classpack.$1.Item.$2");
 export function sourceUuid(entry) {
-  return canonicalUuid(typeof entry === "string" ? entry : entry?._stats?.compendiumSource
+  if (typeof entry === "string") return canonicalUuid(entry);
+  if (entry?.uuid?.startsWith("Compendium.")) return canonicalUuid(entry.uuid);
+  return canonicalUuid(entry?._stats?.compendiumSource
     ?? entry?.flags?.dnd5e?.sourceId ?? entry?.uuid);
 }
 export function createContentPolicy(catalog, settings) {
