@@ -152,8 +152,8 @@
           "parts": [
             {
               "custom": {
-                "enabled": false,
-                "formula": "(min(floor((@flags.dnd5e.spellLevel)),6))d10"
+                "enabled": true,
+                "formula": "(min(1 + @scaling.increase, 6))d10"
               },
               "number": 1,
               "denomination": 10,
@@ -162,8 +162,8 @@
                 "piercing"
               ],
               "scaling": {
-                "mode": "whole",
-                "number": 1,
+                "mode": "",
+                "number": 0,
                 "formula": ""
               },
               "modifiers": []
