@@ -9,7 +9,7 @@
       "subtype": ""
     },
     "description": {
-      "value": "<p>18级时，你获得60尺飞行速度，且免疫闪电与雷鸣伤害。</p>\n<p>以一个动作，你可以将你的飞行速度降低到30尺，持续一小时。当你这么做时，你可以指定在你身边30尺内的，3+你的魅力调整值个生物。这些被选定的生物获得30尺飞行速度，持续1小时。你不能在一次短休或者长休前再一次使用此能力。</p>",
+      "value": "<p>18级时，你获得60尺的魔法飞行速度，且免疫闪电与雷鸣伤害。</p>\n<p>以一个动作，你可以将你的飞行速度降低到30尺，持续一小时。当你这么做时，你可以指定在你身边30尺内的，3+你的魅力调整值个生物。这些被选定的生物获得30尺飞行速度，持续1小时。你不能在一次短休或者长休前再一次使用此能力。</p>",
       "chat": ""
     },
     "source": {
@@ -82,7 +82,7 @@
             "stationary": false
           },
           "affects": {
-            "count": "3",
+            "count": "3 + @abilities.cha.mod",
             "type": "creature",
             "choice": false,
             "special": ""
@@ -109,7 +109,7 @@
           "level": {},
           "requireAttunement": false,
           "requireIdentification": false,
-          "requireMagic": false
+          "requireMagic": true
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -199,7 +199,9 @@
       "repeatable": false,
       "items": []
     },
-    "properties": []
+    "properties": [
+      "mgc"
+    ]
   },
   "effects": [
     {
@@ -250,7 +252,7 @@
           "message": null
         },
         "conditions": "{}",
-        "magical": false,
+        "magical": true,
         "rider": {
           "statuses": []
         }
