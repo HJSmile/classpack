@@ -4,3 +4,4 @@
  * into api.mjs. A GM starts world writes through dnd5eClasspack.migrations.run().
  * Loading this entry does not write world data.
  */
+import "./content-sources/index.mjs";
