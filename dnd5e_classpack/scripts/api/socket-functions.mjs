@@ -4,12 +4,14 @@
 
 import { moveTokens } from "./movement.mjs";
 import { ClasspackDialogApp } from "./dialog-app.mjs";
+import { createActorItemsOnGM } from "./actor-items.mjs";
 
 /* -------------------------------------------------------------------------- *
  *  Local API + socket functions
  * -------------------------------------------------------------------------- */
 
 const socketFunctions = {
+  createActorItems: createActorItemsOnGM,
   resourceConsume: request => globalThis.dnd5eClasspack.resources.consumeOnGM(request),
   rollInterventionResolve: request => globalThis.dnd5eClasspack.rollInterventions.resolve(request),
   /**
