@@ -8,7 +8,7 @@
       "subtype": ""
     },
     "description": {
-      "value": "<ul><li><strong>冻原。</strong>每当你的风暴灵光激活时，你可以选择一个你可以看见的、处于灵光里的生物。该生物必须通过一次力量检定，否则其速度降为0，直到你的下一个回合开始，如同魔法的冰霜冻结了它。</li></ul>",
+      "value": "<ul><li><strong>冻原。</strong>每当你的风暴灵光激活时，你可以选择一个你可以看见的、处于灵光里的生物。该生物必须通过一次[[/save activity=dnd5eactivity000]]{力量豁免}，否则其速度降为0，直到你的下一个回合开始，如同魔法的冰霜冻结了它。</li></ul>",
       "chat": ""
     },
     "source": {
@@ -33,7 +33,7 @@
     "activities": {
       "dnd5eactivity000": {
         "_id": "dnd5eactivity000",
-        "type": "check",
+        "type": "save",
         "activation": {
           "type": "bonus",
           "value": 1,
@@ -64,7 +64,8 @@
           {
             "_id": "FW1n6oHXJo0d730r",
             "uuid": null,
-            "level": {}
+            "level": {},
+            "onSave": false
           }
         ],
         "range": {
@@ -97,15 +98,6 @@
           "spent": 0,
           "max": "",
           "recovery": []
-        },
-        "check": {
-          "ability": "str",
-          "associated": [],
-          "dc": {
-            "calculation": "con",
-            "formula": ""
-          },
-          "visible": true
         },
         "sort": 0,
         "name": "",
@@ -201,7 +193,17 @@
             "allow": false
           }
         },
-        "friendlySave": "default"
+        "friendlySave": "default",
+        "save": {
+          "ability": [
+            "str"
+          ],
+          "dc": {
+            "calculation": "con",
+            "formula": ""
+          },
+          "visible": true
+        }
       }
     },
     "identifier": "-",
@@ -215,7 +217,7 @@
       "duration": {
         "value": 1,
         "units": "rounds",
-        "expiry": "turnStart",
+        "expiry": "sourceStart",
         "expired": false
       },
       "disabled": false,
