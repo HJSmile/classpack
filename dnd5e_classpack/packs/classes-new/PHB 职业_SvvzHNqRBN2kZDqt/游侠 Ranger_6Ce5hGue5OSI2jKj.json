@@ -44,21 +44,6 @@
               "optional": false,
               "uuid": "Compendium.dnd5e_classpack.class-abilityphb.teW7ffezIYtEGx5h",
               "sort": 0
-            },
-            {
-              "optional": true,
-              "uuid": "Compendium.dnd5e_classpack.extra-ability.W8IgV3zZSWduIjd0",
-              "sort": 0
-            },
-            {
-              "optional": true,
-              "uuid": "Compendium.dnd5e_classpack.extra-ability.wfzlpRPC5owayAq5",
-              "sort": 0
-            },
-            {
-              "optional": true,
-              "uuid": "Compendium.dnd5e_classpack.extra-ability.IyU8WAr5a0PGGWZM",
-              "sort": 0
             }
           ],
           "optional": false,
@@ -70,7 +55,13 @@
         "hint": "",
         "name": "职业特性",
         "img": null,
-        "flags": {}
+        "flags": {
+          "dnd5e_classpack": {
+            "content": {
+              "kind": "fixed-feature"
+            }
+          }
+        }
       },
       "i37wlexa2pfhhh35": {
         "_id": "i37wlexa2pfhhh35",
@@ -90,7 +81,15 @@
         "value": {},
         "level": 3,
         "name": "职业特性",
-        "flags": {},
+        "flags": {
+          "dnd5e_classpack": {
+            "content": {
+              "kind": "optional-feature",
+              "book": "PHB",
+              "requires": []
+            }
+          }
+        },
         "hint": ""
       },
       "34g1cx6sqc6cvhwj": {
@@ -111,7 +110,15 @@
         "value": {},
         "level": 4,
         "name": "职业特性",
-        "flags": {},
+        "flags": {
+          "dnd5e_classpack": {
+            "content": {
+              "kind": "optional-feature",
+              "book": "TCE",
+              "requires": []
+            }
+          }
+        },
         "hint": ""
       },
       "z4y7crcwhjfalz05": {
@@ -153,7 +160,15 @@
         "value": {},
         "level": 8,
         "name": "",
-        "flags": {},
+        "flags": {
+          "dnd5e_classpack": {
+            "content": {
+              "kind": "optional-feature",
+              "book": "PHB",
+              "requires": []
+            }
+          }
+        },
         "hint": ""
       },
       "vdbyuqk1uxfe29bm": {
@@ -753,7 +768,15 @@
         "hint": "",
         "name": "职业特性",
         "img": null,
-        "flags": {}
+        "flags": {
+          "dnd5e_classpack": {
+            "content": {
+              "kind": "optional-feature",
+              "book": "TCE",
+              "requires": []
+            }
+          }
+        }
       },
       "1fkbwxZoGJDONVG1": {
         "type": "ItemGrant",
@@ -775,7 +798,15 @@
         "_id": "1fkbwxZoGJDONVG1",
         "name": "职业特性",
         "img": null,
-        "flags": {}
+        "flags": {
+          "dnd5e_classpack": {
+            "content": {
+              "kind": "optional-feature",
+              "book": "TCE",
+              "requires": []
+            }
+          }
+        }
       },
       "c9hmHkSURfHPk9sZ": {
         "type": "ItemGrant",
@@ -797,7 +828,15 @@
         "_id": "c9hmHkSURfHPk9sZ",
         "name": "职业特性",
         "img": null,
-        "flags": {}
+        "flags": {
+          "dnd5e_classpack": {
+            "content": {
+              "kind": "optional-feature",
+              "book": "TCE",
+              "requires": []
+            }
+          }
+        }
       },
       "7lMOwTEPQCbvvfWo": {
         "type": "ItemGrant",
@@ -819,7 +858,15 @@
         "_id": "7lMOwTEPQCbvvfWo",
         "name": "职业特性",
         "img": null,
-        "flags": {}
+        "flags": {
+          "dnd5e_classpack": {
+            "content": {
+              "kind": "optional-feature",
+              "book": "TCE",
+              "requires": []
+            }
+          }
+        }
       },
       "iKkpbuGdeh7HAZTL": {
         "_id": "iKkpbuGdeh7HAZTL",
@@ -839,20 +886,7 @@
         "type": "ItemChoice",
         "configuration": {
           "allowDrops": true,
-          "choices": {
-            "1": {
-              "count": 1,
-              "replacement": false
-            },
-            "6": {
-              "count": 1,
-              "replacement": false
-            },
-            "10": {
-              "count": 1,
-              "replacement": false
-            }
-          },
+          "choices": {},
           "pool": [
             {
               "uuid": "Compendium.dnd5e_classpack.extra-ability.Item.dyR8ImgN3MyQCMJ1",
@@ -879,9 +913,16 @@
           "added": {},
           "replaced": {}
         },
-        "hint": "你是一个无与伦比的探险家和求生专家。你在1级时获得对应的特性，然后在第6级和第10级时再各获得对应的特性。",
-        "name": "3.熟练探险家额外特性",
-        "flags": {}
+        "hint": "新选择的熟练探险家由特性自身授予精明、越野与不知疲倦。",
+        "name": "熟练探险家（旧路线保留）",
+        "flags": {
+          "dnd5e_classpack": {
+            "content": {
+              "legacyDeftExplorer": true,
+              "requiresItem": "KyGD0UqLk90Er2cd"
+            }
+          }
+        }
       },
       "nlpjYATSfkc3556n": {
         "_id": "nlpjYATSfkc3556n",
@@ -966,6 +1007,46 @@
         "value": {},
         "flags": {},
         "hint": ""
+      },
+      "166563e6060245ed": {
+        "_id": "166563e6060245ed",
+        "type": "ItemGrant",
+        "configuration": {
+          "items": [
+            {
+              "optional": true,
+              "uuid": "Compendium.dnd5e_classpack.extra-ability.W8IgV3zZSWduIjd0",
+              "sort": 0
+            },
+            {
+              "optional": true,
+              "uuid": "Compendium.dnd5e_classpack.extra-ability.wfzlpRPC5owayAq5",
+              "sort": 0
+            },
+            {
+              "optional": true,
+              "uuid": "Compendium.dnd5e_classpack.extra-ability.IyU8WAr5a0PGGWZM",
+              "sort": 0
+            }
+          ],
+          "optional": false,
+          "spell": null,
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 2,
+        "hint": "",
+        "name": "职业特性 · TCE",
+        "img": null,
+        "flags": {
+          "dnd5e_classpack": {
+            "content": {
+              "kind": "optional-feature",
+              "book": "TCE",
+              "requires": []
+            }
+          }
+        }
       }
     },
     "spellcasting": {
