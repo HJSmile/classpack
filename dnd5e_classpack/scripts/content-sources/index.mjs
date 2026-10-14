@@ -1,4 +1,4 @@
-import { MODULE_ID, createContentPolicy } from "./policy.mjs";
+import { MODULE_ID, createContentPolicy, sourceBooks } from "./policy.mjs";
 import { registerContentSettings, getContentSettings } from "./settings.mjs";
 import { installContentFiltering } from "./runtime.mjs";
 
@@ -23,6 +23,6 @@ Hooks.once("ready", async () => {
     const status = installContentFiltering(policy);
     module.api ??= {};
     module.api.contentSources = { policy, status, inspect: () => ({ ...status, settings: getContentSettings(),
-      indexed: Object.keys(catalog.entries).length, unknown: Object.values(catalog.entries).filter(s => !s.book).length }) };
+      indexed: Object.keys(catalog.entries).length, unknown: Object.values(catalog.entries).filter(s => !sourceBooks(s).length).length }) };
   } catch (error) { console.error(`[${MODULE_ID}] 内容来源初始化失败`, error); }
 });

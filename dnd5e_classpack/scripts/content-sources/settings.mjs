@@ -24,7 +24,7 @@ export function registerContentSettings(catalog) {
       const values = getContentSettings().sources, escape = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
       const rows = Object.entries(catalog.books).sort(([a], [b]) => a.localeCompare(b)).map(([book, label]) =>
         `<label style="display:flex;align-items:center;gap:8px"><input type="checkbox" name="sources.${escape(book)}" ${values[book] !== false ? "checked" : ""}>${escape(label)}</label>`).join("");
-      return `<p>来源开关控制合集浏览器与新升级候选。未知来源保留可见；角色已有物品不受影响。</p><p>法表的获得资格也会核对，例如 PHB 法术凭 TCE 扩展进入其他职业法表。保存后请重载。</p><div style="display:flex;gap:8px;margin-bottom:12px"><button type="button" data-action="all">全部开启</button><button type="button" data-action="core">仅 PHB／DMG</button></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;max-height:55vh;overflow:auto">${rows}</div><footer style="margin-top:16px"><button type="submit"><i class="fas fa-save"></i> 保存</button></footer>`;
+      return `<p>来源开关控制合集浏览器与新升级候选。多个来源共用的条目只需开启其中一个来源；未知来源保留可见，角色已有物品不受影响。</p><p>D&D Beyond 自制专长归入第三方内容。法表的获得资格也会核对，例如 PHB 法术凭 TCE 扩展进入其他职业法表。保存后请重载。</p><div style="display:flex;gap:8px;margin-bottom:12px"><button type="button" data-action="all">全部开启</button><button type="button" data-action="core">仅 PHB／DMG</button></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;max-height:55vh;overflow:auto">${rows}</div><footer style="margin-top:16px"><button type="submit"><i class="fas fa-save"></i> 保存</button></footer>`;
     }
     _replaceHTML(result, content) { content.innerHTML = result; }
     static all() { for (const box of this.element.querySelectorAll('input[type="checkbox"]')) box.checked = true; }

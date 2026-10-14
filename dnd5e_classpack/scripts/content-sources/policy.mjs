@@ -1,4 +1,8 @@
 export const MODULE_ID = "dnd5e_classpack";
+export function sourceBooks(meta) {
+  const books = Array.isArray(meta?.books) ? meta.books : [meta?.book];
+  return Array.from(new Set(books.filter(book => typeof book === "string" && book.length)));
+}
 export const canonicalUuid = uuid => uuid?.replace(/^Compendium\.dnd5e_classpack\.([^.]+)\.([A-Za-z0-9]{16})$/, "Compendium.dnd5e_classpack.$1.Item.$2");
 export function sourceUuid(entry) {
   if (typeof entry === "string") return canonicalUuid(entry);
@@ -28,7 +32,8 @@ export function createContentPolicy(catalog, settings) {
     if (!meta) return true;
     if (context.fixed) return true;
     const state = settings();
-    if (state.enabled && (!enabled(meta.book) || (meta.ua && !state.ua) || (meta.thirdParty && !state.thirdParty))) return false;
+    const books = sourceBooks(meta);
+    if (state.enabled && ((books.length && !books.some(enabled)) || (meta.ua && !state.ua) || (meta.thirdParty && !state.thirdParty))) return false;
     const rules = context.advancement?.flags?.[MODULE_ID]?.content;
     if (rules?.requiresItem && !owned(context.actor, rules.requiresItem)) return false;
     if (rules?.requires?.some(book => !enabled(book))) return false;
