@@ -14,8 +14,7 @@ export async function createActorItemsOnGM(actorUuid, data, { favorite = false, 
   if (!game.user.isGM) throw new Error("ClassPack item creation must execute on a GM client.");
   const actor = await fromUuid(actorUuid);
   if (actor?.documentName !== "Actor") throw new Error("ClassPack item creation requires an Actor UUID.");
-  const previous = actorItemQueues.get(actor.uuid) ?? Promise.resolve();
-  const operation = previous.catch(() => {}).then(async () => {
+  return queueActorItems(actor, async () => {
     const items = await actor.createEmbeddedDocuments("Item", data, options);
     if (favorite) {
       for (const item of items) await actor.system.addFavorite({
@@ -24,8 +23,39 @@ export async function createActorItemsOnGM(actorUuid, data, { favorite = false, 
     }
     return items.map(item => item.uuid);
   });
+}
+
+/** Favorite one actor-owned activity. Accepts an activity or its UUID; returns the activity UUID. */
+export async function favoriteActivity(activity) {
+  const activityUuid = typeof activity === "string" ? activity : activity.uuid;
+  if (game.user.isGM) return favoriteActivityOnGM(activityUuid);
+  const socket = globalThis.dnd5eClasspack.socket;
+  if (!socket) throw new Error("ClassPack activity favorites require socketlib and an online GM.");
+  return socket.executeAsGM("favoriteActivity", activityUuid);
+}
+
+export async function favoriteActivityOnGM(activityUuid) {
+  if (!game.user.isGM) throw new Error("ClassPack activity favorites must execute on a GM client.");
+  const activity = await fromUuid(activityUuid);
+  const actor = activity?.item?.actor;
+  if (activity?.documentName !== "Activity" || actor?.documentName !== "Actor") {
+    throw new Error("ClassPack activity favorites require an actor-owned Activity UUID.");
+  }
+  return queueActorItems(actor, async () => {
+    await actor.system.addFavorite({
+      type: "activity",
+      id: `${foundry.utils.buildRelativeUuid(activity.item, actor)}.Activity.${activity.id}`
+    });
+    return activity.uuid;
+  });
+}
+
+function queueActorItems(actor, task) {
+  const previous = actorItemQueues.get(actor.uuid) ?? Promise.resolve();
+  const operation = previous.catch(() => {}).then(task);
   actorItemQueues.set(actor.uuid, operation);
   return operation.finally(() => {
     if (actorItemQueues.get(actor.uuid) === operation) actorItemQueues.delete(actor.uuid);
   });
 }
+
