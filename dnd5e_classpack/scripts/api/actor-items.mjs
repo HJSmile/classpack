@@ -25,28 +25,27 @@ export async function createActorItemsOnGM(actorUuid, data, { favorite = false, 
   });
 }
 
-/** Favorite one actor-owned activity. Accepts an activity or its UUID; returns the activity UUID. */
-export async function favoriteActivity(activity) {
-  const activityUuid = typeof activity === "string" ? activity : activity.uuid;
-  if (game.user.isGM) return favoriteActivityOnGM(activityUuid);
+/** Favorite an actor-owned item or activity. Accepts a document or UUID; returns its UUID. */
+export async function addFavorite(document) {
+  const uuid = typeof document === "string" ? document : document.uuid;
+  if (game.user.isGM) return addFavoriteOnGM(uuid);
   const socket = globalThis.dnd5eClasspack.socket;
-  if (!socket) throw new Error("ClassPack activity favorites require socketlib and an online GM.");
-  return socket.executeAsGM("favoriteActivity", activityUuid);
+  if (!socket) throw new Error("ClassPack favorites require socketlib and an online GM.");
+  return socket.executeAsGM("addFavorite", uuid);
 }
 
-export async function favoriteActivityOnGM(activityUuid) {
-  if (!game.user.isGM) throw new Error("ClassPack activity favorites must execute on a GM client.");
-  const activity = await fromUuid(activityUuid);
-  const actor = activity?.item?.actor;
-  if (activity?.documentName !== "Activity" || actor?.documentName !== "Actor") {
-    throw new Error("ClassPack activity favorites require an actor-owned Activity UUID.");
-  }
+export async function addFavoriteOnGM(uuid) {
+  if (!game.user.isGM) throw new Error("ClassPack favorites must execute on a GM client.");
+  const document = await fromUuid(uuid);
+  const item = document?.item ?? document;
+  const actor = item?.actor;
+  if (!actor?.system?.addFavorite) throw new Error("ClassPack favorites require an actor-owned item or activity.");
   return queueActorItems(actor, async () => {
     await actor.system.addFavorite({
-      type: "activity",
-      id: `${foundry.utils.buildRelativeUuid(activity.item, actor)}.Activity.${activity.id}`
+      type: document.item ? "activity" : "item",
+      id: foundry.utils.buildRelativeUuid(item, actor) + (document.item ? `.Activity.${document.id}` : "")
     });
-    return activity.uuid;
+    return document.uuid;
   });
 }
 
