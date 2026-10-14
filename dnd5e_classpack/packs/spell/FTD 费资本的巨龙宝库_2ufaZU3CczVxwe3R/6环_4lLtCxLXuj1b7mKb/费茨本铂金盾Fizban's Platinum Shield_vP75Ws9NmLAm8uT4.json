@@ -1,5 +1,5 @@
 {
-  "name": "费茨本铂金盾Fizban's Platinum Shield",
+  "name": "费兹本铂金盾Fizban's Platinum Shield",
   "type": "spell",
   "img": "icons/equipment/shield/heater-steel-gray.webp",
   "system": {
@@ -61,8 +61,7 @@
       "vocal",
       "somatic",
       "material",
-      "concentration",
-      "mgc"
+      "concentration"
     ],
     "activities": {
       "dnd5eactivity000": {
@@ -95,7 +94,18 @@
           {
             "_id": "Rp3kDQGtqq7LKHji",
             "uuid": null,
-            "level": {}
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": 1756664319850,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {
@@ -211,6 +221,157 @@
           "animationIntensity": 5
         },
         "otherActivityAsParentType": true
+      },
+      "XzoV8C70lAJ0pbSa": {
+        "type": "utility",
+        "name": "转移力场",
+        "_id": "XzoV8C70lAJ0pbSa",
+        "img": "",
+        "sort": 100000,
+        "activation": {
+          "type": "action",
+          "override": false
+        },
+        "behaviors": [],
+        "consumption": {
+          "scaling": {
+            "allowed": false
+          },
+          "spellSlot": false,
+          "targets": []
+        },
+        "description": {
+          "value": "",
+          "chatFlavor": ""
+        },
+        "duration": {
+          "units": "inst",
+          "expiry": null,
+          "concentration": false,
+          "override": true
+        },
+        "effects": [],
+        "flags": {
+          "dnd5e_classpack": {
+            "hidden": true
+          }
+        },
+        "range": {
+          "units": "self",
+          "override": true,
+          "special": ""
+        },
+        "target": {
+          "template": {
+            "contiguous": false,
+            "stationary": false,
+            "units": "ft",
+            "type": ""
+          },
+          "affects": {
+            "choice": false,
+            "type": "self",
+            "special": ""
+          },
+          "override": true,
+          "prompt": true
+        },
+        "uses": {
+          "spent": 0,
+          "recovery": [],
+          "max": ""
+        },
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "roll": {
+          "prompt": false,
+          "visible": false,
+          "name": "",
+          "formula": ""
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": "none",
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": false,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "fizbans-platinum-shield",
@@ -223,7 +384,7 @@
       "origin": null,
       "duration": {
         "value": 1,
-        "units": "rounds",
+        "units": "minutes",
         "expiry": "turnStart",
         "expired": false
       },
@@ -245,7 +406,9 @@
           "macroRepeat": "none",
           "specialDuration": [],
           "enableCondition": "",
-          "disableCondition": ""
+          "disableCondition": "",
+          "applicationMode": "default",
+          "expiryMode": "default"
         },
         "dnd5e": {
           "riders": {}
@@ -329,6 +492,16 @@
             "_id": "IyW64gGyd787dOwN",
             "conditions": "{}",
             "replacement": ""
+          },
+          {
+            "key": "macro.itemMacro",
+            "type": "custom",
+            "value": "",
+            "phase": "initial",
+            "_id": "3SF7eOB6PJrHTSZm",
+            "conditions": "{}",
+            "replacement": "",
+            "priority": null
           }
         ],
         "rider": {
@@ -376,9 +549,38 @@
       "effectCondition": "",
       "removeAttackDamageButtons": "default",
       "reactionCondition": "",
-      "otherCondition": ""
+      "otherCondition": "",
+      "onUseMacroName": "[postActiveEffects]ItemMacro,[preItemRoll]ItemMacro"
     },
-    "dnd5e": {}
+    "dnd5e": {},
+    "dae": {
+      "macro": {
+        "name": "费兹本铂金盾Fizban's Platinum Shield",
+        "img": "icons/equipment/shield/heater-steel-gray.webp",
+        "type": "script",
+        "scope": "global",
+        "command": "// 原法术物品挂载 preItemRoll、postActiveEffects；力场 AE 添加 macro.itemMacro。\nconst spell = await fromUuid(macroItem.uuid);\nconst move = spell.system.activities.find(a => a.name === \"转移力场\");\nconst state = spell.getFlag(\"world\", \"platinumShield\");\n\nif (args[0] === \"off\") {\n  if (state?.effect !== args.at(-1).effectUuid) return;\n  await dnd5eClasspack.hideActivity(move.uuid);\n  if (state.favoriteAdded) await spell.actor.system.removeFavorite(state.favorite);\n  await spell.unsetFlag(\"world\", \"platinumShield\");\n  return;\n}\n\nconst pass = args[0].macroPass;\nif (![\"preItemRoll\", \"postActiveEffects\"].includes(pass)) return;\n\nif (workflow.activity.id !== move.id) {\n  if (pass !== \"postActiveEffects\") return;\n  const target = workflow.targets.first();\n  const effect = target.actor.effects.find(e => e.system?.origin?.message === workflow.itemCardUuid);\n  if (!effect) {\n    ui.notifications.warn(\"铂金之盾：未找到本次施法应用的力场效果。\");\n    return;\n  }\n  const favorite = `${foundry.utils.buildRelativeUuid(spell, spell.actor)}.Activity.${move.id}`;\n  await spell.setFlag(\"world\", \"platinumShield\", {\n    effect: effect.uuid, token: target.document.uuid, favorite,\n    favoriteAdded: !spell.actor.system.hasFavorite(favorite)\n  });\n  await dnd5eClasspack.hideActivity(move.uuid, false);\n  await dnd5eClasspack.addFavorite(move.uuid);\n  return;\n}\n\nif (pass === \"preItemRoll\") {\n  const current = state && (await fromUuid(state.token))?.object;\n  const effect = state && await fromUuid(state.effect);\n  if (!current || !effect?.active) {\n    ui.notifications.warn(\"铂金之盾：当前没有可转移的力场。\");\n    return false;\n  }\n  const targets = MidiQOL.findNearby(workflow.token.document.disposition, current, 60, {\n    relative: false, includeIncapacitated: true, includeToken: false\n  });\n  if (!targets.length) {\n    ui.notifications.warn(\"铂金之盾：力场周围 60 尺内没有可选择的盟友。\");\n    return false;\n  }\n  const [target] = await dnd5eClasspack.dialogUtils.selectTargetDialog(\n    \"转移力场\", \"\", targets,\n    { userId: dnd5eClasspack.firstOwner(spell.actor, true), skipDeadAndUnconscious: false }\n  );\n  if (!target) return false;\n  workflow.platinumShieldTarget = target.document.uuid;\n  return;\n}\n\nconst effect = await fromUuid(state.effect);\nconst target = await fromUuid(workflow.platinumShieldTarget);\nconst data = effect.toObject();\ndata._id = foundry.utils.randomID();\n\nawait MidiQOL.socket().executeAsGM(\"createEffects\", {\n  actorUuid: target.actor.uuid, effects: [data], options: { keepId: true }\n});\n// 先指向新效果，再删除旧效果；旧效果的 off 因 UUID 不匹配而跳过清理。\nawait spell.setFlag(\"world\", \"platinumShield\", {\n  ...state, effect: `${target.actor.uuid}.ActiveEffect.${data._id}`, token: target.uuid\n});\nawait MidiQOL.socket().executeAsGM(\"removeEffects\", {\n  actorUuid: effect.parent.uuid, effects: [effect.id]\n});",
+        "author": "dvg25zW2MvzsvMOU",
+        "ownership": {
+          "default": 3
+        },
+        "_id": null,
+        "folder": null,
+        "sort": 0,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.369",
+          "systemId": "dnd5e",
+          "systemVersion": "6.0.6",
+          "createdTime": null,
+          "modifiedTime": null,
+          "lastModifiedBy": null,
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null
+        }
+      }
+    }
   },
   "_id": "vP75Ws9NmLAm8uT4",
   "folder": "4lLtCxLXuj1b7mKb",

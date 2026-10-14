@@ -93,7 +93,21 @@
           {
             "_id": "k3kMiZTFvf6JQHPY",
             "uuid": null,
-            "level": {}
+            "level": {
+              "min": null,
+              "max": null
+            },
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": null,
+              "lastModifiedBy": null,
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {
@@ -105,12 +119,17 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "stationary": false
+            "stationary": false,
+            "type": "radius",
+            "size": "5",
+            "count": ""
           },
           "affects": {
-            "choice": false
+            "choice": false,
+            "type": "self",
+            "special": "-self"
           },
-          "override": false
+          "override": true
         },
         "uses": {
           "spent": 0,
@@ -140,7 +159,7 @@
         },
         "midiProperties": {
           "ignoreTraits": [],
-          "triggeredActivityId": "none",
+          "triggeredActivityId": "灼烧区域",
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
@@ -155,8 +174,8 @@
           "chooseEffects": false,
           "toggleEffect": false,
           "ignoreFullCover": false,
-          "triggeredActivityConsume": true,
-          "triggeredActivityConfigure": true,
+          "triggeredActivityConsume": false,
+          "triggeredActivityConfigure": false,
           "autoConsume": false,
           "forceConsumeDialog": "default",
           "forceRollDialog": "default",
@@ -177,14 +196,190 @@
           "rollAs": "target"
         },
         "otherActivityId": "none",
-        "img": null,
+        "img": "",
         "behaviors": [],
         "flags": {},
         "visibility": {
-          "level": {},
+          "level": {
+            "min": null,
+            "max": null
+          },
           "requireAttunement": false,
           "requireIdentification": false,
           "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": true,
+          "dispositionFilter": 0,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "caster",
+          "templateOrigin": "default",
+          "rules": [
+            {
+              "trigger": "entry",
+              "action": "useActivity",
+              "targetId": "伤害"
+            }
+          ]
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "name": ""
+      },
+      "xdERdjGjQLrgEIPW": {
+        "type": "damage",
+        "name": "",
+        "_id": "xdERdjGjQLrgEIPW",
+        "img": "",
+        "sort": 200000,
+        "activation": {
+          "type": "",
+          "override": true,
+          "condition": ""
+        },
+        "behaviors": [],
+        "consumption": {
+          "scaling": {
+            "allowed": false
+          },
+          "spellSlot": false,
+          "targets": []
+        },
+        "description": {
+          "value": "",
+          "chatFlavor": ""
+        },
+        "duration": {
+          "units": "inst",
+          "expiry": null,
+          "concentration": false,
+          "override": true
+        },
+        "effects": [],
+        "flags": {},
+        "range": {
+          "units": "self",
+          "override": true,
+          "special": ""
+        },
+        "target": {
+          "template": {
+            "contiguous": false,
+            "stationary": false,
+            "units": "ft",
+            "type": ""
+          },
+          "affects": {
+            "choice": false,
+            "type": ""
+          },
+          "override": true,
+          "prompt": true
+        },
+        "uses": {
+          "spent": 0,
+          "recovery": [],
+          "max": ""
+        },
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "damage": {
+          "critical": {
+            "allow": false
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              },
+              "number": 1,
+              "denomination": 6,
+              "bonus": "",
+              "modifiers": [],
+              "types": [
+                "fire"
+              ],
+              "scaling": {
+                "mode": "whole",
+                "number": 1,
+                "formula": ""
+              }
+            }
+          ]
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": "none",
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": true,
+          "otherActivityCompatible": false,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": true,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
         },
         "regionBehavior": {
           "enabled": false,
@@ -207,8 +402,7 @@
           "animationType": "",
           "animationSpeed": 5,
           "animationIntensity": 5
-        },
-        "otherActivityAsParentType": true
+        }
       }
     },
     "identifier": "ashardalons-stride",
@@ -239,7 +433,14 @@
           "stackable": "noneName",
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "enableCondition": "",
+          "disableCondition": "",
+          "applicationMode": "default",
+          "expiryMode": "default"
+        },
+        "core": {
+          "overlay": false
         }
       },
       "tint": "#ffffff",
@@ -260,7 +461,7 @@
         "changes": [
           {
             "key": "system.attributes.movement.all",
-            "value": "+20",
+            "value": "+15+5*@scaling",
             "priority": 20,
             "type": "custom",
             "phase": "initial",

@@ -93,7 +93,18 @@
             "_id": "RjCCXxGFBrdhBN5J",
             "uuid": null,
             "level": {},
-            "onSave": false
+            "onSave": false,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1755605416815,
+              "modifiedTime": 1757188539713,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           }
         ],
         "range": {
@@ -282,7 +293,8 @@
       "itemCondition": "",
       "effectCondition": "",
       "reactionCondition": "",
-      "otherCondition": ""
+      "otherCondition": "",
+      "onUseMacroName": "[preActiveEffects]ItemMacro"
     },
     "dnd5e": {},
     "chris-premades": {
@@ -290,6 +302,34 @@
         "identifier": "antagonize",
         "source": "chris-premades",
         "version": "0.0.0"
+      }
+    },
+    "dae": {
+      "macro": {
+        "name": "敌意术 Antagonize",
+        "img": "icons/magic/air/wind-vortex-swirl-purple.webp",
+        "type": "script",
+        "scope": "global",
+        "command": "// 原法术物品的 OnUse 宏，挂载 preActiveEffects；豁免行动只关联失败时的攻击劣势 AE。\nif (args[0].macroPass !== \"preActiveEffects\") return;\n\nconst victim = workflow.failedSaves.first();\nif (!victim || MidiQOL.hasUsedReaction(victim.actor) || MidiQOL.checkIncapacitated(victim.actor, false, false)) return;\n\nconst attacks = victim.actor.items.flatMap(i => i.system.equipped === false ? []\n  : i.system.activities.filter(a => a.type === \"attack\" && a.canUse\n    && [\"mwak\", \"msak\"].includes(a.getActionType())));\n\nconst choices = attacks.map(activity => {\n  const reach = Number(activity.range.reach ?? activity.range.value) || 5;\n  const targets = MidiQOL.findNearby(null, victim, reach, { includeIncapacitated: true })\n    .filter(t => MidiQOL.canSee(workflow.token, t));\n  const mode = activity.item.system.attackModes.find(m => [\"oneHanded\", \"twoHanded\"].includes(m.value))?.value;\n  return { activity, targets, mode };\n}).filter(choice => choice.targets.length);\nif (!choices.length) return;\n\nconst targets = [...new Set(choices.flatMap(choice => choice.targets))];\nconst [target] = await dnd5eClasspack.dialogUtils.selectTargetDialog(\n  macroItem.name, \"\", targets,\n  { userId: dnd5eClasspack.firstOwner(macroItem.actor, true), skipDeadAndUnconscious: false }\n);\nif (!target) return;\n\nconst available = choices.filter(choice => choice.targets.includes(target));\nconst uuid = available.length === 1 ? available[0].activity.uuid\n  : await dnd5eClasspack.dialogUtils.selectDialog(\n    \"选择近战攻击\", \"\", {\n      label: \"攻击\", name: \"attack\", options: {\n        options: available.map(({ activity }) => ({\n          value: activity.uuid, label: `${activity.item.name} · ${activity.name}`\n        }))\n      }\n    }, { userId: dnd5eClasspack.firstOwner(victim.actor, true) }\n  );\nif (!uuid) return;\nconst choice = available.find(entry => entry.activity.uuid === uuid);\n\nconst result = await MidiQOL.completeActivityUse(uuid, {\n  midiOptions: {\n    asUser: dnd5eClasspack.firstOwner(victim.actor, true),\n    workflowData: true,\n    targetUuids: [target.document.uuid],\n    workflowOptions: {\n      castUsesReaction: true, notReaction: true, notBonusAction: true,\n      attackMode: choice.mode,\n      autoRollAttack: true, autoRollDamage: \"onHit\", fastForwardAttack: true\n    }\n  }\n}, { configure: false });\n\nif (result?.attackRoll) return { haltEffectsApplication: true };",
+        "author": "dvg25zW2MvzsvMOU",
+        "ownership": {
+          "default": 3
+        },
+        "_id": null,
+        "folder": null,
+        "sort": 0,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.369",
+          "systemId": "dnd5e",
+          "systemVersion": "6.0.6",
+          "createdTime": null,
+          "modifiedTime": null,
+          "lastModifiedBy": null,
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null
+        }
       }
     }
   },
@@ -350,9 +390,11 @@
           "showIcon": false,
           "durationExpression": "",
           "specialDuration": [
-            "Reaction"
+            "1Attack"
           ],
-          "macroRepeat": "none"
+          "macroRepeat": "none",
+          "applicationMode": "default",
+          "expiryMode": "default"
         },
         "dnd5e": {
           "riders": {}
