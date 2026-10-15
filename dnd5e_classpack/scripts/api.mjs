@@ -24,7 +24,7 @@ import { ClasspackTeleport } from "./api/teleport.mjs";
 import { createDialogUtils } from "./api/dialog-utils.mjs";
 import { calculatePushUpdates } from "./api/push.mjs";
 import { socketFunctions } from "./api/socket-functions.mjs";
-import { createActorItems, addFavorite } from "./api/actor-items.mjs";
+import { createActorItems, addFavorite, removeFavorite } from "./api/actor-items.mjs";
 import { hideActivity, installActivityVisibility } from "./api/activity-visibility.mjs";
 import { moveTokens, registerMovementActions } from "./api/movement.mjs";
 import { tokenDocument } from "./api/geometry.mjs";
@@ -41,6 +41,7 @@ import { registerLucky2014 } from "./api/lucky2014.mjs";
 const api = {
   createActorItems,
   addFavorite,
+  removeFavorite,
   hideActivity,
   socket: null,
   compatibility: null,

@@ -49,6 +49,29 @@ export async function addFavoriteOnGM(uuid) {
   });
 }
 
+/** Remove an actor-owned item or activity from favorites. Accepts a document or UUID; returns its UUID. */
+export async function removeFavorite(document) {
+  const uuid = typeof document === "string" ? document : document.uuid;
+  if (game.user.isGM) return removeFavoriteOnGM(uuid);
+  const socket = globalThis.dnd5eClasspack.socket;
+  if (!socket) throw new Error("ClassPack favorites require socketlib and an online GM.");
+  return socket.executeAsGM("removeFavorite", uuid);
+}
+
+export async function removeFavoriteOnGM(uuid) {
+  if (!game.user.isGM) throw new Error("ClassPack favorites must execute on a GM client.");
+  const document = await fromUuid(uuid);
+  const item = document?.item ?? document;
+  const actor = item?.actor;
+  if (!actor?.system?.removeFavorite) throw new Error("ClassPack favorites require an actor-owned item or activity.");
+  return queueActorItems(actor, async () => {
+    await actor.system.removeFavorite(
+      foundry.utils.buildRelativeUuid(item, actor) + (document.item ? `.Activity.${document.id}` : "")
+    );
+    return document.uuid;
+  });
+}
+
 function queueActorItems(actor, task) {
   const previous = actorItemQueues.get(actor.uuid) ?? Promise.resolve();
   const operation = previous.catch(() => {}).then(task);
