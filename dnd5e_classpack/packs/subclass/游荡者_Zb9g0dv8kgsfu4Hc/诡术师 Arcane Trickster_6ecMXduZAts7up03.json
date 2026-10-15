@@ -56,8 +56,19 @@
               "sort": 0
             }
           ],
-          "optional": true,
-          "spell": null,
+          "optional": false,
+          "spell": {
+            "ability": [
+              "int"
+            ],
+            "method": "spell",
+            "prepared": 1,
+            "uses": {
+              "max": "",
+              "per": "",
+              "requireSlot": false
+            }
+          },
           "sorting": "m"
         },
         "value": {},
@@ -128,6 +139,329 @@
         "name": "职业特性",
         "flags": {},
         "hint": ""
+      },
+      "66fc90945bfe59bd": {
+        "_id": "66fc90945bfe59bd",
+        "type": "ItemChoice",
+        "name": "选择限定学派法术",
+        "configuration": {
+          "choices": {
+            "3": {
+              "count": 2,
+              "replacement": false
+            },
+            "4": {
+              "count": 1,
+              "replacement": true
+            },
+            "5": {
+              "count": 0,
+              "replacement": true
+            },
+            "6": {
+              "count": 0,
+              "replacement": true
+            },
+            "7": {
+              "count": 1,
+              "replacement": true
+            },
+            "8": {
+              "count": 0,
+              "replacement": true
+            },
+            "9": {
+              "count": 0,
+              "replacement": true
+            },
+            "10": {
+              "count": 1,
+              "replacement": true
+            },
+            "11": {
+              "count": 1,
+              "replacement": true
+            },
+            "12": {
+              "count": 0,
+              "replacement": true
+            },
+            "13": {
+              "count": 1,
+              "replacement": true
+            },
+            "14": {
+              "count": 0,
+              "replacement": true
+            },
+            "15": {
+              "count": 0,
+              "replacement": true
+            },
+            "16": {
+              "count": 1,
+              "replacement": true
+            },
+            "17": {
+              "count": 0,
+              "replacement": true
+            },
+            "18": {
+              "count": 0,
+              "replacement": true
+            },
+            "19": {
+              "count": 1,
+              "replacement": true
+            },
+            "20": {
+              "count": 0,
+              "replacement": true
+            }
+          },
+          "allowDrops": true,
+          "type": "spell",
+          "pool": [],
+          "spell": {
+            "ability": [
+              "int"
+            ],
+            "method": "spell",
+            "prepared": 1,
+            "uses": {
+              "max": "",
+              "per": "",
+              "requireSlot": false
+            }
+          },
+          "restriction": {
+            "level": "availableNoCantrips",
+            "list": [
+              "class:wizard"
+            ],
+            "school": [
+              "enc",
+              "ill"
+            ]
+          },
+          "sorting": "a"
+        },
+        "value": {
+          "added": {},
+          "replaced": {}
+        },
+        "flags": {
+          "dnd5e_classpack": {
+            "content": {
+              "kind": "spell-list",
+              "classIdentifier": "wizard",
+              "requires": []
+            },
+            "spellLearning": {
+              "group": "arcane-trickster-spells",
+              "kind": "restricted",
+              "schools": [
+                "enc",
+                "ill"
+              ],
+              "initialAnyReplacement": false
+            }
+          }
+        },
+        "hint": "按子职业表学习新法术；每次提升本职业等级，两组选法术合计最多替换一个已知法术。"
+      },
+      "595b45adcd694f6c": {
+        "_id": "595b45adcd694f6c",
+        "type": "ItemChoice",
+        "name": "选择任意学派法术",
+        "configuration": {
+          "choices": {
+            "3": {
+              "count": 1,
+              "replacement": false
+            },
+            "4": {
+              "count": 0,
+              "replacement": true
+            },
+            "5": {
+              "count": 0,
+              "replacement": true
+            },
+            "6": {
+              "count": 0,
+              "replacement": true
+            },
+            "7": {
+              "count": 0,
+              "replacement": true
+            },
+            "8": {
+              "count": 1,
+              "replacement": true
+            },
+            "9": {
+              "count": 0,
+              "replacement": true
+            },
+            "10": {
+              "count": 0,
+              "replacement": true
+            },
+            "11": {
+              "count": 0,
+              "replacement": true
+            },
+            "12": {
+              "count": 0,
+              "replacement": true
+            },
+            "13": {
+              "count": 0,
+              "replacement": true
+            },
+            "14": {
+              "count": 1,
+              "replacement": true
+            },
+            "15": {
+              "count": 0,
+              "replacement": true
+            },
+            "16": {
+              "count": 0,
+              "replacement": true
+            },
+            "17": {
+              "count": 0,
+              "replacement": true
+            },
+            "18": {
+              "count": 0,
+              "replacement": true
+            },
+            "19": {
+              "count": 0,
+              "replacement": true
+            },
+            "20": {
+              "count": 1,
+              "replacement": true
+            }
+          },
+          "allowDrops": true,
+          "type": "spell",
+          "pool": [],
+          "spell": {
+            "ability": [
+              "int"
+            ],
+            "method": "spell",
+            "prepared": 1,
+            "uses": {
+              "max": "",
+              "per": "",
+              "requireSlot": false
+            }
+          },
+          "restriction": {
+            "level": "availableNoCantrips",
+            "list": [
+              "class:wizard"
+            ],
+            "school": []
+          },
+          "sorting": "a"
+        },
+        "value": {
+          "added": {},
+          "replaced": {}
+        },
+        "flags": {
+          "dnd5e_classpack": {
+            "content": {
+              "kind": "spell-list",
+              "classIdentifier": "wizard",
+              "requires": []
+            },
+            "spellLearning": {
+              "group": "arcane-trickster-spells",
+              "kind": "any",
+              "schools": [
+                "enc",
+                "ill"
+              ],
+              "initialAnyReplacement": false
+            }
+          }
+        },
+        "hint": "按子职业表学习新法术；每次提升本职业等级，两组选法术合计最多替换一个已知法术。"
+      },
+      "b2507ca0e99b1940": {
+        "_id": "b2507ca0e99b1940",
+        "type": "ItemChoice",
+        "name": "选择诡术师戏法",
+        "configuration": {
+          "choices": {
+            "3": {
+              "count": 2,
+              "replacement": false
+            },
+            "10": {
+              "count": 1,
+              "replacement": false
+            }
+          },
+          "allowDrops": true,
+          "type": "spell",
+          "pool": [],
+          "spell": {
+            "ability": [
+              "int"
+            ],
+            "method": "spell",
+            "prepared": 1,
+            "uses": {
+              "max": "",
+              "per": "",
+              "requireSlot": false
+            }
+          },
+          "restriction": {
+            "level": "0",
+            "list": [
+              "class:wizard"
+            ],
+            "school": []
+          },
+          "sorting": "a"
+        },
+        "value": {
+          "added": {},
+          "replaced": {}
+        },
+        "flags": {
+          "dnd5e_classpack": {
+            "content": {
+              "kind": "spell-list",
+              "classIdentifier": "wizard",
+              "requires": []
+            },
+            "spellLearning": {
+              "group": "arcane-trickster-cantrips",
+              "kind": "cantrip",
+              "schools": [
+                "enc",
+                "ill"
+              ],
+              "initialAnyReplacement": false,
+              "exclude": [
+                "Compendium.dnd5e_classpack.spell.Item.H5gghxp0hfT3BAlC"
+              ]
+            }
+          }
+        },
+        "hint": "除固定获得的法师之手外，3 级另选两个法师戏法，10 级再选一个。"
       }
     },
     "spellcasting": {

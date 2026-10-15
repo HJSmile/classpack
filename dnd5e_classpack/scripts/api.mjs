@@ -37,6 +37,8 @@ import { createRollApi } from "./api/rolls.mjs";
 import { createRollDisplayApi } from "./api/roll-display.mjs";
 import { createRollInterventionApi } from "./api/roll-interventions.mjs";
 import { registerLucky2014 } from "./api/lucky2014.mjs";
+import { installSpellAdvancementRules } from "./advancement-spells.mjs";
+import { registerCantripFormulas } from "./cantrip-formulas.mjs";
 
 const api = {
   createActorItems,
@@ -220,6 +222,8 @@ Hooks.once("ready", () => {
   api.compatibility = checkCompatibility();
   installActivityVisibility();
   api.rollDisplay.install();
+  installSpellAdvancementRules();
+  registerCantripFormulas();
   try {
     if (game.modules.get("midi-qol")?.active && api.socket && globalThis.libWrapper) {
       api.lucky2014.prepareLegacyBridge();
