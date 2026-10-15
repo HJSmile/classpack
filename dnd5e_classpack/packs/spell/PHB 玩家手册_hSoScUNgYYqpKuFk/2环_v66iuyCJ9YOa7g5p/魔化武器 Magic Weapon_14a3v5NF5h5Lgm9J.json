@@ -33,113 +33,13 @@
   "img": "icons/weapons/polearms/spear-flared-silver-pink.webp",
   "effects": [
     {
-      "name": "魔化武器 Magic Weapon",
-      "origin": null,
-      "duration": {
-        "value": 3600,
-        "units": "seconds",
-        "expiry": "turnStart",
-        "expired": false
-      },
-      "disabled": false,
-      "_id": "utghpIeDpFSgwHdv",
-      "description": "",
-      "transfer": false,
-      "statuses": [],
-      "flags": {
-        "dae": {
-          "disableIncapacitated": false,
-          "selfTarget": false,
-          "selfTargetAlways": false,
-          "dontApply": false,
-          "stackable": "noneName",
-          "durationExpression": "",
-          "macroRepeat": "none",
-          "specialDuration": [],
-          "enableCondition": "",
-          "disableCondition": ""
-        },
-        "dnd5e": {
-          "riders": {}
-        },
-        "core": {
-          "overlay": false
-        }
-      },
-      "tint": "#ffffff",
-      "_stats": {
-        "coreVersion": "14.368",
-        "systemId": "dnd5e",
-        "systemVersion": "6.0.5",
-        "createdTime": null,
-        "modifiedTime": 1751584527462,
-        "lastModifiedBy": "A6zoJ8r1FeeiU1rB",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "img": "icons/weapons/polearms/spear-flared-silver-pink.webp",
-      "type": "base",
-      "system": {
-        "changes": [
-          {
-            "key": "system.rolls.attack.weapon.bonus",
-            "value": "+1",
-            "priority": 20,
-            "type": "add",
-            "phase": "initial",
-            "_id": "hm9FCzl2sfHZchKv",
-            "conditions": "{}",
-            "replacement": ""
-          },
-          {
-            "key": "system.rolls.damage.weapon.bonus",
-            "value": "+1",
-            "priority": 20,
-            "type": "add",
-            "phase": "initial",
-            "_id": "weWGObKCbeCxmupS",
-            "conditions": "{}",
-            "replacement": ""
-          }
-        ],
-        "rider": {
-          "statuses": []
-        },
-        "origin": {
-          "actor": null,
-          "behavior": null,
-          "effect": null,
-          "item": "Compendium.dnd5e_classpack.spell.Item.14a3v5NF5h5Lgm9J",
-          "message": null
-        },
-        "conditions": "{}",
-        "magical": true
-      },
-      "sort": 0,
-      "start": null,
-      "showIcon": 2,
-      "folder": null,
-      "_key": "!items.effects!14a3v5NF5h5Lgm9J.utghpIeDpFSgwHdv"
-    },
-    {
       "type": "enchantment",
-      "name": "魔化武器 Magic Weapon +1",
+      "name": "魔化武器 Magic Weapon",
       "img": "icons/weapons/polearms/spear-flared-silver-pink.webp",
       "disabled": true,
       "_id": "ZUvT1iprn59LGbe7",
       "system": {
         "changes": [
-          {
-            "key": "name",
-            "value": "+1",
-            "priority": 20,
-            "type": "add",
-            "phase": "initial",
-            "_id": "XanStaaaBQgdjSrT",
-            "conditions": "{}",
-            "replacement": ""
-          },
           {
             "key": "system.properties",
             "value": "mgc",
@@ -152,13 +52,13 @@
           },
           {
             "key": "system.magicalBonus",
-            "value": 1,
+            "value": "min(3, floor(@item.level / 2))",
             "priority": 20,
             "type": "override",
             "phase": "initial",
             "_id": "k3Nqgjki5mHf9Dsr",
             "conditions": "{}",
-            "replacement": ""
+            "replacement": "origin"
           }
         ],
         "origin": {
@@ -189,7 +89,10 @@
           "stackable": "multi",
           "showIcon": false,
           "durationExpression": "",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "default",
+          "expiryMode": "default",
+          "macroRepeat": "none"
         },
         "dnd5e": {
           "riders": {}
@@ -213,190 +116,6 @@
       "showIcon": 1,
       "folder": null,
       "_key": "!items.effects!14a3v5NF5h5Lgm9J.ZUvT1iprn59LGbe7"
-    },
-    {
-      "type": "enchantment",
-      "name": "魔化武器 Magic Weapon +2",
-      "img": "icons/weapons/polearms/spear-flared-silver-pink.webp",
-      "disabled": true,
-      "_id": "CkQkeRA7N6A3URaJ",
-      "system": {
-        "changes": [
-          {
-            "key": "name",
-            "value": "+2",
-            "priority": 20,
-            "type": "add",
-            "phase": "initial",
-            "_id": "ZPKqjPHcHJ67dvsR",
-            "conditions": "{}",
-            "replacement": ""
-          },
-          {
-            "key": "system.properties",
-            "value": "mgc",
-            "priority": 20,
-            "type": "add",
-            "phase": "initial",
-            "_id": "WiPMJi10xucgFFzd",
-            "conditions": "{}",
-            "replacement": ""
-          },
-          {
-            "key": "system.magicalBonus",
-            "value": 2,
-            "priority": 20,
-            "type": "override",
-            "phase": "initial",
-            "_id": "XgAiowAfQH6bqTJK",
-            "conditions": "{}",
-            "replacement": ""
-          }
-        ],
-        "origin": {
-          "actor": null,
-          "behavior": null,
-          "effect": null,
-          "item": null,
-          "message": null
-        },
-        "magical": true
-      },
-      "duration": {
-        "value": 1,
-        "units": "hours",
-        "expiry": null,
-        "expired": false
-      },
-      "description": "",
-      "origin": null,
-      "tint": "#ffffff",
-      "transfer": false,
-      "statuses": [],
-      "sort": 0,
-      "flags": {
-        "dae": {
-          "enableCondition": "",
-          "disableCondition": "",
-          "stackable": "multi",
-          "showIcon": false,
-          "durationExpression": "",
-          "specialDuration": []
-        },
-        "dnd5e": {
-          "riders": {}
-        },
-        "core": {
-          "overlay": false
-        }
-      },
-      "_stats": {
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "coreVersion": "14.368",
-        "systemId": "dnd5e",
-        "systemVersion": "6.0.5",
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null,
-        "exportSource": null
-      },
-      "start": null,
-      "showIcon": 1,
-      "folder": null,
-      "_key": "!items.effects!14a3v5NF5h5Lgm9J.CkQkeRA7N6A3URaJ"
-    },
-    {
-      "type": "enchantment",
-      "name": "魔化武器 Magic Weapon +3",
-      "img": "icons/weapons/polearms/spear-flared-silver-pink.webp",
-      "disabled": true,
-      "_id": "MoFFj5RSPXs9FN6k",
-      "system": {
-        "changes": [
-          {
-            "key": "name",
-            "value": "+3",
-            "priority": 20,
-            "type": "add",
-            "phase": "initial",
-            "_id": "6NQWTiXiWtCjzGSa",
-            "conditions": "{}",
-            "replacement": ""
-          },
-          {
-            "key": "system.properties",
-            "value": "mgc",
-            "priority": 20,
-            "type": "add",
-            "phase": "initial",
-            "_id": "1Lk5Q2PC9LYKCOva",
-            "conditions": "{}",
-            "replacement": ""
-          },
-          {
-            "key": "system.magicalBonus",
-            "value": 3,
-            "priority": 20,
-            "type": "override",
-            "phase": "initial",
-            "_id": "zZQxl5lfktTITpTn",
-            "conditions": "{}",
-            "replacement": ""
-          }
-        ],
-        "origin": {
-          "actor": null,
-          "behavior": null,
-          "effect": null,
-          "item": null,
-          "message": null
-        },
-        "magical": true
-      },
-      "duration": {
-        "value": 1,
-        "units": "hours",
-        "expiry": null,
-        "expired": false
-      },
-      "description": "",
-      "origin": null,
-      "tint": "#ffffff",
-      "transfer": false,
-      "statuses": [],
-      "sort": 0,
-      "flags": {
-        "dae": {
-          "enableCondition": "",
-          "disableCondition": "",
-          "stackable": "multi",
-          "showIcon": false,
-          "durationExpression": "",
-          "specialDuration": []
-        },
-        "dnd5e": {
-          "riders": {}
-        },
-        "core": {
-          "overlay": false
-        }
-      },
-      "_stats": {
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "coreVersion": "14.368",
-        "systemId": "dnd5e",
-        "systemVersion": "6.0.5",
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null,
-        "exportSource": null
-      },
-      "start": null,
-      "showIcon": 1,
-      "folder": null,
-      "_key": "!items.effects!14a3v5NF5h5Lgm9J.MoFFj5RSPXs9FN6k"
     }
   ],
   "system": {

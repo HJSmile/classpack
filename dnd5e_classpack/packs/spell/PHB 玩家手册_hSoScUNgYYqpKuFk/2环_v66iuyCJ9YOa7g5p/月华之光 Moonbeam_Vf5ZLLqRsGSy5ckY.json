@@ -13,7 +13,7 @@
       "effectCondition": "",
       "reactionCondition": "",
       "otherCondition": "",
-      "onUseMacroName": "[preActiveEffects]ItemMacro"
+      "onUseMacroName": "[templatePlaced]ActivityMacro-DC0175Apf7hoW3zl"
     },
     "midiProperties": {
       "confirmTargets": "always",
@@ -41,7 +41,7 @@
         "img": "icons/magic/light/beams-strike-blue.webp",
         "type": "script",
         "scope": "global",
-        "command": "if (args[0].macroPass === \"preActiveEffects\" || args[0].tag === \"OnUse\") {\n  return await game.modules.get(\"ActiveAuras\").api.AAHelpers.applyTemplate(args);\n}",
+        "command": "",
         "author": "WqWGW8MuBm7BNHxt",
         "ownership": {
           "default": 3
@@ -68,92 +68,18 @@
         "source": "chris-premades",
         "version": "0.0.0"
       }
+    },
+    "dnd5e_classpack": {
+      "regionAutomation": {
+        "key": "moonbeam",
+        "main": "DC0175Apf7hoW3zl",
+        "repeated": "jeXhNfMEw1OApX0j",
+        "schemaVersion": 1
+      }
     }
   },
   "img": "icons/magic/light/beams-strike-blue.webp",
-  "effects": [
-    {
-      "name": "月华之光 Moonbeam",
-      "img": "icons/magic/light/beams-strike-blue.webp",
-      "origin": null,
-      "transfer": false,
-      "_id": "SijKuciO2cYUaJkt",
-      "type": "base",
-      "system": {
-        "changes": [
-          {
-            "key": "flags.midi-qol.OverTime",
-            "value": "turn=start, label=月华之光 Moonbeam, saveAbility=con, saveDC=@attributes.spell.dc, saveMagic=true, damageRoll=[@flags.dnd5e.spellLevel]d10, damageType=radiant, saveDamage=halfdamage, allowIncapacitated=true",
-            "priority": 20,
-            "type": "custom",
-            "phase": "initial",
-            "_id": "d2kPaWGrZQSnXHWd",
-            "conditions": "{}",
-            "replacement": ""
-          }
-        ],
-        "rider": {
-          "statuses": []
-        },
-        "origin": {
-          "actor": null,
-          "behavior": null,
-          "effect": null,
-          "item": "Compendium.dnd5e_classpack.spell.Item.Vf5ZLLqRsGSy5ckY",
-          "message": null
-        },
-        "conditions": "{}",
-        "magical": true
-      },
-      "disabled": false,
-      "duration": {
-        "value": 1,
-        "units": "minutes",
-        "expiry": null,
-        "expired": false
-      },
-      "description": "",
-      "tint": "#ffffff",
-      "statuses": [],
-      "sort": 0,
-      "flags": {
-        "dae": {
-          "enableCondition": "",
-          "disableCondition": "",
-          "disableIncapacitated": false,
-          "selfTarget": false,
-          "selfTargetAlways": false,
-          "dontApply": false,
-          "stackable": "noneName",
-          "showIcon": false,
-          "durationExpression": "",
-          "specialDuration": [],
-          "macroRepeat": "none"
-        },
-        "dnd5e": {
-          "riders": {}
-        },
-        "core": {
-          "overlay": false
-        }
-      },
-      "_stats": {
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "coreVersion": "14.368",
-        "systemId": "dnd5e",
-        "systemVersion": "6.0.5",
-        "createdTime": 1755158963689,
-        "modifiedTime": 1786655467819,
-        "lastModifiedBy": "TEhQZHmGMOcY5c4a",
-        "exportSource": null
-      },
-      "start": null,
-      "showIcon": 1,
-      "folder": null,
-      "_key": "!items.effects!Vf5ZLLqRsGSy5ckY.SijKuciO2cYUaJkt"
-    }
-  ],
+  "effects": [],
   "system": {
     "description": {
       "value": "<p>指定施法距离内一点，以该点为中心半径 5 尺、高 40 尺的柱状区域内沐浴在一束淡淡的银光中。直至法术终止前，柱状区域内充满微光光照。</p><p>生物在一个回合内第一次进入该区域，或在该区域内开始其回合时，将被幽灵般的火焰吞噬并引起剧烈的灼痛。该生物必须进行一次体质豁免，豁免失败则受到 [[/damage 2d10 type=radiant]]{2d10} 的光耀伤害，豁免成功则伤害减半。</p><p>变形生物进行该豁免时具有劣势，而如果它豁免失败，则将立即恢复其原始形态，而它离开该法术的光照前都无法变形成其他形态。</p><p>你在施展该法术后的每个自己回合内可以用一个动作将华光向任意方向移动至多 60 尺。</p><p><strong>升环施法效应。</strong>使用三环或更高法术位施展该法术时，你使用的法术位每比二环高一环，其伤害就增加 1d10。</p>",
@@ -274,8 +200,8 @@
         "useConditionReason": "",
         "effectConditionText": "",
         "macroData": {
-          "name": "",
-          "command": ""
+          "name": "Classpack 区域处理",
+          "command": "const api = game.modules.get(\"dnd5e_classpack\")?.api?.regionSpells;\nif (!api) {\n  ui.notifications.error(\"Classpack 区域修复脚本未加载，请刷新游戏。\");\n  return false;\n}\nreturn await api.handle({ workflow, args });"
         },
         "ignoreTraits": {
           "idi": false,
@@ -295,7 +221,7 @@
           "autoTargetAction": "default",
           "automationOnly": false,
           "otherActivityCompatible": true,
-          "identifier": "",
+          "identifier": "moonbeam-cast",
           "displayActivityName": false,
           "rollMode": "default",
           "chooseEffects": false,
@@ -337,8 +263,8 @@
         },
         "regionBehavior": {
           "enabled": true,
-          "dispositionFilter": -1,
-          "excludeSource": true,
+          "dispositionFilter": 0,
+          "excludeSource": false,
           "oncePerTurn": true,
           "wallRestriction": "none",
           "regionVisibility": 2,
@@ -346,14 +272,9 @@
           "templateOrigin": "default",
           "rules": [
             {
-              "trigger": "entry",
-              "action": "useActivity",
-              "targetId": "automationsave"
-            },
-            {
               "trigger": "turnStart",
               "action": "useActivity",
-              "targetId": "automationsave"
+              "targetId": "moonbeam-repeat"
             }
           ]
         },
@@ -369,57 +290,60 @@
           "animationIntensity": 5
         },
         "otherActivityAsParentType": true,
-        "name": ""
+        "name": "施法与区域放置"
       },
       "jeXhNfMEw1OApX0j": {
         "type": "save",
-        "name": "AutomationSave",
+        "name": "区域重复豁免",
         "_id": "jeXhNfMEw1OApX0j",
         "img": "",
         "sort": 100000,
         "activation": {
           "type": "",
+          "value": null,
           "override": true,
           "condition": ""
         },
         "behaviors": [],
         "consumption": {
-          "scaling": {
-            "allowed": false
-          },
+          "targets": [],
           "spellSlot": false,
-          "targets": []
+          "scaling": {
+            "allowed": false,
+            "max": ""
+          }
         },
         "description": {
           "value": "",
           "chatFlavor": ""
         },
         "duration": {
+          "override": true,
           "units": "inst",
-          "expiry": null,
           "concentration": false,
-          "override": true
+          "expiry": null
         },
         "effects": [],
         "flags": {},
         "range": {
-          "units": "self",
           "override": true,
+          "units": "self",
           "special": ""
         },
         "target": {
+          "override": true,
+          "prompt": false,
           "template": {
-            "contiguous": false,
-            "stationary": false,
+            "type": "",
             "units": "ft",
-            "type": ""
+            "contiguous": false,
+            "stationary": false
           },
           "affects": {
-            "choice": false,
-            "type": ""
-          },
-          "override": true,
-          "prompt": true
+            "type": "creature",
+            "count": "1",
+            "choice": false
+          }
         },
         "uses": {
           "spent": 0,
@@ -477,8 +401,8 @@
         "effectConditionText": "",
         "otherActivityId": "none",
         "macroData": {
-          "name": "",
-          "command": ""
+          "name": "Classpack 区域处理",
+          "command": "const api = game.modules.get(\"dnd5e_classpack\")?.api?.regionSpells;\nif (!api) {\n  ui.notifications.error(\"Classpack 区域修复脚本未加载，请刷新游戏。\");\n  return false;\n}\nreturn await api.handle({ workflow, args });"
         },
         "ignoreTraits": {
           "idi": false,
@@ -499,13 +423,13 @@
           "forceConsumeDialog": "default",
           "forceRollDialog": "default",
           "forceDamageDialog": "default",
-          "confirmTargets": "default",
+          "confirmTargets": "never",
           "autoTargetType": "any",
-          "autoTargetAction": "default",
+          "autoTargetAction": "none",
           "automationOnly": true,
           "otherActivityCompatible": false,
           "otherActivityAsParentType": true,
-          "identifier": "",
+          "identifier": "moonbeam-repeat",
           "displayActivityName": false,
           "rollMode": "default",
           "chooseEffects": false,

@@ -54,7 +54,17 @@
           "stackable": "noneName",
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "enableCondition": "",
+          "disableCondition": "",
+          "applicationMode": "default",
+          "expiryMode": "default"
+        },
+        "core": {
+          "overlay": false
+        },
+        "auraeffects": {
+          "originalType": "base"
         }
       },
       "tint": "#ffffff",
@@ -70,7 +80,7 @@
         "exportSource": null
       },
       "img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
-      "type": "base",
+      "type": "auraeffects.aura",
       "system": {
         "changes": [
           {
@@ -125,7 +135,22 @@
         "magical": true,
         "rider": {
           "statuses": []
-        }
+        },
+        "showRadius": true,
+        "applyToSelf": true,
+        "bestFormula": "",
+        "canStack": false,
+        "collisionType": "move",
+        "color": null,
+        "combatOnly": false,
+        "disableOnHidden": true,
+        "distanceFormula": "30",
+        "disposition": 1,
+        "evaluatePreApply": false,
+        "overrideName": "",
+        "script": "",
+        "stashedChanges": [],
+        "stashedStatuses": []
       },
       "sort": 0,
       "start": null,
@@ -158,11 +183,11 @@
     "target": {
       "affects": {
         "choice": false,
-        "type": ""
+        "type": "self"
       },
       "template": {
         "units": "ft",
-        "type": "radius",
+        "type": "",
         "size": "30",
         "contiguous": false,
         "count": "",
@@ -191,8 +216,7 @@
       "vocal",
       "somatic",
       "material",
-      "concentration",
-      "mgc"
+      "concentration"
     ],
     "activities": {
       "dnd5eactivity000": {
@@ -346,9 +370,10 @@
         "_id": "dnd5eactivity100",
         "type": "save",
         "activation": {
-          "type": "action",
+          "type": "",
           "value": null,
-          "override": false
+          "override": true,
+          "condition": ""
         },
         "consumption": {
           "targets": [],
@@ -356,7 +381,7 @@
             "allowed": false,
             "max": ""
           },
-          "spellSlot": true
+          "spellSlot": false
         },
         "description": {
           "chatFlavor": "",
@@ -365,20 +390,24 @@
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false,
+          "override": true,
           "expiry": null
         },
         "effects": [
           {
             "_id": "6Htp0y5oPWSxiUcl",
-            "onSave": false,
             "uuid": null,
-            "level": {}
+            "onSave": false,
+            "level": {
+              "min": null,
+              "max": null
+            }
           }
         ],
         "range": {
-          "override": false,
-          "units": "self"
+          "override": true,
+          "units": "self",
+          "special": ""
         },
         "target": {
           "prompt": true,
@@ -390,7 +419,7 @@
           "affects": {
             "choice": false
           },
-          "override": false
+          "override": true
         },
         "uses": {
           "spent": 0,
@@ -412,7 +441,8 @@
             "calculation": "spellcasting",
             "formula": ""
           },
-          "visible": true
+          "visible": true,
+          "bonus": ""
         },
         "sort": 0,
         "useConditionText": "",
@@ -468,11 +498,14 @@
           "rollAs": "target"
         },
         "otherActivityId": "",
-        "img": null,
+        "img": "",
         "behaviors": [],
         "flags": {},
         "visibility": {
-          "level": {},
+          "level": {
+            "min": null,
+            "max": null
+          },
           "requireAttunement": false,
           "requireIdentification": false,
           "requireMagic": false
@@ -500,7 +533,8 @@
           "animationIntensity": 5
         },
         "otherActivityAsParentType": true,
-        "friendlySave": "default"
+        "friendlySave": "default",
+        "name": ""
       }
     },
     "identifier": "holy-aura",

@@ -36,13 +36,41 @@
         "source": "chris-premades",
         "version": "0.0.0"
       }
+    },
+    "dae": {
+      "macro": {
+        "name": "衰弱射线 Ray of Enfeeblement",
+        "img": "icons/magic/light/beam-rays-teal.webp",
+        "type": "script",
+        "scope": "global",
+        "command": "if (workflow.isFumble || workflow.item.type !== \"weapon\") return;\nif (workflow.attackRoll?.options.ability !== \"str\") return;\n\nconst rolls = workflow.damageRolls.map(roll =>\n  new CONFIG.Dice.DamageRoll(\n    `floor(${roll.total} / 2)`,\n    roll.data,\n    { ...roll.options, configured: true }\n  )\n);\n\nawait workflow.setDamageRolls(rolls);",
+        "author": "dvg25zW2MvzsvMOU",
+        "ownership": {
+          "default": 3
+        },
+        "_id": null,
+        "folder": null,
+        "sort": 0,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.369",
+          "systemId": "dnd5e",
+          "systemVersion": "6.0.6",
+          "createdTime": null,
+          "modifiedTime": null,
+          "lastModifiedBy": null,
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null
+        }
+      }
     }
   },
   "img": "icons/magic/light/beam-rays-teal.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<p>你从指尖射出一道让人衰弱的黑色能量射线并射向施法距离内的一个生物。你对目标进行一次远程法术攻击。若命中，则目标在法术终止前，其使用基于力量的武器进行攻击时只造成一半伤害。</p><p>目标在其每回合结束时可以进行一次对抗该法术的[[/save activity=dnd5eactivity100]]{体质豁免}。豁免成功则法术终止。</p>",
+      "value": "<p>你从指尖射出一道让人衰弱的黑色能量射线并射向施法距离内的一个生物。你对目标进行一次远程法术攻击。若命中，则目标在法术终止前，其使用基于力量的武器进行攻击时只造成一半伤害。</p><p>目标在其每回合结束时可以进行一次对抗该法术的体质豁免。豁免成功则法术终止。</p>",
       "chat": ""
     },
     "source": {
@@ -97,8 +125,7 @@
     "properties": [
       "vocal",
       "somatic",
-      "concentration",
-      "mgc"
+      "concentration"
     ],
     "activities": {
       "dnd5eactivity000": {
@@ -257,159 +284,6 @@
         "otherActivityAsParentType": true,
         "attackRollPerTarget": "default",
         "fumbleThreshold": 1
-      },
-      "dnd5eactivity100": {
-        "_id": "dnd5eactivity100",
-        "type": "save",
-        "activation": {
-          "type": "action",
-          "value": null,
-          "override": false
-        },
-        "consumption": {
-          "targets": [],
-          "scaling": {
-            "allowed": false,
-            "max": ""
-          },
-          "spellSlot": true
-        },
-        "description": {
-          "chatFlavor": "",
-          "value": ""
-        },
-        "duration": {
-          "units": "inst",
-          "concentration": false,
-          "override": false,
-          "expiry": null
-        },
-        "effects": [],
-        "range": {
-          "override": false,
-          "units": "self"
-        },
-        "target": {
-          "prompt": true,
-          "template": {
-            "contiguous": false,
-            "units": "ft",
-            "stationary": false
-          },
-          "affects": {
-            "choice": false
-          },
-          "override": false
-        },
-        "uses": {
-          "spent": 0,
-          "max": "",
-          "recovery": []
-        },
-        "damage": {
-          "onSave": "half",
-          "parts": [],
-          "critical": {
-            "allow": false
-          }
-        },
-        "save": {
-          "ability": [
-            "con"
-          ],
-          "dc": {
-            "calculation": "spellcasting",
-            "formula": ""
-          },
-          "visible": true
-        },
-        "sort": 0,
-        "useConditionText": "",
-        "useConditionReason": "",
-        "effectConditionText": "",
-        "macroData": {
-          "name": "",
-          "command": ""
-        },
-        "ignoreTraits": {
-          "idi": false,
-          "idr": false,
-          "idv": false,
-          "ida": false,
-          "idm": false
-        },
-        "midiProperties": {
-          "ignoreTraits": [],
-          "triggeredActivityId": "none",
-          "triggeredActivityConditionText": "",
-          "triggeredActivityTargets": "targets",
-          "triggeredActivityRollAs": "self",
-          "confirmTargets": "default",
-          "autoTargetType": "any",
-          "autoTargetAction": "default",
-          "automationOnly": false,
-          "otherActivityCompatible": true,
-          "identifier": "",
-          "displayActivityName": false,
-          "rollMode": "default",
-          "chooseEffects": false,
-          "toggleEffect": false,
-          "ignoreFullCover": false,
-          "triggeredActivityConsume": true,
-          "triggeredActivityConfigure": true,
-          "autoConsume": false,
-          "forceConsumeDialog": "default",
-          "forceRollDialog": "default",
-          "forceDamageDialog": "default",
-          "otherActivityAsParentType": true,
-          "removeChatButtons": "default",
-          "magicEffect": false,
-          "magicDamage": false,
-          "noConcentrationCheck": false,
-          "skipConcentrationCheck": false,
-          "autoCEEffects": "default"
-        },
-        "isOverTimeFlag": false,
-        "overTimeProperties": {
-          "saveRemoves": true,
-          "preRemoveConditionText": "",
-          "postRemoveConditionText": "",
-          "rollAs": "target"
-        },
-        "otherActivityId": "",
-        "img": null,
-        "behaviors": [],
-        "flags": {},
-        "visibility": {
-          "level": {},
-          "requireAttunement": false,
-          "requireIdentification": false,
-          "requireMagic": false
-        },
-        "regionBehavior": {
-          "enabled": false,
-          "dispositionFilter": -1,
-          "excludeSource": true,
-          "oncePerTurn": true,
-          "wallRestriction": "none",
-          "regionVisibility": 2,
-          "attachToken": "default",
-          "templateOrigin": "default",
-          "rules": []
-        },
-        "regionLight": {
-          "enabled": false,
-          "dim": 0,
-          "bright": 0,
-          "color": null,
-          "alpha": 0.5,
-          "luminosity": 0.5,
-          "animationType": "",
-          "animationSpeed": 5,
-          "animationIntensity": 5
-        },
-        "otherActivityAsParentType": true,
-        "friendlySave": "default"
       }
     },
     "identifier": "ray-of-enfeeblement",

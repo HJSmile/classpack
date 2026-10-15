@@ -34,81 +34,7 @@
     "dnd5e": {}
   },
   "img": "icons/magic/unholy/orb-glowing-purple.webp",
-  "effects": [
-    {
-      "description": "<p>- A deafened creature can't hear and automatically fails any ability check that requires hearing.</p>",
-      "disabled": false,
-      "duration": {
-        "value": 10,
-        "units": "minutes",
-        "expiry": null,
-        "expired": false
-      },
-      "flags": {
-        "dfreds-convenient-effects": {
-          "isConvenient": true,
-          "isDynamic": false,
-          "isViewable": true,
-          "nestedEffects": [],
-          "subEffects": []
-        },
-        "dae": {
-          "disableIncapacitated": false,
-          "selfTarget": false,
-          "selfTargetAlways": false,
-          "dontApply": false,
-          "stackable": "noneName",
-          "showIcon": false,
-          "durationExpression": "",
-          "macroRepeat": "none",
-          "specialDuration": []
-        },
-        "core": {}
-      },
-      "name": "Silence",
-      "origin": null,
-      "tint": "#ffffff",
-      "transfer": false,
-      "statuses": [
-        "Convenient Effect: Silence",
-        "deafened"
-      ],
-      "_id": "FoYq5rKL3p9fzj8b",
-      "_stats": {
-        "coreVersion": "14.368",
-        "systemId": "dnd5e",
-        "systemVersion": "6.0.5",
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null,
-        "compendiumSource": "ActiveEffect.FrKBX253f8D6Bfw2",
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "img": "systems/dnd5e/icons/svg/statuses/silenced.svg",
-      "type": "base",
-      "system": {
-        "changes": [],
-        "origin": {
-          "actor": null,
-          "behavior": null,
-          "effect": null,
-          "item": "Compendium.dnd5e_classpack.spell.Item.K8KLs8zFHqBZittr",
-          "message": null
-        },
-        "conditions": "{}",
-        "magical": true,
-        "rider": {
-          "statuses": []
-        }
-      },
-      "sort": 0,
-      "showIcon": 2,
-      "start": null,
-      "folder": null,
-      "_key": "!items.effects!K8KLs8zFHqBZittr.FoYq5rKL3p9fzj8b"
-    }
-  ],
+  "effects": [],
   "system": {
     "description": {
       "value": "<p>你指定施法距离内一点，以该点为中心半径 20 尺的球状区域在法术持续时间内将无法产生任何声音，且外界的声音也无法进入该区域内。任何完全位于该区域内的生物和物件都将免疫雷鸣伤害，而任何生物在完全位于该区域内时都将陷入&amp;Reference[condition=deafened apply=false]{耳聋}。此外，该区域内无法施展包含言语成分的法术。</p>",
@@ -279,7 +205,24 @@
         },
         "otherActivityId": "none",
         "img": "",
-        "behaviors": [],
+        "behaviors": [
+          {
+            "name": "",
+            "_id": "pMLdcm2M6y8pxolw",
+            "type": "applyActiveEffect",
+            "config": {
+              "effects": [
+                "Compendium.world.ActiveEffect-fM5uH0Xqkz6dqFdB.ActiveEffect.FoYq5rKL3p9fzj8b"
+              ],
+              "sizes": [],
+              "types": []
+            },
+            "level": {
+              "min": null,
+              "max": null
+            }
+          }
+        ],
         "flags": {},
         "visibility": {
           "level": {
@@ -291,7 +234,7 @@
           "requireMagic": false
         },
         "regionBehavior": {
-          "enabled": true,
+          "enabled": false,
           "dispositionFilter": -1,
           "excludeSource": true,
           "oncePerTurn": true,
@@ -299,13 +242,7 @@
           "regionVisibility": 2,
           "attachToken": "default",
           "templateOrigin": "default",
-          "rules": [
-            {
-              "trigger": "entry",
-              "action": "applyEffect",
-              "targetId": "FoYq5rKL3p9fzj8b"
-            }
-          ]
+          "rules": []
         },
         "regionLight": {
           "enabled": false,

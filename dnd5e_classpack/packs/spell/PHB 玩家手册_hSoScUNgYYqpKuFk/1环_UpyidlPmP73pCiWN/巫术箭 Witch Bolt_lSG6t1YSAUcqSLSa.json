@@ -10,7 +10,8 @@
       "itemCondition": "",
       "effectCondition": "",
       "reactionCondition": "",
-      "otherCondition": ""
+      "otherCondition": "",
+      "onUseMacroName": "[postActiveEffects]ItemMacro,[preItemRoll]ItemMacro"
     },
     "midiProperties": {
       "confirmTargets": "always",
@@ -25,12 +26,40 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {}
+    "dnd5e": {},
+    "dae": {
+      "macro": {
+        "name": "巫术箭 Witch Bolt",
+        "img": "icons/magic/lightning/bolt-strike-beam-purple.webp",
+        "type": "script",
+        "scope": "global",
+        "command": "// 法术物品挂载 preItemRoll、postActiveEffects；初始攻击关联自身/目标连接 AE。\n// 自身 AE 勾选 DAE selfTarget；双方 AE 都添加 macro.itemMacro。\nfunction connected(state) {\n  const source = fromUuidSync(state.source);\n  const target = fromUuidSync(state.target);\n  if (!source || !target) return false;\n  if (!source.object || !target.object) return true;\n  const distance = MidiQOL.getDistance(source.object, target.object, {\n    wallsBlock: true, includeCover: true\n  });\n  return distance >= 0 && distance <= state.range\n    && !target.actor.statuses.has(\"coverTotal\")\n    && MidiQOL.computeCoverBonus(source.object, target.object) < 999;\n}\n\nasync function endLink(state) {\n  const effect = await fromUuid(state.effect);\n  if (effect) await MidiQOL.socket().executeAsGM(\"removeEffects\", {\n    actorUuid: effect.parent.uuid, effects: [effect.id]\n  });\n}\n\nif (args[0] === \"off\") {\n  const state = args.at(-1).efData.flags.world?.witchBolt;\n  if (!state?.effect) return;\n  await endLink(state);\n  if (state.role === \"source\") {\n    const spell = await fromUuid(state.item);\n    await dnd5eClasspack.hideActivity(state.damageActivity);\n    if (state.favoriteAdded) await spell.actor.system.removeFavorite(state.favorite);\n  }\n  return;\n}\nif (typeof args[0] === \"string\") return;\n\nconst spell = await fromUuid(macroItem.uuid);\nconst sustain = spell.system.activities.find(a => a.name === \"持续闪电\");\nconst link = spell.actor.effects.find(e => e.active\n  && e.getFlag(\"world\", \"witchBolt\")?.item === spell.uuid\n  && e.getFlag(\"world\", \"witchBolt\")?.role === \"source\");\nconst state = link?.getFlag(\"world\", \"witchBolt\");\nconst pass = args[0].macroPass;\nconst combat = game.combat;\nconst turn = combat?.started ? `${combat.id}:${combat.round}:${combat.turn}` : null;\n\nif (pass === \"preItemRoll\") {\n  if (workflow.activity.uuid !== sustain.uuid) return;\n  if (!state) return false;\n  if (!connected(state)) {\n    await endLink(state);\n    return false;\n  }\n  if (turn && state.usedTurn === turn) {\n    ui.notifications.warn(\"本回合已使用持续闪电。\");\n    return false;\n  }\n  const target = fromUuidSync(state.target).object;\n  workflow.targets = new Set([target]);\n  args[0].options.usage.midiOptions.targetsToUse = new Set([target]);\n  MidiQOL.updateUserTargets([target.id]);\n  return;\n}\nif (pass !== \"postActiveEffects\") return;\n// 物品宏与 actor OnUse 可能同时调用此宏，同一工作流只处理一次。\nworkflow.witchBoltHandled ??= new Set();\nif (workflow.witchBoltHandled.has(spell.uuid)) return;\nworkflow.witchBoltHandled.add(spell.uuid);\n\nif (workflow.activity.uuid === sustain.uuid) {\n  if (turn && state) await link.setFlag(\"world\", \"witchBolt\", { ...state, usedTurn: turn });\n  return;\n}\n\n// 由连接 AE 注册的 actor OnUse：其他真正使用动作的工作流会删除连接效果。\nif (workflow.item.uuid !== spell.uuid || workflow.activity.type !== \"attack\") {\n  if (!state || workflow.itemCardUuid === state.cast) return;\n  const options = workflow.workflowOptions;\n  if (workflow.itemUsesReaction || options.castUsesReaction\n    || workflow.itemUsesBonusAction || options.castUsesBonusAction) return;\n  if (workflow.activity.effectiveActivationType === \"action\") await endLink(state);\n  return;\n}\n\nif (!workflow.hitTargets.size) return;\nif (state?.cast === workflow.itemCardUuid) return;\nconst target = workflow.hitTargets.first();\nconst sourceEffect = spell.actor.effects.find(e => e.system?.origin?.message === workflow.itemCardUuid\n  && e.getFlag(\"dae\", \"selfTarget\"));\nconst targetEffect = target.actor.effects.find(e => e.system?.origin?.message === workflow.itemCardUuid\n  && !e.getFlag(\"dae\", \"selfTarget\"));\nif (!sourceEffect || !targetEffect) {\n  ui.notifications.warn(\"巫术箭：初始攻击行动需要关联自身与目标的连接效果。\");\n  return;\n}\nconst favorite = `${foundry.utils.buildRelativeUuid(spell, spell.actor)}.Activity.${sustain.id}`;\nconst data = {\n  item: spell.uuid, cast: workflow.itemCardUuid,\n  source: workflow.token.document.uuid, target: target.document.uuid,\n  range: MidiQOL.checkActivityRange(workflow.activity, workflow.token, new Set([target]), false).range\n    ?? workflow.activity.range.value,\n  effect: sourceEffect.uuid, damageActivity: sustain.uuid, favorite,\n  favoriteAdded: !spell.actor.system.hasFavorite(favorite)\n};\nconst condition = `(${connected.toString()})(effect.flags.world.witchBolt)`;\nfor (const [role, actor, effect] of [\n  [\"source\", spell.actor, sourceEffect], [\"target\", target.actor, targetEffect]\n]) {\n  const changes = [...effect.system.changes];\n  if (role === \"source\") changes.push({ key: \"flags.midi-qol.onUseMacroName\",\n    value: `[postActiveEffects]ItemMacro.${spell.uuid}`,\n    type: \"add\", phase: \"initial\", priority: 20 });\n  await MidiQOL.socket().executeAsGM(\"updateEffects\", {\n    actorUuid: actor.uuid,\n    updates: [{\n      _id: effect.id,\n      \"system.changes\": changes,\n      ...(role === \"target\" ? { \"flags.dnd5e.dependentOn\": sourceEffect.uuid } : {}),\n      \"flags.dae.itemUuid\": spell.uuid,\n      \"flags.dae.enableCondition\": condition,\n      \"flags.dae.expiryMode\": \"delete\",\n      \"flags.world.witchBolt\": { ...data, role }\n    }]\n  });\n}\nawait dnd5eClasspack.hideActivity(sustain.uuid, false);\nawait dnd5eClasspack.addFavorite(sustain.uuid);",
+        "author": "dvg25zW2MvzsvMOU",
+        "ownership": {
+          "default": 3
+        },
+        "_id": null,
+        "folder": null,
+        "sort": 0,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.369",
+          "systemId": "dnd5e",
+          "systemVersion": "6.0.6",
+          "createdTime": null,
+          "modifiedTime": null,
+          "lastModifiedBy": null,
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null
+        }
+      }
+    }
   },
   "img": "icons/magic/lightning/bolt-strike-beam-purple.webp",
   "effects": [
     {
-      "name": "巫术箭 Witch Bolt",
+      "name": "巫术箭-链接 Witch Bolt",
       "origin": null,
       "duration": {
         "value": 10,
@@ -54,7 +83,9 @@
           "macroRepeat": "none",
           "specialDuration": [],
           "enableCondition": "",
-          "disableCondition": ""
+          "disableCondition": "",
+          "applicationMode": "default",
+          "expiryMode": "default"
         },
         "dnd5e": {
           "riders": {}
@@ -78,7 +109,18 @@
       "img": "icons/magic/lightning/bolt-strike-beam-purple.webp",
       "type": "base",
       "system": {
-        "changes": [],
+        "changes": [
+          {
+            "key": "macro.itemMacro",
+            "type": "custom",
+            "value": "",
+            "phase": "initial",
+            "_id": "iKeDqwBHGdR10fwp",
+            "conditions": "{}",
+            "replacement": "",
+            "priority": null
+          }
+        ],
         "rider": {
           "statuses": []
         },
@@ -97,6 +139,85 @@
       "showIcon": 2,
       "folder": null,
       "_key": "!items.effects!lSG6t1YSAUcqSLSa.V2r4UhEN6EbvxXsX"
+    },
+    {
+      "name": "巫术箭-自身 Witch Bolt",
+      "img": "icons/magic/lightning/bolt-strike-beam-purple.webp",
+      "system": {
+        "origin": {
+          "item": "Compendium.dnd5e_classpack.spell.Item.lSG6t1YSAUcqSLSa",
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "message": null
+        },
+        "changes": [
+          {
+            "key": "macro.itemMacro",
+            "type": "custom",
+            "value": "",
+            "phase": "initial",
+            "_id": "hlQu1JsxXbagbiZC",
+            "conditions": "{}",
+            "replacement": "",
+            "priority": null
+          }
+        ],
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
+      "transfer": false,
+      "_id": "dHVu5KnHyCGVn44V",
+      "type": "base",
+      "disabled": false,
+      "start": null,
+      "duration": {
+        "value": 60,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "description": "",
+      "origin": null,
+      "tint": "#ffffff",
+      "statuses": [],
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "dae": {
+          "enableCondition": "",
+          "disableCondition": "",
+          "stackable": "noneName",
+          "applicationMode": "default",
+          "expiryMode": "default",
+          "durationExpression": "",
+          "macroRepeat": "none",
+          "disableIncapacitated": false,
+          "selfTarget": true,
+          "selfTargetAlways": false,
+          "dontApply": false,
+          "specialDuration": []
+        },
+        "core": {
+          "overlay": false
+        }
+      },
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1792044887980,
+        "modifiedTime": 1792044967365,
+        "lastModifiedBy": "dvg25zW2MvzsvMOU",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!items.effects!lSG6t1YSAUcqSLSa.dHVu5KnHyCGVn44V"
     }
   ],
   "system": {
@@ -189,6 +310,11 @@
         "effects": [
           {
             "_id": "V2r4UhEN6EbvxXsX",
+            "uuid": null,
+            "level": {}
+          },
+          {
+            "_id": "dHVu5KnHyCGVn44V",
             "uuid": null,
             "level": {}
           }
@@ -358,7 +484,7 @@
           "scaling": {
             "allowed": false
           },
-          "spellSlot": true,
+          "spellSlot": false,
           "targets": []
         },
         "description": {
@@ -368,24 +494,27 @@
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false,
+          "override": true,
           "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false,
-          "units": "self"
+          "override": true,
+          "units": "self",
+          "special": ""
         },
         "target": {
           "template": {
             "contiguous": false,
             "units": "ft",
-            "stationary": false
+            "stationary": false,
+            "type": ""
           },
           "affects": {
-            "choice": false
+            "choice": false,
+            "type": ""
           },
-          "override": false,
+          "override": true,
           "prompt": true
         },
         "uses": {
@@ -406,12 +535,14 @@
               "number": 1,
               "denomination": 12,
               "bonus": "",
-              "types": [],
+              "modifiers": [],
+              "types": [
+                "lightning"
+              ],
               "scaling": {
                 "mode": "",
                 "number": 1
-              },
-              "modifiers": []
+              }
             }
           ]
         },
@@ -467,17 +598,24 @@
           "postRemoveConditionText": "",
           "rollAs": "target"
         },
-        "name": "",
-        "img": "",
+        "name": "持续闪电",
+        "img": "icons/magic/lightning/bolt-strike-beam-purple.webp",
         "behaviors": [],
-        "flags": {},
+        "flags": {
+          "dnd5e_classpack": {
+            "hidden": true
+          }
+        },
         "visibility": {
-          "level": {},
+          "level": {
+            "min": null,
+            "max": null
+          },
           "requireAttunement": false,
           "requireIdentification": false,
           "requireMagic": false
         },
-        "otherActivityId": null,
+        "otherActivityId": "",
         "regionBehavior": {
           "enabled": false,
           "dispositionFilter": -1,

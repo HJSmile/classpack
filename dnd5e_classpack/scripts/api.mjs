@@ -17,6 +17,7 @@
  * `scripts/api.mjs` file.
  */
 
+import "./api/region-spells.mjs";
 import "./api/elemental-weapon.mjs";
 import { canUpdateToken, firstOwner, log, MODULE_ID, SOCKET_NAME, registerHandlebarsHelpers, resolveOriginPoint, resolveToken, resolveUserId, toSocketSafeOptions } from "./api/utils.mjs";
 import { ClasspackDialogApp } from "./api/dialog-app.mjs";

@@ -60,13 +60,18 @@
           "macroRepeat": "none",
           "specialDuration": [],
           "enableCondition": "",
-          "disableCondition": ""
+          "disableCondition": "",
+          "applicationMode": "default",
+          "expiryMode": "default"
         },
         "core": {
           "overlay": false
         },
         "dnd5e": {
           "riders": {}
+        },
+        "auraeffects": {
+          "originalType": "base"
         }
       },
       "tint": "#ffffff",
@@ -82,28 +87,28 @@
         "exportSource": null
       },
       "img": "icons/skills/melee/sword-winged-holy-orange.webp",
-      "type": "base",
+      "type": "auraeffects.aura",
       "system": {
         "changes": [
           {
-            "key": "system.rolls.damage.all.bonus",
-            "value": "+1d4[radiant]",
-            "priority": 20,
-            "type": "add",
-            "phase": "initial",
-            "_id": "xa4KgMEwDL0eKFUp",
-            "conditions": "{}",
-            "replacement": ""
-          },
-          {
             "key": "system.rolls.damage.mwak.bonus",
-            "value": "",
+            "value": "+1d4[radiant]",
             "priority": 20,
             "type": "add",
             "phase": "initial",
             "_id": "MmniVzx7xcw3bf6i",
             "conditions": "{}",
             "replacement": ""
+          },
+          {
+            "key": "system.rolls.damage.rwak.bonus",
+            "value": "+1d4[radiant]",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "conditions": "{}",
+            "replacement": "",
+            "_id": "OXyl0zuTBxJcjwwB"
           }
         ],
         "rider": {
@@ -117,7 +122,22 @@
           "message": null
         },
         "conditions": "{}",
-        "magical": true
+        "magical": true,
+        "showRadius": false,
+        "applyToSelf": true,
+        "bestFormula": "",
+        "canStack": false,
+        "collisionType": "move",
+        "color": null,
+        "combatOnly": false,
+        "disableOnHidden": true,
+        "distanceFormula": "30",
+        "disposition": 1,
+        "evaluatePreApply": false,
+        "overrideName": "",
+        "script": "",
+        "stashedChanges": [],
+        "stashedStatuses": []
       },
       "sort": 0,
       "start": null,

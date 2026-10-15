@@ -54,7 +54,10 @@
           "disableCondition": "",
           "disableIncapacitated": false,
           "dontApply": false,
-          "showIcon": false
+          "showIcon": false,
+          "raiseCurrentHp": [
+            "tci9MiQuUDUarCHS"
+          ]
         },
         "core": {
           "overlay": false
@@ -82,10 +85,10 @@
       "system": {
         "changes": [
           {
-            "key": "macro.actorUpdate",
-            "value": "@targetUuid number \"5*(@flags.dnd5e.spellLevel)-5\" system.attributes.hp.tempmax",
+            "key": "system.attributes.hp.tempmax",
+            "value": "5*@scaling",
             "priority": 20,
-            "type": "custom",
+            "type": "add",
             "phase": "initial",
             "_id": "tci9MiQuUDUarCHS",
             "conditions": "{}",
@@ -319,157 +322,6 @@
           "animationIntensity": 5
         },
         "otherActivityAsParentType": true
-      },
-      "E3GSMVydzleDy5ns": {
-        "type": "heal",
-        "_id": "E3GSMVydzleDy5ns",
-        "sort": 0,
-        "activation": {
-          "type": "action",
-          "value": null,
-          "override": false
-        },
-        "consumption": {
-          "scaling": {
-            "allowed": false
-          },
-          "spellSlot": true,
-          "targets": []
-        },
-        "description": {
-          "chatFlavor": "",
-          "value": ""
-        },
-        "duration": {
-          "units": "inst",
-          "concentration": false,
-          "override": false,
-          "expiry": null
-        },
-        "effects": [],
-        "range": {
-          "override": false,
-          "units": "self"
-        },
-        "target": {
-          "template": {
-            "contiguous": false,
-            "units": "ft",
-            "stationary": false
-          },
-          "affects": {
-            "choice": false
-          },
-          "override": false,
-          "prompt": true
-        },
-        "uses": {
-          "spent": 0,
-          "recovery": [],
-          "max": ""
-        },
-        "healing": {
-          "number": null,
-          "denomination": null,
-          "types": [
-            "healing"
-          ],
-          "custom": {
-            "enabled": true,
-            "formula": "5*(@item.level)-5"
-          },
-          "scaling": {
-            "number": 1,
-            "mode": ""
-          },
-          "bonus": "",
-          "modifiers": []
-        },
-        "useConditionText": "",
-        "useConditionReason": "",
-        "effectConditionText": "",
-        "macroData": {
-          "name": "",
-          "command": ""
-        },
-        "ignoreTraits": {
-          "idi": false,
-          "idr": false,
-          "idv": false,
-          "ida": false,
-          "idm": false
-        },
-        "midiProperties": {
-          "ignoreTraits": [],
-          "triggeredActivityId": "none",
-          "triggeredActivityConditionText": "",
-          "triggeredActivityTargets": "targets",
-          "triggeredActivityRollAs": "self",
-          "confirmTargets": "default",
-          "autoTargetType": "any",
-          "autoTargetAction": "default",
-          "automationOnly": true,
-          "otherActivityCompatible": false,
-          "identifier": "",
-          "displayActivityName": false,
-          "rollMode": "default",
-          "chooseEffects": false,
-          "toggleEffect": false,
-          "ignoreFullCover": false,
-          "triggeredActivityConsume": true,
-          "triggeredActivityConfigure": true,
-          "autoConsume": false,
-          "forceConsumeDialog": "default",
-          "forceRollDialog": "default",
-          "forceDamageDialog": "default",
-          "otherActivityAsParentType": true,
-          "removeChatButtons": "default",
-          "magicEffect": false,
-          "magicDamage": false,
-          "noConcentrationCheck": false,
-          "skipConcentrationCheck": false,
-          "autoCEEffects": "default"
-        },
-        "isOverTimeFlag": false,
-        "overTimeProperties": {
-          "saveRemoves": true,
-          "preRemoveConditionText": "",
-          "postRemoveConditionText": "",
-          "rollAs": "target"
-        },
-        "name": "",
-        "img": "",
-        "behaviors": [],
-        "flags": {},
-        "visibility": {
-          "level": {},
-          "requireAttunement": false,
-          "requireIdentification": false,
-          "requireMagic": false
-        },
-        "otherActivityId": null,
-        "regionBehavior": {
-          "enabled": false,
-          "dispositionFilter": -1,
-          "excludeSource": true,
-          "oncePerTurn": true,
-          "wallRestriction": "none",
-          "regionVisibility": 2,
-          "attachToken": "default",
-          "templateOrigin": "default",
-          "rules": []
-        },
-        "regionLight": {
-          "enabled": false,
-          "dim": 0,
-          "bright": 0,
-          "color": null,
-          "alpha": 0.5,
-          "luminosity": 0.5,
-          "animationType": "",
-          "animationSpeed": 5,
-          "animationIntensity": 5
-        }
       }
     },
     "identifier": "aid",

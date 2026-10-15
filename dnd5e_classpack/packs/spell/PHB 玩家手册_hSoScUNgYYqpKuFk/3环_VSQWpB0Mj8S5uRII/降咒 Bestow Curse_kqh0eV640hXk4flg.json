@@ -96,7 +96,7 @@
         "changes": [
           {
             "key": "flags.midi-qol.OverTime",
-            "value": "turn=start, label=豁免失败则浪费动作, saveAbility=wis, saveDC=@attributes.spell.dc, saveMagic=true, saveCount=1-, rollMode=publicroll, allowIncapacitated=true",
+            "value": "turn=start, label=豁免失败则浪费动作, saveAbility=wis, saveDC=@attributes.spell.dc, saveMagic=true, rollMode=public, allowIncapacitated=true",
             "priority": 20,
             "type": "add",
             "phase": "initial",
@@ -190,7 +190,7 @@
       },
       "disabled": false,
       "duration": {
-        "value": null,
+        "value": 60,
         "units": "seconds",
         "expiry": null,
         "expired": false
@@ -211,7 +211,9 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "default",
+          "expiryMode": "default"
         },
         "dnd5e": {
           "riders": {}

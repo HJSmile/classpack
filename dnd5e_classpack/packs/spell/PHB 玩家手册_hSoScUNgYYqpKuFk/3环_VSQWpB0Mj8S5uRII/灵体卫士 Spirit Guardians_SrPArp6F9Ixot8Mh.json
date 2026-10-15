@@ -13,11 +13,11 @@
       "effectCondition": "",
       "reactionCondition": "",
       "otherCondition": "",
-      "onUseMacroName": "[preActiveEffects]ItemMacro"
+      "onUseMacroName": "[templatePlaced]ActivityMacro-6HjMJYv1Tzi2jal1,[preItemRoll]ActivityMacro-6HjMJYv1Tzi2jal1,[preItemRoll]ActivityMacro-Na5LKCjfqS4cdUVO"
     },
     "midiProperties": {
       "confirmTargets": "always",
-      "saveDamage": "fulldam",
+      "saveDamage": "halfdam",
       "bonusSaveDamage": "fulldam",
       "autoFailFriendly": false,
       "autoSaveFriendly": false,
@@ -37,7 +37,7 @@
         "img": "icons/magic/light/projectiles-salvo-blue.webp",
         "type": "script",
         "scope": "global",
-        "command": "if (args[0].macroPass === \"preActiveEffects\" || args[0].tag === \"OnUse\") {\n  return await game.modules.get(\"ActiveAuras\").api.AAHelpers.applyTemplate(args);\n}",
+        "command": "",
         "author": "WqWGW8MuBm7BNHxt",
         "ownership": {
           "default": 3
@@ -64,12 +64,21 @@
         "source": "chris-premades",
         "version": "0.0.0"
       }
+    },
+    "dnd5e_classpack": {
+      "regionAutomation": {
+        "key": "spiritGuardians",
+        "main": "6HjMJYv1Tzi2jal1",
+        "repeated": "Na5LKCjfqS4cdUVO",
+        "schemaVersion": 1,
+        "slowEffect": "hDDRqOojnDCTpPKI"
+      }
     }
   },
   "img": "icons/magic/light/projectiles-salvo-blue.webp",
   "effects": [
     {
-      "name": "灵体卫士 Spirit Guardians",
+      "name": "灵体卫士：速度减半",
       "img": "icons/magic/light/projectiles-salvo-blue.webp",
       "origin": null,
       "transfer": false,
@@ -78,22 +87,11 @@
       "system": {
         "changes": [
           {
-            "key": "flags.midi-qol.OverTime",
-            "value": "turn=start, label=灵体卫士 Spirit Guardians, saveAbility=wis, saveDC=@attributes.spell.dc, saveMagic=true, damageRoll=[@flags.dnd5e.spellLevel]d8, damageType=radiant, saveDamage=halfdamage, allowIncapacitated=true",
-            "priority": 20,
-            "type": "add",
-            "phase": "initial",
-            "_id": "tXnos8jNpdwcgmFq",
-            "conditions": "{}",
-            "replacement": ""
-          },
-          {
             "key": "system.attributes.movement.all",
-            "value": "*0.5",
-            "priority": 20,
             "type": "custom",
             "phase": "initial",
-            "_id": "g8OH2177wfaL5Squ",
+            "value": "/2",
+            "priority": 20,
             "conditions": "{}",
             "replacement": ""
           }
@@ -113,10 +111,9 @@
       },
       "disabled": false,
       "duration": {
-        "value": 10,
-        "units": "minutes",
-        "expiry": null,
-        "expired": false
+        "units": "seconds",
+        "value": null,
+        "expiry": null
       },
       "description": "",
       "tint": "#ffffff",
@@ -134,13 +131,18 @@
           "showIcon": false,
           "durationExpression": "",
           "specialDuration": [],
-          "macroRepeat": "none"
+          "macroRepeat": "none",
+          "applicationMode": "default",
+          "expiryMode": "default"
         },
         "dnd5e": {
           "riders": {}
         },
         "core": {
           "overlay": false
+        },
+        "dnd5e_classpack": {
+          "regionEffect": "spiritGuardians-slow"
         }
       },
       "_stats": {
@@ -184,14 +186,15 @@
     "target": {
       "affects": {
         "choice": false,
-        "type": ""
+        "type": "self",
+        "special": ""
       },
       "template": {
         "units": "ft",
         "type": "radius",
         "size": "15",
         "contiguous": false,
-        "count": "",
+        "count": "1",
         "stationary": false
       }
     },
@@ -217,8 +220,7 @@
       "vocal",
       "somatic",
       "material",
-      "concentration",
-      "mgc"
+      "concentration"
     ],
     "activities": {
       "6HjMJYv1Tzi2jal1": {
@@ -247,13 +249,7 @@
           "override": false,
           "expiry": null
         },
-        "effects": [
-          {
-            "_id": "hDDRqOojnDCTpPKI",
-            "uuid": null,
-            "level": {}
-          }
-        ],
+        "effects": [],
         "range": {
           "override": false,
           "units": "self"
@@ -267,9 +263,10 @@
           },
           "affects": {
             "choice": false,
-            "type": "self"
+            "type": "self",
+            "special": ""
           },
-          "override": true,
+          "override": false,
           "prompt": true
         },
         "uses": {
@@ -287,8 +284,8 @@
         "useConditionReason": "",
         "effectConditionText": "",
         "macroData": {
-          "name": "",
-          "command": ""
+          "name": "Classpack 区域处理",
+          "command": "const api = game.modules.get(\"dnd5e_classpack\")?.api?.regionSpells;\nif (!api) {\n  ui.notifications.error(\"Classpack 区域修复脚本未加载，请刷新游戏。\");\n  return false;\n}\nreturn await api.handle({ workflow, args });"
         },
         "ignoreTraits": {
           "idi": false,
@@ -308,7 +305,7 @@
           "autoTargetAction": "default",
           "automationOnly": false,
           "otherActivityCompatible": true,
-          "identifier": "",
+          "identifier": "spiritGuardians-cast",
           "displayActivityName": false,
           "rollMode": "default",
           "chooseEffects": false,
@@ -336,15 +333,222 @@
           "rollAs": "target"
         },
         "otherActivityId": "none",
-        "name": "",
+        "name": "施法与区域放置",
         "img": "",
-        "behaviors": [],
+        "behaviors": [
+          {
+            "name": "",
+            "_id": "CheeNRbpfMEgHIXV",
+            "type": "applyActiveEffect",
+            "config": {
+              "effects": [
+                "Compendium.world.ActiveEffect-fM5uH0Xqkz6dqFdB.ActiveEffect.OFUs11U5bpazFMx2"
+              ],
+              "sizes": [],
+              "types": []
+            },
+            "level": {
+              "min": null,
+              "max": null
+            }
+          }
+        ],
         "flags": {},
         "visibility": {
-          "level": {},
+          "level": {
+            "min": null,
+            "max": null
+          },
           "requireAttunement": false,
           "requireIdentification": false,
           "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": true,
+          "dispositionFilter": 0,
+          "excludeSource": false,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "caster",
+          "templateOrigin": "default",
+          "rules": [
+            {
+              "trigger": "turnStart",
+              "action": "useActivity",
+              "targetId": "spiritGuardians-repeat"
+            }
+          ]
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
+      },
+      "Na5LKCjfqS4cdUVO": {
+        "type": "save",
+        "name": "区域重复豁免",
+        "_id": "Na5LKCjfqS4cdUVO",
+        "img": "",
+        "sort": 100000,
+        "activation": {
+          "type": "",
+          "value": null,
+          "override": true,
+          "condition": ""
+        },
+        "behaviors": [],
+        "consumption": {
+          "targets": [],
+          "spellSlot": false,
+          "scaling": {
+            "allowed": false,
+            "max": ""
+          }
+        },
+        "description": {
+          "value": "",
+          "chatFlavor": ""
+        },
+        "duration": {
+          "override": true,
+          "units": "inst",
+          "concentration": false,
+          "expiry": null
+        },
+        "effects": [],
+        "flags": {},
+        "range": {
+          "override": true,
+          "units": "self",
+          "special": ""
+        },
+        "target": {
+          "override": true,
+          "prompt": false,
+          "template": {
+            "type": "",
+            "units": "ft",
+            "contiguous": false,
+            "stationary": false
+          },
+          "affects": {
+            "type": "creature",
+            "count": "1",
+            "choice": false
+          }
+        },
+        "uses": {
+          "spent": 0,
+          "recovery": [],
+          "max": ""
+        },
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "damage": {
+          "onSave": "half",
+          "critical": {
+            "allow": false
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              },
+              "number": 3,
+              "denomination": 8,
+              "bonus": "",
+              "modifiers": [],
+              "types": [
+                "necrotic",
+                "radiant"
+              ],
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              }
+            }
+          ]
+        },
+        "save": {
+          "ability": [
+            "wis"
+          ],
+          "dc": {
+            "calculation": "spellcasting",
+            "formula": ""
+          },
+          "visible": true,
+          "bonus": ""
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": "none",
+        "macroData": {
+          "name": "Classpack 区域处理",
+          "command": "const api = game.modules.get(\"dnd5e_classpack\")?.api?.regionSpells;\nif (!api) {\n  ui.notifications.error(\"Classpack 区域修复脚本未加载，请刷新游戏。\");\n  return false;\n}\nreturn await api.handle({ workflow, args });"
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "never",
+          "autoTargetType": "any",
+          "autoTargetAction": "none",
+          "automationOnly": true,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "spiritGuardians-repeat",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": true,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
         },
         "regionBehavior": {
           "enabled": false,
@@ -368,7 +572,8 @@
           "animationSpeed": 5,
           "animationIntensity": 5
         },
-        "otherActivityAsParentType": true
+        "otherActivityAsParentType": true,
+        "friendlySave": "friendlySuccess"
       }
     },
     "identifier": "spirit-guardians",

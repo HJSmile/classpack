@@ -95,14 +95,14 @@
             "replacement": ""
           },
           {
-            "key": "macro.execute",
-            "value": "Compendium.dnd5e_classpack.macro.Macro.xYJgZRUoEBERP0lU",
-            "priority": 20,
-            "type": "custom",
+            "key": "system.attributes.hp.tempmax",
+            "type": "add",
+            "value": "@utilityRollTotal",
             "phase": "initial",
-            "_id": "Nx4XTcQnBvMw0jJ1",
+            "_id": "Cl3dbmXHGO1JXQ5a",
             "conditions": "{}",
-            "replacement": ""
+            "replacement": "origin",
+            "priority": null
           }
         ],
         "rider": {
@@ -142,7 +142,10 @@
           "durationExpression": "",
           "specialDuration": [
             "newDay"
-          ]
+          ],
+          "applicationMode": "default",
+          "expiryMode": "default",
+          "macroRepeat": "none"
         },
         "dnd5e": {
           "riders": {}
@@ -259,7 +262,10 @@
           {
             "_id": "m1IamULdusIduGXt",
             "uuid": null,
-            "level": {}
+            "level": {
+              "min": null,
+              "max": null
+            }
           }
         ],
         "range": {
@@ -287,7 +293,7 @@
           "prompt": false,
           "visible": false,
           "name": "",
-          "formula": ""
+          "formula": "2d10"
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -347,7 +353,10 @@
         "behaviors": [],
         "flags": {},
         "visibility": {
-          "level": {},
+          "level": {
+            "min": null,
+            "max": null
+          },
           "requireAttunement": false,
           "requireIdentification": false,
           "requireMagic": false
