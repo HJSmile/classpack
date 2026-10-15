@@ -1,5 +1,9 @@
 import { MODULE_ID } from "./policy.mjs";
 
+const CORE_SOURCES = ["PHB", "DMG", "MM"];
+const ADVENTURE_SOURCES = new Set(["DSotDQ", "ToA", "BGDiA", "WBtW", "OotA", "GoS", "HotDQ", "CoS",
+  "WDMM", "IDRotF", "TftYP", "PotA", "SKT", "WDH", "RoT", "LMoP", "HftT", "LR", "LLK", "DoDk", "CM"]);
+
 let cachedSettings;
 const invalidateSettings = () => { cachedSettings = undefined; };
 export function getContentSettings() {
@@ -24,13 +28,18 @@ export function registerContentSettings(catalog) {
       actions: { all: ContentSourceConfig.all, core: ContentSourceConfig.core } };
     async _renderHTML() {
       const values = getContentSettings().sources, escape = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-      const rows = Object.entries(catalog.books).sort(([a], [b]) => a.localeCompare(b)).map(([book, label]) =>
-        `<label style="display:flex;align-items:center;gap:8px"><input type="checkbox" name="sources.${escape(book)}" ${values[book] !== false ? "checked" : ""}>${escape(label)}</label>`).join("");
-      return `<p>来源开关控制合集浏览器与新升级候选。多个来源共用的条目只需开启其中一个来源；未知来源保留可见，角色已有物品不受影响。</p><p>D&D Beyond 自制专长归入第三方内容。法表的获得资格也会核对，例如 PHB 法术凭 TCE 扩展进入其他职业法表。保存后请重载。</p><div style="display:flex;gap:8px;margin-bottom:12px"><button type="button" data-action="all">全部开启</button><button type="button" data-action="core">仅 PHB／DMG</button></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;max-height:55vh;overflow:auto">${rows}</div><footer style="margin-top:16px"><button type="submit"><i class="fas fa-save"></i> 保存</button></footer>`;
+      const groups = [["核心", []], ["扩展", []], ["模组", []]];
+      for (const entry of Object.entries(catalog.books).sort(([a], [b]) => a.localeCompare(b))) {
+        groups[CORE_SOURCES.includes(entry[0]) ? 0 : ADVENTURE_SOURCES.has(entry[0]) ? 2 : 1][1].push(entry);
+      }
+      groups[0][1].sort(([a], [b]) => CORE_SOURCES.indexOf(a) - CORE_SOURCES.indexOf(b));
+      const sections = groups.map(([name, books]) => `<fieldset style="margin:0 0 12px;padding:8px 12px 12px"><legend style="font-weight:600">${name}</legend><div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px">${books.map(([book, label]) =>
+        `<label style="display:flex;align-items:center;gap:8px;overflow-wrap:anywhere"><input style="flex-shrink:0" type="checkbox" name="sources.${escape(book)}" ${values[book] !== false ? "checked" : ""}>${escape(label)}</label>`).join("")}</div></fieldset>`).join("");
+      return `<div style="display:flex;gap:8px;margin-bottom:12px"><button type="button" data-action="all">全部开启</button><button type="button" data-action="core">仅核心</button></div><div style="max-height:55vh;overflow:auto">${sections}</div><footer style="margin-top:16px"><button type="submit"><i class="fas fa-save"></i> 保存</button></footer>`;
     }
     _replaceHTML(result, content) { content.innerHTML = result; }
     static all() { for (const box of this.element.querySelectorAll('input[type="checkbox"]')) box.checked = true; }
-    static core() { for (const box of this.element.querySelectorAll('input[type="checkbox"]')) box.checked = ["sources.PHB", "sources.DMG"].includes(box.name); }
+    static core() { for (const box of this.element.querySelectorAll('input[type="checkbox"]')) box.checked = CORE_SOURCES.some(book => box.name === `sources.${book}`); }
     static async save(event, form) {
       const before = getContentSettings().sources, values = { ...before };
       for (const box of form.querySelectorAll('input[type="checkbox"]')) values[box.name.slice(8)] = box.checked;
