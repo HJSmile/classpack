@@ -1,0 +1,169 @@
+{
+  "_id": "394707daf186260e",
+  "name": "巨龙先祖：青铜龙（闪电）",
+  "type": "feat",
+  "img": "icons/creatures/abilities/dragon-fire-breath-orange.webp",
+  "system": {
+    "type": {
+      "value": "class",
+      "subtype": ""
+    },
+    "description": {
+      "value": "<p>你选择青铜龙作为你的巨龙先祖，对应的伤害类型为<strong>闪电</strong>。6级获得的元素亲和使用此伤害类型。</p>",
+      "chat": ""
+    },
+    "source": {
+      "custom": "PHB pg. 102",
+      "revision": 1,
+      "rules": "2014",
+      "book": "PHB"
+    },
+    "cover": null,
+    "uses": {
+      "max": "",
+      "spent": 0,
+      "recovery": []
+    },
+    "requirements": "龙族血脉等级 1",
+    "activities": {},
+    "identifier": "draconic-ancestry",
+    "advancement": {
+      "a1892b7a9de3fcdb": {
+        "_id": "a1892b7a9de3fcdb",
+        "type": "ScaleValue",
+        "name": "先祖龙种",
+        "configuration": {
+          "identifier": "dragon-type",
+          "type": "string",
+          "scale": {
+            "1": {
+              "value": "bronze"
+            }
+          }
+        },
+        "value": {},
+        "flags": {}
+      },
+      "5e312e7a706272ab": {
+        "_id": "5e312e7a706272ab",
+        "type": "ScaleValue",
+        "name": "先祖伤害类型",
+        "configuration": {
+          "identifier": "damage-type",
+          "type": "string",
+          "scale": {
+            "1": {
+              "value": "lightning"
+            }
+          }
+        },
+        "value": {},
+        "flags": {}
+      },
+      "87b003df6f5989f6": {
+        "_id": "87b003df6f5989f6",
+        "type": "ModifyItem",
+        "name": "元素亲和伤害类型",
+        "level": 6,
+        "configuration": {
+          "changes": [
+            {
+              "_id": "5723421a6657795c",
+              "uuid": null,
+              "identifiers": [
+                "feat:elemental-affinity"
+              ]
+            }
+          ]
+        },
+        "value": {
+          "modified": []
+        },
+        "flags": {},
+        "hint": "元素亲和的伤害类型为闪电。"
+      }
+    },
+    "crewed": false,
+    "enchant": {},
+    "prerequisites": {
+      "level": 1,
+      "repeatable": false,
+      "items": [
+        "subclass:draconic-bloodline"
+      ]
+    },
+    "properties": []
+  },
+  "effects": [
+    {
+      "_id": "5723421a6657795c",
+      "_key": "!items.effects!394707daf186260e.5723421a6657795c",
+      "name": "元素亲和：闪电",
+      "img": "icons/magic/symbols/elements-air-earth-fire-water.webp",
+      "type": "enchantment",
+      "transfer": false,
+      "disabled": false,
+      "showIcon": 0,
+      "statuses": [],
+      "flags": {},
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "system": {
+        "magical": false,
+        "changes": [
+          {
+            "_id": "8e3d73d69be401e8",
+            "key": "activities[damage].damage.parts",
+            "value": [
+              {
+                "number": null,
+                "denomination": null,
+                "bonus": "",
+                "types": [
+                  "lightning"
+                ],
+                "custom": {
+                  "enabled": true,
+                  "formula": "@abilities.cha.mod"
+                },
+                "scaling": {
+                  "mode": "whole",
+                  "number": null,
+                  "formula": ""
+                },
+                "modifiers": []
+              }
+            ],
+            "type": "override",
+            "phase": "initial",
+            "priority": 20,
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ]
+      }
+    }
+  ],
+  "folder": "Rbd6RuEbXM9e7lvA",
+  "sort": 4300000,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "14.368",
+    "systemId": "dnd5e",
+    "systemVersion": "6.0.5",
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!394707daf186260e"
+}

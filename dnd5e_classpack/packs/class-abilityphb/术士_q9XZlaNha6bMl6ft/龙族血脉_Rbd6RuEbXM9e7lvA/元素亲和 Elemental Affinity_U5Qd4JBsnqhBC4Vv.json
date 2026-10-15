@@ -15,7 +15,8 @@
     "source": {
       "custom": "PHB pg. 102",
       "revision": 1,
-      "rules": "2014"
+      "rules": "2014",
+      "book": "PHB"
     },
     "uses": {
       "max": "",
@@ -30,7 +31,7 @@
         "activation": {
           "type": "special",
           "value": null,
-          "condition": "1 sorcery point is also required if the resistance is desired.",
+          "condition": "施展与巨龙先祖对应伤害类型的法术时，将魅力调整值加入其中一次伤害掷骰。",
           "override": false
         },
         "consumption": {
@@ -39,7 +40,7 @@
             "allowed": false,
             "max": ""
           },
-          "spellSlot": true
+          "spellSlot": false
         },
         "description": {
           "chatFlavor": "",
@@ -96,7 +97,7 @@
               "types": [],
               "custom": {
                 "enabled": true,
-                "formula": "@mod"
+                "formula": "@abilities.cha.mod"
               },
               "scaling": {
                 "mode": "whole",
@@ -194,7 +195,7 @@
         }
       }
     },
-    "identifier": "yuan",
+    "identifier": "elemental-affinity",
     "advancement": {},
     "cover": null,
     "crewed": false,
