@@ -455,11 +455,10 @@
         "flags": {}
       },
       "UGqwBHn1GJPzWewF": {
-        "name": "选择法术",
+        "name": "选择法师法术",
         "type": "ItemChoice",
         "_id": "UGqwBHn1GJPzWewF",
         "configuration": {
-          "allowDrops": true,
           "choices": {
             "1": {
               "count": 6,
@@ -542,34 +541,44 @@
               "replacement": false
             }
           },
+          "allowDrops": true,
+          "type": "spell",
           "pool": [],
-          "restriction": {
-            "list": [
-              "class:wizard"
-            ],
-            "school": [],
-            "level": "availableNoCantrips"
-          },
-          "sorting": "a",
           "spell": {
             "ability": [
               "int"
             ],
             "method": "spell",
+            "prepared": 0,
             "uses": {
               "max": "",
               "per": "",
               "requireSlot": false
             }
           },
-          "type": "spell"
+          "restriction": {
+            "level": "availableNoCantrips",
+            "list": [
+              "class:wizard"
+            ],
+            "school": []
+          },
+          "sorting": "a"
         },
-        "flags": {},
+        "flags": {
+          "dnd5e_classpack": {
+            "content": {
+              "kind": "spell-list",
+              "classIdentifier": "wizard",
+              "requires": []
+            }
+          }
+        },
         "value": {
           "added": {},
           "replaced": {}
         },
-        "hint": "",
+        "hint": "1 级选择六个 1 环法师法术记入法术书；此后每提升一个法师等级，再选择两个当前法师等级可用环阶的法师法术。学会后仍需准备。",
         "classRestriction": ""
       },
       "8e888618d85300fe": {
@@ -601,6 +610,64 @@
             }
           }
         }
+      },
+      "28ef08bb1eda0dde": {
+        "_id": "28ef08bb1eda0dde",
+        "type": "ItemChoice",
+        "name": "选择法师戏法",
+        "configuration": {
+          "choices": {
+            "1": {
+              "count": 3,
+              "replacement": false
+            },
+            "4": {
+              "count": 1,
+              "replacement": false
+            },
+            "10": {
+              "count": 1,
+              "replacement": false
+            }
+          },
+          "allowDrops": true,
+          "type": "spell",
+          "pool": [],
+          "spell": {
+            "ability": [
+              "int"
+            ],
+            "method": "spell",
+            "prepared": 1,
+            "uses": {
+              "max": "",
+              "per": "",
+              "requireSlot": false
+            }
+          },
+          "restriction": {
+            "level": "0",
+            "list": [
+              "class:wizard"
+            ],
+            "school": []
+          },
+          "sorting": "a"
+        },
+        "value": {
+          "added": {},
+          "replaced": {}
+        },
+        "flags": {
+          "dnd5e_classpack": {
+            "content": {
+              "kind": "spell-list",
+              "classIdentifier": "wizard",
+              "requires": []
+            }
+          }
+        },
+        "hint": "按职业表选择新的法师戏法。"
       }
     },
     "spellcasting": {
