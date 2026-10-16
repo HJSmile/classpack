@@ -115,7 +115,7 @@
       "reactionCondition": "",
       "otherCondition": "",
       "effectCondition": "",
-      "onUseMacroName": "[postActiveEffects]ItemMacro"
+      "onUseMacroName": "[preSave]ItemMacro,[postActiveEffects]ItemMacro"
     },
     "midiProperties": {
       "autoFailFriendly": false,
@@ -137,7 +137,7 @@
       "macro": {
         "name": "庇护术 Sanctuary",
         "type": "script",
-        "command": "// 物品：postActiveEffects；庇护 AE：isTargeted、postActiveEffects。\n// 发动攻击、造成伤害由 DAE 1Attack / DamageDealt 处理。\nconst pass = args[0]?.macroPass;\nif (![\"postActiveEffects\", \"isTargeted\"].includes(pass)) return;\nconst cast = workflow;\nconst marker = \"sanctuary\";\nconst effects = actor => Array.from(actor?.appliedEffects ?? actor?.effects ?? [])\n  .filter(e => e.active && e.flags?.dnd5e_classpack?.automation === marker);\nconst remove = async (actor, list) => {\n  if (list.length) await MidiQOL.socket().executeAsGM(\"removeEffects\", {\n    actorUuid: actor.uuid, effects: list.map(e => e.id)\n  });\n};\n\n// 记录本次施法的 DC，避免以后施法者的属性或施法属性变化影响现有效果。\nif (pass === \"postActiveEffects\" && cast.item.uuid === macroItem.uuid) {\n  const ability = cast.activity.spellcastingAbility;\n  const dc = Number(cast.actor.system.abilities[ability]?.dc);\n  if (!Number.isFinite(dc)) {\n    ui.notifications.warn(\"庇护术：无法确定本次施法的豁免 DC，请检查施法属性。\");\n    return;\n  }\n  for (const target of cast.targets) {\n    const list = effects(target.actor).filter(e =>\n      e.system?.origin?.message === cast.itemCardUuid);\n    if (list.length) await MidiQOL.socket().executeAsGM(\"updateEffects\", {\n      actorUuid: target.actor.uuid,\n      updates: list.map(e => ({ _id: e.id, \"flags.dnd5e_classpack.sanctuaryDC\": dc }))\n    });\n  }\n  return;\n}\n\nif (pass !== \"isTargeted\") {\n  const list = effects(cast.actor);\n  if (!list.length) return;\n  if (pass !== \"postActiveEffects\") return;\n  let enemyTargeted = cast.item.type === \"spell\" && Array.from(cast.targets).some(t =>\n    t.actor?.uuid !== cast.actor.uuid && cast.token\n      && t.document.disposition * cast.token.document.disposition < 0);\n  const unclearTargets = cast.item.type === \"spell\" && !enemyTargeted && Array.from(cast.targets).some(t =>\n    t.actor?.uuid !== cast.actor.uuid && (!cast.token\n      || t.document.disposition * cast.token.document.disposition === 0));\n  if (unclearTargets) enemyTargeted = await foundry.applications.api.DialogV2.confirm({\n    window: { title: \"庇护术：是否影响敌人\" },\n    content: \"<p>这次法术是否影响了你的敌人？目标阵营为中立，无法自动判断。</p>\",\n    rejectClose: false\n  });\n  if (enemyTargeted) await remove(cast.actor, list);\n  return;\n}\n\n// TargetOnUse 的 actor/token 是受保护者，workflow.actor 是攻击者。\nconst target = args[0].options?.token;\nif (!target || !cast.targets.has(target) || cast.actor.uuid === target.actor?.uuid) return;\nif (cast.activity.target?.template?.type) return; // 范围效应不受庇护术限制。\nconst attack = !!cast.activity.attack;\nlet harmful = cast.item.type === \"spell\" && (cast.activity.type === \"save\"\n  || (cast.activity.damage?.parts?.length ?? 0) > 0);\nif (!attack && !harmful && cast.item.type === \"spell\") {\n  harmful = await foundry.applications.api.DialogV2.confirm({\n    window: { title: \"庇护术\" },\n    content: \"<p>这次是否对受保护者施放了伤害性法术？有益法术无需豁免。</p>\",\n    rejectClose: false\n  });\n}\nif (!attack && !harmful) return;\n\ncast.classpackSanctuary ??= { checked: new Set(), failed: new Set() };\nconst state = cast.classpackSanctuary;\nlet current = target;\nwhile (current) {\n  const ward = effects(current.actor)[0];\n  if (!ward || state.checked.has(current.document.uuid)) break;\n  const dc = Number(ward.flags.dnd5e_classpack.sanctuaryDC);\n  if (!Number.isFinite(dc)) {\n    ui.notifications.warn(\"庇护术缺少施法 DC，请重新施放庇护术后再试。\");\n    cast.aborted = true;\n    return;\n  }\n  state.checked.add(current.document.uuid);\n  const rolls = await cast.actor.rollSavingThrow({ ability: \"wis\", target: dc }, {}, {\n    flavor: `庇护术：攻击 ${current.name} 前的感知豁免（DC ${dc}）`\n  });\n  const roll = Array.isArray(rolls) ? rolls[0] : rolls;\n  // 关闭掷骰对话框不视为豁免成功。\n  if (roll && Number(roll.total) >= dc) break;\n  state.failed.add(current.document.uuid);\n  const remaining = new Set(cast.targets);\n  remaining.delete(current);\n  const candidates = canvas.tokens.placeables.filter(t => t.actor && t.visible\n    && !state.failed.has(t.document.uuid) && !remaining.has(t)\n    && (!cast.token || MidiQOL.checkActivityRange(cast.activity, cast.token, new Set([t]), false).result !== \"fail\"));\n  const [replacement] = candidates.length\n    ? await dnd5eClasspack.dialogUtils.selectTargetDialog(\"庇护术：改选目标\",\n      \"豁免未通过。选择另一个合法目标，或取消并失去对该目标的攻击／法术。\",\n      candidates, { skipDeadAndUnconscious: false }) : [];\n  if (replacement) remaining.add(replacement);\n  cast.setTargets(remaining);\n  MidiQOL.updateUserTargets(Array.from(remaining, t => t.id));\n  if (!remaining.size) {\n    // 已使用的资源保留；只终止本次后续攻击、伤害和效果。\n    cast.aborted = true;\n    ui.notifications.info(\"庇护术：未改选目标，本次攻击／法术失去目标。\");\n    return;\n  }\n  current = replacement;\n}\n"
+        "command": "// 物品：preSave、postActiveEffects；庇护 AE：isTargeted、postActiveEffects。\n// 发动攻击、造成伤害由 DAE 1Attack / DamageDealt 处理。\nconst pass = args[0]?.macroPass;\nif (![\"preSave\", \"postActiveEffects\", \"isTargeted\"].includes(pass)) return;\nconst cast = workflow;\nconst saveActivityFor = spell => spell?.system?.activities?.find(a =>\n  a.type === \"save\" && a.flags?.dnd5e_classpack?.sanctuarySave);\n// Midi 为每次使用复制物品；只修改本次豁免工作流中的 DC，不写回物品。\nif (cast.activity.flags?.dnd5e_classpack?.sanctuarySave) {\n  if (pass === \"preSave\") {\n    const dc = Number(cast.workflowOptions.classpackSanctuaryDC);\n    if (Number.isFinite(dc)) cast.activity.save.dc.value = dc;\n  }\n  return;\n}\nif (pass === \"preSave\") return;\nconst marker = \"sanctuary\";\nconst effects = actor => Array.from(actor?.appliedEffects ?? actor?.effects ?? [])\n  .filter(e => e.active && e.flags?.dnd5e_classpack?.automation === marker);\nconst remove = async (actor, list) => {\n  if (list.length) await MidiQOL.socket().executeAsGM(\"removeEffects\", {\n    actorUuid: actor.uuid, effects: list.map(e => e.id)\n  });\n};\n\n// 记录本次施法的 DC，避免以后施法者的属性或施法属性变化影响现有效果。\nif (pass === \"postActiveEffects\" && cast.item.uuid === macroItem.uuid) {\n  const dc = Number(saveActivityFor(macroItem)?.save.dc.value);\n  if (!Number.isFinite(dc)) {\n    ui.notifications.warn(\"庇护术：无法确定本次施法的豁免 DC，请检查施法属性。\");\n    return;\n  }\n  for (const target of cast.targets) {\n    const list = effects(target.actor).filter(e =>\n      e.system?.origin?.message === cast.itemCardUuid);\n    if (list.length) await MidiQOL.socket().executeAsGM(\"updateEffects\", {\n      actorUuid: target.actor.uuid,\n      updates: list.map(e => ({ _id: e.id,\n        \"flags.dnd5e_classpack.sanctuaryDC\": dc,\n        \"flags.dnd5e_classpack.sanctuaryItem\": cast.item.uuid }))\n    });\n  }\n  return;\n}\n\nif (pass !== \"isTargeted\") {\n  const list = effects(cast.actor);\n  if (!list.length) return;\n  if (pass !== \"postActiveEffects\") return;\n  let enemyTargeted = cast.item.type === \"spell\" && Array.from(cast.targets).some(t =>\n    t.actor?.uuid !== cast.actor.uuid && cast.token\n      && t.document.disposition * cast.token.document.disposition < 0);\n  const unclearTargets = cast.item.type === \"spell\" && !enemyTargeted && Array.from(cast.targets).some(t =>\n    t.actor?.uuid !== cast.actor.uuid && (!cast.token\n      || t.document.disposition * cast.token.document.disposition === 0));\n  if (unclearTargets) enemyTargeted = await foundry.applications.api.DialogV2.confirm({\n    window: { title: \"庇护术：是否影响敌人\" },\n    content: \"<p>这次法术是否影响了你的敌人？目标阵营为中立，无法自动判断。</p>\",\n    rejectClose: false\n  });\n  if (enemyTargeted) await remove(cast.actor, list);\n  return;\n}\n\n// TargetOnUse 的 actor/token 是受保护者，workflow.actor 是攻击者。\nconst target = args[0].options?.token;\nif (!target || !cast.targets.has(target) || cast.actor.uuid === target.actor?.uuid) return;\nif (cast.activity.target?.template?.type) return; // 范围效应不受庇护术限制。\nconst attack = !!cast.activity.attack;\nlet harmful = cast.item.type === \"spell\" && (cast.activity.type === \"save\"\n  || (cast.activity.damage?.parts?.length ?? 0) > 0);\nif (!attack && !harmful && cast.item.type === \"spell\") {\n  harmful = await foundry.applications.api.DialogV2.confirm({\n    window: { title: \"庇护术\" },\n    content: \"<p>这次是否对受保护者施放了伤害性法术？有益法术无需豁免。</p>\",\n    rejectClose: false\n  });\n}\nif (!attack && !harmful) return;\n\ncast.classpackSanctuary ??= { checked: new Set(), failed: new Set() };\nconst state = cast.classpackSanctuary;\nlet current = target;\nwhile (current) {\n  const ward = effects(current.actor)[0];\n  if (!ward || state.checked.has(current.document.uuid)) break;\n  const dc = Number(ward.flags.dnd5e_classpack.sanctuaryDC);\n  if (!Number.isFinite(dc)) {\n    ui.notifications.warn(\"庇护术缺少施法 DC，请重新施放庇护术后再试。\");\n    cast.aborted = true;\n    return;\n  }\n  state.checked.add(current.document.uuid);\n  const originUuid = ward.flags.dnd5e_classpack.sanctuaryItem\n    ?? ward.system?.origin?.item ?? ward.origin;\n  const origin = originUuid ? await fromUuid(originUuid) : macroItem;\n  const sourceSpell = origin?.item ?? (origin?.documentName === \"Item\" ? origin : null);\n  const saveActivity = saveActivityFor(sourceSpell);\n  if (!saveActivity || !cast.token || MidiQOL.configSettings().autoCheckSaves === \"none\") {\n    ui.notifications.warn(\"庇护术：请确认来源法术包含庇护术豁免 Activity，并启用 Midi 自动检查豁免。\");\n    cast.aborted = true;\n    return;\n  }\n  const saveWorkflow = await MidiQOL.completeActivityUse(saveActivity, {\n    consume: false,\n    midiOptions: {\n      targetUuids: [cast.token.document.uuid],\n      ignoreUserTargets: true,\n      checkGMstatus: !sourceSpell.isOwner,\n      asUser: sourceSpell.isOwner ? undefined : dnd5eClasspack.firstOwner(sourceSpell.actor, true),\n      workflowData: true,\n      proceedChecks: { checkComponents: false },\n      workflowOptions: {\n        targetConfirmation: \"none\", allowIncapacitated: true,\n        classpackSanctuaryDC: dc\n      }\n    }\n  }, { configure: false });\n  if (!saveWorkflow || saveWorkflow.aborted || !(saveWorkflow.saves instanceof Set)) {\n    ui.notifications.warn(\"庇护术：豁免流程未完成，本次攻击已停止。\");\n    cast.aborted = true;\n    return;\n  }\n  if (Array.from(saveWorkflow.saves).some(t =>\n    (t.document?.uuid ?? t.uuid) === cast.token.document.uuid)) break;\n  state.failed.add(current.document.uuid);\n  const remaining = new Set(cast.targets);\n  remaining.delete(current);\n  const candidates = canvas.tokens.placeables.filter(t => t.actor && t.visible\n    && !state.failed.has(t.document.uuid) && !remaining.has(t)\n    && (!cast.token || MidiQOL.checkActivityRange(cast.activity, cast.token, new Set([t]), false).result !== \"fail\"));\n  const [replacement] = candidates.length\n    ? await dnd5eClasspack.dialogUtils.selectTargetDialog(\"庇护术：改选目标\",\n      \"豁免未通过。选择另一个合法目标，或取消并失去对该目标的攻击／法术。\",\n      candidates, { skipDeadAndUnconscious: false }) : [];\n  if (replacement) remaining.add(replacement);\n  cast.setTargets(remaining);\n  MidiQOL.updateUserTargets(Array.from(remaining, t => t.id));\n  if (!remaining.size) {\n    // 已使用的资源保留；只终止本次后续攻击、伤害和效果。\n    cast.aborted = true;\n    ui.notifications.info(\"庇护术：未改选目标，本次攻击／法术失去目标。\");\n    return;\n  }\n  current = replacement;\n}\n"
       }
     }
   },
@@ -353,6 +353,163 @@
           "animationIntensity": 5
         },
         "otherActivityAsParentType": true
+      },
+      "4114fff4d35d6d1c": {
+        "type": "save",
+        "_id": "4114fff4d35d6d1c",
+        "sort": 1,
+        "activation": {
+          "type": "",
+          "value": null,
+          "override": true,
+          "condition": ""
+        },
+        "consumption": {
+          "spellSlot": false,
+          "targets": [],
+          "scaling": {
+            "allowed": false
+          }
+        },
+        "description": {
+          "value": ""
+        },
+        "duration": {
+          "units": "inst",
+          "concentration": false,
+          "override": true,
+          "expiry": null
+        },
+        "effects": [],
+        "range": {
+          "units": "any",
+          "override": true
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "contiguous": false,
+            "units": "ft",
+            "stationary": false
+          },
+          "affects": {
+            "type": "creature",
+            "count": "1",
+            "choice": false,
+            "special": ""
+          },
+          "override": true,
+          "prompt": false
+        },
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "confirmTargets": "never",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": true,
+          "otherActivityCompatible": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": true,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {
+          "dnd5e_classpack": {
+            "sanctuarySave": true
+          }
+        },
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "name": "庇护术豁免",
+        "damage": {
+          "onSave": "none",
+          "parts": []
+        },
+        "save": {
+          "ability": [
+            "wis"
+          ],
+          "dc": {
+            "calculation": "spellcasting",
+            "formula": ""
+          },
+          "visible": true,
+          "bonus": ""
+        }
       }
     },
     "identifier": "sanctuary",
