@@ -42,7 +42,7 @@
         "_id": "u8ZDETzflRydtgDy",
         "type": "AbilityScoreImprovement",
         "configuration": {
-          "points": 1,
+          "cap": null,
           "fixed": {
             "str": 0,
             "dex": 1,
@@ -51,8 +51,15 @@
             "wis": 2,
             "cha": 0
           },
-          "cap": 1,
-          "locked": [],
+          "locked": [
+            "str",
+            "dex",
+            "con",
+            "int",
+            "wis",
+            "cha"
+          ],
+          "points": 0,
           "recommendation": null
         },
         "value": {
@@ -78,6 +85,74 @@
         "name": "",
         "flags": {},
         "hint": ""
+      },
+      "07f60d4794f7e8e9": {
+        "type": "Trait",
+        "configuration": {
+          "grants": [
+            "languages:standard:common"
+          ],
+          "allowReplacements": false,
+          "choices": [],
+          "mode": "default"
+        },
+        "_id": "07f60d4794f7e8e9",
+        "value": {
+          "chosen": []
+        },
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      },
+      "02dc112267d73c87": {
+        "_id": "02dc112267d73c87",
+        "type": "Trait",
+        "configuration": {
+          "allowReplacements": false,
+          "choices": [],
+          "grants": [
+            "skills:sur"
+          ],
+          "mode": "default"
+        },
+        "value": {
+          "chosen": []
+        },
+        "level": 0,
+        "hint": "",
+        "name": "大自然追踪者",
+        "flags": {}
+      },
+      "61eeaae7b2c106e1": {
+        "_id": "61eeaae7b2c106e1",
+        "type": "ItemGrant",
+        "configuration": {
+          "items": [
+            {
+              "optional": false,
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.UHMM3I4oSTkmX2je",
+              "sort": 0
+            },
+            {
+              "optional": false,
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.LV3G4hXPeL8NW4GI",
+              "sort": 0
+            },
+            {
+              "optional": false,
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.wUkIW5Nfcxad3qlY",
+              "sort": 0
+            }
+          ],
+          "optional": false,
+          "spell": null,
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "hint": "",
+        "name": "种族特性",
+        "flags": {}
       }
     },
     "identifier": "shifter-wildhunt-erlw"

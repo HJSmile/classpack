@@ -42,7 +42,7 @@
         "_id": "WweQRfj3xF1YMFp0",
         "type": "AbilityScoreImprovement",
         "configuration": {
-          "points": 1,
+          "cap": 2,
           "fixed": {
             "str": 2,
             "dex": 0,
@@ -51,8 +51,15 @@
             "wis": 0,
             "cha": 0
           },
-          "cap": 1,
-          "locked": [],
+          "locked": [
+            "str",
+            "dex",
+            "con",
+            "int",
+            "wis",
+            "cha"
+          ],
+          "points": 0,
           "recommendation": null
         },
         "value": {
@@ -78,6 +85,82 @@
         "name": "",
         "flags": {},
         "hint": ""
+      },
+      "442f451c0338d721": {
+        "type": "Trait",
+        "configuration": {
+          "grants": [
+            "languages:standard:orc",
+            "languages:standard:common"
+          ],
+          "allowReplacements": false,
+          "choices": [],
+          "mode": "default"
+        },
+        "_id": "442f451c0338d721",
+        "value": {
+          "chosen": []
+        },
+        "level": 0,
+        "hint": "",
+        "name": "",
+        "flags": {}
+      },
+      "cecce2b9802cfc1c": {
+        "type": "Trait",
+        "_id": "cecce2b9802cfc1c",
+        "configuration": {
+          "allowReplacements": false,
+          "choices": [
+            {
+              "count": 2,
+              "pool": [
+                "skills:prc",
+                "skills:ins",
+                "skills:sur",
+                "skills:itm",
+                "skills:ani",
+                "skills:med",
+                "skills:nat"
+              ]
+            }
+          ],
+          "grants": [],
+          "mode": "default"
+        },
+        "value": {
+          "chosen": []
+        },
+        "level": 0,
+        "hint": "",
+        "name": "原始直觉",
+        "flags": {}
+      },
+      "642a1f0b851c7631": {
+        "type": "ItemGrant",
+        "_id": "642a1f0b851c7631",
+        "configuration": {
+          "items": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.BN65JAh8rnyTXtjf",
+              "optional": false,
+              "sort": 0
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.T8V1q8TTkiulrnYT",
+              "optional": false,
+              "sort": 0
+            }
+          ],
+          "optional": false,
+          "spell": null,
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "hint": "",
+        "name": "兽人特质",
+        "flags": {}
       }
     },
     "identifier": "orc-erlw"

@@ -42,7 +42,7 @@
         "_id": "wmuLnacKQWJMQjyQ",
         "type": "AbilityScoreImprovement",
         "configuration": {
-          "points": 1,
+          "cap": 2,
           "fixed": {
             "str": 1,
             "dex": 0,
@@ -51,8 +51,15 @@
             "wis": 0,
             "cha": 0
           },
-          "cap": 1,
-          "locked": [],
+          "locked": [
+            "str",
+            "dex",
+            "con",
+            "int",
+            "wis",
+            "cha"
+          ],
+          "points": 0,
           "recommendation": null
         },
         "value": {
@@ -78,6 +85,74 @@
         "name": "",
         "flags": {},
         "hint": ""
+      },
+      "7ed0fe6826d49057": {
+        "type": "Trait",
+        "configuration": {
+          "grants": [
+            "languages:standard:common"
+          ],
+          "allowReplacements": false,
+          "choices": [],
+          "mode": "default"
+        },
+        "_id": "7ed0fe6826d49057",
+        "value": {
+          "chosen": []
+        },
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      },
+      "752216128d78b47c": {
+        "_id": "752216128d78b47c",
+        "type": "Trait",
+        "configuration": {
+          "allowReplacements": false,
+          "choices": [],
+          "grants": [
+            "skills:ath"
+          ],
+          "mode": "default"
+        },
+        "value": {
+          "chosen": []
+        },
+        "level": 0,
+        "hint": "",
+        "name": "天生运动健将",
+        "flags": {}
+      },
+      "70f4826587ea0b82": {
+        "_id": "70f4826587ea0b82",
+        "type": "ItemGrant",
+        "configuration": {
+          "items": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.xGegaYIAC3bAWScN",
+              "optional": false,
+              "sort": 0
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.LV3G4hXPeL8NW4GI",
+              "optional": false,
+              "sort": 0
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.wUkIW5Nfcxad3qlY",
+              "optional": false,
+              "sort": 0
+            }
+          ],
+          "optional": false,
+          "spell": null,
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "hint": "",
+        "name": "种族特性",
+        "flags": {}
       }
     },
     "identifier": "shifter-beasthide-erlw"

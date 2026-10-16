@@ -88,13 +88,18 @@
         "configuration": {
           "mode": "default",
           "allowReplacements": false,
-          "grants": [
-            "skills:sur",
-            "skills:acr",
-            "skills:itm",
-            "skills:ath"
-          ],
-          "choices": []
+          "grants": [],
+          "choices": [
+            {
+              "count": 1,
+              "pool": [
+                "skills:sur",
+                "skills:acr",
+                "skills:itm",
+                "skills:ath"
+              ]
+            }
+          ]
         },
         "value": {
           "chosen": []
@@ -141,28 +146,7 @@
         "_id": "aBoeRLjfMxWry84T",
         "type": "ItemGrant",
         "configuration": {
-          "items": [
-            {
-              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.xGegaYIAC3bAWScN",
-              "optional": false,
-              "sort": 0
-            },
-            {
-              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.feRdXAM5QcdF95Z5",
-              "optional": false,
-              "sort": 0
-            },
-            {
-              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.hYQBDvJL4iZf7RXS",
-              "optional": false,
-              "sort": 0
-            },
-            {
-              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.UHMM3I4oSTkmX2je",
-              "optional": false,
-              "sort": 0
-            }
-          ],
+          "items": [],
           "optional": true,
           "spell": null,
           "sorting": "m"
@@ -171,6 +155,52 @@
         "level": 0,
         "name": "化形",
         "img": null,
+        "flags": {},
+        "hint": ""
+      },
+      "6ba7beb8a0d2c6aa": {
+        "_id": "6ba7beb8a0d2c6aa",
+        "type": "ItemChoice",
+        "name": "化形类型",
+        "configuration": {
+          "choices": {
+            "0": {
+              "count": 1,
+              "replacement": false
+            }
+          },
+          "allowDrops": false,
+          "type": "feat",
+          "pool": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.xGegaYIAC3bAWScN",
+              "sort": 0
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.UHMM3I4oSTkmX2je",
+              "sort": 1
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.hYQBDvJL4iZf7RXS",
+              "sort": 2
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.feRdXAM5QcdF95Z5",
+              "sort": 3
+            }
+          ],
+          "spell": null,
+          "restriction": {
+            "type": "",
+            "subtype": "",
+            "level": "",
+            "list": [],
+            "school": []
+          },
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
         "flags": {},
         "hint": ""
       }

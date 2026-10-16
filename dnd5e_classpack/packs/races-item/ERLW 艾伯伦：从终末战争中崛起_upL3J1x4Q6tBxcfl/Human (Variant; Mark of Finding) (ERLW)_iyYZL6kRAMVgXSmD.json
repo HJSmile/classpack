@@ -41,8 +41,9 @@
       "J6v6BqfYps7cU5YR": {
         "_id": "J6v6BqfYps7cU5YR",
         "type": "AbilityScoreImprovement",
+        "name": "属性值提升",
         "configuration": {
-          "points": 1,
+          "cap": 1,
           "fixed": {
             "str": 0,
             "dex": 0,
@@ -51,15 +52,22 @@
             "wis": 2,
             "cha": 0
           },
-          "cap": 1,
-          "locked": [],
+          "locked": [
+            "str",
+            "dex",
+            "con",
+            "int",
+            "wis",
+            "cha"
+          ],
+          "points": 0,
+          "max": 20,
           "recommendation": null
         },
         "value": {
           "type": "asi"
         },
         "level": 0,
-        "name": "",
         "flags": {},
         "hint": ""
       },
@@ -76,6 +84,124 @@
         },
         "level": 0,
         "name": "",
+        "flags": {},
+        "hint": ""
+      },
+      "ea2ab0c02e195fc6": {
+        "_id": "ea2ab0c02e195fc6",
+        "type": "Trait",
+        "name": "语言",
+        "configuration": {
+          "mode": "default",
+          "allowReplacements": false,
+          "grants": [
+            "languages:standard:common",
+            "languages:standard:goblin"
+          ],
+          "choices": []
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      },
+      "c8341fc69545446b": {
+        "_id": "c8341fc69545446b",
+        "type": "ItemGrant",
+        "name": "种族与龙纹特性",
+        "configuration": {
+          "items": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.wUkIW5Nfcxad3qlY",
+              "optional": false,
+              "sort": 0
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.u0g4JeigRjYXz2xT",
+              "optional": false,
+              "sort": 1
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.subBhnHYGGA3cmsP",
+              "optional": false,
+              "sort": 2
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.JLvqFEvOpiF0yp2J",
+              "optional": false,
+              "sort": 3
+            }
+          ],
+          "optional": false,
+          "spell": null,
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      },
+      "3c54eb9fb9baba6f": {
+        "_id": "3c54eb9fb9baba6f",
+        "type": "ItemGrant",
+        "name": "Hunter's Mark",
+        "configuration": {
+          "items": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.spell.Item.EvKYUkiYevVt0lkq",
+              "optional": false,
+              "sort": 0
+            }
+          ],
+          "optional": false,
+          "spell": {
+            "ability": [
+              "wis"
+            ],
+            "method": "innate",
+            "prepared": 0,
+            "uses": {
+              "max": "1",
+              "per": "lr",
+              "requireSlot": false
+            }
+          },
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      },
+      "588cdfa92810eb39": {
+        "_id": "588cdfa92810eb39",
+        "type": "ItemGrant",
+        "name": "Locate Object",
+        "configuration": {
+          "items": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.spell.Item.Fw3U8sQwWSPVoisW",
+              "optional": false,
+              "sort": 0
+            }
+          ],
+          "optional": false,
+          "spell": {
+            "ability": [
+              "wis"
+            ],
+            "method": "innate",
+            "prepared": 0,
+            "uses": {
+              "max": "1",
+              "per": "lr",
+              "requireSlot": false
+            }
+          },
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 3,
         "flags": {},
         "hint": ""
       }

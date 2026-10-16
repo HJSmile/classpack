@@ -12,7 +12,7 @@
     "identifier": "simic-hybrid-ggr",
     "source": {
       "revision": 1,
-      "rules": "2024",
+      "rules": "2014",
       "book": "GGR"
     },
     "advancement": {
@@ -61,7 +61,15 @@
             "languages:standard:common"
           ],
           "allowReplacements": false,
-          "choices": [],
+          "choices": [
+            {
+              "count": 1,
+              "pool": [
+                "languages:standard:elvish",
+                "languages:exotic:vedalken"
+              ]
+            }
+          ],
           "mode": "default"
         },
         "_id": "lR42q6OCHf9xLGcW",
@@ -93,20 +101,18 @@
         "hint": ""
       },
       "2lNTju3rqCqzX7bE": {
-        "type": "ItemChoice",
         "_id": "2lNTju3rqCqzX7bE",
+        "type": "ItemChoice",
+        "name": "动物增强（1级）",
         "configuration": {
-          "allowDrops": false,
           "choices": {
             "1": {
               "count": 1,
-              "replacement": true
-            },
-            "5": {
-              "count": 1,
-              "replacement": true
+              "replacement": false
             }
           },
+          "allowDrops": false,
+          "type": "feat",
           "pool": [
             {
               "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.754Bz3gUODKA6Jyf",
@@ -114,40 +120,81 @@
             },
             {
               "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.WJb2vW9jXjhK5gUV",
-              "sort": 0
+              "sort": 1
             },
             {
               "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.TU1BEOzPJIPSGgzW",
-              "sort": 0
-            },
-            {
-              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.byvWYBmGLavui7Ln",
-              "sort": 0
-            },
-            {
-              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.W7VXz7Cych3HRN7W",
-              "sort": 0
-            },
-            {
-              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.oSqhiMiewN9zt2Jv",
-              "sort": 0
+              "sort": 2
             }
           ],
           "spell": null,
-          "type": null,
           "restriction": {
+            "type": "",
+            "subtype": "",
+            "level": "",
             "list": [],
             "school": []
           },
-          "sorting": "a"
+          "sorting": "m"
         },
-        "value": {
-          "added": {},
-          "replaced": {}
+        "value": {},
+        "level": 1,
+        "flags": {},
+        "hint": ""
+      },
+      "4ec12abcf21e1830": {
+        "_id": "4ec12abcf21e1830",
+        "type": "ItemChoice",
+        "name": "动物增强（5级）",
+        "configuration": {
+          "choices": {
+            "5": {
+              "count": 1,
+              "replacement": false
+            }
+          },
+          "allowDrops": false,
+          "type": "feat",
+          "pool": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.754Bz3gUODKA6Jyf",
+              "sort": 0
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.WJb2vW9jXjhK5gUV",
+              "sort": 1
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.TU1BEOzPJIPSGgzW",
+              "sort": 2
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.byvWYBmGLavui7Ln",
+              "sort": 3
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.W7VXz7Cych3HRN7W",
+              "sort": 4
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.oSqhiMiewN9zt2Jv",
+              "sort": 5
+            }
+          ],
+          "spell": null,
+          "restriction": {
+            "type": "",
+            "subtype": "",
+            "level": "",
+            "list": [],
+            "school": []
+          },
+          "sorting": "m"
         },
-        "hint": "",
-        "name": "",
-        "flags": {}
+        "value": {},
+        "level": 5,
+        "flags": {},
+        "hint": ""
       }
     },
     "movement": {

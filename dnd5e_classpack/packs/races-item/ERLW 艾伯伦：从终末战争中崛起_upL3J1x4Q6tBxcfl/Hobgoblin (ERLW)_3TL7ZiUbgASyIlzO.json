@@ -42,7 +42,7 @@
         "_id": "hqGIiKtMrsz5tAnu",
         "type": "AbilityScoreImprovement",
         "configuration": {
-          "points": 1,
+          "points": 0,
           "fixed": {
             "str": 0,
             "dex": 0,
@@ -51,8 +51,15 @@
             "wis": 0,
             "cha": 0
           },
-          "cap": 1,
-          "locked": [],
+          "cap": null,
+          "locked": [
+            "str",
+            "dex",
+            "con",
+            "int",
+            "wis",
+            "cha"
+          ],
           "recommendation": null
         },
         "value": {
@@ -78,6 +85,90 @@
         "name": "",
         "flags": {},
         "hint": ""
+      },
+      "f6ea75df112623a4": {
+        "_id": "f6ea75df112623a4",
+        "type": "ItemGrant",
+        "configuration": {
+          "items": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.uUzBgh9QjvMEanIr",
+              "optional": false,
+              "sort": 0
+            }
+          ],
+          "optional": false,
+          "spell": null,
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "hint": "",
+        "name": "特质",
+        "flags": {}
+      },
+      "0c7722a049f4419c": {
+        "_id": "0c7722a049f4419c",
+        "type": "Trait",
+        "configuration": {
+          "allowReplacements": false,
+          "choices": [],
+          "grants": [
+            "languages:standard:goblin",
+            "languages:standard:common"
+          ],
+          "mode": "default"
+        },
+        "value": {
+          "chosen": []
+        },
+        "level": 0,
+        "hint": "",
+        "name": "语言",
+        "flags": {}
+      },
+      "794391a1979e437f": {
+        "type": "Trait",
+        "_id": "794391a1979e437f",
+        "configuration": {
+          "allowReplacements": true,
+          "choices": [
+            {
+              "count": 2,
+              "pool": [
+                "weapon:mar:*"
+              ]
+            }
+          ],
+          "grants": [],
+          "mode": "default"
+        },
+        "value": {
+          "chosen": []
+        },
+        "level": 0,
+        "hint": "",
+        "name": "军事训练",
+        "flags": {}
+      },
+      "30df5a7241fc68c3": {
+        "type": "Trait",
+        "_id": "30df5a7241fc68c3",
+        "configuration": {
+          "allowReplacements": false,
+          "choices": [],
+          "grants": [
+            "armor:lgt"
+          ],
+          "mode": "default"
+        },
+        "value": {
+          "chosen": []
+        },
+        "level": 0,
+        "hint": "",
+        "name": "军事训练护甲",
+        "flags": {}
       }
     },
     "identifier": "hobgoblin-erlw"
