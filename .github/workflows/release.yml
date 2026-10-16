@@ -14,6 +14,11 @@ on:
         description: 'Release tag to attach the archive to. Leave empty to build the archive without attaching.'
         required: false
         default: ''
+      keep_all_icons:
+        description: 'Include unused legacy Nicons images for existing world and actor copies.'
+        type: boolean
+        required: false
+        default: false
   release:
     types: [published, edited]
 
@@ -50,6 +55,10 @@ jobs:
 
       - name: Install Foundry VTT CLI
         run: npm install -g @foundryvtt/foundryvtt-cli
+
+      # Read references while pack JSON and embedded macros are still available.
+      - name: Plan release icons
+        run: node tools/release-icons.mjs --plan reports/release-icons.json
 
       # Update module.json in the working tree so the release archive and the
       # standalone manifest carry the correct version and point at this repo's
@@ -116,8 +125,17 @@ jobs:
 
       # The archive must contain the module at its root so it can be extracted
       # straight into Foundry's Data/modules/ directory.
+      - name: Stage module archive
+        env:
+          KEEP_ALL_ICONS: ${{ inputs.keep_all_icons && 'true' || 'false' }}
+        run: |
+          args=()
+          if [ "$KEEP_ALL_ICONS" = "true" ]; then args+=(--keep-all-icons); fi
+          node tools/release-icons.mjs --plan reports/release-icons.json --stage build/release "${args[@]}"
+
       - name: Build module archive
-        run: zip -r dnd5e_classpack.zip dnd5e_classpack
+        working-directory: build/release
+        run: zip -r ../../dnd5e_classpack.zip dnd5e_classpack
 
       # For manual runs, upload the archive as a workflow artifact so it can be
       # downloaded from the Actions run page. Release runs attach it to the
