@@ -79,13 +79,13 @@
         "changes": [
           {
             "key": "flags.midi-qol.OverTime",
-            "value": "turn=end, label=拂晓Dawn, saveAbility=con, saveDC=@attributes.spell.dc, saveMagic=true, damageRoll=4d10, damageType=radiant, saveDamage=halfdamage, rollMode=publicroll, allowIncapacitated=true",
+            "value": "turn=end, label=拂晓Dawn, saveAbility=con, saveDC=@activity.save.dc.value, saveMagic=true, damageRoll=4d10, damageType=radiant, saveDamage=halfdamage, rollMode=publicroll, allowIncapacitated=true, saveCount=0",
             "priority": 20,
             "type": "add",
             "phase": "initial",
             "_id": "Kb2CUTXN1ldGK29d",
             "conditions": "{}",
-            "replacement": ""
+            "replacement": "origin"
           }
         ],
         "rider": {
@@ -124,7 +124,8 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
           "riders": {}
@@ -243,7 +244,18 @@
             "_id": "hiOBffUxHMwy9Zt6",
             "uuid": null,
             "level": {},
-            "onSave": false
+            "onSave": false,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1756997260610,
+              "modifiedTime": 1786656213196,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "exportSource": null
+            }
           }
         ],
         "range": {

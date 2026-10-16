@@ -81,7 +81,8 @@
           "macroRepeat": "none",
           "specialDuration": [],
           "enableCondition": "",
-          "disableCondition": ""
+          "disableCondition": "",
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
           "riders": {}
@@ -108,13 +109,13 @@
         "changes": [
           {
             "key": "flags.midi-qol.OverTime",
-            "value": "turn=end, label=崩坏现实Reality Break, saveAbility=wis, saveDC=@attributes.spell.dc, saveMagic=true, saveCount=1-, rollMode=publicroll, allowIncapacitated=true",
+            "value": "turn=end, label=崩坏现实Reality Break, saveAbility=wis, saveDC=@activity.save.dc.value, saveMagic=true, saveCount=1-, rollMode=publicroll, allowIncapacitated=true",
             "priority": 20,
             "type": "add",
             "phase": "initial",
             "_id": "ymZdo99mGWYmZsFS",
             "conditions": "{}",
-            "replacement": ""
+            "replacement": "origin"
           },
           {
             "key": "macro.itemMacro",
@@ -456,7 +457,18 @@
             "_id": "GPOHshHCCBp5bbd6",
             "onSave": false,
             "uuid": null,
-            "level": {}
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": 1786655803164,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {

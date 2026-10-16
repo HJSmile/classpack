@@ -39,13 +39,13 @@
         "changes": [
           {
             "key": "flags.midi-qol.OverTime",
-            "value": "turn=end, label=造成恐惧Cause Fear, saveAbility=wis, saveDC=@attributes.spell.dc, saveMagic=true, saveCount=1-, rollMode=public, allowIncapacitated=true",
+            "value": "turn=end, label=造成恐惧Cause Fear, saveAbility=wis, saveDC=@activity.save.dc.value, saveMagic=true, saveCount=1-, rollMode=public, allowIncapacitated=true",
             "priority": 20,
             "type": "add",
             "phase": "initial",
             "_id": "T0lHzP6yaRs9yHaK",
             "conditions": "{}",
-            "replacement": ""
+            "replacement": "origin"
           }
         ],
         "rider": {
@@ -86,7 +86,8 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
           "riders": {}

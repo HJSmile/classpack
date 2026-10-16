@@ -47,7 +47,7 @@
         "changes": [
           {
             "key": "flags.midi-qol.superSaver.dex",
-            "value": "+1",
+            "value": "(workflow?.saveActivity ?? activity)?.damage?.onSave === \"half\"",
             "priority": 20,
             "type": "add",
             "phase": "initial",
@@ -89,7 +89,8 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
           "riders": {}

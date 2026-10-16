@@ -44,12 +44,12 @@
       "origin": null,
       "transfer": false,
       "_id": "SQsN0iDcjSTdIhMf",
-      "type": "base",
+      "type": "auraeffects.aura",
       "system": {
         "changes": [
           {
             "key": "flags.midi-qol.OverTime",
-            "value": "turn=start, label=生命灵光 Aura of Life, rollType=damage, damageRoll=1, damageType=healing, saveCount=1-, rollMode=publicroll, allowIncapacitated=true",
+            "value": "turn=start, label=生命灵光 Aura of Life, rollType=damage, damageRoll=1, damageType=healing, rollMode=publicroll, allowIncapacitated=true, applyCondition=attributes.hp.value === 0 && actor.typeOrRace !== \"undead\"",
             "priority": 20,
             "type": "custom",
             "phase": "initial",
@@ -79,7 +79,22 @@
           "message": null
         },
         "conditions": "{}",
-        "magical": true
+        "magical": true,
+        "showRadius": true,
+        "applyToSelf": true,
+        "bestFormula": "",
+        "canStack": false,
+        "color": null,
+        "combatOnly": false,
+        "disableOnHidden": false,
+        "distanceFormula": "30",
+        "disposition": 0,
+        "evaluatePreApply": true,
+        "overrideName": "",
+        "script": "sourceToken.document.disposition * token.document.disposition >= 0",
+        "stashedChanges": [],
+        "stashedStatuses": [],
+        "collisionType": "move"
       },
       "disabled": false,
       "duration": {
@@ -104,7 +119,8 @@
           "showIcon": false,
           "durationExpression": "",
           "specialDuration": [],
-          "macroRepeat": "none"
+          "macroRepeat": "none",
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
           "riders": {}
@@ -219,7 +235,18 @@
           {
             "_id": "SQsN0iDcjSTdIhMf",
             "uuid": null,
-            "level": {}
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1753504001446,
+              "modifiedTime": 1786654758579,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "exportSource": null
+            }
           }
         ],
         "range": {
@@ -234,7 +261,8 @@
             "stationary": false
           },
           "affects": {
-            "choice": false
+            "choice": false,
+            "type": "self"
           },
           "override": false
         },

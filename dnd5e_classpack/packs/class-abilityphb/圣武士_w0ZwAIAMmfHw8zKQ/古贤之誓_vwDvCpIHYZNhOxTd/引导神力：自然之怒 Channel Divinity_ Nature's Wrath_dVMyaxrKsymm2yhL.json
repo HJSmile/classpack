@@ -65,7 +65,18 @@
             "_id": "oGEmdzIYLnhgx5k0",
             "uuid": null,
             "level": {},
-            "onSave": false
+            "onSave": false,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1757272337035,
+              "modifiedTime": 1757272476680,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           }
         ],
         "range": {
@@ -232,13 +243,13 @@
         "changes": [
           {
             "key": "flags.midi-qol.OverTime",
-            "value": "turn=end, label=引导神力：自然之怒 Channel Divinity: Nature's Wrath, saveAbility=str, saveDC=@attributes.spell.dc, saveMagic=true, saveCount=1-, actionSave=dialog, rollMode=publicroll, allowIncapacitated=true",
+            "value": "turn=end, label=引导神力：自然之怒 Channel Divinity: Nature's Wrath, saveAbility=str|dex, saveDC=@activity.save.dc.value, saveMagic=true, saveCount=1-, rollMode=publicroll, allowIncapacitated=true",
             "priority": 20,
             "type": "add",
             "phase": "initial",
             "_id": "jYKT6m0FI91mD1HO",
             "conditions": "{}",
-            "replacement": ""
+            "replacement": "origin"
           }
         ],
         "rider": {
@@ -277,7 +288,8 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
           "riders": {}

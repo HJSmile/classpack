@@ -70,13 +70,13 @@
         "changes": [
           {
             "key": "flags.midi-qol.OverTime",
-            "value": "turn=start, label=死云术 Cloudkill, saveAbility=con, saveDC=@attributes.spell.dc, saveMagic=true, damageRoll=[@flags.dnd5e.spellLevel]d8, damageType=poison, saveDamage=halfdamage, allowIncapacitated=true",
+            "value": "turn=start, label=死云术 Cloudkill, saveAbility=con, saveDC=@attributes.spell.dc, saveMagic=true, damageRoll=(5 + @scaling.increase)d8, damageType=poison, saveDamage=halfdamage, allowIncapacitated=true, saveCount=0",
             "priority": 20,
             "type": "add",
             "phase": "initial",
             "_id": "E7098tdGw4UCxY3Y",
             "conditions": "{}",
-            "replacement": ""
+            "replacement": "origin"
           }
         ],
         "rider": {
@@ -115,7 +115,8 @@
           "showIcon": false,
           "durationExpression": "",
           "specialDuration": [],
-          "macroRepeat": "none"
+          "macroRepeat": "none",
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
           "riders": {}
@@ -230,7 +231,18 @@
           {
             "_id": "qXsoz5KOVCGvztLr",
             "uuid": null,
-            "level": {}
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1756370650943,
+              "modifiedTime": 1786655485362,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "exportSource": null
+            }
           }
         ],
         "range": {

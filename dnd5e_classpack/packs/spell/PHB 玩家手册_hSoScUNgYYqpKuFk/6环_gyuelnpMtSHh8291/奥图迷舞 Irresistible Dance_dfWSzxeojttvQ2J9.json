@@ -53,7 +53,9 @@
           "macroRepeat": "none",
           "specialDuration": [],
           "enableCondition": "",
-          "disableCondition": ""
+          "disableCondition": "",
+          "applicationMode": "dnd5e",
+          "expiryMode": "default"
         },
         "dnd5e": {
           "riders": {}
@@ -99,10 +101,10 @@
             "replacement": ""
           },
           {
-            "key": "system.attributes.movement.speeds.walk",
-            "value": 0,
+            "key": "system.attributes.movement.all",
+            "value": "*0",
             "priority": 20,
-            "type": "override",
+            "type": "custom",
             "phase": "initial",
             "_id": "J92wV3wcfqDz7WTo",
             "conditions": "{}",
@@ -117,6 +119,16 @@
             "_id": "uSzlAKSUq7ugJWK1",
             "conditions": "{}",
             "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.OverTime",
+            "type": "add",
+            "value": "turn=start, label=奥图迷舞 Irresistible Dance, saveAbility=wis, saveDC=@attributes.spell.dc, saveMagic=true, saveCount=1-, actionSave=dialog",
+            "phase": "initial",
+            "_id": "XUz1iuKinV5OJU30",
+            "conditions": "{}",
+            "replacement": "origin",
+            "priority": null
           }
         ],
         "rider": {
@@ -201,82 +213,93 @@
       "mgc"
     ],
     "activities": {
-      "dnd5eactivity000": {
-        "_id": "dnd5eactivity000",
-        "type": "save",
+      "vd1btnYb0M0eYwTx": {
+        "type": "utility",
+        "name": "",
+        "_id": "vd1btnYb0M0eYwTx",
+        "img": "",
+        "sort": 0,
         "activation": {
           "type": "action",
-          "value": null,
           "override": false
         },
+        "behaviors": [],
         "consumption": {
-          "targets": [],
           "scaling": {
-            "allowed": false,
-            "max": ""
+            "allowed": false
           },
-          "spellSlot": true
+          "spellSlot": true,
+          "targets": []
         },
         "description": {
-          "chatFlavor": "",
-          "value": ""
+          "value": "",
+          "chatFlavor": ""
         },
         "duration": {
           "units": "inst",
+          "expiry": null,
           "concentration": false,
-          "override": false,
-          "expiry": null
+          "override": false
         },
         "effects": [
           {
             "_id": "9SPN1RXSRf5fTPU0",
-            "onSave": false,
             "uuid": null,
-            "level": {}
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": 1786693328533,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
+        "flags": {},
         "range": {
-          "override": false,
-          "units": "self"
+          "units": "self",
+          "override": false
         },
         "target": {
-          "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft",
-            "stationary": false
+            "stationary": false,
+            "units": "ft"
           },
           "affects": {
             "choice": false
           },
-          "override": false
+          "override": false,
+          "prompt": true
         },
         "uses": {
           "spent": 0,
-          "max": "",
-          "recovery": []
+          "recovery": [],
+          "max": ""
         },
-        "damage": {
-          "onSave": "half",
-          "parts": [],
-          "critical": {
-            "allow": false
-          }
-        },
-        "save": {
-          "ability": [
-            "wis"
-          ],
-          "dc": {
-            "calculation": "spellcasting",
-            "formula": ""
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
           },
-          "visible": true
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
         },
-        "sort": 0,
+        "roll": {
+          "prompt": false,
+          "visible": false,
+          "name": "",
+          "formula": ""
+        },
         "useConditionText": "",
         "useConditionReason": "",
         "effectConditionText": "",
+        "otherActivityId": "none",
         "macroData": {
           "name": "",
           "command": ""
@@ -294,24 +317,24 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "confirmTargets": "default",
-          "autoTargetType": "any",
-          "autoTargetAction": "default",
-          "automationOnly": false,
-          "otherActivityCompatible": true,
-          "identifier": "",
-          "displayActivityName": false,
-          "rollMode": "default",
-          "chooseEffects": false,
-          "toggleEffect": false,
-          "ignoreFullCover": false,
           "triggeredActivityConsume": true,
           "triggeredActivityConfigure": true,
           "autoConsume": false,
           "forceConsumeDialog": "default",
           "forceRollDialog": "default",
           "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
           "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
           "removeChatButtons": "default",
           "magicEffect": false,
           "magicDamage": false,
@@ -322,19 +345,9 @@
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
+          "rollAs": "target",
           "preRemoveConditionText": "",
-          "postRemoveConditionText": "",
-          "rollAs": "target"
-        },
-        "otherActivityId": "",
-        "img": null,
-        "behaviors": [],
-        "flags": {},
-        "visibility": {
-          "level": {},
-          "requireAttunement": false,
-          "requireIdentification": false,
-          "requireMagic": false
+          "postRemoveConditionText": ""
         },
         "regionBehavior": {
           "enabled": false,
@@ -358,8 +371,7 @@
           "animationSpeed": 5,
           "animationIntensity": 5
         },
-        "otherActivityAsParentType": true,
-        "friendlySave": "default"
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "irresistible-dance",

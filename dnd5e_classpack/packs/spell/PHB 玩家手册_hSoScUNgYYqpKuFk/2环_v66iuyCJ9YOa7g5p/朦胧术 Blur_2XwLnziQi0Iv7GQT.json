@@ -55,7 +55,8 @@
           "stackable": "noneName",
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         }
       },
       "tint": "#ffffff",
@@ -76,7 +77,7 @@
         "changes": [
           {
             "key": "flags.midi-qol.grants.disadvantage.attack.all",
-            "value": 1,
+            "value": "(defender => canSee(tokenUuid, defender) && ![\"blindsight\", \"truesight\"].some(sense => (target.attributes.senses.ranges[sense] ?? 0) > 0 && (target.attributes.senses.ranges[sense] ?? 0) >= getDistance(tokenUuid, defender)))(\"@targetUuid\")",
             "priority": 20,
             "type": "add",
             "phase": "initial",
@@ -193,7 +194,18 @@
           {
             "_id": "mgg9ctjXZDyXR9q6",
             "uuid": null,
-            "level": {}
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": null,
+              "lastModifiedBy": null,
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {

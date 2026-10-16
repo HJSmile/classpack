@@ -231,7 +231,7 @@
           },
           {
             "key": "flags.midi-qol.optional.幸运一击.check.fail.all",
-            "value": "reroll-max",
+            "value": "ItemMacro",
             "priority": 20,
             "type": "add",
             "phase": "initial",
@@ -283,7 +283,8 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
           "riders": {}
@@ -333,6 +334,13 @@
       "noConcentrationCheck": false,
       "toggleEffect": false,
       "ignoreTotalCover": false
+    },
+    "dae": {
+      "macro": {
+        "name": "幸运一击 Stroke of Luck",
+        "type": "script",
+        "command": "function copyRoll(roll) {\n  return roll.constructor.fromData(foundry.utils.deepClone(roll.toJSON()));\n}\nfunction refreshRoll(roll) {\n  for (const term of roll.terms) {\n    if (term.roll) refreshRoll(term.roll);\n    for (const inner of term.rolls ?? []) refreshRoll(inner);\n    for (const inner of term.terms ?? []) if (inner?.terms) refreshRoll(inner);\n  }\n  roll._total = roll._evaluateTotal();\n  return roll;\n}\nfunction weaponDice(roll, workflow) {\n  if (workflow.item?.type !== \"weapon\" || !workflow.activity?.damage?.includeBase) return [];\n  const part = workflow.activity.damage.parts[0];\n  if (!part) return [];\n  const formula = part.formula ?? part.custom?.formula;\n  if (!formula) return [];\n  const base = foundry.dice.Roll.create(formula, workflow.activity.getRollData());\n  return roll.dice.slice(0, base.dice.length);\n}\nasync function rerollLowWeaponDice(roll, workflow) {\n  const properties = workflow.item?.system?.properties;\n  if (workflow.activity?.actionType !== \"mwak\" || workflow.attackMode !== \"twoHanded\"\n    || ![\"two\", \"ver\"].some(key => properties?.has(key))) return false;\n  let changed = false;\n  for (const die of weaponDice(roll, workflow)) {\n    if (die.options.dnd5e_classpackGreatWeaponFighting) continue;\n    die.options.dnd5e_classpackGreatWeaponFighting = true;\n    changed = true;\n    for (const result of [...die.results]) {\n      if (!result.active || result.result > 2) continue;\n      const replacement = new die.constructor({ number: 1, faces: die.faces });\n      await replacement.evaluate();\n      result.active = false;\n      result.rerolled = true;\n      die.results.push(...replacement.results);\n    }\n  }\n  if (changed) refreshRoll(roll);\n  return changed;\n}\n\nconst original = args[0]?.roll;\nif (args[0]?.tag !== \"optional\" || !original) return;\nconst revised = copyRoll(original);\nconst d20 = revised.dice.find(die => die.faces === 20);\nif (!d20) return original;\nfor (const result of d20.results.filter(result => result.active)) {\n  result.result = 20;\n  delete result.count;\n}\nreturn refreshRoll(revised);\n"
+      }
     }
   },
   "_stats": {

@@ -65,7 +65,8 @@
           "macroRepeat": "none",
           "specialDuration": [
             "isMoved"
-          ]
+          ],
+          "applicationMode": "dnd5e"
         }
       },
       "name": "Prone",
@@ -93,8 +94,8 @@
       "system": {
         "changes": [
           {
-            "key": "flags.midi-qol.grants.advantage.attack.mwak",
-            "value": 1,
+            "key": "flags.midi-qol.grants.advantage.attack.all",
+            "value": "(distance => distance >= 0 && distance <= 5)(computeDistance(tokenUuid, \"@targetUuid\"))",
             "priority": 0,
             "type": "custom",
             "phase": "initial",
@@ -103,32 +104,12 @@
             "replacement": ""
           },
           {
-            "key": "flags.midi-qol.grants.advantage.attack.msak",
-            "value": 1,
-            "priority": 0,
-            "type": "custom",
-            "phase": "initial",
-            "_id": "WkgXM7pMH1rCANqY",
-            "conditions": "{}",
-            "replacement": ""
-          },
-          {
-            "key": "flags.midi-qol.grants.disadvantage.attack.rwak",
-            "value": 1,
+            "key": "flags.midi-qol.grants.disadvantage.attack.all",
+            "value": "computeDistance(tokenUuid, \"@targetUuid\") > 5",
             "priority": 0,
             "type": "custom",
             "phase": "initial",
             "_id": "OesStO7nkexnY0lS",
-            "conditions": "{}",
-            "replacement": ""
-          },
-          {
-            "key": "flags.midi-qol.grants.disadvantage.attack.rsak",
-            "value": 1,
-            "priority": 0,
-            "type": "custom",
-            "phase": "initial",
-            "_id": "AkG1q72FhM2QCQLO",
             "conditions": "{}",
             "replacement": ""
           },
@@ -266,7 +247,18 @@
             "_id": "bLGEl1iaM754WulO",
             "onSave": false,
             "uuid": null,
-            "level": {}
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": null,
+              "lastModifiedBy": null,
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {

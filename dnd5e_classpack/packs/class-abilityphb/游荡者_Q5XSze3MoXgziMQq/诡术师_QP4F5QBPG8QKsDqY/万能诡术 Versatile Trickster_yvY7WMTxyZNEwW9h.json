@@ -52,7 +52,13 @@
           "override": false,
           "expiry": null
         },
-        "effects": [],
+        "effects": [
+          {
+            "_id": "AXkcHqDQB0wuSAez",
+            "uuid": null,
+            "level": {}
+          }
+        ],
         "range": {
           "units": "spec",
           "special": "",
@@ -192,7 +198,87 @@
     },
     "properties": []
   },
-  "effects": [],
+  "effects": [
+    {
+      "name": "分心",
+      "img": "icons/magic/unholy/hand-light-pink.webp",
+      "system": {
+        "origin": {
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.yvY7WMTxyZNEwW9h",
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "message": null
+        },
+        "changes": [
+          {
+            "key": "flags.midi-qol.grants.advantage.attack.all",
+            "type": "add",
+            "value": "workflow?.actor?.uuid === \"@actorUuid\"",
+            "phase": "initial",
+            "_id": "HBrHGalN8akgpKP3",
+            "conditions": "{}",
+            "replacement": "origin",
+            "priority": null
+          }
+        ],
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
+      "transfer": false,
+      "_id": "AXkcHqDQB0wuSAez",
+      "type": "base",
+      "disabled": false,
+      "start": null,
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "description": "",
+      "origin": null,
+      "tint": "#ffffff",
+      "statuses": [],
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "dae": {
+          "enableCondition": "",
+          "disableCondition": "",
+          "stackable": "noneName",
+          "applicationMode": "dnd5e",
+          "expiryMode": "default",
+          "durationExpression": "",
+          "macroRepeat": "none",
+          "disableIncapacitated": false,
+          "selfTarget": false,
+          "selfTargetAlways": false,
+          "dontApply": false,
+          "specialDuration": []
+        },
+        "core": {
+          "overlay": false
+        }
+      },
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1792163511003,
+        "modifiedTime": 1792163639283,
+        "lastModifiedBy": "dvg25zW2MvzsvMOU",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!items.effects!yvY7WMTxyZNEwW9h.AXkcHqDQB0wuSAez"
+    }
+  ],
   "folder": "QP4F5QBPG8QKsDqY",
   "sort": 43900000,
   "flags": {

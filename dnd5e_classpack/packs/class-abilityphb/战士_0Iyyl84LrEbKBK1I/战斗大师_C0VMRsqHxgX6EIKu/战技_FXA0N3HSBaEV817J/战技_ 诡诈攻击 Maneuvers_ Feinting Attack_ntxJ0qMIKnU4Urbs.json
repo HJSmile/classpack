@@ -63,12 +63,34 @@
           {
             "_id": "UHl5AL9jNHzcdghw",
             "uuid": null,
-            "level": {}
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": null,
+              "lastModifiedBy": null,
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           },
           {
             "_id": "7m1K3dXpd8LN6mSa",
             "uuid": null,
-            "level": {}
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1757098445419,
+              "modifiedTime": 1757098721937,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           }
         ],
         "range": {
@@ -230,12 +252,14 @@
           "stackable": "noneName",
           "showIcon": false,
           "durationExpression": "",
-          "specialDuration": [
-            "isAttacked"
-          ]
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "core": {
           "overlay": false
+        },
+        "dnd5e_classpack": {
+          "feint": "mark"
         }
       },
       "_id": "UHl5AL9jNHzcdghw",
@@ -260,13 +284,23 @@
         "changes": [
           {
             "key": "flags.midi-qol.grants.advantage.attack.all",
-            "value": 1,
+            "value": "workflow?.actor?.uuid === \"@actorUuid\"",
             "priority": 20,
             "type": "custom",
             "phase": "initial",
             "_id": "nltSeIJeD0tONF3N",
             "conditions": "{}",
-            "replacement": ""
+            "replacement": "origin"
+          },
+          {
+            "key": "flags.midi-qol.onUseMacroName",
+            "value": "ItemMacro,isAttacked",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "",
+            "conditions": "{}",
+            "_id": "b219fd6fd8d40a35"
           }
         ],
         "origin": {
@@ -298,14 +332,44 @@
       "system": {
         "changes": [
           {
-            "key": "system.rolls.damage.mwak.bonus",
-            "value": "+@scale.battle-master.superiority-die",
+            "key": "flags.midi-qol.optional.诡诈攻击.damage.all",
+            "value": "+1@scale.battle-master.superiority-die",
             "priority": 20,
             "type": "add",
             "phase": "initial",
             "_id": "mIajDJfHW3RsS1Cc",
             "conditions": "{}",
-            "replacement": ""
+            "replacement": "origin"
+          },
+          {
+            "key": "flags.midi-qol.optional.诡诈攻击.activation",
+            "value": "targetActorUuid === \"@feint.targetActorUuid\"",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "origin",
+            "conditions": "{}",
+            "_id": "4b64b6ecaab8e572"
+          },
+          {
+            "key": "flags.midi-qol.optional.诡诈攻击.force",
+            "value": "true",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "",
+            "conditions": "{}",
+            "_id": "1725dccc494f528f"
+          },
+          {
+            "key": "flags.midi-qol.onUseMacroName",
+            "value": "ItemMacro,postActiveEffects",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "",
+            "conditions": "{}",
+            "_id": "aff6293d685e3891"
           }
         ],
         "rider": {
@@ -344,15 +408,17 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": [
-            "1Attack:mwak"
-          ]
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
           "riders": {}
         },
         "core": {
           "overlay": false
+        },
+        "dnd5e_classpack": {
+          "feint": "damage"
         }
       },
       "_stats": {
@@ -397,7 +463,8 @@
       "effectCondition": "",
       "removeAttackDamageButtons": "default",
       "reactionCondition": "",
-      "otherCondition": ""
+      "otherCondition": "",
+      "onUseMacroName": "[preActiveEffects]ItemMacro,[postActiveEffects]ItemMacro"
     },
     "dnd5e": {},
     "chris-premades": {
@@ -405,6 +472,13 @@
         "identifier": "maneuversFeintingAttack",
         "source": "chris-premades",
         "version": "0.0.0"
+      }
+    },
+    "dae": {
+      "macro": {
+        "name": "战技: 诡诈攻击 Maneuvers: Feinting Attack",
+        "type": "script",
+        "command": "const pass = args[0]?.macroPass;\nconst dataKey = Symbol.for(\"dnd5e_classpack.feint.rollData\");\nif (pass === \"preActiveEffects\") {\n  const target = workflow.targets.first();\n  if (!target?.actor) return;\n  const previous = workflow.item[dataKey] ?? workflow.item.getRollData;\n  workflow.item[dataKey] = previous;\n  workflow.item.getRollData = function (...options) {\n    return { ...previous.apply(this, options), feint: { targetActorUuid: target.actor.uuid } };\n  };\n  return;\n}\nif (pass === \"postActiveEffects\" && workflow.item[dataKey]) {\n  workflow.item.getRollData = workflow.item[dataKey];\n  delete workflow.item[dataKey];\n  return;\n}\nif (![\"isAttacked\", \"postActiveEffects\"].includes(pass) || !workflow.attackRoll) return;\nconst holders = pass === \"isAttacked\" ? [...workflow.targets].map(t => t.actor) : [workflow.actor];\nfor (const holder of holders.filter(Boolean)) {\n  const effects = holder.appliedEffects.filter(effect => {\n    if (effect.disabled || effect.isSuppressed) return false;\n    const role = effect.flags.dnd5e_classpack?.feint;\n    if (role !== (pass === \"isAttacked\" ? \"mark\" : \"damage\")) return false;\n    const key = role === \"mark\" ? \"flags.midi-qol.grants.advantage.attack.all\" : \"flags.midi-qol.optional.诡诈攻击.activation\";\n    const change = effect.system.changes.find(c => c.key === key);\n    const target = role === \"mark\" ? workflow.token : workflow.targets.first();\n    return change && MidiQOL.evalCondition(change.value,\n      MidiQOL.createConditionData({ workflow, actor: workflow.actor, target }), { errorReturn: false });\n  });\n  if (effects.length) await MidiQOL.socket().executeAsGM(\"removeEffects\", {\n    actorUuid: holder.uuid, effects: effects.map(e => e.id), options: { \"expiry-reason\": \"midi-qol:feintAttack\" }\n  });\n}\n"
       }
     }
   },

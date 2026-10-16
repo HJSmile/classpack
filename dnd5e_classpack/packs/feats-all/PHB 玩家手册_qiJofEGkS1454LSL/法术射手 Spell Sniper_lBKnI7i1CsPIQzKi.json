@@ -20,6 +20,13 @@
       "noConcentrationCheck": false,
       "toggleEffect": false,
       "ignoreTotalCover": false
+    },
+    "dae": {
+      "macro": {
+        "name": "法术射手 Spell Sniper",
+        "type": "script",
+        "command": "const pass = args[0]?.macroPass;\nconst key = Symbol.for(\"dnd5e_classpack.spellSniper.range\");\nconst activity = workflow.activity;\nif (pass === \"preItemRoll\" && workflow.item.type === \"spell\" && activity.actionType === \"msak\"\n  && [\"ft\", \"m\"].includes(activity.range.units) && Number(activity.range.value) > 0) {\n  if (activity[key] !== undefined) return;\n  activity[key] = activity.range.value;\n  activity.range.value *= 2;\n}\nif (pass === \"postCleanup\" && activity[key] !== undefined) {\n  activity.range.value = activity[key];\n  delete activity[key];\n}\n"
+      }
     }
   },
   "img": "icons/magic/light/projectile-beam-yellow.webp",
@@ -117,8 +124,8 @@
       "system": {
         "changes": [
           {
-            "key": "flags.midi-qol.long.rsak",
-            "value": "+item.long.value",
+            "key": "flags.dnd5e.spellSniper",
+            "value": "true",
             "priority": 20,
             "type": "add",
             "phase": "initial",
@@ -127,14 +134,24 @@
             "replacement": ""
           },
           {
-            "key": "flags.midi-qol.range.rsak",
-            "value": "+item.range.value",
+            "key": "flags.midi-qol.onUseMacroName",
+            "value": "ItemMacro,preItemRoll",
             "priority": 20,
             "type": "add",
             "phase": "initial",
             "_id": "xD9IgNaRiTbkVYQb",
             "conditions": "{}",
             "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.onUseMacroName",
+            "value": "ItemMacro,postCleanup",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "",
+            "conditions": "{}",
+            "_id": "4c112821ed5216fd"
           }
         ],
         "rider": {
@@ -169,7 +186,8 @@
           "stackable": "noneName",
           "showIcon": false,
           "durationExpression": "",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
           "riders": {}

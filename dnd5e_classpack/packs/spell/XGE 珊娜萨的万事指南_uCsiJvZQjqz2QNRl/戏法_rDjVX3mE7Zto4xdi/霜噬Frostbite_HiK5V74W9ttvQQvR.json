@@ -54,8 +54,10 @@
           "durationExpression": "",
           "macroRepeat": "none",
           "specialDuration": [
-            "1Attack"
-          ]
+            "1Attack:mwak",
+            "1Attack:rwak"
+          ],
+          "applicationMode": "dnd5e"
         }
       },
       "tint": "#ffffff",
@@ -76,7 +78,7 @@
         "changes": [
           {
             "key": "flags.midi-qol.disadvantage.attack.all",
-            "value": 1,
+            "value": "[\"mwak\", \"rwak\"].includes(activity?.actionType)",
             "priority": 20,
             "type": "add",
             "phase": "initial",
@@ -196,7 +198,18 @@
             "_id": "S05BG1dEqWDi4G5k",
             "onSave": false,
             "uuid": null,
-            "level": {}
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": null,
+              "lastModifiedBy": null,
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {

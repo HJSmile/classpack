@@ -59,7 +59,7 @@
           },
           {
             "key": "flags.midi-qol.semiSuperSaver.all",
-            "value": "item.type == 'spell'",
+            "value": "item.itemType === \"spell\" || activity?.midiProperties?.magicEffect === true || workflow?.item?.system?.properties?.has(\"mgc\") === true",
             "priority": 20,
             "type": "add",
             "phase": "initial",
@@ -119,7 +119,7 @@
           "showIcon": false,
           "durationExpression": "",
           "specialDuration": [],
-          "applicationMode": "default",
+          "applicationMode": "dnd5e",
           "expiryMode": "default",
           "macroRepeat": "none"
         },
@@ -241,6 +241,17 @@
             "level": {
               "min": null,
               "max": null
+            },
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1756370047464,
+              "modifiedTime": 1756370195992,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
             }
           }
         ],

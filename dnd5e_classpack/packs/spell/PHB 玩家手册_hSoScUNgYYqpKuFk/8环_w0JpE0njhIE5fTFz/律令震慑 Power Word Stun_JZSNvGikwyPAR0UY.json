@@ -56,7 +56,9 @@
           "macroRepeat": "none",
           "specialDuration": [],
           "enableCondition": "attributes.hp.value<=150",
-          "disableCondition": ""
+          "disableCondition": "",
+          "applicationMode": "dnd5e",
+          "expiryMode": "default"
         },
         "dnd5e": {
           "riders": {}
@@ -127,7 +129,7 @@
             "phase": "initial",
             "_id": "hvteT84Yu4K8QEkf",
             "conditions": "{}",
-            "replacement": ""
+            "replacement": "origin"
           }
         ],
         "rider": {
@@ -140,7 +142,7 @@
           "item": "Compendium.dnd5e_classpack.spell.Item.JZSNvGikwyPAR0UY",
           "message": null
         },
-        "conditions": "{}",
+        "conditions": "[{\"k\":\"attributes.hp.value\",\"o\":\"lte\",\"v\":150}]",
         "magical": true
       },
       "sort": 0,
@@ -242,7 +244,18 @@
               "min": null,
               "max": null
             },
-            "uuid": null
+            "uuid": null,
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": 1786656065693,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "flags": {},
@@ -284,7 +297,7 @@
         },
         "useConditionText": "",
         "useConditionReason": "",
-        "effectConditionText": "target.attributes.hp.value <= 150",
+        "effectConditionText": "",
         "macroData": {
           "name": "",
           "command": ""

@@ -39,13 +39,13 @@
         "changes": [
           {
             "key": "flags.midi-qol.OverTime",
-            "value": "turn=start, label=诱捕打击 Ensnaring Strike, rollType=check, saveAbility=str, saveDC=@attributes.spell.dc, saveMagic=true, damageRoll=[@flags.dnd5e.spellLevel]d6, damageType=piercing, damageBeforeSave=true, saveCount=1-, actionSave=dialog, rollMode=publicroll, allowIncapacitated=true",
+            "value": "turn=start, label=诱捕打击 Ensnaring Strike, rollType=check, saveAbility=str, saveDC=@activity.save.dc.value, saveMagic=true, damageRoll=(@scaling)d6, damageType=piercing, damageBeforeSave=true, saveCount=1-, actionSave=dialog, rollMode=publicroll, allowIncapacitated=true",
             "priority": 20,
             "type": "custom",
             "phase": "initial",
             "_id": "Ym4SghCWs8kLM4GW",
             "conditions": "{}",
-            "replacement": ""
+            "replacement": "origin"
           }
         ],
         "rider": {
@@ -86,7 +86,8 @@
           "showIcon": false,
           "durationExpression": "",
           "specialDuration": [],
-          "macroRepeat": "none"
+          "macroRepeat": "none",
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
           "riders": {}
@@ -199,7 +200,18 @@
             "_id": "TEJp35Q6LTBQfOfs",
             "uuid": null,
             "level": {},
-            "onSave": false
+            "onSave": false,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1753091008379,
+              "modifiedTime": 1786655962532,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "exportSource": null
+            }
           }
         ],
         "range": {

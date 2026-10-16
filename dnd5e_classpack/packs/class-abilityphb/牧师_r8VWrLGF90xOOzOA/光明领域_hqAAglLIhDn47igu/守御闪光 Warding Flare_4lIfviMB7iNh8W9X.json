@@ -33,7 +33,7 @@
         "_id": "dnd5eactivity000",
         "type": "utility",
         "activation": {
-          "type": "reaction",
+          "type": "reactionpreattack",
           "value": 1,
           "condition": "一个你能看见的生物向你发动攻击时",
           "override": false
@@ -68,13 +68,25 @@
           {
             "_id": "J4kEbZJoqP6vELoK",
             "uuid": null,
-            "level": {}
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1757160587268,
+              "modifiedTime": 1757160679877,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           }
         ],
         "range": {
-          "units": "self",
+          "units": "ft",
           "special": "",
-          "override": false
+          "override": true,
+          "value": 30
         },
         "target": {
           "template": {
@@ -88,7 +100,7 @@
             "stationary": false
           },
           "affects": {
-            "count": "30",
+            "count": "1",
             "type": "creature",
             "choice": false,
             "special": ""
@@ -224,13 +236,13 @@
         "changes": [
           {
             "key": "flags.midi-qol.disadvantage.attack.all",
-            "value": "+1",
+            "value": "targetActorUuid === \"@actorUuid\"",
             "priority": 20,
             "type": "add",
             "phase": "initial",
             "_id": "KCQsOlsJMDi74XCl",
             "conditions": "{}",
-            "replacement": ""
+            "replacement": "origin"
           }
         ],
         "rider": {
@@ -250,7 +262,7 @@
       "duration": {
         "value": null,
         "units": "seconds",
-        "expiry": null,
+        "expiry": "turnEnd",
         "expired": false
       },
       "description": "",
@@ -270,8 +282,9 @@
           "durationExpression": "",
           "macroRepeat": "none",
           "specialDuration": [
-            "1Attack:mwak"
-          ]
+            "1Attack"
+          ],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
           "riders": {}

@@ -61,7 +61,8 @@
           "macroRepeat": "none",
           "specialDuration": [],
           "enableCondition": "",
-          "disableCondition": ""
+          "disableCondition": "",
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
           "riders": {}
@@ -93,13 +94,13 @@
         "changes": [
           {
             "key": "flags.midi-qol.OverTime",
-            "value": "turn=end,removeCondition=true,damageRoll=2d4,damageType=acid,label=Acid Arrow",
+            "value": "turn=end,removeCondition=true,damageRoll=(2 + @scaling.increase)d4,damageType=acid,label=Acid Arrow",
             "priority": 20,
             "type": "add",
             "phase": "initial",
             "_id": "p5pm7JVl2g6kvck9",
             "conditions": "{}",
-            "replacement": ""
+            "replacement": "origin"
           }
         ],
         "rider": {
@@ -217,7 +218,18 @@
               "min": null,
               "max": null
             },
-            "uuid": null
+            "uuid": null,
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": 1786655963914,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {

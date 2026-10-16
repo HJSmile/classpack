@@ -407,7 +407,7 @@
           "specialDuration": [],
           "enableCondition": "",
           "disableCondition": "",
-          "applicationMode": "default",
+          "applicationMode": "dnd5e",
           "expiryMode": "default"
         },
         "dnd5e": {
@@ -485,7 +485,7 @@
           },
           {
             "key": "flags.midi-qol.superSaver.dex",
-            "value": "+1",
+            "value": "(workflow?.saveActivity ?? activity)?.damage?.onSave === \"half\"",
             "priority": 20,
             "type": "add",
             "phase": "initial",

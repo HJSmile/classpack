@@ -48,6 +48,9 @@
           "isViewable": true,
           "nestedEffects": [],
           "subEffects": []
+        },
+        "dae": {
+          "applicationMode": "dnd5e"
         }
       },
       "name": "Blinded",
@@ -93,6 +96,16 @@
             "_id": "nanL7NgZpw0S1qPM",
             "conditions": "{}",
             "replacement": ""
+          },
+          {
+            "_id": "d35c794e747c5335",
+            "key": "flags.midi-qol.OverTime",
+            "value": "turn=end,saveAbility=con,saveDC=@activity.save.dc.value,saveMagic=true,saveCount=1,allowIncapacitated=true",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "conditions": "{}",
+            "replacement": "origin"
           }
         ],
         "origin": {
@@ -130,6 +143,9 @@
           "isViewable": true,
           "nestedEffects": [],
           "subEffects": []
+        },
+        "dae": {
+          "applicationMode": "dnd5e"
         }
       },
       "name": "Deafened",
@@ -155,7 +171,18 @@
       "img": "systems/dnd5e/icons/svg/statuses/deafened.svg",
       "type": "base",
       "system": {
-        "changes": [],
+        "changes": [
+          {
+            "_id": "1ed12195c605cf2b",
+            "key": "flags.midi-qol.OverTime",
+            "value": "turn=end,saveAbility=con,saveDC=@activity.save.dc.value,saveMagic=true,saveCount=1,allowIncapacitated=true",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "conditions": "{}",
+            "replacement": "origin"
+          }
+        ],
         "origin": {
           "actor": null,
           "behavior": null,
@@ -266,13 +293,35 @@
             "_id": "7lKV7PMgMj9lYGr9",
             "onSave": false,
             "uuid": null,
-            "level": {}
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": null,
+              "lastModifiedBy": null,
+              "exportSource": null
+            }
           },
           {
             "_id": "5rljVKiE7mq3gbsN",
             "onSave": false,
             "uuid": null,
-            "level": {}
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": null,
+              "lastModifiedBy": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {

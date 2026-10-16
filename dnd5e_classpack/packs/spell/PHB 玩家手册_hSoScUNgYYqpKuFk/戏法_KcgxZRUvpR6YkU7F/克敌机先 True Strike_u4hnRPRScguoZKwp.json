@@ -22,9 +22,17 @@
       "effectCondition": "",
       "removeAttackDamageButtons": "default",
       "reactionCondition": "",
-      "otherCondition": ""
+      "otherCondition": "",
+      "onUseMacroName": "[preActiveEffects]ItemMacro,[postActiveEffects]ItemMacro"
     },
-    "dnd5e": {}
+    "dnd5e": {},
+    "dae": {
+      "macro": {
+        "name": "克敌机先 True Strike",
+        "type": "script",
+        "command": "const pass = args[0]?.macroPass;\nconst dataKey = Symbol.for(\"dnd5e_classpack.trueStrike.rollData\");\nif (pass === \"preActiveEffects\") {\n  const item = workflow.item;\n  const previous = item[dataKey] ?? item.getRollData;\n  const combat = game.combat;\n  const captured = { inCombat: Boolean(combat?.active), round: combat?.round ?? 0, turn: combat?.turn ?? -1 };\n  item[dataKey] = previous;\n  item.getRollData = function (...options) {\n    return { ...previous.apply(this, options), trueStrike: captured };\n  };\n  return;\n}\nif (pass === \"postActiveEffects\") {\n  const item = workflow.item;\n  if (item[dataKey]) {\n    item.getRollData = item[dataKey];\n    delete item[dataKey];\n  }\n  return;\n}\nif (pass !== \"isAttacked\" || !workflow.attackRoll) return;\nconst context = MidiQOL.createConditionData({ workflow, actor: workflow.actor, target: workflow.token });\nfor (const target of workflow.targets) {\n  const effects = target.actor?.appliedEffects.filter(effect => {\n    if (effect.disabled || effect.isSuppressed || !effect.flags.dnd5e_classpack?.trueStrike) return false;\n    const change = effect.system.changes.find(c => c.key === \"flags.midi-qol.grants.advantage.attack.all\");\n    return change && MidiQOL.evalCondition(change.value, context, { errorReturn: false });\n  }) ?? [];\n  if (!effects.length) continue;\n  await MidiQOL.socket().executeAsGM(\"removeEffects\", {\n    actorUuid: target.actor.uuid,\n    effects: effects.map(effect => effect.id),\n    options: { \"expiry-reason\": \"midi-qol:trueStrikeAttack\" }\n  });\n}\n"
+      }
+    }
   },
   "img": "icons/skills/melee/strike-weapon-polearm-ice-blue.webp",
   "effects": [
@@ -51,9 +59,11 @@
           "stackable": "noneName",
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": [
-            "1Attack"
-          ]
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
+        },
+        "dnd5e_classpack": {
+          "trueStrike": true
         }
       },
       "tint": "#ffffff",
@@ -73,12 +83,22 @@
       "system": {
         "changes": [
           {
-            "key": "flags.midi-qol.advantage.attack.all",
-            "value": 1,
+            "key": "flags.midi-qol.grants.advantage.attack.all",
+            "value": "workflow?.actor?.uuid === \"@actorUuid\" && (!@trueStrike.inCombat || (isCombatTurn && (combatRound > @trueStrike.round || (combatRound === @trueStrike.round && combatTurn > @trueStrike.turn))))",
             "priority": 20,
             "type": "add",
             "phase": "initial",
             "_id": "DRrXCt0WNV3MTjps",
+            "conditions": "{}",
+            "replacement": "origin"
+          },
+          {
+            "key": "flags.midi-qol.onUseMacroName",
+            "value": "ItemMacro,isAttacked",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "dc89ebb41f626ea7",
             "conditions": "{}",
             "replacement": ""
           }
@@ -193,7 +213,18 @@
           {
             "_id": "noJRFjAW1NYvgyw5",
             "uuid": null,
-            "level": {}
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": null,
+              "lastModifiedBy": null,
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {
@@ -208,7 +239,9 @@
             "stationary": false
           },
           "affects": {
-            "choice": false
+            "choice": false,
+            "type": "creature",
+            "count": "1"
           },
           "override": false
         },

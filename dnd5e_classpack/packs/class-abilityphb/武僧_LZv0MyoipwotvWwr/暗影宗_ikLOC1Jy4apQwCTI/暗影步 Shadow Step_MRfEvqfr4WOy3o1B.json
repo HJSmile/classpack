@@ -56,7 +56,18 @@
           {
             "_id": "eZEmjgeWalPqLU2B",
             "uuid": null,
-            "level": {}
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": null,
+              "lastModifiedBy": null,
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {
@@ -216,7 +227,18 @@
             "_id": "eZEmjgeWalPqLU2B",
             "onSave": false,
             "uuid": null,
-            "level": {}
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": null,
+              "lastModifiedBy": null,
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {
@@ -394,8 +416,10 @@
           "showIcon": false,
           "durationExpression": "",
           "specialDuration": [
-            "1Attack:mwak"
-          ]
+            "1Attack:mwak",
+            "1Attack:msak"
+          ],
+          "applicationMode": "dnd5e"
         },
         "core": {
           "overlay": false
@@ -422,8 +446,8 @@
       "system": {
         "changes": [
           {
-            "key": "flags.midi-qol.advantage.attack.mwak",
-            "value": 1,
+            "key": "flags.midi-qol.advantage.attack.all",
+            "value": "[\"mwak\", \"msak\"].includes(activity?.actionType)",
             "priority": 20,
             "type": "custom",
             "phase": "initial",

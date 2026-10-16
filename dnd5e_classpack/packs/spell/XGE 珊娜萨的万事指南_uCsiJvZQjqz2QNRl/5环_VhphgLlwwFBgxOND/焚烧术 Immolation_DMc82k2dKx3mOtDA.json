@@ -56,7 +56,8 @@
           "macroRepeat": "none",
           "specialDuration": [],
           "enableCondition": "",
-          "disableCondition": ""
+          "disableCondition": "",
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
           "riders": {}
@@ -83,13 +84,13 @@
         "changes": [
           {
             "key": "flags.midi-qol.OverTime",
-            "value": "turn=end, label=焚烧Immolation, saveAbility=dex, saveDC=@attributes.spell.dc, saveMagic=true, damageRoll=4d6, damageType=fire, saveCount=1-, rollMode=publicroll, allowIncapacitated=true",
+            "value": "turn=end, label=焚烧Immolation, saveAbility=dex, saveDC=@activity.save.dc.value, saveMagic=true, damageRoll=4d6, damageType=fire, saveCount=1-, rollMode=publicroll, allowIncapacitated=true",
             "priority": 20,
             "type": "add",
             "phase": "initial",
             "_id": "hBh5DOfJctuugi9a",
             "conditions": "{}",
-            "replacement": ""
+            "replacement": "origin"
           }
         ],
         "rider": {
@@ -203,7 +204,18 @@
             "_id": "sTboJIiSqT5dTfhC",
             "onSave": false,
             "uuid": null,
-            "level": {}
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": 1786655007510,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {

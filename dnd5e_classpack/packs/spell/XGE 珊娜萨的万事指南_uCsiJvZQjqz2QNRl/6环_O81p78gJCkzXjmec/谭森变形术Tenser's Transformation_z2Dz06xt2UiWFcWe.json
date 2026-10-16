@@ -49,7 +49,7 @@
           },
           {
             "key": "flags.midi-qol.advantage.attack.mwak",
-            "value": 1,
+            "value": "item.itemType === \"weapon\" && [\"simpleM\", \"simpleR\", \"martialM\", \"martialR\"].includes(item.type?.value)",
             "priority": 20,
             "type": "add",
             "phase": "initial",
@@ -109,7 +109,7 @@
           },
           {
             "key": "flags.midi-qol.advantage.attack.rwak",
-            "value": "+1",
+            "value": "item.itemType === \"weapon\" && [\"simpleM\", \"simpleR\", \"martialM\", \"martialR\"].includes(item.type?.value)",
             "priority": 20,
             "type": "add",
             "phase": "initial",
@@ -148,7 +148,7 @@
         "expiry": null,
         "expired": false
       },
-      "description": "<p><span style=\"font-family:'Roboto Condensed', sans-serif\">·你得到50点临时生命。如果这些临时生命保持到了法术结束，它们会失去。<br style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:rgb(93, 20, 43) rgba(0, 0, 0, 0);color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgb(248, 244, 241);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\">·你在使用简易或军用武器时，攻击检定具有优势。<br style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:rgb(93, 20, 43) rgba(0, 0, 0, 0);color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgb(248, 244, 241);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\">·当你用武器攻击击中一个目标，它将受到额外2d12力场伤害。<br style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:rgb(93, 20, 43) rgba(0, 0, 0, 0);color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgb(248, 244, 241);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\">·你熟练于所有盔甲，盾牌，简易武器和军用武器。<br style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:rgb(93, 20, 43) rgba(0, 0, 0, 0);color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgb(248, 244, 241);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\">·你熟练于力量豁免和体质豁免。<br style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:rgb(93, 20, 43) rgba(0, 0, 0, 0);color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgb(248, 244, 241);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\">·当你在自己的回合采取攻击动作时，你可以攻击两次而非一次。如果已经有类似的能力给予你额外攻击，例如额外攻击Extra Attack，你无视这项增益。</span></p>",
+      "description": "<p><span style=\"font-family:'Roboto Condensed, sans-serif'\">·你得到50点临时生命。如果这些临时生命保持到了法术结束，它们会失去。·你在使用简易或军用武器时，攻击检定具有优势。·当你用武器攻击击中一个目标，它将受到额外2d12力场伤害。·你熟练于所有盔甲，盾牌，简易武器和军用武器。·你熟练于力量豁免和体质豁免。·当你在自己的回合采取攻击动作时，你可以攻击两次而非一次。如果已经有类似的能力给予你额外攻击，例如额外攻击Extra Attack，你无视这项增益。</span></p>",
       "tint": "#ffffff",
       "statuses": [],
       "sort": 0,
@@ -164,7 +164,9 @@
           "showIcon": false,
           "durationExpression": "",
           "specialDuration": [],
-          "macroRepeat": "none"
+          "macroRepeat": "none",
+          "applicationMode": "dnd5e",
+          "expiryMode": "default"
         },
         "dnd5e": {
           "riders": {}
@@ -279,7 +281,18 @@
           {
             "_id": "46srB3qK6Vml4y4Z",
             "uuid": null,
-            "level": {}
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1756452617310,
+              "modifiedTime": 1757000400114,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           }
         ],
         "range": {

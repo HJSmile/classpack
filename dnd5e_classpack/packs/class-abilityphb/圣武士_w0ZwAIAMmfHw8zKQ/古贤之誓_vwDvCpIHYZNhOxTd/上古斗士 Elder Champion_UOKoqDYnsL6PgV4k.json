@@ -61,7 +61,18 @@
           {
             "_id": "HcvBCoY3X7dZ9gEr",
             "uuid": null,
-            "level": {}
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1757145298970,
+              "modifiedTime": 1757145394609,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           }
         ],
         "range": {
@@ -211,7 +222,7 @@
           },
           {
             "key": "flags.midi-qol.grants.disadvantage.save.all",
-            "value": "checkDistance(tokenUuid, targetUuid, 10) &&\nfromUuidSync(tokenUuid)?.disposition !== 0 &&\nfromUuidSync(targetUuid)?.disposition === -fromUuidSync(tokenUuid)?.disposition",
+            "value": "(checkDistance(tokenUuid, targetUuid, 10) &&\nfromUuidSync(tokenUuid)?.disposition !== 0 &&\nfromUuidSync(targetUuid)?.disposition === -fromUuidSync(tokenUuid)?.disposition) && ((item.itemType === \"spell\" && item.classIdentifier === \"paladin\") || item.type?.subtype === \"channelDivinity\")",
             "priority": 20,
             "type": "add",
             "phase": "initial",
@@ -256,7 +267,8 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
           "riders": {}

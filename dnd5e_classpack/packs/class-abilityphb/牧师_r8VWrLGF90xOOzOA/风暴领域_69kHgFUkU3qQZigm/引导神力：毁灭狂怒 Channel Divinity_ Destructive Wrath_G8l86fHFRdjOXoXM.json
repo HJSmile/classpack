@@ -61,7 +61,7 @@
           },
           {
             "key": "flags.midi-qol.optional.引导神力-毁灭狂怒.damage.all",
-            "value": "reroll-max",
+            "value": "ItemMacro",
             "priority": 20,
             "type": "add",
             "phase": "initial",
@@ -78,6 +78,16 @@
             "_id": "QUPJOJc6cgGhLyDa",
             "conditions": "{}",
             "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.onUseMacroName",
+            "value": "ItemMacro,postDamageRoll",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "",
+            "conditions": "{}",
+            "_id": "2c90b121980beaac"
           }
         ],
         "rider": {
@@ -113,7 +123,8 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
           "riders": {}
@@ -172,6 +183,13 @@
         "identifier": "destructiveWrath",
         "source": "chris-premades",
         "version": "0.0.0"
+      }
+    },
+    "dae": {
+      "macro": {
+        "name": "引导神力：毁灭狂怒 Channel Divinity: Destructive Wrath",
+        "type": "script",
+        "command": "function copyRoll(roll) {\n  return roll.constructor.fromData(foundry.utils.deepClone(roll.toJSON()));\n}\nfunction refreshRoll(roll) {\n  for (const term of roll.terms) {\n    if (term.roll) refreshRoll(term.roll);\n    for (const inner of term.rolls ?? []) refreshRoll(inner);\n    for (const inner of term.terms ?? []) if (inner?.terms) refreshRoll(inner);\n  }\n  roll._total = roll._evaluateTotal();\n  return roll;\n}\nfunction weaponDice(roll, workflow) {\n  if (workflow.item?.type !== \"weapon\" || !workflow.activity?.damage?.includeBase) return [];\n  const part = workflow.activity.damage.parts[0];\n  if (!part) return [];\n  const formula = part.formula ?? part.custom?.formula;\n  if (!formula) return [];\n  const base = foundry.dice.Roll.create(formula, workflow.activity.getRollData());\n  return roll.dice.slice(0, base.dice.length);\n}\nasync function rerollLowWeaponDice(roll, workflow) {\n  const properties = workflow.item?.system?.properties;\n  if (workflow.activity?.actionType !== \"mwak\" || workflow.attackMode !== \"twoHanded\"\n    || ![\"two\", \"ver\"].some(key => properties?.has(key))) return false;\n  let changed = false;\n  for (const die of weaponDice(roll, workflow)) {\n    if (die.options.dnd5e_classpackGreatWeaponFighting) continue;\n    die.options.dnd5e_classpackGreatWeaponFighting = true;\n    changed = true;\n    for (const result of [...die.results]) {\n      if (!result.active || result.result > 2) continue;\n      const replacement = new die.constructor({ number: 1, faces: die.faces });\n      await replacement.evaluate();\n      result.active = false;\n      result.rerolled = true;\n      die.results.push(...replacement.results);\n    }\n  }\n  if (changed) refreshRoll(roll);\n  return changed;\n}\n\nfunction maximizeElement(original) {\n  const revised = copyRoll(original);\n  const defaults = original.options.types ?? [original.options.type].filter(Boolean);\n  for (const die of revised.dice) {\n    const explicit = String(die.options.flavor ?? \"\").toLowerCase().split(/[^a-z]+/)\n      .filter(type => Object.hasOwn(CONFIG.DND5E.damageTypes, type));\n    const types = explicit.length ? explicit : defaults.length === 1 ? defaults : [];\n    if (!types.some(type => [\"lightning\", \"thunder\"].includes(type))) continue;\n    for (const result of die.results.filter(result => result.active)) {\n      result.result = die.faces;\n      delete result.count;\n    }\n  }\n  return refreshRoll(revised);\n}\nif (args[0]?.tag === \"optional\" && args[0].roll) {\n  workflow._classpackDestructiveWrath = true;\n  return maximizeElement(args[0].roll);\n}\nif (args[0]?.macroPass === \"postDamageRoll\" && workflow._classpackDestructiveWrath) {\n  delete workflow._classpackDestructiveWrath;\n  await workflow.setDamageRolls(workflow.damageRolls.map(maximizeElement));\n}\n"
       }
     }
   },

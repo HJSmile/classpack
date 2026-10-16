@@ -264,7 +264,18 @@
           {
             "_id": "TRSU07bjIlEvXdDn",
             "uuid": null,
-            "level": {}
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1756492710156,
+              "modifiedTime": 1786655531642,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "exportSource": null
+            }
           }
         ],
         "range": {
@@ -864,13 +875,13 @@
         "changes": [
           {
             "key": "flags.midi-qol.OverTime",
-            "value": "turn=end, label=暴风法球Storm Sphere, saveAbility=str, saveDC=@attributes.spell.dc, saveMagic=true, damageRoll=[@flags.dnd5e.spellLevel/2]d6, damageType=bludgeoning, saveDamage=halfdamage, allowIncapacitated=true",
+            "value": "turn=end, label=暴风法球Storm Sphere, saveAbility=str, saveDC=@attributes.spell.dc, saveMagic=true, damageRoll=(2 + @scaling.increase)d6, damageType=bludgeoning, saveDamage=halfdamage, allowIncapacitated=true, saveCount=0",
             "priority": 20,
             "type": "add",
             "phase": "initial",
             "_id": "cZN56jWl7HjGVzKJ",
             "conditions": "{}",
-            "replacement": ""
+            "replacement": "origin"
           }
         ],
         "rider": {
@@ -909,7 +920,8 @@
           "showIcon": false,
           "durationExpression": "",
           "specialDuration": [],
-          "macroRepeat": "none"
+          "macroRepeat": "none",
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
           "riders": {}

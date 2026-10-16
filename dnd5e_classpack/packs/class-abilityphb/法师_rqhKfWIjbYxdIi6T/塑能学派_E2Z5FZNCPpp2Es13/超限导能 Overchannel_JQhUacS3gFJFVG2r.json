@@ -56,7 +56,7 @@
         "changes": [
           {
             "key": "flags.midi-qol.optional.超限导能.count",
-            "value": "ItemUses.超限导能",
+            "value": "ItemUses.超限导能 Overchannel",
             "priority": 20,
             "type": "override",
             "phase": "initial",
@@ -66,7 +66,7 @@
           },
           {
             "key": "flags.midi-qol.optional.超限导能.activation",
-            "value": "item.school === 'evo' && item.sourceClass === 'wizard' && workflow.castData.castLevel <= 5 && item.level > 0",
+            "value": "item.itemType === \"spell\" && item.classIdentifier === \"wizard\" && item.level >= 1 && item.level <= 5",
             "priority": 20,
             "type": "override",
             "phase": "initial",
@@ -128,7 +128,8 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
           "riders": {}

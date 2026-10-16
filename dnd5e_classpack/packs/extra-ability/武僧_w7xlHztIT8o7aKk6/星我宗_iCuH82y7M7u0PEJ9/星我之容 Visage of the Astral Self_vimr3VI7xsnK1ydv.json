@@ -67,7 +67,18 @@
           {
             "_id": "x8KUn9QtAhrUt90L",
             "uuid": null,
-            "level": {}
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": null,
+              "lastModifiedBy": null,
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {
@@ -224,17 +235,21 @@
         "dae": {
           "enableCondition": "",
           "disableCondition": "",
-          "disableIncapacitated": false,
+          "disableIncapacitated": true,
           "selfTarget": false,
           "selfTargetAlways": false,
           "dontApply": false,
           "stackable": "noneName",
           "showIcon": false,
           "durationExpression": "",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "core": {
           "overlay": false
+        },
+        "dnd5e_classpack": {
+          "astralVisage": true
         }
       },
       "_id": "x8KUn9QtAhrUt90L",
@@ -286,6 +301,16 @@
             "_id": "MHrZNtYySFIoYT5o",
             "conditions": "{}",
             "replacement": ""
+          },
+          {
+            "_id": "3a531b270aaf69b5",
+            "key": "macro.itemMacro",
+            "value": "",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "conditions": "{}",
+            "replacement": ""
           }
         ],
         "origin": {
@@ -335,7 +360,14 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {}
+    "dnd5e": {},
+    "dae": {
+      "macro": {
+        "name": "星我之容 Visage of the Astral Self",
+        "type": "script",
+        "command": "if (args[0] !== \"off\") return;\nconst last = args.at(-1);\nconst actor = await fromUuid(last.actorUuid);\nif (!actor || !MidiQOL.checkIncapacitated(actor, false, false)) return;\nconst effects = actor.appliedEffects.filter(effect => effect.flags.dnd5e_classpack?.astralVisage);\nif (effects.length) await MidiQOL.socket().executeAsGM(\"removeEffects\", {\n  actorUuid: actor.uuid, effects: effects.map(effect => effect.id),\n  options: { \"expiry-reason\": \"midi-qol:incapacitated\" }\n});\n"
+      }
+    }
   },
   "_stats": {
     "coreVersion": "14.368",

@@ -74,13 +74,13 @@
         "changes": [
           {
             "key": "macro.actorUpdate",
-            "value": "@targetUuid number \"5*(@flags.dnd5e.spellLevel)\" system.attributes.hp.temp remove",
+            "value": "@targetUuid number \"5*(@scaling)\" system.attributes.hp.temp remove",
             "priority": 20,
             "type": "custom",
             "phase": "initial",
             "_id": "rmPvwBy1qA2ESGTp",
             "conditions": "{}",
-            "replacement": ""
+            "replacement": "origin"
           }
         ],
         "rider": {
@@ -118,7 +118,8 @@
           "stackable": "multi",
           "showIcon": false,
           "durationExpression": "",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
           "riders": {}
@@ -235,7 +236,18 @@
           {
             "_id": "Sv56tFJ439hPppNv",
             "uuid": null,
-            "level": {}
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1753497536301,
+              "modifiedTime": 1755071869357,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           }
         ],
         "range": {

@@ -64,12 +64,34 @@
           {
             "_id": "8jepYFD5bxLURuab",
             "uuid": null,
-            "level": {}
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": null,
+              "lastModifiedBy": null,
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           },
           {
             "_id": "IXalIa5PBoM1Cz4j",
             "uuid": null,
-            "level": {}
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": null,
+              "lastModifiedBy": null,
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {
@@ -290,9 +312,9 @@
       "name": "鲁莽攻击(攻击优势)",
       "origin": null,
       "duration": {
-        "value": 1,
-        "units": "rounds",
-        "expiry": "turnStart",
+        "value": null,
+        "units": "seconds",
+        "expiry": "turnEnd",
         "expired": false
       },
       "disabled": false,
@@ -304,7 +326,8 @@
           "stackable": "noneName",
           "showIcon": false,
           "durationExpression": "",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "core": {
           "overlay": false
@@ -331,8 +354,8 @@
       "system": {
         "changes": [
           {
-            "key": "flags.midi-qol.advantage.attack.mwak",
-            "value": "",
+            "key": "flags.midi-qol.advantage.attack.str",
+            "value": "activity?.actionType === \"mwak\"",
             "priority": 20,
             "type": "add",
             "phase": "initial",

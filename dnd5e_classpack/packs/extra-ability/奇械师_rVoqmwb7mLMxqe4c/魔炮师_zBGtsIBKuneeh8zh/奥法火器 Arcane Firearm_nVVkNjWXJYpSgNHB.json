@@ -70,7 +70,18 @@
               ],
               "item": []
             },
-            "uuid": null
+            "uuid": null,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1757310320722,
+              "modifiedTime": 1757310320722,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           }
         ],
         "range": {
@@ -266,8 +277,8 @@
       "system": {
         "changes": [
           {
-            "key": "flags.midi-qol.optional.奥法火器.force",
-            "value": "item.itemType === \"spell\" && item.sourceClass === 'artificer'",
+            "key": "flags.midi-qol.optional.奥法火器.activation",
+            "value": "item.itemType === \"spell\" && item.classIdentifier === 'artificer'",
             "priority": 20,
             "type": "add",
             "phase": "initial",
@@ -282,6 +293,16 @@
             "type": "add",
             "phase": "initial",
             "_id": "WfWVCV0UYyZLDmlc",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.奥法火器.count",
+            "value": "every",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "b53453451135ce09",
             "conditions": "{}",
             "replacement": ""
           }
@@ -322,7 +343,8 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
           "riders": {}
