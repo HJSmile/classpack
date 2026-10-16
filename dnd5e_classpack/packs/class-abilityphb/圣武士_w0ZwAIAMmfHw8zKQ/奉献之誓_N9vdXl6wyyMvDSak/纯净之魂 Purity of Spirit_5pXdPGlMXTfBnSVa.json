@@ -25,61 +25,59 @@
     "requirements": "奉献之誓等级 15",
     "activities": {
       "ekNAt9YjWdv7Nm6i": {
-        "type": "cast",
-        "spell": {
-          "uuid": "Compendium.dnd5e_classpack.spell.Item.hTv2Q5cwR93erqN7",
-          "challenge": {
-            "override": false
-          },
-          "level": null,
-          "properties": [
-            "vocal",
-            "somatic",
-            "material"
-          ],
-          "spellbook": true
-        },
+        "type": "utility",
         "_id": "ekNAt9YjWdv7Nm6i",
         "sort": 0,
         "activation": {
-          "type": "action",
+          "type": "",
           "value": null,
-          "override": false
+          "override": true,
+          "condition": ""
         },
         "consumption": {
+          "spellSlot": false,
+          "targets": [],
           "scaling": {
-            "allowed": false
-          },
-          "spellSlot": true,
-          "targets": []
+            "allowed": false,
+            "max": ""
+          }
         },
         "description": {
-          "value": ""
+          "value": "<p>此特性始终生效，无需动作、法术位或专注。受指定生物类型的攻击劣势由常驻效应处理；魅惑、恐慌和附身的来源条件依照规则判定。</p>",
+          "chatFlavor": ""
         },
         "duration": {
+          "value": "",
           "units": "inst",
           "concentration": false,
-          "override": false,
+          "override": true,
           "expiry": null
         },
         "range": {
-          "override": false,
-          "units": "self"
+          "value": "",
+          "units": "self",
+          "override": true,
+          "special": ""
         },
         "target": {
           "template": {
+            "type": "",
             "contiguous": false,
             "units": "ft",
             "stationary": false
           },
           "affects": {
-            "choice": false
+            "type": "self",
+            "count": "",
+            "choice": false,
+            "special": ""
           },
-          "override": false,
-          "prompt": true
+          "override": true,
+          "prompt": false
         },
         "uses": {
           "spent": 0,
+          "max": "",
           "recovery": []
         },
         "useConditionText": "",
@@ -165,6 +163,14 @@
           "animationType": "",
           "animationSpeed": 5,
           "animationIntensity": 5
+        },
+        "name": "纯净之魂（常驻）",
+        "effects": [],
+        "roll": {
+          "formula": "",
+          "name": "",
+          "prompt": false,
+          "visible": false
         }
       }
     },
@@ -185,7 +191,58 @@
       "mgc"
     ]
   },
-  "effects": [],
+  "effects": [
+    {
+      "_id": "c8d42337aac08141",
+      "_key": "!items.effects!5pXdPGlMXTfBnSVa.c8d42337aac08141",
+      "name": "纯净之魂 Purity of Spirit",
+      "img": "icons/skills/toxins/poison-bottle-corked-fire-green.webp",
+      "type": "base",
+      "origin": null,
+      "transfer": true,
+      "disabled": false,
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "start": null,
+      "statuses": [],
+      "showIcon": 1,
+      "sort": 0,
+      "flags": {},
+      "description": "<p>此特性始终生效，无需动作、法术位或专注。受指定生物类型的攻击劣势由常驻效应处理；魅惑、恐慌和附身的来源条件依照规则判定。</p>",
+      "tint": "#ffffff",
+      "folder": null,
+      "system": {
+        "changes": [
+          {
+            "_id": "67ebe97f363b9602",
+            "key": "flags.midi-qol.grants.disadvantage.attack.all",
+            "value": "[\"aberration\",\"celestial\",\"elemental\",\"fey\",\"fiend\",\"undead\"].includes(target.typeOrRace)",
+            "type": "custom",
+            "phase": "initial",
+            "priority": 20,
+            "replacement": "",
+            "conditions": "{}"
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.5pXdPGlMXTfBnSVa",
+          "effect": null,
+          "behavior": null,
+          "message": null
+        },
+        "magical": true,
+        "conditions": "{}",
+        "rider": {
+          "statuses": []
+        }
+      }
+    }
+  ],
   "folder": "N9vdXl6wyyMvDSak",
   "sort": 8500000,
   "flags": {

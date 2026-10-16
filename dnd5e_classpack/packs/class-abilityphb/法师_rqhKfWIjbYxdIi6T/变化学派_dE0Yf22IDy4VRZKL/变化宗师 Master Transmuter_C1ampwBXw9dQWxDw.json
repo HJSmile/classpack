@@ -9,7 +9,7 @@
       "subtype": ""
     },
     "description": {
-      "value": "<p>        第14级起，你可以用你的动作将储存在你@UUID[Compendium.dnd5e_classpack.class-abilityphb.zX6GFGKuX3nerGYF]{变化师之石}中的变化魔力一次耗尽。此时你可以选择下述效应之一。你的变化师之石将因此被毁，而你必须完成一次长休后才能再创作新的变化师之石头。</p><h3>高等转化Major Transformation.</h3><p>你可以将一件不大于 5尺立方的非魔法物件变成体积和质量相近，价值等同或更低的另一件非魔法物件。你必须花10分钟来完成转化。</p><h3>万灵秘药Panacea.</h3><p>你用变化师之石触碰一个生物，移除其身上生效的所有诅咒、中毒以及疾病效应，同时恢复该生物的全部生命值。</p><h3>起死回生Restore Life.</h3><p>你用变化师之石触碰一个生物，并以此对其施展法术@UUID[Compendium.dnd5e_classpack.spell.63gAxMpLpbVW9Oja]{死者复活 Raise Dead}，而无需消耗任何法术位，也不需要法术书中有该法术。</p><h3>返老还童Restore Youth.</h3><p>你用变化师之石触碰一个自愿的生物，并将该生物的表面年龄减少[[/r 3d10]]年(至少减少13年的表面年龄)。不过该效应并不能延长生物的寿命。</p>",
+      "value": "<p>        第14级起，你可以用你的动作将储存在你@UUID[Compendium.dnd5e_classpack.class-abilityphb.zX6GFGKuX3nerGYF]{变化师之石}中的变化魔力一次耗尽。此时你可以选择下述效应之一。你的变化师之石将因此被毁，而你必须完成一次长休后才能再创作新的变化师之石头。</p><h3>高等转化Major Transformation.</h3><p>你可以将一件不大于 5尺立方的非魔法物件变成体积和质量相近，价值等同或更低的另一件非魔法物件。你必须花10分钟来完成转化。</p><h3>万灵秘药Panacea.</h3><p>你用变化师之石触碰一个生物，移除其身上生效的所有诅咒、中毒以及疾病效应，同时恢复该生物的全部生命值。</p><h3>起死回生Restore Life.</h3><p>你用变化师之石触碰一个生物，并以此对其施展法术@UUID[Compendium.dnd5e_classpack.spell.63gAxMpLpbVW9Oja]{死者复活 Raise Dead}，而无需消耗任何法术位，也不需要法术书中有该法术。</p><h3>返老还童Restore Youth.</h3><p>你用变化师之石触碰一个自愿的生物，并将该生物的表面年龄减少[[/r 3d10]]年(但不会使其表面年龄低于13岁)。不过该效应并不能延长生物的寿命。</p>",
       "chat": ""
     },
     "source": {
@@ -33,68 +33,76 @@
         "_id": "dnd5eactivity000",
         "type": "utility",
         "activation": {
-          "type": "",
-          "value": 0,
-          "condition": "",
-          "override": false
+          "type": "action",
+          "value": 1,
+          "override": true,
+          "condition": ""
         },
         "consumption": {
-          "targets": [],
+          "spellSlot": false,
+          "targets": [
+            {
+              "type": "itemUses",
+              "target": "",
+              "value": "1",
+              "scaling": {
+                "mode": "",
+                "formula": ""
+              }
+            },
+            {
+              "type": "itemUses",
+              "target": "Compendium.dnd5e_classpack.class-abilityphb.Item.zX6GFGKuX3nerGYF",
+              "value": "1",
+              "scaling": {
+                "mode": "",
+                "formula": ""
+              }
+            }
+          ],
           "scaling": {
             "allowed": false,
             "max": ""
-          },
-          "spellSlot": true
+          }
         },
         "description": {
-          "chatFlavor": "",
-          "value": ""
+          "value": "",
+          "chatFlavor": ""
         },
         "duration": {
-          "concentration": false,
           "value": "",
           "units": "inst",
-          "special": "",
-          "override": false,
+          "concentration": false,
+          "override": true,
           "expiry": null
         },
         "effects": [],
         "range": {
           "value": "",
           "units": "self",
-          "special": "",
-          "override": false
+          "override": true,
+          "special": ""
         },
         "target": {
           "template": {
-            "count": "",
-            "contiguous": false,
             "type": "",
-            "size": "",
-            "width": "",
-            "height": "",
+            "contiguous": false,
             "units": "ft",
             "stationary": false
           },
           "affects": {
+            "type": "self",
             "count": "",
-            "type": "",
             "choice": false,
             "special": ""
           },
-          "prompt": true,
-          "override": false
+          "override": true,
+          "prompt": false
         },
         "uses": {
           "spent": 0,
           "max": "",
           "recovery": []
-        },
-        "roll": {
-          "formula": "3d10",
-          "name": "",
-          "prompt": false,
-          "visible": false
         },
         "sort": 0,
         "img": null,
@@ -104,7 +112,7 @@
           "level": {},
           "requireAttunement": false,
           "requireIdentification": false,
-          "requireMagic": false
+          "requireMagic": true
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -181,7 +189,526 @@
           "animationSpeed": 5,
           "animationIntensity": 5
         },
-        "otherActivityAsParentType": true
+        "otherActivityAsParentType": true,
+        "name": "返老还童",
+        "roll": {
+          "formula": "3d10",
+          "name": "",
+          "prompt": false,
+          "visible": false
+        }
+      },
+      "81de7e12f2e41ff4": {
+        "_id": "81de7e12f2e41ff4",
+        "type": "cast",
+        "activation": {
+          "type": "action",
+          "value": 1,
+          "override": true,
+          "condition": "以变化师之石触碰目标，并毁掉石头"
+        },
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "type": "itemUses",
+              "target": "",
+              "value": "1",
+              "scaling": {
+                "mode": "",
+                "formula": ""
+              }
+            },
+            {
+              "type": "itemUses",
+              "target": "Compendium.dnd5e_classpack.class-abilityphb.Item.zX6GFGKuX3nerGYF",
+              "value": "1",
+              "scaling": {
+                "mode": "",
+                "formula": ""
+              }
+            }
+          ],
+          "scaling": {
+            "allowed": false,
+            "max": ""
+          }
+        },
+        "description": {
+          "value": "<p>以动作消耗变化师之石及变化宗师的使用次数施展死者复活，不消耗法术位，也无需记入法术书。此特性没有免除法术材料；保留死者复活的材料要求。</p>",
+          "chatFlavor": ""
+        },
+        "duration": {
+          "value": "",
+          "units": "inst",
+          "concentration": false,
+          "override": false,
+          "expiry": null
+        },
+        "range": {
+          "value": "",
+          "units": "self",
+          "override": false,
+          "special": ""
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "contiguous": false,
+            "units": "ft",
+            "stationary": false
+          },
+          "affects": {
+            "type": "self",
+            "count": "",
+            "choice": false,
+            "special": ""
+          },
+          "override": false,
+          "prompt": true
+        },
+        "uses": {
+          "spent": 0,
+          "max": "",
+          "recovery": []
+        },
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "name": "起死回生：死者复活",
+        "spell": {
+          "uuid": "Compendium.dnd5e_classpack.spell.Item.63gAxMpLpbVW9Oja",
+          "ability": "int",
+          "level": 5,
+          "properties": [],
+          "spellbook": true,
+          "challenge": {
+            "override": false,
+            "attack": "",
+            "save": ""
+          }
+        }
+      },
+      "f1771c15abff37a0": {
+        "_id": "f1771c15abff37a0",
+        "type": "utility",
+        "activation": {
+          "type": "minute",
+          "value": 10,
+          "override": true,
+          "condition": "消耗并毁掉变化师之石"
+        },
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "type": "itemUses",
+              "target": "",
+              "value": "1",
+              "scaling": {
+                "mode": "",
+                "formula": ""
+              }
+            },
+            {
+              "type": "itemUses",
+              "target": "Compendium.dnd5e_classpack.class-abilityphb.Item.zX6GFGKuX3nerGYF",
+              "value": "1",
+              "scaling": {
+                "mode": "",
+                "formula": ""
+              }
+            }
+          ],
+          "scaling": {
+            "allowed": false,
+            "max": ""
+          }
+        },
+        "description": {
+          "value": "<p>按特性描述处理此效应。此步骤与起死回生、返老还童共享变化宗师次数，并消耗一颗变化师之石。</p>",
+          "chatFlavor": ""
+        },
+        "duration": {
+          "value": "",
+          "units": "inst",
+          "concentration": false,
+          "override": true,
+          "expiry": null
+        },
+        "effects": [],
+        "range": {
+          "value": "",
+          "units": "self",
+          "override": true,
+          "special": ""
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "contiguous": false,
+            "units": "ft",
+            "stationary": false
+          },
+          "affects": {
+            "type": "self",
+            "count": "",
+            "choice": false,
+            "special": ""
+          },
+          "override": true,
+          "prompt": false
+        },
+        "uses": {
+          "spent": 0,
+          "max": "",
+          "recovery": []
+        },
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "name": "高等转化",
+        "roll": {
+          "formula": "",
+          "name": "",
+          "prompt": false,
+          "visible": false
+        }
+      },
+      "58955389730921bb": {
+        "_id": "58955389730921bb",
+        "type": "utility",
+        "activation": {
+          "type": "action",
+          "value": 1,
+          "override": true,
+          "condition": "消耗并毁掉变化师之石"
+        },
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "type": "itemUses",
+              "target": "",
+              "value": "1",
+              "scaling": {
+                "mode": "",
+                "formula": ""
+              }
+            },
+            {
+              "type": "itemUses",
+              "target": "Compendium.dnd5e_classpack.class-abilityphb.Item.zX6GFGKuX3nerGYF",
+              "value": "1",
+              "scaling": {
+                "mode": "",
+                "formula": ""
+              }
+            }
+          ],
+          "scaling": {
+            "allowed": false,
+            "max": ""
+          }
+        },
+        "description": {
+          "value": "<p>按特性描述处理此效应。此步骤与起死回生、返老还童共享变化宗师次数，并消耗一颗变化师之石。</p>",
+          "chatFlavor": ""
+        },
+        "duration": {
+          "value": "",
+          "units": "inst",
+          "concentration": false,
+          "override": true,
+          "expiry": null
+        },
+        "effects": [],
+        "range": {
+          "value": "",
+          "units": "self",
+          "override": true,
+          "special": ""
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "contiguous": false,
+            "units": "ft",
+            "stationary": false
+          },
+          "affects": {
+            "type": "self",
+            "count": "",
+            "choice": false,
+            "special": ""
+          },
+          "override": true,
+          "prompt": false
+        },
+        "uses": {
+          "spent": 0,
+          "max": "",
+          "recovery": []
+        },
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "name": "万灵秘药",
+        "roll": {
+          "formula": "",
+          "name": "",
+          "prompt": false,
+          "visible": false
+        }
       }
     },
     "identifier": "",

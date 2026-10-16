@@ -17,20 +17,215 @@
     "crewed": false,
     "uses": {
       "max": "1",
+      "spent": 0,
       "recovery": [
         {
           "period": "lr",
           "type": "recoverAll"
         }
-      ],
-      "spent": 0
+      ]
     },
     "type": {
       "value": "class",
       "subtype": ""
     },
     "requirements": "牧人之环等级14",
-    "activities": {},
+    "activities": {
+      "950a8f376f926caf": {
+        "_id": "950a8f376f926caf",
+        "type": "summon",
+        "activation": {
+          "type": "special",
+          "value": null,
+          "override": true,
+          "condition": "生命值降至 0，或非自愿陷入失能时"
+        },
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "type": "itemUses",
+              "target": "",
+              "value": "1",
+              "scaling": {
+                "mode": "",
+                "formula": ""
+              }
+            }
+          ],
+          "scaling": {
+            "allowed": false,
+            "max": ""
+          }
+        },
+        "description": {
+          "value": "<p>满足特性触发条件后手动使用此步骤。等效以 9 环施展动物咒唤术，但只召唤四只 CR 2 或更低的野兽，持续一小时，无需专注。</p>",
+          "chatFlavor": ""
+        },
+        "duration": {
+          "value": "1",
+          "units": "hour",
+          "concentration": false,
+          "override": true,
+          "expiry": null
+        },
+        "effects": [],
+        "range": {
+          "value": "20",
+          "units": "ft",
+          "override": true,
+          "special": ""
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "contiguous": false,
+            "units": "ft",
+            "stationary": false
+          },
+          "affects": {
+            "type": "space",
+            "count": "4",
+            "choice": true,
+            "special": "选择四只 CR 2 或更低的野兽，出现在你周围 20 尺内"
+          },
+          "override": true,
+          "prompt": false
+        },
+        "uses": {
+          "spent": 0,
+          "max": "",
+          "recovery": []
+        },
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "name": "忠诚牧畜：四只野兽",
+        "summon": {
+          "mode": "cr",
+          "prompt": true
+        },
+        "profiles": [
+          {
+            "_id": "d1eb0bd3454e7538",
+            "count": "4",
+            "cr": "2",
+            "level": {
+              "min": null,
+              "max": null
+            },
+            "name": "四只 CR 2 或更低的野兽",
+            "types": [
+              "beast"
+            ],
+            "uuid": ""
+          }
+        ],
+        "match": {
+          "ability": "wis",
+          "attacks": false,
+          "disposition": true,
+          "proficiency": false,
+          "saves": false
+        },
+        "creatureTypes": [
+          "fey"
+        ],
+        "creatureSizes": [],
+        "bonuses": {
+          "ac": "",
+          "hd": "",
+          "hp": "",
+          "attackDamage": "",
+          "saveDamage": "",
+          "healing": ""
+        },
+        "tempHP": ""
+      }
+    },
     "identifier": "-faithful-summons",
     "advancement": {},
     "enchant": {},
@@ -64,7 +259,8 @@
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "itemCondition": "",
-      "effectCondition": ""
+      "effectCondition": "",
+      "onUseMacroName": "[preItemRoll]ItemMacro"
     },
     "dnd5e": {},
     "chris-premades": {
@@ -72,6 +268,13 @@
         "identifier": "faithfulSummons",
         "source": "chris-premades",
         "version": "0.0.0"
+      }
+    },
+    "dae": {
+      "macro": {
+        "name": "忠诚牧畜 Faithful Summons",
+        "type": "script",
+        "command": "// 忠诚牧畜恰在失能时触发，不能被普通的失能施法限制拦住。\nworkflow.workflowOptions.allowIncapacitated = true;\nconst usage = args[0]?.options?.usage;\nif (usage) {\n  usage.midiOptions ??= {};\n  usage.midiOptions.workflowOptions ??= {};\n  usage.midiOptions.workflowOptions.allowIncapacitated = true;\n}"
       }
     }
   },

@@ -20,7 +20,12 @@
     "uses": {
       "max": "1",
       "spent": 0,
-      "recovery": []
+      "recovery": [
+        {
+          "period": "sr",
+          "type": "recoverAll"
+        }
+      ]
     },
     "requirements": "边界行者等级 7",
     "activities": {
@@ -30,10 +35,11 @@
         "activation": {
           "type": "bonus",
           "value": 1,
-          "condition": "",
-          "override": false
+          "override": true,
+          "condition": ""
         },
         "consumption": {
+          "spellSlot": false,
           "targets": [
             {
               "type": "itemUses",
@@ -48,56 +54,51 @@
           "scaling": {
             "allowed": false,
             "max": ""
-          },
-          "spellSlot": true
+          }
         },
         "description": {
-          "chatFlavor": "",
-          "value": ""
+          "value": "",
+          "chatFlavor": ""
         },
         "duration": {
+          "value": "0",
+          "units": "turn",
           "concentration": false,
-          "units": "inst",
-          "special": "",
-          "override": false,
-          "expiry": null
+          "override": true,
+          "expiry": "turnEnd"
         },
-        "effects": [],
+        "effects": [
+          {
+            "_id": "0b5a78263ddcb6fe",
+            "level": {}
+          }
+        ],
         "range": {
+          "value": "",
           "units": "self",
-          "special": "",
-          "override": false
+          "override": true,
+          "special": ""
         },
         "target": {
           "template": {
-            "count": "",
-            "contiguous": false,
             "type": "",
-            "size": "",
-            "width": "",
-            "height": "",
+            "contiguous": false,
             "units": "ft",
             "stationary": false
           },
           "affects": {
+            "type": "self",
             "count": "",
-            "type": "",
             "choice": false,
             "special": ""
           },
-          "prompt": true,
-          "override": false
+          "override": true,
+          "prompt": false
         },
         "uses": {
           "spent": 0,
           "max": "",
           "recovery": []
-        },
-        "roll": {
-          "formula": "",
-          "name": "",
-          "prompt": false,
-          "visible": false
         },
         "sort": 0,
         "img": null,
@@ -107,7 +108,7 @@
           "level": {},
           "requireAttunement": false,
           "requireIdentification": false,
-          "requireMagic": false
+          "requireMagic": true
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -184,7 +185,14 @@
           "animationSpeed": 5,
           "animationIntensity": 5
         },
-        "otherActivityAsParentType": true
+        "otherActivityAsParentType": true,
+        "name": "以太漫步",
+        "roll": {
+          "formula": "",
+          "name": "",
+          "prompt": false,
+          "visible": false
+        }
       }
     },
     "identifier": "-ethereal-step",
@@ -199,7 +207,49 @@
     },
     "properties": []
   },
-  "effects": [],
+  "effects": [
+    {
+      "_id": "0b5a78263ddcb6fe",
+      "_key": "!items.effects!bDYWBvMmi2yL8YEa.0b5a78263ddcb6fe",
+      "name": "以太漫步 Ethereal Step",
+      "img": "icons/magic/movement/portal-vortex-orange.webp",
+      "type": "base",
+      "origin": null,
+      "transfer": false,
+      "disabled": false,
+      "duration": {
+        "value": 0,
+        "units": "turns",
+        "expiry": "turnEnd",
+        "expired": false
+      },
+      "start": null,
+      "statuses": [
+        "ethereal"
+      ],
+      "showIcon": 1,
+      "sort": 0,
+      "flags": {},
+      "description": "以太化状态持续至当前回合结束；无需专注。",
+      "tint": "#ffffff",
+      "folder": null,
+      "system": {
+        "changes": [],
+        "origin": {
+          "actor": null,
+          "item": "Compendium.dnd5e_classpack.extra-ability.Item.bDYWBvMmi2yL8YEa",
+          "effect": null,
+          "behavior": null,
+          "message": null
+        },
+        "magical": true,
+        "conditions": "{}",
+        "rider": {
+          "statuses": []
+        }
+      }
+    }
+  ],
   "folder": "F7LXtx9L0TUvBDY9",
   "sort": 32100000,
   "flags": {

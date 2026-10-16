@@ -31,14 +31,15 @@
     "activities": {
       "dnd5eactivity000": {
         "_id": "dnd5eactivity000",
-        "type": "utility",
+        "type": "cast",
         "activation": {
           "type": "bonus",
           "value": 1,
-          "condition": "",
-          "override": false
+          "override": true,
+          "condition": ""
         },
         "consumption": {
+          "spellSlot": false,
           "targets": [
             {
               "type": "itemUses",
@@ -53,56 +54,45 @@
           "scaling": {
             "allowed": false,
             "max": ""
-          },
-          "spellSlot": true
+          }
         },
         "description": {
-          "chatFlavor": "",
-          "value": ""
+          "value": "<p>不消耗法术位，消耗本特性一次使用次数。携带生物的选取与落点按特性描述处理；普通法术位施放仍使用已知迷踪步。</p>",
+          "chatFlavor": ""
         },
         "duration": {
-          "concentration": false,
+          "value": "",
           "units": "inst",
-          "special": "",
+          "concentration": false,
           "override": false,
           "expiry": null
         },
-        "effects": [],
         "range": {
+          "value": "",
           "units": "self",
-          "special": "",
-          "override": false
+          "override": false,
+          "special": ""
         },
         "target": {
           "template": {
-            "count": "",
-            "contiguous": false,
             "type": "",
-            "size": "",
-            "width": "",
-            "height": "",
+            "contiguous": false,
             "units": "ft",
             "stationary": false
           },
           "affects": {
+            "type": "self",
             "count": "",
-            "type": "",
             "choice": false,
             "special": ""
           },
-          "prompt": true,
-          "override": false
+          "override": false,
+          "prompt": true
         },
         "uses": {
           "spent": 0,
           "max": "",
           "recovery": []
-        },
-        "roll": {
-          "formula": "",
-          "name": "",
-          "prompt": false,
-          "visible": false
         },
         "sort": 0,
         "img": null,
@@ -112,7 +102,7 @@
           "level": {},
           "requireAttunement": false,
           "requireIdentification": false,
-          "requireMagic": false
+          "requireMagic": true
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -189,7 +179,20 @@
           "animationSpeed": 5,
           "animationIntensity": 5
         },
-        "otherActivityAsParentType": true
+        "otherActivityAsParentType": true,
+        "name": "迷踪步（雾行漫游）",
+        "spell": {
+          "uuid": "Compendium.dnd5e_classpack.spell.Item.Cnzcy1Tu7gt6xYHm",
+          "ability": "wis",
+          "level": 2,
+          "properties": [],
+          "spellbook": true,
+          "challenge": {
+            "override": false,
+            "attack": "",
+            "save": ""
+          }
+        }
       }
     },
     "identifier": "-misty-wanderer",

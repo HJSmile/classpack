@@ -18,8 +18,8 @@
       "rules": "2014"
     },
     "uses": {
-      "max": "",
-      "spent": null,
+      "max": "1",
+      "spent": 1,
       "recovery": []
     },
     "requirements": "变化学派等级 6",
@@ -34,16 +34,26 @@
           "override": false
         },
         "consumption": {
-          "targets": [],
+          "spellSlot": false,
+          "targets": [
+            {
+              "type": "itemUses",
+              "target": "",
+              "value": "-@item.uses.spent",
+              "scaling": {
+                "mode": "",
+                "formula": ""
+              }
+            }
+          ],
           "scaling": {
             "allowed": false,
             "max": ""
-          },
-          "spellSlot": true
+          }
         },
         "description": {
           "chatFlavor": "",
-          "value": ""
+          "value": "<p>花费八小时制造石头，恢复本物品记录的一颗石头；原有石头失效。变化宗师会消耗这颗石头，之后需先完成长休，才能再次制造。</p>"
         },
         "duration": {
           "concentration": false,
@@ -174,7 +184,8 @@
           "animationSpeed": 5,
           "animationIntensity": 5
         },
-        "otherActivityAsParentType": true
+        "otherActivityAsParentType": true,
+        "name": "制造变化师之石"
       }
     },
     "identifier": "",
@@ -211,7 +222,8 @@
       "itemCondition": "",
       "reactionCondition": "",
       "otherCondition": "",
-      "effectCondition": ""
+      "effectCondition": "",
+      "onUseMacroName": "[preItemRoll]ItemMacro"
     },
     "midiProperties": {
       "autoFailFriendly": false,
@@ -221,6 +233,13 @@
       "noConcentrationCheck": false,
       "toggleEffect": false,
       "ignoreTotalCover": false
+    },
+    "dae": {
+      "macro": {
+        "name": "变化师之石 Transmuter's Stone",
+        "type": "script",
+        "command": "const master = workflow.actor.items.find(i => i.system.identifier === \"master-transmuter\" || i._stats.compendiumSource?.endsWith(\".C1ampwBXw9dQWxDw\"));\nif (master && master.system.uses.value < 1) {\n  ui.notifications.warn(\"变化宗师使用后，必须完成长休才能重新制造变化师之石。\");\n  return false;\n}"
+      }
     }
   },
   "_stats": {

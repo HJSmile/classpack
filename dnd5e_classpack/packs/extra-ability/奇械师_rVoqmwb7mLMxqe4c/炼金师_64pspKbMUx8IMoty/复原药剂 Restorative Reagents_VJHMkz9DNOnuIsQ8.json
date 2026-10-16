@@ -18,7 +18,7 @@
       "rules": "2014"
     },
     "uses": {
-      "max": "max(@abilities.int.mod,1)",
+      "max": "max(1,@abilities.int.mod)",
       "spent": 0,
       "recovery": [
         {
@@ -31,14 +31,15 @@
     "activities": {
       "dnd5eactivity000": {
         "_id": "dnd5eactivity000",
-        "type": "heal",
+        "type": "cast",
         "activation": {
-          "type": "special",
-          "value": null,
-          "condition": "",
-          "override": false
+          "type": "action",
+          "value": 1,
+          "override": true,
+          "condition": "使用炼金工具作为施法法器"
         },
         "consumption": {
+          "spellSlot": false,
           "targets": [
             {
               "type": "itemUses",
@@ -53,68 +54,45 @@
           "scaling": {
             "allowed": false,
             "max": ""
-          },
-          "spellSlot": true
+          }
         },
         "description": {
-          "chatFlavor": "",
-          "value": ""
+          "value": "<p>使用炼金工具作为法器，无需准备此法术，不消耗法术位；消耗本特性一次使用次数。</p>",
+          "chatFlavor": ""
         },
         "duration": {
-          "concentration": false,
+          "value": "",
           "units": "inst",
-          "special": "",
+          "concentration": false,
           "override": false,
           "expiry": null
         },
-        "effects": [],
         "range": {
+          "value": "",
           "units": "self",
-          "special": "",
-          "override": false
+          "override": false,
+          "special": ""
         },
         "target": {
           "template": {
-            "count": "",
-            "contiguous": false,
             "type": "",
-            "size": "",
-            "width": "",
-            "height": "",
+            "contiguous": false,
             "units": "ft",
             "stationary": false
           },
           "affects": {
+            "type": "self",
             "count": "",
-            "type": "",
             "choice": false,
             "special": ""
           },
-          "prompt": true,
-          "override": false
+          "override": false,
+          "prompt": true
         },
         "uses": {
           "spent": 0,
           "max": "",
           "recovery": []
-        },
-        "healing": {
-          "number": 2,
-          "denomination": 6,
-          "bonus": "@abilities.int.mod",
-          "types": [
-            "temphp"
-          ],
-          "custom": {
-            "enabled": false,
-            "formula": ""
-          },
-          "scaling": {
-            "mode": "whole",
-            "number": null,
-            "formula": ""
-          },
-          "modifiers": []
         },
         "sort": 0,
         "img": null,
@@ -124,7 +102,7 @@
           "level": {},
           "requireAttunement": false,
           "requireIdentification": false,
-          "requireMagic": false
+          "requireMagic": true
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -200,6 +178,21 @@
           "animationType": "",
           "animationSpeed": 5,
           "animationIntensity": 5
+        },
+        "name": "次级复原术（复原药剂）",
+        "spell": {
+          "uuid": "Compendium.dnd5e_classpack.spell.Item.I1C2EQxwynPd7dOC",
+          "ability": "int",
+          "level": 2,
+          "properties": [
+            "material"
+          ],
+          "spellbook": true,
+          "challenge": {
+            "override": false,
+            "attack": "",
+            "save": ""
+          }
         }
       }
     },
