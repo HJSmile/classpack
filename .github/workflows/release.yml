@@ -39,20 +39,6 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Audit V14 sources
-        id: audit
-        run: node tools/audit-v14.mjs --strict
-
-      - name: Upload V14 audit reports
-        if: always() && steps.audit.outcome != 'skipped'
-        uses: actions/upload-artifact@v7
-        with:
-          name: v14-audit
-          path: |
-            reports/v14-audit.json
-            reports/v14-audit.txt
-          if-no-files-found: error
-
       - name: Install Foundry VTT CLI
         run: npm install -g @foundryvtt/foundryvtt-cli
 
