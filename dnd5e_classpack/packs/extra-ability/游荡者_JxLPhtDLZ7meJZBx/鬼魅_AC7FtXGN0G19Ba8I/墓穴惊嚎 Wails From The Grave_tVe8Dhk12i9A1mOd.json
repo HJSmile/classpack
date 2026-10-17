@@ -2,7 +2,7 @@
   "_id": "tVe8Dhk12i9A1mOd",
   "name": "墓穴惊嚎 Wails From The Grave",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/ability_rogue_deadlymomentum.png",
+  "img": "icons/magic/death/undead-ghost-scream-teal.webp",
   "system": {
     "description": {
       "value": "<p>当你将某人推向墓穴时，你也可以沟通死亡之力，使得亡者的嚎哭短暂环绕着新的目标。当你在你的回合对于一个生物造成了偷袭伤害之后，你可以立即选择该生物30尺内第二个可见生物，掷你一半的偷袭骰（向上取整），对其造成等同于结果的暗蚀伤害。</p>\n<p>你可以使用此特性的次数等同于你的熟练加值，当你完成一次长休时恢复所有使用次数。</p>",
@@ -23,7 +23,7 @@
           "type": "recoverAll"
         }
       ],
-      "spent": 1
+      "spent": 0
     },
     "type": {
       "value": "class",
@@ -49,13 +49,15 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -71,7 +73,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -103,22 +106,111 @@
               "bonus": "",
               "types": [
                 "necrotic"
-              ]
+              ],
+              "modifiers": [],
+              "scaling": {
+                "number": 1
+              }
             }
           ]
         },
         "sort": 0,
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
     "identifier": "-wails-from-the-grave",
-    "advancement": [],
+    "advancement": {},
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 3,
+      "repeatable": false,
+      "items": [
+        "subclass:phantom"
+      ]
     },
     "properties": []
   },
@@ -126,14 +218,7 @@
   "folder": "AC7FtXGN0G19Ba8I",
   "sort": 47200000,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 2,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -164,8 +249,8 @@
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1749883542518,
     "lastModifiedBy": "uXKCmWFprrvnSIDm",

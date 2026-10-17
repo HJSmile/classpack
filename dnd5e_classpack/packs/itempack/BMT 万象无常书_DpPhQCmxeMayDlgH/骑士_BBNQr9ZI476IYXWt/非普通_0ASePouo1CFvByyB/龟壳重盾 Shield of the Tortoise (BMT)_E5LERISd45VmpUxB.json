@@ -12,7 +12,7 @@
       "revision": 1
     },
     "description": {
-      "value": "<div class=\"rd__b  rd__b--2\"><p><em>护甲（盾牌），非普通（需同调）</em><br />着装这面盾牌期间，你的AC具有+1加值。这一加值可与盾牌的普通AC加值叠加。<br /><strong>诅咒Cursed。</strong>这件物品被诅咒了。与其同调时，其上方的诅咒会蔓延至你的身上，直至一次法术<em>@UUID[Compendium.dnd5e_classpack.spell.Item.ewDH2w8w2yLSM021]{移除诅咒 Remove Curse}</em>或类似法术被施展到了你的身上为止。诅咒期间，你无法卸下这面盾牌，也无法解除与之的同调。此外，你的行动变得无比迟缓，导致你的速度减半；你在投掷先攻的d20时永远视为骰出了1，且你无法以任何方式改变你的先攻结果。</p><p>While you are wielding this shield, you gain a +1 bonus to AC. This bonus is in addition to the shield's normal bonus to AC.</p><div data-roll-name-ancestor=\"Curse\" class=\"rd__b  rd__b--3\"><p><span class=\"entry-title-inner\">Curse.</span> This item is cursed. Attuning to it extends the curse to you until you are targeted by a @spell[Remove Curse] spell or similar magic. You cannot discard the shield, and remain attuned to it, as long as you are cursed. As long as you are cursed, you are sluggish. Your speed is halved. When you roll initiative, treat the roll on your [[/r d20]] as a 1. You can't change your initiative by any means.</p></div></div>",
+      "value": "<p><em>护甲（盾牌），非普通（需同调）</em></p><p>着装这面盾牌期间，你的AC具有+1加值。这一加值可与盾牌的普通AC加值叠加。</p><h3>诅咒Cursed。</h3><p>这件物品被诅咒了。与其同调时，其上方的诅咒会蔓延至你的身上，直至一次法术<em>@UUID[Compendium.dnd5e_classpack.spell.Item.ewDH2w8w2yLSM021]{移除诅咒 Remove Curse}</em>或类似法术被施展到了你的身上为止。诅咒期间，你无法卸下这面盾牌，也无法解除与之的同调。此外，你的行动变得无比迟缓，导致你的速度减半；你在投掷先攻的d20时永远视为骰出了1，且你无法以任何方式改变你的先攻结果。</p><p>While you are wielding this shield, you gain a +1 bonus to AC. This bonus is in addition to the shield's normal bonus to AC.</p><div data-roll-name-ancestor=\"Curse\"><p><span class=\"entry-title-inner\">Curse.</span> This item is cursed. Attuning to it extends the curse to you until you are targeted by a @spell[Remove Curse] spell or similar magic. You cannot discard the shield, and remain attuned to it, as long as you are cursed. As long as you are cursed, you are sluggish. Your speed is halved. When you roll initiative, treat the roll on your [[/r d20]] as a 1. You can't change your initiative by any means.</p></div>",
       "chat": ""
     },
     "proficient": null,
@@ -28,7 +28,6 @@
     "attuned": true,
     "identified": true,
     "equipped": true,
-    "rarity": "uncommon",
     "type": {
       "value": "shield",
       "baseItem": "shield"
@@ -45,7 +44,7 @@
     "armor": {
       "value": 2,
       "dex": 0,
-      "magicalBonus": 1
+      "magicalBonus": "1"
     },
     "strength": null,
     "activities": {},
@@ -55,7 +54,12 @@
     },
     "container": null,
     "cover": null,
-    "crewed": false
+    "rarities": [
+      "uncommon"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "img": "icons/equipment/shield/round-wooden-boss-steel-brown.webp",
   "ownership": {
@@ -85,16 +89,17 @@
       "noConcentrationCheck": false,
       "toggleEffect": false,
       "ignoreTotalCover": false
-    }
+    },
+    "dnd5e": {}
   },
   "effects": [],
   "folder": "0ASePouo1CFvByyB",
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1751738888053,
     "modifiedTime": 1751738888053,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

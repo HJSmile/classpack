@@ -2,14 +2,14 @@
   "_id": "kRh8aRVVJfLgEyHd",
   "name": "书人合一 One With the Word",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/INV_Fabric_Netherweave_Bolt_Imbued.png",
+  "img": "icons/sundries/books/book-face-blue.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>你和你的觉醒魔法书的联系已经变得如此深刻，以至于你的灵魂已经和它缠结在一起。携带这本书时，你在所有智力（奥秘）检定中具有优势，因为法术书能够帮助你记住魔法学识。</p>\n<p>此外，如果你在法术书的意识处于显现状态时受到伤害，你可以利用你的反应驱散灵体意识、利用其中的魔法来拯救自己，从而避免所有对你的伤害。之后，掷[[/r 3d6]]。法术书暂时失去由你自选的法术，其环阶之和必须大于或等于骰值。例如，如果骰值是9，则从书中消失的法术环阶之和至少为9——或许是一个9环法术，或是三个3环法术，或其他组合方式。如果书中没有足够的法术来支付这个代价，你就会降到0点生命。</p>\n<p>你必须完成[[/r 1d6]]次长休，才能再次施放失去的法术；在此期间，即使你在卷轴上或其他法术书中找到这些法术，也不能施展它们。完成所需的长休次数后，法术会重新出现在法术书中。</p>\n<p>用过这个反应之后，你必须完成一次长休才能再次使用。</p>",
+      "value": "<p>你和你的觉醒魔法书的联系已经变得如此深刻，以至于你的灵魂已经和它缠结在一起。携带这本书时，你在所有[[/check ability=int skill=arc]]{智力（奥秘）检定}中具有优势，因为法术书能够帮助你记住魔法学识。</p>\n<p>此外，如果你在法术书的意识处于显现状态时受到伤害，你可以利用你的反应驱散灵体意识、利用其中的魔法来拯救自己，从而避免所有对你的伤害。之后，掷[[/r 3d6]]。法术书暂时失去由你自选的法术，其环阶之和必须大于或等于骰值。例如，如果骰值是9，则从书中消失的法术环阶之和至少为9——或许是一个9环法术，或是三个3环法术，或其他组合方式。如果书中没有足够的法术来支付这个代价，你就会降到0点生命。</p>\n<p>你必须完成[[/r 1d6]]次长休，才能再次施放失去的法术；在此期间，即使你在卷轴上或其他法术书中找到这些法术，也不能施展它们。完成所需的长休次数后，法术会重新出现在法术书中。</p>\n<p>用过这个反应之后，你必须完成一次长休才能再次使用。</p>",
       "chat": ""
     },
     "source": {
@@ -19,7 +19,7 @@
     },
     "uses": {
       "max": "1",
-      "spent": 0,
+      "spent": 1,
       "recovery": [
         {
           "period": "lr",
@@ -57,17 +57,19 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -79,7 +81,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -101,17 +104,105 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-one-with-the-word",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 14,
+      "repeatable": false,
+      "items": [
+        "subclass:order-of-scribes"
+      ]
     },
     "properties": []
   },
@@ -119,14 +210,7 @@
   "folder": "MXWp0dmklQjYhYY2",
   "sort": 39500000,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -146,9 +230,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1756710215989,
     "lastModifiedBy": "aV0bUYaBrKQMbD8k",

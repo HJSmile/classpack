@@ -3,12 +3,7 @@
   "name": "魔法学徒 Magic Initiate",
   "type": "feat",
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -30,7 +25,7 @@
   "img": "icons/magic/unholy/silhouette-robe-evil-power.webp",
   "system": {
     "description": {
-      "value": "<p>指定一个职业：吟游诗人、牧师、德鲁伊、术士、邪术师、法师。你从指定职业法术列表里习得两个戏法。</p><p>此外，你从相同列表里选择习得一个1环法术。以该方式习得的法术只可以用其最低环法术位来施展，而以该方式施展后的该1环法术必须完成一次长休后，才能再次以该方式施展。</p><p>这些法术的施法关键属性取决于你指定的职业：吟游诗人、术士、邪术师用魅力；牧师、德鲁伊用感知；法师用智力。</p>",
+      "value": "<p>指定一个职业：吟游诗人、牧师、德鲁伊、术士、魔契师、法师。你从指定职业法术列表里习得两个戏法。</p><p>此外，你从相同列表里选择习得一个1环法术。本专长允许你以最低环阶施展该法术一次，无需消耗法术位；完成一次长休后才能再次以此方式施展。</p><p>这些法术的施法属性取决于你指定的职业：吟游诗人、术士、魔契师用魅力；牧师、德鲁伊用感知；法师用智力。</p>",
       "chat": ""
     },
     "source": {
@@ -52,19 +47,77 @@
     },
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "requirements": "",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {
+      "6d2a15901b2d130c": {
+        "_id": "6d2a15901b2d130c",
+        "type": "ItemChoice",
+        "name": "魔法学徒职业",
+        "configuration": {
+          "choices": {
+            "0": {
+              "count": 1,
+              "replacement": false
+            }
+          },
+          "allowDrops": false,
+          "type": "feat",
+          "pool": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.6a67407e6c4806ef",
+              "sort": 0
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.62c850ba4eaba4aa",
+              "sort": 1
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.5aa959c3d6b87771",
+              "sort": 2
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.fd2c0a7834513268",
+              "sort": 3
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.c9d34bf1891ca162",
+              "sort": 4
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.378273ea39b8a517",
+              "sort": 5
+            }
+          ],
+          "spell": null,
+          "restriction": {
+            "type": "feat",
+            "subtype": "",
+            "level": "",
+            "list": [],
+            "school": []
+          },
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
-    "properties": []
+    "properties": [
+      "mgc"
+    ]
   },
   "ownership": {
     "default": 0
@@ -73,9 +126,9 @@
   "folder": "qiJofEGkS1454LSL",
   "sort": 2400000,
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757865355399,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

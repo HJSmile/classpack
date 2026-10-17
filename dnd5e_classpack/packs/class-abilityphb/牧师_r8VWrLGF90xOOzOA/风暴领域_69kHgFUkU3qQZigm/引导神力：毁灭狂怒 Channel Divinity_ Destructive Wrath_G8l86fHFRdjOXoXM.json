@@ -2,7 +2,7 @@
   "_id": "G8l86fHFRdjOXoXM",
   "name": "引导神力：毁灭狂怒 Channel Divinity: Destructive Wrath",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Warlock_SiphonLife.png",
+  "img": "icons/magic/sonic/explosion-shock-wave-teal.webp",
   "system": {
     "description": {
       "value": "<p>        第2级起，你可以用@UUID[Compendium.dnd5e_classpack.class-abilityphb.WPevnsjK8Cjd9Fcl]{引导神力}特性为自己装备无拘束的凶猛风暴之力。</p>\n<p>        当你造成闪电或雷鸣伤害时，可以使用引导神力使该伤害的伤害掷骰直接取最高值而无需掷骰。</p>",
@@ -26,12 +26,15 @@
     "requirements": "风暴领域等级 2",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 2,
+      "repeatable": false,
+      "items": [
+        "subclass:tempest-domain"
+      ]
     },
     "properties": [
       "mgc"
@@ -40,40 +43,72 @@
   "effects": [
     {
       "name": "引导神力-毁灭狂怒",
-      "img": "modules/dnd5e_classpack/Nicons/Warlock_SiphonLife.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.G8l86fHFRdjOXoXM",
+      "img": "icons/magic/sonic/explosion-shock-wave-teal.webp",
+      "origin": null,
       "_id": "FrUmVQPlLk3jCK6d",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.optional.引导神力-毁灭狂怒.activation",
-          "mode": 2,
-          "value": "['lightning', 'thunder'].some(type=>damageTypes[type])",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.optional.引导神力-毁灭狂怒.activation",
+            "value": "['lightning', 'thunder'].some(type=>damageTypes[type])",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "n7o0jRd7gdn81H1o",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.引导神力-毁灭狂怒.damage.all",
+            "value": "ItemMacro",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "ni8KxazdQNmLI3LI",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.引导神力-毁灭狂怒.count",
+            "value": "ItemUses.引导神力 Channel Divinity",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "QUPJOJc6cgGhLyDa",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.onUseMacroName",
+            "value": "ItemMacro,postDamageRoll",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "",
+            "conditions": "{}",
+            "_id": "2c90b121980beaac"
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.optional.引导神力-毁灭狂怒.damage.all",
-          "mode": 2,
-          "value": "reroll-max",
-          "priority": 20
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.G8l86fHFRdjOXoXM",
+          "message": null
         },
-        {
-          "key": "flags.midi-qol.optional.引导神力-毁灭狂怒.count",
-          "mode": 2,
-          "value": "ItemUses.引导神力 Channel Divinity",
-          "priority": 20
-        }
-      ],
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -88,45 +123,30 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757268059747,
         "modifiedTime": 1757268205094,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!G8l86fHFRdjOXoXM.FrUmVQPlLk3jCK6d"
     }
   ],
@@ -157,19 +177,19 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "destructiveWrath",
         "source": "chris-premades",
         "version": "0.0.0"
+      }
+    },
+    "dae": {
+      "macro": {
+        "name": "引导神力：毁灭狂怒 Channel Divinity: Destructive Wrath",
+        "type": "script",
+        "command": "function copyRoll(roll) {\n  return roll.constructor.fromData(foundry.utils.deepClone(roll.toJSON()));\n}\nfunction refreshRoll(roll) {\n  for (const term of roll.terms) {\n    if (term.roll) refreshRoll(term.roll);\n    for (const inner of term.rolls ?? []) refreshRoll(inner);\n    for (const inner of term.terms ?? []) if (inner?.terms) refreshRoll(inner);\n  }\n  roll._total = roll._evaluateTotal();\n  return roll;\n}\nfunction weaponDice(roll, workflow) {\n  if (workflow.item?.type !== \"weapon\" || !workflow.activity?.damage?.includeBase) return [];\n  const part = workflow.activity.damage.parts[0];\n  if (!part) return [];\n  const formula = part.formula ?? part.custom?.formula;\n  if (!formula) return [];\n  const base = foundry.dice.Roll.create(formula, workflow.activity.getRollData());\n  return roll.dice.slice(0, base.dice.length);\n}\nasync function rerollLowWeaponDice(roll, workflow) {\n  const properties = workflow.item?.system?.properties;\n  if (workflow.activity?.actionType !== \"mwak\" || workflow.attackMode !== \"twoHanded\"\n    || ![\"two\", \"ver\"].some(key => properties?.has(key))) return false;\n  let changed = false;\n  for (const die of weaponDice(roll, workflow)) {\n    if (die.options.dnd5e_classpackGreatWeaponFighting) continue;\n    die.options.dnd5e_classpackGreatWeaponFighting = true;\n    changed = true;\n    for (const result of [...die.results]) {\n      if (!result.active || result.result > 2) continue;\n      const replacement = new die.constructor({ number: 1, faces: die.faces });\n      await replacement.evaluate();\n      result.active = false;\n      result.rerolled = true;\n      die.results.push(...replacement.results);\n    }\n  }\n  if (changed) refreshRoll(roll);\n  return changed;\n}\n\nfunction maximizeElement(original) {\n  const revised = copyRoll(original);\n  const defaults = original.options.types ?? [original.options.type].filter(Boolean);\n  for (const die of revised.dice) {\n    const explicit = String(die.options.flavor ?? \"\").toLowerCase().split(/[^a-z]+/)\n      .filter(type => Object.hasOwn(CONFIG.DND5E.damageTypes, type));\n    const types = explicit.length ? explicit : defaults.length === 1 ? defaults : [];\n    if (!types.some(type => [\"lightning\", \"thunder\"].includes(type))) continue;\n    for (const result of die.results.filter(result => result.active)) {\n      result.result = die.faces;\n      delete result.count;\n    }\n  }\n  return refreshRoll(revised);\n}\nif (args[0]?.tag === \"optional\" && args[0].roll) {\n  workflow._classpackDestructiveWrath = true;\n  return maximizeElement(args[0].roll);\n}\nif (args[0]?.macroPass === \"postDamageRoll\" && workflow._classpackDestructiveWrath) {\n  delete workflow._classpackDestructiveWrath;\n  await workflow.setDamageRolls(workflow.damageRolls.map(maximizeElement));\n}\n"
       }
     }
   },
@@ -177,9 +197,9 @@
     "default": 0
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757268306673,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -2,7 +2,7 @@
   "_id": "r5y9Q7FglPwcglKB",
   "name": "死亡一指 Finger of Death",
   "type": "spell",
-  "img": "modules/dnd5e_classpack/Nicons/httpcloud3steamusercontentcomugc8425851361153608221B148445E4C25ABE24A7D30E89F37D4DF34C6CE7.jpg",
+  "img": "icons/magic/unholy/energy-smoke-pink.webp",
   "effects": [],
   "folder": "qZtdQUjaQugoOBEW",
   "sort": 26500000,
@@ -30,20 +30,11 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
-      "value": "<div class=\"description \"><p>你发出负能量并贯穿施法距离内你能看见的一个生物使其承受苦痛。该生物必须进行以此体质豁免。豁免失败则受到14d8+60点黯蚀伤害，豁免成功则伤害减半。 <br />被该法术杀死的类人生物将在你下一回合开始时唤起为一只受你操控的僵尸，并在随后尽力遵循你的语言指令。 <br /></p></div>",
+      "value": "<p>你发出负能量并贯穿施法距离内你能看见的一个生物使其承受苦痛。该生物必须进行以此[[/save activity=dnd5eactivity000]]{体质豁免}。豁免失败则受到 [[/damage 7d8+30 type=necrotic]]{7d8+30} 点暗蚀伤害，豁免成功则伤害减半。</p><p>被该法术杀死的类人生物将在你下一回合开始时唤起为一只受你操控的丧尸，并在随后尽力遵循你的语言指令。</p>",
       "chat": ""
     },
     "source": {
@@ -59,7 +50,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -69,9 +61,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -92,10 +85,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -119,22 +108,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -150,9 +143,9 @@
           "onSave": "half",
           "parts": [
             {
-              "number": 14,
+              "number": 7,
               "denomination": 8,
-              "bonus": "60",
+              "bonus": "30",
               "types": [
                 "necrotic"
               ],
@@ -164,7 +157,8 @@
                 "mode": "",
                 "number": null,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -178,7 +172,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -192,7 +187,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -200,7 +196,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -211,26 +206,75 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "finger-of-death"
+    "identifier": "finger-of-death",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

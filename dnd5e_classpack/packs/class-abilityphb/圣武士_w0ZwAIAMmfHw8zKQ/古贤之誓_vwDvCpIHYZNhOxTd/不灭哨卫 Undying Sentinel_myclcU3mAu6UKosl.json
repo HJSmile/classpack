@@ -2,7 +2,7 @@
   "_id": "myclcU3mAu6UKosl",
   "name": "不灭哨卫 Undying Sentinel",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Paladin_HolyAvenger.png",
+  "img": "icons/magic/life/heart-glowing-red.webp",
   "system": {
     "description": {
       "value": "<p>第15级起，你生命值降至0点，但尚未被直接杀死时，可以选择让你的生命值降到1点而不是0点。你必须完成一次长休后才能再次使用该能力。</p>\n<p>此外，你不受任何衰老减益。也不会因为魔法效应而衰老。</p>",
@@ -32,15 +32,96 @@
     "requirements": "古贤之誓等级 15",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 15,
+      "repeatable": false,
+      "items": [
+        "subclass:oath-of-the-ancients"
+      ]
     },
     "properties": []
   },
-  "effects": [],
+  "effects": [
+    {
+      "name": "不灭哨卫 Undying Sentinel",
+      "img": "icons/magic/life/heart-glowing-red.webp",
+      "origin": null,
+      "type": "base",
+      "_id": "vEnGWBaGdtu4Gx8Y",
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.onUseMacroName",
+            "value": "ItemMacro,isDamaged",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "9kCQWBJvtbBYS7av",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.myclcU3mAu6UKosl",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false
+      },
+      "disabled": false,
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "description": "",
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "sort": 0,
+      "flags": {
+        "dnd5e": {
+          "riders": {}
+        },
+        "dae": {
+          "disableCondition": "",
+          "stackable": "noneName",
+          "showIcon": false,
+          "disableIncapacitated": false,
+          "durationExpression": "",
+          "macroRepeat": "none",
+          "specialDuration": []
+        },
+        "core": {
+          "overlay": false
+        }
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
+        "createdTime": 1787076370829,
+        "modifiedTime": 1787076388056,
+        "lastModifiedBy": "TEhQZHmGMOcY5c4a"
+      },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
+      "_key": "!items.effects!myclcU3mAu6UKosl.vEnGWBaGdtu4Gx8Y"
+    }
+  ],
   "folder": "vwDvCpIHYZNhOxTd",
   "sort": 35300000,
   "flags": {
@@ -53,13 +134,7 @@
       "alwaysActive": false,
       "effects": []
     },
-    "dnd5e": {
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -80,11 +155,11 @@
     "dae": {
       "macro": {
         "name": "不灭哨卫 Undying Sentinel",
-        "img": "modules/dnd5e_classpack/Nicons/Ability_Paladin_HolyAvenger.png",
+        "img": "icons/magic/life/heart-glowing-red.webp",
         "type": "script",
         "scope": "global",
-        "command": "",
-        "author": "WqWGW8MuBm7BNHxt",
+        "command": "if (macroItem.system.uses.value == 0) return;\nconst ditem = workflow.damageItem;\nif (ditem.newHP > 0 || !ditem.isHit) return;\nawait classpack.dialogUtils.confirm(macroItem.name, '是否使用不灭哨卫的使用次数，将生命值降至1点而不是0点',{ userId: classpack.firstOwner(macroItem.actor) })\nawait macroItem.update({\n  'system.uses.spent' : +1\n})\nditem.totalDamage = ditem.oldHP - 1;\nditem.newHP = 1;\nditem.newTempHP = 0;\nditem.hpDamage = ditem.totalDamage;\nditem.damageDetail.forEach(i => i.value = 0);\nditem.damageDetail[0].value = ditem.totalDamage;",
+        "author": "TEhQZHmGMOcY5c4a",
         "ownership": {
           "default": 3
         },
@@ -93,14 +168,15 @@
         "sort": 0,
         "flags": {},
         "_stats": {
-          "coreVersion": "12.343",
+          "coreVersion": "13.351",
           "systemId": "dnd5e",
-          "systemVersion": "4.4.4",
+          "systemVersion": "5.3.3",
           "createdTime": null,
           "modifiedTime": null,
           "lastModifiedBy": null,
           "compendiumSource": null,
-          "duplicateSource": null
+          "duplicateSource": null,
+          "exportSource": null
         }
       }
     }
@@ -110,8 +186,8 @@
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757063770246,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

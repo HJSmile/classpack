@@ -2,14 +2,14 @@
   "_id": "3jHiDdFGItXGAzro",
   "name": "妖精仪态 Fey Presence",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Warlock_Summon_%20Shivan.png",
+  "img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>        第1级时，你的宗主授予你如同妖精一般魅感和威吓他人的能力。作为一个动作，你可以令以你为原点的10尺立方区域内所有生物进行一次对抗你法术豁免DC的感知豁免，豁免失败者直至你下一回合结束前受你魅惑或陷入对你恐慌(由你选择)。你必须完成一次长休或短休后才能再次使用该特性。</p>",
+      "value": "<p>        第1级时，你的宗主授予你如同妖精一般魅惑和威吓他人的能力。作为一个动作，你可以令以你为原点的10尺立方区域内所有生物进行一次对抗你法术豁免DC的[[/save activity=dnd5eactivity000]]{感知豁免}，豁免失败者直至你下一回合结束前受你魅惑或陷入对你恐慌(由你选择)。你必须完成一次长休或短休后才能再次使用该特性。</p>",
       "chat": ""
     },
     "source": {
@@ -43,7 +43,8 @@
             {
               "type": "itemUses",
               "value": "1",
-              "target": ""
+              "target": "",
+              "scaling": {}
             }
           ],
           "scaling": {
@@ -53,21 +54,28 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "gN6FlNKkTqFyZTvJ",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {}
           },
           {
-            "_id": "IfQRShu1FUfDfWCo"
+            "_id": "IfQRShu1FUfDfWCo",
+            "uuid": null,
+            "level": {},
+            "onSave": false
           }
         ],
         "range": {
@@ -84,7 +92,8 @@
             "size": "10",
             "width": "",
             "height": "",
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -102,7 +111,10 @@
         },
         "damage": {
           "onSave": "half",
-          "parts": []
+          "parts": [],
+          "critical": {
+            "allow": false
+          }
         },
         "save": {
           "ability": [
@@ -111,44 +123,142 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 1,
+      "repeatable": false,
+      "items": [
+        "subclass:the-archfey"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "name": "妖精仪态 魅惑",
-      "img": "modules/dnd5e_classpack/Nicons/Warlock_Summon_%20Shivan.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.3jHiDdFGItXGAzro",
+      "img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+      "origin": null,
       "transfer": false,
       "_id": "gN6FlNKkTqFyZTvJ",
       "type": "base",
-      "system": {},
-      "changes": [],
+      "system": {
+        "changes": [],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.3jHiDdFGItXGAzro",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": "sourceEnd",
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -173,62 +283,56 @@
           ]
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757186717081,
         "modifiedTime": 1757186730486,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!3jHiDdFGItXGAzro.gN6FlNKkTqFyZTvJ"
     },
     {
       "name": "妖精仪态 恐慌",
-      "img": "modules/dnd5e_classpack/Nicons/Warlock_Summon_%20Shivan.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.3jHiDdFGItXGAzro",
+      "img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+      "origin": null,
       "transfer": false,
       "_id": "IfQRShu1FUfDfWCo",
       "type": "base",
-      "system": {},
-      "changes": [],
+      "system": {
+        "changes": [],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.3jHiDdFGItXGAzro",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": "sourceEnd",
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -253,42 +357,26 @@
           ]
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757186717891,
         "modifiedTime": 1757186789286,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!3jHiDdFGItXGAzro.IfQRShu1FUfDfWCo"
     }
   ],
@@ -304,14 +392,7 @@
       "alwaysActive": false,
       "effects": []
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -338,9 +419,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757186820716,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

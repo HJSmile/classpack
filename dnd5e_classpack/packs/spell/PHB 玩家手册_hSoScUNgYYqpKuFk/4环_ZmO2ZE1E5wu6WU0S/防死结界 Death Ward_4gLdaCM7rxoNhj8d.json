@@ -24,20 +24,11 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "dae": {
       "macro": {
         "name": "防死结界 Death Ward",
-        "img": "modules/dnd5e_classpack/Nicons/Ability_Creature_Cursed_01.png",
+        "img": "icons/magic/life/ankh-shadow-green.webp",
         "type": "script",
         "scope": "global",
         "command": "(async () => {\n  const mode = args[0];\n  console.log(`🛡️ 防死结界(高级) Macro triggered, mode: ${mode}`, args);\n\n  const last = args.at(-1);\n  const token = canvas.tokens.get(last.tokenId);\n  const actor = token?.actor;\n  if (!actor) return console.warn(\"❌ No actor found for 防死结界\");\n\n  // ✅ 创建时：仅等待触发\n  if (mode === \"on\") {\n    console.log(\"✅ 防死结界 created — waiting for HP drop.\");\n    return;\n  }\n\n  // ✅ 删除时：恢复 1 HP\n  if (mode === \"off\") {\n    console.log(\"💀 防死结界 removed — restoring 1 HP to\", actor.name);\n    const currentHP = actor.system.attributes.hp.value;\n    await actor.update({ \"system.attributes.hp.value\": Math.max(currentHP, 1) });\n\n    ChatMessage.create({\n      speaker: { token: token.id, actor: actor.id },\n      content: `<p>🛡️ <strong>${actor.name}</strong> 受到防死结界保护，濒死时恢复了 <b>1</b> 点生命！</p>`\n    });\n    return;\n  }\n\n  // ✅ 额外：拦截伤害，防止 HP 掉到 0 以下\n  const currentHP = actor.system.attributes.hp.value;\n  if (currentHP <= 1) {\n    console.log(`🛡️ ${actor.name} 的 HP 已被防死结界保护，阻止致命伤害`);\n    await actor.update({ \"system.attributes.hp.value\": 1 });\n  }\n})();",
@@ -69,33 +60,47 @@
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Creature_Cursed_01.png",
+  "img": "icons/magic/life/ankh-shadow-green.webp",
   "effects": [
     {
       "name": "防死结界 Death Ward",
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Creature_Cursed_01.png",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.4gLdaCM7rxoNhj8d",
+      "img": "icons/magic/life/ankh-shadow-green.webp",
+      "origin": null,
       "transfer": false,
       "_id": "6OPf1sENlu2cCeZd",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "macro.itemMacro",
-          "mode": 0,
-          "value": "",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "macro.itemMacro",
+            "value": "",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "ylwEP1dr20v7Mnaa",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.4gLdaCM7rxoNhj8d",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": 288000,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 288000,
+        "units": "seconds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -118,48 +123,32 @@
           ]
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": 1753503174348,
         "modifiedTime": 1753503451035,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!4gLdaCM7rxoNhj8d.6OPf1sENlu2cCeZd"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你触碰一个生物，并给予其对死亡的防护。目标第一次生命值因承受伤害而降至0时，改为生命值降至1，并终止本法术效应。\n<br />法术生效时，如果目标受到不造成伤害但直接致死效应影响时，改为该致死效应被取消，并终止本法术效应。\n<br /></div>",
+      "value": "<p>你触碰一个生物，并给予其对死亡的防护。</p><p>目标第一次生命值因承受伤害而降至 0 时，改为生命值降至 1，并终止本法术效应。</p><p>法术生效时，如果目标受到不造成伤害但直接致死效应影响时，改为该致死效应被取消，并终止本法术效应。</p>",
       "chat": ""
     },
     "source": {
@@ -175,7 +164,8 @@
     },
     "duration": {
       "value": "8",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -185,9 +175,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -207,10 +198,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -235,26 +222,32 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "6OPf1sENlu2cCeZd"
+            "_id": "6OPf1sENlu2cCeZd",
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -284,7 +277,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -292,7 +286,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -303,18 +296,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "death-ward"
+    "identifier": "death-ward",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -323,8 +364,8 @@
   "sort": 5900000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -13,7 +13,7 @@
       "effectCondition": "",
       "reactionCondition": "",
       "otherCondition": "",
-      "onUseMacroName": "[preActiveEffects]ItemMacro"
+      "onUseMacroName": "[postSave]ActivityMacro-dnd5eactivity000,[templatePlaced]ActivityMacro-dnd5eactivity000"
     },
     "midiProperties": {
       "confirmTargets": "always",
@@ -30,26 +30,15 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "dae": {
       "macro": {
         "name": "疫病虫群 Insect Plague",
-        "img": "modules/dnd5e_classpack/Nicons/Spell_Fire_FelFireNova.png",
+        "img": "icons/creatures/invertebrates/wasp-swarm-tan.webp",
         "type": "script",
         "scope": "global",
-        "command": "if (args[0].macroPass === \"preActiveEffects\" || args[0].tag === \"OnUse\") {\n  return await game.modules.get(\"ActiveAuras\").api.AAHelpers.applyTemplate(args);\n}",
-        "author": "WqWGW8MuBm7BNHxt",
+        "command": "",
+        "author": "dvg25zW2MvzsvMOU",
         "ownership": {
           "default": 3
         },
@@ -58,14 +47,15 @@
         "sort": 0,
         "flags": {},
         "_stats": {
-          "coreVersion": "12.343",
+          "coreVersion": "14.369",
           "systemId": "dnd5e",
-          "systemVersion": "4.3.9",
+          "systemVersion": "6.0.6",
           "createdTime": null,
           "modifiedTime": null,
           "lastModifiedBy": null,
           "compendiumSource": null,
-          "duplicateSource": null
+          "duplicateSource": null,
+          "exportSource": null
         }
       }
     },
@@ -77,95 +67,11 @@
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Fire_FelFireNova.png",
-  "effects": [
-    {
-      "name": "疫病虫群 Insect Plague",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Fire_FelFireNova.png",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.eGYMgP3fmIUQEXMm",
-      "transfer": false,
-      "_id": "7257h7j0lSTJo4aw",
-      "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.OverTime",
-          "mode": 2,
-          "value": "turn=end, label=疫病虫群 Insect Plague, saveAbility=con, saveDC=@attributes.spell.dc, saveMagic=true, damageRoll=(@flags.dnd5e.spellLevel-1)d8, damageType=piercing, saveDamage=halfdamage, allowIncapacitated=true",
-          "priority": 20
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "tint": "#ffffff",
-      "statuses": [],
-      "sort": 0,
-      "flags": {
-        "dae": {
-          "enableCondition": "",
-          "disableCondition": "",
-          "disableIncapacitated": false,
-          "selfTarget": false,
-          "selfTargetAlways": false,
-          "dontApply": false,
-          "stackable": "noneName",
-          "showIcon": false,
-          "durationExpression": "",
-          "specialDuration": [],
-          "macroRepeat": "none"
-        },
-        "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
-        },
-        "core": {
-          "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
-        }
-      },
-      "_stats": {
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "coreVersion": "13.351",
-        "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
-        "createdTime": 1754987308857,
-        "modifiedTime": 1786655718353,
-        "lastModifiedBy": "TEhQZHmGMOcY5c4a",
-        "exportSource": null
-      },
-      "_key": "!items.effects!eGYMgP3fmIUQEXMm.7257h7j0lSTJo4aw"
-    }
-  ],
+  "img": "icons/creatures/invertebrates/wasp-swarm-tan.webp",
+  "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你指定施法距离内一点，并以该点为中心使半径20尺的球状区域内堆满成群的噬人蝗虫。虫群会绕过拐角扩散并使整个区域成为困难地形，且处于轻度遮蔽。虫群在法术终止前都会持续存在。\n<br />当虫群显现时，其区域内的每个生物都必须进行一次体质豁免，豁免失败则受到4d10的穿刺伤害，豁免成功则伤害减半。\n<br />生物在一个回合内第一次进入该区域内，或者在区域内结束其回合时，也必须进行该豁免。\n<br /><strong>升环施法效应。</strong>使用6环或更高法术位施展该法术时，你使用的法术位每比6环高一环，伤害就增加1d10。\n<br /></div>",
+      "value": "<p>你指定施法距离内一点，并以该点为中心使半径 20 尺的球状区域内堆满成群的噬人蝗虫。虫群会绕过拐角扩散并使整个区域成为困难地形，且处于轻度遮蔽。虫群在法术终止前都会持续存在。 当虫群显现时，其区域内的每个生物都必须进行一次[[/save activity=dnd5eactivity000]]{体质豁免}，豁免失败则受到 [[/damage 4d10 type=piercing]]{4d10} 的穿刺伤害，豁免成功则伤害减半。生物在一个回合内第一次进入该区域内，或者在区域内结束其回合时，也必须进行该豁免。</p><p><strong>升环施法效应。</strong>使用六环或更高法术位施展该法术时，你使用的法术位每比六环高一环，伤害就增加 1d10。</p>",
       "chat": ""
     },
     "source": {
@@ -181,7 +87,8 @@
     },
     "duration": {
       "value": "10",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -193,7 +100,8 @@
         "type": "sphere",
         "size": "20",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -214,10 +122,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -244,27 +148,33 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "7257h7j0lSTJo4aw",
-            "onSave": true
+            "onSave": true,
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -285,7 +195,7 @@
                 "formula": ""
               },
               "number": 4,
-              "denomination": "10",
+              "denomination": 10,
               "bonus": "",
               "types": [
                 "piercing"
@@ -294,7 +204,8 @@
                 "mode": "whole",
                 "number": 1,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -308,21 +219,24 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true,
+          "bonus": ""
         },
         "sort": 0,
         "useConditionText": "",
         "useConditionReason": "",
         "effectConditionText": "",
         "macroData": {
-          "name": "",
-          "command": ""
+          "name": "Midi豁免",
+          "command": "const pass = args[0]?.macroPass;\nif (![\"templatePlaced\", \"postSave\"].includes(pass)) return;\n\nconst combat = game.combat;\nif (pass === \"postSave\" && !combat?.active) return;\n\nconst actorIds = pass === \"postSave\"\n  ? new Set(\n      [...(workflow.saves ?? []), ...(workflow.failedSaves ?? [])]\n        .map(token => token.actor?.id)\n        .filter(Boolean)\n    )\n  : new Set();\n\nif (pass === \"postSave\" && !actorIds.size) return;\n\nfor (const uuid of workflow.templateUuids ?? []) {\n  const region = await fromUuid(uuid);\n  if (region?.documentName !== \"Region\") continue;\n\n  const behavior = region.behaviors.find(b =>\n    b.type === \"midi-qol.regionActivity\" &&\n    b.system.sourceItemUuid === workflow.item.uuid\n  );\n  if (!behavior) continue;\n\n  const rules = foundry.utils.deepClone(behavior.system.rules);\n  const turnEnd = rules.find(r =>\n    r.trigger === \"turnEnd\" && r.action === \"useActivity\"\n  );\n  if (!turnEnd?.targetUuid) continue;\n\n  if (pass === \"templatePlaced\") {\n    // 不论是否开启 Once per Turn，都补上 Entry。\n    if (rules.some(r =>\n      r.trigger === \"entry\" &&\n      r.action === \"useActivity\" &&\n      r.targetUuid === turnEnd.targetUuid\n    )) continue;\n\n    rules.push({\n      trigger: \"entry\",\n      action: \"useActivity\",\n      targetUuid: turnEnd.targetUuid\n    });\n\n    await MidiQOL.socket().executeAsGM(\"setupRegion\", {\n      regionUuid: region.uuid,\n      update: {\n        behaviors: [{ _id: behavior.id, system: { rules } }]\n      }\n    });\n    continue;\n  }\n\n  // postSave：只有开启 Once per Turn，才登记初次豁免。\n  if (!behavior.system.oncePerTurn) continue;\n\n  const activityKey = turnEnd.targetUuid.split(\".\").at(-1);\n  const turn = `${combat.round}.${combat.turn}`;\n\n  for (const actorId of actorIds) {\n    const key = `regionTriggers.${behavior.id}.${actorId}-${activityKey}`;\n\n    if (game.user.isGM) {\n      await combat.setFlag(\"midi-qol\", key, turn);\n    } else {\n      // 当前版本的此接口也支持通过 UUID 修改 Combat。\n      await MidiQOL.socket().executeAsGM(\"_gmSetFlag\", {\n        actorUuid: combat.uuid,\n        base: \"midi-qol\",\n        key,\n        value: turn\n      });\n    }\n  }\n}"
         },
         "ignoreTraits": {
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -330,7 +244,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -341,23 +254,264 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "name": "",
         "img": "",
-        "appliedEffects": [
-          "7257h7j0lSTJo4aw"
-        ]
+        "behaviors": [
+          {
+            "type": "difficultTerrain",
+            "_id": "NHR9IH2b2uDjFJWi",
+            "config": {
+              "types": []
+            },
+            "level": {}
+          }
+        ],
+        "flags": {},
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": true,
+          "dispositionFilter": 0,
+          "excludeSource": false,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": [
+            {
+              "trigger": "turnEnd",
+              "action": "useActivity",
+              "targetId": "repeatedsave"
+            }
+          ]
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
+      },
+      "ogi05W7Fqn7jQ1Ry": {
+        "type": "save",
+        "name": "RepeatedSave",
+        "_id": "ogi05W7Fqn7jQ1Ry",
+        "img": "",
+        "sort": 100000,
+        "activation": {
+          "type": "",
+          "override": true,
+          "condition": ""
+        },
+        "behaviors": [],
+        "consumption": {
+          "scaling": {
+            "allowed": false
+          },
+          "spellSlot": false,
+          "targets": []
+        },
+        "description": {
+          "value": "",
+          "chatFlavor": ""
+        },
+        "duration": {
+          "units": "inst",
+          "expiry": null,
+          "concentration": false,
+          "override": true
+        },
+        "effects": [],
+        "flags": {},
+        "range": {
+          "units": "self",
+          "override": true,
+          "special": ""
+        },
+        "target": {
+          "template": {
+            "contiguous": false,
+            "stationary": false,
+            "units": "ft",
+            "type": ""
+          },
+          "affects": {
+            "choice": false,
+            "type": ""
+          },
+          "override": true,
+          "prompt": true
+        },
+        "uses": {
+          "spent": 0,
+          "recovery": [],
+          "max": ""
+        },
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "damage": {
+          "onSave": "half",
+          "critical": {
+            "allow": false
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              },
+              "number": 4,
+              "denomination": 10,
+              "bonus": "",
+              "modifiers": [],
+              "types": [
+                "piercing"
+              ],
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              }
+            }
+          ]
+        },
+        "save": {
+          "ability": [
+            "con"
+          ],
+          "dc": {
+            "calculation": "spellcasting",
+            "formula": ""
+          },
+          "visible": true,
+          "bonus": ""
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": "none",
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": true,
+          "otherActivityCompatible": false,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "insect-plague"
+    "identifier": "insect-plague",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -366,8 +520,8 @@
   "sort": 33600000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

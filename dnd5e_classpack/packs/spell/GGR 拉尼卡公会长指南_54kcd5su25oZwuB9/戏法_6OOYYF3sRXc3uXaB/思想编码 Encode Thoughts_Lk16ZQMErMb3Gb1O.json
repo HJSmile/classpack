@@ -28,19 +28,11 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "somatic"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
-      "value": "<p>你将一根手指放在你的头上，然后将一段记忆、想法或信息从你的心灵中拖出来，转变为一段由耀眼能量组成的，名为“思想链”的有形的链条，其将一直存在直到持续时间结束，或者到你再次施放这个法术为止。思想链出现在距离你5尺的未被占据的空间内，表现为一个可以像丝带一样被你持握或携带的，微小的、极轻的、半固态的物件。除此之外，思想链都是静止的。如果你在施放这个法术时正在专注于一个允许你读取或操纵他人思想的法术或能力时（例如@UUID[Compendium.dnd5e_classpack.spell.YuGbz9k5JXA0kIgT]{侦测思想 Detect Thoughts}或@UUID[Compendium.dnd5e_classpack.spell.O865yy87cPevGeMj]{篡改记忆 Modify Memory}）。你可以将你读取到的思想和记忆转化为思想链，而不是转化你自己的。</p>\n<p>在你持握着一根思想链的时候施放这个法术将使你立刻接收到思想链里所包含的任何记忆、想法或信息（对思想链施放@UUID[Compendium.dnd5e_classpack.spell.YuGbz9k5JXA0kIgT]{侦测思想 Detect Thoughts}也具有同样效果）。</p>",
+      "value": "<p>将一根手指放在你的头上，然后将一段记忆、想法或信息从你的心灵中拖出来转变为一段有形的由耀眼能量组成的链。这名为“思想链”的东西将一直存在直到持续时间结束或者到你再次施展这个法术为止。思想链在距离你5英尺范围的无人占据的空间内将表现为一个可以像丝带一样被你持握或携带的，微小的、极轻的、半固态的物体。除此之外，思想链都是静止的。如果你在施展这个法术时正在专注于一个允许你读取或操纵他人思想的法术或能力时（例如<em>@UUID[Compendium.dnd5e_classpack.spell.YuGbz9k5JXA0kIgT]{侦测思想 Detect Thoughts}Detect Thoughts</em>或<em>@UUID[Compendium.dnd5e_classpack.spell.O865yy87cPevGeMj]{篡改记忆 Modify Memory}Modify Memory</em>）。你可以将你读取到的思想和记忆转化为思想链，而不是转化你自己的。</p><p>在你持握着一个思维链的时候施放这个法术将使你立刻接收到思维链里所包含的任何记忆、想法或信息。（向思想链施展<em>侦测思想Detect Thoughts</em>也具有同样效果）</p>",
       "chat": ""
     },
     "source": {
@@ -56,7 +48,8 @@
     },
     "duration": {
       "value": "8",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -66,9 +59,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -88,10 +82,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "somatic",
@@ -115,22 +105,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -160,7 +154,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -168,7 +163,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -179,26 +173,74 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "encode-thoughts"
+    "identifier": "encode-thoughts",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

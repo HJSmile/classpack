@@ -2,14 +2,14 @@
   "_id": "rt2w2oWZgdNmOm3n",
   "name": "尘世壁垒 Mortal Bulwark",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/002505.png",
+  "img": "icons/magic/defensive/barrier-shield-dome-deflect-teal.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>20级起，你展现出神圣力量的火花，以捍卫凡人的世界。以一个附赠动作，你在1分钟内获得以下增益：</p>\n<ul>\n<li>你获得120尺的真实视觉。</li>\n<li>当你对异怪、天界生物、元素、精类或邪魔进行攻击检定时，你获得优势。</li>\n<li>当你对一个生物进行攻击并击中，并对其造成伤害时，你可以使其进行一次魅力豁免。若其失败且其不属于此位面，其将被魔法性地放逐到其原本的位面。若目标豁免成功，其在24小时内不能再被此能力放逐。</li>\n</ul>\n<p>一旦你使用了此能力，你在完成一次长休之前必须消耗一个5环法术位以再次使用此能力。</p>",
+      "value": "<p>20级起，你展现出神圣力量的火花，以捍卫凡人的世界。以一个附赠动作，你在1分钟内获得以下增益：</p>\n<ul>\n<li>你获得120尺的真实视觉。</li>\n<li>当你对异怪、天族、元素、精类或邪魔进行攻击检定时，你获得优势。</li>\n<li>当你对一个生物进行攻击并击中，并对其造成伤害时，你可以使其进行一次魅力豁免。若其失败且其不属于此位面，其将被魔法性地放逐到其原本的位面。若目标豁免成功，其在24小时内不能再被此能力放逐。</li>\n</ul>\n<p>一旦你使用了此能力，你在完成一次长休之前必须消耗一个5环法术位以再次使用此能力。</p>",
       "chat": ""
     },
     "source": {
@@ -57,16 +57,24 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "1",
           "units": "minute",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
-        "effects": [],
+        "effects": [
+          {
+            "_id": "1qNIImlL9UawRXN2",
+            "uuid": null,
+            "level": {}
+          }
+        ],
         "range": {
           "units": "self",
           "special": "",
@@ -80,7 +88,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -102,49 +111,126 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-mortal-bulwark",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 20,
+      "repeatable": false,
+      "items": [
+        "subclass:oath-of-watcher"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "_id": "1qNIImlL9UawRXN2",
-      "changes": [
-        {
-          "key": "system.attributes.senses.truesight",
-          "mode": 4,
-          "value": "120",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "minutes",
+        "expiry": "turnStart",
+        "expired": false
       },
       "origin": "Compendium.dnd5e_classpack.extra-ability.rt2w2oWZgdNmOm3n",
-      "transfer": true,
+      "transfer": false,
       "flags": {},
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -153,26 +239,47 @@
         "exportSource": null
       },
       "name": "获得120尺真实视觉",
-      "img": "modules/dnd5e_classpack/Nicons/002505.png",
+      "img": "icons/magic/defensive/barrier-shield-dome-deflect-teal.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.senses.ranges.truesight",
+            "value": 120,
+            "priority": null,
+            "type": "upgrade",
+            "phase": "initial",
+            "_id": "PlpQXOkpAjQWupUn",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!rt2w2oWZgdNmOm3n.1qNIImlL9UawRXN2"
     }
   ],
   "folder": "sjF84BJeapT64YIr",
   "sort": 45900000,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -192,9 +299,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1750215117228,
     "lastModifiedBy": "sPF2dtZDreDpJaW6",

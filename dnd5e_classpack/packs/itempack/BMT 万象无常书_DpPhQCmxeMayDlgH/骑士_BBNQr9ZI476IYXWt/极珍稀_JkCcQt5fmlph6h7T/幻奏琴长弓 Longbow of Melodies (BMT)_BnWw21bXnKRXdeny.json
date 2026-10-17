@@ -12,7 +12,7 @@
       "revision": 1
     },
     "description": {
-      "value": "<div class=\"rd__b  rd__b--2\"><p><em>武器（长弓），极珍稀（需同调）</em><br />这把弓有着多条弦（弓弦/琴弦），它形如一把里拉琴或一把小号竖琴。你可以在箭矢搭弦时弹奏弦，来为箭矢注入魔法的能量。当你用这把弓发动远程武器攻击时，你可以演奏以下旋律之一。你必须在攻击检定前选择你要演奏的旋律，且你在每次攻击中只能演奏一种旋律。</p><ul style=\"MARGIN:0px auto\"><li><p><strong>精准旋律Melody of Precision。</strong>如果你熟练于表演&amp;Reference[skill=Performance]技能，你的攻击检定将具有+1加值。如果你专精于表演&amp;Reference[skill=Performance]技能，则改为获得+2加值。（原文如此）</p></li><li><strong>回响旋律Melody of Reverberation。</strong>你弹奏出的旋律响彻云霄。命中时，目标将受到等同于你魅力调整值点的额外雷鸣伤害。</li></ul><p>This bow has multiple strings and resembles a lyre or small harp. By strumming the strings while setting an arrow to the bow, you imbue the arrow with magic.</p><p>You can play one of the following melodies when you use the bow to make a ranged weapon attack. You must choose to do so before you make the attack roll, and you can play only one melody per attack.</p><div data-roll-name-ancestor=\"Melody of Precision\" class=\"rd__b  rd__b--3\"><p><span class=\"entry-title-inner\">Melody of Precision.</span> If you're proficient in &amp;Reference[skill=Performance], you gain a +1 bonus to the attack roll. If you have expertise in &amp;Reference[skill=Performance], you gain a +2 bonus instead.</p></div><div data-roll-name-ancestor=\"Melody of Reverberation\" class=\"rd__b  rd__b--3\"><p><span class=\"entry-title-inner\">Melody of Reverberation.</span> The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier.</p></div></div>",
+      "value": "<p><em>武器（长弓），极珍稀（需同调）</em></p><p>这把弓有着多条弦（弓弦/琴弦），它形如一把里拉琴或一把小号竖琴。你可以在箭矢搭弦时弹奏弦，来为箭矢注入魔法的能量。当你用这把弓发动远程武器攻击时，你可以演奏以下旋律之一。你必须在攻击检定前选择你要演奏的旋律，且你在每次攻击中只能演奏一种旋律。</p><ul><li><h3>精准旋律Melody of Precision。</h3><p>如果你熟练于表演&amp;Reference[skill=Performance]技能，你的攻击检定将具有+1加值。如果你专精于表演&amp;Reference[skill=Performance]技能，则改为获得+2加值。（原文如此）</p></li><li><strong>回响旋律Melody of Reverberation。</strong>你弹奏出的旋律响彻云霄。命中时，目标将受到等同于你魅力调整值点的额外雷鸣伤害。</li></ul><p>This bow has multiple strings and resembles a lyre or small harp. By strumming the strings while setting an arrow to the bow, you imbue the arrow with magic.</p><p>You can play one of the following melodies when you use the bow to make a ranged weapon attack. You must choose to do so before you make the attack roll, and you can play only one melody per attack.</p><div data-roll-name-ancestor=\"Melody of Precision\"><p><span class=\"entry-title-inner\">Melody of Precision.</span> If you're proficient in &amp;Reference[skill=Performance], you gain a +1 bonus to the attack roll. If you have expertise in &amp;Reference[skill=Performance], you gain a +2 bonus instead.</p></div><div data-roll-name-ancestor=\"Melody of Reverberation\"><p><span class=\"entry-title-inner\">Melody of Reverberation.</span> The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier.</p></div>",
       "chat": ""
     },
     "proficient": null,
@@ -28,7 +28,6 @@
     "attuned": true,
     "identified": true,
     "equipped": true,
-    "rarity": "veryRare",
     "type": {
       "value": "martialR",
       "baseItem": "longbow"
@@ -51,7 +50,7 @@
       "spent": 0,
       "recovery": []
     },
-    "magicalBonus": 0,
+    "magicalBonus": "0",
     "damage": {
       "base": {
         "types": [
@@ -66,7 +65,8 @@
         },
         "custom": {
           "enabled": false
-        }
+        },
+        "modifiers": []
       },
       "versatile": {
         "number": null,
@@ -77,7 +77,8 @@
         },
         "scaling": {
           "number": 1
-        }
+        },
+        "modifiers": []
       }
     },
     "ammunition": {
@@ -101,20 +102,25 @@
           "spellSlot": true,
           "targets": []
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -156,7 +162,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -164,7 +171,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -175,18 +181,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "attackMode": "oneHanded",
         "ammunition": "",
-        "otherActivityUuid": ""
+        "otherActivityUuid": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       }
     },
     "identifier": "longbow-of-melodies-bmt",
@@ -195,12 +249,17 @@
     },
     "container": null,
     "cover": null,
-    "crewed": false,
     "armor": {
       "value": null
+    },
+    "rarities": [
+      "veryRare"
+    ],
+    "crew": {
+      "value": []
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/img/items/BMT/Bow of Melodies.webp",
+  "img": "icons/weapons/bows/longbow-recurve.webp",
   "ownership": {
     "default": 0,
     "qKmljmeCDhGDkX2L": 3
@@ -229,16 +288,17 @@
       "noConcentrationCheck": false,
       "toggleEffect": false,
       "ignoreTotalCover": false
-    }
+    },
+    "dnd5e": {}
   },
   "effects": [],
   "folder": "JkCcQt5fmlph6h7T",
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1751738888053,
     "modifiedTime": 1751738888053,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

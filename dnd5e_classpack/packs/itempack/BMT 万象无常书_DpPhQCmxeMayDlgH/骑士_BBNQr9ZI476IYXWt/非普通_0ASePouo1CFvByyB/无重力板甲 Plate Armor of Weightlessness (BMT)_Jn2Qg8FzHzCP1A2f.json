@@ -12,7 +12,7 @@
       "revision": 1
     },
     "description": {
-      "value": "<div class=\"rd__b  rd__b--2\"><p><em>护甲（重甲），非普通（需同调）</em><br />这套护甲具有5发充能。穿着这套护甲期间，你可以用附赠动作消耗1发充能来用这套护甲，以自己为目标施展以下法术之一：<em>@UUID[Compendium.dnd5e_classpack.spell.Item.1B8U6kl0egesx3FK]{跳跃术 Jump}</em>（1充能）或<em>@UUID[Compendium.dnd5e_classpack.spell.Item.GNvrHluGdgqD06wZ]{浮空术 Levitate}</em> （2充能）。<br />这套护甲在每日黎明时分恢复[[/r 1d4 + 1]]发已被消耗的充能数。</p><div class=\"WordSection1\"><div><p class=\"MsoNormal\" style=\"LAYOUT-GRID-MODE:char;MARGIN:2pt 0cm\"><span class=\"GramE\">板甲由</span>覆盖全身，且相互连接的模铸金属板组成。一套<span class=\"GramE\">板甲包括</span>护手、重皮靴、一顶<span class=\"GramE\">附面甲</span>的头盔<span class=\"GramE\">以及在护甲</span>底层的厚重的布甲。其锁扣和皮带结构可以将护甲重量分配到身体各处。</p></div></div><p>This armor has 5 charges. While you wear it, you can use a bonus action to expend 1 or more charges to cast one of the following spells from the armor, targeting yourself: @spell[Jump] (1 charge) or @spell[Levitate] (2 charges).</p><p>This armor regains [[/r 1d4 + 1]] expended charges daily at dawn.</p><p>Plate consists of shaped, interlocking metal plates to cover the entire body. A suit of plate includes gauntlets, heavy leather boots, a visored helmet, and thick layers of padding underneath the armor. Buckles and straps distribute the weight over the body.</p></div>",
+      "value": "<p><em>护甲（重甲），非普通（需同调）</em></p><p>这套护甲具有5发充能。穿着这套护甲期间，你可以用附赠动作消耗1发充能来用这套护甲，以自己为目标施展以下法术之一：<em>@UUID[Compendium.dnd5e_classpack.spell.Item.1B8U6kl0egesx3FK]{跳跃术 Jump}</em>（1充能）或<em>@UUID[Compendium.dnd5e_classpack.spell.Item.GNvrHluGdgqD06wZ]{浮空术 Levitate}</em> （2充能）。</p><p>这套护甲在每日黎明时分恢复[[/r 1d4 + 1]]发已被消耗的充能数。</p><p>板甲由覆盖全身，且相互连接的模铸金属板组成。一套板甲包括护手、重皮靴、一顶附面甲的头盔以及在护甲底层的厚重的布甲。其锁扣和皮带结构可以将护甲重量分配到身体各处。</p><p>This armor has 5 charges. While you wear it, you can use a bonus action to expend 1 or more charges to cast one of the following spells from the armor, targeting yourself: @spell[Jump] (1 charge) or @spell[Levitate] (2 charges).</p><p>This armor regains [[/r 1d4 + 1]] expended charges daily at dawn.</p><p>Plate consists of shaped, interlocking metal plates to cover the entire body. A suit of plate includes gauntlets, heavy leather boots, a visored helmet, and thick layers of padding underneath the armor. Buckles and straps distribute the weight over the body.</p>",
       "chat": ""
     },
     "proficient": null,
@@ -28,7 +28,6 @@
     "attuned": true,
     "identified": true,
     "equipped": true,
-    "rarity": "uncommon",
     "type": {
       "value": "heavy",
       "baseItem": "plate"
@@ -52,7 +51,7 @@
     "armor": {
       "value": 18,
       "dex": 0,
-      "magicalBonus": 0
+      "magicalBonus": "0"
     },
     "strength": 15,
     "activities": {
@@ -78,19 +77,24 @@
             }
           ]
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -104,8 +108,6 @@
         },
         "spell": {
           "challenge": {
-            "attack": null,
-            "save": null,
             "override": false
           },
           "level": null,
@@ -129,7 +131,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -137,7 +140,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -148,13 +150,58 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
         }
       },
       "AjoqNUiWtq4g89DY": {
@@ -179,19 +226,24 @@
             }
           ]
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -205,8 +257,6 @@
         },
         "spell": {
           "challenge": {
-            "attack": null,
-            "save": null,
             "override": false
           },
           "level": null,
@@ -230,7 +280,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -238,7 +289,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -249,13 +299,58 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
         }
       }
     },
@@ -265,7 +360,12 @@
     },
     "container": null,
     "cover": null,
-    "crewed": false
+    "rarities": [
+      "uncommon"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "img": "icons/equipment/chest/breastplate-collared-steel.webp",
   "ownership": {
@@ -295,16 +395,17 @@
       "noConcentrationCheck": false,
       "toggleEffect": false,
       "ignoreTotalCover": false
-    }
+    },
+    "dnd5e": {}
   },
   "effects": [],
   "folder": "0ASePouo1CFvByyB",
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1751738888053,
     "modifiedTime": 1751738888053,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

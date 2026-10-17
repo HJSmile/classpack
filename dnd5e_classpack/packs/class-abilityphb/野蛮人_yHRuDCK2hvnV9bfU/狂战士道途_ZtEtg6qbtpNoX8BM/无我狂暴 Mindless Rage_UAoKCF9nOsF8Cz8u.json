@@ -2,14 +2,14 @@
   "_id": "UAoKCF9nOsF8Cz8u",
   "name": "无我狂暴 Mindless Rage",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Warrior_Rampage.png",
+  "img": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>第6级起，你在@UUID[Compendium.dnd5e_classpack.class-abilityphb.gLNFWGL05O0FUNTD]{狂暴}中不会被魅惑或恐慌。如果你开始狂暴时已经陷入魅惑或恐慌，则该效应在你狂暴期间被压制。</p>",
+      "value": "<p>第6级起，你在@UUID[Compendium.dnd5e_classpack.class-abilityphb.gLNFWGL05O0FUNTD]{狂暴}中不会被魅惑或恐慌。如果你开始狂暴时已经陷入&amp;Reference[condition=charmed apply=false]{魅惑}或恐慌，则该效应在你狂暴期间被压制。</p>",
       "chat": ""
     },
     "source": {
@@ -25,13 +25,16 @@
     "requirements": "狂战士道途等级 6",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 6,
+      "repeatable": false,
+      "items": [
+        "subclass:path-of-the-berserker"
+      ]
     },
     "properties": []
   },
@@ -63,17 +66,12 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757175327144,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

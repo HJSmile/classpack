@@ -24,35 +24,21 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Shadow_MindRot.png",
+  "img": "icons/magic/control/voodoo-doll-pain-damage-pink.webp",
   "effects": [
     {
       "name": "强迫术 Compulsion",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.RpBbOYseLZCFXaFY",
+      "origin": null,
       "duration": {
-        "rounds": 10,
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 10,
+        "units": "rounds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "disabled": false,
       "_id": "gEOSKMcIUkSszKEm",
-      "changes": [],
       "description": "",
       "transfer": false,
       "statuses": [],
@@ -63,33 +49,16 @@
           "selfTargetAlways": false,
           "dontApply": false,
           "stackable": "noneName",
-          "showIcon": true,
           "durationExpression": "",
           "macroRepeat": "none",
           "specialDuration": []
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system"
         }
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -97,16 +66,33 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Shadow_MindRot.png",
+      "img": "icons/magic/control/voodoo-doll-pain-damage-pink.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.RpBbOYseLZCFXaFY",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 2,
+      "folder": null,
       "_key": "!items.effects!RpBbOYseLZCFXaFY.gEOSKMcIUkSszKEm"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 指定施法距离内你能看到，且能听到你声音的若干生物并迫使其分别进行一次感知豁免。其中无法被魅惑的目标将直接豁免成功，而豁免失败者将受到该法术效应的影响。直至该法术终止前，你可以在你每个回合中用一个附赠动作指向某个水平方向。随后，每个受术目标在其下一回合里必须使用其所有的移动力尽可能的向该方向移动。目标可以在移动前执行其动作，而完成这些移动行为后它可以再进行一次感知豁免以终止该效应。\n<br />每个目标不会被强令走向明显致命的危害物中，比如火堆或陷坑里，不过目标在向指定方向移动时同样可以引起借机攻击。\n<br /></div>",
+      "value": "<p>指定施法距离内你能看到，且能听到你声音的若干生物并迫使其分别进行一次[[/save activity=dnd5eactivity000]]{感知豁免}。其中无法被魅惑的目标将直接豁免成功，而豁免失败者将受到该法术效应的影响。直至该法术终止前，你可以在你每个回合中用一个附赠动作指向某个水平方向。随后，每个受术目标在其下一回合里必须使用其所有的移动力尽可能的向该方向移动。目标可以在移动前执行其动作，而完成这些移动行为后它可以再进行一次感知豁免以终止该效应。</p><p>每个目标不会被强令走向明显致命的危害物中，比如火堆或陷坑里，不过目标在向指定方向移动时同样可以引起借机攻击。</p>",
       "chat": ""
     },
     "source": {
@@ -122,7 +108,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -132,9 +119,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -155,10 +143,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -184,27 +168,33 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "gEOSKMcIUkSszKEm",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -230,7 +220,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -244,7 +235,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -252,7 +244,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -263,24 +254,69 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": true,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
           "postRemoveConditionText": "",
-          "turnChoice": "end"
+          "turnChoice": "end",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "name": "",
         "img": "",
-        "appliedEffects": [
-          "gEOSKMcIUkSszKEm"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "compulsion"
+    "identifier": "compulsion",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -289,8 +325,8 @@
   "sort": 21700000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711723633697,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

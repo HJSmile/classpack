@@ -24,42 +24,49 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal"
-      ],
-      "riders": {
-        "activity": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/ability_deathwing_bloodcorruption_death.png",
+  "img": "icons/magic/death/skull-humanoid-crown-white-blue.webp",
   "effects": [
     {
       "name": "律令死亡 Power Word Kill",
-      "img": "modules/dnd5e_classpack/Nicons/ability_deathwing_bloodcorruption_death.png",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.gfuoSEAF57VLXJMJ",
+      "img": "icons/magic/death/skull-humanoid-crown-white-blue.webp",
+      "origin": null,
       "transfer": false,
       "_id": "QGTBaE1SH7WtQy8z",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "macro.actorUpdate",
-          "mode": 0,
-          "value": "@targetUuid number '-##attributes.hp.value' 'system.attributes.hp.value' 'actorValue'",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "macro.actorUpdate",
+            "value": "@targetUuid number '-##attributes.hp.value' 'system.attributes.hp.value' 'actorValue'",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "ayQrQWT09aSAvCs3",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.gfuoSEAF57VLXJMJ",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -80,48 +87,32 @@
           "macroRepeat": "none"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1756659195958,
         "modifiedTime": 1786724140159,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!gfuoSEAF57VLXJMJ.QGTBaE1SH7WtQy8z"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你读出一威力满溢的单词，其足以使施法距离内一个你能看见的生物立即死亡。如果你所指定的生物现有生命值为100或更少，则其立即死亡。否则该法术不产生任何效应。</div>",
+      "value": "<p>你读出一威力满溢的单词，其足以使施法距离内一个你能看见的生物立即死亡。如果你所指定的生物现有生命值不超过 100 点，则其立即死亡。否则该法术不产生任何效应。</p>",
       "chat": ""
     },
     "source": {
@@ -137,7 +128,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -147,9 +139,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -170,10 +163,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -197,12 +186,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
@@ -210,7 +201,8 @@
             "level": {
               "min": null,
               "max": null
-            }
+            },
+            "uuid": null
           }
         ],
         "range": {
@@ -220,7 +212,8 @@
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -250,7 +243,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -258,7 +252,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -269,13 +262,27 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "name": "",
@@ -284,11 +291,41 @@
           "level": {
             "min": null,
             "max": null
-          }
-        }
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "behaviors": [],
+        "flags": {},
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "power-word-kill"
+    "identifier": "power-word-kill",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -297,8 +334,8 @@
   "sort": 17500000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

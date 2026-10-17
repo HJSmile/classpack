@@ -2,7 +2,7 @@
   "_id": "SLo1i2EiMrGl2MzS",
   "name": "强效塑能  Empowered Evocation",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Frostfire%20Orb.png",
+  "img": "icons/magic/fire/explosion-mushroom-nuke-orange.webp",
   "system": {
     "type": {
       "value": "class",
@@ -25,53 +25,78 @@
     "requirements": "塑能学派等级 10",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 10,
+      "repeatable": false,
+      "items": [
+        "subclass:school-of-evocation"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "name": "强效塑能",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Frostfire%20Orb.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.SLo1i2EiMrGl2MzS",
+      "img": "icons/magic/fire/explosion-mushroom-nuke-orange.webp",
+      "origin": null,
       "_id": "LVG6ihdG6uubggO6",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.optional.强效塑能.force",
-          "mode": 5,
-          "value": "item.school === 'evo' && item.sourceClass === 'wizard'",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.optional.强效塑能.force",
+            "value": "item.school === 'evo' && item.classIdentifier === 'wizard'",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "GzCWyv3rRaSr7l70",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.强效塑能.count",
+            "value": "every",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "moSMWNcb4tx4XJSI",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.强效塑能.damage.all",
+            "value": "+@abilities.int.mod",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "4udA1F9Wxuza6kwP",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.optional.强效塑能.count",
-          "mode": 2,
-          "value": "every",
-          "priority": 20
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.SLo1i2EiMrGl2MzS",
+          "message": null
         },
-        {
-          "key": "flags.midi-qol.optional.强效塑能.damage.all",
-          "mode": 2,
-          "value": "+@abilities.int.mod",
-          "priority": 20
-        }
-      ],
+        "conditions": "{}",
+        "magical": false
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -86,59 +111,37 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1756975804159,
         "modifiedTime": 1756994092268,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!SLo1i2EiMrGl2MzS.LVG6ihdG6uubggO6"
     }
   ],
   "folder": "E2Z5FZNCPpp2Es13",
   "sort": 21900000,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -165,9 +168,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757144911440,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

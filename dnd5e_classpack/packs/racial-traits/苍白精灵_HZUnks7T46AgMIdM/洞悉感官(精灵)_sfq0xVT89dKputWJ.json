@@ -23,13 +23,14 @@
     "requirements": "",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -52,44 +53,22 @@
       "itemCondition": "",
       "effectCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/svg/mystery-man.svg",
   "_id": "sfq0xVT89dKputWJ",
   "effects": [
     {
       "name": "洞悉感官(精灵)",
-      "origin": "Compendium.dnd5e_classpack.racial-traits.Item.sfq0xVT89dKputWJ",
+      "origin": null,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "disabled": false,
       "_id": "P58x3wT5qqfINPXU",
-      "changes": [
-        {
-          "key": "flags.midi-qol.advantage.skill.inv",
-          "mode": 0,
-          "value": "true",
-          "priority": 20
-        },
-        {
-          "key": "flags.midi-qol.advantage.skill.ins",
-          "mode": 0,
-          "value": "true",
-          "priority": 20
-        }
-      ],
       "description": "<p><span style=\"font-family:'Roboto Condensed', sans-serif\">你在智力（调查）和感知（洞悉）检定上具有优势。</span></p>",
       "transfer": true,
       "statuses": [],
@@ -107,9 +86,9 @@
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -117,10 +96,48 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "icons/svg/mystery-man.svg",
+      "img": "icons/magic/perception/eye-ringed-green.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.advantage.skill.inv",
+            "value": true,
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "tApOUtU7OAiwNbCy",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.advantage.skill.ins",
+            "value": true,
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "RtHkonDsVz1XLR4A",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.racial-traits.Item.sfq0xVT89dKputWJ",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!sfq0xVT89dKputWJ.P58x3wT5qqfINPXU"
     }
   ],
@@ -131,8 +148,8 @@
   "sort": 35300000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711688450318,
     "modifiedTime": 1757945155404,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -24,12 +24,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": "你所选择的30英尺内的每一个生物在为避免陷入魅惑或恐惧，或者结束这些状态所做的豁免检定中具有优势。"
+          "chatFlavor": "你所选择的30英尺内的每一个生物在为避免陷入魅惑或恐惧，或者结束这些状态所做的豁免检定中具有优势。",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -41,7 +43,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -72,7 +75,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -80,7 +84,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -91,18 +94,62 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "name": "激活--优势豁免",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       },
       "c38VEcIHl60MIGDg": {
         "type": "utility",
@@ -122,17 +169,20 @@
           "targets": [
             {
               "type": "activityUses",
-              "value": "1"
+              "value": "1",
+              "scaling": {}
             }
           ]
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -144,7 +194,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -180,7 +231,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -188,7 +240,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -199,18 +250,62 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "name": "觉醒--伤害免疫",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "uses": {
@@ -219,7 +314,7 @@
       "max": ""
     },
     "description": {
-      "value": "<p><span style=\"font-family:'Roboto Condensed', sans-serif\">覆鳞饰物 Scaled Ornament</span></p><p><span style=\"font-family:'Roboto Condensed', sans-serif\">奇物，多种稀有度(需要同调)</span></p><p><span style=\"font-family:'Roboto Condensed', sans-serif\">这个饰物可以是珠宝，斗篷或其他可穿戴的装饰品。它似乎是由龙的鳞片、牙齿或爪子塑造而成，或者是包含有这些形状的图像。 </span></p><p><span style=\"font-family:'Roboto Condensed', sans-serif\">沉睡(非普通)。你在为避免陷入魅惑或恐惧，或者结束这些状态所做的豁免检定中具有优势。</span></p><p><span style=\"font-family:'Roboto Condensed', sans-serif\">激活(珍稀)。你在AC上获得+1加值，并且你不会魅惑或恐惧。此外，你所选择的30英尺内的每一个生物在为避免陷入魅惑或恐惧，或者结束这些状态所做的豁免检定中具有优势。</span></p><p><span style=\"font-family:'Roboto Condensed', sans-serif\">觉醒(极珍稀)。觉醒的饰物有激活状态的特性。此外，当你受到使饰物觉醒的宝库主龙的吐息武器的伤害类型的伤害时，你可以用你的反应来免受这次伤害，并且你恢复等同于你原本应受的伤害数值的伤害。一旦这项特性被使用，直到下一个黎明之前它不能被再次使用。</span></p><p><span style=\"font-family:'Roboto Condensed', sans-serif\">神化(传奇)。神化的饰物具有激活和觉醒状态的特性。此外，当你佩戴这个饰物时，你获得等同于步行速度的飞行速度，并且可以悬浮。当你以这种速度飞行时，你的背后出现幽灵般的龙翼。</span></p>",
+      "value": "<p>覆鳞饰物 Scaled Ornament</p><p>奇物，多种稀有度(需要同调)</p><p>这个饰物可以是珠宝，斗篷或其他可穿戴的装饰品。它似乎是由龙的鳞片、牙齿或爪子塑造而成，或者是包含有这些形状的图像。 </p><p>沉睡(非普通)。你在为避免陷入魅惑或恐惧，或者结束这些状态所做的豁免检定中具有优势。</p><p>激活(珍稀)。你在AC上获得+1加值，并且你不会魅惑或恐惧。此外，你所选择的30英尺内的每一个生物在为避免陷入魅惑或恐惧，或者结束这些状态所做的豁免检定中具有优势。</p><p>觉醒(极珍稀)。觉醒的饰物有激活状态的特性。此外，当你受到使饰物觉醒的宝库主龙的吐息武器的伤害类型的伤害时，你可以用你的反应来免受这次伤害，并且你恢复等同于你原本应受的伤害数值的伤害。一旦这项特性被使用，直到下一个黎明之前它不能被再次使用。</p><p>神化(传奇)。神化的饰物具有激活和觉醒状态的特性。此外，当你佩戴这个饰物时，你获得等同于步行速度的飞行速度，并且可以悬浮。当你以这种速度飞行时，你的背后出现幽灵般的龙翼。</p>",
       "chat": ""
     },
     "identifier": "-",
@@ -242,15 +337,12 @@
       "value": 0,
       "denomination": "gp"
     },
-    "rarity": "",
     "attunement": "required",
     "attuned": false,
     "equipped": false,
     "cover": null,
-    "crewed": false,
     "armor": {
       "value": null,
-      "magicalBonus": null,
       "dex": null
     },
     "proficient": null,
@@ -261,26 +353,40 @@
     "type": {
       "value": "",
       "baseItem": ""
+    },
+    "rarities": [],
+    "crew": {
+      "value": []
     }
   },
   "effects": [
     {
       "name": "覆鳞饰物(沉睡) Scaled Ornament",
       "img": "icons/equipment/neck/choker-simple-teeth.webp",
-      "origin": "Compendium.dnd5e_classpack.itempack.Item.CMiMhLMZl0ISvQLI",
+      "origin": null,
       "_id": "rmrv6EqZMt5D5mQu",
       "type": "base",
-      "system": {},
-      "changes": [],
+      "system": {
+        "changes": [],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.itempack.Item.CMiMhLMZl0ISvQLI",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "<div id=\"winchm_template_container\" style=\"HEIGHT:1111px;WIDTH:510px;TOP:74px\"><div id=\"winchm_template_content\"><div id=\"msg_1138650\"><p>你在为避免陷入魅惑或恐惧，或者结束这些状态所做的豁免检定中具有优势</p></div></div></div>",
       "tint": "#ffffff",
@@ -298,67 +404,65 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757152944870,
         "modifiedTime": 1757153624009,
         "lastModifiedBy": "WlyFYC2sYFseAvyj",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!CMiMhLMZl0ISvQLI.rmrv6EqZMt5D5mQu"
     },
     {
       "name": "覆鳞饰物(神化) Scaled Ornament",
       "img": "icons/equipment/neck/choker-simple-teeth.webp",
-      "origin": "Compendium.dnd5e_classpack.itempack.Item.CMiMhLMZl0ISvQLI",
+      "origin": null,
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.attributes.movement.fly",
-          "mode": 2,
-          "value": "30",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.movement.speeds.fly",
+            "value": 30,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "C79nHBUmSQHGjMVa",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.itempack.Item.CMiMhLMZl0ISvQLI",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -376,80 +480,86 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757153789598,
         "modifiedTime": 1757154025180,
         "lastModifiedBy": "WlyFYC2sYFseAvyj",
         "exportSource": null
       },
       "_id": "N1DSiAgv5gys2yg1",
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!CMiMhLMZl0ISvQLI.N1DSiAgv5gys2yg1"
     },
     {
       "name": "覆鳞饰物(激活) Scaled Ornament",
       "img": "icons/equipment/neck/choker-simple-teeth.webp",
-      "origin": "Compendium.dnd5e_classpack.itempack.Item.CMiMhLMZl0ISvQLI",
+      "origin": null,
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.traits.ci.value",
-          "mode": 2,
-          "value": "frightened",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.ci.value",
+            "value": "frightened",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "PYZLYXNEwkdVk0ii",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.ci.value",
+            "value": "charmed",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "26zkJPWMEMI2Tfwe",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.attributes.ac.bonus",
+            "value": 1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "lMJrp1EZyA5hLmWG",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "system.traits.ci.value",
-          "mode": 2,
-          "value": "charmed",
-          "priority": 20
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.itempack.Item.CMiMhLMZl0ISvQLI",
+          "message": null
         },
-        {
-          "key": "system.attributes.ac.bonus",
-          "mode": 2,
-          "value": "1",
-          "priority": 20
-        }
-      ],
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -467,43 +577,27 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757154005623,
         "modifiedTime": 1757154012371,
         "lastModifiedBy": "WlyFYC2sYFseAvyj",
         "exportSource": null
       },
       "_id": "bVfkMmyHH4jLy6Tt",
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!CMiMhLMZl0ISvQLI.bVfkMmyHH4jLy6Tt"
     }
   ],
@@ -530,19 +624,14 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1757152708990,
     "modifiedTime": 1757873102303,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

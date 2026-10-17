@@ -2,7 +2,7 @@
   "_id": "xY023jpDjfgyXQ1Q",
   "name": "阴影视野 Umbral Sight",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Creature_Cursed_05.png",
+  "img": "icons/magic/perception/shadow-stealth-eyes-purple.webp",
   "system": {
     "type": {
       "value": "class",
@@ -25,45 +25,35 @@
     "requirements": "幽域追踪者等级 3",
     "activities": {},
     "identifier": "-umbral-sight",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 3,
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
   "effects": [
     {
       "_id": "wjeVQ3tOEW9NdJ1C",
-      "changes": [
-        {
-          "key": "system.attributes.senses.darkvision",
-          "mode": 4,
-          "value": "60",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": "Compendium.dnd5e_classpack.extra-ability.xY023jpDjfgyXQ1Q",
       "transfer": true,
       "flags": {},
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -72,24 +62,47 @@
         "exportSource": null
       },
       "name": "获得 60 尺黑暗视觉",
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Creature_Cursed_05.png",
+      "img": "icons/magic/perception/shadow-stealth-eyes-purple.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.senses.ranges.darkvision",
+            "value": 60,
+            "priority": null,
+            "type": "upgrade",
+            "phase": "initial",
+            "_id": "yOg1crII0IRtLnms",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!xY023jpDjfgyXQ1Q.wjeVQ3tOEW9NdJ1C"
     }
   ],
   "folder": "YVE5sGSvJ9UcCvVL",
   "sort": 51100000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -116,9 +129,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757417062317,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

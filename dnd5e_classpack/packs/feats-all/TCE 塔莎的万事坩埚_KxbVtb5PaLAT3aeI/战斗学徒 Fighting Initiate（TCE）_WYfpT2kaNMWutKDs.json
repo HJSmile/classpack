@@ -5,10 +5,10 @@
   "system": {
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "description": {
-      "value": "<p>你的军事训练帮助你养成了一种特定的战术风格。因此，你可以从战士职业中选择并习得一项@UUID[Compendium.dnd5e_classpack.class-abilityphb.0LbuXQnP6LC0gn3H]{战斗风格}/@UUID[Compendium.dnd5e_classpack.extra-ability.wfzlpRPC5owayAq5]{额外战斗风格}。如果你已经有一项战斗风格，你不能选择相同的战斗风格。<br />每当你升级并达到获得属性值提升特性的等级时，你可以来自此专长的战斗风格替换为战士职业中的另一项你未习得的战斗风格。</p>",
+      "value": "<p>你的军事训练帮助你养成了一种特定的战术风格。因此，你可以从战士职业中选择并习得一项@UUID[Compendium.dnd5e_classpack.class-abilityphb.0LbuXQnP6LC0gn3H]{战斗风格}/@UUID[Compendium.dnd5e_classpack.extra-ability.wfzlpRPC5owayAq5]{额外战斗风格}。如果你已经有一项战斗风格，你不能选择相同的战斗风格。</p><p>每当你升级并达到获得属性值提升特性的等级时，你可以来自此专长的战斗风格替换为战士职业中的另一项你未习得的战斗风格。</p>",
       "chat": ""
     },
     "source": {
@@ -22,16 +22,72 @@
       "spent": null,
       "recovery": []
     },
-    "requirements": "军用武器熟练",
+    "requirements": "熟练于一种军用武器",
     "activities": {},
     "identifier": "-fighting-initiatetce",
-    "advancement": [],
+    "advancement": {
+      "0665a06ddab7b868": {
+        "_id": "0665a06ddab7b868",
+        "type": "ItemChoice",
+        "name": "战斗风格",
+        "configuration": {
+          "choices": {
+            "0": {
+              "count": 1,
+              "replacement": false
+            }
+          },
+          "allowDrops": false,
+          "type": "feat",
+          "pool": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.class-abilityphb.Item.9U4ePVABZME8Syk9",
+              "sort": 0
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.class-abilityphb.Item.8OGJqqmq5Vtx0QJy",
+              "sort": 1
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.class-abilityphb.Item.VoKRG6XqUxTz4rT3",
+              "sort": 2
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.class-abilityphb.Item.bfBqO9i1IWHXezXk",
+              "sort": 3
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.class-abilityphb.Item.uZjBfwzuVt0KO2iD",
+              "sort": 4
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.class-abilityphb.Item.En7ex9752IkmvyKQ",
+              "sort": 5
+            }
+          ],
+          "spell": null,
+          "restriction": {
+            "type": "",
+            "subtype": "",
+            "level": "",
+            "list": [],
+            "school": []
+          },
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -40,18 +96,13 @@
   "sort": 103125,
   "flags": {
     "core": {},
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_id": "WYfpT2kaNMWutKDs",
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757275287302,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

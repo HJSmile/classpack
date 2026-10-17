@@ -27,17 +27,11 @@
       "itemCondition": "",
       "effectCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
-      "value": "<div class=\"WordSection1\" style=\"LAYOUT-GRID:15.6pt none\"><p class=\"MsoNormal\" style=\"TEXT-ALIGN:left\">蕴能木法器可以是一柄权杖、法杖或是魔杖，将注满异位面能量的树木切割后制成。如果你是一名施法者，你可以使用蕴能木法器作为你的施法法器。<br />当你使用蕴能木法器施展一个造成伤害的法术时，如果法术的伤害类型与蕴能木的类别吻合，则你在伤害检定时额外+1。蕴能木类别与其匹配的伤害类型见下表：</p><p class=\"MsoNormal\" style=\"TEXT-ALIGN:left;LINE-HEIGHT:16.8pt\"><strong>蕴能木</strong> – 伤害类型<br />费尼亚（火海）<strong>岑树</strong> – 火属性<br />伊瑞安（永恒白昼）<strong>紫檀</strong> – 光耀<br />奇斯瑞（混沌漩涡）<strong>马疯木</strong> – 酸或毒素<br />拉玛尼亚（破晓森林）<strong>橡树</strong> – 闪电或雷鸣<br />玛伯尔（永恒黑夜）<strong>黑檀</strong> – 暗蚀<br />瑞西亚（冰川）<strong>松树</strong>  – 寒冷<br />萨拉法斯（战场）<strong>桦木</strong> – 力场<br />瑟瑞奥特（疯狂国度）<strong>鸡翅木</strong>– 心灵</p></div>",
+      "value": "<p style=\"TEXT-ALIGN:left\">蕴能木法器可以是一柄权杖、法杖或是魔杖，将注满异位面能量的树木切割后制成。如果你是一名施法者，你可以使用蕴能木法器作为你的施法法器。</p><p style=\"TEXT-ALIGN:left\">当你使用蕴能木法器施展一个造成伤害的法术时，如果法术的伤害类型与蕴能木的类别吻合，则你在伤害检定时额外+1。蕴能木类别与其匹配的伤害类型见下表：</p><p style=\"TEXT-ALIGN:left\"><strong>蕴能木</strong> – 伤害类型</p><p style=\"TEXT-ALIGN:left\">费尼亚（火海）<strong>岑树</strong> – 火属性</p><p style=\"TEXT-ALIGN:left\">伊瑞安（永恒白昼）<strong>紫檀</strong> – 光耀</p><p style=\"TEXT-ALIGN:left\">奇斯瑞（混沌漩涡）<strong>马疯木</strong> – 酸或毒素</p><p style=\"TEXT-ALIGN:left\">拉玛尼亚（破晓森林）<strong>橡树</strong> – 闪电或雷鸣</p><p style=\"TEXT-ALIGN:left\">玛伯尔（永恒黑夜）<strong>黑檀</strong> – 暗蚀</p><p style=\"TEXT-ALIGN:left\">瑞西亚（冰川）<strong>松树</strong>  – 寒冷</p><p style=\"TEXT-ALIGN:left\">萨拉法斯（战场）<strong>桦木</strong> – 力场</p><p style=\"TEXT-ALIGN:left\">瑟瑞奥特（疯狂国度）<strong>鸡翅木</strong>– 心灵</p>",
       "chat": ""
     },
     "source": {
@@ -57,14 +51,12 @@
     },
     "attunement": "",
     "equipped": true,
-    "rarity": "common",
     "identified": true,
     "cover": null,
-    "crewed": false,
     "range": {
       "value": null,
       "long": null,
-      "units": "",
+      "units": "ft",
       "reach": null
     },
     "uses": {
@@ -86,7 +78,8 @@
           "mode": "",
           "number": null,
           "formula": ""
-        }
+        },
+        "modifiers": []
       },
       "base": {
         "number": null,
@@ -97,7 +90,8 @@
         },
         "scaling": {
           "number": 1
-        }
+        },
+        "modifiers": []
       }
     },
     "armor": {
@@ -122,7 +116,6 @@
       "baseItem": ""
     },
     "container": null,
-    "magicalBonus": null,
     "activities": {
       "dnd5eactivity000": {
         "_id": "dnd5eactivity000",
@@ -142,18 +135,20 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -165,7 +160,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -187,17 +183,108 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "",
     "attuned": false,
-    "ammunition": {}
+    "ammunition": {},
+    "rarities": [
+      "common"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1691479186901,
     "modifiedTime": 1757871320074,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

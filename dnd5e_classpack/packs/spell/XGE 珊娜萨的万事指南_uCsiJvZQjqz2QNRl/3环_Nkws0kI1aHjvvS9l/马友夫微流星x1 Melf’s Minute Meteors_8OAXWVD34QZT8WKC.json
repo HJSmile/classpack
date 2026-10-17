@@ -2,17 +2,7 @@
   "name": "马友夫微流星x1 Melf’s Minute Meteors",
   "type": "spell",
   "flags": {
-    "dnd5e": {
-      "migratedProperties": [
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "AoETargetType": "any",
       "AoETargetTypeIncludeSelf": true,
@@ -43,11 +33,11 @@
       "sourceId": "Actor.bvEYS7EFkAFT4pCf.Item.SbBIyHQphiXAohER"
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/ability_warlock_burningembers.png",
+  "img": "icons/magic/earth/projectile-orb-asteroid-yellow.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<p>你在你所在的空间内制造出六颗微型流星。它们会悬浮在空气中，在法术的持续时间内以你为中心绕转。当你释放此法术——及在你之后的每个回合中通过使用一个附赠动作——你能释放一到两颗流星，让它们袭击你周围120英尺范围内的一点。一旦流星到达目的地，或是撞击到了固体表面，它会发生爆炸。在流星爆炸点周围5英尺的生物均必须进行一次敏捷豁免检定。检定失败者受到2d6点火焰伤害，检定成功则只受到上述伤害的一半。</p>\n<p><strong>升环效果：</strong>当你使用4环或更高的法术位施放该法术时，使用的法术位每高一环，创造出的流星数量就增加两颗。</p>",
+      "value": "<p>你在你所在的空间内制造出 6 颗微型流星。它们会悬浮在空气中，在法术的持续时间内以你为中心绕转。当你释放此法术——及在你之后的每个回合中通过使用一个附赠动作——你能释放一到两颗流星，让它们袭击你周围 120 尺范围内的一点。一旦流星到达目的地，或是撞击到了固体表面，它会发生爆炸。在流星爆炸点周围 5 尺的生物均必须进行一次[[/save activity=dnd5eactivity000]]{敏捷豁免检定}。检定失败者受到 [[/damage 2d6 type=fire]]{2d6} 点火焰伤害，检定成功则只受到上述伤害的一半。</p><p><strong>升环施法效应。</strong>当你使用四环或更高的法术位施放该法术时，使用的法术位每高一环，创造出的流星数量就增加两颗。</p>",
       "chat": ""
     },
     "source": {
@@ -63,7 +53,8 @@
     },
     "duration": {
       "value": "",
-      "units": ""
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -73,7 +64,8 @@
         "units": "ft",
         "type": "radius",
         "size": "5",
-        "contiguous": false
+        "contiguous": false,
+        "stationary": false
       }
     },
     "range": {
@@ -93,10 +85,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "atwill",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -123,22 +111,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -168,7 +160,8 @@
                 "mode": "",
                 "number": null,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -182,7 +175,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -196,7 +190,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -204,7 +199,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -215,18 +209,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "x1-melfs-minute-meteors"
+    "identifier": "x1-melfs-minute-meteors",
+    "method": "atwill",
+    "prepared": 0
   },
   "ownership": {
     "default": 0,
@@ -235,8 +278,8 @@
   "folder": "Nkws0kI1aHjvvS9l",
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711700736939,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

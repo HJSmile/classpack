@@ -2,7 +2,7 @@
   "name": "旋风打击 Hurricane Strike",
   "type": "feat",
   "_id": "xXq49jJDojpAVN4c",
-  "img": "modules/dnd5e_classpack/Nicons/images/skill_icon_178.png",
+  "img": "icons/skills/melee/sword-twirl-orange.webp",
   "system": {
     "activities": {
       "r6CYlsriJm7pyLHQ": {
@@ -23,16 +23,32 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "3FFioL6eBCP6zXLm"
+            "_id": "3FFioL6eBCP6zXLm",
+            "uuid": null,
+            "level": {},
+            "onSave": false,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1756617536699,
+              "modifiedTime": 1756617642155,
+              "lastModifiedBy": "vFLRCDyc5l72uRlV",
+              "exportSource": null
+            }
           }
         ],
         "range": {
@@ -44,7 +60,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -72,7 +89,8 @@
           "dc": {
             "calculation": "str",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -85,7 +103,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -93,7 +112,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -104,18 +122,63 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
     "uses": {
@@ -124,7 +187,7 @@
       "max": ""
     },
     "description": {
-      "value": "<p>10级起，你能将敌人高高抛起，甩向你盟友的兵刃之间。当你推动一个生物（至少 5 尺）时，你能紧随其后，用你的反应跳至一处与该生物相邻的未被占据的空间。若你使用了这一反应，那个生物还必须通过一次DC为 8+你的熟练加值+你的力量调整值 的力量豁免，否则将应击 <strong>倒地Prone</strong>。此次跳跃不消耗移动力，也不会触发借机攻击。<br />此外，当你将一个生物推入一位盟友的周围 5 尺空间内时，那个盟友能立刻用自己的反应对该生物进行一次近战武器攻击。</p>",
+      "value": "<p>10级起，你能将敌人高高抛起，甩向你盟友的兵刃之间。当你推动一个生物（至少 5 尺）时，你能紧随其后，用你的反应跳至一处与该生物相邻的未被占据的空间。若你使用了这一反应，那个生物还必须通过一次DC为 8+你的熟练加值+你的力量调整值 的力量豁免，否则将应击 <strong>倒地Prone</strong>。此次跳跃不消耗移动力，也不会触发借机攻击。</p><p>此外，当你将一个生物推入一位盟友的周围 5 尺空间内时，那个盟友能立刻用自己的反应对该生物进行一次近战武器攻击。</p>",
       "chat": ""
     },
     "identifier": "-",
@@ -132,18 +195,19 @@
       "revision": 1,
       "rules": "2024"
     },
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 10,
+      "repeatable": false,
+      "items": []
     },
     "properties": [],
     "requirements": "巨像道途等级 10",
     "type": {
-      "value": "",
+      "value": "class",
       "subtype": ""
     }
   },
@@ -151,32 +215,68 @@
     {
       "name": "倒地",
       "img": "systems/dnd5e/icons/svg/statuses/prone.svg",
-      "origin": "Compendium.dnd5e_classpack.extra-ability.Item.xXq49jJDojpAVN4c",
+      "origin": null,
       "transfer": false,
       "_id": "3FFioL6eBCP6zXLm",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.disadvantage.attack.all",
-          "mode": 0,
-          "value": "1",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.disadvantage.attack.all",
+            "value": 1,
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "GnjrAsudF9MMQkY5",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "_id": "dee561f15478deb2",
+            "key": "flags.midi-qol.grants.advantage.attack.all",
+            "value": "(distance => distance >= 0 && distance <= 5)(computeDistance(tokenUuid, \"@targetUuid\"))",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "_id": "c920266e78dd3fa8",
+            "key": "flags.midi-qol.grants.disadvantage.attack.all",
+            "value": "computeDistance(tokenUuid, \"@targetUuid\") > 5",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.extra-ability.Item.xXq49jJDojpAVN4c",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "<ul><li><p>倒地的生物只能以爬行方式移动，直至其成功起立以结束倒地状态为止。</p></li><li><p>倒地的生物发动攻击检定时具有劣势。</p></li><li><p>倒地的生物周边5尺范围内有攻击者对其发动攻击时，本次攻击所进行的攻击检定具有优势。而该范围外的攻击者对该倒地生物发动的攻击检定则具有劣势。</p></li></ul>",
       "tint": "#ffffff",
-      "statuses": [],
+      "statuses": [
+        "prone"
+      ],
       "sort": 0,
       "flags": {
         "dae": {
@@ -187,47 +287,31 @@
           "selfTargetAlways": false,
           "dontApply": false,
           "stackable": "noneName",
-          "showIcon": true,
           "durationExpression": "",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1756617536699,
         "modifiedTime": 1756617642155,
         "lastModifiedBy": "vFLRCDyc5l72uRlV",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 2,
+      "folder": null,
       "_key": "!items.effects!xXq49jJDojpAVN4c.3FFioL6eBCP6zXLm"
     }
   ],
@@ -255,19 +339,14 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1756617392869,
     "modifiedTime": 1756617536781,
     "lastModifiedBy": "vFLRCDyc5l72uRlV",

@@ -2,14 +2,14 @@
   "_id": "4LK5hBpIFgx8ttxC",
   "name": "灵能术法 Psionic Sorcery",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/spell_priest_voidsear.png",
+  "img": "icons/magic/unholy/orb-rays-blue.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>6级起，当你施放一个你通过@UUID[Compendium.dnd5e_classpack.subclass.V4Xk3D90t3HpdL06]{灵能法术}特性知晓的法术时，你可以改为使用等同于该法术环数数量的术法点而非消耗法术位施放该法术。你依然可以用法术位正常施放这些法术。</p>\n<p>当你通过此能力施放法术时，你无视该法术施法需要的语言成分或姿势成分。你同时无视该法术需要的不会消耗的材料成分。</p>",
+      "value": "<p>6级起，当你施放一个你通过@UUID[Compendium.dnd5e_classpack.subclass.V4Xk3D90t3HpdL06]{灵能法术}特性知晓的1环或更高环阶法术时，你可以改为使用等同于该法术环数数量的术法点而非消耗法术位施放该法术。你依然可以用法术位正常施放这些法术。</p>\n<p>当你通过此能力施放法术时，你无视该法术施法需要的语言成分或姿势成分。你同时无视该法术需要的不会消耗的材料成分。</p>",
       "chat": ""
     },
     "source": {
@@ -25,13 +25,16 @@
     "requirements": "畸变心智等级 6",
     "activities": {},
     "identifier": "-psionic-sorcery",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 6,
+      "repeatable": false,
+      "items": [
+        "subclass:aberrant-mind"
+      ]
     },
     "properties": []
   },
@@ -39,12 +42,7 @@
   "folder": "qH8uvjluD7l1svWJ",
   "sort": 8400000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -71,9 +69,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757407403943,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

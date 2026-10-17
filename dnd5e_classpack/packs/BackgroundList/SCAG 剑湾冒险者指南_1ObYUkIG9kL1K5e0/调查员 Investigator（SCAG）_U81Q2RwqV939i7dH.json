@@ -8,9 +8,9 @@
   "sort": 125000,
   "flags": {},
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757261977918,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",
@@ -23,7 +23,7 @@
   },
   "system": {
     "description": {
-      "value": "<blockquote><p>该背景是@UUID[Compendium.dnd5e_classpack.BackgroundList.O4XnNyF6wb8lr1f2]{城市守卫}的变体。</p></blockquote><p>比警戒或是巡逻人员更稀有的是组织的调查员，专门负责调查犯罪后的真相。尽管这些人很少出现在乡村地带，几乎每一个像样规模的案子都会有一个或者两个有调查犯罪现场和追踪罪犯技能的调查员。</p><hr /><p><strong>技能熟练：</strong>调查，洞察<br /><strong>语言：</strong>两种由你选择的语言<br /><strong>装备：</strong>一件你所在组织的标示你军衔的@UUID[Compendium.dnd5e_classpack.itempack.SzB2tPKLYh58Frt4]{制服}，一个用来召唤帮手的@UUID[Compendium.dnd5e_classpack.itempack.6C49B96341C2C6DB]{角号}，一副@UUID[Compendium.dnd5e_classpack.itempack.Item.SAL7B2r3RiCcjpta]{镣铐 Manacles}，一个装有10金币的袋子<br /><strong>特征：</strong>@UUID[Compendium.dnd5e_classpack.BackgroundFeature.w9a0Yue3VxlZx7zP]{守护者之眼 Watcher's Eye}</p><hr /><p><strong>建议特性：</strong></p><p>使用@UUID[Compendium.dnd5e_classpack.BackgroundList.eHi6eK6u9FBlvT88]{士兵}背景作为你的基础特征和动机，在适当的时候修改条目以适应你作为调查员的一员。</p>",
+      "value": "<blockquote><p>该背景是@UUID[Compendium.dnd5e_classpack.BackgroundList.O4XnNyF6wb8lr1f2]{城市守卫}的变体。</p></blockquote><p>比警戒或是巡逻人员更稀有的是组织的调查员，专门负责调查犯罪后的真相。尽管这些人很少出现在乡村地带，几乎每一个像样规模的案子都会有一个或者两个有调查犯罪现场和追踪罪犯技能的调查员。</p><h3>技能熟练：</h3><p>调查，洞察</p><h3>语言：</h3><p>两种由你选择的语言</p><h3>装备：</h3><p>一件你所在组织的标示你军衔的@UUID[Compendium.dnd5e_classpack.itempack.SzB2tPKLYh58Frt4]{制服}，一个用来召唤帮手的@UUID[Compendium.dnd5e_classpack.itempack.6C49B96341C2C6DB]{角号}，一副@UUID[Compendium.dnd5e_classpack.itempack.Item.SAL7B2r3RiCcjpta]{镣铐 Manacles}，一个装有10金币的袋子</p><h3>特征：</h3><p>@UUID[Compendium.dnd5e_classpack.BackgroundFeature.w9a0Yue3VxlZx7zP]{守护者之眼 Watcher's Eye}</p><h3><strong>建议特性：</strong></h3><p>使用@UUID[Compendium.dnd5e_classpack.BackgroundList.eHi6eK6u9FBlvT88]{士兵}背景作为你的基础特征和动机，在适当的时候修改条目以适应你作为调查员的一员。</p>",
       "chat": ""
     },
     "source": {
@@ -32,34 +32,38 @@
       "rules": "2014",
       "book": "SCAG"
     },
-    "advancement": [
-      {
+    "advancement": {
+      "7u9xicbkt7n4ynei": {
         "_id": "7u9xicbkt7n4ynei",
         "type": "ItemGrant",
         "configuration": {
           "items": [
             {
-              "uuid": "Compendium.dnd5e_classpack.BackgroundFeature.w9a0Yue3VxlZx7zP",
-              "optional": false
+              "uuid": "Compendium.dnd5e_classpack.BackgroundFeature.Item.w9a0Yue3VxlZx7zP",
+              "optional": false,
+              "sort": 0
             }
           ],
           "optional": false,
-          "spell": null
+          "spell": null,
+          "sorting": "m"
         },
         "value": {},
         "level": 0,
-        "title": "获得背景特性",
-        "icon": null
+        "name": "获得背景特性",
+        "img": null,
+        "flags": {},
+        "hint": ""
       },
-      {
+      "6NAZ3rwL1qX5hE8c": {
         "_id": "6NAZ3rwL1qX5hE8c",
         "type": "Trait",
         "configuration": {
           "mode": "default",
           "allowReplacements": true,
           "grants": [
-            "skills:ins",
-            "skills:ath"
+            "skills:inv",
+            "skills:ins"
           ],
           "choices": []
         },
@@ -67,11 +71,12 @@
           "chosen": []
         },
         "level": 0,
-        "title": "",
         "hint": "",
-        "icon": null
+        "name": "",
+        "img": null,
+        "flags": {}
       },
-      {
+      "S8OqfVyiAG7F21lV": {
         "type": "Trait",
         "configuration": {
           "mode": "default",
@@ -91,40 +96,48 @@
           "chosen": []
         },
         "level": 0,
-        "title": "",
         "hint": "",
-        "icon": null,
-        "_id": "S8OqfVyiAG7F21lV"
+        "_id": "S8OqfVyiAG7F21lV",
+        "name": "",
+        "img": null,
+        "flags": {}
       },
-      {
+      "KtJt36VOI1jKBZYE": {
         "_id": "KtJt36VOI1jKBZYE",
         "type": "ItemGrant",
         "configuration": {
           "items": [
             {
               "uuid": "Compendium.dnd5e_classpack.itempack.Item.BfXf59a1jb1jxLQ1",
-              "optional": false
+              "optional": false,
+              "sort": 0
             },
             {
               "uuid": "Compendium.dnd5e_classpack.itempack.Item.SzB2tPKLYh58Frt4",
-              "optional": false
+              "optional": false,
+              "sort": 0
             },
             {
               "uuid": "Compendium.dnd5e_classpack.itempack.Item.6C49B96341C2C6DB",
-              "optional": false
+              "optional": false,
+              "sort": 0
             },
             {
-              "uuid": "Compendium.dnd5e_classpack.itempack.Item.SAL7B2r3RiCcjpta",
-              "optional": false
+              "uuid": "Compendium.dnd5e_classpack.itempack.Item.lrY5i0uWVAQx258r",
+              "optional": false,
+              "sort": 0
             }
           ],
           "optional": false,
-          "spell": null
+          "spell": null,
+          "sorting": "m"
         },
         "value": {},
-        "level": 0
+        "level": 0,
+        "flags": {},
+        "hint": ""
       }
-    ],
+    },
     "identifier": "-investigatorscag",
     "startingEquipment": []
   },

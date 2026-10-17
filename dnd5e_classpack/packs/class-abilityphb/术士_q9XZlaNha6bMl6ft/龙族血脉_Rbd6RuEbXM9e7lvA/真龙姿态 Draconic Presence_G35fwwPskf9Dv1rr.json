@@ -2,14 +2,14 @@
   "_id": "G35fwwPskf9Dv1rr",
   "name": "真龙姿态 Draconic Presence",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/ability_deathwing_cataclysm.png",
+  "img": "icons/creatures/abilities/dragon-breath-purple.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>18级起，你可以导引你@UUID[Compendium.dnd5e_classpack.class-abilityphb.02apnvdAC94ksZIV]{巨龙先祖}的恐怖气息，使你周围的生物感到震撼或恐慌。你可以用一个动作和5术法点引导这股力量，并张开一个60尺范围的震撼（或恐惧）灵光。在1分钟内，只要你保持专注（等同于施法时进行专注），在灵光范围内开始其回合的每个敌对生物都必须进行一次感知豁免，豁免失败则被魅惑（震撼灵光）或陷入恐慌（恐惧灵光）直至灵光消失。豁免成功者将在随后的24小时内免疫你的灵光效应。</p>",
+      "value": "<p>18级起，你可以导引你@UUID[Compendium.dnd5e_classpack.class-abilityphb.02apnvdAC94ksZIV]{巨龙先祖}的恐怖气息，使你周围的生物感到震撼或恐慌。你可以用一个动作和5术法点引导这股力量，并张开一个60尺范围的震撼（或恐惧）灵光。在1分钟内，只要你保持专注（等同于施法时进行专注），在灵光范围内开始其回合的每个敌对生物都必须进行一次[[/save activity=lZe3tYAXXlLinab3]]{感知豁免}，豁免失败则被魅惑（震撼灵光）或陷入&amp;Reference[condition=frightened apply=false]{恐慌}（恐惧灵光）直至灵光消失。豁免成功者将在随后的24小时内免疫你的灵光效应。</p>",
       "chat": ""
     },
     "source": {
@@ -43,25 +43,32 @@
             {
               "type": "itemUses",
               "value": "5",
-              "target": "Compendium.dnd5e_classpack.class-abilityphb.Item.Q3AW3csi2dBTMvPm"
+              "target": "Compendium.dnd5e_classpack.class-abilityphb.Item.Q3AW3csi2dBTMvPm",
+              "scaling": {}
             }
           ]
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "minute",
           "concentration": true,
-          "override": false,
-          "value": "1"
+          "override": true,
+          "value": 1,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "xFxIzzr6rvJMF6LI"
+            "_id": "7b0abf448780b093",
+            "uuid": null,
+            "level": {}
           },
           {
-            "_id": "VMwfJHaDrWVmCBAu"
+            "_id": "fbbe906b0413ea7d",
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
@@ -73,7 +80,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -104,7 +112,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -112,7 +121,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -123,28 +131,69 @@
           "rollMode": "default",
           "chooseEffects": true,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "name": "",
         "img": "",
-        "appliedEffects": [
-          "xFxIzzr6rvJMF6LI",
-          "VMwfJHaDrWVmCBAu"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       },
       "lZe3tYAXXlLinab3": {
         "type": "save",
         "_id": "lZe3tYAXXlLinab3",
         "sort": 0,
         "activation": {
-          "type": "action",
+          "type": "special",
           "value": null,
           "override": false,
           "condition": ""
@@ -153,32 +202,37 @@
           "scaling": {
             "allowed": false
           },
-          "spellSlot": true,
+          "spellSlot": false,
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "self",
-          "override": false,
-          "special": ""
+          "units": "ft",
+          "override": true,
+          "special": "",
+          "value": 60
         },
         "target": {
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
-            "type": ""
+            "type": "creature",
+            "count": "1"
           },
           "override": false,
           "prompt": true
@@ -200,9 +254,10 @@
             "wis"
           ],
           "dc": {
-            "calculation": "spellcasting",
+            "calculation": "cha",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -215,7 +270,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -223,39 +279,87 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
           "automationOnly": true,
           "otherActivityCompatible": false,
-          "identifier": "",
+          "identifier": "save-for-dragon",
           "displayActivityName": false,
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": true,
         "overTimeProperties": {
-          "saveRemoves": true,
+          "saveRemoves": false,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "source",
+          "turnChoice": "start"
         },
         "otherActivityId": "none",
         "name": "save-for-dragon",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 18,
+      "repeatable": false,
+      "items": [
+        "subclass:draconic-bloodline"
+      ]
     },
     "properties": [
       "mgc"
@@ -264,39 +368,38 @@
   "effects": [
     {
       "name": "真龙姿态 恐慌",
-      "img": "modules/dnd5e_classpack/Nicons/ability_deathwing_cataclysm.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.G35fwwPskf9Dv1rr",
+      "img": "icons/creatures/abilities/dragon-breath-purple.webp",
+      "origin": null,
       "transfer": false,
       "_id": "xFxIzzr6rvJMF6LI",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "macro.StatusEffect",
-          "mode": 0,
-          "value": "frightened",
-          "priority": 20
+      "system": {
+        "changes": [],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.ActivityOverTime",
-          "mode": 2,
-          "value": "save-for-dragon",
-          "priority": 20
-        }
-      ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.G35fwwPskf9Dv1rr",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "minutes",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
-      "statuses": [],
+      "statuses": [
+        "frightened"
+      ],
       "sort": 0,
       "flags": {
         "dae": {
@@ -310,82 +413,69 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
         },
-        "ActiveAuras": {
-          "isAura": true,
-          "aura": "Enemy",
-          "nameOverride": "",
-          "radius": "60",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": true,
-          "height": false,
-          "hidden": false,
-          "displayTemp": true,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
+        "dnd5e_classpack": {
+          "draconicConditionTemplate": "fear"
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757273722028,
         "modifiedTime": 1757274064077,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!G35fwwPskf9Dv1rr.xFxIzzr6rvJMF6LI"
     },
     {
       "name": "真龙姿态 魅惑",
-      "img": "modules/dnd5e_classpack/Nicons/ability_deathwing_cataclysm.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.G35fwwPskf9Dv1rr",
+      "img": "icons/creatures/abilities/dragon-breath-purple.webp",
+      "origin": null,
       "transfer": false,
       "_id": "VMwfJHaDrWVmCBAu",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "macro.StatusEffect",
-          "mode": 0,
-          "value": "charmed",
-          "priority": 20
+      "system": {
+        "changes": [],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.ActivityOverTime",
-          "mode": 2,
-          "value": "save-for-dragon",
-          "priority": 20
-        }
-      ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.G35fwwPskf9Dv1rr",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "minutes",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
-      "statuses": [],
+      "statuses": [
+        "charmed"
+      ],
       "sort": 0,
       "flags": {
         "dae": {
@@ -399,46 +489,228 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
         },
-        "ActiveAuras": {
-          "isAura": true,
-          "aura": "Enemy",
-          "nameOverride": "",
-          "radius": "60",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": true,
-          "height": false,
-          "hidden": false,
-          "displayTemp": true,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
+        "dnd5e_classpack": {
+          "draconicConditionTemplate": "awe"
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757273722719,
         "modifiedTime": 1757274062554,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!G35fwwPskf9Dv1rr.VMwfJHaDrWVmCBAu"
+    },
+    {
+      "name": "真龙姿态：恐惧灵光",
+      "img": "icons/creatures/abilities/dragon-breath-purple.webp",
+      "origin": null,
+      "transfer": false,
+      "_id": "7b0abf448780b093",
+      "type": "auraeffects.aura",
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.ActivityOverTime",
+            "value": "save-for-dragon",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "",
+            "conditions": "{}",
+            "_id": "cb0b9af25ecd6bc4"
+          },
+          {
+            "key": "flags.dnd5e_classpack.draconicDC",
+            "value": "8 + @prof + @abilities.cha.mod",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "origin",
+            "conditions": "{}",
+            "_id": "9099e16d18272e9e"
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.G35fwwPskf9Dv1rr",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "showRadius": true,
+        "applyToSelf": false,
+        "bestFormula": "",
+        "canStack": false,
+        "color": null,
+        "combatOnly": false,
+        "disableOnHidden": false,
+        "distanceFormula": "60",
+        "disposition": 0,
+        "evaluatePreApply": true,
+        "overrideName": "",
+        "script": "sourceToken.document.disposition * token.document.disposition === -1 && !actor.appliedEffects.some(e => !e.disabled && !e.isSuppressed && e.flags.dnd5e_classpack?.draconicImmunity?.actorUuid === sourceToken.actor.uuid && e.flags.dnd5e_classpack.draconicImmunity.expiresAt > game.time.worldTime)",
+        "stashedChanges": [],
+        "stashedStatuses": [],
+        "collisionType": "move"
+      },
+      "disabled": false,
+      "duration": {
+        "value": 1,
+        "units": "minutes",
+        "expiry": null,
+        "expired": false
+      },
+      "description": "",
+      "tint": "#ffffff",
+      "statuses": [],
+      "sort": 0,
+      "flags": {
+        "dae": {
+          "applicationMode": "dnd5e",
+          "stackable": "noneName",
+          "specialDuration": [],
+          "selfTarget": false,
+          "selfTargetAlways": false
+        },
+        "dnd5e_classpack": {
+          "draconicMode": "fear"
+        }
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
+        "createdTime": 1757273722028,
+        "modifiedTime": 1757274064077,
+        "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+        "exportSource": null
+      },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
+      "_key": "!items.effects!G35fwwPskf9Dv1rr.7b0abf448780b093"
+    },
+    {
+      "name": "真龙姿态：震撼灵光",
+      "img": "icons/creatures/abilities/dragon-breath-purple.webp",
+      "origin": null,
+      "transfer": false,
+      "_id": "fbbe906b0413ea7d",
+      "type": "auraeffects.aura",
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.ActivityOverTime",
+            "value": "save-for-dragon",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "",
+            "conditions": "{}",
+            "_id": "a6ccd920e5561366"
+          },
+          {
+            "key": "flags.dnd5e_classpack.draconicDC",
+            "value": "8 + @prof + @abilities.cha.mod",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "origin",
+            "conditions": "{}",
+            "_id": "68adb3faf51a8114"
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.G35fwwPskf9Dv1rr",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "showRadius": true,
+        "applyToSelf": false,
+        "bestFormula": "",
+        "canStack": false,
+        "color": null,
+        "combatOnly": false,
+        "disableOnHidden": false,
+        "distanceFormula": "60",
+        "disposition": 0,
+        "evaluatePreApply": true,
+        "overrideName": "",
+        "script": "sourceToken.document.disposition * token.document.disposition === -1 && !actor.appliedEffects.some(e => !e.disabled && !e.isSuppressed && e.flags.dnd5e_classpack?.draconicImmunity?.actorUuid === sourceToken.actor.uuid && e.flags.dnd5e_classpack.draconicImmunity.expiresAt > game.time.worldTime)",
+        "stashedChanges": [],
+        "stashedStatuses": [],
+        "collisionType": "move"
+      },
+      "disabled": false,
+      "duration": {
+        "value": 1,
+        "units": "minutes",
+        "expiry": null,
+        "expired": false
+      },
+      "description": "",
+      "tint": "#ffffff",
+      "statuses": [],
+      "sort": 0,
+      "flags": {
+        "dae": {
+          "applicationMode": "dnd5e",
+          "stackable": "noneName",
+          "specialDuration": [],
+          "selfTarget": false,
+          "selfTargetAlways": false
+        },
+        "dnd5e_classpack": {
+          "draconicMode": "awe"
+        }
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
+        "createdTime": 1757273722719,
+        "modifiedTime": 1757274062554,
+        "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+        "exportSource": null
+      },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
+      "_key": "!items.effects!G35fwwPskf9Dv1rr.fbbe906b0413ea7d"
     }
   ],
   "folder": "Rbd6RuEbXM9e7lvA",
@@ -448,21 +720,15 @@
     "entityorder": {
       "order": 68
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
       "itemCondition": "",
       "reactionCondition": "",
       "otherCondition": "",
-      "effectCondition": ""
+      "effectCondition": "",
+      "onUseMacroName": "[preItemRoll]ItemMacro,[postSave]ItemMacro"
     },
     "midiProperties": {
       "autoFailFriendly": false,
@@ -472,12 +738,19 @@
       "noConcentrationCheck": false,
       "toggleEffect": false,
       "ignoreTotalCover": false
+    },
+    "dae": {
+      "macro": {
+        "name": "真龙姿态 Draconic Presence",
+        "type": "script",
+        "command": "if (workflow.activity?.identifier !== \"save-for-dragon\") return;\nconst helperUuid = workflow.workflowOptions?.overTimeEffectUuid;\nconst helper = helperUuid ? await fromUuid(helperUuid) : null;\nconst sourceUuid = helper?.flags.auraeffects?.fromAura;\nconst source = sourceUuid ? await fromUuid(sourceUuid) : null;\nif (!source) return false;\nconst caster = source.actor ?? source.parent;\nconst mode = source.flags.dnd5e_classpack.draconicMode;\nconst now = game.time.worldTime;\nconst immune = actor => actor.appliedEffects.some(effect => !effect.disabled && !effect.isSuppressed\n  && effect.flags.dnd5e_classpack?.draconicImmunity?.actorUuid === caster.uuid\n  && effect.flags.dnd5e_classpack.draconicImmunity.expiresAt > now);\nif (args[0]?.macroPass === \"preItemRoll\") {\n  if ([...workflow.targets].every(target => immune(target.actor))) return false;\n  const value = source._source.system.changes.find(c => c.key === \"flags.dnd5e_classpack.draconicDC\")?.value;\n  const dc = foundry.dice.Roll.safeEval(String(value));\n  Object.assign(workflow.activity.save.dc, { calculation: \"\", formula: String(dc), value: dc });\n  return;\n}\nif (args[0]?.macroPass !== \"postSave\") return;\nfor (const target of workflow.saves) {\n  const lingering = target.actor.appliedEffects.filter(effect =>\n    effect.flags.dnd5e_classpack?.draconicCondition?.actorUuid === caster.uuid);\n  if (lingering.length) await MidiQOL.socket().executeAsGM(\"removeEffects\", {\n    actorUuid: target.actor.uuid, effects: lingering.map(effect => effect.id)\n  });\n  if (immune(target.actor)) continue;\n  await MidiQOL.socket().executeAsGM(\"createEffects\", {\n    actorUuid: target.actor.uuid,\n    effects: [{ name: `${macroItem.name}：免疫`, img: macroItem.img, type: \"base\", transfer: false,\n      origin: macroItem.uuid, statuses: [],\n      duration: { value: 24, units: \"hours\", expiry: null },\n      system: { changes: [], magical: false, origin: { actor: caster.uuid, item: macroItem.uuid } },\n      flags: { dnd5e_classpack: { draconicImmunity: { actorUuid: caster.uuid, expiresAt: now + 86400 } } }\n    }]\n  });\n}\nfor (const target of workflow.failedSaves) {\n  if (immune(target.actor)) continue;\n  const existing = target.actor.appliedEffects.some(effect => !effect.disabled && !effect.isSuppressed\n    && effect.flags.dnd5e_classpack?.draconicCondition?.sourceUuid === source.uuid);\n  if (existing) continue;\n  const template = macroItem.effects.find(effect => effect.flags.dnd5e_classpack?.draconicConditionTemplate === mode);\n  const data = template.toObject();\n  delete data._id; delete data._key;\n  data.origin = macroItem.uuid;\n  data.duration = { value: Math.max(1, (source.start?.time ?? now) + 60 - now), units: \"seconds\", expiry: null };\n  data.system.origin = { actor: caster.uuid, item: macroItem.uuid, effect: source.uuid };\n  data.flags.dnd5e ??= {};\n  data.flags.dnd5e.dependentOn = source.uuid;\n  data.flags.dnd5e_classpack.draconicCondition = { actorUuid: caster.uuid, sourceUuid: source.uuid };\n  await MidiQOL.socket().executeAsGM(\"createEffects\", { actorUuid: target.actor.uuid, effects: [data] });\n}\n"
+      }
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757274004354,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

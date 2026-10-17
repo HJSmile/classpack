@@ -32,14 +32,7 @@
       "idv": false,
       "ida": false
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
@@ -63,10 +56,8 @@
     },
     "attunement": "",
     "equipped": false,
-    "rarity": "uncommon",
     "identified": true,
     "cover": null,
-    "crewed": false,
     "uses": {
       "max": "1",
       "recovery": [
@@ -79,8 +70,7 @@
     },
     "armor": {
       "value": 0,
-      "dex": 0,
-      "magicalBonus": null
+      "dex": 0
     },
     "hp": {
       "value": 0,
@@ -90,7 +80,8 @@
     },
     "speed": {
       "value": null,
-      "conditions": ""
+      "conditions": "",
+      "units": "ft"
     },
     "strength": 0,
     "proficient": null,
@@ -111,11 +102,10 @@
         "spell": {
           "uuid": "Compendium.dnd5e_classpack.spell.Item.IkgKSSiBuGa5TPLB",
           "challenge": {
-            "attack": 5,
-            "save": null,
+            "attack": "5",
             "override": true
           },
-          "level": "2",
+          "level": 2,
           "properties": [
             "vocal",
             "somatic",
@@ -139,17 +129,20 @@
           "targets": [
             {
               "type": "itemUses",
-              "value": "1"
+              "value": "1",
+              "scaling": {}
             }
           ]
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "range": {
           "units": "self",
@@ -158,7 +151,8 @@
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -182,7 +176,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -190,7 +185,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "never",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -201,25 +195,76 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "",
-        "img": ""
+        "img": "",
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
     "identifier": "-circlet-of-blasting",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "uncommon"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1713010438641,
     "modifiedTime": 1757871107807,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

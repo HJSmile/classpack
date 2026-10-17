@@ -5,33 +5,16 @@
   "effects": [
     {
       "name": "虔信护符+1  Amulet of the Devout",
-      "origin": "Item.RDDEpsv3VSON4N8V",
+      "origin": null,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "transfer": true,
       "disabled": false,
       "_id": "GzZLsyKPssceeZJp",
-      "changes": [
-        {
-          "key": "system.bonuses.spell.attack",
-          "mode": 0,
-          "value": "1",
-          "priority": 20
-        },
-        {
-          "key": "system.bonuses.spell.dc",
-          "mode": 0,
-          "value": "1",
-          "priority": 20
-        }
-      ],
       "description": "",
       "statuses": [],
       "flags": {
@@ -47,9 +30,9 @@
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -59,8 +42,46 @@
       },
       "img": "icons/equipment/neck/pendant-rough-silver-blue.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.rolls.attack.spell.bonus",
+            "value": 1,
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "ZTfIXLqyPaCh4GH9",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.bonuses.spell.dc",
+            "value": 1,
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "mFVboDHtOejlDNn1",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Item.RDDEpsv3VSON4N8V",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!ZPMTGzQ3EsPcZcjs.GzZLsyKPssceeZJp"
     }
   ],
@@ -89,14 +110,7 @@
       "reactionCondition": "",
       "effectCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 3,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "guardianEmblem",
@@ -107,7 +121,7 @@
   },
   "system": {
     "description": {
-      "value": "<p><em style=\"mso-bidi-font-style:normal\">圣徽</em><em style=\"mso-bidi-font-style:normal\">（需牧师或圣武士同调）</em></p><p>这枚纹章是一位神祇或一种超自然传承的徽章。作为一个动作，你可以将徽章附上一套护甲或一面盾牌或移下。<br />徽章具有3发充能。当你穿戴着附有徽章的护甲或装备着附有徽章的盾牌，且你或一个距离你30尺内且你可见的生物受到一次重击时，你可以用一个反应并消耗1发充能将重击命中改为普通命中。<br />徽章在每天黎明时恢复所有已消耗的充能。</p>",
+      "value": "<p><em style=\"mso-bidi-font-style:normal\">圣徽</em><em style=\"mso-bidi-font-style:normal\">（需牧师或圣武士同调）</em></p><p>这枚纹章是一位神祇或一种超自然传承的徽章。作为一个动作，你可以将徽章附上一套护甲或一面盾牌或移下。</p><p>徽章具有3发充能。当你穿戴着附有徽章的护甲或装备着附有徽章的盾牌，且你或一个距离你30尺内且你可见的生物受到一次重击时，你可以用一个反应并消耗1发充能将重击命中改为普通命中。</p><p>徽章在每天黎明时恢复所有已消耗的充能。</p>",
       "chat": ""
     },
     "source": {
@@ -127,10 +141,8 @@
     },
     "attunement": "required",
     "equipped": false,
-    "rarity": "uncommon",
     "identified": true,
     "cover": null,
-    "crewed": false,
     "uses": {
       "max": "3",
       "recovery": [
@@ -143,8 +155,7 @@
     },
     "armor": {
       "value": 0,
-      "dex": 0,
-      "magicalBonus": null
+      "dex": 0
     },
     "hp": {
       "value": 0,
@@ -154,7 +165,8 @@
     },
     "speed": {
       "value": null,
-      "conditions": ""
+      "conditions": "",
+      "units": "ft"
     },
     "strength": 0,
     "proficient": null,
@@ -198,18 +210,20 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -221,7 +235,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "0",
@@ -243,16 +258,107 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-guardian-emblem",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "uncommon"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1692348996712,
     "modifiedTime": 1757871321964,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

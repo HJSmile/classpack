@@ -26,23 +26,13 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/httpcloud3steamusercontentcomugc8425905989904532955B410E9FCB50232D4D5417826764D05EEDD07443.jpg",
+  "img": "icons/magic/nature/plant-undersea-orb-purple.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 此法术将塑造一个生物的梦境。指定一个你已认知且与你同处一个位面的生物。那些不睡眠的生物（比如精灵），则不会被该法术影响。你或一个被你触碰的自愿生物，将作为信使进入出神状态。该状态下，信使能够意识到自己周围的状况，但是不能执行动作或进行移动。\n<br />如果目标正睡着，则信使可以进入其梦中并在其沉睡期间与之交流。信使可以在法术持续时间内在梦中创造景观、物件和其他影像。信使可以随时结束出神状态并提前终止法术效应。而目标在完全醒来后，可以回忆其梦境的内容。如果你施法时目标醒着，则信使可以了解到这点。此时信使可以终止出神和法术，或是等待目标入睡再进入其梦境。\n<br />你可以让信使以可怕的形象出现。但此时信使只能提供不超过十个单词的信息，而且目标必须成功通过一次感知豁免。豁免失败时，怪影萦绕的噩梦就会影响目标的睡眠，使其无法从休息中获益。并且在其醒来时受到3d6点心灵伤害。\n<br />如果你拥有目标身体的部分，比如头发，指甲或类似的东西。则目标进行该豁免时具有劣势。\n<br /></div>",
+      "value": "<p>此法术将塑造一个生物的梦境。指定一个你已认知且与你同处一个位面的生物。那些不睡眠的生物（比如精灵），则不会被该法术影响。你或一个被你触碰的自愿生物，将作为信使进入出神状态。该状态下，信使能够意识到自己周围的状况，但是不能执行动作或进行移动。</p><p>如果目标正睡着，则信使可以进入其梦中并在其沉睡期间与之交流。信使可以在法术持续时间内在梦中创造景观、物件和其他影像。信使可以随时结束出神状态并提前终止法术效应。而目标在完全醒来后，可以回忆其梦境的内容。如果你施法时目标醒着，则信使可以了解到这点。此时信使可以终止出神和法术，或是等待目标入睡再进入其梦境。</p><p>你可以让信使以可怕的形象出现。但此时信使只能提供不超过十个单词的信息，而且目标必须成功通过一次[[/save activity=dnd5eactivity000]]{感知豁免}。豁免失败时，怪影萦绕的噩梦就会影响目标的睡眠，使其无法从休息中获益。并且在其醒来时受到 [[/damage 3d6 type=psychic]]{3d6} 点心灵伤害。</p><p>如果你拥有目标身体的部分，比如头发，指甲或类似的东西。则目标进行该豁免时具有劣势。</p>",
       "chat": ""
     },
     "source": {
@@ -58,7 +48,8 @@
     },
     "duration": {
       "value": "8",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -68,9 +59,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -90,10 +82,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -119,22 +107,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -164,7 +156,8 @@
                 "mode": "",
                 "number": null,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -178,7 +171,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -192,7 +186,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -200,7 +195,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -211,18 +205,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "dream"
+    "identifier": "dream",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -231,8 +274,8 @@
   "sort": 28300000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

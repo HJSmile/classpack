@@ -2,14 +2,14 @@
   "_id": "HLXS5pd6WfRE3anL",
   "name": "缠绕矢 Grasping Arrow",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Hunter_CobraShot.png",
+  "img": "icons/magic/nature/leaf-arrowheads-glow-green.webp",
   "system": {
     "type": {
       "value": "class",
-      "subtype": ""
+      "subtype": "arcaneShot"
     },
     "description": {
-      "value": "<p>         当这次攻击击中目标时，咒法魔法会创造一团紧抓着的毒性荆棘来困住目标。被这发箭击中的角色会额外受到[[/r 2d6]]的毒性伤害，他的速度减少10尺，当他在每个回合第一次不使用传送移动1尺以上的距离时他会受到[[/r 2d6]]的挥砍伤害。这个目标或其他能触碰到荆棘的角色可以使用一个动作，以一个成功对抗你的奥术射击DC的力量（体能）检定来解除荆棘。否则，荆棘会在1分钟后或者你再次使用该选项时结束。</p>\n<p>         当你的战士等级到18级时该毒性和挥砍伤害增加到[[/r 4d6]]。</p>",
+      "value": "<p>         当这次攻击击中目标时，咒法魔法会创造一团紧抓着的毒性荆棘来困住目标。被这发箭击中的角色会额外受到[[/r 2d6]]的毒性伤害，他的速度减少10尺，当他在每个回合第一次不使用传送移动1尺以上的距离时他会受到[[/damage 2d6 type=slashing]]{2d6}的挥砍伤害。这个目标或其他能触碰到荆棘的角色可以使用一个动作，以一个成功对抗你的奥术射击DC的力量（体能）检定来解除荆棘。否则，荆棘会在1分钟后或者你再次使用该选项时结束。</p>\n<p>         当你的战士等级到18级时该毒性和挥砍伤害增加到[[/r 4d6]]。</p>",
       "chat": ""
     },
     "source": {
@@ -38,7 +38,8 @@
             {
               "type": "itemUses",
               "value": "1",
-              "target": "Compendium.dnd5e_classpack.extra-ability.Item.w3EVK3XBgi1HZ5K2"
+              "target": "Compendium.dnd5e_classpack.extra-ability.Item.w3EVK3XBgi1HZ5K2",
+              "scaling": {}
             }
           ],
           "scaling": {
@@ -48,17 +49,21 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "jkwfNDaaE7Q7pr2R"
+            "_id": "jkwfNDaaE7Q7pr2R",
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
@@ -74,7 +79,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -96,14 +102,12 @@
           "dc": {
             "calculation": "",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "name": "毒素伤害",
         "img": "",
-        "appliedEffects": [
-          "jkwfNDaaE7Q7pr2R"
-        ],
         "damage": {
           "onSave": "full",
           "parts": [
@@ -117,10 +121,102 @@
               "bonus": "",
               "types": [
                 "poison"
-              ]
+              ],
+              "modifiers": [],
+              "scaling": {
+                "number": 1
+              }
             }
-          ]
-        }
+          ],
+          "critical": {
+            "allow": false
+          }
+        },
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       },
       "DbXnJMBlAcPb4X6j": {
         "type": "damage",
@@ -140,12 +236,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -157,7 +255,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -186,7 +285,11 @@
               "bonus": "",
               "types": [
                 "slashing"
-              ]
+              ],
+              "modifiers": [],
+              "scaling": {
+                "number": 1
+              }
             }
           ]
         },
@@ -201,7 +304,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -209,7 +313,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -220,42 +323,88 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "移动挥砍伤害",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
     "identifier": "-grasping-arrow",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 3,
+      "repeatable": false,
+      "items": [
+        "subclass:arcane-archer"
+      ]
     },
-    "properties": []
+    "properties": [
+      "mgc"
+    ]
   },
   "effects": [
     {
       "name": "缠绕箭 Grasping Arrow",
-      "origin": "Compendium.dnd5e_classpack.extra-ability.Item.HLXS5pd6WfRE3anL",
+      "origin": null,
       "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 60,
+        "units": "seconds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "disabled": false,
       "flags": {
@@ -277,22 +426,14 @@
         }
       },
       "_id": "jkwfNDaaE7Q7pr2R",
-      "changes": [
-        {
-          "key": "system.attributes.movement.all",
-          "mode": 0,
-          "value": "- 10",
-          "priority": 20
-        }
-      ],
       "description": "",
       "transfer": false,
       "statuses": [],
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -300,10 +441,38 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Hunter_CobraShot.png",
+      "img": "icons/magic/nature/leaf-arrowheads-glow-green.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.movement.all",
+            "value": "- 10",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "ZCSVHD6c0uKpIsTp",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.extra-ability.Item.HLXS5pd6WfRE3anL",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!HLXS5pd6WfRE3anL.jkwfNDaaE7Q7pr2R"
     }
   ],
@@ -334,18 +503,12 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1725707789059,
     "modifiedTime": 1749883542518,
     "lastModifiedBy": "uXKCmWFprrvnSIDm",

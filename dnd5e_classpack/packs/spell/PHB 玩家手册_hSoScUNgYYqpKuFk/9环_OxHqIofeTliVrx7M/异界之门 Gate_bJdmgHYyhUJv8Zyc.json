@@ -24,24 +24,13 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/003140.png",
+  "img": "icons/environment/wilderness/portal.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你召唤一扇传送门将施法距离内你能看到的一处未被占据空间与一个不同位面的特定地点连接在一起。传送门是你打开的一个直径5到20尺的圆形开口。其开口朝向你指定的任意方向，并持续至法术终止。\n<br />传送门在某个位面显现时有着明确的正反面。只有从正面穿过传送门的事物才能实现其传送功能，从而传送至另一位面，并在离传送门最近的未占据空间中显现。\n<br />神祗和其他位面统治者可以阻止该法术在其所在或属于其领域的任何地点创造传送门。\n<br />施展该法术时，你可以说出某个特定生物的名字（不能是假名、头衔、绰号等）。如果该生物在与你不同的位面，则传送门会紧挨被指名生物打开并将该生物吸进传送门。此时该生物会从你所在的传送门另一头出现，并显现在距传送门最近的未被占据空间。你不会获得任何被传送生物的特殊能力，而它此时可以自由的作任何DM 认为合适的行动。它可能离开，也可以攻击你或协助你。\n<br /></div>",
+      "value": "<p>你召唤一扇传送门将施法距离内你能看到的一处未占据空间与一个不同位面的特定地点连接在一起。传送门是你打开的一个直径 5 到 20 尺的圆形开口。其开口朝向你指定的任意方向，并持续至法术终止。</p><p>传送门在某个位面显现时有着明确的正反面。只有从正面穿过传送门的事物才能实现其传送功能，从而传送至另一位面，并在离传送门最近的未占据空间中显现。</p><p>神和其他位面统治者可以阻止该法术在其所在或属于其领域的任何地点创造传送门。</p><p>施展该法术时，你可以说出某个特定生物的名字（不能是假名、头衔、绰号等）。如果该生物在与你不同的位面，则传送门会紧挨被指名生物打开并将该生物吸进传送门。此时该生物会从你所在的传送门另一头出现，并显现在距传送门最近的未占据空间。你不会获得任何被传送生物的特殊能力，而它此时可以自由的作任何 DM 认为合适的行动。它可能离开，也可以攻击你或协助你。</p>",
       "chat": ""
     },
     "source": {
@@ -57,7 +46,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -69,7 +59,8 @@
       "template": {
         "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -90,10 +81,6 @@
       "consumed": false,
       "cost": 5000,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -120,22 +107,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -165,7 +156,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -173,7 +165,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -184,18 +175,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "gate"
+    "identifier": "gate",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -204,8 +243,8 @@
   "sort": 33400000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

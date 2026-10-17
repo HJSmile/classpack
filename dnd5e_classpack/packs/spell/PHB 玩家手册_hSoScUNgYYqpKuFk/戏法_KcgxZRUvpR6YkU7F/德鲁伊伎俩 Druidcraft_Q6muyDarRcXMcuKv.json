@@ -3,16 +3,7 @@
   "name": "德鲁伊伎俩 Druidcraft",
   "type": "spell",
   "flags": {
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -31,11 +22,11 @@
       "ignoreTotalCover": false
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Druid_GiftoftheEarthmother.png",
+  "img": "icons/consumables/plants/leaf-veins-glowing-green.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你向自然之魂低语，并创造以下效应之一：\n<br />你创造一个微小而无害的感官效应，并以之预报你所在地接下来24小时的天气状况。该效应可表现为一个代表晴空的金球，一朵代表雨天的云彩，代表雪日而飘飞的雪花等等。该效应将持续1轮。\n<br />你可以立即让一朵鲜花绽放，一颗种子破壳，一片叶蕾发芽。\n<br />你创造一个微小而无害的即时感官效应，如落叶，微风，小动物的动静或者臭鼬的微弱气味。该效应只能在5尺的立方空间内起效。\n<br />你可以立即点亮或熄灭一根蜡烛、一把火把或一处小篝火。\n<br /></div>",
+      "value": "<p>你向自然之魂低语，并创造以下效应之一：</p><ul><li>你创造一个微小而无害的感官效应，并以之预报你所在地接下来 24 小时的天气状况。该效应可表现为一个代表晴空的金球，一朵代表雨天的云彩，代表雪日而飘飞的雪花等等。该效应将持续 1 轮。</li><li>你可以立即让一朵鲜花绽放，一颗种子破壳，一片叶蕾发芽。</li><li>你创造一个微小而无害的即时感官效应，如落叶，微风，小动物的动静或者臭鼬的微弱气味。该效应只能在 5 尺的立方空间内起效。</li></ul><p>你可以立即点亮或熄灭一根蜡烛、一把火把或一处小篝火。</p>",
       "chat": ""
     },
     "source": {
@@ -51,7 +42,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -59,9 +51,10 @@
         "type": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -82,10 +75,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -109,22 +98,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -154,7 +147,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -162,7 +156,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -173,18 +166,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "druidcraft"
+    "identifier": "druidcraft",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -193,8 +234,8 @@
   "sort": 3000000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

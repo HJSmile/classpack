@@ -30,23 +30,13 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Nature_LightningOverload.png",
+  "img": "icons/magic/lightning/bolts-salvo-clouds-sky.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 一团翻腾搅动的乌云并以你能看见的一点为中心一直扩散至半径360尺的区域，并使该区域内充斥着电闪雷鸣与狂风呼啸。所有位于云团下的生物（处于云团下方5000尺内）必须进行一次体质豁免。豁免失败者将受到2d6点雷鸣伤害，并陷入持续5分钟的耳聋状态。\n<br />你每维持一轮该法术的专注，风暴就会在你的回合中产生新的效应：\n<br />第2轮。\n<br />云层中降下酸雨。所有位于云团下方的生物和物件受到1d6点强酸伤害。\n<br />第3轮。\n<br />你从云中召下六束闪电击向你指定的六个位于云团下的生物或物件，其中任一生物或物件都只能被该闪电击中一次。遭电击的生物必须进行一次敏捷豁免，豁免失败者将受到10d6点闪电伤害，豁免成功则伤害减半。\n<br />第4轮。\n<br />冰雹从云团中倾泻而下。所有位于云团下方的生物将受到2d6点钝击伤害。\n<br />第5－10轮。\n<br />狂风和冰雨冲袭着云团下的区域，使该区域变为困难地形并造成重度遮蔽。该区域内的所有生物受到1d6点冷冻伤害。该区域内无法进行远程武器攻击。而其内的强风和暴雨将对维持法术专注造成严重干扰。此外，区域内的强风（风速在每小时20到50里）会自动吹散区域内的一切魔法或非魔法的烟雾以及其他类似现象。\n<br /></div>",
+      "value": "<p>一团翻腾搅动的乌云并以你能看见的一点为中心一直扩散至半径 360 尺的区域，并使该区域内充斥着电闪雷鸣与狂风呼啸。所有位于云团下的生物（处于云团下方 5000 尺内）必须进行一次[[/save activity=dnd5eactivity000]]{体质豁免}。豁免失败者将受到 [[/damage 2d6 type=thunder]]{2d6} 点雷鸣伤害，并陷入持续 5 分钟的&amp;Reference[condition=deafened apply=false]{耳聋}状态。</p><p>你每维持一轮该法术的专注，风暴就会在你的回合里产生不同的效应：</p><blockquote><p><strong>第 2 轮。</strong>云层中降下酸雨。所有位于云团下方的生物和物件受到[[/damage 1d6 type=acid]]{1d6}点强酸伤害。</p><p><strong>第 3 轮。</strong>你从云中召下六束闪电击向你指定的六个位于云团下的生物或物件，其中任一生物或物件都只能被该闪电击中一次。遭电击的生物必须进行一次敏捷豁免，豁免失败者将受到 [[/damage 10d6 type=lightning]]{10d6} 点闪电伤害，豁免成功则伤害减半。</p><p><strong>第 4 轮。</strong>冰雹从云团中倾泻而下。所有位于云团下方的生物将受到 [[/damage 2d6 type=bludgeoning]]{2d6} 点钝击伤害。</p><p><strong>第 5~10 轮。</strong>狂风和冰雨冲袭着云团下的区域，使该区域变为困难地形并造成重度遮蔽。该区域内的所有生物受到 [[/damage 1d6 type=cold]]{1d6} 点寒冷伤害。该区域内无法进行远程武器攻击。而其内的强风和暴雨将对维持法术专注造成严重干扰。此外，区域内的强风（风速在每小时 20 到 50 里）会自动吹散区域内的一切魔法或非魔法的烟雾以及其他类似现象。</p></blockquote><p>（注：该法术曾为产生“叠加的效应”）</p>",
       "chat": ""
     },
     "source": {
@@ -62,7 +52,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -74,7 +65,8 @@
         "type": "radius",
         "size": "360",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -94,10 +86,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -123,22 +111,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -168,7 +160,8 @@
                 "mode": "",
                 "number": null,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -182,7 +175,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -196,7 +190,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -204,7 +199,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -215,15 +209,62 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       },
       "dnd5eactivity300": {
         "_id": "dnd5eactivity300",
@@ -242,22 +283,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -287,7 +332,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -295,7 +341,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -306,18 +351,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "storm-of-vengeance"
+    "identifier": "storm-of-vengeance",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -326,8 +419,8 @@
   "sort": 7100000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

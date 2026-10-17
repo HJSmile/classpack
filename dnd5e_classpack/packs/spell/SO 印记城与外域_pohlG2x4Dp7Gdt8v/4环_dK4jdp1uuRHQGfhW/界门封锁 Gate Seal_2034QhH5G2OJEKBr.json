@@ -3,7 +3,7 @@
   "name": "界门封锁 Gate Seal",
   "type": "spell",
   "_id": "2034QhH5G2OJEKBr",
-  "img": "systems/dnd5e/icons/svg/items/spell.svg",
+  "img": "icons/magic/defensive/shield-barrier-deflect-gold.webp",
   "system": {
     "activities": {},
     "uses": {
@@ -12,7 +12,7 @@
       "max": ""
     },
     "description": {
-      "value": "<p>选择施法距离内的一处30尺立方区域，你加固这片区域的位面结构。这片区域内，的所有传送门都将关闭且在法术持续时间内无法被再次开启。任何能进行位面旅行或开启传送门的法术（例如 <em>异界之门gate</em> 或 <em>异界传送plane shift</em> ）如果被用于进入这片区域或离开这片区域的话，都将自动失败。这片立方区域是无法移动的。<br /><strong>升环施法效应：</strong>当你使用6环或更高环阶的法术位施展本法术时，本法术将一直持续至被解除为止。</p>",
+      "value": "<p>选择施法距离内你可见的一处30尺立方区域，你加固这片区域的位面结构。这片区域内的所有传送门都将关闭且在法术持续时间内无法被再次开启。任何能进行位面旅行或开启传送门的法术和其他效应（例如<em>异界之门Gate</em>或<em>位面转移Plane Shift</em>）如果被用于进入这片区域或离开这片区域的话，都将自动失败。这片立方区域是无法移动的。</p><p><strong>升环施法效应。</strong>当你使用6环或更高环阶的法术位施展本法术时，本法术将一直持续至被解除为止。</p>",
       "chat": ""
     },
     "identifier": "gate-seal",
@@ -31,7 +31,8 @@
     },
     "duration": {
       "units": "hour",
-      "value": "24"
+      "value": "24",
+      "expiry": null
     },
     "level": 4,
     "materials": {
@@ -39,10 +40,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -59,13 +56,16 @@
       "template": {
         "contiguous": false,
         "units": "ft",
-        "type": ""
+        "type": "",
+        "stationary": false
       },
       "affects": {
         "choice": false,
         "type": ""
       }
-    }
+    },
+    "method": "spell",
+    "prepared": 0
   },
   "effects": [],
   "sort": 0,
@@ -91,18 +91,14 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "riders": {
-        "activity": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1750035911042,
     "modifiedTime": 1757260045680,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

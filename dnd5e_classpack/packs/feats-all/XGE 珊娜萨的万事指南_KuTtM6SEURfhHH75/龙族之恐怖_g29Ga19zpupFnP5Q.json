@@ -1,14 +1,14 @@
 {
   "_id": "g29Ga19zpupFnP5Q",
-  "name": "龙族之恐怖",
+  "name": "龙之威怖",
   "type": "feat",
   "system": {
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "description": {
-      "value": "<p>气愤之时，你展露威慑之力。你获得以下好处。</p>\n<ul>\n<li>力量，体质或者魅力+1，不能超过20</li>\n<li>你可以使用咆哮并消耗你的喷吐武器使三十尺内你选择的每个生物通过一个感知豁免检定（DC＝8+你的熟练加值+魅力调整值）取代喷射毁灭性能量。听不到或看不到你的目标单位自动通过此检定。如果豁免失败，目标恐慌一分钟。如果恐慌的目标受到任何伤害，他可以重投豁免检定，直到通过为止。</li>\n</ul>",
+      "value": "<p>气愤之时，你展露威慑之力。你获得以下好处。</p>\n<ul>\n<li>力量，体质或者魅力+1，不能超过20</li>\n<li>你可以使用咆哮并消耗你的喷吐武器使三十尺内你选择的每个生物通过一个感知豁免检定（DC＝8+你的熟练加值+魅力调整值）取代喷射毁灭性能量。听不到或看不到你的目标单位自动通过此检定。如果豁免失败，目标恐慌一分钟。如果恐慌的目标受到任何伤害，他可以重投豁免检定，豁免成功时，该恐慌效果结束。</li>\n</ul>",
       "chat": ""
     },
     "source": {
@@ -18,37 +18,64 @@
       "book": "XGE"
     },
     "uses": {
-      "max": "0",
+      "max": "",
       "spent": 0,
       "recovery": []
     },
     "requirements": "龙裔",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {
+      "aa4dd648232b07b1": {
+        "_id": "aa4dd648232b07b1",
+        "type": "AbilityScoreImprovement",
+        "name": "属性值提升",
+        "configuration": {
+          "cap": 1,
+          "fixed": {
+            "str": 0,
+            "dex": 0,
+            "con": 0,
+            "int": 0,
+            "wis": 0,
+            "cha": 0
+          },
+          "locked": [
+            "dex",
+            "int",
+            "wis"
+          ],
+          "points": 1,
+          "max": 20,
+          "recommendation": null
+        },
+        "value": {
+          "type": "asi"
+        },
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/creatures/abilities/dragon-breath-purple.webp",
   "effects": [],
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757275287302,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

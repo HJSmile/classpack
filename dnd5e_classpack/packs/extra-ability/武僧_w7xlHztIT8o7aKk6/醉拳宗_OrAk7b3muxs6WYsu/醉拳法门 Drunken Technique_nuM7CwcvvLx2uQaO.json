@@ -1,8 +1,8 @@
 {
   "_id": "nuM7CwcvvLx2uQaO",
-  "name": "醉拳法门 Drunken Technique",
+  "name": "醉拳技巧 Drunken Technique",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Nature_Invisibilty.png",
+  "img": "icons/skills/movement/feet-spurred-boots-brown.webp",
   "system": {
     "type": {
       "value": "class",
@@ -25,36 +25,28 @@
     "requirements": "醉拳宗等级 3",
     "activities": {},
     "identifier": "-drunken-technique",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 3,
+      "repeatable": false,
+      "items": [
+        "subclass:way-of-the-drunken-master"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "_id": "CSt6BEGVerNp2sIr",
-      "changes": [
-        {
-          "key": "system.attributes.movement.walk",
-          "mode": 2,
-          "value": "10",
-          "priority": 20
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "turns": 1,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "turns",
+        "expiry": "turnStart",
+        "expired": false
       },
       "origin": "Compendium.dnd5e_classpack.extra-ability.nuM7CwcvvLx2uQaO",
       "transfer": false,
@@ -80,9 +72,9 @@
       "description": "",
       "statuses": [],
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -92,8 +84,36 @@
       },
       "img": null,
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.movement.speeds.walk",
+            "value": 10,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "5ZZ4lujyd1iqSHAj",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!nuM7CwcvvLx2uQaO.CSt6BEGVerNp2sIr"
     }
   ],
@@ -124,17 +144,12 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1725890365109,
     "modifiedTime": 1757416535521,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

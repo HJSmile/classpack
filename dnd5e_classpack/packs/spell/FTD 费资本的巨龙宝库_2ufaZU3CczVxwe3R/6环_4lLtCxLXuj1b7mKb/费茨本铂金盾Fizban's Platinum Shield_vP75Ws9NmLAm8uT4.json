@@ -1,10 +1,10 @@
 {
-  "name": "费茨本铂金盾Fizban's Platinum Shield",
+  "name": "费兹本铂金盾Fizban's Platinum Shield",
   "type": "spell",
-  "img": "modules/dnd5e_classpack/Nicons/ability_evoker_return2.png",
+  "img": "icons/equipment/shield/heater-steel-gray.webp",
   "system": {
     "description": {
-      "value": "<p>你创造一道闪着银光的力场，环绕在施法距离内你所选择的一个生物周围（你可以选择你自己）。该力场散发<span>5</span>尺微光光照。被力场保护的生物获得以下好处：<span><br />      </span><strong><span style=\"font-family:宋体;mso-bidi-font-family:宋体\">掩护</span></strong>：该生物具有半身掩护。<span><br />      </span><strong><span style=\"font-family:宋体;mso-bidi-font-family:宋体\">伤害抗力</span></strong>：该生物获得对强酸，寒冷，火焰，闪电以及毒素伤害的抗性。<span><br />      </span><strong><span style=\"font-family:宋体;mso-bidi-font-family:宋体\">反射闪避</span></strong>：如果该生物受到可以由成功通过敏捷豁免来使伤害减半的效应影响，该生物在成功通过豁免时改为不受任何伤害，失败则受到一半伤害。<span><br />      </span>在之后的回合内以一个附赠动作，你可以将该力场移动至力场周围<span>60</span>尺内的另一个生物身上。<span><br /></span></p>",
+      "value": "<p>你创造一道闪着银光的力场，环绕在施法距离内你所选择的一个生物周围（你可以选择你自己）。该力场散发5尺微光光照。被力场保护的生物获得以下好处：</p><blockquote><p><strong>掩护Cover。</strong>该生物具有半身掩护。</p><p><strong>伤害抗性Damage Resistance。</strong>该生物获得对强酸，寒冷，火焰，闪电以及毒素伤害的抗性。</p><p><strong>反射闪避Evasion。</strong>如果该生物受到可以由成功通过敏捷豁免来使伤害减半的效应影响，该生物在成功通过豁免时改为不受任何伤害，失败则受到一半伤害。</p></blockquote><p>在之后的回合内以一个附赠动作，你可以将该力场移动至力场周围60尺内的另一个生物身上。</p>",
       "chat": ""
     },
     "source": {
@@ -20,7 +20,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -30,10 +31,11 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "width": "20",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -55,16 +57,11 @@
       "cost": 0,
       "supply": 0
     },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
-    },
     "properties": [
       "vocal",
       "somatic",
       "material",
-      "concentration",
-      "mgc"
+      "concentration"
     ],
     "activities": {
       "dnd5eactivity000": {
@@ -84,29 +81,43 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "Rp3kDQGtqq7LKHji"
-          },
-          {
-            "_id": "1SAsv9Or81yaeXf3"
+            "_id": "Rp3kDQGtqq7LKHji",
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": 1756664319850,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -136,7 +147,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -144,7 +156,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -155,72 +166,230 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
+      },
+      "XzoV8C70lAJ0pbSa": {
+        "type": "utility",
+        "name": "转移力场",
+        "_id": "XzoV8C70lAJ0pbSa",
+        "img": "",
+        "sort": 100000,
+        "activation": {
+          "type": "action",
+          "override": false
+        },
+        "behaviors": [],
+        "consumption": {
+          "scaling": {
+            "allowed": false
+          },
+          "spellSlot": false,
+          "targets": []
+        },
+        "description": {
+          "value": "",
+          "chatFlavor": ""
+        },
+        "duration": {
+          "units": "inst",
+          "expiry": null,
+          "concentration": false,
+          "override": true
+        },
+        "effects": [],
+        "flags": {
+          "dnd5e_classpack": {
+            "hidden": true
+          }
+        },
+        "range": {
+          "units": "self",
+          "override": true,
+          "special": ""
+        },
+        "target": {
+          "template": {
+            "contiguous": false,
+            "stationary": false,
+            "units": "ft",
+            "type": ""
+          },
+          "affects": {
+            "choice": false,
+            "type": "self",
+            "special": ""
+          },
+          "override": true,
+          "prompt": true
+        },
+        "uses": {
+          "spent": 0,
+          "recovery": [],
+          "max": ""
+        },
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "roll": {
+          "prompt": false,
+          "visible": false,
+          "name": "",
+          "formula": ""
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": "none",
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": false,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
           "postRemoveConditionText": ""
         },
-        "otherActivityId": "none"
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "fizbans-platinum-shield"
+    "identifier": "fizbans-platinum-shield",
+    "method": "spell",
+    "prepared": 0
   },
   "effects": [
     {
       "name": "费茨本铂金盾Fizban's Platinum Shield",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.vP75Ws9NmLAm8uT4",
+      "origin": null,
       "duration": {
-        "rounds": 1,
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "minutes",
+        "expiry": "turnStart",
+        "expired": false
       },
       "disabled": false,
       "_id": "Rp3kDQGtqq7LKHji",
-      "changes": [
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "fire",
-          "priority": 20
-        },
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "cold",
-          "priority": 20
-        },
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "acid",
-          "priority": 20
-        },
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "lightning",
-          "priority": 20
-        },
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "poison",
-          "priority": 20
-        },
-        {
-          "key": "flags.midi-qol.superSaver.dex",
-          "mode": 2,
-          "value": "+1",
-          "priority": 20
-        }
-      ],
       "description": "",
       "transfer": false,
       "statuses": [
@@ -233,34 +402,16 @@
           "selfTargetAlways": false,
           "dontApply": false,
           "stackable": "noneName",
-          "showIcon": true,
           "durationExpression": "",
           "macroRepeat": "none",
           "specialDuration": [],
           "enableCondition": "",
-          "disableCondition": ""
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
+          "disableCondition": "",
+          "applicationMode": "dnd5e",
+          "expiryMode": "default"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
@@ -268,9 +419,9 @@
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1756664319850,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
@@ -278,10 +429,98 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/ability_evoker_return2.png",
+      "img": "icons/equipment/shield/heater-steel-gray.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.dr.value",
+            "value": "fire",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "jA4nGqEdnZQG96My",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.dr.value",
+            "value": "cold",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "5SbrGsmAPBfXHkzs",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.dr.value",
+            "value": "acid",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "L9DL2y2bVVvLKl6W",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.dr.value",
+            "value": "lightning",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "MG6ibuxnRGuDnGK7",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.dr.value",
+            "value": "poison",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "R5uFxDHdSfof6krT",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.superSaver.dex",
+            "value": "(workflow?.saveActivity ?? activity)?.damage?.onSave === \"half\"",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "IyW64gGyd787dOwN",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "macro.itemMacro",
+            "type": "custom",
+            "value": "",
+            "phase": "initial",
+            "_id": "3SF7eOB6PJrHTSZm",
+            "conditions": "{}",
+            "replacement": "",
+            "priority": null
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.vP75Ws9NmLAm8uT4",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "sort": 0,
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!vP75Ws9NmLAm8uT4.Rp3kDQGtqq7LKHji"
     }
   ],
@@ -310,18 +549,36 @@
       "effectCondition": "",
       "removeAttackDamageButtons": "default",
       "reactionCondition": "",
-      "otherCondition": ""
+      "otherCondition": "",
+      "onUseMacroName": "[postActiveEffects]ItemMacro,[preItemRoll]ItemMacro"
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
+    "dnd5e": {},
+    "dae": {
+      "macro": {
+        "name": "费兹本铂金盾Fizban's Platinum Shield",
+        "img": "icons/equipment/shield/heater-steel-gray.webp",
+        "type": "script",
+        "scope": "global",
+        "command": "// 原法术物品挂载 preItemRoll、postActiveEffects；力场 AE 添加 macro.itemMacro。\nconst spell = await fromUuid(macroItem.uuid);\nconst move = spell.system.activities.find(a => a.name === \"转移力场\");\nconst state = spell.getFlag(\"world\", \"platinumShield\");\n\nif (args[0] === \"off\") {\n  if (state?.effect !== args.at(-1).effectUuid) return;\n  await dnd5eClasspack.hideActivity(move.uuid);\n  if (state.favoriteAdded) await spell.actor.system.removeFavorite(state.favorite);\n  await spell.unsetFlag(\"world\", \"platinumShield\");\n  return;\n}\n\nconst pass = args[0].macroPass;\nif (![\"preItemRoll\", \"postActiveEffects\"].includes(pass)) return;\n\nif (workflow.activity.id !== move.id) {\n  if (pass !== \"postActiveEffects\") return;\n  const target = workflow.targets.first();\n  const effect = target.actor.effects.find(e => e.system?.origin?.message === workflow.itemCardUuid);\n  if (!effect) {\n    ui.notifications.warn(\"铂金之盾：未找到本次施法应用的力场效果。\");\n    return;\n  }\n  const favorite = `${foundry.utils.buildRelativeUuid(spell, spell.actor)}.Activity.${move.id}`;\n  await spell.setFlag(\"world\", \"platinumShield\", {\n    effect: effect.uuid, token: target.document.uuid, favorite,\n    favoriteAdded: !spell.actor.system.hasFavorite(favorite)\n  });\n  await dnd5eClasspack.hideActivity(move.uuid, false);\n  await dnd5eClasspack.addFavorite(move.uuid);\n  return;\n}\n\nif (pass === \"preItemRoll\") {\n  const current = state && (await fromUuid(state.token))?.object;\n  const effect = state && await fromUuid(state.effect);\n  if (!current || !effect?.active) {\n    ui.notifications.warn(\"铂金之盾：当前没有可转移的力场。\");\n    return false;\n  }\n  const targets = MidiQOL.findNearby(workflow.token.document.disposition, current, 60, {\n    relative: false, includeIncapacitated: true, includeToken: false\n  });\n  if (!targets.length) {\n    ui.notifications.warn(\"铂金之盾：力场周围 60 尺内没有可选择的盟友。\");\n    return false;\n  }\n  const [target] = await dnd5eClasspack.dialogUtils.selectTargetDialog(\n    \"转移力场\", \"\", targets,\n    { userId: dnd5eClasspack.firstOwner(spell.actor, true), skipDeadAndUnconscious: false }\n  );\n  if (!target) return false;\n  workflow.platinumShieldTarget = target.document.uuid;\n  return;\n}\n\nconst effect = await fromUuid(state.effect);\nconst target = await fromUuid(workflow.platinumShieldTarget);\nconst data = effect.toObject();\ndata._id = foundry.utils.randomID();\n\nawait MidiQOL.socket().executeAsGM(\"createEffects\", {\n  actorUuid: target.actor.uuid, effects: [data], options: { keepId: true }\n});\n// 先指向新效果，再删除旧效果；旧效果的 off 因 UUID 不匹配而跳过清理。\nawait spell.setFlag(\"world\", \"platinumShield\", {\n  ...state, effect: `${target.actor.uuid}.ActiveEffect.${data._id}`, token: target.uuid\n});\nawait MidiQOL.socket().executeAsGM(\"removeEffects\", {\n  actorUuid: effect.parent.uuid, effects: [effect.id]\n});",
+        "author": "dvg25zW2MvzsvMOU",
+        "ownership": {
+          "default": 3
+        },
+        "_id": null,
+        "folder": null,
+        "sort": 0,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.369",
+          "systemId": "dnd5e",
+          "systemVersion": "6.0.6",
+          "createdTime": null,
+          "modifiedTime": null,
+          "lastModifiedBy": null,
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null
+        }
       }
     }
   },
@@ -333,8 +590,8 @@
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711691270545,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -27,46 +27,18 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Druid_Cower.png",
+  "img": "icons/magic/control/fear-fright-monster-grin-purple-blue.webp",
   "effects": [
     {
-      "changes": [
-        {
-          "key": "flags.midi-qol.disadvantage.attack.all",
-          "value": "1",
-          "mode": 0,
-          "priority": 0
-        },
-        {
-          "key": "flags.midi-qol.disadvantage.check.all",
-          "value": "1",
-          "mode": 0,
-          "priority": 0
-        }
-      ],
-      "description": "<p>- A frightened creature has disadvantage on ability checks and attack rolls while the source of its fear is within line of sight.<br />- The creature can't willingly move closer to the source of its fear.</p>",
+      "description": "<p>- A frightened creature has disadvantage on ability checks and attack rolls while the source of its fear is within line of sight.<br>- The creature can't willingly move closer to the source of its fear.</p>",
       "disabled": false,
       "duration": {
-        "rounds": 10,
-        "seconds": null,
-        "turns": null,
-        "startTime": null,
-        "combat": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 10,
+        "units": "rounds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "flags": {
         "dfreds-convenient-effects": {
@@ -85,38 +57,28 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "enableCondition": "",
+          "disableCondition": "",
+          "applicationMode": "default",
+          "expiryMode": "default"
         },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system"
+        "core": {
+          "overlay": false
         }
       },
       "name": "Frightened",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.wnJNHkm5kThiJixx",
+      "origin": null,
       "tint": "#ffffff",
       "transfer": false,
       "statuses": [
-        "Convenient Effect: Frightened",
         "frightened"
       ],
       "_id": "ASS1FHZ3LhFQTteZ",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1786693328744,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
@@ -124,16 +86,33 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dfreds-convenient-effects/images/frightened.svg",
+      "img": "systems/dnd5e/icons/svg/statuses/frightened.svg",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.wnJNHkm5kThiJixx",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!wnJNHkm5kThiJixx.ASS1FHZ3LhFQTteZ"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你制造一个目标最惧怕的幻象，并迫使30尺锥状区域内的所有生物进行一次感知豁免，豁免失败者将丢弃其所有持握物，并在法术持续时间内陷入恐慌。\n<br />被法术恐慌的生物必须在其回合内执行疾走Dash 动作，并以此寻找最安全的路线远离施法者，直至其无路可走为止。如果该生物在施法者视野外结束其回合，则其可以再进行一次感知豁免，豁免成功则法术对该生物的效应终止。\n<br /></div>",
+      "value": "<p>你制造一个目标最惧怕的幻象，并迫使 30 尺锥状区域内的所有生物进行一次[[/save activity=dnd5eactivity000]]{感知豁免}，豁免失败者将丢弃其所有持握物，并在法术持续时间内陷入&amp;Reference[condition=frightened apply=false]{恐慌}。</p><p>被法术恐慌的生物必须在其回合内执行疾走动作，并以此寻找最安全的路线远离施法者，直至其无路可走为止。如果该生物结束其回合时位于一处使其视觉线中没有你的空间，则其可以再进行一次感知豁免，豁免成功则法术对该生物的效应终止。</p>",
       "chat": ""
     },
     "source": {
@@ -149,7 +128,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -161,7 +141,8 @@
         "type": "cone",
         "size": "30",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -181,10 +162,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -211,27 +188,33 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "ASS1FHZ3LhFQTteZ",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -257,7 +240,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -271,7 +255,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -279,7 +264,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -290,18 +274,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "fear"
+    "identifier": "fear",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -310,8 +343,8 @@
   "sort": 15200000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711697846708,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

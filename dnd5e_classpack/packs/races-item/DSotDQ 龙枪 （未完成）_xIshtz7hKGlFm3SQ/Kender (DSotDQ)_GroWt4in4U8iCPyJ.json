@@ -3,7 +3,7 @@
   "type": "race",
   "system": {
     "description": {
-      "value": "<div><table class=\"w-100 summary stripe-even\"><tbody><tr><th class=\"ve-col-4 ve-text-center\"><p>Ability Scores</p></th><th class=\"ve-col-4 ve-text-center\"><p>Size</p></th><th class=\"ve-col-4 ve-text-center\"><p>Speed</p></th></tr><tr><td class=\"ve-text-center\"><p>Choose one of: (a) Choose any +2; choose any other +1 (b) Choose three different +1</p></td><td class=\"ve-text-center\"><p>Small</p></td><td class=\"ve-text-center\"><p>30 ft.</p></td></tr></tbody></table><div class=\"rd__b  rd__b--2\"><div data-roll-name-ancestor=\"Fearless\" class=\"rd__b  rd__b--3\"><p><span class=\"entry-title-inner\">Fearless.</span> You have advantage on saving throws you make to avoid or end the &amp;Reference[condition=frightened] condition on yourself. When you fail a saving throw to avoid or end the &amp;Reference[condition=frightened] condition on yourself, you can choose to succeed instead. Once you succeed on a saving throw in this way, you can't do so again until you finish a long rest.</p></div><div data-roll-name-ancestor=\"Kender Curiosity\" class=\"rd__b  rd__b--3\"><p><span class=\"entry-title-inner\">Kender Curiosity.</span> Thanks to the mystical origin of your people, you gain proficiency with one of the following skills of your choice: &amp;Reference[skill=Insight], &amp;Reference[skill=Investigation], &amp;Reference[skill=SleightofHand]{Sleight of Hand}, &amp;Reference[skill=Stealth], or &amp;Reference[skill=Survival].</p></div><div data-roll-name-ancestor=\"Taunt\" class=\"rd__b  rd__b--3\"><p><span class=\"entry-title-inner\">Taunt.</span> You have an extraordinary ability to fluster creatures. As a bonus action, you can unleash a string of provoking words at a creature within 60 feet of yourself that can hear and understand you. The target must succeed on a Wisdom saving throw, or it has disadvantage on attack rolls against targets other than you until the start of your next turn. The DC equals 8 + your proficiency bonus + your Intelligence, Wisdom, or Charisma modifier (choose when you select this race).</p><p>You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.</p></div><div data-roll-name-ancestor=\"Languages\" class=\"rd__b  rd__b--3\"><p><span class=\"entry-title-inner\">Languages.</span> You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character.</p></div></div><hr class=\"hr-1\" /><p>During the mythical origins of Krynn, Reorx, god of craft, indulged in an age of unfettered creation. Many peoples sprang from his divine forge, but not all among them remained as the god created them. Altered by unbridled magic, a group of gnomes were transformed and given almost supernatural curiosity and fearlessness. These were the first kender.</p><p>Originating on the world of Krynn, kender are diminutive Humanoids who look like humans with pointed ears and diverse appearances. Kender have a supernatural curiosity that drives them to adventure. Due to this inquisitiveness, many kender find themselves falling through portals to other planes and worlds.</p><p>Kender sometimes amass impressive collections of curiosities. Some might collect mundane knickknacks or relics from magical sites, while others might become professional thieves.</p></div>",
+      "value": "<table class=\"w-100 summary stripe-even\"><tbody><tr><th class=\"ve-col-4 ve-text-center\"><p>Ability Scores</p></th><th class=\"ve-col-4 ve-text-center\"><p>Size</p></th><th class=\"ve-col-4 ve-text-center\"><p>Speed</p></th></tr><tr><td class=\"ve-text-center\"><p>Choose one of: (a) Choose any +2; choose any other +1 (b) Choose three different +1</p></td><td class=\"ve-text-center\"><p>Small</p></td><td class=\"ve-text-center\"><p>30 ft.</p></td></tr></tbody></table><div data-roll-name-ancestor=\"Fearless\"><p><span class=\"entry-title-inner\">Fearless.</span> You have advantage on saving throws you make to avoid or end the &amp;Reference[condition=frightened] condition on yourself. When you fail a saving throw to avoid or end the &amp;Reference[condition=frightened] condition on yourself, you can choose to succeed instead. Once you succeed on a saving throw in this way, you can't do so again until you finish a long rest.</p></div><div data-roll-name-ancestor=\"Kender Curiosity\"><p><span class=\"entry-title-inner\">Kender Curiosity.</span> Thanks to the mystical origin of your people, you gain proficiency with one of the following skills of your choice: &amp;Reference[skill=Insight], &amp;Reference[skill=Investigation], &amp;Reference[skill=SleightofHand]{Sleight of Hand}, &amp;Reference[skill=Stealth], or &amp;Reference[skill=Survival].</p></div><div data-roll-name-ancestor=\"Taunt\"><p><span class=\"entry-title-inner\">Taunt.</span> You have an extraordinary ability to fluster creatures. As a bonus action, you can unleash a string of provoking words at a creature within 60 feet of yourself that can hear and understand you. The target must succeed on a Wisdom saving throw, or it has disadvantage on attack rolls against targets other than you until the start of your next turn. The DC equals 8 + your proficiency bonus + your Intelligence, Wisdom, or Charisma modifier (choose when you select this race).</p><p>You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.</p></div><div data-roll-name-ancestor=\"Languages\"><p><span class=\"entry-title-inner\">Languages.</span> You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character.</p></div><p>During the mythical origins of Krynn, Reorx, god of craft, indulged in an age of unfettered creation. Many peoples sprang from his divine forge, but not all among them remained as the god created them. Altered by unbridled magic, a group of gnomes were transformed and given almost supernatural curiosity and fearlessness. These were the first kender.</p><p>Originating on the world of Krynn, kender are diminutive Humanoids who look like humans with pointed ears and diverse appearances. Kender have a supernatural curiosity that drives them to adventure. Due to this inquisitiveness, many kender find themselves falling through portals to other planes and worlds.</p><p>Kender sometimes amass impressive collections of curiosities. Some might collect mundane knickknacks or relics from magical sites, while others might become professional thieves.</p>",
       "chat": ""
     },
     "source": {
@@ -15,13 +15,12 @@
       "revision": 1
     },
     "movement": {
-      "burrow": null,
-      "climb": null,
-      "fly": null,
-      "swim": null,
-      "walk": 30,
       "units": "ft",
-      "hover": false
+      "hover": false,
+      "speeds": {
+        "walk": "30"
+      },
+      "ignoredDifficultTerrain": []
     },
     "type": {
       "value": "humanoid",
@@ -29,19 +28,21 @@
       "custom": ""
     },
     "senses": {
-      "darkvision": null,
-      "blindsight": null,
-      "truesight": null,
-      "tremorsense": null,
       "units": "ft",
-      "special": ""
+      "special": "",
+      "ranges": {
+        "darkvision": null,
+        "blindsight": null,
+        "tremorsense": null,
+        "truesight": null
+      }
     },
-    "advancement": [
-      {
+    "advancement": {
+      "qvSi4eGekTh21dr0": {
         "_id": "qvSi4eGekTh21dr0",
         "type": "AbilityScoreImprovement",
         "configuration": {
-          "points": 3,
+          "cap": 2,
           "fixed": {
             "str": 0,
             "dex": 0,
@@ -50,16 +51,19 @@
             "wis": 0,
             "cha": 0
           },
-          "cap": 2,
-          "locked": []
+          "locked": [],
+          "points": 3,
+          "recommendation": null
         },
         "value": {
           "type": "asi"
         },
         "level": 0,
-        "title": ""
+        "name": "",
+        "flags": {},
+        "hint": ""
       },
-      {
+      "3kX81yvsU2z1QMbZ": {
         "_id": "3kX81yvsU2z1QMbZ",
         "type": "Size",
         "configuration": {
@@ -71,9 +75,91 @@
           "size": "sm"
         },
         "level": 0,
-        "title": ""
+        "name": "",
+        "flags": {},
+        "hint": ""
+      },
+      "d7d9551529585d1b": {
+        "type": "Trait",
+        "configuration": {
+          "grants": [
+            "languages:standard:common"
+          ],
+          "allowReplacements": false,
+          "choices": [
+            {
+              "count": 1,
+              "pool": [
+                "languages:*"
+              ]
+            }
+          ],
+          "mode": "default"
+        },
+        "_id": "d7d9551529585d1b",
+        "value": {
+          "chosen": []
+        },
+        "level": 0,
+        "hint": "",
+        "name": "",
+        "flags": {}
+      },
+      "dec84aa01968aa1b": {
+        "_id": "dec84aa01968aa1b",
+        "type": "ItemGrant",
+        "configuration": {
+          "items": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.y46vXCH7xGuIcM6h",
+              "optional": false,
+              "sort": 0
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.IYbF4U12M1EmH3Uc",
+              "optional": false,
+              "sort": 0
+            }
+          ],
+          "optional": false,
+          "spell": null,
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "hint": "",
+        "name": "种族特性",
+        "flags": {}
+      },
+      "8836bda338ed84ae": {
+        "_id": "8836bda338ed84ae",
+        "type": "Trait",
+        "configuration": {
+          "allowReplacements": false,
+          "choices": [
+            {
+              "count": 1,
+              "pool": [
+                "skills:inv",
+                "skills:ins",
+                "skills:slt",
+                "skills:sur",
+                "skills:ste"
+              ]
+            }
+          ],
+          "grants": [],
+          "mode": "default"
+        },
+        "value": {
+          "chosen": []
+        },
+        "level": 0,
+        "hint": "",
+        "name": "坎德天赋",
+        "flags": {}
       }
-    ],
+    },
     "identifier": "kender-dsotdq"
   },
   "effects": [],
@@ -85,14 +171,14 @@
       "propDroppable": "race"
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/img/races/DSotDQ/Kender.webp",
+  "img": "systems/dnd5e/icons/species/halfling.webp",
   "folder": "xIshtz7hKGlFm3SQ",
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1751823907801,
     "modifiedTime": 1751977344935,
     "lastModifiedBy": "sPF2dtZDreDpJaW6",

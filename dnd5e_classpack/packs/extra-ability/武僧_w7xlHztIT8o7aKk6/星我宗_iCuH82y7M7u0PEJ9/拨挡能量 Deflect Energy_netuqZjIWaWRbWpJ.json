@@ -1,7 +1,7 @@
 {
   "name": "拨挡能量 Deflect Energy",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/ability_bastion_monk.jpg",
+  "img": "icons/magic/defensive/shield-barrier-deflect-teal.webp",
   "system": {
     "type": {
       "value": "class",
@@ -25,8 +25,11 @@
     "cover": null,
     "crewed": false,
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 11,
+      "repeatable": false,
+      "items": [
+        "subclass:way-of-the-astral-self"
+      ]
     },
     "properties": [],
     "activities": {
@@ -48,22 +51,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "DQ1F6mRhQVq7Qw7J"
+            "_id": "DQ1F6mRhQVq7Qw7J",
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -75,7 +82,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -100,40 +108,136 @@
         "sort": 0,
         "name": "",
         "img": "",
-        "appliedEffects": [],
-        "useConditionText": "reaction == 'isDamaged' && workflow?.damageDetail?.some(d => [\"acid\", \"cold\", \"fire\",\"force\",\"lightning\",\"thunder\"].includes(d.type) && d.value > 0)"
+        "useConditionText": "reaction == 'isDamaged' && workflow?.damageDetail?.some(d => [\"acid\", \"cold\", \"fire\",\"force\",\"lightning\",\"thunder\"].includes(d.type) && d.value > 0)",
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "enchant": {}
   },
   "effects": [
     {
       "name": "拨挡能量 Deflect Energy",
-      "img": "modules/dnd5e_classpack/Nicons/ability_bastion_monk.jpg",
-      "origin": "Compendium.dnd5e_classpack.extra-ability.Item.netuqZjIWaWRbWpJ",
+      "img": "icons/magic/defensive/shield-barrier-deflect-teal.webp",
+      "origin": null,
       "transfer": false,
       "_id": "DQ1F6mRhQVq7Qw7J",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.traits.dm.midi.all",
-          "mode": 2,
-          "value": "-1d10-@abilities.wis.mod",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.dm.midi.all",
+            "value": "-1d10-@abilities.wis.mod",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "HYFTCPLREO3SenIB",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.extra-ability.Item.netuqZjIWaWRbWpJ",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -156,42 +260,26 @@
           ]
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757680928343,
         "modifiedTime": 1757680996974,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!netuqZjIWaWRbWpJ.DQ1F6mRhQVq7Qw7J"
     }
   ],
@@ -222,17 +310,11 @@
       "reactionCondition": ""
     },
     "core": {},
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "dae": {
       "macro": {
         "name": "拨挡能量 Deflect Energy",
-        "img": "modules/dnd5e_classpack/Nicons/ability_bastion_monk.jpg",
+        "img": "icons/magic/defensive/shield-barrier-deflect-teal.webp",
         "type": "script",
         "scope": "global",
         "command": "let reductionDamage = workflow.utilityRoll.total;\nreturn `-${reductionDamage}`",
@@ -258,9 +340,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1725892380142,
     "modifiedTime": 1757681908542,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

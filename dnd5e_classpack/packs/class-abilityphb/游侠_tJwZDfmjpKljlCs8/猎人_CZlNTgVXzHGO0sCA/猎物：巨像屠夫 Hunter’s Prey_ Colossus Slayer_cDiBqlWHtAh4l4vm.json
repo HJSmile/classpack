@@ -27,11 +27,12 @@
     "requirements": "猎人等级 3",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -39,51 +40,81 @@
     {
       "name": "巨像屠夫",
       "img": "icons/creatures/magical/construct-iron-stomping-yellow.webp",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.cDiBqlWHtAh4l4vm",
+      "origin": null,
       "_id": "YFtUsvChNc7lxHcJ",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.optional.巨像屠夫.activation",
-          "mode": 2,
-          "value": "target.attributes.hp.value < target.attributes.hp.max",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.optional.巨像屠夫.activation",
+            "value": "target.attributes.hp.value < target.attributes.hp.max",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "FPGjTveJVnVh9yeU",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.巨像屠夫.label",
+            "value": "巨像屠夫",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "h0Cw2kFWfjcgaqio",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.巨像屠夫.damage.mwak",
+            "value": "1d8",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "xVTDhZ6UDeznI4CI",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.巨像屠夫.damage.rwak",
+            "value": "1d8",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "6YDsmmRRKyCKHQyn",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.巨像屠夫.count",
+            "value": "each-turn",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "5DvMbdOt4CSjsI14",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.optional.巨像屠夫.label",
-          "mode": 2,
-          "value": "巨像屠夫",
-          "priority": 20
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.cDiBqlWHtAh4l4vm",
+          "message": null
         },
-        {
-          "key": "flags.midi-qol.optional.巨像屠夫.damage.mwak",
-          "mode": 2,
-          "value": "1d8",
-          "priority": 20
-        },
-        {
-          "key": "flags.midi-qol.optional.巨像屠夫.damage.rwak",
-          "mode": 2,
-          "value": "1d8",
-          "priority": 20
-        },
-        {
-          "key": "flags.midi-qol.optional.巨像屠夫.count",
-          "mode": 2,
-          "value": "turn",
-          "priority": 20
-        }
-      ],
+        "conditions": "{}",
+        "magical": false
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -98,45 +129,30 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757102598840,
         "modifiedTime": 1757102725943,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!cDiBqlWHtAh4l4vm.YFtUsvChNc7lxHcJ"
     }
   ],
@@ -147,13 +163,7 @@
     "entityorder": {
       "order": 102
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -184,8 +194,8 @@
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757102597449,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

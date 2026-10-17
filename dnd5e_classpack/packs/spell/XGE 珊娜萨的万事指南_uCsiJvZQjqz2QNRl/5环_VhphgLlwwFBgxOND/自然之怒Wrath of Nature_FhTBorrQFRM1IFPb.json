@@ -26,24 +26,14 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/magic/nature/tree-spirit-green.webp",
   "_id": "FhTBorrQFRM1IFPb",
   "effects": [],
   "system": {
     "description": {
-      "value": "<p>你唤醒自然界的精魂对抗你的敌人。选择施法距离内你可见的一点，精魂令那一点为中心60英尺立方区域内的树木、岩石和草丛被活化，直到法术结束。</p>\n<p><strong>草丛和灌木Grasses and Undergrowth：</strong>立方区域内被草丛或灌木覆盖的地面对你的敌人而言是困难地形。</p>\n<p><strong>树木Trees：</strong>在你的每个回合开始，在立方区域内的任何树木周围10英尺范围内的每个你的敌人都必须成功进行敏捷豁免检定，否则会因为树枝的挥打受到4d6挥砍伤害。</p>\n<p><strong>根与藤Roots and Vines：</strong>在你的每个回合结束时，立方区域内站于地面上的一个你选择的生物必须成功进行力量豁免检定，否则会被束缚直到法术结束。被束缚的生物可以使用它的动作来进行一次力量（运动）检定对抗你的施法DC，如果成功将会结束这个效果对自己的影响。</p>\n<p><strong>投石Rocks：</strong>在你的回合中以一个附赠动作，你可以使一块立方区域中的松动岩石投掷向同样在区域里的一个你可见的生物。若击中，目标受到3d8非魔法钝击伤害，并且必须成功进行力量豁免检定否则被击倒。</p>",
+      "value": "<p>你唤醒自然界的精魂对抗你的敌人。选择施法距离内你可见的一点，精魂令那一点为中心 60 尺立方区域内的树木、岩石和草丛被活化，直到法术结束。</p><blockquote><p><strong>草丛和灌木Grasses and Undergrowth。</strong>立方区域内被草丛或灌木覆盖的地面对你的敌人而言是困难地形。</p><p><strong>树木Trees。</strong>在你的每个回合开始，在立方区域内的任何树木周围 10 尺范围内的每个你的敌人都必须成功进行敏捷豁免检定，否则会因为树枝的挥打受到 [[/damage 4d6 type=slashing]]{4d6} 挥砍伤害。</p><p><strong>根与藤Roots and Vines。</strong>在你的每个回合结束时，立方区域内站于地面上的一个你选择的生物必须成功进行力量豁免检定，否则会被束缚直到法术结束。被束缚的生物可以使用它的动作来进行一次[[/check ability=str skill=ath]]{力量（运动）检定}对抗你的施法 DC，如果成功将会结束这个效果对自己的影响。</p><p><strong>投石Rocks。</strong>在你的回合中以一个附赠动作，你可以使一块立方区域中的松动岩石投掷向同样在区域里的一个你可见的生物。若击中，目标受到 3d8 非魔法钝击伤害，并且必须成功进行力量豁免检定否则被击倒。</p></blockquote>",
       "chat": ""
     },
     "source": {
@@ -59,7 +49,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -71,12 +62,13 @@
         "type": "cube",
         "size": "60",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
       "value": "120",
-      "units": "self",
+      "units": "ft",
       "special": ""
     },
     "uses": {
@@ -91,10 +83,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -120,22 +108,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -165,7 +157,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -173,7 +166,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -184,18 +176,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "wrath-of-nature"
+    "identifier": "wrath-of-nature",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -204,8 +244,8 @@
   "sort": 16900000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

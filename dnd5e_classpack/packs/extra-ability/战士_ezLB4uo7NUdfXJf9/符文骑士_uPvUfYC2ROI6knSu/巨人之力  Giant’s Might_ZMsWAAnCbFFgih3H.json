@@ -2,7 +2,7 @@
   "_id": "ZMsWAAnCbFFgih3H",
   "name": "巨人之力  Giant’s Might",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Warrior_TitansGrip.png",
+  "img": "icons/magic/control/silhouette-grow-shrink-blue.webp",
   "system": {
     "type": {
       "value": "class",
@@ -43,7 +43,8 @@
             {
               "type": "itemUses",
               "value": "1",
-              "target": ""
+              "target": "",
+              "scaling": {}
             }
           ],
           "scaling": {
@@ -53,18 +54,22 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "1",
           "units": "minute",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "qRePAZ3hMxVOwISk"
+            "_id": "qRePAZ3hMxVOwISk",
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
@@ -80,7 +85,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -105,9 +111,90 @@
         "sort": 0,
         "name": "3级巨人之力",
         "img": "",
-        "appliedEffects": [
-          "qRePAZ3hMxVOwISk"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       },
       "kOY1wso6zKO8i705": {
         "type": "utility",
@@ -128,22 +215,27 @@
             {
               "type": "itemUses",
               "value": "1",
-              "target": ""
+              "target": "",
+              "scaling": {}
             }
           ]
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "minute",
           "concentration": false,
           "override": false,
-          "value": "1"
+          "value": "1",
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "RP38k8gvrjhjkYsZ"
+            "_id": "RP38k8gvrjhjkYsZ",
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
@@ -155,7 +247,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -187,7 +280,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -195,7 +289,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -206,71 +299,140 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "name": "18级巨人之力",
         "img": "",
-        "appliedEffects": [
-          "RP38k8gvrjhjkYsZ"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-giants-might",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 3,
+      "repeatable": false,
+      "items": [
+        "subclass:rune-knight"
+      ]
     },
-    "properties": []
+    "properties": [
+      "mgc"
+    ]
   },
   "effects": [
     {
       "name": "巨人之力  Giant’s Might",
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Warrior_TitansGrip.png",
-      "origin": "Compendium.dnd5e_classpack.extra-ability.Item.ZMsWAAnCbFFgih3H",
+      "img": "icons/magic/control/silhouette-grow-shrink-blue.webp",
+      "origin": null,
       "transfer": false,
       "_id": "qRePAZ3hMxVOwISk",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.traits.size",
-          "value": "lg",
-          "mode": 5,
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.size",
+            "value": "lg",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "h5WCbB2POImXzIfb",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.abilities.str.check.roll.mode",
+            "value": 1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "DztzyWkSNLEoCTGU",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.abilities.str.save.roll.mode",
+            "value": 1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "tm7mudMvgWFckDGd",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.advantage.check.str",
-          "value": "1",
-          "mode": 0,
-          "priority": 20
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.extra-ability.Item.ZMsWAAnCbFFgih3H",
+          "message": null
         },
-        {
-          "key": "flags.midi-qol.advantage.save.str",
-          "value": "1",
-          "mode": 0,
-          "priority": 20
-        }
-      ],
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -290,9 +452,7 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
@@ -301,53 +461,78 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": 1749886570590,
         "modifiedTime": 1786693489930,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!ZMsWAAnCbFFgih3H.qRePAZ3hMxVOwISk"
     },
     {
       "name": "巨人之力  Giant’s Might",
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Warrior_TitansGrip.png",
-      "origin": "Compendium.dnd5e_classpack.extra-ability.Item.ZMsWAAnCbFFgih3H",
+      "img": "icons/magic/control/silhouette-grow-shrink-blue.webp",
+      "origin": null,
       "transfer": false,
       "_id": "RP38k8gvrjhjkYsZ",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.traits.size",
-          "value": "huge",
-          "mode": 5,
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.size",
+            "value": "huge",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "WymmwxFgbLDYZ8VI",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.abilities.str.check.roll.mode",
+            "value": 1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "aTgVHDBpKNs2vKWe",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.abilities.str.save.roll.mode",
+            "value": 1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "WeJ9tqySMXJHpS6v",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.advantage.check.str",
-          "value": "1",
-          "mode": 0,
-          "priority": 20
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.extra-ability.Item.ZMsWAAnCbFFgih3H",
+          "message": null
         },
-        {
-          "key": "flags.midi-qol.advantage.save.str",
-          "value": "1",
-          "mode": 0,
-          "priority": 20
-        }
-      ],
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -367,9 +552,7 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
@@ -378,14 +561,17 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": 1749887920400,
         "modifiedTime": 1786693489946,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!ZMsWAAnCbFFgih3H.RP38k8gvrjhjkYsZ"
     }
   ],
@@ -416,14 +602,7 @@
       "removeAttackDamageButtons": "default",
       "reactionCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 2,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "giantsMight",
@@ -433,9 +612,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1749888284366,
     "lastModifiedBy": "uXKCmWFprrvnSIDm",

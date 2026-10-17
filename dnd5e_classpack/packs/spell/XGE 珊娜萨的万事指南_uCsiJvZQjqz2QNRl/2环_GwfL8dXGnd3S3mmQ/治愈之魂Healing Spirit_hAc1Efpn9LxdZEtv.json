@@ -24,17 +24,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "healingSpirit",
@@ -43,11 +33,11 @@
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/ability_ardenweald_paladin_spring.jpg",
+  "img": "icons/magic/nature/tree-spirit-green.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<p>你召唤出自然精魂抚慰伤员。这个无形的精魂出现在施法距离内你可以看见的一处5英尺立方空间。精魂看起来像是透明的野兽或是妖精（由你选择）。<br />直到法术结束之前，每次你或者一个你可以看见的生物在回合里第一次进入精魂所占据的空间，或是在其中开始它的回合，你都可以让精魂为它恢复1d6点生命值（无需动作）。精魂不能治疗构装体或不死生物。<br />在你的回合中以一个附赠动作，你可以移动精魂30英尺至你可以看见的另一个空间。</p>\n<p><strong>升环效果：</strong>当你使用3环或更高的法术位施放该法术时，使用的法术位每高一环，治疗值就增加1d6点。</p>\n<p><strong>最新勘误：</strong>法术治愈之魂Healing Spirit最大治疗次数将限制在 1+施法属性调整值 次（最少两次）。</p>",
+      "value": "<p>你召唤出自然精魂抚慰伤员。这个无形的精魂出现在施法距离内你可以看见的一处 5 尺立方空间。精魂看起来像是透明的野兽或是妖精（由你选择）。</p><p>直到法术结束之前，每次你或者一个你可以看见的生物在回合里第一次进入精魂所占据的空间，或是在其中开始它的回合，你都可以让精魂为它恢复 [[/heal 1d6]]{1d6} 点生命值（无需动作）。精魂不能治疗构装或亡灵生物。</p><p>精魂至多能进行 1+你的施法属性调整值次治愈（至少能治疗 2 次）。当治愈次数用尽后，精魂就会消失。</p><p>在你的回合中，你可以用附赠动作来让精魂移动 30 尺至另一处你可见的空间内。</p><p><strong>升环施法效应。</strong>当你使用三环或更高的法术位施放该法术时，使用的法术位每高一环，治疗值就增加 1d6 点。</p>",
       "chat": ""
     },
     "source": {
@@ -63,7 +53,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -75,7 +66,8 @@
       "template": {
         "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -96,10 +88,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -125,22 +113,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -167,7 +159,8 @@
             "mode": "whole",
             "number": 1,
             "formula": ""
-          }
+          },
+          "modifiers": []
         },
         "sort": 0,
         "useConditionText": "",
@@ -181,7 +174,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -189,7 +183,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -200,17 +193,65 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
         }
       }
     },
-    "identifier": "healing-spirit"
+    "identifier": "healing-spirit",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -219,8 +260,8 @@
   "sort": 16300000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

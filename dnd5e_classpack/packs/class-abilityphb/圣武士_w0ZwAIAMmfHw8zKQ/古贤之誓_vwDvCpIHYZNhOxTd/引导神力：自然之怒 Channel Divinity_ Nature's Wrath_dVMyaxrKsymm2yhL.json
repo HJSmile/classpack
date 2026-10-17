@@ -2,10 +2,10 @@
   "_id": "dVMyaxrKsymm2yhL",
   "name": "引导神力：自然之怒 Channel Divinity: Nature's Wrath",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_druid_massentanglement.png",
+  "img": "icons/magic/nature/root-vine-entangled-humanoid.webp",
   "system": {
     "description": {
-      "value": "<p>你可以用@UUID[Compendium.dnd5e_classpack.class-abilityphb.3eyfqXMTJMG9AxYH]{引导神力}特性唤起原初之力来诱捕敌人。作为一个动作，你可以让特殊的滕蔓生长并缠绕一个距离你10尺内，你能看见的生物。该生物必须进行一次力量或敏捷豁免(由其选择)，豁免失败者将陷入束缚状态。此后，每当该生物结束其回合时，都可以再进行一次该豁免。-旦豁免成功，则该生物挣脱束缚，滕蔓也就此消失。</p>",
+      "value": "<p>你可以用@UUID[Compendium.dnd5e_classpack.class-abilityphb.3eyfqXMTJMG9AxYH]{引导神力}特性唤起原初之力来诱捕敌人。作为一个动作，你可以让特殊的藤蔓生长并缠绕一个距离你10尺内，你能看见的生物。该生物必须进行一次力量或敏捷豁免(由其选择)，豁免失败者将陷入束缚状态。此后，每当该生物结束其回合时，都可以再进行一次该豁免。一旦豁免成功，则该生物挣脱束缚，藤蔓也就此消失。</p>",
       "chat": ""
     },
     "source": {
@@ -39,7 +39,8 @@
             {
               "type": "itemUses",
               "value": "1",
-              "target": "Compendium.dnd5e_classpack.class-abilityphb.Item.v8z4Z2NuBAbYnjxk"
+              "target": "Compendium.dnd5e_classpack.class-abilityphb.Item.v8z4Z2NuBAbYnjxk",
+              "scaling": {}
             }
           ],
           "scaling": {
@@ -49,17 +50,33 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "oGEmdzIYLnhgx5k0"
+            "_id": "oGEmdzIYLnhgx5k0",
+            "uuid": null,
+            "level": {},
+            "onSave": false,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1757272337035,
+              "modifiedTime": 1757272476680,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           }
         ],
         "range": {
@@ -76,7 +93,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "1",
@@ -94,7 +112,10 @@
         },
         "damage": {
           "onSave": "half",
-          "parts": []
+          "parts": [],
+          "critical": {
+            "allow": false
+          }
         },
         "save": {
           "ability": [
@@ -104,23 +125,107 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "name": "敏捷豁免",
         "img": "",
-        "appliedEffects": [
-          "oGEmdzIYLnhgx5k0"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 3,
+      "repeatable": false,
+      "items": []
     },
     "properties": [
       "mgc"
@@ -129,29 +234,43 @@
   "effects": [
     {
       "name": "引导神力：自然之怒 Channel Divinity: Nature's Wrath",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_druid_massentanglement.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.dVMyaxrKsymm2yhL",
+      "img": "icons/magic/nature/root-vine-entangled-humanoid.webp",
+      "origin": null,
       "transfer": false,
       "_id": "oGEmdzIYLnhgx5k0",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.OverTime",
-          "mode": 2,
-          "value": "turn=end,allowIncapacitated=true,rollType=save,saveAbility=str,dex,saveDamage=nodamage,saveRemove=true,saveMagic=true,actionSave=dialog,rollMode=publicroll,",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.OverTime",
+            "value": "turn=end, label=引导神力：自然之怒 Channel Divinity: Nature's Wrath, saveAbility=str|dex, saveDC=@activity.save.dc.value, saveMagic=true, saveCount=1-, rollMode=publicroll, allowIncapacitated=true",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "jYKT6m0FI91mD1HO",
+            "conditions": "{}",
+            "replacement": "origin"
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.dVMyaxrKsymm2yhL",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -169,59 +288,37 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757272337035,
         "modifiedTime": 1757272476680,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!dVMyaxrKsymm2yhL.oGEmdzIYLnhgx5k0"
     }
   ],
   "folder": "vwDvCpIHYZNhOxTd",
   "sort": 29400000,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -251,9 +348,9 @@
     "default": 0
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757272831507,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

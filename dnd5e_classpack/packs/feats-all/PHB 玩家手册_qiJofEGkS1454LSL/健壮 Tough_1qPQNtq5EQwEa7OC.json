@@ -6,37 +6,26 @@
   "effects": [
     {
       "name": "健壮",
-      "origin": "Compendium.dnd5e_classpack.feats-all.Item.1qPQNtq5EQwEa7OC",
+      "origin": null,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "disabled": false,
       "flags": {
         "dnd5e": {}
       },
       "_id": "1ktk5eLrdnSCMbDm",
-      "changes": [
-        {
-          "key": "system.attributes.hp.bonuses.level",
-          "mode": 2,
-          "value": "+ 2",
-          "priority": null
-        }
-      ],
       "description": "",
       "transfer": true,
       "statuses": [],
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -46,20 +35,43 @@
       },
       "img": "icons/creatures/mammals/bull-horned-blue.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.hp.bonuses.level",
+            "value": "+ 2",
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "wWheKs2hxUmVJ1Su",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.feats-all.Item.1qPQNtq5EQwEa7OC",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!1qPQNtq5EQwEa7OC.1ktk5eLrdnSCMbDm"
     }
   ],
   "folder": "qiJofEGkS1454LSL",
   "sort": 3800000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -91,23 +103,24 @@
     },
     "cover": null,
     "uses": {
-      "max": "0",
+      "max": "",
       "spent": 0,
       "recovery": []
     },
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "requirements": "",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -115,9 +128,9 @@
     "default": 0
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1724333728400,
     "modifiedTime": 1757865498550,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

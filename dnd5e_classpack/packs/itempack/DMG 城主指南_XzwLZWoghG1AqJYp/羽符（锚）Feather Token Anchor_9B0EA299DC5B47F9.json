@@ -7,18 +7,11 @@
   "folder": "XzwLZWoghG1AqJYp",
   "flags": {
     "core": {},
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
-      "value": "<p><em>奇物</em></p>\n<p>这是一件外观类似羽毛的小物品。夸尔羽符有很多种，每种都有一个一次性效应。羽符的类型由DM选取或参照下表随机决定。</p>\n<table>\n<thead>\n<tr>\n<th><strong>[[/r d100]]</strong></th>\n<th><strong>羽符</strong></th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>01~20</td>\n<td>@UUID[Compendium.dnd5e_classpack.itempack.9B0EA299DC5B47F9]{锚 Anchor}</td>\n</tr>\n</tbody>\n</table>\n<p><strong>锚Anchor。</strong>你可以用一个动作以这枚羽符碰触一艘船。接下来的24小时中，无论采取何种方式，该船都无法被移动。用羽符再次碰触该船将终止该效应。效应终止时，羽符也将随之消失。</p>",
+      "value": "<p><em>奇物</em></p><p>这是一件外观类似羽毛的小物品。夸尔羽符有很多种，每种都有一个一次性效应。羽符的类型由DM选取或参照下表随机决定。</p><table><thead><tr><th><strong>[[/r d100]]</strong></th><th><strong>羽符</strong></th></tr></thead><tbody><tr><td>01~20</td><td>@UUID[Compendium.dnd5e_classpack.itempack.9B0EA299DC5B47F9]{锚 Anchor}</td></tr></tbody></table><h3>锚Anchor。</h3><p>你可以用一个动作以这枚羽符碰触一艘船。接下来的24小时中，无论采取何种方式，该船都无法被移动。用羽符再次碰触该船将终止该效应。效应终止时，羽符也将随之消失。</p>",
       "chat": ""
     },
     "source": {
@@ -38,7 +31,6 @@
     },
     "attunement": "",
     "equipped": false,
-    "rarity": "rare",
     "identified": true,
     "uses": {
       "max": "1",
@@ -56,7 +48,8 @@
         },
         "scaling": {
           "number": 1
-        }
+        },
+        "modifiers": []
       },
       "replace": false
     },
@@ -68,7 +61,6 @@
       "subtype": ""
     },
     "container": null,
-    "magicalBonus": null,
     "properties": [
       "mgc"
     ],
@@ -101,18 +93,20 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "24",
           "units": "hour",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -124,7 +118,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": "touch"
+            "units": "touch",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -146,16 +141,104 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "feather-token-anchor",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "rare"
+    ]
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1713010440538,
     "modifiedTime": 1757871211438,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

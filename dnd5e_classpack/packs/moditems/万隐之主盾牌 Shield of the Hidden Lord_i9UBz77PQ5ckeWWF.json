@@ -6,32 +6,21 @@
   "effects": [
     {
       "_id": "SN2u94z3BDgJNfYI",
-      "changes": [
-        {
-          "key": "system.traits.di.value",
-          "mode": 2,
-          "value": "fire",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
-      "origin": "Item.i9UBz77PQ5ckeWWF",
+      "origin": null,
       "transfer": true,
       "flags": {},
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -42,29 +31,50 @@
       "name": "+ 火焰抗性",
       "img": "icons/equipment/shield/kite-decorative-steel-claws.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.di.value",
+            "value": "fire",
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "DvJKBZvYA2rAYSbn",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Item.i9UBz77PQ5ckeWWF",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!i9UBz77PQ5ckeWWF.SN2u94z3BDgJNfYI"
     }
   ],
   "folder": null,
   "sort": 0,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 3,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1749710928408,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",
@@ -77,7 +87,7 @@
   },
   "system": {
     "description": {
-      "value": "<p><em>（需同调）</em></p>\n<p>隐藏领主之盾源自天界，是作为深狱炼魔加葛斯 Gargauth的监狱，加葛斯的凡人追随者将其奉为神祗。随着时间的推移，加葛斯的邪恶扭曲了盾牌的外观，所以它的天界图案和设计已经扭曲成一张魔鬼般的脸，以令人不安的方式微妙地扭动。</p>\n<p>持有此盾牌时，你的AC将获得+2加值并且获得对火焰伤害的抗性。</p>\n<p><strong>智能 Sentience</strong>。只要它仍囚禁着加葛斯，隐藏领主的盾牌就是有智能的。当有智能时，该盾牌有以下属性：</p>\n<ul>\n<li>盾牌具有22点的智力，18点的感知，24点的魅力，以及120尺范围内的听觉和真实视觉。</li>\n<li>盾牌可以说，读，理解通用语和炼狱语，它可以通过心灵感应与任何它能在120尺内感知到的生物交流。它的声音低沉而空洞。</li>\n<li>盾牌有3发充能。你可以用一个动作消耗一发充能来释放@UUID[Compendium.dnd5e_classpack.spell.Uh3zcz4PO4DXP3Dj]{火球术 Fireball}，或者用两发充能从盾牌中释放@UUID[Compendium.dnd5e_classpack.spell.agTzLRmgNSVghaGk]{火墙术 Wall of Fire}(豁免DC 21)。火墙术持续1分钟(不需要专注)。盾牌在黎明时分回复所有消耗的充能。</li>\n<li>在你的回合中，盾牌可以选择在1分钟内放射出恐惧灵光。(这不是你所能够控制的盾牌的力量。)任何在离盾牌不到20尺的范围内开始其回合的对你有敌意的生物必须进行一次DC 18的感知豁免。豁免失败，则该生物直到它的下一个回合开始时处于恐慌状态。豁免成功，则该生物在接下来的24小时内对盾牌的这种能力免疫。一旦护盾使用了这种能力，直到第二天黎明前都不能再次使用该能力。</li>\n</ul>\n<p><strong>加葛斯的性格 Gargauth's Personality</strong>。加葛斯拼命地寻求自由，却无法依靠自己逃脱。深狱炼魔不会透露它的真实本性，只称自己为万隐之主 Hidden Lord。它会微妙地暗示，它是一个被困在一座邪恶的监牢里的天使。如果从盾牌中被释放出来，深狱炼魔就会遵守它为帮助自己逃脱而达成的任何协议。<br />当被困在盾里时，加葛斯会小心地引导盾牌的现任主人做出残酷和独裁的行为，希望将其灵魂引入九狱。如果盾牌的主人做了任何让加葛斯更难逃出监狱的事情，比如把盾牌放在别人不太可能找到它的地方，冲突就会发生。<br />加葛斯不知道如何从盾牌中逃脱。深狱炼魔相信(这并不正确)如果它被带到九狱，它就能从盾牌中挣脱出来，因为它确信盾牌在那里的力量更弱。</p>\n<p><strong>释放加葛斯 Freeing Gargauth</strong>。对盾牌释放法术@UUID[Compendium.dnd5e_classpack.spell.vWPApZRxvrKSiKKS]{反制善恶 Dispel Evil and Good}有1%的几率释放该深狱炼魔，如果施法者是炽天神侍、异界神侍或者大魔鬼，则释放自动成功。神祗可以通过触摸盾牌和说出加葛斯的名字来释放这个深狱炼魔。当释放时，加葛斯会出现在一个随机的离护盾最近的没有被占据的空间中。</p>",
+      "value": "<p><em>（需同调）</em></p><p>隐藏领主之盾源自天界，是作为深狱炼魔加葛斯 Gargauth的监狱，加葛斯的凡人追随者将其奉为神祗。随着时间的推移，加葛斯的邪恶扭曲了盾牌的外观，所以它的天界图案和设计已经扭曲成一张魔鬼般的脸，以令人不安的方式微妙地扭动。</p><p>持有此盾牌时，你的AC将获得+2加值并且获得对火焰伤害的抗性。</p><p><strong>智能 Sentience</strong>。只要它仍囚禁着加葛斯，隐藏领主的盾牌就是有智能的。当有智能时，该盾牌有以下属性：</p><ul><li>盾牌具有22点的智力，18点的感知，24点的魅力，以及120尺范围内的听觉和真实视觉。</li><li>盾牌可以说，读，理解通用语和炼狱语，它可以通过心灵感应与任何它能在120尺内感知到的生物交流。它的声音低沉而空洞。</li><li>盾牌有3发充能。你可以用一个动作消耗一发充能来释放@UUID[Compendium.dnd5e_classpack.spell.Uh3zcz4PO4DXP3Dj]{火球术 Fireball}，或者用两发充能从盾牌中释放@UUID[Compendium.dnd5e_classpack.spell.agTzLRmgNSVghaGk]{火墙术 Wall of Fire}(豁免DC 21)。火墙术持续1分钟(不需要专注)。盾牌在黎明时分回复所有消耗的充能。</li><li>在你的回合中，盾牌可以选择在1分钟内放射出恐惧灵光。(这不是你所能够控制的盾牌的力量。)任何在离盾牌不到20尺的范围内开始其回合的对你有敌意的生物必须进行一次DC 18的感知豁免。豁免失败，则该生物直到它的下一个回合开始时处于恐慌状态。豁免成功，则该生物在接下来的24小时内对盾牌的这种能力免疫。一旦护盾使用了这种能力，直到第二天黎明前都不能再次使用该能力。</li></ul><p><strong>加葛斯的性格 Gargauth's Personality</strong>。加葛斯拼命地寻求自由，却无法依靠自己逃脱。深狱炼魔不会透露它的真实本性，只称自己为万隐之主 Hidden Lord。它会微妙地暗示，它是一个被困在一座邪恶的监牢里的天使。如果从盾牌中被释放出来，深狱炼魔就会遵守它为帮助自己逃脱而达成的任何协议。</p><p>当被困在盾里时，加葛斯会小心地引导盾牌的现任主人做出残酷和独裁的行为，希望将其灵魂引入九狱。如果盾牌的主人做了任何让加葛斯更难逃出监狱的事情，比如把盾牌放在别人不太可能找到它的地方，冲突就会发生。</p><p>加葛斯不知道如何从盾牌中逃脱。深狱炼魔相信(这并不正确)如果它被带到九狱，它就能从盾牌中挣脱出来，因为它确信盾牌在那里的力量更弱。</p><p><strong>释放加葛斯 Freeing Gargauth</strong>。对盾牌释放法术@UUID[Compendium.dnd5e_classpack.spell.vWPApZRxvrKSiKKS]{反制善恶 Dispel Evil and Good}有1%的几率释放该深狱炼魔，如果施法者是炽天神侍、异界神侍或者大魔鬼，则释放自动成功。神祗可以通过触摸盾牌和说出加葛斯的名字来释放这个深狱炼魔。当释放时，加葛斯会出现在一个随机的离护盾最近的没有被占据的空间中。</p>",
       "chat": ""
     },
     "source": {
@@ -96,7 +106,6 @@
     },
     "attunement": "required",
     "equipped": false,
-    "rarity": "legendary",
     "identified": true,
     "uses": {
       "max": "3",
@@ -105,8 +114,7 @@
     },
     "armor": {
       "value": 4,
-      "dex": null,
-      "magicalBonus": null
+      "dex": null
     },
     "hp": {
       "value": 0,
@@ -116,7 +124,8 @@
     },
     "speed": {
       "value": null,
-      "conditions": ""
+      "conditions": "",
+      "units": "ft"
     },
     "strength": null,
     "proficient": null,
@@ -157,13 +166,15 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -179,7 +190,8 @@
             "size": "20",
             "width": "",
             "height": "",
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -197,7 +209,10 @@
         },
         "damage": {
           "onSave": "half",
-          "parts": []
+          "parts": [],
+          "critical": {
+            "allow": false
+          }
         },
         "save": {
           "ability": [
@@ -206,16 +221,108 @@
           "dc": {
             "calculation": "",
             "formula": "18"
-          }
+          },
+          "visible": true
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
     "identifier": "-shield-of-the-hidden-lord",
     "container": null,
     "cover": null,
-    "crewed": false,
-    "properties": []
+    "properties": [],
+    "rarities": [
+      "legendary"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "_key": "!items!i9UBz77PQ5ckeWWF"
 }

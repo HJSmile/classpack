@@ -26,42 +26,22 @@
       "effectCondition": "",
       "reactionCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/magic/fire/flame-burning-creature-skeleton.webp",
   "_id": "DMc82k2dKx3mOtDA",
   "effects": [
     {
       "name": "焚烧Immolation",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.DMc82k2dKx3mOtDA",
+      "origin": null,
       "duration": {
-        "rounds": 10,
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 10,
+        "units": "rounds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "disabled": false,
       "_id": "sTboJIiSqT5dTfhC",
-      "changes": [
-        {
-          "key": "flags.midi-qol.OverTime",
-          "mode": 2,
-          "value": "turn=end, label=焚烧Immolation, saveAbility=dex, saveDC=@attributes.spell.dc, saveMagic=true, damageRoll=4d6, damageType=fire, saveCount=1-, rollMode=publicroll, allowIncapacitated=true",
-          "priority": 20
-        }
-      ],
       "description": "",
       "transfer": false,
       "statuses": [],
@@ -72,34 +52,15 @@
           "selfTargetAlways": false,
           "dontApply": false,
           "stackable": "noneName",
-          "showIcon": true,
           "durationExpression": "",
           "macroRepeat": "none",
           "specialDuration": [],
           "enableCondition": "",
-          "disableCondition": ""
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
+          "disableCondition": "",
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
@@ -107,9 +68,9 @@
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1786655007510,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
@@ -119,14 +80,42 @@
       },
       "img": "icons/magic/fire/flame-burning-creature-skeleton.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.OverTime",
+            "value": "turn=end, label=焚烧Immolation, saveAbility=dex, saveDC=@activity.save.dc.value, saveMagic=true, damageRoll=4d6, damageType=fire, saveCount=1-, rollMode=publicroll, allowIncapacitated=true",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "hBh5DOfJctuugi9a",
+            "conditions": "{}",
+            "replacement": "origin"
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.DMc82k2dKx3mOtDA",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 2,
+      "folder": null,
       "_key": "!items.effects!DMc82k2dKx3mOtDA.sTboJIiSqT5dTfhC"
     }
   ],
   "system": {
     "description": {
-      "value": "<p>火焰环绕了距离之内，你能看到的一个生物。该目标必须进行一次敏捷豁免检定。若豁免失败，其受到8d6点火焰伤害，豁免成功则只受到上述伤害的一半。若豁免失败，目标同时会在此法术的持续时间内被点燃。燃烧的目标会照亮周围30英尺半径的区域，并在外围30英尺范围内产生微弱的亮光。在其每个回合的结束，目标重复进行豁免检定。检定失败则受到4d6点火焰伤害。而豁免成功则刺法术终结。这些魔法火焰无法被非魔法的方式熄灭。<br />若此法术造成的伤害杀死了目标，目标化为灰烬。</p>",
+      "value": "<p>火焰环绕在施法距离之内你可见的一个生物身上。目标必须进行一次[[/save activity=dnd5eactivity000]]{敏捷豁免检定}。豁免失败，目标将受到 [[/damage 8d6 type=fire]]{8d6} 火焰伤害，豁免成功则只受到半数伤害。若豁免失败，目标还会被此法术点燃，持续至法术结束。被点燃的目标会散发出 30 尺半径的明亮光照，以及其外 30 尺范围的微光光照。在其被点燃目标回合结束时，目标重复进行此次豁免。豁免失败将受到 [[/damage 4d6 type=fire]]{4d6} 点火焰伤害，而豁免成功则此法术提前终止。这些魔法火焰无法被非魔法的方式熄灭。</p><p>若此法术造成的伤害杀死了目标，目标将化为灰烬。</p>",
       "chat": ""
     },
     "source": {
@@ -142,7 +131,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -152,9 +142,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -175,10 +166,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -203,27 +190,44 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "sTboJIiSqT5dTfhC",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": 1786655007510,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -253,7 +257,8 @@
                 "mode": "",
                 "number": null,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -267,7 +272,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -281,7 +287,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -289,7 +296,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -300,18 +306,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "immolation"
+    "identifier": "immolation",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -320,8 +375,8 @@
   "sort": 7800000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711691494305,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

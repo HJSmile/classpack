@@ -6,32 +6,21 @@
   "effects": [
     {
       "_id": "bzsesDlMXelHbnRx",
-      "changes": [
-        {
-          "key": "system.attributes.senses.darkvision",
-          "mode": 2,
-          "value": "60",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
-      "origin": "Item.RNxi7SoDZb5s9G21",
+      "origin": null,
       "transfer": true,
       "flags": {},
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -42,40 +31,57 @@
       "name": "+ 60 ft. 黑暗视觉",
       "img": "icons/equipment/head/helm-norman-horned-gold.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.senses.ranges.darkvision",
+            "value": 60,
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "yYNMU1LgWf5679JP",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Item.RNxi7SoDZb5s9G21",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!RNxi7SoDZb5s9G21.bzsesDlMXelHbnRx"
     },
     {
       "_id": "Gu3bx9QNcZpOoOzV",
-      "changes": [
-        {
-          "key": "system.attributes.movement.swim",
-          "mode": 4,
-          "value": "30",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
-      "origin": "Item.RNxi7SoDZb5s9G21",
+      "origin": null,
       "transfer": true,
       "flags": {},
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -86,27 +92,50 @@
       "name": "+ 30 ft. 游泳速度",
       "img": "icons/equipment/head/helm-norman-horned-gold.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.movement.speeds.swim",
+            "value": 30,
+            "priority": null,
+            "type": "upgrade",
+            "phase": "initial",
+            "_id": "PN8bq1SwQVTIUAVn",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Item.RNxi7SoDZb5s9G21",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!RNxi7SoDZb5s9G21.Gu3bx9QNcZpOoOzV"
     }
   ],
   "folder": null,
   "sort": 0,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1749710928408,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",
@@ -138,7 +167,6 @@
     },
     "attunement": "required",
     "equipped": false,
-    "rarity": "uncommon",
     "identified": true,
     "uses": {
       "spent": 0,
@@ -146,8 +174,7 @@
     },
     "armor": {
       "value": null,
-      "dex": null,
-      "magicalBonus": null
+      "dex": null
     },
     "hp": {
       "value": 0,
@@ -157,7 +184,8 @@
     },
     "speed": {
       "value": null,
-      "conditions": ""
+      "conditions": "",
+      "units": "ft"
     },
     "strength": null,
     "proficient": null,
@@ -173,8 +201,13 @@
     "identifier": "-helm-of-underwater-action",
     "container": null,
     "cover": null,
-    "crewed": false,
-    "properties": []
+    "properties": [],
+    "rarities": [
+      "uncommon"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "_key": "!items!RNxi7SoDZb5s9G21"
 }

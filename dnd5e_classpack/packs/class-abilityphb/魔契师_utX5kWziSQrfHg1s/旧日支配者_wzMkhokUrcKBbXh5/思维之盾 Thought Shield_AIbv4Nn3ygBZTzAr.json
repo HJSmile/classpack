@@ -2,7 +2,7 @@
   "_id": "AIbv4Nn3ygBZTzAr",
   "name": "思维之盾 Thought Shield",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_TitanKeeper_Corrupt.png",
+  "img": "icons/magic/defensive/barrier-shield-dome-pink.webp",
   "system": {
     "type": {
       "value": "class",
@@ -25,45 +25,37 @@
     "requirements": "旧日支配者等级 10",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 10,
+      "repeatable": false,
+      "items": [
+        "subclass:the-great-old-one"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "_id": "BhofTnbThSfwxPtE",
-      "changes": [
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "psychic",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": "Compendium.dnd5e_classpack.class-abilityphb.AIbv4Nn3ygBZTzAr",
       "transfer": true,
       "flags": {},
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -72,12 +64,40 @@
         "exportSource": null
       },
       "name": "获得心灵抗性",
-      "img": "modules/dnd5e_classpack/Nicons/Ability_TitanKeeper_Corrupt.png",
+      "img": "icons/magic/defensive/barrier-shield-dome-pink.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.dr.value",
+            "value": "psychic",
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "dLb2rtjE2W7lMTfg",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!AIbv4Nn3ygBZTzAr.BhofTnbThSfwxPtE"
     }
   ],
@@ -93,12 +113,7 @@
       "alwaysActive": false,
       "effects": []
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -118,9 +133,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757407109241,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

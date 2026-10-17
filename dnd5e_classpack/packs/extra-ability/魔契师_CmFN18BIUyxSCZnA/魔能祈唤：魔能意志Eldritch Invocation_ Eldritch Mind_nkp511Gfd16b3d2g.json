@@ -23,15 +23,16 @@
       "value": "class",
       "subtype": "eldritchInvocation"
     },
-    "requirements": "邪术师等级 2",
+    "requirements": "",
     "activities": {},
     "identifier": "eldritch-invocationeldritch-mind",
-    "advancement": [],
+    "advancement": {},
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": 2,
-      "repeatable": false
+      "level": null,
+      "repeatable": false,
+      "items": []
     },
     "properties": [
       "mgc"
@@ -41,27 +42,41 @@
     {
       "name": "魔能祈唤：魔能意志Eldritch Invocation: Eldritch Mind",
       "img": "icons/skills/social/intimidation-impressing.webp",
-      "origin": "Compendium.dnd5e_classpack.extra-ability.Item.nkp511Gfd16b3d2g",
+      "origin": null,
       "_id": "cM8pYQE2lszPWfTS",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.advantage.concentration",
-          "mode": 2,
-          "value": "+1",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.advantage.concentration",
+            "value": "+1",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "aFL8Nl1Mik3jJIxJ",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.extra-ability.Item.nkp511Gfd16b3d2g",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -79,54 +94,33 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757352502386,
         "modifiedTime": 1757352521494,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!nkp511Gfd16b3d2g.cM8pYQE2lszPWfTS"
     }
   ],
   "folder": "CmFN18BIUyxSCZnA",
   "sort": 43300000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -149,9 +143,9 @@
     "default": 0
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757416526320,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

@@ -2,14 +2,14 @@
   "_id": "lu8NYi2MWNx8h6ZX",
   "name": "生死之触Physician’s Touch",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Mage_IncantersAbsorbtion.png",
+  "img": "icons/magic/unholy/hand-light-green.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>你可以通过接触来进行更有效的治疗，你也可以利用你的知识来造成伤害。</p>\n<p>当你对一个生物使用@UUID[Compendium.dnd5e_classpack.extra-ability.R9VbDJOCQk2Mb9eG]{予命之手}时，你还可以结束一种疾病或影响该生物的下列状态之一：目盲、耳聋、麻痹、中毒或震慑。</p>\n<p>当你对一个生物使用@UUID[Compendium.dnd5e_classpack.extra-ability.bolUalIQ1Ad2I6Mg]{夺命之手}时，你可以使该生物处于中毒状态，直到你的下一回合结束。</p>",
+      "value": "<p>你可以通过接触来进行更有效的治疗，你也可以利用你的知识来造成伤害。</p>\n<p>当你对一个生物使用@UUID[Compendium.dnd5e_classpack.extra-ability.R9VbDJOCQk2Mb9eG]{予命之手}时，你还可以结束一种疾病或影响该生物的下列状态之一：目盲、耳聋、麻痹、中毒或震慑。</p>\n<p>当你对一个生物使用@UUID[Compendium.dnd5e_classpack.extra-ability.bolUalIQ1Ad2I6Mg]{夺命之手}时，你可以使该生物处于&amp;Reference[condition=poisoned apply=false]{中毒}状态，直到你的下一回合结束。</p>",
       "chat": ""
     },
     "source": {
@@ -25,13 +25,16 @@
     "requirements": "命流宗等级 6",
     "activities": {},
     "identifier": "physicians-touch",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 6,
+      "repeatable": false,
+      "items": [
+        "subclass:way-of-the-mercy"
+      ]
     },
     "properties": []
   },
@@ -63,17 +66,12 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757416402443,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

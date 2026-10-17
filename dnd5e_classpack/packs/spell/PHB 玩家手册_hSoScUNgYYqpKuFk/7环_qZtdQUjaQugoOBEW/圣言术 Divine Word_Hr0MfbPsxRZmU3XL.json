@@ -22,45 +22,21 @@
       "effectCondition": "",
       "removeAttackDamageButtons": "default",
       "reactionCondition": "",
-      "otherCondition": ""
+      "otherCondition": "",
+      "onUseMacroName": "[postSave]ActivityMacro,[postActiveEffects]ActivityMacro"
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/httpcloud3steamusercontentcomugc842585136115603919A336D255C2F1853F4CB4F9D65BCED5F0E766BD10.jpg",
+  "img": "icons/magic/lightning/bolt-strike-explosion-yellow.webp",
   "effects": [
     {
-      "changes": [
-        {
-          "key": "flags.midi-qol.disadvantage.attack.all",
-          "mode": 0,
-          "value": "1",
-          "priority": null
-        },
-        {
-          "key": "flags.midi-qol.grants.advantage.attack.all",
-          "mode": 0,
-          "value": "1",
-          "priority": null
-        }
-      ],
-      "description": "- A blinded creature can't see and automatically fails any ability check that requires sight.<br />- Attack rolls against the creature have advantage, and the creature's attack rolls have disadvantage.",
+      "description": "<p>- A blinded creature can't see and automatically fails any ability check that requires sight.<br>- Attack rolls against the creature have advantage, and the creature's attack rolls have disadvantage.</p>",
       "disabled": false,
       "duration": {
-        "rounds": null,
-        "seconds": null,
-        "turns": null,
-        "startTime": null,
-        "combat": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 10,
+        "units": "minutes",
+        "expiry": "turnStart",
+        "expired": false
       },
       "flags": {
         "dfreds-convenient-effects": {
@@ -69,21 +45,37 @@
           "isViewable": true,
           "nestedEffects": [],
           "subEffects": []
+        },
+        "dae": {
+          "enableCondition": "",
+          "disableCondition": "",
+          "stackable": "noneName",
+          "applicationMode": "default",
+          "expiryMode": "default",
+          "durationExpression": "",
+          "macroRepeat": "none",
+          "disableIncapacitated": false,
+          "selfTarget": false,
+          "selfTargetAlways": false,
+          "dontApply": false,
+          "specialDuration": []
+        },
+        "core": {
+          "overlay": false
         }
       },
       "name": "Blinded",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.Hr0MfbPsxRZmU3XL",
+      "origin": null,
       "tint": "#ffffff",
       "transfer": false,
       "statuses": [
-        "Convenient Effect: Blinded",
         "blinded"
       ],
       "_id": "iAROMWu8N7fETOUD",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -91,24 +83,58 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dfreds-convenient-effects/images/blinded.svg",
+      "img": "systems/dnd5e/icons/svg/statuses/blinded.svg",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.disadvantage.attack.all",
+            "value": 1,
+            "priority": null,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "qJpOVJQEVWtGAY1R",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.grants.advantage.attack.all",
+            "value": 1,
+            "priority": null,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "nFcnVWsmK601oq2n",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.Hr0MfbPsxRZmU3XL",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!Hr0MfbPsxRZmU3XL.iAROMWu8N7fETOUD"
     },
     {
-      "changes": [],
       "description": "- A deafened creature can't hear and automatically fails any ability check that requires hearing.",
       "disabled": false,
       "duration": {
-        "rounds": null,
-        "seconds": null,
-        "turns": null,
-        "startTime": null,
-        "combat": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "minutes",
+        "expiry": "turnStart",
+        "expired": false
       },
       "flags": {
         "dfreds-convenient-effects": {
@@ -120,7 +146,7 @@
         }
       },
       "name": "Deafened",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.Hr0MfbPsxRZmU3XL",
+      "origin": null,
       "tint": "#ffffff",
       "transfer": false,
       "statuses": [
@@ -129,9 +155,9 @@
       ],
       "_id": "hcsEt21qxn7nXE9A",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -139,16 +165,33 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dfreds-convenient-effects/images/deafened.svg",
+      "img": "systems/dnd5e/icons/svg/statuses/deafened.svg",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.Hr0MfbPsxRZmU3XL",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!Hr0MfbPsxRZmU3XL.hcsEt21qxn7nXE9A"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你吟诵一句神圣的箴言，其中充盈了创世黎明的力量。在施法距离内指定任意数量的你能看见的生物，并迫使每个能够听到圣言的生物进行一次魅力豁免。豁免失败者基于其当前生命值承受以下效应：\n<br />生命值为50或更少：耳聋1分钟。\n<br />生命值为40或更少：耳聋并目盲10分钟。\n<br />生命值为30或更少：耳聋、目盲并被震慑1小时。\n<br />生命值为20或更少：即死。\n<br />对于受术的天界生物、元素生物、精类生物或邪魔，其豁免失败时不需考虑其当前生命值，并直接将其遣返回其原属位面（本来就处于原属位面则无效）。在随后24小时内，该生物不能通过任何方式回到当前位面，除非使用祈愿术的效应。\n<br /></div>",
+      "value": "<p>你吟诵一句神圣的箴言，其中充盈了创世黎明的力量。在施法距离内指定任意数量的你能看见的生物，并迫使每个能够听到圣言的生物进行一次[[/save activity=dnd5eactivity000]]{魅力豁免}。豁免失败者基于其当前生命值承受以下效应：</p><ul><li><strong>生命值为 50 或更少：</strong>耳聋 1 分钟。</li><li><strong>生命值为 40 或更少：</strong>耳聋并目盲 10 分钟。</li><li><strong>生命值为 30 或更少：</strong>耳聋、目盲并被震慑 1 小时。</li><li><strong>生命值为 20 或更少：</strong>即死。</li></ul><p>对于受术的天族、元素生物、妖精或邪魔，其豁免失败时不需考虑其当前生命值，并直接将其遣返回其原属位面（本来就处于原属位面则无效）。在随后 24 小时内，该生物不能通过任何方式回到当前位面，除非使用祈愿术的效应。</p>",
       "chat": ""
     },
     "source": {
@@ -164,7 +207,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -174,9 +218,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -197,10 +242,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -224,31 +265,45 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "iAROMWu8N7fETOUD",
-            "onSave": false
+            "uuid": null,
+            "onSave": false,
+            "level": {
+              "min": null,
+              "max": null
+            }
           },
           {
             "_id": "hcsEt21qxn7nXE9A",
-            "onSave": false
+            "uuid": null,
+            "onSave": false,
+            "level": {
+              "min": null,
+              "max": null
+            }
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -274,21 +329,24 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true,
+          "bonus": ""
         },
         "sort": 0,
         "useConditionText": "",
         "useConditionReason": "",
         "effectConditionText": "",
         "macroData": {
-          "name": "",
-          "command": ""
+          "name": "圣言术时长",
+          "command": "const pass = args[0]?.macroPass;\nif (![\"postSave\", \"postActiveEffects\"].includes(pass)) return;\nconst cast = typeof workflow !== \"undefined\" ? workflow : null;\nif (!cast?.item || !cast.activity) return;\nconst stateKey = \"classpackDivineWordDuration\";\nconst sourceIds = [\"iAROMWu8N7fETOUD\", \"hcsEt21qxn7nXE9A\"];\nif (pass === \"postSave\") {\n  const actors = {};\n  for (const target of cast.targets ?? []) {\n    const actor = target.actor ?? target.document?.actor;\n    if (!actor || actors[actor.uuid]) continue;\n    actors[actor.uuid] = {\n      hp: Number(actor.system.attributes.hp.value),\n      beforeIds: Array.from(actor.effects, effect => effect.id)\n    };\n  }\n  cast[stateKey] = { actors, message: cast.itemCardUuid };\n  return;\n}\nconst snapshot = cast[stateKey];\nif (!snapshot) {\n  ui.notifications.warn(\"圣言术：缺少豁免阶段记录，未自动调整效应时长。\");\n  return;\n}\nconst sources = new Map(sourceIds.map(id => [id, cast.item.effects.get(id)?.uuid]));\nconst seen = new Set();\nfor (const target of cast.failedSaves ?? []) {\n  const actor = target.actor ?? target.document?.actor;\n  if (!actor || seen.has(actor.uuid)) continue;\n  seen.add(actor.uuid);\n  const prior = snapshot.actors[actor.uuid];\n  if (!prior || !Number.isFinite(prior.hp)) continue;\n  const updates = [], removals = [];\n  for (const effect of actor.effects) {\n    const origin = effect.system?.origin;\n    const profile = origin?.profile;\n    const id = sourceIds.includes(profile) && origin?.activity === cast.activity.uuid\n      ? profile\n      : sourceIds.find(id => sources.get(id) && [effect._stats?.duplicateSource,\n          effect._stats?.compendiumSource].includes(sources.get(id)));\n    if (!id) continue;\n    const belongsToCast = (snapshot.message && origin?.message === snapshot.message)\n      || !prior.beforeIds.includes(effect.id);\n    if (!belongsToCast) continue;\n    // 即死与异界放逐仍交由现有流程/人工处理；不留下错误的限时耳聋或目盲。\n    if (prior.hp <= 20 || prior.hp > 50 || (id === sourceIds[0] && prior.hp > 40)) {\n      removals.push(effect.id);\n      continue;\n    }\n    const value = prior.hp <= 30 ? 60 : prior.hp <= 40 ? 10 : 1;\n    const update = { _id: effect.id, \"duration.value\": value,\n      \"duration.units\": \"minutes\", \"duration.expiry\": \"turnStart\" };\n    // 21–30 HP 档的震慑与耳聋由同一个 AE 承载，随该 AE 一起结束。\n    if (id === sourceIds[1] && prior.hp <= 30) {\n      update.statuses = [...new Set([...(effect.statuses ?? []), \"stunned\"])];\n    }\n    updates.push(update);\n  }\n  if (game.user.isGM || actor.isOwner) {\n    if (removals.length) await actor.deleteEmbeddedDocuments(\"ActiveEffect\", removals);\n    if (updates.length) await actor.updateEmbeddedDocuments(\"ActiveEffect\", updates);\n  } else {\n    const socket = globalThis.MidiQOL?.socket?.();\n    if (!socket) {\n      ui.notifications.warn(`圣言术：无法调整 ${actor.name} 的效应，请由 GM 处理。`);\n      continue;\n    }\n    if (removals.length) await socket.executeAsGM(\"deleteEffects\", { actorUuid: actor.uuid, effectsToDelete: removals });\n    if (updates.length) await socket.executeAsGM(\"updateEffects\", { actorUuid: actor.uuid, updates });\n  }\n  if (prior.hp <= 20) ui.notifications.info(`圣言术：${actor.name} 的 HP 不超过 20，请按法术描述处理即死。`);\n}\n"
         },
         "ignoreTraits": {
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -296,7 +354,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -307,18 +364,71 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": "",
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default",
+        "name": ""
       }
     },
-    "identifier": "divine-word"
+    "identifier": "divine-word",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -327,8 +437,8 @@
   "sort": 24900000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711725398319,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

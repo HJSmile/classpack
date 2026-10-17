@@ -134,3 +134,7 @@ npm install -g @foundryvtt/foundryvtt-cli
 3. `manifest` 字段始终指向 `latest`，以便 Foundry 自动发现新版本。
 
 如需手动验证打包，可在 Actions 页面用 `workflow_dispatch` 触发（可留空 tag，仅构建不上传）。
+
+发布包默认只包含当前模块引用的 `Nicons` 图片，仓库中的原图保留。`tools/release-icons.mjs` 在编译合集、移除 JSON 之前扫描条目、AE、描述、宏及脚本引用，再按清单复制发布目录；动态构造的路径会保守保留对应目录。新增内容引用旧图标后，下次打包会自动带上。
+
+已有世界或角色里的旧物品副本可能仍引用未被当前模块使用的图片。需要兼容这些副本时，可在手动发布中勾选 `keep_all_icons`，包含全部旧图标。本地可用 `node tools/release-icons.mjs --plan reports/release-icons.json` 查看保留与排除清单。

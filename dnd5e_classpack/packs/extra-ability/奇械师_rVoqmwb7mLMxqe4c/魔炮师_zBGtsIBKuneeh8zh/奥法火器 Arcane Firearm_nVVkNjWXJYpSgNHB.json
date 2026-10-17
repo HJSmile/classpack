@@ -1,15 +1,15 @@
 {
   "_id": "nVVkNjWXJYpSgNHB",
-  "name": "奥法火器 Arcane Firearm",
+  "name": "奥法枪械 Arcane Firearm",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Fire_SearingTotem.png",
+  "img": "icons/weapons/wands/wand-gem-blue.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>         在第5级，你知道如何把魔杖、法杖或权杖变成一件奥法火器，一个传送你的毁灭性法术的管道。当你完成一次长休后，你可以用@UUID[Compendium.dnd5e_classpack.itempack.A4B41FB9DAE8B865]{木匠工具}在一根魔杖、法杖或权杖上刻印一个特殊印记，从而把它变成你的奥法火器。印记会一直存在，除非你之后在另一件物品上刻上这种印记，这样的话，之前物体上印记就会消失。</p>\n<p>         你可以将你的奥法火器作为你奇械师法术的法器。当你通过奥法火器施放一个奇械师法术时，掷一个[[/r d8]]，你在法术的一次伤害检定中获得与掷骰结果相同的加值。</p>",
+      "value": "<p>         在第5级，你知道如何把魔杖、法杖或权杖变成一件奥法枪械，一种引导毁灭性法术的媒介。当你完成一次长休后，你可以用@UUID[Compendium.dnd5e_classpack.itempack.A4B41FB9DAE8B865]{木匠工具}在一根魔杖、法杖或权杖上刻印一个特殊印记，从而把它变成你的奥法枪械。印记会一直存在，除非你之后在另一件物品上刻上这种印记，这样的话，之前物体上印记就会消失。</p>\n<p>         你可以将你的奥法枪械作为你奇械师法术的法器。当你通过奥法枪械施放一个奇械师法术时，掷一个[[/r d8]]，你在法术的一次伤害掷骰中获得与掷骰结果相同的加值。</p>",
       "chat": ""
     },
     "source": {
@@ -47,12 +47,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
@@ -67,6 +69,18 @@
                 "iJu5WaQ0mu5G9Sik"
               ],
               "item": []
+            },
+            "uuid": null,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1757310320722,
+              "modifiedTime": 1757310320722,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
             }
           }
         ],
@@ -79,7 +93,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -94,7 +109,7 @@
           "max": ""
         },
         "enchant": {
-          "identifier": ""
+          "self": false
         },
         "restrictions": {
           "allowMagical": true,
@@ -115,7 +130,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -123,7 +139,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -134,101 +149,183 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "",
         "img": "",
-        "appliedEffects": [
-          "l1AZG1HZc2pUror4"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
     "identifier": "-arcane-firearm",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 5,
+      "repeatable": false,
+      "items": []
     },
-    "properties": []
+    "properties": [
+      "mgc"
+    ]
   },
   "effects": [
     {
       "type": "enchantment",
-      "name": "奥法火器 Arcane Firearm",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Fire_SearingTotem.png",
+      "name": "奥法枪械 Arcane Firearm",
+      "img": "icons/weapons/wands/wand-gem-blue.webp",
       "disabled": true,
       "_id": "l1AZG1HZc2pUror4",
-      "system": {},
-      "changes": [],
+      "system": {
+        "changes": [],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "magical": true
+      },
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "origin": null,
       "tint": "#ffffff",
-      "transfer": true,
+      "transfer": false,
       "statuses": [],
       "sort": 0,
       "flags": {},
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757310320722,
         "modifiedTime": 1757310320722,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!nVVkNjWXJYpSgNHB.l1AZG1HZc2pUror4"
     },
     {
-      "name": "奥法火器",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Fire_SearingTotem.png",
-      "origin": "Compendium.dnd5e_classpack.extra-ability.Item.nVVkNjWXJYpSgNHB",
+      "name": "奥法枪械",
+      "img": "icons/weapons/wands/wand-gem-blue.webp",
+      "origin": null,
       "transfer": false,
       "_id": "iJu5WaQ0mu5G9Sik",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.optional.奥法火器.force",
-          "mode": 2,
-          "value": "item.itemType === \"spell\" && item.sourceClass === 'artificer'",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.optional.奥法火器.activation",
+            "value": "item.itemType === \"spell\" && item.classIdentifier === 'artificer'",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "zhEpVioBzOmh3smb",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.奥法火器.damage.all",
+            "value": "1d8",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "WfWVCV0UYyZLDmlc",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.奥法火器.count",
+            "value": "every",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "b53453451135ce09",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.optional.奥法火器.damage.all",
-          "mode": 2,
-          "value": "1d8",
-          "priority": 20
-        }
-      ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.extra-ability.Item.nVVkNjWXJYpSgNHB",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -246,45 +343,30 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757310340938,
         "modifiedTime": 1757310499773,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!nVVkNjWXJYpSgNHB.iJu5WaQ0mu5G9Sik"
     }
   ],
@@ -292,9 +374,7 @@
   "sort": 43000000,
   "flags": {
     "dnd5e": {
-      "persistSourceMigration": true,
       "riders": {
-        "activity": [],
         "effect": [
           "iJu5WaQ0mu5G9Sik"
         ]
@@ -319,9 +399,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757310504975,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

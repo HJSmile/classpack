@@ -33,14 +33,11 @@
       "idv": false,
       "ida": false
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
-      "value": "一只蜡烛可以为其身边5 尺半径范围提供明亮光照，以及该范围外5 尺的微光光照。蜡烛的照明效果可以持续1 小时。",
+      "value": "<p>一只蜡烛可以为其身边5 尺半径范围提供明亮光照，以及该范围外5 尺的微光光照。蜡烛的照明效果可以持续1 小时。</p>",
       "chat": ""
     },
     "source": {
@@ -60,7 +57,6 @@
     },
     "attunement": "",
     "equipped": false,
-    "rarity": "",
     "identified": true,
     "uses": {
       "max": "1",
@@ -78,7 +74,8 @@
         },
         "scaling": {
           "number": 1
-        }
+        },
+        "modifiers": []
       },
       "replace": false
     },
@@ -90,7 +87,6 @@
       "subtype": ""
     },
     "container": "qYyJZQygSdFbjwLs",
-    "magicalBonus": null,
     "properties": [],
     "activities": {
       "dnd5eactivity000": {
@@ -121,18 +117,20 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "1",
           "units": "hour",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -144,7 +142,8 @@
             "size": "10",
             "width": "",
             "height": "",
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -178,7 +177,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -186,7 +186,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -197,26 +196,73 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-candle",
-    "attuned": false
+    "attuned": false,
+    "rarities": []
   },
   "_stats": {
     "compendiumSource": "Compendium.dnd5e_classpack.itempack.Item.jfuozz6cshb1Tnbs",
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1754840036940,
     "modifiedTime": 1757275698084,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -5,7 +5,7 @@
   "img": "icons/magic/water/barrier-ice-crystal-wall-jagged-blue.webp",
   "system": {
     "description": {
-      "value": "<p>    当你受到伤害时，你可以以一个反应将自己封锁在冰墓中，冰墓会在你的下一个回合结束时融解。你得到每邪术士等级10点的临时生命值，此生命值会尽可能优先地抵消伤害。当你受到伤害之后，你立即得到对火焰伤害的易伤，速度降低至0，并且陷入失能状态。这些效果，以及剩余的临时生命值，会在冰墓融解时终止。</p>\n<p>    当你使用此魔能祈唤后，在完成一次短休或长休前，你无法再次使用这祈唤。</p>",
+      "value": "<p>    当你受到伤害时，你可以以一个反应将自己封锁在冰墓中，冰墓会在你的下一个回合结束时融解。你得到每邪术士等级10点的临时生命值，此生命值会尽可能优先地抵消伤害。当你受到伤害之后，你立即得到对火焰伤害的易伤，速度降低至0，并且陷入&amp;Reference[condition=incapacitated apply=false]{失能}状态。这些效果，以及剩余的临时生命值，会在冰墓融解时终止。</p>\n<p>    当你使用此魔能祈唤后，在完成一次短休或长休前，你无法再次使用这祈唤。</p>",
       "chat": ""
     },
     "source": {
@@ -28,7 +28,7 @@
       "value": "class",
       "subtype": "eldritchInvocation"
     },
-    "requirements": "邪术师等级 5",
+    "requirements": "魔契师等级 5",
     "activities": {
       "dnd5eactivity000": {
         "_id": "dnd5eactivity000",
@@ -58,17 +58,19 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -80,7 +82,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -111,18 +114,104 @@
             "mode": "whole",
             "number": null,
             "formula": ""
-          }
+          },
+          "modifiers": []
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": 5,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": [
       "mgc"
@@ -132,14 +221,7 @@
   "folder": "o5aPffxN3VG2SeQa",
   "sort": 3800000,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -162,9 +244,9 @@
     "default": 0
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757264010450,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

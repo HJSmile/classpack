@@ -22,21 +22,13 @@
       "itemCondition": "",
       "effectCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Arcane_PortalIronForge.png",
+  "img": "icons/environment/wilderness/mine-interior-dungeon-door.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你将自己从当前位置传送至施法距离内的任意地点，并准确到达该目的地。法术的目的地可以是你能看见的、可想象的地点，也可以是通过距离和方向说明的地点，比如“径直向下200尺”，“西北向上45度300尺”。\n<br />进行传送时，你的随身物件不能超过你的负重。你还可以带上一个自愿的生物，且其体型不能比你大，而他的随身物件也不能超过其负重。该生物在你施法时必须在你5尺内。如果你的目的地已经被生物或物件占据，则你以及任何与你一起传送的生物都将受到4d6点力场伤害，且法术传送失败。\n<br /></div>",
+      "value": "<p>你将自己从当前位置传送至施法距离内的任意地点，并准确到达该目的地。法术的目的地可以是你能看见的、可想象的地点，也可以是通过距离和方向说明的地点，比如“径直向下 200 尺”，“西北向上 45 度 300 尺”。</p><p>进行传送时，你的随身物件不能超过你的负重。你还可以带上一个自愿的生物，且其体型不能比你大，而他的随身物件也不能超过其负重。该生物在你施法时必须在你 5 尺内。</p><p>如果你的目的地已经被生物或物件占据，则你以及任何与你一起传送的生物都将受到 [[/damage 4d6 type=force]]{4d6} 点力场伤害，且法术传送失败。</p>",
       "chat": ""
     },
     "source": {
@@ -52,7 +44,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -61,8 +54,9 @@
         "choice": false
       },
       "template": {
-        "units": "",
-        "contiguous": false
+        "units": "ft",
+        "contiguous": false,
+        "stationary": false
       }
     },
     "range": {
@@ -82,10 +76,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -109,22 +99,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -157,7 +151,8 @@
                 "mode": "",
                 "number": null,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ]
         },
@@ -173,7 +168,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -181,7 +177,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -192,17 +187,65 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
         }
       }
     },
-    "identifier": "dimension-door"
+    "identifier": "dimension-door",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -211,8 +254,8 @@
   "sort": 22900000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

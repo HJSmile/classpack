@@ -2,22 +2,12 @@
   "_id": "xYpJGRI4xcMa41kO",
   "name": "活化死尸 Animate Dead",
   "type": "spell",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_DeathKnight_Thrash_Ghoul.png",
+  "img": "icons/magic/death/undead-skeleton-deformed-red.webp",
   "effects": [],
   "folder": "VSQWpB0Mj8S5uRII",
   "sort": 10600000,
   "flags": {
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -45,7 +35,7 @@
   },
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 该法术创造一个不死生物仆从。在施法距离内指定一具中型或小型类人生物遗骨或遗体，并以该法术将污秽的虚假生命力量注入其中，将之唤起为一个不死生物。如果你选择的是遗骨，则目标变为骷髅 skeleton；选择的是遗体则变为僵尸 zombie。该生物的具体游戏资料由DM 掌控。\n<br />在你的任一回合内，你可以使用一个附赠动作并以精神命令操纵60尺内任何你用此法术唤起的生物（如果你操纵多个生物，则你的命令可以同时传达给它们全部或是其中的某几个，不过只能使用同一种命令）。你决定被操纵生物下回合的动作和移动。或者，你也可以选择下达宽泛的命令（比如守护某个房间或走廊）。没有接受到你命令的生物则只会对敌对生物作出自卫行为。一旦被下达命令，该生物会持续执行命令直到任务完成。\n<br />这些受操纵生物只会在24小时内服从你的命令。如果你在当前的24小时时间段终止前再施展该法术，则你对这些生物的操纵时间再延长24小时。法术的此种用法只能延长你对至多四个你使用此法术所创造生物的控制时间，而不会创造新的生物。升环施法效应。使用4环或更高法术位施展该法术时，你使用的法术位每比3环高一环，就会多唤起两只不死生物，或是多延长对两只不死生物的控制。你无法用同一具骸骨或遗体唤起多个不死生物。\n<br /></div>",
+      "value": "<p>该法术创造一个亡灵仆从。在施法距离内指定一具中型或小型类人遗骨或遗体，并以该法术将污秽的虚假生命力量注入其中，将之唤起为一个亡灵。如果你选择的是遗骨，则目标变为骷髅skeleton；选择的是遗体则变为丧尸zombie。该生物的具体游戏资料由 DM 掌控。</p><p>在你的任一回合内，你可以使用一个附赠动作并以精神命令操纵 60 尺内任何你用此法术唤起的生物（如果你操纵多个生物，则你的命令可以同时传达给它们全部或是其中的某几个，不过只能使用同一种命令）。你决定被操纵生物下回合的动作和移动。或者，你也可以选择下达宽泛的命令（比如守护某个房间或走廊）。没有接受到你命令的生物则只会对敌对生物作出自卫行为。一旦被下达命令，该生物会持续执行命令直到任务完成。</p><p>这些受操纵生物只会在 24 小时内服从你的命令。如果你在当前的 24 小时时间段终止前再施展该法术，则你对这些生物的操纵时间再延长 24 小时。法术的此种用法只能延长你对至多四个你使用此法术所创造生物的控制时间，而不会创造新的生物。</p><p><strong>升环施法效应。</strong>使用四环或更高法术位施展该法术时，你使用的法术位每比三环高一环，就会多唤起两只亡灵，或是多延长对两只亡灵的控制。你无法用同一具骸骨或遗体唤起多个亡灵。</p>",
       "chat": ""
     },
     "source": {
@@ -61,7 +51,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -71,9 +62,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -94,10 +86,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -121,20 +109,25 @@
           "spellSlot": true,
           "targets": []
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -152,7 +145,8 @@
         "match": {
           "attacks": false,
           "proficiency": false,
-          "saves": false
+          "saves": false,
+          "disposition": false
         },
         "profiles": [
           {
@@ -188,7 +182,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -196,7 +191,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -207,25 +201,74 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
-        }
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "friendlySummon": false
       }
     },
-    "identifier": "animate-dead"
+    "identifier": "animate-dead",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -31,12 +31,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "martialAdept",
@@ -47,7 +42,7 @@
   },
   "system": {
     "description": {
-      "value": "<p>接受战技训练后，你可以使用一些独特的战技。你获得下列增益：</p><ul><li><p>你选择习得战士战斗大师范型@UUID[Compendium.dnd5e_classpack.class-abilityphb.CRu7K83gIxlVL5sX]{战技列表列表}中的两个战技。如果所习得的战技需要目标进行豁免检定来抵抗战技效果，则其豁免DC等于８＋你的熟练加值＋你的力量或敏捷调整值（自选）。</p></li><li><p>你获得一枚d6的@UUID[Compendium.dnd5e_classpack.class-abilityphb.Item.etA1oLtnnD27jna2]{卓越骰}（该骰可加到任何你以其他方式获得的卓越骰中）。此卓越骰可用于启动你的战技。此卓越骰一经使用即消耗，并在完成短休或长休后恢复。<br /></p></li></ul>",
+      "value": "<p>接受战技训练后，你可以使用一些独特的战技。你获得下列增益：</p><ul><li><p>你选择习得战士战斗大师范型@UUID[Compendium.dnd5e_classpack.class-abilityphb.CRu7K83gIxlVL5sX]{战技列表列表}中的两个战技。如果所习得的战技需要目标进行豁免检定来抵抗战技效果，则其豁免DC等于８＋你的熟练加值＋你的力量或敏捷调整值（自选）。</p></li><li><p>你获得一枚d6的@UUID[Compendium.dnd5e_classpack.class-abilityphb.Item.etA1oLtnnD27jna2]{卓越骰}（该骰可加到任何你以其他方式获得的卓越骰中）。此卓越骰可用于启动你的战技。此卓越骰一经使用即消耗，并在完成短休或长休后恢复。</p></li></ul>",
       "chat": ""
     },
     "source": {
@@ -64,17 +59,113 @@
     },
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "requirements": "",
     "activities": {},
-    "identifier": "",
-    "advancement": [],
+    "identifier": "martial-adept",
+    "advancement": {
+      "5f7ce4db135e6659": {
+        "_id": "5f7ce4db135e6659",
+        "type": "ItemChoice",
+        "name": "战技选项",
+        "configuration": {
+          "choices": {
+            "0": {
+              "count": 2,
+              "replacement": false
+            }
+          },
+          "allowDrops": false,
+          "type": "feat",
+          "pool": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.class-abilityphb.Item.3mh8JDnSHd0C80FD",
+              "sort": 0
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.class-abilityphb.Item.ICU4UM2zkjZKgF8R",
+              "sort": 1
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.class-abilityphb.Item.P2sEeA2SwAWVFlmp",
+              "sort": 2
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.class-abilityphb.Item.o0drZbre70mQZJyw",
+              "sort": 3
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.class-abilityphb.Item.QWzpd3YeD8yzm0uQ",
+              "sort": 4
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.class-abilityphb.Item.Z9VTY08dEKHN6NSG",
+              "sort": 5
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.class-abilityphb.Item.YWPe5vOpsEEhdAET",
+              "sort": 6
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.class-abilityphb.Item.fmut2oPoXkcErPTG",
+              "sort": 7
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.class-abilityphb.Item.XPss8JrGOAkbvtqL",
+              "sort": 8
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.class-abilityphb.Item.tZMUQ7cZxXp8Jhig",
+              "sort": 9
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.class-abilityphb.Item.nK8383Sfx2lzCMbu",
+              "sort": 10
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.class-abilityphb.Item.hjCX6CUshgacy9eU",
+              "sort": 11
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.class-abilityphb.Item.7Bxg3jMMKStcDwEg",
+              "sort": 12
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.class-abilityphb.Item.ntxJ0qMIKnU4Urbs",
+              "sort": 13
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.class-abilityphb.Item.CdZjITokyfYmKkfh",
+              "sort": 14
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.class-abilityphb.Item.sXPM1fnnLlbIEWsG",
+              "sort": 15
+            }
+          ],
+          "spell": null,
+          "restriction": {
+            "type": "",
+            "subtype": "",
+            "level": "",
+            "list": [],
+            "school": []
+          },
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -82,9 +173,9 @@
     "default": 0
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757865362006,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

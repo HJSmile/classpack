@@ -28,40 +28,38 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "ritual"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Creature_Cursed_05.png",
+  "img": "icons/magic/holy/prayer-hands-glowing-yellow-white.webp",
   "effects": [
     {
       "name": "遗体防腐 Gentle Repose",
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Creature_Cursed_05.png",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.uzWirpWyQshzp1l0",
+      "img": "icons/magic/holy/prayer-hands-glowing-yellow-white.webp",
+      "origin": null,
       "transfer": false,
       "_id": "jzkGKwcqSbYgFiSC",
       "type": "base",
-      "system": {},
-      "changes": [],
+      "system": {
+        "changes": [],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.uzWirpWyQshzp1l0",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 10,
+        "units": "days",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -71,20 +69,23 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!uzWirpWyQshzp1l0.jzkGKwcqSbYgFiSC"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你触碰一具尸体或其他遗骸。目标将在法术持续时间内受保护并免于腐烂且无法转变为不死生物。\n<br />该法术同样可以有效的延长复活目标的时间限制，因为受该法术影响下度过的时间不计入法术如死者复活raise dead 的时间限制内。\n<br /></div>",
+      "value": "<p>你触碰一具尸体或其他遗骸。目标将在法术持续时间内受保护并免于腐烂且无法转变为亡灵。</p><p>该法术同样可以有效的延长复活目标的时间限制，因为受该法术影响下度过的时间不计入法术如死者复活raise dead的时间限制内。</p>",
       "chat": ""
     },
     "source": {
@@ -100,7 +101,8 @@
     },
     "duration": {
       "value": "10",
-      "units": "day"
+      "units": "day",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -110,9 +112,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -132,10 +135,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -162,27 +161,33 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "day",
           "concentration": false,
           "override": true,
-          "value": "10"
+          "value": "10",
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "jzkGKwcqSbYgFiSC"
+            "_id": "jzkGKwcqSbYgFiSC",
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -213,7 +218,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -221,7 +227,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -232,18 +237,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "gentle-repose"
+    "identifier": "gentle-repose",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -252,8 +305,8 @@
   "sort": 32800000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757419719404,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

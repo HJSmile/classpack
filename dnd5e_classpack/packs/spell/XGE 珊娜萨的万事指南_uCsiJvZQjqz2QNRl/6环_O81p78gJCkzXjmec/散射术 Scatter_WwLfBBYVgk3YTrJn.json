@@ -24,22 +24,14 @@
       "otherCondition": "",
       "onUseMacroName": "[postActiveEffects]ItemMacro"
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "dae": {
       "macro": {
         "name": "散射术 Scatter",
         "img": "icons/magic/light/projectile-beams-salvo-yellow.webp",
         "type": "script",
         "scope": "global",
-        "command": "/**\n * RealityCollapse — Teleport (fixed parity snapping for multi-tile tokens)\n * - odd-sized tokens snap to cell center\n * - even-sized tokens snap to grid intersection (so their edges align with grid lines)\n * - only uses MidiQOL.moveToken(token, {x,y}, false)\n */\n\n(async () => {\n  const RANGE_FT = 120;\n  const TIMEOUT_MS = 20000;\n  const HIGHLIGHT_COLOR = 0x66ccff;\n\n  // 选择目标：优先 game.user.targets，再取 controlled\n  const targets = Array.from(game.user.targets ?? []);\n  const targetToken = (targets.length === 1) ? targets[0] : (canvas.tokens.controlled[0] ?? null);\n  if (!targetToken) {\n    return ui.notifications.warn(\"请先 target 或选中单个要传送的目标，然后运行宏。\");\n  }\n\n  const gs = canvas.grid.size;\n  const feetPerSquare = canvas.scene.grid?.distance ?? 5;\n  const maxSquares = Math.max(1, Math.floor(RANGE_FT / feetPerSquare));\n  const radiusPx = maxSquares * gs;\n\n  // token grid size (整数格数)\n  const tokenGridW = Number(targetToken.document.width ?? targetToken.document._source?.width ?? 1);\n  const tokenGridH = Number(targetToken.document.height ?? targetToken.document._source?.height ?? tokenGridW);\n\n  // caster/anchor center: 把施法者定位留空（此宏仍以目标为原点选择，但可在需要时改为以施法者为中心）\n  const originCenter = { x: (targetToken.center?.x ?? (targetToken.x + targetToken.w/2)), y: (targetToken.center?.y ?? (targetToken.y + targetToken.h/2)) };\n\n  // 画高亮圆\n  const g = new PIXI.Graphics();\n  g.lineStyle(2, HIGHLIGHT_COLOR, 0.9);\n  g.beginFill(HIGHLIGHT_COLOR, 0.06);\n  g.drawCircle(originCenter.x, originCenter.y, radiusPx);\n  g.endFill();\n  g.zIndex = 10000;\n  canvas.app.stage.addChild(g);\n  ui.notifications.info(`请在高亮区域内点击落点（最多 ${RANGE_FT} 英尺）。点击超出或占用会提示并重选。`);\n\n  // helper: snap to cell center using getSnappedPoint CENTER mode\n  function snapToCellCenter(stagePoint) {\n    try {\n      return canvas.grid.getSnappedPoint({ x: stagePoint.x, y: stagePoint.y }, { mode: CONST.GRID_SNAPPING_MODES.CENTER, resolution: 1 });\n    } catch (e) {\n      return { x: Math.round(stagePoint.x / gs) * gs, y: Math.round(stagePoint.y / gs) * gs };\n    }\n  }\n\n  // helper: snap to intersection (grid lines) -> intersection at integer multiples of gridSize\n  function snapToGridIntersection(stagePoint) {\n    const ix = Math.round(stagePoint.x / gs) * gs;\n    const iy = Math.round(stagePoint.y / gs) * gs;\n    return { x: ix, y: iy };\n  }\n\n  // 点击侦听（返回舞台坐标的 Point 或 null）\n  const getClickStagePoint = (ms) => new Promise(resolve => {\n    const handler = (event) => {\n      try { canvas.app.stage.off(\"pointerdown\", handler); } catch(e){}\n      let pos = null;\n      try { pos = event.data.getLocalPosition(canvas.app.stage); } catch(e) { pos = null; }\n      resolve(pos ? { x: pos.x, y: pos.y } : null);\n    };\n    canvas.app.stage.on(\"pointerdown\", handler);\n    setTimeout(() => { try { canvas.app.stage.off(\"pointerdown\", handler); } catch(e){}; resolve(null); }, ms);\n  });\n\n  // 检查矩形是否被其它 Token 占用（忽略 selfId）\n  function rectOccupied(topLeftX, topLeftY, widthPx, heightPx, selfId=null) {\n    const rectA = new PIXI.Rectangle(topLeftX, topLeftY, widthPx, heightPx);\n    return canvas.tokens.placeables.some(t => {\n      if (t.id === selfId) return false;\n      const rectB = new PIXI.Rectangle(t.x, t.y, t.w, t.h);\n      return rectA.right  > rectB.left &&\n             rectA.left   < rectB.right &&\n             rectA.bottom > rectB.top &&\n             rectA.top    < rectB.bottom;\n    });\n  }\n\n  // 主循环：强制直到选取合法落点\n  while (true) {\n    // 确保高亮在舞台\n    if (!canvas.app.stage.children.includes(g)) canvas.app.stage.addChild(g);\n\n    const clicked = await getClickStagePoint(TIMEOUT_MS);\n    if (!clicked) { ui.notifications.warn(\"未检测到点击，请再试一次\"); continue; }\n\n    // 根据 token 的宽高奇偶性选择 snapping 策略\n    // X 方向\n    const snapX = (tokenGridW % 2 === 1) ? snapToCellCenter(clicked).x : snapToGridIntersection(clicked).x;\n    // Y 方向\n    const snapY = (tokenGridH % 2 === 1) ? snapToCellCenter(clicked).y : snapToGridIntersection(clicked).y;\n\n    const snapped = { x: snapX, y: snapY };\n\n    // 计算所选位置的 token left-top grid indices\n    const clickedCol = Math.floor(snapped.x / gs);\n    const clickedRow = Math.floor(snapped.y / gs);\n\n    const topLeftCol = clickedCol - Math.floor(tokenGridW / 2);\n    const topLeftRow = clickedRow - Math.floor(tokenGridH / 2);\n\n    // 目标中心（舞台坐标）按 top-left + half-size\n    const centerX = (topLeftCol + tokenGridW / 2) * gs;\n    const centerY = (topLeftRow + tokenGridH / 2) * gs;\n\n    // 距离检查（以 originCenter 为圆心）\n    const distFt = Math.hypot(centerX - originCenter.x, centerY - originCenter.y) / gs * feetPerSquare;\n    if (distFt > RANGE_FT + 0.001) {\n      ui.notifications.warn(`选择超出 ${RANGE_FT} 英尺（${Math.round(distFt)}ft），请重新选择`);\n      continue;\n    }\n\n    // 计算 top-left 像素用于碰撞检测\n    const destLeft = Math.round(topLeftCol * gs);\n    const destTop  = Math.round(topLeftRow * gs);\n    const destWpx  = tokenGridW * gs;\n    const destHpx  = tokenGridH * gs;\n\n    // 碰撞检测\n    if (rectOccupied(destLeft, destTop, destWpx, destHpx, targetToken.id)) {\n      ui.notifications.warn(\"目标格被占用，请选择其它位置\");\n      continue;\n    }\n\n    // 清理高亮并执行瞬移（只用 MidiQOL.moveToken，传入 center 坐标）\n    try { canvas.app.stage.removeChild(g); } catch(e){}\n    if (typeof MidiQOL?.moveToken === \"function\") {\n      try {\n        await MidiQOL.moveToken(targetToken, { x: Math.round(centerX), y: Math.round(centerY) }, false);\n        ui.notifications.info(`${targetToken.name} 已被传送（无动画）`);\n        console.log(`RealityCollapse: teleported ${targetToken.name} -> center=${Math.round(centerX)},${Math.round(centerY)} topLeft=${destLeft},${destTop} grid=${tokenGridW}x${tokenGridH}`);\n        return true;\n      } catch (e) {\n        console.error(\"RealityCollapse: MidiQOL.moveToken failed\", e);\n        ui.notifications.error(\"传送失败（查看控制台）\");\n        return false;\n      }\n    } else {\n      ui.notifications.error(\"MidiQOL.moveToken 不可用（宏仅使用它执行传送）\");\n      return false;\n    }\n  }\n})();",
+        "command": "if (args[0]?.macroPass !== \"postActiveEffects\") return;\nconst cast = typeof workflow !== \"undefined\" ? workflow : null;\nconst api = game.modules.get(\"dnd5e_classpack\")?.api ?? globalThis.dnd5eClasspack;\nif (!cast || typeof api?.teleport !== \"function\") {\n  ui.notifications.warn(\"散射术：找不到施法流程或 ClassPack 传送接口。\");\n  return;\n}\nconst caster = cast.token ?? canvas.tokens.get(cast.tokenId);\nconst casterDoc = caster?.document ?? caster;\nconst scene = canvas.scene;\nif (!casterDoc || casterDoc.parent !== scene) return;\nconst targets = [...new Map(Array.from(cast.failedSaves ?? []).map(target => {\n  const doc = target.document ?? target;\n  return [doc.uuid, doc.object ?? target];\n})).values()];\nif (!targets.length) return;\nif (targets.length > 5) {\n  ui.notifications.warn(\"散射术最多影响 5 个生物，请重新选择目标。\");\n  return;\n}\n// 施法者也可能被传送；落点范围始终从施法时的位置计算。\nconst origin = { ...casterDoc.getCenterPoint(), elevation: casterDoc.elevation };\nconst range = game.dnd5e.utils.convertLength(120, \"ft\", scene.grid.units, { strict: false });\nlet moved = 0;\nfor (const target of targets) {\n  const doc = target.document ?? target;\n  if (canvas.scene !== scene || doc.parent !== scene || !scene.tokens.has(doc.id)) break;\n  ui.notifications.info(`散射术：为 ${doc.name} 选择可见、未占用且有地面支撑的落点（施法者 120 尺内）；右键取消后续传送。`);\n  try {\n    const result = await api.teleport([target], target, {\n      centerpoint: origin,\n      range,\n      avoidOccupied: true,\n      animation: \"none\",\n      animate: false,\n      crosshairsConfig: { label: `散射术 · ${doc.name}`, tag: \"classpack-scatter\" },\n      validityFunctions: [point => !casterDoc.object?.checkCollision(point, {\n        origin, type: \"sight\", mode: \"any\"\n      })]\n    });\n    if (!result || result.cancelled || !result.valid) break;\n    if (result.movement?.[doc.id] !== true) {\n      ui.notifications.warn(`散射术：${doc.name} 未能移动，已停止后续传送。`);\n      break;\n    }\n    moved++;\n  } catch (error) {\n    console.error(\"ClassPack 散射术传送失败\", error);\n    ui.notifications.error(\"散射术传送失败，请查看控制台。\");\n    break;\n  }\n}\nif (moved) ui.notifications.info(`散射术：已传送 ${moved} 个生物。`);\n",
         "author": "WqWGW8MuBm7BNHxt",
         "ownership": {
           "default": 3
@@ -66,19 +58,15 @@
   "effects": [
     {
       "name": "散射术Scatter",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.WwLfBBYVgk3YTrJn",
+      "origin": null,
       "duration": {
-        "rounds": 1,
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "rounds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "disabled": false,
       "_id": "aLNboY6s5kZclQ7V",
-      "changes": [],
       "description": "",
       "transfer": false,
       "statuses": [],
@@ -89,35 +77,18 @@
           "selfTargetAlways": false,
           "dontApply": false,
           "stackable": "noneName",
-          "showIcon": true,
           "durationExpression": "",
           "macroRepeat": "none",
           "specialDuration": [
             "isMoved"
           ]
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system"
         }
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -127,14 +98,31 @@
       },
       "img": "icons/magic/light/projectile-beams-salvo-yellow.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.WwLfBBYVgk3YTrJn",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 2,
+      "folder": null,
       "_key": "!items.effects!WwLfBBYVgk3YTrJn.aLNboY6s5kZclQ7V"
     }
   ],
   "system": {
     "description": {
-      "value": "<p>你选择距离之内最多5个可见生物，震颤的空气将环绕他们周围。一个非自愿的生物必须成功进行感知豁免检定来抵抗这个法术。你将每个受影响的生物传送至120尺内任意你可以看见且未被占据的空间。这个空间必须在地面上或在地板上。</p>",
+      "value": "<p>你选择距离内最多5名你可见的生物，震颤的空气将环绕他们周围。非自愿的生物必须成功通过一次[[/save activity=dnd5eactivity000]]{感知豁免检定}才能抵抗该法术。你将每名受影响的生物传送至位于你120 尺内任意你可见的未占据空间。每个所选空间都必须位于地面或地板上。</p>",
       "chat": ""
     },
     "source": {
@@ -150,7 +138,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -160,9 +149,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -183,10 +173,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -210,27 +196,33 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "aLNboY6s5kZclQ7V",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -256,7 +248,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -270,7 +263,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -278,7 +272,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -289,18 +282,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "friendlyFail"
       }
     },
-    "identifier": "scatter"
+    "identifier": "scatter",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -309,8 +351,8 @@
   "sort": 12600000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711724434792,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

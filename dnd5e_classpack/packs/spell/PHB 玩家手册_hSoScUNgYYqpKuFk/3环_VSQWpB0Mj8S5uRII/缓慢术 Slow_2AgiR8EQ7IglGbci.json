@@ -28,60 +28,48 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
+    "dnd5e": {},
+    "dae": {
+      "macro": {
+        "name": "缓慢术 Slow",
+        "img": "icons/skills/movement/arrow-down-pink.webp",
+        "type": "script",
+        "scope": "global",
+        "command": "const pass = args[0].macroPass;\nconst affected = workflow.actor;\nconst combat = game.combat;\n// 清理上一版宏留下的常驻监听。\nif (globalThis.slow2014Casts instanceof WeakMap) {\n  Hooks.off(\"dnd5e.postActivityConsumption\", globalThis.slow2014Casts.hook);\n  delete globalThis.slow2014Casts;\n}\nconst casts = globalThis.slow2014Casts ??= new Map();\n\nfunction clearCast(cast) {\n  casts.delete(cast);\n  if (casts.size) return;\n  for (const [event, id] of casts.hooks ?? []) Hooks.off(event, id);\n  delete casts.hooks;\n}\n\nfunction watchCast(intercept) {\n  casts.set(workflow, {\n    intercept,\n    effects: new Set(affected.effects.filter(e => e.active\n      && (e.system?.origin?.item === macroItem.uuid || e.origin === macroItem.uuid)).map(e => e.uuid))\n  });\n  if (casts.hooks) return;\n  const endEffect = effect => {\n    for (const [cast, entry] of casts) {\n      if (entry.effects.delete(effect.uuid) && !entry.effects.size) clearCast(cast);\n    }\n  };\n  casts.hooks = [\n    // 系统使用同步 Hooks.call；匹配后先解绑，再同步返回拦截结果。\n    [\"dnd5e.postActivityConsumption\", Hooks.on(\"dnd5e.postActivityConsumption\", (activity, usage, message) => {\n      const entry = casts.get(usage.workflow);\n      if (!entry) return;\n      clearCast(usage.workflow);\n      return entry.intercept(activity, usage, message);\n    })],\n    // 取消配置或消耗失败可能不触发 Midi Abort，随迟缓 AE 结束清理遗留记录。\n    [\"deleteActiveEffect\", Hooks.on(\"deleteActiveEffect\", endEffect)],\n    [\"updateActiveEffect\", Hooks.on(\"updateActiveEffect\", effect => {\n      if (!effect.active) endEffect(effect);\n    })]\n  ];\n}\n\nasync function deferCast(activity, usage, message, roll) {\n  if (combat?.started && combat.combatant?.actor?.uuid === affected.uuid) {\n    await MidiQOL.setActionUsed(affected);\n  }\n\n  // 仅保存可序列化的原生使用配置，保留升环与形态等选择。\n  const saved = { ...usage, consume: false };\n  for (const key of [\"workflow\", \"activity\", \"event\", \"midiOptions\"]) delete saved[key];\n  if (workflow.deferredConcentration) saved.concentration = { begin: true };\n\n  const ownTurn = combat?.started && combat.combatant?.actor?.uuid === affected.uuid;\n  const [effect] = await affected.createEmbeddedDocuments(\"ActiveEffect\", [{\n    name: `正在施法：${activity.item.name}`, type: \"base\", img: activity.item.img,\n    system: { origin: { item: activity.item.uuid } },\n    duration: combat?.started\n      ? { expiry: \"targetEnd\", ...(ownTurn ? { value: 1, units: \"rounds\" } : {}) }\n      : { value: 12, units: \"seconds\" },\n    flags: { dae: { expiryMode: \"delete\" } }\n  }]);\n  const id = foundry.utils.randomID();\n  const [temporary] = await affected.createEmbeddedDocuments(\"Item\", [{\n    name: `完成施法：${activity.item.name}`, type: \"feat\", img: activity.item.img, effects: [],\n    system: {\n      uses: { max: \"1\", spent: 0, recovery: [] },\n      activities: { [id]: {\n        _id: id, name: \"完成施法\", type: \"utility\",\n        activation: { type: \"action\", value: 1 },\n        target: { affects: { type: \"self\" } },\n        consumption: {\n          spellSlot: false,\n          targets: [{ type: \"itemUses\", target: \"\", value: \"1\" }]\n        }\n      } }\n    },\n    flags: {\n      dnd5e: { dependentOn: effect.uuid },\n      \"midi-qol\": {\n        onUseMacroName: `[preItemRoll]ItemMacro.${macroItem.uuid},[postActiveEffects]ItemMacro.${macroItem.uuid}`\n      },\n      world: { slowCast: {\n        activity: activity.uuid, usage: JSON.parse(JSON.stringify(saved)),\n        targets: [...workflow.targets].map(t => t.document.uuid), effect: effect.uuid,\n        combat: combat?.id, round: combat?.round, turn: combat?.turn\n      } }\n    }\n  }]);\n  await affected.system.addFavorite({\n    type: \"item\", id: foundry.utils.buildRelativeUuid(temporary, affected)\n  });\n  await roll.toMessage({\n    speaker: foundry.documents.ChatMessage.getSpeaker({ actor: affected, token: workflow.token?.document }),\n    flavor: `迟缓术：${activity.item.name} 延迟至下一回合。`\n  }, { rollMode: message.rollMode ?? game.settings.get(\"core\", \"rollMode\") });\n  await foundry.documents.ChatMessage.implementation.create({\n    speaker: foundry.documents.ChatMessage.getSpeaker({ actor: affected, token: workflow.token?.document }),\n    content: await foundry.applications.ux.TextEditor.enrichHTML(\n      `<p>@UUID[${temporary.uuid}]{${temporary.name}} 已加入收藏。须在下一回合花费一个动作完成，逾期作废。</p>`,\n      { relativeTo: affected }\n    ),\n    whisper: message.data?.whisper ?? [], blind: message.data?.blind ?? false\n  });\n}\n\nconst pending = workflow.item.getFlag(\"world\", \"slowCast\");\n\nif (pass === \"preItemRoll\") {\n  // 临时物品的完成行动已经支付动作；内部施法不重复检查或掷迟缓骰。\n  if (workflow.workflowOptions.slowCompletion || workflow.slowChecked) return;\n  workflow.slowChecked = true;\n\n  if (pending && combat?.started && (\n    combat.combatant?.actor?.uuid !== affected.uuid\n    || (pending.combat === combat.id && pending.round === combat.round && pending.turn === combat.turn)\n  )) {\n    ui.notifications.warn(\"须在下一回合完成施法。\");\n    return false;\n  }\n\n  const settings = workflow.workflowOptions;\n  const activation = settings.castUsesReaction ? \"reaction\"\n    : settings.castUsesBonusAction ? \"bonus\" : workflow.activity.effectiveActivationType;\n  // 待完成物品可在迟缓结束后保留；以当前 actor OnUse 判断是否仍受迟缓。\n  const slowed = affected.getFlag(\"midi-qol\", \"onUseMacroParts\")?.items.some(m =>\n    m.option === \"preItemRoll\" && m.macroName.split(\"|\")[0] === `ItemMacro.${macroItem.uuid}`);\n  if (slowed && combat?.started && combat.combatant?.actor?.uuid === affected.uuid) {\n    const used = affected.getFlag(\"midi-qol\", \"actions\") ?? {};\n    if ((activation === \"action\" && used.bonusActionsUsed > 0) || (activation === \"bonus\" && used.action)) {\n      ui.notifications.warn(\"迟缓术：本回合只能执行动作或附赠动作。\");\n      return false;\n    }\n  }\n\n  if (pending || !slowed || workflow.item.type !== \"spell\" || activation !== \"action\"\n    || (workflow.activity.activation.value ?? 1) !== 1) return;\n\n  // 先求值但不发消息；原生配置被取消或消耗失败时，不产生待完成记录。\n  const roll = await new Roll(\"1d20\").evaluate();\n  watchCast((activity, usage, message) => {\n    const task = roll.total >= 11 ? deferCast(activity, usage, message, roll)\n      : roll.toMessage({\n        speaker: foundry.documents.ChatMessage.getSpeaker({ actor: affected, token: workflow.token?.document }),\n        flavor: \"迟缓术：正常施法。\"\n      }, { rollMode: message.rollMode ?? game.settings.get(\"core\", \"rollMode\") });\n    task.catch(error => {\n      console.error(\"迟缓术\", error);\n      ui.notifications.error(\"迟缓术宏执行失败，详见控制台；已支付的消耗不会返还。\");\n    });\n    if (roll.total >= 11) return false;\n  });\n  return;\n}\n\nif (pass !== \"postActiveEffects\" || !pending || workflow.slowFinished) return;\nworkflow.slowFinished = true;\n\nawait MidiQOL.completeActivityUse(pending.activity, {\n  ...pending.usage, consume: false,\n  midiOptions: {\n    targetUuids: pending.targets, ignoreUserTargets: true,\n    workflowOptions: { slowCompletion: true }\n  }\n}, { configure: false });\nawait fromUuidSync(pending.effect)?.delete();",
+        "author": "dvg25zW2MvzsvMOU",
+        "ownership": {
+          "default": 3
+        },
+        "_id": null,
+        "folder": null,
+        "sort": 0,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.369",
+          "systemId": "dnd5e",
+          "systemVersion": "6.0.6",
+          "createdTime": null,
+          "modifiedTime": null,
+          "lastModifiedBy": null,
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null
+        }
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Nature_Slow.png",
+  "img": "icons/skills/movement/arrow-down-pink.webp",
   "effects": [
     {
-      "origin": "Compendium.dnd5e_classpack.spell.Item.2AgiR8EQ7IglGbci",
+      "origin": null,
       "duration": {
-        "seconds": 60,
-        "startTime": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 60,
+        "units": "seconds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "disabled": false,
       "_id": "yFKe55li8EeoFVKt",
-      "changes": [
-        {
-          "key": "system.attributes.ac.bonus",
-          "mode": 2,
-          "value": "-2",
-          "priority": 20
-        },
-        {
-          "key": "system.abilities.dex.bonuses.save",
-          "mode": 2,
-          "value": "-2",
-          "priority": 20
-        },
-        {
-          "key": "system.attributes.movement.all",
-          "mode": 0,
-          "value": "*0.5",
-          "priority": 20
-        },
-        {
-          "key": "flags.midi-qol.OverTime",
-          "mode": 2,
-          "value": "turn=end, label=缓慢术 Slow, saveAbility=wis, saveDC=@attributes.spell.dc, saveMagic=true, saveCount=1-, allowIncapacitated=true",
-          "priority": 20
-        }
-      ],
       "tint": "#ffffff",
       "transfer": false,
       "flags": {
@@ -99,41 +87,24 @@
           "disableIncapacitated": false,
           "dontApply": false,
           "showIcon": false,
-          "macroRepeat": "none"
+          "macroRepeat": "none",
+          "applicationMode": "dnd5e",
+          "expiryMode": "default"
         },
         "core": {
           "overlay": false
         },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "nameOverride": "",
-          "customCheck": "",
-          "wallsBlock": "system",
-          "statuses": []
-        },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         }
       },
       "name": "缓慢术 Slow",
       "description": "",
       "statuses": [],
       "_stats": {
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1786654597451,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
@@ -141,16 +112,84 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Nature_Slow.png",
+      "img": "icons/skills/movement/arrow-down-pink.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.ac.bonus",
+            "value": -2,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "boJdRBeIYeQDlBYq",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.abilities.dex.save.roll.bonus",
+            "value": -2,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "3HD3wubhHQS2JBgh",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.attributes.movement.all",
+            "value": "*0.5",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "eFn3Rg3LX5yuWlC1",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.OverTime",
+            "value": "turn=end, label=缓慢术 Slow, saveAbility=wis, saveDC=@activity.save.dc.value, saveMagic=true, saveCount=1-, allowIncapacitated=true",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "RBHbKBm980wz6jpU",
+            "conditions": "{}",
+            "replacement": "origin"
+          },
+          {
+            "key": "flags.midi-qol.onUseMacroName",
+            "type": "custom",
+            "value": "ItemMacro,preItemRoll",
+            "phase": "initial",
+            "_id": "HKdE0HvEM9sCvO4l",
+            "conditions": "{}",
+            "replacement": "",
+            "priority": null
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.2AgiR8EQ7IglGbci",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!2AgiR8EQ7IglGbci.yFKe55li8EeoFVKt"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你在施法距离内一处40尺立方区域内指定至多六个生物并扭曲其周围的时间流。每个目标都要进行一次感知豁免，豁免失败则受到该法术影响直至法术终止。\n<br />受术生物的速度减半，而其AC和敏捷豁免都具有－2减值，且不能执行反应。该生物在其回合内可以执行一个动作或一个附赠动作，但不能在一回合内同时执行以上两者。不论该生物拥有何种能力或魔法物品，它在其回合内只能发动一次近战或远程攻击。\n<br />如果该生物尝试施展一个施法时间为1动作的法术，则需掷一次d20。如果结果是11或更高，则该生物的法术直至其下一回合才会生效，且该生物必须在此时再使用一个动作来完成法术。\n<br />如果它做不到则它的法术就此浪费掉。\n<br />受术生物在其回合结束时要可以再进行一次感知豁免，豁免成功则其身上该法术的效应终止。\n<br /></div>",
+      "value": "<p>你在施法距离内一处 40 尺立方区域内指定至多六个生物并扭曲其周围的时间流。每个目标都要进行一次[[/save activity=dnd5eactivity000]]{感知豁免}，豁免失败则受到该法术影响直至法术终止。</p><p>受术生物的速度减半，而其 AC 和敏捷豁免都具有-2 减值，且不能执行反应。该生物在其回合内可以执行一个动作或一个附赠动作，但不能在一回合内同时执行以上两者。不论该生物拥有何种能力或魔法物品，它在其回合内只能发动一次近战或远程攻击。</p><p>如果该生物尝试施展一个施法时间为1动作的法术，则需掷一次 d20。如果结果是 11 或更高，则该生物的法术直至其下一回合才会生效，且该生物必须在此时再使用一个动作来完成法术。如果它做不到则它的法术就此浪费掉。</p><p>受术生物在每个其自己回合结束时可以再进行一次该感知豁免，豁免成功则终止其身上的该法术效应。</p>",
       "chat": ""
     },
     "source": {
@@ -166,7 +205,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -178,7 +218,8 @@
         "type": "cube",
         "size": "40",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -199,10 +240,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -229,27 +266,44 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "yFKe55li8EeoFVKt",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": 1786654597451,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "compendiumSource": "Actor.GabJyoAElcOKQvnt.Item.uCVpMQzRMkzIqrup.ActiveEffect.635JmtpXZmuoOyji",
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -275,7 +329,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -289,7 +344,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -297,7 +353,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -308,18 +363,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "slow"
+    "identifier": "slow",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -328,8 +432,8 @@
   "sort": 9900000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711694615425,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

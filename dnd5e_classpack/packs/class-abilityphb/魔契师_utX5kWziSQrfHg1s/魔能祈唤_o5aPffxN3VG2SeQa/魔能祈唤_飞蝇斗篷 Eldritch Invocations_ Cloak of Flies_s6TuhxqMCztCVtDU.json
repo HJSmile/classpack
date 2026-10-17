@@ -5,7 +5,7 @@
   "img": "icons/creatures/invertebrates/spider-beetle-runed-green.webp",
   "system": {
     "description": {
-      "value": "<p>    以一个附赠动作，你周身环绕起外观如同纷飞蚊蝇般的魔法灵光。灵光从你四周散发5尺，但不会穿过全掩蔽。灵光持续到你失能或以一个附赠动作解消它。</p>\n<p>    灵光给予你在魅力（威吓）检定的优势，但你在所有其他魅力检定上遭受劣势。任何在灵光内开始回合的生物，受到等于你魅力调整值的毒素伤害（最小为0）。</p>\n<p>    当你使用此魔能祈唤后，在完成一次短休或长休前，你无法再次使用这祈唤。</p>",
+      "value": "<p>    以一个附赠动作，你周身环绕起外观如同纷飞蚊蝇般的魔法灵光。灵光从你四周散发5尺，但不会穿过全掩蔽。灵光持续到你失能或以一个附赠动作解消它。</p>\n<p>    灵光给予你在[[/check ability=cha skill=itm]]{魅力（威吓）检定}的优势，但你在所有其他魅力检定上遭受劣势。任何在灵光内开始回合的生物，受到等于你魅力调整值的毒素伤害（最小为0）。</p>\n<p>    当你使用此魔能祈唤后，在完成一次短休或长休前，你无法再次使用这祈唤。</p>",
       "chat": ""
     },
     "source": {
@@ -28,7 +28,7 @@
       "value": "class",
       "subtype": "eldritchInvocation"
     },
-    "requirements": "邪术师等级 5",
+    "requirements": "魔契师等级 5",
     "activities": {
       "vHUpdBoXCEFhjMM3": {
         "type": "utility",
@@ -48,19 +48,47 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "FupU5Q62uzLYLYux"
+            "_id": "FupU5Q62uzLYLYux",
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1757142823786,
+              "modifiedTime": 1757142864542,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           },
           {
-            "_id": "FYCEsIKeLjkqRZv6"
+            "_id": "FYCEsIKeLjkqRZv6",
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1757142867050,
+              "modifiedTime": 1757143107121,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           }
         ],
         "range": {
@@ -72,7 +100,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -103,7 +132,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -111,7 +141,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -121,31 +150,73 @@
           "displayActivityName": false,
           "rollMode": "default",
           "chooseEffects": false,
-          "toggleEffect": false,
-          "ignoreFullCover": false
+          "toggleEffect": true,
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "name": "",
         "img": "",
-        "appliedEffects": [
-          "FupU5Q62uzLYLYux",
-          "FYCEsIKeLjkqRZv6"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": 5,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": [
       "mgc"
@@ -155,28 +226,62 @@
     {
       "name": "威吓优势",
       "img": "icons/creatures/invertebrates/spider-beetle-runed-green.webp",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.s6TuhxqMCztCVtDU",
+      "origin": null,
       "transfer": false,
       "_id": "FupU5Q62uzLYLYux",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.advantage.skill.itm",
-          "mode": 2,
-          "value": "+1",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.advantage.skill.itm",
+            "value": "+1",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "eUtUVMZTX18YC6VB",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "check",
+            "value": "-1",
+            "type": "dnd5e.advantage",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "",
+            "conditions": "[{\"k\":\"roll.ability\",\"v\":\"cha\"},{\"o\":\"NOT\",\"v\":{\"k\":\"roll.skill\",\"v\":\"itm\"}}]",
+            "_id": "d535c1b8d7472215"
+          },
+          {
+            "key": "macro.itemMacro",
+            "value": "",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "",
+            "conditions": "{}",
+            "_id": "741f87e4fa077934"
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.s6TuhxqMCztCVtDU",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -194,72 +299,89 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
         },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
+        "dnd5e_classpack": {
+          "cloakOfFlies": true
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757142823786,
         "modifiedTime": 1757142864542,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!s6TuhxqMCztCVtDU.FupU5Q62uzLYLYux"
     },
     {
       "name": "魔能祈唤:飞蝇斗篷 Eldritch Invocations: Cloak of Flies",
       "img": "icons/creatures/invertebrates/spider-beetle-runed-green.webp",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.s6TuhxqMCztCVtDU",
+      "origin": null,
       "transfer": false,
       "_id": "FYCEsIKeLjkqRZv6",
-      "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.OverTime",
-          "mode": 2,
-          "value": "turn=start,allowIncapacitated=true,saveDamage=nodamage,saveRemove=true,saveMagic=true,damageRoll=max(@abilities.cha.mod,0),damageType=poison,rollMode=publicroll,",
-          "priority": 20
-        }
-      ],
+      "type": "auraeffects.aura",
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.OverTime",
+            "value": "turn=start,allowIncapacitated=true,saveDamage=nodamage,saveRemove=true,saveMagic=true,damageRoll=max(@abilities.cha.mod,0),damageType=poison,rollMode=publicroll,",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "8LBfAmYQdzUiqWsn",
+            "conditions": "{}",
+            "replacement": "origin"
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.s6TuhxqMCztCVtDU",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "showRadius": true,
+        "applyToSelf": false,
+        "bestFormula": "",
+        "canStack": false,
+        "color": null,
+        "combatOnly": false,
+        "disableOnHidden": false,
+        "distanceFormula": "5",
+        "disposition": 0,
+        "evaluatePreApply": true,
+        "overrideName": "",
+        "script": "",
+        "stashedChanges": [],
+        "stashedStatuses": [],
+        "collisionType": "move"
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -269,7 +391,7 @@
         "dae": {
           "enableCondition": "",
           "disableCondition": "",
-          "disableIncapacitated": true,
+          "disableIncapacitated": false,
           "selfTarget": false,
           "selfTargetAlways": false,
           "dontApply": false,
@@ -277,59 +399,40 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
         },
-        "ActiveAuras": {
-          "isAura": true,
-          "aura": "All",
-          "nameOverride": "",
-          "radius": "5",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": true,
-          "height": false,
-          "hidden": false,
-          "displayTemp": true,
-          "hostile": false,
-          "onlyOnce": true,
-          "wallsBlock": "system",
-          "statuses": []
+        "dnd5e_classpack": {
+          "cloakOfFlies": true
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757142867050,
         "modifiedTime": 1757143107121,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!s6TuhxqMCztCVtDU.FYCEsIKeLjkqRZv6"
     }
   ],
   "folder": "o5aPffxN3VG2SeQa",
   "sort": 3300000,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -350,28 +453,8 @@
     "dae": {
       "macro": {
         "name": "魔能祈唤:飞蝇斗篷 Eldritch Invocations: Cloak of Flies",
-        "img": "icons/creatures/invertebrates/spider-beetle-runed-green.webp",
         "type": "script",
-        "scope": "global",
-        "command": "if (args[0].macroPass === \"preActiveEffects\" || args[0].tag === \"OnUse\") {\n  return await game.modules.get(\"ActiveAuras\").api.AAHelpers.applyTemplate(args);\n}",
-        "author": "WqWGW8MuBm7BNHxt",
-        "ownership": {
-          "default": 3
-        },
-        "_id": null,
-        "folder": null,
-        "sort": 0,
-        "flags": {},
-        "_stats": {
-          "coreVersion": "12.343",
-          "systemId": "dnd5e",
-          "systemVersion": "4.4.4",
-          "createdTime": null,
-          "modifiedTime": null,
-          "lastModifiedBy": null,
-          "compendiumSource": null,
-          "duplicateSource": null
-        }
+        "command": "if (args[0] !== \"off\") return;\nconst last = args.at(-1);\nconst actor = await fromUuid(last.actorUuid);\nif (!actor || !MidiQOL.checkIncapacitated(actor, false, false)) return;\nconst key = Symbol.for(\"dnd5e_classpack.cloakOfFlies.ending\");\nif (actor[key]) return;\nactor[key] = true;\ntry {\n  const effects = actor.appliedEffects.filter(e => e.flags.dnd5e_classpack?.cloakOfFlies);\n  if (effects.length) await MidiQOL.socket().executeAsGM(\"removeEffects\", {\n    actorUuid: actor.uuid, effects: effects.map(e => e.id), options: { \"expiry-reason\": \"midi-qol:incapacitated\" }\n  });\n} finally {\n  delete actor[key];\n}\n"
       }
     }
   },
@@ -379,9 +462,9 @@
     "default": 0
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757263946585,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

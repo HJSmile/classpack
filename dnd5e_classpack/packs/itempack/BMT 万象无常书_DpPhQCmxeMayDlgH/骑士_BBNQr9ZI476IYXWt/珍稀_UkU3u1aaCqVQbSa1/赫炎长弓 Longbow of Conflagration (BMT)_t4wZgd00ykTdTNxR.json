@@ -12,7 +12,7 @@
       "revision": 1
     },
     "description": {
-      "value": "<div class=\"rd__b  rd__b--2\"><p><em>武器（长弓），珍稀（需同调）</em><br />从这把弓射出的弹药，如同烧红般熠熠生辉着。当你用这把弓发动的攻击检定命中时，目标还会受到额外的[[/damage 1d6 type=fire]]伤害。若目标是一个可燃的、非魔法物件，它还会被点燃，并在每个你的回合开始时受到[[/damage 1d6 type=fire]]伤害直至一个生物用其动作熄灭火焰为止。</p><p>Ammunition fired from this bow blazes brightly. When you hit with an attack roll using this bow, the target takes an extra [[/damage 1d6 type=fire]] damage. If the target is a flammable, nonmagical object, it catches fire, taking [[/damage 1d6 type=fire]] damage at the start of each of your turns until a creature uses an action to extinguish the flames.</p></div>",
+      "value": "<p><em>武器（长弓），珍稀（需同调）</em></p><p>从这把弓射出的弹药，如同烧红般熠熠生辉着。当你用这把弓发动的攻击检定命中时，目标还会受到额外的[[/damage 1d6 type=fire]]伤害。若目标是一个可燃的、非魔法物件，它还会被点燃，并在每个你的回合开始时受到[[/damage 1d6 type=fire]]伤害直至一个生物用其动作熄灭火焰为止。</p><p>Ammunition fired from this bow blazes brightly. When you hit with an attack roll using this bow, the target takes an extra [[/damage 1d6 type=fire]] damage. If the target is a flammable, nonmagical object, it catches fire, taking [[/damage 1d6 type=fire]] damage at the start of each of your turns until a creature uses an action to extinguish the flames.</p>",
       "chat": ""
     },
     "proficient": null,
@@ -28,7 +28,6 @@
     "attuned": true,
     "identified": true,
     "equipped": true,
-    "rarity": "rare",
     "type": {
       "value": "martialR",
       "baseItem": "longbow"
@@ -51,7 +50,7 @@
       "spent": 0,
       "recovery": []
     },
-    "magicalBonus": 0,
+    "magicalBonus": "0",
     "damage": {
       "base": {
         "types": [
@@ -66,7 +65,8 @@
         },
         "custom": {
           "enabled": false
-        }
+        },
+        "modifiers": []
       },
       "versatile": {
         "number": null,
@@ -77,7 +77,8 @@
         },
         "scaling": {
           "number": 1
-        }
+        },
+        "modifiers": []
       }
     },
     "ammunition": {
@@ -101,20 +102,25 @@
           "spellSlot": true,
           "targets": []
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -156,7 +162,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -164,7 +171,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -175,18 +181,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "attackMode": "oneHanded",
         "ammunition": "",
-        "otherActivityUuid": ""
+        "otherActivityUuid": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       },
       "DEdhpTczsOcEG4NW": {
         "_id": "DEdhpTczsOcEG4NW",
@@ -204,20 +258,25 @@
           "spellSlot": true,
           "targets": []
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -247,7 +306,8 @@
               },
               "custom": {
                 "enabled": false
-              }
+              },
+              "modifiers": []
             }
           ]
         },
@@ -263,7 +323,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -271,7 +332,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -282,13 +342,59 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
         }
       }
     },
@@ -298,9 +404,14 @@
     },
     "container": null,
     "cover": null,
-    "crewed": false,
     "armor": {
       "value": null
+    },
+    "rarities": [
+      "rare"
+    ],
+    "crew": {
+      "value": []
     }
   },
   "img": "icons/weapons/bows/longbow-leather-green.webp",
@@ -332,16 +443,17 @@
       "noConcentrationCheck": false,
       "toggleEffect": false,
       "ignoreTotalCover": false
-    }
+    },
+    "dnd5e": {}
   },
   "effects": [],
   "folder": "UkU3u1aaCqVQbSa1",
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1751738888053,
     "modifiedTime": 1751738888053,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

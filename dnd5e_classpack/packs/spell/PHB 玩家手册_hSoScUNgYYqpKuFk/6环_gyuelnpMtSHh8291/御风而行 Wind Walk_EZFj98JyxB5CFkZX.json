@@ -24,75 +24,99 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Shadow_SoulLeech_2.png",
+  "img": "icons/magic/air/wind-tornado-funnel-gray.webp",
   "effects": [
     {
       "name": "云雾化身 Wind Walk",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Shadow_SoulLeech_2.png",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.EZFj98JyxB5CFkZX",
+      "img": "icons/magic/air/wind-tornado-funnel-gray.webp",
+      "origin": null,
       "transfer": false,
       "_id": "g1XmL6w9VaVBfVRn",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.attributes.movement.fly",
-          "mode": 5,
-          "value": "300",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.movement.speeds.fly",
+            "value": 300,
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "yF6oAOKiXd4g5O3C",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.attributes.movement.hover",
+            "value": true,
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "yv4FnM9E19DHRPvG",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.dr.value",
+            "value": "bludgeoning",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "sco7V11EQV7lvFbb",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.dr.value",
+            "value": "piercing",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "qbyGQlU2k00inlRb",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.dr.value",
+            "value": "slashing",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "iVoEYLyRNeYdVHcz",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.ci.value",
+            "value": "prone",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "N5oXPe9lHrEGo7Wf",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "system.attributes.movement.hover",
-          "mode": 0,
-          "value": "true",
-          "priority": 20
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.EZFj98JyxB5CFkZX",
+          "message": null
         },
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "bludgeoning",
-          "priority": 20
-        },
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "piercing",
-          "priority": 20
-        },
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "slashing",
-          "priority": 20
-        },
-        {
-          "key": "system.traits.ci.value",
-          "mode": 2,
-          "value": "prone",
-          "priority": 20
-        }
-      ],
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": 28800,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 28800,
+        "units": "seconds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "description": "<p>当你处于该形态时，你具有 300 尺的飞行速度且能够悬浮，对倒地状态免疫，并且对钝击、挥砍、穿刺伤害具有抗性。</p><p>在该形态下，你无法执行除&amp;Reference[Dash]{疾走}和使用&amp;Reference[Magic]{魔法}动作变回原形以外的其他动作。变回原形需要花费 1 分钟，在此期间你处于震慑状态。</p><p>在法术终止前，你可以再次变成云雾形态，而再次使用&amp;Reference[Magic]{魔法}动作进行变形同样需要花费 1 分钟时间。</p>",
       "tint": "#ffffff",
@@ -114,48 +138,32 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": 1755172525620,
         "modifiedTime": 1755172861298,
         "lastModifiedBy": "vFLRCDyc5l72uRlV",
         "exportSource": null
       },
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!EZFj98JyxB5CFkZX.g1XmL6w9VaVBfVRn"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你和施法距离内你能看见的至多十个自愿生物在法术持续时间内变为气化形态，其外观有如一团云雾。处于该云雾形态的生物具有300尺的飞行速度，并且对非魔法武器造成的伤害具有抗性。该形态下的生物除疾走Dash 和变回原形以外不能执行其他动作。变回原形需要花一分钟的时间，在这段时间内该生物处于失能状态且不能移动。在法术终止前，该生物还可以再次变成云雾形态，而再次进行变形同样要花一分钟时间。\n<br />如果法术终止时受术生物正以云雾形态飞行，则该生物将在1分钟内以每轮60尺的速度降落直至安全着陆。如果该生物降落1分钟后还没着陆，则在余下的距离中它将会如正常情况一样坠落。\n<br /></div>",
+      "value": "<p>你和施法距离内你能看见的至多十个自愿生物在法术持续时间内变为气化形态，其外观有如一团云雾。处于该云雾形态的生物具有 300 尺的飞行速度，并且对非魔法武器造成的伤害具有抗性。该形态下的生物除疾走和变回原形以外不能执行其他动作。变回原形需要花一分钟的时间，在这段时间内该生物处于&amp;Reference[condition=incapacitated apply=false]{失能}状态且不能移动。在法术终止前，该生物还可以再次变成云雾形态，而再次进行变形同样要花一分钟时间。</p><p>如果法术终止时受术生物正以云雾形态飞行，则该生物将在 1 分钟内以每轮 60 尺的速度降落直至安全着陆。如果该生物降落 1 分钟后还没着陆，则在余下的距离中它将会如正常情况一样坠落。</p>",
       "chat": ""
     },
     "source": {
@@ -171,7 +179,8 @@
     },
     "duration": {
       "value": "8",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -181,9 +190,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -204,10 +214,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -233,26 +239,32 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "g1XmL6w9VaVBfVRn"
+            "_id": "g1XmL6w9VaVBfVRn",
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -282,7 +294,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -290,7 +303,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -301,18 +313,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "wind-walk"
+    "identifier": "wind-walk",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -321,8 +381,8 @@
   "sort": 35100000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

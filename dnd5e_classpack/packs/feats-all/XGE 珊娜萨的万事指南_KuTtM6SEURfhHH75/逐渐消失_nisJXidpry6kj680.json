@@ -1,14 +1,14 @@
 {
   "_id": "nisJXidpry6kj680",
-  "name": "逐渐消失",
+  "name": "匿影无踪",
   "type": "feat",
   "system": {
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "description": {
-      "value": "<p>你的族人在幻术系魔法的技巧上很有天赋。你学过一种在你受到伤害时逐渐隐去的魔法技巧。你获得以下好处：</p>\n<ul>\n<li>你的智力+1，最大20</li>\n<li>当你受到伤害，你可以用一个反应来用魔法把自己变成隐形，直到你攻击，造成伤害或使别人通过豁免检定或者下个回合。你只能使用一次这个能力，直到你进行一次短休息或者长休息。</li>\n</ul>",
+      "value": "<p>你的族人在幻术系魔法的技巧上很有天赋。你学过一种在你受到伤害时逐渐隐去的魔法技巧。你获得以下好处：</p>\n<ul>\n<li>你的敏捷或智力+1，上限为20</li>\n<li>当你受到伤害，你可以用一个反应来用魔法把自己变成隐形，直至你的下个回合结束；提前发动攻击、造成伤害或迫使生物进行豁免检定时，隐形也会结束。你只能使用一次这个能力，直到你进行一次短休息或者长休息。</li>\n</ul>",
       "chat": ""
     },
     "source": {
@@ -18,37 +18,73 @@
       "book": "XGE"
     },
     "uses": {
-      "max": "0",
+      "max": "1",
       "spent": 0,
-      "recovery": []
+      "recovery": [
+        {
+          "period": "sr",
+          "type": "recoverAll",
+          "formula": ""
+        }
+      ]
     },
     "requirements": "侏儒",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {
+      "91ff5ef058f4dcc8": {
+        "_id": "91ff5ef058f4dcc8",
+        "type": "AbilityScoreImprovement",
+        "name": "属性值提升",
+        "configuration": {
+          "cap": 1,
+          "fixed": {
+            "str": 0,
+            "dex": 0,
+            "con": 0,
+            "int": 0,
+            "wis": 0,
+            "cha": 0
+          },
+          "locked": [
+            "str",
+            "con",
+            "wis",
+            "cha"
+          ],
+          "points": 1,
+          "max": 20,
+          "recommendation": null
+        },
+        "value": {
+          "type": "asi"
+        },
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
-    "properties": []
+    "properties": [
+      "mgc"
+    ]
   },
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/magic/control/encase-creature-humanoid-hold.webp",
   "effects": [],
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757275287302,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

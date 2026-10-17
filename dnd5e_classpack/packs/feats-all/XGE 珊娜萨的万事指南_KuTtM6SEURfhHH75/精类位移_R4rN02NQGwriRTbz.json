@@ -1,15 +1,15 @@
 {
   "_id": "R4rN02NQGwriRTbz",
-  "name": "精类位移",
+  "name": "妖精传送",
   "type": "feat",
   "img": "icons/magic/unholy/orb-swirling-teal.webp",
   "system": {
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "description": {
-      "value": "<p>你的高等精灵学识研究已然解锁了一些其他精灵掌控的精类力量，而非你的艾拉德林表亲。利用你的精类先祖，你可以大步迈入妖精荒野来减短你从一个地方到另一个地方的道路，你获得以下好处：</p>\n<ul>\n<li>你的智力或者魅力+1，最大20</li>\n<li>你学会说读写木族语。</li>\n<li>你学会了迷踪步并且可以不消耗法术位释放他。直到你进行一次短休息或者长休息你才能再度使用此能力。智力是你的施法主属性。</li>\n</ul>",
+      "value": "<p>你的高等精灵学识研究已然解锁了一些其他精灵掌控的妖精力量，当然，你的雅灵表亲除外。利用你的妖精先祖，你可以大步迈入妖精荒野来减短你从一个地方到另一个地方的道路，你获得以下好处：</p>\n<ul>\n<li>你的智力或者魅力+1，最大20</li>\n<li>你学会说读写木族语。</li>\n<li>你学会了迷踪步并且可以不消耗法术位释放他。直到你进行一次短休息或者长休息你才能再度使用此能力。智力是你的施法主属性。</li>\n</ul>",
       "chat": ""
     },
     "source": {
@@ -19,20 +19,108 @@
       "book": "XGE"
     },
     "uses": {
-      "max": "0",
+      "max": "1",
       "spent": 0,
-      "recovery": []
+      "recovery": [
+        {
+          "period": "sr",
+          "type": "recoverAll",
+          "formula": ""
+        }
+      ]
     },
-    "requirements": "高等精灵",
+    "requirements": "精灵（高等精灵）",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {
+      "3287f0b3c1ba26df": {
+        "_id": "3287f0b3c1ba26df",
+        "type": "AbilityScoreImprovement",
+        "name": "属性值提升",
+        "configuration": {
+          "cap": 1,
+          "fixed": {
+            "str": 0,
+            "dex": 0,
+            "con": 0,
+            "int": 0,
+            "wis": 0,
+            "cha": 0
+          },
+          "locked": [
+            "str",
+            "dex",
+            "con",
+            "wis"
+          ],
+          "points": 1,
+          "max": 20,
+          "recommendation": null
+        },
+        "value": {
+          "type": "asi"
+        },
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      },
+      "ad37f1da0e7fdb7d": {
+        "_id": "ad37f1da0e7fdb7d",
+        "type": "Trait",
+        "name": "熟练项与语言",
+        "configuration": {
+          "mode": "default",
+          "allowReplacements": false,
+          "grants": [
+            "languages:exotic:sylvan"
+          ],
+          "choices": []
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      },
+      "7202c13240b77a33": {
+        "_id": "7202c13240b77a33",
+        "type": "ItemGrant",
+        "name": "Misty Step",
+        "configuration": {
+          "items": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.spell.Item.Cnzcy1Tu7gt6xYHm",
+              "optional": false,
+              "sort": 0
+            }
+          ],
+          "optional": false,
+          "spell": {
+            "ability": [
+              "int"
+            ],
+            "method": "innate",
+            "prepared": 0,
+            "uses": {
+              "max": "1",
+              "per": "sr",
+              "requireSlot": false
+            }
+          },
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -40,17 +128,12 @@
   "folder": "KuTtM6SEURfhHH75",
   "sort": 112500,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757275287302,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

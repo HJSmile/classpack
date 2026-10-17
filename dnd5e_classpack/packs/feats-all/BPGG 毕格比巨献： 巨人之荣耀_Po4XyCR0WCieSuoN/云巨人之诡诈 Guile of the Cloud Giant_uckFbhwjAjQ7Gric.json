@@ -11,13 +11,16 @@
       "rules": "2014"
     },
     "description": {
-      "value": "<div><hr /><div><p><em>先决条件: 第4级，@UUID[Compendium.dnd5e_classpack.feats-all.Item.WXC70UjLdZ7mpSpz]{巨人打击}（云雾打击）专长</em> <br />你展现出象征着云巨人的轻浮言语以及魔法，使得你获得下列增益：<br /><strong>属性值提升Ability Score Increase。</strong> 你的敏捷、体质、或魅力属性提升1，上限为20。<br /><strong>迷云逃逸Cloudy Escape。</strong> 当一个你可见的生物以攻击检定命中你时，你可以使用你的反应来获得此次攻击伤害的抗性。然后你可以传送至30尺范围内的一处你可见的、未被占据的空间。你可以使用这一反应的次数等同于你的熟练加值次，在完成一次长休后你恢复所有已消耗的使用次数。</p></div></div>",
+      "value": "<p>你展现出象征着云巨人的轻浮言语以及魔法，使得你获得下列增益：</p><h3>属性值提升Ability Score Increase。</h3><p> 你的力量、体质、或魅力属性提升1，上限为20。</p><h3>迷云逃逸Cloudy Escape。</h3><p> 当一个你可见的生物以攻击检定命中你时，你可以使用你的反应来获得此次攻击伤害的抗性。然后你可以传送至30尺范围内的一处你可见的、未被占据的空间。你可以使用这一反应的次数等同于你的熟练加值次，在完成一次长休后你恢复所有已消耗的使用次数。</p>",
       "chat": ""
     },
-    "requirements": "strike of the giants (cloud strike) feat",
+    "requirements": "等级4+，巨人打击（云雾打击）专长",
     "prerequisites": {
       "level": 4,
-      "repeatable": false
+      "repeatable": false,
+      "items": [
+        "feat:-strike-of-the-giants"
+      ]
     },
     "uses": {
       "max": "@prof",
@@ -31,9 +34,11 @@
     },
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
-    "properties": [],
+    "properties": [
+      "mgc"
+    ],
     "cover": null,
     "crewed": false,
     "activities": {
@@ -65,18 +70,20 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -88,7 +95,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -110,11 +118,127 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-guile-of-the-cloud-giant",
-    "advancement": [],
+    "advancement": {
+      "84857b24db1dc36c": {
+        "_id": "84857b24db1dc36c",
+        "type": "AbilityScoreImprovement",
+        "name": "属性值提升",
+        "configuration": {
+          "cap": 1,
+          "fixed": {
+            "str": 0,
+            "dex": 0,
+            "con": 0,
+            "int": 0,
+            "wis": 0,
+            "cha": 0
+          },
+          "locked": [
+            "dex",
+            "int",
+            "wis"
+          ],
+          "points": 1,
+          "max": 20,
+          "recommendation": null
+        },
+        "value": {
+          "type": "asi"
+        },
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "enchant": {}
   },
   "ownership": {
@@ -154,21 +278,14 @@
       "removeAttackDamageButtons": "default",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": null,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "effects": [],
   "folder": "Po4XyCR0WCieSuoN",
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1724940932368,
     "modifiedTime": 1757275415855,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

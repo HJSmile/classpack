@@ -3,7 +3,7 @@
   "name": "空气泡泡 Air Bubble",
   "type": "spell",
   "_id": "ElTkzRz8F2UyF3xQ",
-  "img": "systems/dnd5e/icons/svg/items/spell.svg",
+  "img": "icons/magic/water/bubbles-air-water-blue.webp",
   "system": {
     "activities": {},
     "uses": {
@@ -12,7 +12,7 @@
       "max": ""
     },
     "description": {
-      "value": "<p>你指定视线范围内的一个自愿生物，并在其头部创造一个散发幽光的球体。这个球体内会充满新鲜空气直到法术结束。如果这个生物有多个头，那么球体只会出现在它的一个头周围（若该生物的所有头颅共用同一套呼吸系统，那么这个法术也可以让它避免窒息）。 <br /><strong>升环施法效应：</strong>当你使用3环或更高的环阶施放这个法术时，你使用的法术位每比2环高一环，就能额外创造两个新鲜空气球体。</p>",
+      "value": "<p>你指定视线范围内的一个自愿生物，并在其头部创造一个散发幽光的球体。这个球体内会充满新鲜空气直到法术结束。如果这个生物有多个头，那么球体只会出现在它的一个头周围（若该生物的所有头颅共用同一套呼吸系统，那么这个法术也可以让它避免窒息）。</p><p><strong>升环施法效应。</strong>当你使用3环或更高的环阶施放这个法术时，你使用的法术位每比2环高一环，就能额外创造两个新鲜空气球体。</p>",
       "chat": ""
     },
     "identifier": "air-bubble",
@@ -31,7 +31,8 @@
     },
     "duration": {
       "units": "hour",
-      "value": "24"
+      "value": "24",
+      "expiry": null
     },
     "level": 2,
     "materials": {
@@ -39,10 +40,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "somatic"
@@ -59,7 +56,8 @@
         "units": "ft",
         "type": "",
         "size": "",
-        "count": ""
+        "count": "",
+        "stationary": false
       },
       "affects": {
         "choice": false,
@@ -67,7 +65,9 @@
         "count": "1",
         "special": ""
       }
-    }
+    },
+    "method": "spell",
+    "prepared": 0
   },
   "effects": [],
   "sort": 0,
@@ -93,19 +93,14 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1749803897896,
     "modifiedTime": 1757256789513,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -27,41 +27,49 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "concentration"
-      ]
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Nature_StrangleVines.png",
+  "img": "icons/magic/nature/root-vine-entangle-foot-green.webp",
   "effects": [
     {
       "name": "纠缠术 束缚",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Nature_StrangleVines.png",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.NZ4JOGBMJzeCKT5O",
+      "img": "icons/magic/nature/root-vine-entangle-foot-green.webp",
+      "origin": null,
       "transfer": false,
       "_id": "swQkComQ0XWPyWLV",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.OverTime",
-          "mode": 0,
-          "value": "turn=start, label=纠缠术 束缚, rollType=check, saveAbility=str, saveDC=@attributes.spell.dc, saveCount=1-, actionSave=dialog, rollMode=publicroll, allowIncapacitated=true",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.OverTime",
+            "value": "turn=start, label=纠缠术 束缚, rollType=check, saveAbility=str, saveDC=@activity.save.dc.value, saveCount=1-, actionSave=dialog, rollMode=publicroll, allowIncapacitated=true",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "esyDTQx5ecYLDPVK",
+            "conditions": "{}",
+            "replacement": "origin"
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.NZ4JOGBMJzeCKT5O",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": 10,
-        "startRound": null,
-        "startTurn": null
+        "value": 60,
+        "units": "seconds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -83,51 +91,36 @@
           "specialDuration": [
             "None"
           ],
-          "macroRepeat": "none"
+          "macroRepeat": "none",
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": 1753012802448,
         "modifiedTime": 1786655322089,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
         "exportSource": null
       },
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!NZ4JOGBMJzeCKT5O.swQkComQ0XWPyWLV"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 在施法距离内指定一点，并以其为源点蔓延出20尺方形区域的杂草和藤蔓。在法术持续时间内，这片被植物覆盖的区域变为困难地形。\n<br />在你施展法术时，该区域内的生物必须成功通过一此力量豁免，否则将因为这些缠绕的植物陷入束缚状态，直到法术终止。\n<br />一个因此被束缚的生物可以使用其动作进行一次力量检定以对抗该法术的豁免DC，检定成功则摆脱束缚。\n<br />法术终止时，所召唤的植物随即枯萎。\n<br /></div>",
+      "value": "<p>在施法距离内的地面上指定一点，并以其为源点蔓延出 20 尺方形区域的杂草和藤蔓。在法术持续时间内，这片被植物覆盖的区域变为困难地形。</p><p>在你施展法术时，该区域内的生物必须成功通过一次[[/save activity=NChAwMHtRzKj4CzM]]{力量豁免}，否则将因为这些缠绕的植物陷入&amp;Reference[condition=restrained apply=false]{束缚}状态，直到法术终止。一个因此被束缚的生物可以使用其动作进行一次力量检定以对抗该法术的豁免 DC，检定成功则摆脱束缚。</p><p>法术终止时，所召唤的植物随即枯萎。</p>",
       "chat": ""
     },
     "source": {
@@ -143,7 +136,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -155,7 +149,8 @@
         "type": "square",
         "size": "20",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -176,10 +171,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -205,12 +196,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
@@ -219,16 +212,30 @@
             "level": {
               "min": null,
               "max": null
+            },
+            "uuid": null,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1753012802448,
+              "modifiedTime": 1786655322089,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "exportSource": null
             }
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -255,7 +262,9 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true,
+          "bonus": ""
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -268,7 +277,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -276,7 +286,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -287,30 +296,87 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
           "postRemoveConditionText": "",
-          "turnChoice": "start"
+          "turnChoice": "start",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "name": "",
         "img": "",
-        "appliedEffects": [
-          "swQkComQ0XWPyWLV"
-        ],
         "visibility": {
           "level": {
             "min": null,
             "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "behaviors": [
+          {
+            "name": "",
+            "_id": "kry5GyNiZrlsqBrS",
+            "type": "difficultTerrain",
+            "config": {
+              "types": [
+                "plants"
+              ]
+            },
+            "level": {
+              "min": null,
+              "max": null
+            }
           }
-        }
+        ],
+        "flags": {},
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "entangle"
+    "identifier": "entangle",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -319,8 +385,8 @@
   "sort": 14800000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711697570741,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

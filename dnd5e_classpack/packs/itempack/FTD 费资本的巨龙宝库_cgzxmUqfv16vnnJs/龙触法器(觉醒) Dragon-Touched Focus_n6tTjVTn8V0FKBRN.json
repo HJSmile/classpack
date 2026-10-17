@@ -3,7 +3,7 @@
   "name": "龙触法器(觉醒) Dragon-Touched Focus",
   "type": "equipment",
   "_id": "n6tTjVTn8V0FKBRN",
-  "img": "modules/dnd5e_classpack/Nicons/inv_ring_ardenweald_02_green.jpg",
+  "img": "icons/equipment/finger/ring-cabochon-gold-green.webp",
   "system": {
     "activities": {
       "IG674zgevPT7TP1q": {
@@ -23,12 +23,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": "每当你使用法术位施展一道造成强酸、冷冻、火焰、闪电或毒素伤害的法术时。投掷一个d6，你在这个法术的其中一个伤害掷骰上增加掷出的值。"
+          "chatFlavor": "每当你使用法术位施展一道造成强酸、冷冻、火焰、闪电或毒素伤害的法术时。投掷一个d6，你在这个法术的其中一个伤害掷骰上增加掷出的值。",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -41,7 +43,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -79,7 +82,8 @@
               ],
               "scaling": {
                 "number": 1
-              }
+              },
+              "modifiers": []
             }
           ]
         },
@@ -94,7 +98,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -102,7 +107,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -113,16 +117,62 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "色彩主龙",
-        "_id": "IG674zgevPT7TP1q"
+        "_id": "IG674zgevPT7TP1q",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       },
       "5s4z6wPrTRnz74ns": {
         "type": "cast",
@@ -141,12 +191,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "range": {
           "units": "self",
@@ -157,7 +209,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -175,8 +228,6 @@
         },
         "spell": {
           "challenge": {
-            "attack": null,
-            "save": null,
             "override": false
           },
           "level": 2,
@@ -200,7 +251,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -208,7 +260,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "never",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -219,16 +270,62 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "宝石主龙",
-        "_id": "5s4z6wPrTRnz74ns"
+        "_id": "5s4z6wPrTRnz74ns",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       },
       "V5V6GOIRJf8So2Q3": {
         "type": "utility",
@@ -247,12 +344,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": "当一个你能看到的生物在你30英尺内进行豁免检定时，你可以使用你的反应使该生物在这次豁免检定上获得优势。"
+          "chatFlavor": "当一个你能看到的生物在你30英尺内进行豁免检定时，你可以使用你的反应使该生物在这次豁免检定上获得优势。",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -265,7 +364,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -298,7 +398,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -306,7 +407,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -317,17 +417,63 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "name": "金属主龙",
-        "_id": "V5V6GOIRJf8So2Q3"
+        "_id": "V5V6GOIRJf8So2Q3",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       },
       "0Pos2Wg7k3dLaqga": {
         "type": "enchant",
@@ -346,12 +492,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
@@ -371,7 +519,8 @@
                 "o7En7URh6dy12Trr"
               ],
               "item": []
-            }
+            },
+            "uuid": null
           }
         ],
         "range": {
@@ -383,7 +532,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -398,7 +548,7 @@
           "max": ""
         },
         "enchant": {
-          "identifier": ""
+          "self": false
         },
         "restrictions": {
           "allowMagical": true,
@@ -417,7 +567,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -425,7 +576,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -436,20 +586,62 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "",
         "_id": "0Pos2Wg7k3dLaqga",
         "img": "",
-        "appliedEffects": [
-          "gy2ujXZfqD0YnD1S"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       },
       "yqP8ydpp9DHXyAhz": {
         "type": "cast",
@@ -468,17 +660,20 @@
           "targets": [
             {
               "type": "activityUses",
-              "value": "1"
+              "value": "1",
+              "scaling": {}
             }
           ]
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "range": {
           "units": "self",
@@ -487,7 +682,8 @@
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -507,8 +703,6 @@
         },
         "spell": {
           "challenge": {
-            "attack": null,
-            "save": null,
             "override": false
           },
           "level": null,
@@ -532,7 +726,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -540,7 +735,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "never",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -551,16 +745,61 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "主龙法术",
-        "img": ""
+        "img": "",
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
     "uses": {
@@ -569,7 +808,7 @@
       "max": ""
     },
     "description": {
-      "value": "<p><span style=\"font-family:'Roboto Condensed', sans-serif\">奇物(任意)，极稀有(需要同调)</span></p><p style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);margin:0.5em 0px;color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;background-color:rgb(248, 244, 241);text-align:start\"><span style=\"font-family:'Roboto Condensed', sans-serif\">这个奇物可以是法杖、法球、护符、水晶或其他的精制物件。它通常包含有龙的翅膀、爪子、牙齿或鳞片的象形。</span></p><p style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);margin:0.5em 0px;color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;background-color:rgb(248, 244, 241);text-align:start\"><span style=\"font-family:'Roboto Condensed', sans-serif\">你的先攻检定具有优势。当你持握这件法器时，它可以作为你施展所有法术的法器。</span></p><p style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);margin:0.5em 0px;min-height:1rem;color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgb(248, 244, 241);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;text-align:start\"></p><p style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);margin:0.5em 0px;color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgb(248, 244, 241);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;text-align:start\"><span style=\"font-family:'Roboto Condensed', sans-serif\">它还获得了另一个特性，由激活它的宝库的主龙的族裔决定：</span></p><p style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);margin:0.5em 0px;color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgb(248, 244, 241);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;text-align:start\"><span style=\"font-family:'Roboto Condensed', sans-serif\"><strong style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">色彩</strong>。每当你使用法术位施展一道造成强酸、冷冻、火焰、闪电或毒素伤害的法术时。投掷一个d6，你在这个法术的其中一个伤害掷骰上增加掷出的值。</span></p><p style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);margin:0.5em 0px;color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgb(248, 244, 241);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;text-align:start\"><span style=\"font-family:'Roboto Condensed', sans-serif\"><strong style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">宝石</strong>。当你使用法术位施放一道法术时，你可以立即传送到距离你15尺内一处你能看见且未被占据的空间。</span></p><p style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);margin:0.5em 0px;color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgb(248, 244, 241);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;text-align:start\"><span style=\"font-family:'Roboto Condensed', sans-serif\"><strong style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">金属</strong>。当一个你能看到的生物在你30英尺内进行豁免检定时，你可以使用你的反应使该生物在这次豁免检定上获得优势。</span></p><p style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);margin:0.5em 0px;color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgb(248, 244, 241);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;text-align:start\"><span style=\"font-family:'Roboto Condensed', sans-serif\"><strong>（在制作完物品并选择主龙之后，请dm前往行动组和界面删除未选择的主龙行动组和）</strong></span></p><p style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);margin:0.5em 0px;min-height:1rem;color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgb(248, 244, 241);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;text-align:start\"></p><p>当你持握觉醒法器时，你可以使用它来施放特定的法术。一旦该物品被用来施放一道这个特性赠送的法术，直到下一个黎明之前它就不能再次被用于施展该法术。这些法术由使其觉醒的宝库主龙的族裔决定。星号表示本章前面出现的新法术。</p><p>彩色。怪物定身术，雾凇霜缚*</p><p>宝石。拉瑞心灵链接，劳洛希姆心灵长枪*</p><p>金属。费资本铂金盾*，通晓传奇</p><p><strong>（制作时请打开行动组和中的主龙法术，切换到法术选项卡，将选定的法术拖动到选项卡下的输入框内即可完成制作）</strong></p><p></p><p style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);margin:0.5em 0px;color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgb(248, 244, 241);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;text-align:start\"><span style=\"font-family:'Roboto Condensed', sans-serif\">这是一件模板物品，请使用该武器的附魔功能将需要使用的符合要求的武器模板（如法杖、法球、护符、水晶或其他的精制物件）完成附魔即可。</span></p>",
+      "value": "<p>奇物(任意)，极稀有(需要同调)</p><p style=\"color:rgb(25, 24, 19); font-style:normal; font-weight:400; text-align:start\">这个奇物可以是法杖、法球、护符、水晶或其他的精制物件。它通常包含有龙的翅膀、爪子、牙齿或鳞片的象形。</p><p style=\"color:rgb(25, 24, 19); font-style:normal; font-weight:400; text-align:start\">你的先攻检定具有优势。当你持握这件法器时，它可以作为你施展所有法术的法器。</p><p style=\"color:rgb(25, 24, 19); font-style:normal; font-weight:400; text-align:start\">它还获得了另一个特性，由激活它的宝库的主龙的族裔决定：</p><p style=\"color:rgb(25, 24, 19); font-style:normal; font-weight:400; text-align:start\"><strong style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">色彩</strong>。每当你使用法术位施展一道造成强酸、冷冻、火焰、闪电或毒素伤害的法术时。投掷一个d6，你在这个法术的其中一个伤害掷骰上增加掷出的值。</p><p style=\"color:rgb(25, 24, 19); font-style:normal; font-weight:400; text-align:start\"><strong style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">宝石</strong>。当你使用法术位施放一道法术时，你可以立即传送到距离你15尺内一处你能看见且未被占据的空间。</p><p style=\"color:rgb(25, 24, 19); font-style:normal; font-weight:400; text-align:start\"><strong style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">金属</strong>。当一个你能看到的生物在你30英尺内进行豁免检定时，你可以使用你的反应使该生物在这次豁免检定上获得优势。</p><h3 style=\"color:rgb(25, 24, 19); font-style:normal; font-weight:400; text-align:start\"><strong>（在制作完物品并选择主龙之后，请dm前往行动组和界面删除未选择的主龙行动组和）</strong></h3><p>当你持握觉醒法器时，你可以使用它来施放特定的法术。一旦该物品被用来施放一道这个特性赠送的法术，直到下一个黎明之前它就不能再次被用于施展该法术。这些法术由使其觉醒的宝库主龙的族裔决定。星号表示本章前面出现的新法术。</p><p>彩色。怪物定身术，雾凇霜缚*</p><p>宝石。拉瑞心灵链接，劳洛希姆心灵长枪*</p><p>金属。费资本铂金盾*，通晓传奇</p><h3><strong>（制作时请打开行动组和中的主龙法术，切换到法术选项卡，将选定的法术拖动到选项卡下的输入框内即可完成制作）</strong></h3><p style=\"color:rgb(25, 24, 19); font-style:normal; font-weight:400; text-align:start\">这是一件模板物品，请使用该武器的附魔功能将需要使用的符合要求的武器模板（如法杖、法球、护符、水晶或其他的精制物件）完成附魔即可。</p>",
       "chat": ""
     },
     "identifier": "-",
@@ -592,15 +831,12 @@
       "value": 0,
       "denomination": "gp"
     },
-    "rarity": "",
     "attunement": "required",
     "attuned": false,
     "equipped": false,
     "cover": null,
-    "crewed": false,
     "armor": {
       "value": null,
-      "magicalBonus": null,
       "dex": null
     },
     "proficient": null,
@@ -611,33 +847,51 @@
     "type": {
       "value": "",
       "baseItem": ""
+    },
+    "rarities": [],
+    "crew": {
+      "value": []
     }
   },
   "effects": [
     {
       "name": "龙触法器--先攻优势  Dragon-Touched Focus",
-      "img": "modules/dnd5e_classpack/Nicons/inv_ring_ardenweald_02_green.jpg",
-      "origin": "Compendium.dnd5e_classpack.itempack.Item.n6tTjVTn8V0FKBRN",
+      "img": "icons/equipment/finger/ring-cabochon-gold-green.webp",
+      "origin": null,
       "_id": "o7En7URh6dy12Trr",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.dnd5e.initiativeAdv",
-          "mode": 5,
-          "value": "1",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "flags.dnd5e.initiativeAdv",
+            "value": 1,
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "lWamRuNBt2RcDQXE",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.itempack.Item.n6tTjVTn8V0FKBRN",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -655,103 +909,121 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": "Compendium.dnd5e_classpack.itempack.Item.1GHlYPGakpywiXUs.ActiveEffect.ywOUZ9o8Olf2DOsZ",
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757148354087,
         "modifiedTime": 1757148354087,
         "lastModifiedBy": "WlyFYC2sYFseAvyj",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!n6tTjVTn8V0FKBRN.o7En7URh6dy12Trr"
     },
     {
       "type": "enchantment",
       "name": "龙触法器(觉醒) Dragon-Touched Focus",
-      "img": "modules/dnd5e_classpack/Nicons/inv_ring_ardenweald_02_green.jpg",
+      "img": "icons/equipment/finger/ring-cabochon-gold-green.webp",
       "disabled": true,
       "_id": "gy2ujXZfqD0YnD1S",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.rarity",
-          "mode": 5,
-          "value": "veryRare",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "system.rarity",
+            "value": "veryRare",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "WrOlcTclycBV9nxo",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.attunement",
+            "value": "required",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "o7bojImdP9uihykC",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.description.value",
+            "value": "{}\n奇物(任意)，极稀有(需要同调)\n\n这个奇物可以是法杖、法球、护符、水晶或其他的精制物件。它通常包含有龙的翅膀、爪子、牙齿或鳞片的象形。\n\n你的先攻检定具有优势。当你持握这件法器时，它可以作为你施展所有法术的法器。\n\n它还获得了另一个特性，由激活它的宝库的主龙的族裔决定：\n\n色彩。每当你使用法术位施展一道造成强酸、冷冻、火焰、闪电或毒素伤害的法术时。投掷一个d6，你在这个法术的其中一个伤害掷骰上增加掷出的值。\n\n宝石。当你使用法术位施放一道法术时，你可以立即传送到距离你15尺内一处你能看见且未被占据的空间。\n\n金属。当一个你能看到的生物在你30英尺内进行豁免检定时，你可以使用你的反应使该生物在这次豁免检定上获得优势。\n\n当你持握觉醒法器时，你可以使用它来施放特定的法术。一旦该物品被用来施放一道这个特性赠送的法术，直到下一个黎明之前它就不能再次被用于施展该法术。这些法术由使其觉醒的宝库主龙的族裔决定。星号表示本章前面出现的新法术。\n\n彩色。怪物定身术，雾凇霜缚*\n\n宝石。拉瑞心灵链接，劳洛希姆心灵长枪*\n\n金属。费资本铂金盾*，通晓传奇",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "tAAvjBSKTLHmESyZ",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.price.value",
+            "value": 5000,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "YsRBtZo9LyXzZBV0",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.price.denomination",
+            "value": "gp",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "hQw4TfDveAC0E6TQ",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.properties",
+            "value": "mgc",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "hnCf1h7zkcaHyCqh",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "name",
+            "value": "觉醒龙触{}",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "BJ6Zw4XFgHeuZPkp",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
         },
-        {
-          "key": "system.attunement",
-          "mode": 5,
-          "value": "required",
-          "priority": 20
-        },
-        {
-          "key": "system.description.value",
-          "mode": 5,
-          "value": "{}\n奇物(任意)，极稀有(需要同调)\n\n这个奇物可以是法杖、法球、护符、水晶或其他的精制物件。它通常包含有龙的翅膀、爪子、牙齿或鳞片的象形。\n\n你的先攻检定具有优势。当你持握这件法器时，它可以作为你施展所有法术的法器。\n\n它还获得了另一个特性，由激活它的宝库的主龙的族裔决定：\n\n色彩。每当你使用法术位施展一道造成强酸、冷冻、火焰、闪电或毒素伤害的法术时。投掷一个d6，你在这个法术的其中一个伤害掷骰上增加掷出的值。\n\n宝石。当你使用法术位施放一道法术时，你可以立即传送到距离你15尺内一处你能看见且未被占据的空间。\n\n金属。当一个你能看到的生物在你30英尺内进行豁免检定时，你可以使用你的反应使该生物在这次豁免检定上获得优势。\n\n当你持握觉醒法器时，你可以使用它来施放特定的法术。一旦该物品被用来施放一道这个特性赠送的法术，直到下一个黎明之前它就不能再次被用于施展该法术。这些法术由使其觉醒的宝库主龙的族裔决定。星号表示本章前面出现的新法术。\n\n彩色。怪物定身术，雾凇霜缚*\n\n宝石。拉瑞心灵链接，劳洛希姆心灵长枪*\n\n金属。费资本铂金盾*，通晓传奇",
-          "priority": 20
-        },
-        {
-          "key": "system.price.value",
-          "mode": 2,
-          "value": "5000",
-          "priority": 20
-        },
-        {
-          "key": "system.price.denomination",
-          "mode": 5,
-          "value": "gp",
-          "priority": 20
-        },
-        {
-          "key": "system.properties",
-          "mode": 2,
-          "value": "mgc",
-          "priority": 20
-        },
-        {
-          "key": "name",
-          "mode": 5,
-          "value": "觉醒龙触{}",
-          "priority": 20
-        }
-      ],
+        "magical": true
+      },
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "origin": null,
@@ -770,42 +1042,26 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757148361166,
         "modifiedTime": 1757148530149,
         "lastModifiedBy": "WlyFYC2sYFseAvyj",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!n6tTjVTn8V0FKBRN.gy2ujXZfqD0YnD1S"
     }
   ],
@@ -849,9 +1105,9 @@
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1757148016466,
     "modifiedTime": 1757873114174,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

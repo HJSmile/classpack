@@ -5,13 +5,7 @@
   "effects": [],
   "flags": {
     "core": {},
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -23,7 +17,7 @@
   },
   "system": {
     "description": {
-      "value": "<p><em>奇物（需同调）</em></p><p><em>能激起观众的敬畏、好奇、恐惧的鲁特琴。</em></p><em>\n</em><p><em>拥有乐器熟练项的角色，在使用相应乐器进行演奏的属性检定时，可以将其熟练加值加入检定结果中。各个种类的乐器之间互不关联，其熟练项只对相应的乐器起效。</em></p><p>当你使用这个乐器演奏音乐，你可以在乐器五尺半径的球体周围创造无害的，虚无缥缈的视觉效应。如果你是个诗人，那么半径提高到十五尺。简单的视觉效应包括了发光的音符，特殊的舞蹈，蝴蝶，悠长的落雪。这种魔法影响既无触感亦无声音，他们显然是幻象。此效应在你停止演奏后结束。</p>",
+      "value": "<p><em>奇物（需同调）</em></p><p><em>能激起观众的敬畏、好奇、恐惧的鲁特琴。</em></p><p><em>拥有乐器熟练项的角色，在使用相应乐器进行演奏的属性检定时，可以将其熟练加值加入检定结果中。各个种类的乐器之间互不关联，其熟练项只对相应的乐器起效。</em></p><p>当你使用这个乐器演奏音乐，你可以在乐器五尺半径的球体周围创造无害的，虚无缥缈的视觉效应。如果你是个诗人，那么半径提高到十五尺。简单的视觉效应包括了发光的音符，特殊的舞蹈，蝴蝶，悠长的落雪。这种魔法影响既无触感亦无声音，他们显然是幻象。此效应在你停止演奏后结束。</p>",
       "chat": ""
     },
     "source": {
@@ -43,7 +37,6 @@
     },
     "attunement": "required",
     "equipped": false,
-    "rarity": "common",
     "identified": true,
     "ability": "cha",
     "chatFlavor": "",
@@ -79,17 +72,19 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -101,7 +96,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -120,9 +116,103 @@
         "check": {
           "ability": "cha",
           "associated": [],
-          "dc": {}
+          "dc": {},
+          "visible": true
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "damage": {
+          "onSave": "half",
+          "parts": [],
+          "critical": {
+            "allow": false
+          }
+        },
+        "friendlySave": "default"
       }
     },
     "uses": {
@@ -131,12 +221,15 @@
       "max": ""
     },
     "identifier": "-lute-of-illusions",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "common"
+    ]
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1686408414716,
     "modifiedTime": 1757871723184,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

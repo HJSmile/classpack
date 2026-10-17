@@ -1,5 +1,5 @@
 {
-  "name": "狂怒风暴-冻原Raging Storm:Thudra",
+  "name": "狂怒风暴-冻原Raging Storm:Tundra",
   "type": "feat",
   "img": "icons/magic/water/barrier-ice-crystal-wall-jagged-blue.webp",
   "system": {
@@ -8,7 +8,7 @@
       "subtype": ""
     },
     "description": {
-      "value": "<ul><li><strong>冻原。</strong>每当你的风暴灵光激活时，你可以选择一个你可以看见的、处于灵光里的生物。该生物必须通过一次力量检定，否则其速度降为0，直到你的下一个回合开始，如同魔法的冰霜冻结了它。</li></ul>",
+      "value": "<ul><li><strong>冻原。</strong>每当你的风暴灵光激活时，你可以选择一个你可以看见的、处于灵光里的生物。该生物必须通过一次[[/save activity=dnd5eactivity000]]{力量豁免}，否则其速度降为0，直到你的下一个回合开始，如同魔法的冰霜冻结了它。</li></ul>",
       "chat": ""
     },
     "source": {
@@ -25,14 +25,17 @@
     "cover": null,
     "crewed": false,
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 14,
+      "repeatable": false,
+      "items": []
     },
-    "properties": [],
+    "properties": [
+      "mgc"
+    ],
     "activities": {
       "dnd5eactivity000": {
         "_id": "dnd5eactivity000",
-        "type": "check",
+        "type": "save",
         "activation": {
           "type": "bonus",
           "value": 1,
@@ -48,18 +51,23 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "FW1n6oHXJo0d730r"
+            "_id": "FW1n6oHXJo0d730r",
+            "uuid": null,
+            "level": {},
+            "onSave": false
           }
         ],
         "range": {
@@ -76,7 +84,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "1",
@@ -92,38 +101,126 @@
           "max": "",
           "recovery": []
         },
-        "check": {
-          "ability": "str",
-          "associated": [],
-          "dc": {
-            "calculation": "con",
-            "formula": ""
-          }
-        },
         "sort": 0,
         "name": "",
         "img": "",
-        "appliedEffects": [
-          "FW1n6oHXJo0d730r"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "damage": {
+          "onSave": "half",
+          "parts": [],
+          "critical": {
+            "allow": false
+          }
+        },
+        "friendlySave": "default",
+        "save": {
+          "ability": [
+            "str"
+          ],
+          "dc": {
+            "calculation": "con",
+            "formula": ""
+          },
+          "visible": true
+        }
       }
     },
     "identifier": "-",
-    "advancement": [],
+    "advancement": {},
     "enchant": {}
   },
   "effects": [
     {
       "name": "狂怒风暴-冻原",
-      "origin": "Item.VwanVMTNSiMSHlic",
+      "origin": null,
       "duration": {
-        "rounds": 1,
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "rounds",
+        "expiry": "sourceStart",
+        "expired": false
       },
       "disabled": false,
       "flags": {
@@ -145,46 +242,14 @@
         }
       },
       "_id": "FW1n6oHXJo0d730r",
-      "changes": [
-        {
-          "key": "system.attributes.movement.burrow",
-          "mode": 5,
-          "value": "0",
-          "priority": 99
-        },
-        {
-          "key": "system.attributes.movement.climb",
-          "mode": 5,
-          "value": "0",
-          "priority": 99
-        },
-        {
-          "key": "system.attributes.movement.fly",
-          "mode": 5,
-          "value": "0",
-          "priority": 99
-        },
-        {
-          "key": "system.attributes.movement.swim",
-          "mode": 5,
-          "value": "0",
-          "priority": 99
-        },
-        {
-          "key": "system.attributes.movement.walk",
-          "mode": 5,
-          "value": "0",
-          "priority": 99
-        }
-      ],
       "description": "",
       "transfer": false,
       "statuses": [],
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -192,10 +257,78 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Nature_ElementalAbsorption.png",
+      "img": "icons/magic/water/barrier-ice-wall-snow.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.movement.speeds.burrow",
+            "value": 0,
+            "priority": 99,
+            "type": "override",
+            "phase": "initial",
+            "_id": "wRVxpsBdjkCjOXGD",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.attributes.movement.speeds.climb",
+            "value": 0,
+            "priority": 99,
+            "type": "override",
+            "phase": "initial",
+            "_id": "x3XdVffhE7Pu4woW",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.attributes.movement.speeds.fly",
+            "value": 0,
+            "priority": 99,
+            "type": "override",
+            "phase": "initial",
+            "_id": "krW1NLXYYNRaxCMZ",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.attributes.movement.speeds.swim",
+            "value": 0,
+            "priority": 99,
+            "type": "override",
+            "phase": "initial",
+            "_id": "Jrn6Dysp869nBKn1",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.attributes.movement.speeds.walk",
+            "value": 0,
+            "priority": 99,
+            "type": "override",
+            "phase": "initial",
+            "_id": "AoaZTDefTDCdaGL9",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Item.VwanVMTNSiMSHlic",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!GjBTRtXtOZKhqERh.FW1n6oHXJo0d730r"
     }
   ],
@@ -226,18 +359,12 @@
       "otherCondition": ""
     },
     "core": {},
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1724858142458,
     "modifiedTime": 1757102311449,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

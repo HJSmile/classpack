@@ -12,7 +12,7 @@
       "rules": "2014"
     },
     "description": {
-      "value": "<div class=\"rd__b  rd__b--3\"><p>你以魔法之词低语，令施法距离内你选择的一个生物产生敌意。目标必须进行一次感知豁免。若豁免失败，目标会受到 [[/damage 4d4 type=psychic]] 点心灵伤害，且必须立即使用反应对你选择的另一个你能看到的生物发动一次近战攻击。如果目标无法发动这次攻击（例如它的触及范围内没有生物，或者因为它的反应无法使用），那么在你的下一回合开始前，目标的下一次攻击检定具有劣势。若豁免成功，目标仅会受到一半的伤害。</p><div class=\"rd__spc-inline-post\"><p><strong>升环施法效应：</strong>当你使用4环或更高法术位施放本法术时，你使用的法术位每比3环高一环，法术的伤害就增加 [[/r 1d4]]。</p></div><div data-roll-name-ancestor=\"At Higher Levels\" class=\"rd__b  rd__b--3\"><p></p><div class=\"rd__spc-inline-post\"><p></p></div></div><div class=\"rd__spc-inline-post\"><p></p></div></div>",
+      "value": "<p>你以魔法之词低语，令施法距离内你选择的一个生物产生敌意。目标必须进行一次感知豁免。若豁免失败，目标会受到 [[/damage 4d4 type=psychic]] 点心灵伤害，且必须立即使用反应对你选择的另一个你能看到的生物发动一次近战攻击。如果目标无法发动这次攻击（例如它的触及范围内没有生物，或者因为它的反应无法使用），那么在你的下一回合开始前，目标的下一次攻击检定具有劣势。若豁免成功，目标仅会受到一半的伤害。</p><p><strong>升环施法效应。</strong>当你使用4环或更高法术位施放本法术时，你使用的法术位每比3环高一环，法术的伤害就增加[[/r 1d4]]。</p>",
       "chat": ""
     },
     "level": 3,
@@ -34,9 +34,10 @@
         "type": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -51,16 +52,13 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "uses": {
       "max": "",
       "spent": null,
       "recovery": []
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "ability": "",
     "activities": {
@@ -81,26 +79,44 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "RjCCXxGFBrdhBN5J"
+            "_id": "RjCCXxGFBrdhBN5J",
+            "uuid": null,
+            "level": {},
+            "onSave": false,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1755605416815,
+              "modifiedTime": 1757188539713,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -121,16 +137,21 @@
                 "formula": ""
               },
               "number": 4,
-              "denomination": "4",
+              "denomination": 4,
               "bonus": "",
               "types": [
                 "psychic"
               ],
               "scaling": {
-                "mode": "whole"
-              }
+                "mode": "whole",
+                "number": 1
+              },
+              "modifiers": []
             }
-          ]
+          ],
+          "critical": {
+            "allow": false
+          }
         },
         "save": {
           "ability": [
@@ -139,15 +160,102 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "antagonize"
+    "identifier": "antagonize",
+    "method": "spell",
+    "prepared": 0
   },
   "img": "icons/magic/air/wind-vortex-swirl-purple.webp",
   "ownership": {
@@ -185,20 +293,43 @@
       "itemCondition": "",
       "effectCondition": "",
       "reactionCondition": "",
-      "otherCondition": ""
+      "otherCondition": "",
+      "onUseMacroName": "[preActiveEffects]ItemMacro"
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "antagonize",
         "source": "chris-premades",
         "version": "0.0.0"
+      }
+    },
+    "dae": {
+      "macro": {
+        "name": "敌意术 Antagonize",
+        "img": "icons/magic/air/wind-vortex-swirl-purple.webp",
+        "type": "script",
+        "scope": "global",
+        "command": "// 原法术物品的 OnUse 宏，挂载 preActiveEffects；豁免行动只关联失败时的攻击劣势 AE。\nif (args[0].macroPass !== \"preActiveEffects\") return;\n\nconst victim = workflow.failedSaves.first();\nif (!victim || MidiQOL.hasUsedReaction(victim.actor) || MidiQOL.checkIncapacitated(victim.actor, false, false)) return;\n\nconst attacks = victim.actor.items.flatMap(i => i.system.equipped === false ? []\n  : i.system.activities.filter(a => a.type === \"attack\" && a.canUse\n    && [\"mwak\", \"msak\"].includes(a.getActionType())));\n\nconst choices = attacks.map(activity => {\n  const reach = Number(activity.range.reach ?? activity.range.value) || 5;\n  const targets = MidiQOL.findNearby(null, victim, reach, { includeIncapacitated: true })\n    .filter(t => MidiQOL.canSee(workflow.token, t));\n  const mode = activity.item.system.attackModes.find(m => [\"oneHanded\", \"twoHanded\"].includes(m.value))?.value;\n  return { activity, targets, mode };\n}).filter(choice => choice.targets.length);\nif (!choices.length) return;\n\nconst targets = [...new Set(choices.flatMap(choice => choice.targets))];\nconst [target] = await dnd5eClasspack.dialogUtils.selectTargetDialog(\n  macroItem.name, \"\", targets,\n  { userId: dnd5eClasspack.firstOwner(macroItem.actor, true), skipDeadAndUnconscious: false }\n);\nif (!target) return;\n\nconst available = choices.filter(choice => choice.targets.includes(target));\nconst uuid = available.length === 1 ? available[0].activity.uuid\n  : await dnd5eClasspack.dialogUtils.selectDialog(\n    \"选择近战攻击\", \"\", {\n      label: \"攻击\", name: \"attack\", options: {\n        options: available.map(({ activity }) => ({\n          value: activity.uuid, label: `${activity.item.name} · ${activity.name}`\n        }))\n      }\n    }, { userId: dnd5eClasspack.firstOwner(victim.actor, true) }\n  );\nif (!uuid) return;\nconst choice = available.find(entry => entry.activity.uuid === uuid);\n\nconst result = await MidiQOL.completeActivityUse(uuid, {\n  midiOptions: {\n    asUser: dnd5eClasspack.firstOwner(victim.actor, true),\n    workflowData: true,\n    targetUuids: [target.document.uuid],\n    workflowOptions: {\n      castUsesReaction: true, notReaction: true, notBonusAction: true,\n      attackMode: choice.mode,\n      autoRollAttack: true, autoRollDamage: \"onHit\", fastForwardAttack: true\n    }\n  }\n}, { configure: false });\n\nif (result?.attackRoll) return { haltEffectsApplication: true };",
+        "author": "dvg25zW2MvzsvMOU",
+        "ownership": {
+          "default": 3
+        },
+        "_id": null,
+        "folder": null,
+        "sort": 0,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.369",
+          "systemId": "dnd5e",
+          "systemVersion": "6.0.6",
+          "createdTime": null,
+          "modifiedTime": null,
+          "lastModifiedBy": null,
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null
+        }
       }
     }
   },
@@ -206,28 +337,42 @@
     {
       "name": "敌意术 Antagonize",
       "img": "icons/magic/air/wind-vortex-swirl-purple.webp",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.VPJpFGhhBofVfsku",
+      "origin": null,
       "transfer": false,
       "_id": "RjCCXxGFBrdhBN5J",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.disadvantage.attack.all",
-          "mode": 2,
-          "value": "+1",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.disadvantage.attack.all",
+            "value": "+1",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "a1NIQJgMVS0PJL45",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.VPJpFGhhBofVfsku",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": 1,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "rounds",
+        "expiry": "sourceStart",
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -245,48 +390,33 @@
           "showIcon": false,
           "durationExpression": "",
           "specialDuration": [
-            "Reaction",
-            "turnStartSource"
+            "1Attack"
           ],
-          "macroRepeat": "none"
+          "macroRepeat": "none",
+          "applicationMode": "default",
+          "expiryMode": "default"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": 1755605416815,
         "modifiedTime": 1757188539713,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!VPJpFGhhBofVfsku.RjCCXxGFBrdhBN5J"
     }
   ],
@@ -294,8 +424,8 @@
   "sort": 0,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1724941943032,
     "modifiedTime": 1757235114937,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -24,23 +24,13 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/INV_Jewelry_Talisman_02.png",
+  "img": "icons/magic/control/debuff-energy-hold-levitate-blue-yellow.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \">\n<div class=\"description \">指定施法距离内一处你能看见的未被占据空间，并在该处创造一个圆盘状的碟型水平力场。浮碟直径3 尺，厚1 寸，悬浮在离地3 尺的半空。其可以在法术持续时间内持续存在，并至多可负载500 磅重量。如果放在浮碟上的物件重量超过500 磅，则该法术立即终止，浮碟上的所有东西也将掉落地面。</div>\n<div class=\"description \">浮碟在你20 尺内时静止不动。只要你与其距离超过20 尺，浮碟就会跟随你移动，并保持在你的20 尺范围内。浮碟可以自由通过崎岖地形，上落的阶梯，斜坡面或者诸如此类的地面，但它不能越过高差超过10 尺的地面。例如，浮碟不能越过一个10尺深的坑；如果浮碟造在坑里，则它也无法离开这个深坑。如果你和浮碟间的距离超过100 尺（通常是因为它受障碍所阻无法跟上你），则法术随即终止。</div>\n</div>",
+      "value": "<p>指定施法距离内一处你能看见的未占据空间，并在该处创造一个圆盘状的碟型水平力场。浮碟直径 3 尺，厚 1 寸，悬浮在离地 3 尺的半空。其可以在法术持续时间内持续存在，并至多可负载 500 磅重量。如果放在浮碟上的物件重量超过 500 磅，则该法术立即终止，浮碟上的所有东西也将掉落地面。</p><p>浮碟在你 20 尺内时静止不动。只要你与其距离超过20尺，浮碟就会跟随你移动，并保持在你的 20 尺范围内。浮碟可以自由通过崎岖地形，上落的阶梯，斜坡面或者诸如此类的地面，但它不能越过高差超过 10 尺的地面。例如，浮碟不能越过一个 10 尺深的坑；如果浮碟造在坑里，则它也无法离开这个深坑。</p><p>如果你和浮碟间的距离超过 100 尺（通常是因为它受障碍所阻无法跟上你），则法术随即终止。</p>",
       "chat": ""
     },
     "source": {
@@ -56,7 +46,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -64,9 +55,10 @@
         "type": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -87,10 +79,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -116,22 +104,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -161,7 +153,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -169,7 +162,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -180,18 +172,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "tensers-floating-disk"
+    "identifier": "tensers-floating-disk",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -200,8 +240,8 @@
   "sort": 27300000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

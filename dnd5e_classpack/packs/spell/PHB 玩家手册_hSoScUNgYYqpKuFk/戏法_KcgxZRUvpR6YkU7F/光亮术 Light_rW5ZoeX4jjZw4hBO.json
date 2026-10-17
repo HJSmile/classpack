@@ -21,62 +21,18 @@
       "itemCondition": "",
       "effectCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/INV_Enchant_EssenceAstralSmall.png",
+  "img": "icons/magic/light/hand-sparks-glow-yellow.webp",
   "effects": [
     {
-      "changes": [
-        {
-          "key": "ATL.light.dim",
-          "mode": 5,
-          "value": "20",
-          "priority": 50
-        },
-        {
-          "key": "ATL.light.bright",
-          "mode": 5,
-          "value": "20",
-          "priority": 50
-        },
-        {
-          "key": "ATL.light.color",
-          "mode": 5,
-          "value": "#f98026",
-          "priority": 50
-        },
-        {
-          "key": "ATL.light.alpha",
-          "mode": 5,
-          "value": "0.4",
-          "priority": 50
-        },
-        {
-          "key": "ATL.light.animation",
-          "mode": 5,
-          "value": "{\"type\": \"torch\",\"speed\": 1,\"intensity\": 1}",
-          "priority": 50
-        }
-      ],
       "description": "<p>Adds torch light for 1 hour (requires ATL)</p>",
       "disabled": false,
       "duration": {
-        "rounds": null,
-        "seconds": null,
-        "turns": null,
-        "startTime": null,
-        "combat": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "hours",
+        "expiry": null,
+        "expired": false
       },
       "flags": {
         "dfreds-convenient-effects": {
@@ -96,26 +52,10 @@
           "durationExpression": "",
           "macroRepeat": "none",
           "specialDuration": []
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system"
         }
       },
       "name": "光亮术",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.rW5ZoeX4jjZw4hBO",
+      "origin": null,
       "tint": "#ffffff",
       "transfer": false,
       "statuses": [
@@ -123,9 +63,9 @@
       ],
       "_id": "I3zLes5LI4x30Fxw",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -133,16 +73,104 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/INV_Enchant_EssenceAstralSmall.png",
+      "img": "icons/magic/light/hand-sparks-glow-yellow.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "token.light.dim",
+            "value": 20,
+            "priority": 50,
+            "type": "override",
+            "phase": "initial",
+            "_id": "ysEYbEYMjIU5LF4K",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "token.light.bright",
+            "value": 20,
+            "priority": 50,
+            "type": "override",
+            "phase": "initial",
+            "_id": "FhrPFIubnTOzxQI2",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "token.light.color",
+            "value": "#f98026",
+            "priority": 50,
+            "type": "override",
+            "phase": "initial",
+            "_id": "gPwIIJ6fsDzVvhzy",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "token.light.alpha",
+            "value": 0.16000000000000003,
+            "priority": 50,
+            "type": "override",
+            "phase": "initial",
+            "_id": "ARaIUv3qbprXOFbI",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "token.light.animation.type",
+            "value": "torch",
+            "priority": 50,
+            "type": "override",
+            "phase": "initial",
+            "_id": "PbQlIEYJBMVnkC24",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "token.light.animation.speed",
+            "value": 1,
+            "priority": 50,
+            "type": "override",
+            "phase": "initial",
+            "_id": "14bee96c488914c0",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "token.light.animation.intensity",
+            "value": 1,
+            "priority": 50,
+            "type": "override",
+            "phase": "initial",
+            "_id": "69040335ae7df782",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.rW5ZoeX4jjZw4hBO",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!rW5ZoeX4jjZw4hBO.I3zLes5LI4x30Fxw"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你触碰一个尺寸在任意方向上都不超过10尺的物件。在法术终止前，物件将在其20尺半径范围内发出明亮光照，并在其外20尺范围发出微光光照。光的颜色由你决定，该物件被不透明的东西完全遮盖时，其光照被遮挡。如果你再次施展该法术，或者使用一个动作解散该法术，则该法术终止。\n<br />如果你指定敌对生物所持握或着装的一个物件作为目标，则该生物必须进行一次敏捷豁免以尝试摆脱该法术的效应。\n<br /></div>",
+      "value": "<p>你触碰一个尺寸在任意方向上都不超过 10 尺的物件。在法术终止前，物件将在其 20 尺半径范围内发出明亮光照，并在其外 20 尺范围发出微光光照。光的颜色由你决定，该物件被不透明的东西完全遮盖时，其光照被遮挡。如果你再次施展该法术，或者使用一个动作解散该法术，则该法术终止。</p><p>如果你指定敌对生物所持握或着装的一个物件作为目标，则该生物必须进行一次敏捷豁免以尝试摆脱该法术的效应。</p>",
       "chat": ""
     },
     "source": {
@@ -158,7 +186,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -167,8 +196,9 @@
         "choice": false
       },
       "template": {
-        "units": "",
-        "contiguous": false
+        "units": "ft",
+        "contiguous": false,
+        "stationary": false
       }
     },
     "range": {
@@ -187,10 +217,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -215,26 +241,32 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "I3zLes5LI4x30Fxw"
+            "_id": "I3zLes5LI4x30Fxw",
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -264,7 +296,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -272,7 +305,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -283,18 +315,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "light"
+    "identifier": "light",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -303,8 +383,8 @@
   "sort": 8200000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711693496690,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -7,7 +7,7 @@
       "subtype": ""
     },
     "description": {
-      "value": "<p>你在以下一项你选择的技能上具有熟练项<span style=\"font-family:'Segoe UI',\">: </span>奥秘<span style=\"font-family:'Segoe UI',\">, </span>历史<span style=\"font-family:'Segoe UI',\">, </span>调查<span style=\"font-family:'Segoe UI',\">, </span>医药<span style=\"font-family:'Segoe UI',\">, </span>表演或者巧手。<span style=\"font-family:'Segoe UI',\"> </span>你同样获得一种你选择的工具的熟练项。</p>\n<p>当你进行你选择的技能或工具的属性检定时，投一枚<span style=\"font-family:'Segoe UI',\">D4</span>并将其结果加到骰值上。</p>",
+      "value": "<p>你在以下一项你选择的技能上具有熟练项: 奥秘, 历史, 调查, 医药, 表演或者巧手。 你同样获得一种你选择的工具的熟练项。</p><p>当你进行你选择的技能或工具的属性检定时，投一枚D4并将其结果加到骰值上。</p>",
       "chat": ""
     },
     "source": {
@@ -23,23 +23,53 @@
     "requirements": "维多肯",
     "activities": {},
     "identifier": "-",
-    "advancement": [],
+    "advancement": {
+      "88c92b9f8db63a88": {
+        "_id": "88c92b9f8db63a88",
+        "type": "Trait",
+        "name": "熟练项",
+        "configuration": {
+          "mode": "default",
+          "allowReplacements": false,
+          "grants": [],
+          "choices": [
+            {
+              "count": 1,
+              "pool": [
+                "skills:arc",
+                "skills:his",
+                "skills:inv",
+                "skills:med",
+                "skills:prf",
+                "skills:slt"
+              ]
+            },
+            {
+              "count": 1,
+              "pool": [
+                "tool:*"
+              ]
+            }
+          ]
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/magic/symbols/runes-carved-stone-yellow.webp",
   "_id": "szBCcD00tp26fj82",
@@ -51,8 +81,8 @@
   "sort": 100000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757945155404,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

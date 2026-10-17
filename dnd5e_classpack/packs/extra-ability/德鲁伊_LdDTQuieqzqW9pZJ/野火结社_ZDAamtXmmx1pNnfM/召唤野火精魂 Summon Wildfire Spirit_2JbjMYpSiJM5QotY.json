@@ -1,15 +1,15 @@
 {
   "_id": "2JbjMYpSiJM5QotY",
-  "name": "召唤野火精魂 Summon Wildfire Spirit",
+  "name": "召唤野火灵魄 Summon Wildfire Spirit",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/ability_racial_fireresist.jpg",
+  "img": "icons/creatures/magical/spirit-fire-orange.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>你能召唤出与你灵魂连接的原初精魂。以一个动作，你可以消耗一次@UUID[Compendium.dnd5e_classpack.class-abilityphb.pORTgCToV9NLPWo1]{荒野形态}使用次数召唤你的野火精魂，而不是变化为野兽形态。</p>\n<p>精魂出现在你所选择的距离你 30 尺内未被占据的可见空间内。每个精魂 10 尺内的生物（除你之外）在它出现时都必须成功一次对抗你法术豁免 DC 的敏捷豁免否则受到[[/r 2d6]]火焰伤害。</p>\n<p>野火精魂对你与你的同伴保持友善并遵从你的命令。在野火精魂资料表中可以看到这只生物的游戏数据，其中几处采用了你的熟练加值（PB）。由你来决定精魂的外形。一些精魂是熊熊燃烧的枝条虬结而成的人形，而另一些则像是被火焰包裹的野兽。</p>\n<p>在战斗中，野火精魂与你使用同一先攻，但在你的回合之后紧接着行动。它仅能使用回避动作，除非你使用一个附赠动作命令它采取其他动作。那个动作可以是其资料表上的一个，也可以是其他动作。如果你陷入失能，精魂可以采取任何它选择的动作，不只是回避。</p>\n<p>野火精魂持续存在 1 小时，直到其生命值降低至 0，或直到你再次使用此特性召唤此精魂，或直到你死亡。</p>",
+      "value": "<p>你能召唤出与你灵魂连接的原初精魂。以一个动作，你可以消耗一次@UUID[Compendium.dnd5e_classpack.class-abilityphb.pORTgCToV9NLPWo1]{荒野变形}使用次数召唤你的野火精魂，而不是变化为野兽形态。</p>\n<p>精魂出现在你所选择的距离你 30 尺内未被占据的可见空间内。每个精魂 10 尺内的生物（除你之外）在它出现时都必须成功一次对抗你法术豁免 DC 的[[/save activity=dnd5eactivity000]]{敏捷豁免}否则受到[[/damage 2d6 type=fire]]{2d6}火焰伤害。</p>\n<p>野火精魂对你与你的同伴保持友善并遵从你的命令。在野火精魂资料表中可以看到这只生物的游戏数据，其中几处采用了你的熟练加值（PB）。由你来决定精魂的外形。一些精魂是熊熊燃烧的枝条虬结而成的人形，而另一些则像是被火焰包裹的野兽。</p>\n<p>在战斗中，野火精魂与你使用同一先攻，但在你的回合之后紧接着行动。它仅能使用回避动作，除非你使用一个附赠动作命令它采取其他动作。那个动作可以是其资料表上的一个，也可以是其他动作。如果你陷入&amp;Reference[condition=incapacitated apply=false]{失能}，精魂可以采取任何它选择的动作，不只是回避。</p>\n<p>野火精魂持续存在 1 小时，直到其生命值降低至 0，或直到你再次使用此特性召唤此精魂，或直到你死亡。</p>",
       "chat": ""
     },
     "source": {
@@ -52,13 +52,15 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -75,7 +77,8 @@
             "size": "10",
             "width": "",
             "height": "",
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -109,9 +112,13 @@
                 "mode": "whole",
                 "number": null,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
-          ]
+          ],
+          "critical": {
+            "allow": false
+          }
         },
         "save": {
           "ability": [
@@ -120,19 +127,109 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
     "identifier": "-summon-wildfire-spirit",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 2,
+      "repeatable": false,
+      "items": [
+        "subclass:circle-of-wildfire"
+      ]
     },
     "properties": []
   },
@@ -169,14 +266,7 @@
       "idv": false,
       "ida": false
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "summonWildfireSpirit",
@@ -186,9 +276,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757407287822,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

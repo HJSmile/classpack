@@ -2,14 +2,14 @@
   "_id": "JRyFQmsWflAFkBgN",
   "name": "咒剑诅咒 Hexblade's Curse",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/1Ability_Rogue_CutToTheChase%20-%20.png",
+  "img": "icons/magic/symbols/rune-sigil-red-orange.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>从1级起，你得到了向一个敌人施加恶毒诅咒的能力。以一个附赠动作，选择一个处于你周围30尺内，你能看见的生物。该目标被诅咒1分钟。该诅咒将会在目标死亡、你死亡、你陷入失能时提前结束。直到诅咒结束，你得到下述的好处：</p>\n<ul>\n<li>你对被诅咒目标的伤害检定中得到加值。加值等于你的熟练加值。</li>\n<li>你对被诅咒目标的任何攻击检定，若在[[/r d20]]中投出19或20，则形成一次重击。</li>\n<li>若被诅咒的目标死亡，你恢复等于你邪术士等级+你的魅力调整值（至少为1）的生命值。</li>\n</ul>\n<p>直到你完成了一次短休或长休，你不能再次使用此特性。</p>",
+      "value": "<p>从1级起，你得到了向一个敌人施加恶毒诅咒的能力。以一个附赠动作，选择一个处于你周围30尺内，你能看见的生物。该目标被诅咒1分钟。该诅咒将会在目标死亡、你死亡、你陷入&amp;Reference[condition=incapacitated apply=false]{失能}时提前结束。直到诅咒结束，你得到下述的好处：</p>\n<ul>\n<li>你对被诅咒目标的伤害检定中得到加值。加值等于你的熟练加值。</li>\n<li>你对被诅咒目标的任何攻击检定，若在[[/r d20]]中投出19或20，则形成一次重击。</li>\n<li>若被诅咒的目标死亡，你恢复等于你魔契师等级+你的魅力调整值（至少为1）的生命值。</li>\n</ul>\n<p>直到你完成了一次短休或长休，你不能再次使用此特性。</p>",
       "chat": ""
     },
     "source": {
@@ -52,14 +52,16 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "1",
           "units": "minute",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -76,7 +78,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "1",
@@ -107,19 +110,105 @@
             "mode": "whole",
             "number": null,
             "formula": ""
-          }
+          },
+          "modifiers": []
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
     "identifier": "-hexblades-curse",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 1,
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -127,14 +216,7 @@
   "folder": "yvueHfXd1jVmcime",
   "sort": 19000000,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -161,9 +243,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1756710918492,
     "lastModifiedBy": "aV0bUYaBrKQMbD8k",

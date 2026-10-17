@@ -29,17 +29,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedProperties": [
-        "vocal",
-        "somatic"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "findSteed",
@@ -48,11 +38,11 @@
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Mount_Charger.png",
+  "img": "icons/environment/creatures/horse-brown.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你召唤一只拥有超凡智力、力量和忠诚的灵体作为坐骑，同时与其立长期的契约。坐骑显现在施法距离内未被占据的空间，其外形由你从以下形态中选择：战马、矮种马、骆驼、麋鹿、獒犬（DM 也可以允许你选择其他动物作坐骑）。坐骑拥有你所选形态的属性数据，但他实际上属于天界生物，精类生物或邪魔的一种（由你选择）而不是通常类型。另外，如果你的坐骑智力为5或更低，则其智力变为6，同时能听懂一门你掌握的语言。\n<br />不管是否在战斗中，坐骑都能为你提供帮助，而你们之间的契约让你们行动更为紧密。你乘上该坐骑时，所有你施展的只以自身为目标的法术同时也影响该坐骑。\n<br />该坐骑生命值降至0时消失不见，且不留下任何物质残余。你也可以随时用一个动作解散该坐骑使其消失。此后，每当你重新施展该法术时，将满生命值的召唤同一匹坐骑显现。\n<br />坐骑在你身边1里内时，你可以与其以心灵感应的方式进行交流。\n<br />你不能用该法术同时拥有一匹以上的坐骑，你可以随时用一个动作将坐骑从契约中解放，并使其消失不见。\n<br /></div>",
+      "value": "<p>你召唤一只拥有超凡智力、力量和忠诚的灵体作为坐骑，同时与其立长期的契约。坐骑显现在施法距离内未占据空间，其外形由你从以下形态中选择：战马、矮种马、骆驼、赤鹿、獒犬（DM 也可以允许你选择其他动物作坐骑）。坐骑拥有你所选形态的属性数据，但他实际上属于天族，妖精或邪魔的一种（由你选择）而不是通常类型。另外，如果你的坐骑智力为 5 或更低，则其智力变为 6，同时能听懂一门你掌握的语言。</p><p>不管是否在战斗中，坐骑都能为你提供帮助，而你们之间的契约让你们行动更为紧密。你乘上该坐骑时，所有你施展的只以自身为目标的法术同时也影响该坐骑。</p><p>该坐骑生命值降至 0 时消失不见，且不留下任何物质残余。你也可以随时用一个动作解散该坐骑使其消失。此后，每当你重新施展该法术时，将满生命值的召唤同一匹坐骑显现。</p><p>坐骑在你身边 1 里内时，你可以与其以心灵感应的方式互相交流。</p><p>你不能用该法术同时拥有一匹以上的坐骑，你可以随时用一个动作将坐骑从契约中解放，并使其消失不见。</p>",
       "chat": ""
     },
     "source": {
@@ -69,7 +59,8 @@
       "value": 10
     },
     "duration": {
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -81,7 +72,8 @@
       "template": {
         "units": "any",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -102,10 +94,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -131,21 +119,25 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -172,7 +164,8 @@
           "attacks": false,
           "proficiency": false,
           "saves": false,
-          "ability": ""
+          "ability": "",
+          "disposition": false
         },
         "profiles": [
           {
@@ -227,7 +220,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -235,7 +229,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -246,18 +239,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "name": "战马"
+        "name": "战马",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "friendlySummon": false
       }
     },
-    "identifier": "find-steed"
+    "identifier": "find-steed",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -266,8 +308,8 @@
   "sort": 31400000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757419719404,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

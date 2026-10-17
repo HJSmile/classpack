@@ -2,10 +2,10 @@
   "_id": "eAB5tlQ0BHt7zEXj",
   "name": "身化长流 Shape the Flowing River",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Frost_WindWalkOn.png",
+  "img": "icons/magic/water/water-jet-wave-blue.webp",
   "system": {
     "description": {
-      "value": "<p>作为一个动作，你可以消耗1点气并指定你周边120尺内一块不大于30尺的冰或水的区域。你可以将该区域内的水凝为冰，反之亦可，并且还可以将区域内的冰塑造成任意的形状。你可以提高或降低冰的高度，创造或填平沟壑，竖起或放倒冰墙，或是塑造一根冰柱。这些造型的最大尺寸不能超过该区域最大边长的一半。例如，假设你影响一块30尺的方状区域，你可以竖起的冰柱高度至多为15尺，提升或降低区域内总体高度至多15尺,创造的沟壑最深15尺，等等。你不能通过塑形冰来困住或伤害区域内的生物。</p>\n<p> </p>",
+      "value": "<p>作为一个动作，你可以消耗1点气并指定你周边120尺内一块不大于30尺的冰或水的区域。你可以将该区域内的水凝为冰，反之亦可，并且还可以将区域内的冰塑造成任意的形状。你可以提高或降低冰的高度，创造或填平沟壑，竖起或放倒冰墙，或是塑造一根冰柱。这些造型的最大尺寸不能超过该区域最大边长的一半。例如，假设你影响一块30尺的方状区域，你可以竖起的冰柱高度至多为15尺，提升或降低区域内总体高度至多15尺,创造的沟壑最深15尺，等等。你不能通过塑形冰来困住或伤害区域内的生物。</p>",
       "chat": ""
     },
     "source": {
@@ -53,13 +53,15 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -76,7 +78,8 @@
             "size": "30",
             "width": "",
             "height": "",
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -98,16 +101,104 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": 3,
-      "repeatable": false
+      "repeatable": false,
+      "items": [
+        "subclass:way-of-the-four-elements"
+      ]
     },
     "properties": [
       "mgc"
@@ -153,22 +244,15 @@
       "idv": false,
       "ida": false
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757866300331,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

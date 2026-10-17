@@ -2,14 +2,14 @@
   "_id": "4MtCSq9pacayzLEL",
   "name": "直坠噩梦 Hurl Through Hell",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Shadow_DeathsEmbrace.png",
+  "img": "icons/creatures/abilities/mouth-teeth-fire-orange.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>第14级起，每当你的攻击动作成功命中一个生物时，你可以使用此能力将目标瞬间传送并穿越下层位面。该生物立刻消失并前往如同噩梦一般的风景。</p>\n<p>在你下一回合结束时，目标返回先前所占据的空间、或是最近的未被占据空间。如果目标并非邪魔，则他因这次可怖的经历而受到[[/r 10d10]]点心灵伤害。</p>\n<p>你必须完成一次长休才能再次使用该特性。</p>",
+      "value": "<p>第14级起，每当你的攻击成功命中一个生物时，你可以使用此能力将目标瞬间传送并穿越下层位面。该生物立刻消失并前往如同噩梦一般的风景。</p>\n<p>在你下一回合结束时，目标返回先前所占据的空间、或是最近的未被占据空间。如果目标并非邪魔，则他因这次可怖的经历而受到[[/damage 10d10 type=psychic]]{10d10}点心灵伤害。</p>\n<p>你必须完成一次长休才能再次使用该特性。</p>",
       "chat": ""
     },
     "source": {
@@ -30,13 +30,16 @@
     "requirements": "邪魔等级 14",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 14,
+      "repeatable": false,
+      "items": [
+        "subclass:the-fiend"
+      ]
     },
     "properties": [
       "mgc"
@@ -44,59 +47,53 @@
   },
   "effects": [
     {
-      "name": "直坠噩梦",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Shadow_DeathsEmbrace.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.4MtCSq9pacayzLEL",
+      "name": "直坠噩梦 Hurl Through Hell",
+      "img": "icons/creatures/abilities/mouth-teeth-fire-orange.webp",
+      "origin": null,
       "_id": "x5MeMhiZixec2bsg",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.optional.直坠噩梦.activation",
-          "mode": 2,
-          "value": "![\"fiend\"].includes(typeOrRace)",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "_id": "e7571059f09b1508",
+            "key": "flags.midi-qol.onUseMacroName",
+            "value": "ItemMacro,preDamageRollConfig",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "_id": "c7f422489ef38657",
+            "key": "flags.midi-qol.onUseMacroName",
+            "value": "ItemMacro,postActiveEffects",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.optional.直坠噩梦.damage.msak",
-          "mode": 2,
-          "value": "10d10[psychic]",
-          "priority": 20
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.4MtCSq9pacayzLEL",
+          "message": null
         },
-        {
-          "key": "flags.midi-qol.optional.直坠噩梦.damage.mwak",
-          "mode": 2,
-          "value": "10d10[psychic]",
-          "priority": 20
-        },
-        {
-          "key": "flags.midi-qol.optional.直坠噩梦.damage.rsak",
-          "mode": 2,
-          "value": "10d10[psychic]",
-          "priority": 20
-        },
-        {
-          "key": "flags.midi-qol.optional.直坠噩梦.damage.rwak",
-          "mode": 2,
-          "value": "10d10[psychic]",
-          "priority": 20
-        },
-        {
-          "key": "flags.midi-qol.optional.直坠噩梦.count",
-          "mode": 2,
-          "value": "ItemUses.直坠噩梦 Hurl Through Hell",
-          "priority": 20
-        }
-      ],
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -105,65 +102,138 @@
       "sort": 0,
       "flags": {
         "dae": {
+          "stackable": "noneName",
+          "specialDuration": [],
+          "applicationMode": "dnd5e",
           "disableCondition": "",
           "disableIncapacitated": false,
-          "stackable": "noneName",
           "showIcon": false,
           "durationExpression": "",
-          "macroRepeat": "none",
-          "specialDuration": []
+          "macroRepeat": "none"
+        },
+        "dnd5e_classpack": {
+          "hurlProvider": true
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757274212961,
         "modifiedTime": 1757274362706,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!4MtCSq9pacayzLEL.x5MeMhiZixec2bsg"
+    },
+    {
+      "name": "直坠噩梦：穿越下层位面",
+      "img": "icons/creatures/abilities/mouth-teeth-fire-orange.webp",
+      "origin": null,
+      "_id": "ca9d0b1ed50afbba",
+      "type": "base",
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.neverTarget",
+            "value": "true",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "",
+            "conditions": "{}",
+            "_id": "0d206cc85f4d62d0"
+          },
+          {
+            "key": "macro.itemMacro",
+            "value": "",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "",
+            "conditions": "{}",
+            "_id": "4d1e00ec3667f4a2"
+          },
+          {
+            "key": "flags.midi-qol.onUseMacroName",
+            "value": "ItemMacro,preItemRoll",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "",
+            "conditions": "{}",
+            "_id": "6b020e701a551ce5"
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.4MtCSq9pacayzLEL",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
+      "disabled": false,
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": "sourceEnd",
+        "expired": false
+      },
+      "description": "",
+      "tint": "#ffffff",
+      "transfer": false,
+      "statuses": [],
+      "sort": 0,
+      "flags": {
+        "dae": {
+          "applicationMode": "dnd5e",
+          "stackable": "noneName",
+          "specialDuration": [],
+          "selfTarget": false,
+          "selfTargetAlways": false
+        },
+        "dnd5e_classpack": {
+          "hurlTemplate": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
+        "createdTime": 1757274212961,
+        "modifiedTime": 1757274362706,
+        "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+        "exportSource": null
+      },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
+      "_key": "!items.effects!4MtCSq9pacayzLEL.ca9d0b1ed50afbba"
     }
   ],
   "folder": "R1dtAue8g5dEZTiR",
   "sort": 7500000,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -180,12 +250,19 @@
       "noConcentrationCheck": false,
       "toggleEffect": false,
       "ignoreTotalCover": false
+    },
+    "dae": {
+      "macro": {
+        "name": "直坠噩梦 Hurl Through Hell",
+        "type": "script",
+        "command": "const pass = args[0]?.macroPass;\nif (pass === \"preDamageRollConfig\") {\n  if (!workflow.activity?.hasAttack || workflow.actor.uuid !== macroItem.actor?.uuid) return;\n  let state = workflow._classpackHurlThroughHell;\n  if (!state) {\n    if (dnd5eClasspack.resources.remaining(macroItem) < 1) return;\n    const targets = [...new Set([...workflow.hitTargets, ...workflow.hitTargetsEC ?? []])].filter(t => t.actor);\n    if (!targets.length) return;\n    state = workflow._classpackHurlThroughHell = { checked: true };\n    const userId = dnd5eClasspack.firstOwner(workflow.actor, true);\n    if (!await dnd5eClasspack.dialogUtils.confirmUseItem(macroItem, { userId })) return;\n    const target = targets.length === 1 ? targets[0] : (await dnd5eClasspack.dialogUtils.selectTargetDialog(\n      macroItem.name, \"\", targets, { userId, skipDeadAndUnconscious: false }))?.[0];\n    if (!target) return;\n    state.targetUuid = target.document.uuid;\n    state.fiend = target.actor.system.details.type?.value === \"fiend\";\n    state.marker = `dnd5e_classpack.hurl.${foundry.utils.randomID()}`;\n    await dnd5eClasspack.resources.consume([{ itemUuid: macroItem.uuid, amount: 1 }], { id: state.marker });\n    state.consumed = true;\n    const hooks = [];\n    state.cleanup = () => {\n      for (const [name, id] of hooks) Hooks.off(name, id);\n      hooks.length = 0;\n    };\n    if (!state.fiend) {\n      // Keep this damage part separate from existing psychic damage and bind it to one target.\n      hooks.push([\"dnd5e.preCalculateDamage\", Hooks.on(\"dnd5e.preCalculateDamage\", (_actor, damages, options) => {\n        if (options.midi?.targetUuid === state.targetUuid) return;\n        for (let i = damages.length - 1; i >= 0; i--) {\n          if (damages[i].properties?.has(state.marker)) damages.splice(i, 1);\n        }\n      })]);\n    }\n    const finish = ended => { if (ended === workflow) state.cleanup(); };\n    for (const name of [\"midi-qol.postCleanup\", \"midi-qol.preAbort\"]) hooks.push([name, Hooks.on(name, finish)]);\n  }\n  if (!state.consumed || state.applied || state.fiend) return;\n  const config = args[0].options.config;\n  config.rolls ??= [];\n  if (config.rolls.some(roll => roll.options?.properties?.includes(state.marker))) return;\n  config.rolls.push({\n    parts: [\"10d10[psychic]\"], data: workflow.activity.getRollData(),\n    options: { type: \"psychic\", types: [\"psychic\"], properties: [\"mgc\", state.marker],\n      isCritical: false, configured: true, flavor: macroItem.name }\n  });\n  return;\n}\nif (pass === \"postActiveEffects\") {\n  const state = workflow._classpackHurlThroughHell;\n  if (!state?.consumed || state.applied) return;\n  state.applied = true;\n  state.cleanup?.();\n  const token = await fromUuid(state.targetUuid);\n  if (!token?.actor) return;\n  const template = macroItem.effects.find(e => e.flags.dnd5e_classpack?.hurlTemplate);\n  const data = template.toObject();\n  delete data._id; delete data._key;\n  data.origin = macroItem.uuid;\n  data.system.origin = { actor: workflow.actor.uuid, item: macroItem.uuid };\n  data.flags.dae.itemUuid = macroItem.uuid;\n  data.flags.dae.itemData = macroItem.toObject();\n  data.flags.dnd5e_classpack.hurl = {\n    sourceActorUuid: workflow.actor.uuid, tokenUuid: token.uuid,\n    x: token._source.x, y: token._source.y, elevation: token._source.elevation ?? 0,\n    hidden: token._source.hidden ?? false\n  };\n  await MidiQOL.socket().executeAsGM(\"createEffects\", { actorUuid: token.actor.uuid, effects: [data] });\n  await DAE.setTokenVisibility(token.uuid, false);\n  return;\n}\nif (pass === \"preItemRoll\" && workflow.actor.appliedEffects.some(e => !e.disabled && !e.isSuppressed\n  && e.flags.dnd5e_classpack?.hurl)) {\n  if ([...workflow.targets].some(t => t.actor?.uuid !== workflow.actor.uuid)\n    || workflow.activity.target?.template?.type) return false;\n  return;\n}\nif (args[0] !== \"off\") return;\nconst last = args.at(-1);\nconst state = last.efData?.flags?.dnd5e_classpack?.hurl;\nif (!state) return;\nconst token = await fromUuid(state.tokenUuid);\nif (!token?.actor) return;\nconst scene = token.parent;\nconst position = { x: state.x, y: state.y, elevation: state.elevation };\nconst dimensions = token.getSize(position);\nconst occupied = candidate => scene.tokens.some(other => {\n  if (other.id === token.id || other.actor?.flags[\"midi-qol\"]?.neverTarget) return false;\n  if (other.level !== token.level || (other._source.elevation ?? 0) !== candidate.elevation) return false;\n  const size = other.getSize();\n  return candidate.x < other._source.x + size.width && candidate.x + dimensions.width > other._source.x\n    && candidate.y < other._source.y + size.height && candidate.y + dimensions.height > other._source.y;\n});\nif (occupied(position)) {\n  const step = scene.grid.size;\n  const candidates = [];\n  const columns = Math.ceil(scene.dimensions.width / step);\n  const rows = Math.ceil(scene.dimensions.height / step);\n  for (let x = -columns; x <= columns; x++) for (let y = -rows; y <= rows; y++) {\n    const point = { x: state.x + x * step, y: state.y + y * step, elevation: state.elevation };\n    if (point.x < 0 || point.y < 0 || point.x + dimensions.width > scene.dimensions.width\n      || point.y + dimensions.height > scene.dimensions.height) continue;\n    candidates.push({ ...point, distance: scene.grid.measurePath([position, point]).distance });\n  }\n  candidates.sort((a, b) => a.distance - b.distance);\n  const free = candidates.find(candidate => !occupied(candidate));\n  if (free) Object.assign(position, { x: free.x, y: free.y });\n}\nawait dnd5eClasspack.socket.executeAsGM(\"teleportUpdate\", scene.id, [{ _id: token.id, ...position }], { animate: false });\nawait DAE.setTokenVisibility(token.uuid, !state.hidden);\n"
+      }
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757274338278,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

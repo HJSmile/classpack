@@ -3,12 +3,7 @@
   "name": "运动员 Athlete",
   "type": "feat",
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -30,7 +25,7 @@
   "img": "icons/creatures/magical/construct-iron-stomping-yellow.webp",
   "system": {
     "description": {
-      "value": "<p>你接受的全面肉体锻炼使你获得下列增益：</p><ul><li><p>你的力量或敏捷增加1，上限为20。</p></li><li><p>你陷入倒地状态时，起立所需要花费的移动力为5尺</p></li><li><p>攀爬无需额外消耗移动力</p></li><li><p>你在进行助跑调高或跳远时只需要移动5尺，而不是10尺。</p></li></ul>",
+      "value": "<p>你接受的全面肉体锻炼使你获得下列增益：</p><ul><li><p>你的力量或敏捷增加1，上限为20。</p></li><li><p>你陷入&amp;Reference[condition=prone apply=false]{倒地}状态时，起立所需要花费的移动力为5尺</p></li><li><p>攀爬无需额外消耗移动力</p></li><li><p>你在进行助跑调高或跳远时只需要移动5尺，而不是10尺。</p></li></ul>",
       "chat": ""
     },
     "source": {
@@ -41,23 +36,56 @@
     },
     "cover": null,
     "uses": {
-      "max": "0",
+      "max": "",
       "spent": 0,
       "recovery": []
     },
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "requirements": "",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {
+      "c6a6d5643295b028": {
+        "_id": "c6a6d5643295b028",
+        "type": "AbilityScoreImprovement",
+        "name": "属性值提升",
+        "configuration": {
+          "cap": 1,
+          "fixed": {
+            "str": 0,
+            "dex": 0,
+            "con": 0,
+            "int": 0,
+            "wis": 0,
+            "cha": 0
+          },
+          "locked": [
+            "con",
+            "int",
+            "wis",
+            "cha"
+          ],
+          "points": 1,
+          "max": 20,
+          "recommendation": null
+        },
+        "value": {
+          "type": "asi"
+        },
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -68,9 +96,9 @@
   "folder": "qiJofEGkS1454LSL",
   "sort": 112500,
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757864736412,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

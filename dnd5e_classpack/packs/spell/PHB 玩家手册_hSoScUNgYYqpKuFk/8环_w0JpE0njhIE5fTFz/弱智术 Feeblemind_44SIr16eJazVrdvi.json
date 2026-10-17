@@ -26,48 +26,21 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/002914.png",
+  "img": "icons/commodities/biological/organ-brain-pink-purple.webp",
   "effects": [
     {
       "name": "弱智术 Feeblemind",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.44SIr16eJazVrdvi",
+      "origin": null,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "disabled": false,
       "_id": "BkA5xs9f5RfsfLqW",
-      "changes": [
-        {
-          "key": "system.abilities.cha.value",
-          "mode": 5,
-          "value": "1",
-          "priority": 20
-        },
-        {
-          "key": "system.abilities.int.value",
-          "mode": 5,
-          "value": "1",
-          "priority": 20
-        }
-      ],
       "description": "",
       "transfer": false,
       "statuses": [],
@@ -78,33 +51,16 @@
           "selfTargetAlways": false,
           "dontApply": false,
           "stackable": "noneName",
-          "showIcon": true,
           "durationExpression": "",
           "macroRepeat": "none",
           "specialDuration": []
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system"
         }
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -112,16 +68,54 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/002914.png",
+      "img": "icons/commodities/biological/organ-brain-pink-purple.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.abilities.cha.value",
+            "value": 1,
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "hWWPCSRA9nv3eliD",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.abilities.int.value",
+            "value": 1,
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "lKEcesIcqHpMCet8",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.44SIr16eJazVrdvi",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 2,
+      "folder": null,
       "_key": "!items.effects!44SIr16eJazVrdvi.BkA5xs9f5RfsfLqW"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 指定施法距离内一个你能看见的生物，并尝试摧毁其理智与人格。目标受4d6点心灵伤害且须进行一次智力豁免。\n<br />豁免失败时，该生物的智力和魅力变为1。受术生物将不能施法，也不能启动魔法物品，甚至不能听懂语言或以智慧方式沟通。但该生物仍可以辨识、跟随伙伴，甚至保护他们。\n<br />受术生物每过30日即可在当日结束时重新进行一次豁免，豁免成功则该法术效应终止。\n<br />另外，高等复原术greater restoration，医疗术heal 或者许愿术wish 可直接终止该法术的效应。\n<br /></div>",
+      "value": "<p>指定施法距离内一个你能看见的生物，并尝试摧毁其理智与人格。目标受 [[/damage 4d6 type=psychic]]{4d6} 点心灵伤害且须进行一次[[/save activity=dnd5eactivity000]]{智力豁免}。</p><p>豁免失败时，该生物的智力和魅力变为 1。受术生物将不能施法，也不能启动魔法物品，甚至不能听懂语言或以智慧方式沟通。但该生物仍可以辨识、跟随伙伴，甚至保护他们。</p><p>受术生物每过 30 日即可在当日结束时重新进行一次豁免，豁免成功则该法术效应终止。</p><p>除此之外，<em>高等复原术greater restoration</em>，<em>医疗术heal</em>或者<em>祈愿术wish</em>也可直接终止该法术的效应。</p><p>（注：本法术在PHB2024中改名为摧心术Befuddlement）</p>",
       "chat": ""
     },
     "source": {
@@ -137,7 +131,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -147,9 +142,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -170,10 +166,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -199,27 +191,33 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "BkA5xs9f5RfsfLqW",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -249,7 +247,8 @@
                 "mode": "",
                 "number": null,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -263,7 +262,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -277,7 +277,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -285,7 +286,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -296,18 +296,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "feeblemind"
+    "identifier": "feeblemind",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -316,8 +365,8 @@
   "sort": 23100000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711724327600,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

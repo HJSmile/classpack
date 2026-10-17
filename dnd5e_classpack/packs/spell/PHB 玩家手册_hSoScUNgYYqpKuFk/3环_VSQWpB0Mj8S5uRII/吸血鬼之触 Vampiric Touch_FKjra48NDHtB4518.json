@@ -26,21 +26,11 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "dae": {
       "macro": {
         "name": "吸血鬼之触 Vampiric Touch",
-        "img": "modules/dnd5e_classpack/Nicons/Spell_DeathKnight_BloodPlague.png",
+        "img": "icons/magic/unholy/hand-claw-glow-orange.webp",
         "type": "script",
         "scope": "global",
         "command": "const workflow = args[0]?.workflow;\nif (!workflow) return console.log(\"宏触发但 workflow 不存在\");\nconsole.log(\"【调试】damageDetail:\", workflow.damageDetail);\n\nlet necroticTotal = 0;\n// 遍历 damageDetail（数组，每项包含 damageType & damage）\nif (Array.isArray(workflow.damageDetail)) {\n  workflow.damageDetail.forEach(entry => {\n    if (entry.type === \"necrotic\") necroticTotal += (entry.damage || 0);\n  });\n}\n\nif (necroticTotal === 0) {\n  return console.log(\"未造成黯蚀伤害，跳过治疗\");\n}\n\nconst healAmount = Math.floor(necroticTotal / 2);\nconsole.log(`黯蚀伤害总计 ${necroticTotal} → 回复 ${healAmount}`);\n\nlet casterToken = null;\nif (workflow.tokenUuid) {\n  const doc = await fromUuid(workflow.tokenUuid);\n  casterToken = doc?.object ?? null;\n} else if (workflow.tokenId) {\n  casterToken = canvas.tokens.get(workflow.tokenId);\n} else {\n  casterToken = canvas.tokens.controlled[0];\n}\nif (!casterToken) return console.log(\"无法找到施法者 token\");\n\nawait MidiQOL.applyTokenDamage(\n  [{ type: \"healing\", damage: healAmount }],\n  healAmount,\n  new Set([casterToken]),\n  workflow,\n  null\n);\n\nChatMessage.create({\n  content: `${casterToken.name} 从黯蚀伤害 ${necroticTotal} 中回复了 ${healAmount} 点生命（只针对黯蚀伤害）`\n});\n\nconsole.log(\"治疗已应用，仅针对黯蚀伤害\");",
@@ -72,11 +62,11 @@
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_DeathKnight_BloodPlague.png",
+  "img": "icons/magic/unholy/hand-claw-glow-orange.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你的手上环绕着阴影，只要触碰一下就可以吸取他人的生命力来为自己疗伤。对你触及范围内的一个生物进行一次近战法术攻击。若命中，则目标受到3d6点黯蚀伤害，而你则回复数值等于所造成黯蚀伤害一半的生命值。你可以在该法术终止前的每个回合内以一个动作完成一次这样的攻击。\n<br /><strong>升环施法效应。</strong>使用4环或更高法术位施展该法术时，你使用的法术位每比3环高一环，法术的伤害就增加1d6。\n<br /></div>",
+      "value": "<p>你的手上环绕着阴影，只要触碰一下就可以吸取他人的生命力来为自己疗伤。对你触及范围内的一个生物进行一次近战法术攻击。若命中，则目标受到 [[/damage 3d6 type=necrotic]]{3d6} 点暗蚀伤害，而你则恢复数值等于所造成暗蚀伤害一半的生命值。你可以在该法术终止前的每个回合内以一个动作完成一次这样的攻击。</p><p><strong>升环施法效应。</strong>使用四环或更高法术位施展该法术时，你使用的法术位每比三环高一环，法术的伤害就增加 1d6。</p>",
       "chat": ""
     },
     "source": {
@@ -92,7 +82,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -102,9 +93,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -124,10 +116,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -153,22 +141,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -213,7 +205,8 @@
                 "mode": "whole",
                 "number": 1,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ]
         },
@@ -229,7 +222,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -237,7 +231,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -248,21 +241,71 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "attackMode": "oneHanded",
         "ammunition": "",
-        "otherActivityUuid": ""
+        "otherActivityUuid": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       }
     },
-    "identifier": "vampiric-touch"
+    "identifier": "vampiric-touch",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -271,8 +314,8 @@
   "sort": 29500000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

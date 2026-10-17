@@ -2,14 +2,14 @@
   "_id": "mZOKmbkP6wKtkH3r",
   "name": "精魂图腾 Spirit Totem",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/000516.png",
+  "img": "icons/magic/death/undead-ghosts-trio-blue.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>         2级起，你获得了招现出自然精魂并借助它们影响你身边的世界的能力。以一个附赠动作，你可以魔法般地召唤一个虚体的精魂，到处于你周围60尺内、你能看到的一点处。此精魂创造出一道环绕该点的、30尺半径的光环。精魂不算作是生物，也不算作是物体，尽管它有着符合对应生物的幽魂般的外表。</p>\n<p>         以一个附赠动作，你可以移动此精魂至多60尺，到你能看到的一点处。</p>\n<p>         此精魂持续1分钟或直到你失能。一旦你使用了此特性，你无法再次使用它，直到你完成一次短休或长休为止。</p>\n<p>         此精魂的光环效果基于你召唤的精魂的类别，如下面的选项所示。</p>\n<p>         <strong>熊精魂</strong>：熊精魂授予你和你的伙伴它的力量和坚韧。在精魂出现时，每个处于此光环中、由你选择的生物，获得等于5+你的德鲁伊等级的临时生命值。此外，你和你的盟友在处于光环内时，在力量检定和力量豁免检定中获得优势。</p>\n<p>         <strong>鹰精魂</strong>： 鹰精魂是技艺精湛的猎手，用它敏锐的视力标记你的敌人。当一个生物对一个处于此精魂光环内的目标进行一次攻击检定时，你可以使用你的反应让这次攻击检定获得优势。此外，在光环内你和你的盟友得到感知（观察）检定的优势。</p>\n<p>          <strong>独角兽精魂</strong>：独角兽精魂为周围提供保护。你和你的盟友在用于侦测在此精魂光环内的生物所进行的所有属性检定中获得优势。此外，若你以一个法术位施展了一个为任何处于或不处于光环内的人恢复生命值的法术，每个处于光环内、由你选择的生物也恢复等于你德鲁伊等级的生命值。</p>",
+      "value": "<p>         2级起，你获得了招现出自然精魂并借助它们影响你身边的世界的能力。以一个附赠动作，你可以魔法般地召唤一个虚体的精魂，到处于你周围60尺内、你能看到的一点处。此精魂创造出一道环绕该点的、30尺半径的光环。精魂不算作是生物，也不算作是物体，尽管它有着符合对应生物的幽魂般的外表。</p>\n<p>         以一个附赠动作，你可以移动此精魂至多60尺，到你能看到的一点处。</p>\n<p>         此精魂持续1分钟或直到你失能。一旦你使用了此特性，你无法再次使用它，直到你完成一次短休或长休为止。</p>\n<p>         此精魂的光环效果基于你召唤的精魂的类别，如下面的选项所示。</p>\n<p>         <strong>熊精魂</strong>：熊精魂授予你和你的伙伴它的力量和坚韧。在精魂出现时，每个处于此光环中、由你选择的生物，获得等于5+你的德鲁伊等级的临时生命值。此外，你和你的盟友在处于光环内时，在力量检定和力量豁免检定中获得优势。</p>\n<p>         <strong>鹰精魂</strong>： 鹰精魂是技艺精湛的猎手，用它敏锐的视力标记你的敌人。当一个生物对一个处于此精魂光环内的目标进行一次攻击检定时，你可以使用你的反应让这次攻击检定获得优势。此外，在光环内你和你的盟友得到感知（察觉）检定的优势。</p>\n<p>          <strong>独角兽精魂</strong>：独角兽精魂为周围提供保护。你和你的盟友在用于侦测在此精魂光环内的生物所进行的所有属性检定中获得优势。此外，若你以一个法术位施展了一个为任何处于或不处于光环内的人恢复生命值的法术，每个处于光环内、由你选择的生物也恢复等于你德鲁伊等级的生命值。</p>",
       "chat": ""
     },
     "source": {
@@ -57,13 +57,15 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -80,7 +82,8 @@
             "size": "30",
             "width": "",
             "height": "",
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -102,17 +105,103 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-spirit-totem",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 2,
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -144,14 +233,7 @@
       "idv": false,
       "ida": false
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "spiritTotem",
@@ -161,9 +243,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1749883542518,
     "lastModifiedBy": "uXKCmWFprrvnSIDm",

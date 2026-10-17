@@ -24,21 +24,11 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "dae": {
       "macro": {
         "name": "英雄宴 Heroes' Feast",
-        "img": "modules/dnd5e_classpack/Nicons/002615.png",
+        "img": "icons/consumables/food/cheese-wedge-swiss-yellow.webp",
         "type": "script",
         "scope": "global",
         "command": "",
@@ -63,51 +53,77 @@
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/002615.png",
+  "img": "icons/consumables/food/cheese-wedge-swiss-yellow.webp",
   "effects": [
     {
       "name": "英雄宴 Heroes' Feast",
-      "img": "modules/dnd5e_classpack/Nicons/002615.png",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.bgKL1d85c4YYYeCO",
+      "img": "icons/consumables/food/cheese-wedge-swiss-yellow.webp",
+      "origin": null,
       "transfer": false,
       "_id": "m1IamULdusIduGXt",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.traits.ci.value",
-          "value": "poisoned",
-          "mode": 2,
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.ci.value",
+            "value": "poisoned",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "1xxGLTuh2gYGoAYV",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.ci.value",
+            "value": "frightened",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "Tt3zq2mdhKmf3DwR",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.abilities.wis.save.roll.mode",
+            "value": 1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "JzKtRDKXU68zoSDp",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.attributes.hp.tempmax",
+            "type": "add",
+            "value": "@utilityRollTotal",
+            "phase": "initial",
+            "_id": "Cl3dbmXHGO1JXQ5a",
+            "conditions": "{}",
+            "replacement": "origin",
+            "priority": null
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "system.traits.ci.value",
-          "value": "frightened",
-          "mode": 2,
-          "priority": 20
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.bgKL1d85c4YYYeCO",
+          "message": null
         },
-        {
-          "key": "flags.midi-qol.advantage.save.wis",
-          "value": "+1",
-          "mode": 2,
-          "priority": 20
-        },
-        {
-          "key": "macro.execute",
-          "value": "HF_DAE_DBG",
-          "mode": 0,
-          "priority": 20
-        }
-      ],
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": 86400,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 86400,
+        "units": "seconds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "description": "<p>你对毒素伤害具有抗性，免疫中毒和恐慌状态。</p><p>你的感知豁免时具有优势</p><p>你的生命值上限将提高 2d10 点，并获得等量的生命值。</p>",
       "tint": "#ffffff",
@@ -126,51 +142,38 @@
           "durationExpression": "",
           "specialDuration": [
             "newDay"
-          ]
+          ],
+          "applicationMode": "default",
+          "expiryMode": "default",
+          "macroRepeat": "none"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": 1755167052147,
         "modifiedTime": 1786693328510,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!bgKL1d85c4YYYeCO.m1IamULdusIduGXt"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你创造出一席盛宴，其中包括了上等的食物和饮品。宴席需要1小时来享用，并会在这段时间结束后消失不见，而且下述增益效应在该小时结束前不会生效。你可以让至多十二个生物加入分享大餐。\n<br />所有享用了大餐的生物都会获得几种增益。这些生物的所有疾病和中毒状态都会被治愈，并且免疫毒素和恐慌状态，其进行感知豁免时具有优势，生命值上限也将提高2d10点，并获得等量的生命值。这些增益将持续24小时。\n<br /></div>",
+      "value": "<p>你创造出一席盛宴，其中包括了上等的食物和饮品。宴席需要 1 小时来享用，并会在这段时间结束后消失不见，而且下述增益效应在该小时结束前不会生效。你可以让至多十二个生物一同分享该大餐。</p><p>所有享用了大餐的生物都会获得几种增益。这些生物的所有疾病和&amp;Reference[condition=poisoned apply=false]{中毒}状态都会被治愈，并且免疫毒素和&amp;Reference[condition=frightened apply=false]{恐慌}状态，其进行感知豁免时具有优势，生命值上限也将提高 2d10 点，并获得等量的生命值。这些增益将持续 24 小时。</p>",
       "chat": ""
     },
     "source": {
@@ -186,7 +189,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -196,9 +200,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -219,10 +224,6 @@
       "consumed": true,
       "cost": 1000,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -248,25 +249,34 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "m1IamULdusIduGXt"
+            "_id": "m1IamULdusIduGXt",
+            "uuid": null,
+            "level": {
+              "min": null,
+              "max": null
+            }
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -283,7 +293,7 @@
           "prompt": false,
           "visible": false,
           "name": "",
-          "formula": ""
+          "formula": "2d10"
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -296,7 +306,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -304,7 +315,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -315,23 +325,70 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "name": "",
         "img": "",
-        "appliedEffects": [
-          "m1IamULdusIduGXt"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "heroes-feast"
+    "identifier": "heroes-feast",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -340,8 +397,8 @@
   "sort": 34300000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

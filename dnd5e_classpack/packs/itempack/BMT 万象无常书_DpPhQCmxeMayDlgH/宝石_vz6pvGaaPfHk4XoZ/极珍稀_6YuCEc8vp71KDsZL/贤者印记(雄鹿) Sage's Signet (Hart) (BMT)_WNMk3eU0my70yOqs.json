@@ -12,7 +12,7 @@
       "revision": 1
     },
     "description": {
-      "value": "<div><p><em>戒指，极珍稀（需施法者同调）</em><br />这枚刻有精美浮雕的镀金戒指充满了敏锐的智慧和远见的力量。着装此戒指期间，你可以用一个动作用戒指施放<em>@UUID[Compendium.dnd5e_classpack.spell.Item.umqpL5B9ccbkpJtJ]{卜筮术 Augury}</em>。此法术一经戒指施放，直到下次黎明前不能再次以此法施放该法术。</p><p>着装此戒指期间，你可以通过戒指额外施放一次法术<em>@UUID[Compendium.dnd5e_classpack.spell.Item.XfYgB18GC8OgETjG]{活力灵光Aura of Vitality}</em>和<em>@UUID[Compendium.dnd5e_classpack.spell.Item.UBLAtJuRhRB3GokC]{群体疗伤术 Mass Cure Wounds}</em>，以智力作为你的施法属性。每个法术一经戒指施放，直到下次黎明前不能再次以此法施放该法术。</p><p><em>(requires attunement by a spellcaster)</em></p></div><div class=\"rd__b  rd__b--2\"><p>This gilded ring bears a beautiful engraving and is imbued with powers of keen wisdom and foresight. While wearing this ring, you can use an action to cast the @spell[Augury] spell from the ring. Once you use the ring to cast the spell, the ring can't cast the spell again until the next dawn.</p><p>While wearing the <em>Sage's Signet</em>, you can cast the @spell[Aura of Vitality] and @spell[Mass Cure Wounds] once each from the ring using your Intelligence as the spellcasting ability. Once you cast each spell from the ring, the ring can't cast the spell again until the next dawn.</p></div>",
+      "value": "<p><em>戒指，极珍稀（需施法者同调）</em></p><p>这枚刻有精美浮雕的镀金戒指充满了敏锐的智慧和远见的力量。着装此戒指期间，你可以用一个动作用戒指施放<em>@UUID[Compendium.dnd5e_classpack.spell.Item.umqpL5B9ccbkpJtJ]{卜筮术 Augury}</em>。此法术一经戒指施放，直到下次黎明前不能再次以此法施放该法术。</p><p>着装此戒指期间，你可以通过戒指额外施放一次法术<em>@UUID[Compendium.dnd5e_classpack.spell.Item.XfYgB18GC8OgETjG]{活力灵光Aura of Vitality}</em>和<em>@UUID[Compendium.dnd5e_classpack.spell.Item.UBLAtJuRhRB3GokC]{群体疗伤术 Mass Cure Wounds}</em>，以智力作为你的施法属性。每个法术一经戒指施放，直到下次黎明前不能再次以此法施放该法术。</p><p><em>(requires attunement by a spellcaster)</em></p><p>This gilded ring bears a beautiful engraving and is imbued with powers of keen wisdom and foresight. While wearing this ring, you can use an action to cast the @spell[Augury] spell from the ring. Once you use the ring to cast the spell, the ring can't cast the spell again until the next dawn.</p><p>While wearing the <em>Sage's Signet</em>, you can cast the @spell[Aura of Vitality] and @spell[Mass Cure Wounds] once each from the ring using your Intelligence as the spellcasting ability. Once you cast each spell from the ring, the ring can't cast the spell again until the next dawn.</p>",
       "chat": ""
     },
     "proficient": null,
@@ -28,7 +28,6 @@
     "attuned": true,
     "identified": true,
     "equipped": true,
-    "rarity": "veryRare",
     "type": {
       "value": "ring",
       "baseItem": ""
@@ -45,7 +44,7 @@
     "armor": {
       "value": null,
       "dex": null,
-      "magicalBonus": 0
+      "magicalBonus": "0"
     },
     "strength": null,
     "activities": {
@@ -65,19 +64,24 @@
           "spellSlot": true,
           "targets": []
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -97,8 +101,6 @@
         },
         "spell": {
           "challenge": {
-            "attack": null,
-            "save": null,
             "override": false
           },
           "level": null,
@@ -122,7 +124,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -130,7 +133,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -141,13 +143,58 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
         }
       },
       "8nRIjkYLj5nnZ2Ou": {
@@ -166,19 +213,24 @@
           "spellSlot": true,
           "targets": []
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -198,8 +250,6 @@
         },
         "spell": {
           "challenge": {
-            "attack": null,
-            "save": null,
             "override": false
           },
           "level": null,
@@ -223,7 +273,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -231,7 +282,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -242,13 +292,58 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
         }
       },
       "mJZdF8J2FyfO8KkW": {
@@ -267,19 +362,24 @@
           "spellSlot": true,
           "targets": []
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -299,8 +399,6 @@
         },
         "spell": {
           "challenge": {
-            "attack": null,
-            "save": null,
             "override": false
           },
           "level": null,
@@ -324,7 +422,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -332,7 +431,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -343,13 +441,58 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
         }
       }
     },
@@ -359,7 +502,12 @@
     },
     "container": null,
     "cover": null,
-    "crewed": false
+    "rarities": [
+      "veryRare"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "img": "systems/dnd5e/icons/svg/items/equipment.svg",
   "ownership": {
@@ -389,16 +537,17 @@
       "noConcentrationCheck": false,
       "toggleEffect": false,
       "ignoreTotalCover": false
-    }
+    },
+    "dnd5e": {}
   },
   "effects": [],
   "folder": "6YuCEc8vp71KDsZL",
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1751738836954,
     "modifiedTime": 1751738836954,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

@@ -29,23 +29,12 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/ability_paladin_lightoftheprotector.jpg",
+  "img": "icons/magic/light/projectile-flare-explosion-yellow.webp",
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 一道耀眼的光芒从你手中射出并形成一条5尺宽、60尺长的线状区域。所有区域内的生物必须进行一次体质豁免。豁免失败者将受到6d8点光耀伤害，并且在你的下一回合前陷入目盲。豁免成功则伤害减半，且不会陷入目盲。不死生物和泥怪在进行该豁免是具有劣势。\n<br />你可以在法术终止前的任一回合内以一个动作重新创造一到线状光芒。\n<br />在法术持续时间内，你的手中一点散发出耀眼的光芒。其光耀为周围提供30尺的明亮光照，以及该范围外30尺的微光光照。这些光芒均视为等同于阳光。\n<br /></div>",
+      "value": "<p>一道耀眼的光芒从你手中射出并形成一条 5 尺宽、60 尺长的线状区域。所有区域内的生物必须进行一次体质豁免。豁免失败者将受到 [[/damage 6d8 type=radiant]]{6d8} 点光耀伤害，并且在你的下一回合前陷入&amp;Reference[condition=blinded apply=false]{目盲}。豁免成功则伤害减半，且不会陷入目盲。亡灵和泥怪在进行该豁免时具有劣势。</p><p>你可以在法术终止前的任一回合内以一个动作重新创造一道线状光芒。</p><p>在法术持续时间内，你的手中一点散发出耀眼的光芒。其光耀为周围提供 30 尺的明亮光照，以及该范围外 30 尺的微光光照。这些光芒均视为等同于阳光。</p>",
       "chat": ""
     },
     "source": {
@@ -61,7 +50,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -74,7 +64,8 @@
         "size": "60",
         "contiguous": false,
         "width": "",
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -94,10 +85,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -124,16 +111,21 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "NRpaiLWADejaIHKf"
+            "_id": "NRpaiLWADejaIHKf",
+            "uuid": null,
+            "level": {},
+            "onSave": false
           }
         ],
         "range": {
@@ -149,7 +141,8 @@
             "type": "line",
             "size": "60",
             "width": "5",
-            "count": ""
+            "count": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -171,14 +164,16 @@
                 "formula": ""
               },
               "number": 6,
-              "denomination": "8",
+              "denomination": 8,
               "bonus": "",
               "types": [
                 "radiant"
               ],
               "scaling": {
-                "mode": ""
-              }
+                "mode": "",
+                "number": 1
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -192,7 +187,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -206,7 +202,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -214,7 +211,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -225,20 +221,63 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "name": "",
         "img": "",
-        "appliedEffects": [
-          "NRpaiLWADejaIHKf"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       },
       "LmTAIS1VDRFSKrZM": {
         "type": "save",
@@ -257,20 +296,26 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": true
+          "override": true,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "NRpaiLWADejaIHKf"
+            "_id": "NRpaiLWADejaIHKf",
+            "uuid": null,
+            "level": {},
+            "onSave": false
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
@@ -279,7 +324,8 @@
             "type": "line",
             "size": "60",
             "width": "5",
-            "count": ""
+            "count": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -301,14 +347,16 @@
                 "formula": ""
               },
               "number": 6,
-              "denomination": "8",
+              "denomination": 8,
               "bonus": "",
               "types": [
                 "radiant"
               ],
               "scaling": {
-                "mode": ""
-              }
+                "mode": "",
+                "number": 1
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -323,7 +371,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -336,7 +385,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -344,7 +394,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -355,23 +404,68 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "name": "重塑",
         "img": "",
-        "appliedEffects": [
-          "NRpaiLWADejaIHKf"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "sunbeam"
+    "identifier": "sunbeam",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -379,22 +473,32 @@
   "effects": [
     {
       "name": "强光炫目 Sunbeam",
-      "img": "modules/dnd5e_classpack/Nicons/ability_paladin_lightoftheprotector.jpg",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.oU9SfwCYsV2eiZiQ",
+      "img": "icons/magic/light/projectile-flare-explosion-yellow.webp",
+      "origin": null,
       "transfer": false,
       "_id": "NRpaiLWADejaIHKf",
       "type": "base",
-      "system": {},
-      "changes": [],
+      "system": {
+        "changes": [],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.oU9SfwCYsV2eiZiQ",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": 7,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 7,
+        "units": "seconds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "description": "<p>你陷入&amp;Reference[blinded]{目盲}状态，直至施法者的下回合开始。</p>",
       "tint": "#ffffff",
@@ -416,42 +520,26 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": 1755170415180,
         "modifiedTime": 1755170446833,
         "lastModifiedBy": "vFLRCDyc5l72uRlV",
         "exportSource": null
       },
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!oU9SfwCYsV2eiZiQ.NRpaiLWADejaIHKf"
     }
   ],
@@ -459,8 +547,8 @@
   "sort": 32200000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

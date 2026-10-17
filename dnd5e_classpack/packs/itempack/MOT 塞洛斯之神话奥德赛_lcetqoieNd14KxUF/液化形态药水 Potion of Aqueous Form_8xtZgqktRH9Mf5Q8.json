@@ -27,14 +27,7 @@
       "itemCondition": "",
       "effectCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "potionOfAqueousForm",
@@ -45,7 +38,7 @@
   },
   "system": {
     "description": {
-      "value": "<div class=\"WordSection1\" style=\"LAYOUT-GRID:15.6pt none\"><p class=\"MsoNormal\">当你喝下这种药水时，你会变成一滩水（<span>water</span>）。<span>10</span>分钟后或丧失行动能力或死亡时，你会恢复到你的真实形态。</p><p class=\"MsoNormal\">在此形态下，你会受到以下影响。</p><p class=\"MsoNormal\">液体移动。你的游泳速度为<span>30</span>尺。你可以在其他液体上移动或穿过其他液体。你可以进入并占据另一个生物的空间。你可以上升到你的正常高度，你可以通过微型的开口。你可以扑灭你进入的任何空间的非魔法火焰。</p><p class=\"MsoNormal\">液态复原。你对非魔法伤害有抵抗力。你也在力量、敏捷和体质的豁免检定中有优势。</p><p class=\"MsoNormal\">限制。你不能说话、攻击、施法或激活魔法物品。任何你携带或穿戴的物品都会融合到你的新形态中并且无法使用，不过你会继续受到你穿戴的任何东西的影响，比如盔甲。</p></div>",
+      "value": "<p>当你喝下这种药水时，你会变成一滩水（water）。10分钟后或丧失行动能力或死亡时，你会恢复到你的真实形态。</p><p>在此形态下，你会受到以下影响。</p><p>液体移动。你的游泳速度为30尺。你可以在其他液体上移动或穿过其他液体。你可以进入并占据另一个生物的空间。你可以上升到你的正常高度，你可以通过微型的开口。你可以扑灭你进入的任何空间的非魔法火焰。</p><p>液态复原。你对非魔法伤害有抵抗力。你也在力量、敏捷和体质的豁免检定中有优势。</p><p>限制。你不能说话、攻击、施法或激活魔法物品。任何你携带或穿戴的物品都会融合到你的新形态中并且无法使用，不过你会继续受到你穿戴的任何东西的影响，比如盔甲。</p>",
       "chat": ""
     },
     "source": {
@@ -65,7 +58,6 @@
     },
     "attunement": "",
     "equipped": false,
-    "rarity": "rare",
     "identified": true,
     "uses": {
       "max": "1",
@@ -83,7 +75,8 @@
         },
         "scaling": {
           "number": 1
-        }
+        },
+        "modifiers": []
       },
       "replace": false
     },
@@ -98,7 +91,6 @@
       "subtype": ""
     },
     "container": null,
-    "magicalBonus": null,
     "activities": {
       "dnd5eactivity000": {
         "_id": "dnd5eactivity000",
@@ -128,14 +120,16 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "1",
           "units": "minute",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -151,7 +145,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "1",
@@ -173,16 +168,104 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-potion-of-aqueous-form",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "rare"
+    ]
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1692347946808,
     "modifiedTime": 1757871202876,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

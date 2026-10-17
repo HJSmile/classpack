@@ -4,7 +4,7 @@
   "img": "icons/creatures/magical/construct-iron-stomping-yellow.webp",
   "system": {
     "description": {
-      "value": "<p>施展该法术时，你将一小瓶水银放置在一个填充着灰烬和尘土的真人大小的人偶的胸口里。然后你缝合好人偶，将你的血滴在上面。在施法结束时，你用一支水晶权杖在人偶上轻轻一点，将它转化为一个穿着人偶所穿着的衣服的魔卫。魔卫的类型由你在施法时选择，查阅《冰风谷：冰霜少女的雾凇》附录C以找到不同类型的魔卫以及它们的数据。</p><p>当魔卫出现时，你的最大生命值减少一定值，其数值等同于该魔卫的挑战等级（至少减少1点）。只有一道祈愿术才能撤销此减值。</p><p>任何你用该法术创造的魔卫会毫无异议地执行你的命令。</p>",
+      "value": "<p>施展该法术时，你将一小瓶水银放置在一个填充着灰烬和尘土的真人大小的人偶的胸口里。然后你缝合好人偶，将你的血滴在上面。在施法结束时，你用一支水晶权杖在人偶上轻轻一点，将它转化为一个穿着人偶所穿着的衣服的魔卫。魔卫的类型由你在施法时选择，查阅附录C以找到不同类型的魔卫以及它们的数据。</p><p>当魔卫出现时，你的生命值上限减少一定值，其数值等同于该魔卫的挑战等级（至少减少1点）。只有一道祈愿术才能撤销此减值。</p><p>任何你用该法术创造的魔卫会毫无异议地执行你的命令。</p>",
       "chat": ""
     },
     "source": {
@@ -19,7 +19,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -27,9 +28,10 @@
         "type": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -48,10 +50,6 @@
       "consumed": true,
       "cost": 500,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -77,22 +75,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -122,7 +124,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -130,7 +133,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -141,18 +143,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "create-magen"
+    "identifier": "create-magen",
+    "method": "spell",
+    "prepared": 0
   },
   "effects": [],
   "flags": {
@@ -177,17 +227,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_id": "sH88a7FuSdBOuytz",
   "folder": "1qbdMDcmGsdW5win",
@@ -197,8 +237,8 @@
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757235114937,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

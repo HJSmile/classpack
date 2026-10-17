@@ -26,37 +26,38 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Druid_InfectedWound.png",
+  "img": "icons/magic/death/hand-undead-skeleton-fire-pink.webp",
   "effects": [
     {
       "name": "重伤术 Harm",
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Druid_InfectedWound.png",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.xEDZVzRlAqccmrG5",
+      "img": "icons/magic/death/hand-undead-skeleton-fire-pink.webp",
+      "origin": null,
       "transfer": false,
       "_id": "RPOcH3pkt3J99lPF",
       "type": "base",
-      "system": {},
-      "changes": [],
+      "system": {
+        "changes": [],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.xEDZVzRlAqccmrG5",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "hours",
+        "expiry": "turnStart",
+        "expired": false
       },
       "description": "<p>生命值上限损失<span style=\"font-family:'Roboto Condensed', sans-serif\">与该黯蚀伤害相等数值</span></p>",
       "tint": "#ffffff",
@@ -76,48 +77,32 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1756540418504,
         "modifiedTime": 1756540439272,
         "lastModifiedBy": "vFLRCDyc5l72uRlV",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!xEDZVzRlAqccmrG5.RPOcH3pkt3J99lPF"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你将致命的病害释放到施法距离内一个你能看见的生物身上。目标必须进行一次体质豁免，豁免失败则受到14d6的黯蚀伤害，豁免成功则伤害减半。该伤害不能将目标的生命值降至1以下。若目标体质豁免失败，则其生命值上限减损与该黯蚀伤害相等数值。减损效果维持一小时，且任何可移除疾病的效应均可在时限到达前将目标生命值上限回复至正常值。\n<br /></div>",
+      "value": "<p>你将致命的病害释放到施法距离内一个你能看见的生物身上。目标必须进行一次[[/save activity=dnd5eactivity000]]{体质豁免}，豁免失败则受到 [[/damage 14d6 type=necrotic]]{14d6} 的暗蚀伤害，豁免成功则伤害减半。该伤害不能将目标的生命值降至 1 以下。若目标体质豁免失败，则其生命值上限减损与该暗蚀伤害相等数值。减损效果维持一小时，且任何可移除疾病的效应均可在时限到达前将目标生命值上限恢复至正常值。</p>",
       "chat": ""
     },
     "source": {
@@ -133,7 +118,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -143,9 +129,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -166,10 +153,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -194,26 +177,33 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "RPOcH3pkt3J99lPF"
+            "_id": "RPOcH3pkt3J99lPF",
+            "uuid": null,
+            "level": {},
+            "onSave": false
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -243,7 +233,8 @@
                 "mode": "",
                 "number": null,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -257,7 +248,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -271,7 +263,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -279,7 +272,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -290,18 +282,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "harm"
+    "identifier": "harm",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -310,8 +351,8 @@
   "sort": 38300000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

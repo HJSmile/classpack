@@ -10,7 +10,8 @@
       "itemCondition": "",
       "otherCondition": "",
       "effectCondition": "",
-      "reactionCondition": ""
+      "reactionCondition": "",
+      "onUseMacroName": "[postActiveEffects]ActivityMacro-dnd5eactivity000"
     },
     "midiProperties": {
       "confirmTargets": "always",
@@ -28,21 +29,13 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/ability_mage_glacialspike.jpg",
+  "img": "icons/magic/water/projectile-ice-shard.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<p>你制造出一块冰晶裂片，并将它射向距离内的一个生物。你对目标进行一次远程法术攻击。若击中，目标受到1d10点穿刺伤害。无论击中与否，裂片都会在之后爆裂。目标和周围5英尺范围内的每个生物必须通过一次敏捷豁免检定，否则受到2d6点寒冷伤害。</p>\n<p><strong>升环效果</strong>：当你使用2环或更高的法术位施放该法术时，使用的法术位每高一环，寒冷伤害便增加1d6点。</p>",
+      "value": "<p>你制造出一块冰晶裂片，并将它射向施法距离内的一个生物。你对目标进行一次远程法术攻击。若击中，目标受到 [[/damage 1d10 type=piercing]]{1d10} 点穿刺伤害。无论击中与否，裂片都会在之后爆裂。目标和周围 5 尺范围内的每个生物必须通过一次[[/save activity=uMKeS04QogHhGnPM]]{敏捷豁免检定}，否则受到 [[/damage 2d6 type=cold]]{2d6} 点寒冷伤害。</p><p><strong>升环施法效应。</strong>当你使用二环或更高的法术位施放该法术时，使用的法术位每高一环，寒冷伤害便增加 1d6 点。</p>",
       "chat": ""
     },
     "source": {
@@ -58,7 +51,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -68,9 +62,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -91,10 +86,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "atwill",
-      "prepared": false
     },
     "properties": [
       "somatic",
@@ -119,22 +110,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -170,14 +165,16 @@
                 "formula": ""
               },
               "number": 1,
-              "denomination": "10",
+              "denomination": 10,
               "bonus": "",
               "types": [
                 "piercing"
               ],
               "scaling": {
-                "mode": ""
-              }
+                "mode": "",
+                "number": 1
+              },
+              "modifiers": []
             }
           ]
         },
@@ -186,22 +183,22 @@
         "useConditionReason": "",
         "effectConditionText": "",
         "macroData": {
-          "name": "",
-          "command": ""
+          "name": "Midi攻击",
+          "command": "if (workflow.aborted || workflow.activity.type !== \"attack\"\n  || args[0]?.macroPass !== \"postActiveEffects\") return;\n\nconst target = Array.from(workflow.targets)[0];\nconst saveActivity = macroItem.system.activities.find(a => a.type === \"save\");\nif (!target || !saveActivity) return;\nif (!game.user.can(\"REGION_CREATE\")) {\n  return ui.notifications.warn(\"冰刃：当前用户没有创建 Region 的权限。\");\n}\n\nconst scene = canvas.scene;\nconst distance = dnd5e.utils.convertLength(5, \"ft\", scene.grid.units, { strict: false });\nconst radius = distance * scene.grid.size / scene.grid.distance;\nconst doc = target.document;\n\nconst regionData = {\n  name: `${macroItem.name}：冰晶爆裂`,\n  color: game.user.color,\n  ownership: { [game.user.id]: CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER },\n  shapes: [{\n    type: \"emanation\",\n    radius,\n    base: {\n      type: \"token\", x: doc.x, y: doc.y,\n      width: doc.width, height: doc.height,\n      shape: doc.shape ?? CONST.TOKEN_SHAPES.RECTANGLE_1,\n      rotation: doc.rotation ?? 0\n    }\n  }],\n  elevation: { bottom: null, top: null },\n  restriction: { enabled: false },\n  visibility: CONST.REGION_VISIBILITY.ALWAYS,\n  highlightMode: \"coverage\",\n  displayMeasurements: true,\n  flags: { core: { MeasuredTemplate: true } }\n};\nif (canvas.level?.id) regionData.levels = [canvas.level.id];\n\nconst [region] = await scene.createEmbeddedDocuments(\"Region\", [regionData]);\n// Explicit Save targets; do not alter the player's current target selection.\nconst targets = new Set(MidiQOL.computeTargetsFromTemplates(\n  [region], workflow.tokenUuid ?? \"\", false, \"any\", \"always\"\n));\ntargets.add(target);\n\nconst baseLevel = Number(macroItem.system.level) || 1;\nconst castLevel = Math.max(baseLevel, Number(workflow.spellLevel) || baseLevel);\n\nawait MidiQOL.completeActivityUse(saveActivity, {\n  consume: { resources: false, spellSlot: false, action: false },\n  create: { measuredTemplate: false },\n  scaling: castLevel - baseLevel,\n  midiOptions: {\n    spellLevel: castLevel,\n    targetsToUse: targets,\n    ignoreUserTargets: true,\n    isCritical: false,\n    workflowOptions: { targetConfirmation: \"none\" }\n  }\n}, { configure: false }, { create: true });\n\nawait region.delete();"
         },
         "ignoreTraits": {
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
-          "triggeredActivityId": "豁免",
+          "triggeredActivityId": "none",
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -212,13 +209,27 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "attackMode": "",
@@ -226,16 +237,52 @@
         "otherActivityUuid": "",
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       },
       "uMKeS04QogHhGnPM": {
         "type": "save",
         "_id": "uMKeS04QogHhGnPM",
         "sort": 0,
         "activation": {
-          "type": "action",
+          "type": "",
           "value": null,
-          "override": false
+          "override": true,
+          "condition": ""
         },
         "consumption": {
           "scaling": {
@@ -245,12 +292,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": true,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -262,9 +311,10 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": "sphere",
+            "type": "",
             "size": "5",
-            "count": ""
+            "count": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -281,7 +331,25 @@
           "max": ""
         },
         "damage": {
-          "parts": [],
+          "parts": [
+            {
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              },
+              "number": 2,
+              "denomination": 6,
+              "bonus": "",
+              "modifiers": [],
+              "types": [
+                "cold"
+              ],
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              }
+            }
+          ],
           "critical": {
             "allow": false
           },
@@ -294,7 +362,9 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true,
+          "bonus": ""
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -307,7 +377,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -315,7 +386,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -326,32 +396,75 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "name": "",
         "img": "",
-        "appliedEffects": [],
         "visibility": {
           "level": {
             "min": null,
             "max": null
-          }
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
         },
         "flags": {
           "region-attacher": {
             "attachRegionToTemplate": false
           }
-        }
+        },
+        "behaviors": [],
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "ice-knife"
+    "identifier": "ice-knife",
+    "method": "atwill",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -360,8 +473,8 @@
   "sort": 5900000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -23,15 +23,16 @@
       "value": "class",
       "subtype": "eldritchInvocation"
     },
-    "requirements": "邪术师等级 2",
+    "requirements": "",
     "activities": {},
     "identifier": "-",
-    "advancement": [],
+    "advancement": {},
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": 2,
-      "repeatable": false
+      "level": null,
+      "repeatable": false,
+      "items": []
     },
     "properties": [
       "mgc"
@@ -40,38 +41,21 @@
   "effects": [
     {
       "_id": "xIZ1TGQKOd2t16gn",
-      "changes": [
-        {
-          "key": "system.skills.per.value",
-          "mode": 4,
-          "value": "1",
-          "priority": null
-        },
-        {
-          "key": "system.skills.dec.value",
-          "mode": 4,
-          "value": "1",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": "Compendium.dnd5e_classpack.class-abilityphb.Tlq0BCJE6EPejRoI",
       "transfer": true,
       "flags": {},
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -82,22 +66,55 @@
       "name": "获得欺瞒、游说熟练",
       "img": "icons/commodities/currency/coin-engraved-sun-smile-copper.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.skills.per.value",
+            "value": 1,
+            "priority": null,
+            "type": "upgrade",
+            "phase": "initial",
+            "_id": "wD5tNMST2vtQ65gr",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.skills.dec.value",
+            "value": 1,
+            "priority": null,
+            "type": "upgrade",
+            "phase": "initial",
+            "_id": "0ymi579Iiu9pBKcA",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!Tlq0BCJE6EPejRoI.xIZ1TGQKOd2t16gn"
     }
   ],
   "folder": "o5aPffxN3VG2SeQa",
   "sort": 2700000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -120,9 +137,9 @@
     "default": 0
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757263900948,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

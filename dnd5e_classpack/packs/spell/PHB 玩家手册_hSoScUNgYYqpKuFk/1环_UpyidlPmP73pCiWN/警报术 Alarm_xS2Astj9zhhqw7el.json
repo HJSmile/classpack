@@ -27,24 +27,13 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "ritual"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/httpcloud3steamusercontentcomugc8425850532364419631B5934ACC67B0E430A3CEB68B5A7F287044D6D3B.jpg",
+  "img": "icons/tools/instruments/bell-gold.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你针对不速之客设置一个警报。在施法距离内指定一扇门窗或选择一个边长不大于20尺的立方区域。在法术持续时间内，任何触碰或进入目标区域的微型或更大体型生物都会触发警报。\n<br />施法时，你可以决定哪些生物不会触发警报，还可以选择警报方式为声音警报或是精神警报。\n<br />如果你选择精神警报，且警报触发时你距离目标区域不超过1里，则你的意念里会传来“乒”的警报声。如果你在睡觉，则警报将使你惊醒。\n<br />如果你选择声音警报，则警报触发时其60尺范围内将响起持续10秒摇铃声。\n<br /></div>",
+      "value": "<p>你针对不速之客设置一个警报。在施法距离内指定一扇门窗或选择一个边长不大于 20 尺的立方区域。在法术持续时间内，任何触碰或进入目标区域的微型或更大体型生物都会触发警报。施法时，你可以决定哪些生物不会触发警报，还可以选择警报方式为声音警报或是精神警报。</p><ul><li>如果你选择精神警报，且警报触发时你距离目标区域不超过 1 里，则你的意念里会传来“乒”的警报声。如果你在睡觉，则警报将使你惊醒。</li><li>如果你选择声音警报，则警报触发时其 60 尺范围内将响起持续 10 秒摇铃声。</li></ul>",
       "chat": ""
     },
     "source": {
@@ -60,7 +49,8 @@
     },
     "duration": {
       "value": "8",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -70,7 +60,8 @@
         "units": "ft",
         "type": "cube",
         "size": "20",
-        "contiguous": false
+        "contiguous": false,
+        "stationary": false
       }
     },
     "range": {
@@ -90,10 +81,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -120,22 +107,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -165,7 +156,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -173,7 +165,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -184,18 +175,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "alarm"
+    "identifier": "alarm",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -204,8 +243,8 @@
   "sort": 14100000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

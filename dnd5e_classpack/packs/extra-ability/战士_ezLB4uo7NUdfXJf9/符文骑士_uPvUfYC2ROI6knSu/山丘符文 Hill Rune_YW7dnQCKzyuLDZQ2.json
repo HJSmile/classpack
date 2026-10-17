@@ -4,7 +4,7 @@
   "img": "icons/commodities/treasure/token-engraved-alpha-grey.webp",
   "system": {
     "description": {
-      "value": "<blockquote style=\"MARGIN-RIGHT:0px\" dir=\"ltr\"><p>此符文的魔力可以赋予你如山丘巨人一般的坚韧。若你穿着或携带着一个铭刻着此符文的物品，你对抗 中毒poisoned 状态所进行的豁免检定将具有优势，你获得毒素伤害的抗性。<br />此外，你可以使用附赠动作激活此符文，以此获得钝击、挥砍和穿刺伤害抗性，持续1分钟。<br />一旦你激活了此符文，直到你完成一次短休或长休为止你都不能再次激活它。</p></blockquote>",
+      "value": "<blockquote style=\"MARGIN-RIGHT:0px\" dir=\"ltr\"><p>此符文的魔力可以赋予你如山丘巨人一般的坚韧。若你穿着或携带着一个铭刻着此符文的物品，你对抗 中毒poisoned 状态所进行的豁免检定将具有优势，你获得毒素伤害的抗性。</p><p>此外，你可以使用附赠动作激活此符文，以此获得钝击、挥砍和穿刺伤害抗性，持续1分钟。</p><p>一旦你激活了此符文，直到你完成一次短休或长休为止你都不能再次激活它。</p></blockquote>",
       "chat": ""
     },
     "source": {
@@ -44,7 +44,8 @@
             {
               "type": "itemUses",
               "value": "1",
-              "target": ""
+              "target": "",
+              "scaling": {}
             }
           ],
           "scaling": {
@@ -54,18 +55,22 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "1",
           "units": "minute",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "Ofb8ThGpoiJflXBF"
+            "_id": "Ofb8ThGpoiJflXBF",
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
@@ -81,7 +86,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -106,59 +112,169 @@
         "sort": 0,
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-hill-rune",
-    "advancement": [],
+    "advancement": {},
     "enchant": {
       "max": "",
       "period": ""
     },
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 7,
+      "repeatable": false,
+      "items": [
+        "subclass:rune-knight"
+      ]
     },
-    "properties": []
+    "properties": [
+      "mgc"
+    ]
   },
   "effects": [
     {
       "name": "山丘符文 Hill Rune",
       "img": "icons/commodities/treasure/token-engraved-alpha-grey.webp",
-      "origin": "Compendium.dnd5e_classpack.extra-ability.Item.YW7dnQCKzyuLDZQ2",
+      "origin": null,
       "transfer": false,
       "_id": "Ofb8ThGpoiJflXBF",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "piercing",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.dr.value",
+            "value": "piercing",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "oBOGoA6xdNedxopz",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.dr.value",
+            "value": "bludgeoning",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "xQvhsyCtYYMrh9MX",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.dr.value",
+            "value": "slashing",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "ynVaxyE9Ke6D9z5y",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "bludgeoning",
-          "priority": 20
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.extra-ability.Item.YW7dnQCKzyuLDZQ2",
+          "message": null
         },
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "slashing",
-          "priority": 20
-        }
-      ],
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -178,9 +294,7 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
@@ -189,26 +303,22 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": 1749885967442,
         "modifiedTime": 1749886028335,
         "lastModifiedBy": "uXKCmWFprrvnSIDm",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!YW7dnQCKzyuLDZQ2.Ofb8ThGpoiJflXBF"
     }
   ],
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -236,8 +346,8 @@
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1686421561430,
     "modifiedTime": 1749887719626,
     "lastModifiedBy": "uXKCmWFprrvnSIDm",

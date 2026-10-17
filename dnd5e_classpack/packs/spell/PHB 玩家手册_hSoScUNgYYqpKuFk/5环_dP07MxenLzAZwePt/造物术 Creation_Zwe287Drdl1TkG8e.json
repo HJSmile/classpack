@@ -27,23 +27,13 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/httpcloud3steamusercontentcomugc8425860043671208468564F38EF56C025098E1140F6D555E63A4ADABF6.jpg",
+  "img": "icons/commodities/gems/gem-rough-pendeloque-blue.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你从堕影冥界取来一些暗影物质，并在施法距离内创造一个非活体的物件。你可以创造一个植物质（类似纺织品、绳索、木质等）的物件。也可以创造一个矿物质（类似石质、水晶、金属等）的物件。创造出来的物件大小必需在5尺立方内，且其形态与材质你必需曾经见过。\n<br />法术的持续时间由所创造物件的材质决定。如果所创造物件由多种材质组合而成，则其存在时间取其中最短者。\n<br />材质                         持续时间\n<br />植物质vegetable matter       1日\n<br />石质stone 或水晶crystal      12小时\n<br />贵金属precious metals        1小时\n<br />宝石gems                     10分钟\n<br />精金adamantine 或秘银mithral 1分钟\n<br />施展其他法术时，如果以这些创造物作为其材料成分将会使该法术施法失败。\n<br /><strong>升环施法效应。</strong>使用6环或更高法术位施展该法术时，你使用的法术位每比5环高一环，创造物尺寸的立方边长就加大5尺。\n<br /></div>",
+      "value": "<p>你从堕影冥界取来一些暗影物质，并在施法距离内创造一个非活体的物件。你可以创造一个植物质（类似纺织品、绳索、木质等）的物件。也可以创造一个矿物质（类似石质、水晶、金属等）的物件。创造出来的物件大小必需在 5 立方尺内，且其形态与材质你必需曾经见过。</p><p>法术的持续时间由所创造物件的材质决定。如果所创造物件由多种材质组合而成，则其存在时间取其中最短者。</p><table><thead><tr><th><strong>材质</strong></th><th><strong>持续时间</strong></th></tr></thead><tbody><tr><td>植物质vegetable matter</td><td>1 日</td></tr><tr><td>石质stone，水晶crystal</td><td>12 小时</td></tr><tr><td>贵金属precious metals</td><td>1 小时</td></tr><tr><td>宝石gems</td><td>10 分钟</td></tr><tr><td>精金adamantine，秘银mithral</td><td>1 分钟</td></tr></tbody></table><p>施展其他法术时，如果以这些创造物作为其材料成分将会使该法术施法失败。</p><p><strong>升环施法效应。</strong>使用六环或更高法术位施展该法术时，你使用的法术位每比五环高一环，创造物尺寸的立方边长就加大 5 尺。</p>",
       "chat": ""
     },
     "source": {
@@ -60,7 +50,8 @@
     "duration": {
       "value": "",
       "units": "spec",
-      "special": ""
+      "special": "",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -72,7 +63,8 @@
         "type": "cube",
         "size": "5",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -93,10 +85,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -122,22 +110,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -167,7 +159,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -175,7 +168,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -186,18 +178,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "creation"
+    "identifier": "creation",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -206,8 +246,8 @@
   "sort": 36400000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

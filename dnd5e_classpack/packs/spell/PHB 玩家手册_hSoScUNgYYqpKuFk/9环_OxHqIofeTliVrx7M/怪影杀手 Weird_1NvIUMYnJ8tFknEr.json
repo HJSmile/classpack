@@ -29,45 +29,49 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Shadow_Shadesofdarkness.png",
+  "img": "icons/magic/death/skull-energy-light-purple.webp",
   "effects": [
     {
       "name": "怪影杀手 Weird",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Shadow_Shadesofdarkness.png",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.1NvIUMYnJ8tFknEr",
+      "img": "icons/magic/death/skull-energy-light-purple.webp",
+      "origin": null,
       "transfer": false,
       "_id": "vlXOz2JjGXIRnxHY",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.OverTime",
-          "mode": 0,
-          "value": "turn=end, label=怪影杀手 Weird, saveAbility=wis, saveDC=@attributes.spell.dc, saveMagic=true, damageRoll=4d10, damageType=psychic, saveCount=1-, rollMode=publicroll",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.OverTime",
+            "value": "turn=end, label=怪影杀手 Weird, saveAbility=wis, saveDC=@activity.save.dc.value, saveMagic=true, damageRoll=4d10, damageType=psychic, saveCount=1-, rollMode=publicroll",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "abS1hxUQaf28Bgj1",
+            "conditions": "{}",
+            "replacement": "origin"
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.1NvIUMYnJ8tFknEr",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": 10,
-        "startRound": null,
-        "startTurn": null
+        "value": 60,
+        "units": "seconds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -87,51 +91,36 @@
           "showIcon": false,
           "durationExpression": "",
           "specialDuration": [],
-          "macroRepeat": "none"
+          "macroRepeat": "none",
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1756659540746,
         "modifiedTime": 1786654570135,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
         "exportSource": null
       },
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!1NvIUMYnJ8tFknEr.vlXOz2JjGXIRnxHY"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你利用一群生物最恐惧的事物，在它们的心中创造出一个只有它们自己能看见的虚幻生物。指定施法距离内一点为中心，其周边半径30尺球状区域内的所有生物必须进行一次感知豁免。\n<br />豁免失败者将在法术终止前陷入恐慌。该法术造出的幻像能唤起受术者心中最深的恐惧，使它最恐怖的噩梦显现为一个永远无法摆脱的威胁。如果生物因该法术陷入恐慌，则它在自己每回合结束时必须进行一次感知豁免，豁免失败则受到4d10点心灵伤害。\n<br />豁免成功则此法术在该生物身上的效应终止。\n<br /></div>",
+      "value": "<p>你利用一群生物最恐惧的事物，在它们的心中创造出一个只有它们自己能看见的虚幻生物。指定施法距离内一点为中心，其周边半径 30 尺球状区域内的所有生物必须进行一次[[/save activity=dnd5eactivity000]]{感知豁免}。豁免失败者将在法术终止前陷入&amp;Reference[condition=frightened apply=false]{恐慌}。该法术造出的幻象能唤起受术者心中最深的恐惧，使它最恐怖的噩梦显现为一个永远无法摆脱的威胁。如果生物因该法术陷入恐慌，则它在自己每回合结束时必须进行一次感知豁免，豁免失败则受到 [[/damage 4d10 type=psychic]]{4d10} 点心灵伤害。豁免成功则此法术在该生物身上的效应终止。</p>",
       "chat": ""
     },
     "source": {
@@ -147,7 +136,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -159,7 +149,8 @@
         "type": "sphere",
         "size": "30",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -180,10 +171,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -209,26 +196,44 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "vlXOz2JjGXIRnxHY"
+            "_id": "vlXOz2JjGXIRnxHY",
+            "uuid": null,
+            "level": {},
+            "onSave": false,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1756659540746,
+              "modifiedTime": 1786654570135,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "exportSource": null
+            }
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -254,7 +259,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -268,7 +274,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -276,7 +283,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -287,18 +293,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "weird"
+    "identifier": "weird",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -307,8 +362,8 @@
   "sort": 7900000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

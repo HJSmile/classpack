@@ -2,15 +2,15 @@
   "_id": "dP3iX2uL3SU5Mq07",
   "name": "集群守卫 Swarmkeeper（TCE）",
   "type": "subclass",
-  "img": "modules/dnd5e_classpack/Nicons/sha_spell_shadow_shadesofdarkness_nightborne1.jpg",
+  "img": "icons/creatures/invertebrates/wasp-swarm-movement.webp",
   "effects": [],
   "folder": "TutF2vL1tIQZgRSh",
   "sort": 101563,
   "flags": {},
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757275023121,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",
@@ -23,7 +23,7 @@
   },
   "system": {
     "description": {
-      "value": "<p>有的游侠感受到了与周身自然之间的紧密联系，他们通过自己与世界之间的魔法联系向自然的本源伸出双手，并通过一片自然精魂的集群与自然本身羁连。集群随后化作战斗中的强力帮手，或游侠的一位得力助手。有的游侠是被放逐者或是隐士他们更在意修行自我而非与他人打交道并找不快。而其他的集群守卫则乐意创造服务于所有被他们视为自然集群的一部分者集体利益的美丽社会。</p>\n<h3><strong>集群守卫魔法 Swarmkeeper Magic</strong></h3>\n<p>如果你之前并未掌握，你学会@UUID[Compendium.dnd5e_classpack.spell.H5gghxp0hfT3BAlC]{法师之手}戏法，当你施展它的时候，其形式是聚集在一起的自然精魂。 同样，你会在到达指定游侠等级时，学会一个额外的1环或更高环阶的法术，如集群守卫法术列表所示。这些法术对你视为游侠法术，但它不计入你的已知法术总数中。</p>\n<table border=\"1\">\n<tbody>\n<tr>\n<th>职业等级</th>\n<th>法术</th>\n</tr>\n<tr>\n<td>3rd</td>\n<td>@UUID[Compendium.dnd5e_classpack.spell.sLkNbDcU39qcVt14]{妖火}</td>\n</tr>\n<tr>\n<td>5th</td>\n<td>@UUID[Compendium.dnd5e_classpack.spell.oopuSIBsaXzQKw1Q]{蛛网术}</td>\n</tr>\n<tr>\n<td>9th</td>\n<td>@UUID[Compendium.dnd5e_classpack.spell.gjE6zBmfdUOwXiae]{气化形体}</td>\n</tr>\n<tr>\n<td>13th</td>\n<td>@UUID[Compendium.dnd5e_classpack.spell.uF6bn9CQaLwvmxwv]{秘法眼}</td>\n</tr>\n<tr>\n<td>17th</td>\n<td>@UUID[Compendium.dnd5e_classpack.spell.eGYMgP3fmIUQEXMm]{疫病虫群}</td>\n</tr>\n</tbody>\n</table>",
+      "value": "<p>有的游侠感受到了与周身自然之间的紧密联系，他们通过自己与世界之间的魔法联系向自然的本源伸出双手，并通过一片自然精魂的集群与自然本身羁连。集群随后化作战斗中的强力帮手，或游侠的一位得力助手。有的游侠是被放逐者或是隐士他们更在意修行自我而非与他人打交道并找不快。而其他的集群守卫则乐意创造服务于所有被他们视为自然集群的一部分者集体利益的美丽社会。</p><h3><strong>集群守卫魔法 Swarmkeeper Magic</strong></h3><p>如果你之前并未掌握，你学会@UUID[Compendium.dnd5e_classpack.spell.H5gghxp0hfT3BAlC]{法师之手}戏法，当你施展它的时候，其形式是聚集在一起的自然精魂。 同样，你会在到达指定游侠等级时，学会一个额外的1环或更高环阶的法术，如集群守卫法术列表所示。这些法术对你视为游侠法术，但它不计入你的已知法术总数中。</p><table><tbody><tr><th>职业等级</th><th>法术</th></tr><tr><td>3rd</td><td>@UUID[Compendium.dnd5e_classpack.spell.sLkNbDcU39qcVt14]{妖火}</td></tr><tr><td>5th</td><td>@UUID[Compendium.dnd5e_classpack.spell.oopuSIBsaXzQKw1Q]{蛛网术}</td></tr><tr><td>9th</td><td>@UUID[Compendium.dnd5e_classpack.spell.gjE6zBmfdUOwXiae]{气化形体}</td></tr><tr><td>13th</td><td>@UUID[Compendium.dnd5e_classpack.spell.uF6bn9CQaLwvmxwv]{秘法眼}</td></tr><tr><td>17th</td><td>@UUID[Compendium.dnd5e_classpack.spell.eGYMgP3fmIUQEXMm]{疫病虫群}</td></tr></tbody></table>",
       "chat": ""
     },
     "source": {
@@ -34,165 +34,257 @@
     },
     "identifier": "swarmkeeper",
     "classIdentifier": "ranger",
-    "advancement": [
-      {
+    "advancement": {
+      "3eev3140f4m4ifwe": {
         "_id": "3eev3140f4m4ifwe",
         "type": "ItemGrant",
         "configuration": {
           "items": [
             {
               "uuid": "Compendium.dnd5e_classpack.extra-ability.PTCrPW76ym8UFl6t",
-              "optional": false
+              "optional": false,
+              "sort": 0
             }
           ],
           "optional": false,
-          "spell": null
+          "spell": null,
+          "sorting": "m"
         },
         "value": {},
         "level": 3,
-        "title": "职业特性"
+        "name": "职业特性",
+        "flags": {},
+        "hint": ""
       },
-      {
+      "8rgvc1g4t4jtszwl": {
         "_id": "8rgvc1g4t4jtszwl",
         "type": "ItemGrant",
         "configuration": {
           "items": [
             {
               "uuid": "Compendium.dnd5e_classpack.extra-ability.x5rkrFYjoYkkY1jj",
-              "optional": false
+              "optional": false,
+              "sort": 0
             }
           ],
           "optional": false,
-          "spell": null
+          "spell": null,
+          "sorting": "m"
         },
         "value": {},
         "level": 7,
-        "title": "职业特性"
+        "name": "职业特性",
+        "flags": {},
+        "hint": ""
       },
-      {
+      "glxpcb9suuqvu19u": {
         "_id": "glxpcb9suuqvu19u",
         "type": "ItemGrant",
         "configuration": {
           "items": [
             {
               "uuid": "Compendium.dnd5e_classpack.extra-ability.ib0ifxFwCSyC0MQs",
-              "optional": false
+              "optional": false,
+              "sort": 0
             }
           ],
           "optional": false,
-          "spell": null
+          "spell": null,
+          "sorting": "m"
         },
         "value": {},
         "level": 11,
-        "title": "职业特性"
+        "name": "职业特性",
+        "flags": {},
+        "hint": ""
       },
-      {
+      "fzcpl7zzfmqyjd3i": {
         "_id": "fzcpl7zzfmqyjd3i",
         "type": "ItemGrant",
         "configuration": {
           "items": [
             {
               "uuid": "Compendium.dnd5e_classpack.extra-ability.IMV7fmo8A5rk0rzm",
-              "optional": false
+              "optional": false,
+              "sort": 0
             }
           ],
           "optional": false,
-          "spell": null
+          "spell": null,
+          "sorting": "m"
         },
         "value": {},
         "level": 15,
-        "title": "职业特性"
+        "name": "职业特性",
+        "flags": {},
+        "hint": ""
       },
-      {
+      "v8vdh5hdlvpr5c4h": {
         "_id": "v8vdh5hdlvpr5c4h",
         "type": "ItemGrant",
         "configuration": {
           "items": [
             {
               "uuid": "Compendium.dnd5e_classpack.spell.H5gghxp0hfT3BAlC",
-              "optional": false
+              "optional": false,
+              "sort": 0
             },
             {
               "uuid": "Compendium.dnd5e_classpack.spell.sLkNbDcU39qcVt14",
-              "optional": false
+              "optional": false,
+              "sort": 0
             }
           ],
-          "optional": true,
-          "spell": null
+          "optional": false,
+          "spell": {
+            "ability": [
+              "wis"
+            ],
+            "method": "spell",
+            "prepared": 1,
+            "uses": {
+              "max": "",
+              "per": "",
+              "requireSlot": false
+            }
+          },
+          "sorting": "m"
         },
         "value": {},
         "level": 3,
-        "title": "获得法术"
+        "name": "获得法术",
+        "flags": {},
+        "hint": ""
       },
-      {
+      "n9wdc159ql8ywc3s": {
         "_id": "n9wdc159ql8ywc3s",
         "type": "ItemGrant",
         "configuration": {
           "items": [
             {
               "uuid": "Compendium.dnd5e_classpack.spell.oopuSIBsaXzQKw1Q",
-              "optional": false
+              "optional": false,
+              "sort": 0
             }
           ],
-          "optional": true,
-          "spell": null
+          "optional": false,
+          "spell": {
+            "ability": [
+              "wis"
+            ],
+            "method": "spell",
+            "prepared": 1,
+            "uses": {
+              "max": "",
+              "per": "",
+              "requireSlot": false
+            }
+          },
+          "sorting": "m"
         },
         "value": {},
         "level": 5,
-        "title": "获得法术"
+        "name": "获得法术",
+        "flags": {},
+        "hint": ""
       },
-      {
+      "jx958z2cl7nhejnz": {
         "_id": "jx958z2cl7nhejnz",
         "type": "ItemGrant",
         "configuration": {
           "items": [
             {
               "uuid": "Compendium.dnd5e_classpack.spell.gjE6zBmfdUOwXiae",
-              "optional": false
+              "optional": false,
+              "sort": 0
             }
           ],
-          "optional": true,
-          "spell": null
+          "optional": false,
+          "spell": {
+            "ability": [
+              "wis"
+            ],
+            "method": "spell",
+            "prepared": 1,
+            "uses": {
+              "max": "",
+              "per": "",
+              "requireSlot": false
+            }
+          },
+          "sorting": "m"
         },
         "value": {},
         "level": 9,
-        "title": "获得法术"
+        "name": "获得法术",
+        "flags": {},
+        "hint": ""
       },
-      {
+      "6kdga7gufxow5j8x": {
         "_id": "6kdga7gufxow5j8x",
         "type": "ItemGrant",
         "configuration": {
           "items": [
             {
               "uuid": "Compendium.dnd5e_classpack.spell.uF6bn9CQaLwvmxwv",
-              "optional": false
+              "optional": false,
+              "sort": 0
             }
           ],
-          "optional": true,
-          "spell": null
+          "optional": false,
+          "spell": {
+            "ability": [
+              "wis"
+            ],
+            "method": "spell",
+            "prepared": 1,
+            "uses": {
+              "max": "",
+              "per": "",
+              "requireSlot": false
+            }
+          },
+          "sorting": "m"
         },
         "value": {},
         "level": 13,
-        "title": "获得法术"
+        "name": "获得法术",
+        "flags": {},
+        "hint": ""
       },
-      {
+      "sbxza7l1zl7x5mmy": {
         "_id": "sbxza7l1zl7x5mmy",
         "type": "ItemGrant",
         "configuration": {
           "items": [
             {
               "uuid": "Compendium.dnd5e_classpack.spell.eGYMgP3fmIUQEXMm",
-              "optional": false
+              "optional": false,
+              "sort": 0
             }
           ],
-          "optional": true,
-          "spell": null
+          "optional": false,
+          "spell": {
+            "ability": [
+              "wis"
+            ],
+            "method": "spell",
+            "prepared": 1,
+            "uses": {
+              "max": "",
+              "per": "",
+              "requireSlot": false
+            }
+          },
+          "sorting": "m"
         },
         "value": {},
         "level": 17,
-        "title": "获得法术"
+        "name": "获得法术",
+        "flags": {},
+        "hint": ""
       }
-    ],
+    },
     "spellcasting": {
       "progression": "none",
       "ability": "",

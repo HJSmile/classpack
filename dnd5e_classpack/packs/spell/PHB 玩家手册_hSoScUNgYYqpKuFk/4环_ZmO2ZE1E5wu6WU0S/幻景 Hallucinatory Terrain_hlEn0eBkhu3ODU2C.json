@@ -27,23 +27,13 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Racial_Ultravision.png",
+  "img": "icons/environment/wilderness/terrain-river-road-gray.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你使施法距离内一处150尺立方区域内的自然地形在视觉、听觉、嗅觉上都像是另一种自然地形。因此，开阔的平原或者一条路可能会变得像是一片沼泽，或是丘陵、裂谷以及其他困难地形，甚至是无法通过的地形。一个池塘可能变得看起来像一片草地，一个悬崖像是一个缓坡，或者使一条乱石沟像是一条宽阔平坦的道路。区域内经过加工的建筑、设备或生物的外表不会改变。\n<br />地形的触觉特征不会改变，所以进入这片区域的生物可能会看穿幻象。如果触觉区别不明显，一个认真调查幻象的生物可以尝试进行一次对抗法术豁免DC 的智力（调查）检定以揭穿幻象。\n<br />对于一个识破了幻象本体的生物，幻象看起来就像是一层模糊的图像叠加在真实地形上。\n<br /></div>",
+      "value": "<p>你使施法距离内一处 150 尺立方区域内的自然地形在视觉、听觉、嗅觉上都像是另一种自然地形。因此，开阔的平原或者一条路可能会变得像是一片沼泽，或是丘陵、裂谷以及其他困难地形，甚至是无法通过的地形。一个池塘可能变得看起来像一片草地，一个悬崖像是一个缓坡，或者使一条乱石沟像是一条宽阔平坦的道路。区域内经过加工的建筑、设备或生物的外表不会改变。</p><p>地形的触觉特征不会改变，所以进入这片区域的生物可能会看穿幻象。如果触觉区别不明显，一个认真调查幻象的生物可以尝试进行一次对抗法术豁免 DC 的[[/check ability=int skill=inv]]{智力（调查）检定}以揭穿幻象。对于一个识破了幻象本体的生物，幻象看起来就像是一层模糊的图像叠加在真实地形上。</p>",
       "chat": ""
     },
     "source": {
@@ -59,7 +49,8 @@
     },
     "duration": {
       "value": "24",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -71,7 +62,8 @@
         "type": "cube",
         "size": "150",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -92,10 +84,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -121,22 +109,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -166,7 +158,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -174,7 +167,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -185,18 +177,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "hallucinatory-terrain"
+    "identifier": "hallucinatory-terrain",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -205,8 +245,8 @@
   "sort": 10000000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

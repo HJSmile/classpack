@@ -12,7 +12,7 @@
       "removeAttackDamageButtons": "default",
       "reactionCondition": "",
       "otherCondition": "",
-      "onUseMacroName": "[preActiveEffects]ItemMacro"
+      "onUseMacroName": "[templatePlaced]ActivityMacro-LfbPcVEwYkOWf9oG,[postSave]ActivityMacro-LfbPcVEwYkOWf9oG,[postSave]ActivityMacro-F5n7f06df0iANWFu"
     },
     "midiProperties": {
       "confirmTargets": "always",
@@ -27,25 +27,15 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "dae": {
       "macro": {
         "name": "油腻术 Grease",
         "img": "icons/magic/air/fog-gas-smoke-orange.webp",
         "type": "script",
         "scope": "global",
-        "command": "if (args[0].macroPass === \"preActiveEffects\" || args[0].tag === \"OnUse\") {\n  return await game.modules.get(\"ActiveAuras\").api.AAHelpers.applyTemplate(args);\n}",
-        "author": "WqWGW8MuBm7BNHxt",
+        "command": "",
+        "author": "dvg25zW2MvzsvMOU",
         "ownership": {
           "default": 3
         },
@@ -54,14 +44,15 @@
         "sort": 0,
         "flags": {},
         "_stats": {
-          "coreVersion": "12.343",
+          "coreVersion": "14.368",
           "systemId": "dnd5e",
-          "systemVersion": "4.3.9",
+          "systemVersion": "6.0.5",
           "createdTime": null,
           "modifiedTime": null,
           "lastModifiedBy": null,
           "compendiumSource": null,
-          "duplicateSource": null
+          "duplicateSource": null,
+          "exportSource": null
         }
       }
     },
@@ -71,98 +62,23 @@
         "source": "chris-premades",
         "version": "0.0.0"
       }
+    },
+    "dnd5e_classpack": {
+      "regionAutomation": {
+        "key": "grease",
+        "main": "LfbPcVEwYkOWf9oG",
+        "repeated": "F5n7f06df0iANWFu",
+        "schemaVersion": 2,
+        "terrain": true
+      }
     }
   },
   "img": "icons/magic/air/fog-gas-smoke-orange.webp",
   "_id": "ocOtoi8hLFVfkG8V",
-  "effects": [
-    {
-      "name": "油腻术 Grease",
-      "img": "icons/magic/air/fog-gas-smoke-orange.webp",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.ocOtoi8hLFVfkG8V",
-      "transfer": false,
-      "_id": "cthYaNGuTGEYM0PY",
-      "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.OverTime",
-          "mode": 2,
-          "value": "turn=start, label=Fall prone on fail, saveAbility=dex, saveDC=@attributes.spell.dc, saveMagic=true, allowIncapacitated=true",
-          "priority": 20
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "tint": "#ffffff",
-      "statuses": [],
-      "sort": 0,
-      "flags": {
-        "dae": {
-          "enableCondition": "",
-          "disableCondition": "",
-          "disableIncapacitated": false,
-          "selfTarget": false,
-          "selfTargetAlways": false,
-          "dontApply": false,
-          "stackable": "multi",
-          "showIcon": false,
-          "durationExpression": "",
-          "specialDuration": [],
-          "macroRepeat": "none"
-        },
-        "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
-        },
-        "core": {
-          "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": true,
-          "aura": "All",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": true,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
-        }
-      },
-      "_stats": {
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "coreVersion": "13.351",
-        "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
-        "createdTime": 1753069446224,
-        "modifiedTime": 1786656092274,
-        "lastModifiedBy": "TEhQZHmGMOcY5c4a",
-        "exportSource": null
-      },
-      "_key": "!items.effects!ocOtoi8hLFVfkG8V.cthYaNGuTGEYM0PY"
-    }
-  ],
+  "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你在施法距离内指定一点，光滑的油脂以该点为中心覆盖一处10尺的方状区域。在法术持续时间内。该区域变为困难地形。\n<br />油脂出现时，站在其范围内的每个生物必须进行一次敏捷豁免，豁免失败则失足倒地。进入该区域或在区域内结束其回合的生物也必须进行该敏捷豁免，豁免失败则失足倒地。\n<br /></div>",
+      "value": "<p>你在施法距离内指定一点，光滑的油脂以该点为中心覆盖一处 10 尺的方格区域。在法术持续时间内。该区域变为困难地形。</p><p>油脂出现时，站在其范围内的每个生物必须进行一次敏捷豁免，豁免失败则失足倒地。进入该区域或在区域内结束其回合的生物也必须进行该敏捷豁免，豁免失败则失足倒地。</p>",
       "chat": ""
     },
     "source": {
@@ -178,7 +94,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -190,7 +107,8 @@
         "type": "square",
         "size": "10",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -212,71 +130,91 @@
       "cost": 0,
       "supply": 0
     },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
-    },
     "properties": [
       "vocal",
       "somatic",
-      "material",
-      "mgc"
+      "material"
     ],
     "activities": {
-      "dnd5eactivity000": {
-        "_id": "dnd5eactivity000",
+      "LfbPcVEwYkOWf9oG": {
         "type": "save",
+        "name": "施法与初次豁免",
+        "_id": "LfbPcVEwYkOWf9oG",
+        "img": "",
+        "sort": 0,
         "activation": {
           "type": "action",
-          "value": null,
           "override": false
         },
+        "behaviors": [
+          {
+            "name": "油腻",
+            "_id": "XP8NRnrYXGmQ4dLi",
+            "type": "difficultTerrain",
+            "config": {
+              "types": []
+            },
+            "level": {
+              "min": null,
+              "max": null
+            }
+          }
+        ],
         "consumption": {
-          "targets": [],
           "scaling": {
-            "allowed": false,
-            "max": ""
+            "allowed": false
           },
-          "spellSlot": true
+          "spellSlot": true,
+          "targets": []
         },
         "description": {
+          "value": "",
           "chatFlavor": ""
         },
         "duration": {
           "units": "inst",
+          "expiry": null,
           "concentration": false,
           "override": false
         },
-        "effects": [
-          {
-            "_id": "cthYaNGuTGEYM0PY"
-          }
-        ],
+        "effects": [],
+        "flags": {},
         "range": {
+          "units": "self",
           "override": false
         },
         "target": {
-          "prompt": true,
           "template": {
             "contiguous": false,
+            "stationary": false,
             "units": "ft"
           },
           "affects": {
             "choice": false
           },
-          "override": false
+          "override": false,
+          "prompt": true
         },
         "uses": {
           "spent": 0,
-          "max": "",
-          "recovery": []
+          "recovery": [],
+          "max": ""
+        },
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
         },
         "damage": {
           "onSave": "half",
-          "parts": [],
           "critical": {
             "allow": false
-          }
+          },
+          "parts": []
         },
         "save": {
           "ability": [
@@ -285,21 +223,24 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true,
+          "bonus": ""
         },
-        "sort": 0,
         "useConditionText": "",
         "useConditionReason": "",
         "effectConditionText": "",
+        "otherActivityId": "none",
         "macroData": {
-          "name": "",
-          "command": ""
+          "name": "区域：放置后补 Entry",
+          "command": "const cfg = workflow.item.flags.dnd5e_classpack.regionAutomation;\nconst pass = args[0]?.macroPass;\nfunction ownEffect(effect, role) {\n  if (effect.flags?.dnd5e_classpack?.regionEffect !== role) return false;\n  const itemUuid = workflow.item.uuid;\n  return [effect.origin, ...Object.values(effect.system?.origin ?? {}),\n    effect._stats?.duplicateSource, effect.flags?.dnd5e_classpack?.sourceItemUuid]\n    .some(uuid => typeof uuid === \"string\" &&\n      (uuid === itemUuid || uuid.startsWith(itemUuid + \".\")));\n}\nfunction concentration() {\n  return MidiQOL.getConcentrationEffect(workflow.actor, workflow.item)\n    ?? MidiQOL.getConcentrationEffect(workflow.actor);\n}\nif (pass === \"templatePlaced\") {\n  const repeated = workflow.item.system.activities.get(cfg.repeated);\n  if (!repeated) throw new Error(\"区域重复活动不存在\");\n  for (const uuid of workflow.templateUuids ?? []) {\n    const region = await fromUuid(uuid);\n    if (region?.documentName !== \"Region\") continue;\n    const behavior = region.behaviors.find(b => b.type === \"midi-qol.regionActivity\" &&\n      b.system.sourceItemUuid === workflow.item.uuid && !b.flags?.dnd5e_classpack?.regionPassive);\n    if (!behavior) throw new Error(\"Midi 区域行为不存在\");\n    const rules = foundry.utils.deepClone(behavior.system.rules);\n    if (!rules.some(r => r.trigger === \"entry\" && r.action === \"useActivity\" && r.targetUuid === repeated.uuid)) {\n      rules.push({ trigger: \"entry\", action: \"useActivity\", targetUuid: repeated.uuid });\n    }\n    const extra = [];\n    if (cfg.terrain && !region.behaviors.some(b => b.type === \"dnd5e.difficultTerrain\")) {\n      extra.push({ name: workflow.item.name + \"：困难地形\", type: \"dnd5e.difficultTerrain\",\n        system: { magical: true, types: [], ignoredDispositions: [] } });\n    }\n    if (cfg.key === \"spiritGuardians\" && !region.behaviors.some(b =>\n      b.flags?.dnd5e_classpack?.regionPassive === \"spirit-slow\")) {\n      const enter = workflow.item.system.activities.get(cfg.slowEnter);\n      const exit = workflow.item.system.activities.get(cfg.slowExit);\n      if (!enter || !exit) throw new Error(\"灵体卫士减速活动不存在\");\n      extra.push({ name: \"灵体卫士：减速进出\", type: \"midi-qol.regionActivity\",\n        flags: { dnd5e_classpack: { regionPassive: \"spirit-slow\" } },\n        system: { sourceItemUuid: workflow.item.uuid, sourceActorUuid: workflow.actor.uuid,\n          castLevel: workflow.spellLevel ?? workflow.item.system.level,\n          dispositionFilter: 0, excludeSource: false, oncePerTurn: false, wallRestriction: \"none\",\n          rules: [{ trigger: \"entry\", action: \"useActivity\", targetUuid: enter.uuid },\n            { trigger: \"exit\", action: \"useActivity\", targetUuid: exit.uuid }] }\n      });\n    }\n    await MidiQOL.socket().executeAsGM(\"setupRegion\", {\n      regionUuid: region.uuid,\n      update: {\n        \"flags.dnd5e_classpack.regionAutomation\": { key: cfg.key, sourceItemUuid: workflow.item.uuid,\n          exemptActorUuids: workflow._spiritExemptActorUuids ?? [] },\n        behaviors: [{ _id: behavior.id, system: { rules } }]\n      }, behaviors: extra\n    });\n  }\n}\nif (pass === \"postSave\") {\n  const actors = new Map(Array.from(workflow.failedSaves ?? [])\n    .filter(token => token.actor).map(token => [token.actor.uuid, token.actor]));\n  for (const actor of actors.values()) await MidiQOL.socket().executeAsGM(\"toggleStatusEffect\", {\n    actorUuid: actor.uuid, statusId: \"prone\", options: { active: true }\n  });\n}\n"
         },
         "ignoreTraits": {
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -307,29 +248,236 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
           "automationOnly": false,
           "otherActivityCompatible": true,
-          "identifier": "",
+          "otherActivityAsParentType": true,
+          "identifier": "grease-cast",
           "displayActivityName": false,
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": true,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
+          "rollAs": "target",
           "preRemoveConditionText": "",
           "postRemoveConditionText": ""
         },
-        "otherActivityId": ""
+        "regionBehavior": {
+          "enabled": true,
+          "dispositionFilter": 0,
+          "excludeSource": false,
+          "oncePerTurn": false,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": [
+            {
+              "trigger": "turnEnd",
+              "action": "useActivity",
+              "targetId": "grease-repeat"
+            }
+          ]
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
+      },
+      "F5n7f06df0iANWFu": {
+        "type": "save",
+        "name": "区域重复豁免",
+        "_id": "F5n7f06df0iANWFu",
+        "img": "",
+        "sort": 100000,
+        "activation": {
+          "type": "",
+          "value": null,
+          "override": true,
+          "condition": ""
+        },
+        "behaviors": [],
+        "consumption": {
+          "targets": [],
+          "spellSlot": false,
+          "scaling": {
+            "allowed": false,
+            "max": ""
+          }
+        },
+        "description": {
+          "value": "",
+          "chatFlavor": ""
+        },
+        "duration": {
+          "override": true,
+          "units": "inst",
+          "concentration": false,
+          "expiry": null
+        },
+        "effects": [],
+        "flags": {},
+        "range": {
+          "override": true,
+          "units": "self",
+          "special": ""
+        },
+        "target": {
+          "override": true,
+          "prompt": false,
+          "template": {
+            "type": "",
+            "units": "ft",
+            "contiguous": false,
+            "stationary": false
+          },
+          "affects": {
+            "type": "creature",
+            "count": "1",
+            "choice": false
+          }
+        },
+        "uses": {
+          "spent": 0,
+          "recovery": [],
+          "max": ""
+        },
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "damage": {
+          "onSave": "half",
+          "critical": {
+            "allow": false
+          },
+          "parts": []
+        },
+        "save": {
+          "ability": [
+            "dex"
+          ],
+          "dc": {
+            "calculation": "spellcasting",
+            "formula": ""
+          },
+          "visible": true,
+          "bonus": ""
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": "none",
+        "macroData": {
+          "name": "失败倒地",
+          "command": "const cfg = workflow.item.flags.dnd5e_classpack.regionAutomation;\nconst pass = args[0]?.macroPass;\nfunction ownEffect(effect, role) {\n  if (effect.flags?.dnd5e_classpack?.regionEffect !== role) return false;\n  const itemUuid = workflow.item.uuid;\n  return [effect.origin, ...Object.values(effect.system?.origin ?? {}),\n    effect._stats?.duplicateSource, effect.flags?.dnd5e_classpack?.sourceItemUuid]\n    .some(uuid => typeof uuid === \"string\" &&\n      (uuid === itemUuid || uuid.startsWith(itemUuid + \".\")));\n}\nfunction concentration() {\n  return MidiQOL.getConcentrationEffect(workflow.actor, workflow.item)\n    ?? MidiQOL.getConcentrationEffect(workflow.actor);\n}\nif (pass === \"postSave\") {\n  const actors = new Map(Array.from(workflow.failedSaves ?? [])\n    .filter(token => token.actor).map(token => [token.actor.uuid, token.actor]));\n  for (const actor of actors.values()) await MidiQOL.socket().executeAsGM(\"toggleStatusEffect\", {\n    actorUuid: actor.uuid, statusId: \"prone\", options: { active: true }\n  });\n}\n"
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "never",
+          "autoTargetType": "any",
+          "autoTargetAction": "none",
+          "automationOnly": true,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "grease-repeat",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": true,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "grease"
+    "identifier": "grease",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -338,8 +486,8 @@
   "sort": 34500000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

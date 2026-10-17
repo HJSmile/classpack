@@ -6,15 +6,12 @@
   "effects": [
     {
       "name": "防护斗篷 Cloak of Protection",
-      "origin": "Compendium.dnd5e_classpack.itempack.Item.F82337E4668DE30C",
+      "origin": null,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "disabled": false,
       "flags": {
@@ -30,47 +27,17 @@
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system"
         }
       },
       "_id": "puMXQuzfYqUDM7Au",
-      "changes": [
-        {
-          "key": "system.attributes.ac.bonus",
-          "mode": 2,
-          "value": "+ 1",
-          "priority": 20
-        },
-        {
-          "key": "system.bonuses.abilities.save",
-          "mode": 2,
-          "value": "+ 1",
-          "priority": 20
-        }
-      ],
       "description": "",
       "transfer": true,
       "statuses": [],
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -80,8 +47,46 @@
       },
       "img": "icons/equipment/back/cloak-heavy-fur-blue.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.ac.bonus",
+            "value": "+ 1",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "FDlFMJxufxstbCdb",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.rolls.ability.save.bonus",
+            "value": "+ 1",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "OTd9JdrCgzVILlvE",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.itempack.Item.F82337E4668DE30C",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!F82337E4668DE30C.puMXQuzfYqUDM7Au"
     }
   ],
@@ -127,12 +132,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
@@ -156,10 +156,8 @@
     },
     "attunement": "required",
     "equipped": false,
-    "rarity": "uncommon",
     "identified": true,
     "cover": null,
-    "crewed": false,
     "uses": {
       "max": "",
       "spent": null,
@@ -167,8 +165,7 @@
     },
     "armor": {
       "value": 0,
-      "dex": 0,
-      "magicalBonus": null
+      "dex": 0
     },
     "hp": {
       "value": 0,
@@ -178,7 +175,8 @@
     },
     "speed": {
       "value": null,
-      "conditions": ""
+      "conditions": "",
+      "units": "ft"
     },
     "strength": 0,
     "proficient": null,
@@ -195,12 +193,18 @@
     ],
     "activities": {},
     "identifier": "-cloak-of-protection",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "uncommon"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1713010442504,
     "modifiedTime": 1757871278094,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

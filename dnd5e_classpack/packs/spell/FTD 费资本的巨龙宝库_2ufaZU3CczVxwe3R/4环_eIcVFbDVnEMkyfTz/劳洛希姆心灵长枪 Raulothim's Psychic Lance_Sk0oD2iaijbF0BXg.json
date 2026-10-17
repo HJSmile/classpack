@@ -1,10 +1,10 @@
 {
   "name": "劳洛希姆心灵长枪 Raulothim's Psychic Lance",
   "type": "spell",
-  "img": "modules/dnd5e_classpack/Nicons/ability_evoker_azurestrike.png",
+  "img": "icons/magic/light/beam-rays-magenta-large.webp",
   "system": {
     "description": {
-      "value": "<p>你从你的额头处释放一道闪闪发光的灵能长矛，瞄准法术范围内你可见的一个生物。或者，你可以说出一个生物的名字。如果被唤名的生物身处法术范围内，即使你无法看见它，它也会成为法术的目标。如果被唤名的生物不处于法术范围内，长矛会消失并且没有任何效果。<span><br />      </span>目标必须成功通过一次智力豁免，否则将受到<span>7d6</span>点心灵伤害并陷入失能，直至你的下回合开始。如果豁免成功，它只承受一半伤害并且不会失能。<span><br />      </span><span class=\"GramE\"><strong><span style=\"font-family:宋体;mso-bidi-font-family:宋体\">升环效果</span></strong></span>：当你用<span>5</span>环或更高的<span class=\"GramE\">法术位</span>施展此法术时，你使用的<span class=\"GramE\">法术位每比</span><span>4</span>环高一环，法术的伤害增加<span>1d6</span>。<span><br /><br /></span></p>",
+      "value": "<p>你从你的额头处释放一道闪闪发光的灵能长矛，瞄准施法距离内你可见的一个生物。或者，你可以说出一个生物的名字。如果被唤名的生物身处施法距离内，即使你无法看见它，它也会成为法术的目标。如果被唤名的生物不处于施法距离内，长矛会消失并且没有任何效果。</p><p>目标必须成功通过一次智力豁免，否则将受到7d6点心灵伤害并陷入失能，直至你的下回合开始。如果豁免成功，它只承受一半伤害并且不会失能。</p><p><strong>升环施法效应。</strong>当你用5环或更高的法术位施展此法术时，你使用的法术位每比4环高一环，法术的伤害增加1d6。</p>",
       "chat": ""
     },
     "source": {
@@ -22,7 +22,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -30,10 +31,11 @@
         "type": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "width": "20",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -54,10 +56,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -81,27 +79,33 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "LyKrpSTghH0btO2a",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -131,7 +135,8 @@
                 "mode": "whole",
                 "number": 1,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -145,7 +150,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -159,7 +165,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -167,7 +174,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -178,34 +184,79 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "raulothims-psychic-lance"
+    "identifier": "raulothims-psychic-lance",
+    "method": "spell",
+    "prepared": 0
   },
   "effects": [
     {
-      "origin": "Compendium.dnd5e_classpack.spell.Item.Sk0oD2iaijbF0BXg",
+      "origin": null,
       "duration": {
-        "rounds": 1,
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "rounds",
+        "expiry": "sourceStart",
+        "expired": false
       },
       "disabled": false,
       "_id": "LyKrpSTghH0btO2a",
-      "changes": [],
       "tint": "#ffffff",
       "transfer": false,
       "flags": {
@@ -218,9 +269,7 @@
           "stackable": "noneName",
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": [
-            "turnStartSource"
-          ],
+          "specialDuration": [],
           "disableIncapacitated": false,
           "dontApply": false,
           "showIcon": false,
@@ -230,36 +279,17 @@
         "core": {
           "overlay": false
         },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "nameOverride": "",
-          "customCheck": "",
-          "wallsBlock": "system",
-          "statuses": []
-        },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         }
       },
       "name": "劳洛希姆心灵长枪 Raulothim's Psychic Lance",
       "description": "",
       "statuses": [],
       "_stats": {
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1756930349186,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
@@ -267,10 +297,27 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/ability_evoker_azurestrike.png",
+      "img": "icons/magic/light/beam-rays-magenta-large.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.Sk0oD2iaijbF0BXg",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!Sk0oD2iaijbF0BXg.LyKrpSTghH0btO2a"
     }
   ],
@@ -303,15 +350,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "raulothimsPsychicLance",
@@ -328,8 +367,8 @@
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711698507717,
     "modifiedTime": 1757235114937,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

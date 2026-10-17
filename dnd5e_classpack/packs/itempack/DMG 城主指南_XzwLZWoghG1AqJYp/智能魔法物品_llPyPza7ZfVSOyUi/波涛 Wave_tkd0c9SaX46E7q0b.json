@@ -7,27 +7,41 @@
     {
       "name": "波涛 Wave",
       "img": "icons/weapons/polearms/trident-silver-blue.webp",
-      "origin": "Compendium.dnd5e_classpack.itempack.Item.tkd0c9SaX46E7q0b",
+      "origin": null,
       "_id": "nFCLuEOKANzeXVCT",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.dnd5e.initiativeAdv",
-          "mode": 2,
-          "value": "+1",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "flags.dnd5e.initiativeAdv",
+            "value": "+1",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "WjXPgMUTVJosnDlQ",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.itempack.Item.tkd0c9SaX46E7q0b",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -45,42 +59,26 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757075441833,
         "modifiedTime": 1757075483530,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!tkd0c9SaX46E7q0b.nFCLuEOKANzeXVCT"
     }
   ],
@@ -112,17 +110,11 @@
       "idv": false,
       "ida": false
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
-      "value": "<p><em>（需海神的信徒同调）</em></p>\n<p>波涛 藏在白羽山的地下城中，这把精致的三叉戟上面雕有波浪、贝壳和海洋生物。尽管你必须是海神的信徒才能与其同调，但波涛 本身也会欣然接受某些新的改变。</p>\n<p>你用这把武器发动的攻击检定和伤害掷骰获得+3加值。如果你用它造成重击，目标会额外受相当于其最大生命值一半点黯蚀伤害。</p>\n<p>波涛还有跟@UUID[Compendium.dnd5e_classpack.itempack.CFC8BAFF686DB7DD]{命令鱼类三叉戟}，以及警戒武器weapon of warning一样的功能。你在持握它时，还可以获得如同水下呼吸帽cap of water breathing一样的增益。你还可以用它实现@UUID[Compendium.dnd5e_classpack.itempack.D7247AC7803BA43F]{力场魔方 Cube of Force}的功能，且可以直接选择其效应而无需按压魔方的各面。</p>\n<p><strong>智能Sentience</strong>。波涛是一把绝对中立的智能魔法武器。它的智力是14，感知10，魅力18。它的听觉和黑暗视觉的感官范围为120尺。<br />这把武器能够说、读和理解水族语Aquan，同时也能够与其持用者通过心灵感应进行交流。它可以与水生动物进行交流，如同使用了法术@UUID[Compendium.dnd5e_classpack.spell.3JUEqJSbgArlUBR5]{动物交谈 Speak with Animals}，此时还可以用心灵感应让其持用者加入对话。</p>\n<p><strong>个性Personality</strong>。波涛不安时会哼唱小曲，曲子可能是船夫曲也有可能是神圣的海神赞歌。<br />波涛 渴望将凡人转变为信奉诸海神的信徒，或者一直保持无信直到死亡。如果其持用者不能秉持其目标传遍世界，它就会进行对抗。<br />波涛对一个叫做雷铸Thunderforge的荒凉小岛有所眷恋，因为那正是它的锻造之地。一位海神曾将一个风暴巨人家族监禁在那个小岛中。这些风暴巨人便锻造出这把武器奉献给海神，或是反叛海神。<br />波涛一直隐藏着一个关于它天性和目标的秘密。除去它对海神的忠诚，波涛害怕自己的真正意图是杀死一名海神。而这一命运或许自己终究无法避免。</p>",
+      "value": "<p><em>（需海神的信徒同调）</em></p><p>波涛 藏在白羽山的地下城中，这把精致的三叉戟上面雕有波浪、贝壳和海洋生物。尽管你必须是海神的信徒才能与其同调，但波涛 本身也会欣然接受某些新的改变。</p><p>你用这把武器发动的攻击检定和伤害掷骰获得+3加值。如果你用它造成重击，目标会额外受相当于其最大生命值一半点黯蚀伤害。</p><p>波涛还有跟@UUID[Compendium.dnd5e_classpack.itempack.CFC8BAFF686DB7DD]{命令鱼类三叉戟}，以及警戒武器weapon of warning一样的功能。你在持握它时，还可以获得如同水下呼吸帽cap of water breathing一样的增益。你还可以用它实现@UUID[Compendium.dnd5e_classpack.itempack.D7247AC7803BA43F]{力场魔方 Cube of Force}的功能，且可以直接选择其效应而无需按压魔方的各面。</p><p><strong>智能Sentience</strong>。波涛是一把绝对中立的智能魔法武器。它的智力是14，感知10，魅力18。它的听觉和黑暗视觉的感官范围为120尺。</p><p>这把武器能够说、读和理解水族语Aquan，同时也能够与其持用者通过心灵感应进行交流。它可以与水生动物进行交流，如同使用了法术@UUID[Compendium.dnd5e_classpack.spell.3JUEqJSbgArlUBR5]{动物交谈 Speak with Animals}，此时还可以用心灵感应让其持用者加入对话。</p><p><strong>个性Personality</strong>。波涛不安时会哼唱小曲，曲子可能是船夫曲也有可能是神圣的海神赞歌。</p><p>波涛 渴望将凡人转变为信奉诸海神的信徒，或者一直保持无信直到死亡。如果其持用者不能秉持其目标传遍世界，它就会进行对抗。</p><p>波涛对一个叫做雷铸Thunderforge的荒凉小岛有所眷恋，因为那正是它的锻造之地。一位海神曾将一个风暴巨人家族监禁在那个小岛中。这些风暴巨人便锻造出这把武器奉献给海神，或是反叛海神。</p><p>波涛一直隐藏着一个关于它天性和目标的秘密。除去它对海神的忠诚，波涛害怕自己的真正意图是杀死一名海神。而这一命运或许自己终究无法避免。</p>",
       "chat": ""
     },
     "source": {
@@ -142,10 +134,8 @@
     },
     "attunement": "required",
     "equipped": false,
-    "rarity": "legendary",
     "identified": true,
     "cover": null,
-    "crewed": false,
     "range": {
       "value": 20,
       "long": 60,
@@ -177,7 +167,8 @@
           "mode": "",
           "number": null,
           "formula": ""
-        }
+        },
+        "modifiers": []
       },
       "base": {
         "number": 1,
@@ -194,7 +185,8 @@
           "mode": "",
           "number": null,
           "formula": ""
-        }
+        },
+        "modifiers": []
       }
     },
     "armor": {
@@ -220,7 +212,7 @@
       "baseItem": "trident"
     },
     "container": null,
-    "magicalBonus": 3,
+    "magicalBonus": "3",
     "activities": {
       "5tu6HjNwBib6psqO": {
         "type": "attack",
@@ -240,12 +232,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -256,7 +250,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -300,7 +295,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -308,7 +304,6 @@
           "triggeredActivityConditionText": "workflow.isCritical === true",
           "triggeredActivityTargets": "hitTargets",
           "triggeredActivityRollAs": "firstHitTarget",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -319,13 +314,27 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "attackMode": "oneHanded",
@@ -333,18 +342,49 @@
         "otherActivityUuid": "",
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       },
       "yakXQ6WlU5oQQEJA": {
         "type": "cast",
         "spell": {
           "uuid": "Compendium.dnd5e_classpack.spell.Item.xaSXewdCx3aWtczk",
           "challenge": {
-            "attack": null,
-            "save": 15,
+            "save": "15",
             "override": true
           },
-          "level": "4",
+          "level": 4,
           "properties": [
             "vocal",
             "somatic",
@@ -369,17 +409,20 @@
             {
               "type": "itemUses",
               "value": "1",
-              "target": ""
+              "target": "",
+              "scaling": {}
             }
           ]
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "range": {
           "units": "self",
@@ -388,7 +431,8 @@
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -412,7 +456,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -420,7 +465,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "never",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -431,16 +475,61 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "",
-        "img": ""
+        "img": "",
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       },
       "QESyw7L4Hik9kvjU": {
         "type": "damage",
@@ -460,12 +549,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -476,7 +567,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -505,7 +597,11 @@
               "bonus": "",
               "types": [
                 "necrotic"
-              ]
+              ],
+              "modifiers": [],
+              "scaling": {
+                "number": 1
+              }
             }
           ]
         },
@@ -520,7 +616,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -528,7 +625,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -539,28 +635,78 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
     "identifier": "-wave",
     "attuned": false,
     "ammunition": {},
-    "mastery": ""
+    "mastery": "",
+    "rarities": [
+      "legendary"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1713010446109,
     "modifiedTime": 1757275698084,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

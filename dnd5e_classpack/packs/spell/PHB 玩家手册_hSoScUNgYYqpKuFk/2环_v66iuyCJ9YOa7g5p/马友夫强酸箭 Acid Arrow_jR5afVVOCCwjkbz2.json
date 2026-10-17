@@ -30,41 +30,18 @@
       "idv": false,
       "ida": false
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/magic/acid/projectile-bolts-salvo-green.webp",
   "effects": [
     {
-      "changes": [
-        {
-          "key": "flags.midi-qol.OverTime",
-          "mode": 2,
-          "value": "turn=end,removeCondition=true,damageRoll=2d4,damageType=acid,label=Acid Arrow",
-          "priority": 20
-        }
-      ],
       "description": "<p>Causes 2d4 acid damage at the end of next turn</p>",
       "disabled": false,
       "duration": {
-        "rounds": null,
-        "seconds": null,
-        "turns": null,
-        "startTime": null,
-        "combat": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": "targetEnd",
+        "expired": false
       },
       "flags": {
         "dfreds-convenient-effects": {
@@ -80,50 +57,30 @@
           "selfTargetAlways": false,
           "dontApply": false,
           "stackable": "noneName",
-          "showIcon": true,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": [
-            "turnEnd"
-          ],
+          "specialDuration": [],
           "enableCondition": "",
-          "disableCondition": ""
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system"
+          "disableCondition": "",
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
         }
       },
       "name": "Acid Arrow",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.jR5afVVOCCwjkbz2",
+      "origin": null,
       "tint": "#ffffff",
       "transfer": false,
       "statuses": [],
       "_id": "rd4Cw0bftP6Rzm6R",
       "_stats": {
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1786655963914,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
@@ -133,14 +90,42 @@
       },
       "img": "icons/magic/acid/projectile-bolts-salvo-green.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.OverTime",
+            "value": "turn=end,removeCondition=true,damageRoll=(2 + @scaling.increase)d4,damageType=acid,label=Acid Arrow",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "p5pm7JVl2g6kvck9",
+            "conditions": "{}",
+            "replacement": "origin"
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.jR5afVVOCCwjkbz2",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 2,
+      "folder": null,
       "_key": "!items.effects!jR5afVVOCCwjkbz2.rd4Cw0bftP6Rzm6R"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 一支闪烁的绿色箭矢疾速的飞向一个施法距离内的目标，并爆散成强酸水雾。法术对目标发动一次远程法术攻击。若命中，则目标立即受到4d4点强酸伤害，并在其下一回合结束时再受到2d4点强酸伤害。若未命中，则酸液箭矢溅射到了目标，造成初始伤害一半的伤害，并且不会在下一回合结束时造成伤害。\n<br /><strong>升环施法效应。</strong>使用3环或更高法术位施展该法术时，你使用的法术位每比2环高一环，其初始伤害和后续伤害就各增加1d4。\n<br /></div>",
+      "value": "<p>一支闪烁的绿色箭矢疾速的飞向一个施法距离内的目标，并爆散成强酸水雾。法术对目标发动一次远程法术攻击。若命中，则目标立即受到 4d4 点强酸伤害，并在其下一回合结束时再受到 2d4 点强酸伤害。若未命中，则酸液箭矢溅射到了目标，造成初始伤害一半的伤害，并且不会在下一回合结束时造成伤害。</p><p><strong>升环施法效应。</strong>使用三环或更高法术位施展该法术时，你使用的法术位每比二环高一环，其初始伤害和后续伤害就各增加 1d4。</p>",
       "chat": ""
     },
     "source": {
@@ -157,7 +142,8 @@
       "value": 1
     },
     "duration": {
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -167,9 +153,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -190,10 +177,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": true
     },
     "properties": [
       "vocal",
@@ -219,26 +202,46 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "rd4Cw0bftP6Rzm6R"
+            "_id": "rd4Cw0bftP6Rzm6R",
+            "level": {
+              "min": null,
+              "max": null
+            },
+            "uuid": null,
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": 1786655963914,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -274,7 +277,7 @@
                 "formula": ""
               },
               "number": 4,
-              "denomination": "4",
+              "denomination": 4,
               "bonus": "",
               "types": [
                 "acid"
@@ -283,7 +286,8 @@
                 "mode": "whole",
                 "number": 1,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ]
         },
@@ -299,15 +303,15 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
           "triggeredActivityId": "伤害",
-          "triggeredActivityConditionText": "workflow.hitTargets.size ==== 0",
+          "triggeredActivityConditionText": "!workflow.hitTargets.size",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -318,13 +322,27 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": false,
+          "triggeredActivityConfigure": false,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "attackMode": "",
@@ -332,17 +350,51 @@
         "otherActivityUuid": "",
         "name": "",
         "img": "",
-        "appliedEffects": [
-          "rd4Cw0bftP6Rzm6R"
-        ]
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "behaviors": [],
+        "flags": {},
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       },
       "dnd5eactivity200": {
         "_id": "dnd5eactivity200",
         "type": "damage",
         "activation": {
-          "type": "action",
+          "type": "",
           "value": null,
-          "override": false
+          "override": true,
+          "condition": ""
         },
         "consumption": {
           "targets": [],
@@ -350,30 +402,35 @@
             "allowed": false,
             "max": ""
           },
-          "spellSlot": true
+          "spellSlot": false
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": true,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": true,
+          "special": "",
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
           },
-          "override": false
+          "override": true
         },
         "uses": {
           "spent": 0,
@@ -401,7 +458,8 @@
                 "mode": "whole",
                 "number": 1,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ]
         },
@@ -417,7 +475,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -425,7 +484,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -436,20 +494,69 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "behaviors": [],
+        "flags": {},
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
-    "identifier": "acid-arrow"
+    "identifier": "acid-arrow",
+    "method": "spell",
+    "prepared": 1
   },
   "ownership": {
     "default": 0
@@ -458,8 +565,8 @@
   "sort": 17800000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711700579049,
     "modifiedTime": 1757419089174,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

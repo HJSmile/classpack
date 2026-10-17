@@ -2,33 +2,47 @@
   "_id": "kqh0eV640hXk4flg",
   "name": "降咒 Bestow Curse",
   "type": "spell",
-  "img": "modules/dnd5e_classpack/Nicons/ability_revendreth_mage.jpg",
+  "img": "icons/magic/unholy/hand-light-pink.webp",
   "effects": [
     {
       "name": "降咒  攻击检定具有劣势",
-      "img": "modules/dnd5e_classpack/Nicons/ability_revendreth_mage.jpg",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.kqh0eV640hXk4flg",
+      "img": "icons/magic/unholy/hand-light-pink.webp",
+      "origin": null,
       "transfer": false,
       "_id": "QCOGxpdTYCWVyjSA",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.disadvantage.attack.all",
-          "mode": 2,
-          "value": "+1",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.disadvantage.attack.all",
+            "value": "targetActorUuid === \"@actorUuid\"",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "MDOj2TbSZcZlYdkw",
+            "conditions": "{}",
+            "replacement": "origin"
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.kqh0eV640hXk4flg",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -46,72 +60,71 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1755167695377,
         "modifiedTime": 1757140681259,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!kqh0eV640hXk4flg.QCOGxpdTYCWVyjSA"
     },
     {
       "name": "降咒 浪费动作",
-      "img": "modules/dnd5e_classpack/Nicons/ability_revendreth_mage.jpg",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.kqh0eV640hXk4flg",
+      "img": "icons/magic/unholy/hand-light-pink.webp",
+      "origin": null,
       "transfer": false,
       "_id": "dzoukSK4Cds9grw7",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.OverTime",
-          "mode": 2,
-          "value": "turn=start, label=豁免失败则浪费动作, saveAbility=wis, saveDC=@attributes.spell.dc, saveMagic=true, saveCount=1-, rollMode=publicroll, allowIncapacitated=true",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.OverTime",
+            "value": "turn=start, label=豁免失败则浪费动作, saveAbility=wis, saveDC=@activity.save.dc.value, saveMagic=true, rollMode=public, allowIncapacitated=true, saveCount=0",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "3yfjfWTijwlpWnd7",
+            "conditions": "{}",
+            "replacement": "origin"
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.kqh0eV640hXk4flg",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -129,65 +142,60 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1755167696429,
         "modifiedTime": 1786655993924,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!kqh0eV640hXk4flg.dzoukSK4Cds9grw7"
     },
     {
       "name": "降咒 额外伤害",
-      "img": "modules/dnd5e_classpack/Nicons/ability_revendreth_mage.jpg",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.kqh0eV640hXk4flg",
+      "img": "icons/magic/unholy/hand-light-pink.webp",
+      "origin": null,
       "transfer": false,
       "_id": "t7mOsv61MMvTBntu",
       "type": "base",
-      "system": {},
-      "changes": [],
+      "system": {
+        "changes": [],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.kqh0eV640hXk4flg",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 60,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -205,78 +213,82 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "default",
+          "expiryMode": "default"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1755167697296,
         "modifiedTime": 1757140812388,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!kqh0eV640hXk4flg.t7mOsv61MMvTBntu"
     },
     {
       "name": "降咒 感知劣势",
-      "img": "modules/dnd5e_classpack/Nicons/ability_revendreth_mage.jpg",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.kqh0eV640hXk4flg",
+      "img": "icons/magic/unholy/hand-light-pink.webp",
+      "origin": null,
       "transfer": false,
       "_id": "pheFgOIQunjXqDVN",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.disadvantage.save.wis",
-          "value": "+1",
-          "mode": 2,
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "system.abilities.wis.save.roll.mode",
+            "value": -1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "2RzFannMljjD0XTt",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.abilities.wis.check.roll.mode",
+            "value": -1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "IiusiggqfDH8sw4N",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.disadvantage.check.wis",
-          "value": "+1",
-          "mode": 2,
-          "priority": 20
-        }
-      ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.kqh0eV640hXk4flg",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -297,74 +309,76 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1755167698086,
         "modifiedTime": 1786693328639,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!kqh0eV640hXk4flg.pheFgOIQunjXqDVN"
     },
     {
       "name": "降咒 力量劣势",
-      "img": "modules/dnd5e_classpack/Nicons/ability_revendreth_mage.jpg",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.kqh0eV640hXk4flg",
+      "img": "icons/magic/unholy/hand-light-pink.webp",
+      "origin": null,
       "transfer": false,
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.disadvantage.save.str",
-          "value": "+1",
-          "mode": 2,
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "system.abilities.str.save.roll.mode",
+            "value": -1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "qCOFbL8Q5BJiXtQW",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.abilities.str.check.roll.mode",
+            "value": -1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "Cgj0yqhnfyJV5QaC",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.disadvantage.check.str",
-          "value": "+1",
-          "mode": 2,
-          "priority": 20
-        }
-      ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.kqh0eV640hXk4flg",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -385,75 +399,77 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757140894244,
         "modifiedTime": 1786693328653,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
         "exportSource": null
       },
       "_id": "EkrbDBcvQIspKgvv",
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!kqh0eV640hXk4flg.EkrbDBcvQIspKgvv"
     },
     {
       "name": "降咒 体质劣势",
-      "img": "modules/dnd5e_classpack/Nicons/ability_revendreth_mage.jpg",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.kqh0eV640hXk4flg",
+      "img": "icons/magic/unholy/hand-light-pink.webp",
+      "origin": null,
       "transfer": false,
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.disadvantage.save.con",
-          "value": "+1",
-          "mode": 2,
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "system.abilities.con.save.roll.mode",
+            "value": -1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "7mYERjttGcSMKvtI",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.abilities.con.check.roll.mode",
+            "value": -1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "6cfZpU60eM7Z667J",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.disadvantage.check.con",
-          "value": "+1",
-          "mode": 2,
-          "priority": 20
-        }
-      ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.kqh0eV640hXk4flg",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -474,75 +490,77 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757140895634,
         "modifiedTime": 1786693328667,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
         "exportSource": null
       },
       "_id": "djLq9LkcIJW7ISBe",
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!kqh0eV640hXk4flg.djLq9LkcIJW7ISBe"
     },
     {
       "name": "降咒 敏捷劣势",
-      "img": "modules/dnd5e_classpack/Nicons/ability_revendreth_mage.jpg",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.kqh0eV640hXk4flg",
+      "img": "icons/magic/unholy/hand-light-pink.webp",
+      "origin": null,
       "transfer": false,
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.disadvantage.save.dex",
-          "value": "+1",
-          "mode": 2,
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "system.abilities.dex.save.roll.mode",
+            "value": -1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "IVwjPFGV9vOg4n3R",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.abilities.dex.check.roll.mode",
+            "value": -1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "IJiiZVptnmotnU6u",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.disadvantage.check.dex",
-          "value": "+1",
-          "mode": 2,
-          "priority": 20
-        }
-      ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.kqh0eV640hXk4flg",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -563,75 +581,77 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757140896898,
         "modifiedTime": 1786693328677,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
         "exportSource": null
       },
       "_id": "GxA1KoKEYXAcvSem",
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!kqh0eV640hXk4flg.GxA1KoKEYXAcvSem"
     },
     {
       "name": "降咒 魅力劣势",
-      "img": "modules/dnd5e_classpack/Nicons/ability_revendreth_mage.jpg",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.kqh0eV640hXk4flg",
+      "img": "icons/magic/unholy/hand-light-pink.webp",
+      "origin": null,
       "transfer": false,
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.disadvantage.save.cha",
-          "value": "+1",
-          "mode": 2,
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "system.abilities.cha.save.roll.mode",
+            "value": -1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "meSdktesQWG0NGxt",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.abilities.cha.check.roll.mode",
+            "value": -1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "uBD2GLyABFiG7i6m",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.disadvantage.check.cha",
-          "value": "+1",
-          "mode": 2,
-          "priority": 20
-        }
-      ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.kqh0eV640hXk4flg",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -652,75 +672,77 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757140898219,
         "modifiedTime": 1786693328690,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
         "exportSource": null
       },
       "_id": "RZcqfjnSlaW335pz",
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!kqh0eV640hXk4flg.RZcqfjnSlaW335pz"
     },
     {
       "name": "降咒 智力劣势",
-      "img": "modules/dnd5e_classpack/Nicons/ability_revendreth_mage.jpg",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.kqh0eV640hXk4flg",
+      "img": "icons/magic/unholy/hand-light-pink.webp",
+      "origin": null,
       "transfer": false,
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.disadvantage.save.int",
-          "value": "+1",
-          "mode": 2,
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "system.abilities.int.save.roll.mode",
+            "value": -1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "gPvR1jlC98I7xm2W",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.abilities.int.check.roll.mode",
+            "value": -1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "tG6EQoAa0Dz8TncR",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.disadvantage.check.int",
-          "value": "+1",
-          "mode": 2,
-          "priority": 20
-        }
-      ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.kqh0eV640hXk4flg",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -741,43 +763,27 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757140899362,
         "modifiedTime": 1786693328704,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
         "exportSource": null
       },
       "_id": "jVioySOLCH1VJdBM",
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!kqh0eV640hXk4flg.jVioySOLCH1VJdBM"
     }
   ],
@@ -805,17 +811,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "bestowCurse",
@@ -826,7 +822,7 @@
   },
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你触碰一名生物。该生物必须进行一次感知豁免并成功通过，否则将在法术持续时间内被诅咒。施展法术时，你从以下诅咒选项选择其一：\n<br />选择一个属性值。受诅咒影响时，目标进行该属性的豁免检定和属性检定时具有劣势。\n<br />受诅咒影响时，目标对你进行的攻击检定具有劣势。\n<br />受诅咒影响时，目标必须在其每回合开始时进行一次感知豁免，豁免失败则浪费掉该回合的动作。\n<br />受诅咒影响时，你的攻击和法术对目标额外造成1d8的黯蚀伤害。\n<br />法术移除诅咒可终止此法术的效应。DM 也可以让你选择其他诅咒，但它们不该比上表更强大。诅咒效应最终由DM 裁定。\n<br /><strong>升环施法效应。</strong>使用4环或更高法术位施展该法术时，法术的持续时间变为：专注，至多10分钟。使用5环或更高法术位时，变为8小时。使用7环或更高法术位时，变为24小时。使用9环法术位时，法术将持续到被解除。使用5环或更高法术位\n<br />施展此法术时无需在其持续时间内维持专注。\n<br /></div>",
+      "value": "<p>你触碰一名生物。该生物必须进行一次[[/save activity=dnd5eactivity000]]{感知豁免}并成功通过，否则将在法术持续时间内被诅咒。施展法术时，你从以下诅咒选项选择其一：</p><ul><li>选择一个属性值。受诅咒影响时，目标进行该属性的豁免检定和属性检定时具有劣势。</li><li>受诅咒影响时，目标对你进行的攻击检定具有劣势。</li><li>受诅咒影响时，目标必须在其每回合开始时进行一次感知豁免，豁免失败则浪费掉该回合的动作。</li><li>受诅咒影响时，你的攻击和法术对目标额外造成 [[/damage 1d8 type=necrotic]]{1d8} 的暗蚀伤害。</li></ul><p>法术移除诅咒可终止此法术的效应。DM 也可以让你选择其他诅咒，但它们不该比上表更强大。诅咒效应最终由 DM 裁定。</p><p><strong>升环施法效应。</strong>使用四环或更高法术位施展该法术时，法术的持续时间变为：专注，至多 10 分钟。使用五环或更高法术位时，变为 8 小时。使用七环或更高法术位时，变为 24 小时。使用九环法术位时，法术将持续到被解除。使用五环或更高法术位施展此法术时无需在其持续时间内维持专注。</p>",
       "chat": ""
     },
     "source": {
@@ -842,7 +838,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -852,9 +849,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -874,10 +872,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -903,58 +897,180 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "QCOGxpdTYCWVyjSA",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1755167695377,
+              "modifiedTime": 1757140681259,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           },
           {
             "_id": "dzoukSK4Cds9grw7",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1755167696429,
+              "modifiedTime": 1786655993924,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "exportSource": null
+            }
           },
           {
             "_id": "t7mOsv61MMvTBntu",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1755167697296,
+              "modifiedTime": 1757140812388,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           },
           {
             "_id": "pheFgOIQunjXqDVN",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1755167698086,
+              "modifiedTime": 1786693328639,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "exportSource": null
+            }
           },
           {
             "_id": "EkrbDBcvQIspKgvv",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1757140894244,
+              "modifiedTime": 1786693328653,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "exportSource": null
+            }
           },
           {
             "_id": "djLq9LkcIJW7ISBe",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1757140895634,
+              "modifiedTime": 1786693328667,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "exportSource": null
+            }
           },
           {
             "_id": "GxA1KoKEYXAcvSem",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1757140896898,
+              "modifiedTime": 1786693328677,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "exportSource": null
+            }
           },
           {
             "_id": "RZcqfjnSlaW335pz",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1757140898219,
+              "modifiedTime": 1786693328690,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "exportSource": null
+            }
           },
           {
-            "_id": "jVioySOLCH1VJdBM"
+            "_id": "jVioySOLCH1VJdBM",
+            "uuid": null,
+            "level": {},
+            "onSave": false,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1757140899362,
+              "modifiedTime": 1786693328704,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "exportSource": null
+            }
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -980,7 +1096,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -994,7 +1111,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -1002,7 +1120,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -1013,39 +1130,76 @@
           "rollMode": "default",
           "chooseEffects": true,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "name": "",
         "img": "",
-        "appliedEffects": [
-          "QCOGxpdTYCWVyjSA",
-          "dzoukSK4Cds9grw7",
-          "t7mOsv61MMvTBntu",
-          "pheFgOIQunjXqDVN",
-          "EkrbDBcvQIspKgvv",
-          "djLq9LkcIJW7ISBe",
-          "GxA1KoKEYXAcvSem",
-          "RZcqfjnSlaW335pz",
-          "jVioySOLCH1VJdBM"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "bestow-curse"
+    "identifier": "bestow-curse",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

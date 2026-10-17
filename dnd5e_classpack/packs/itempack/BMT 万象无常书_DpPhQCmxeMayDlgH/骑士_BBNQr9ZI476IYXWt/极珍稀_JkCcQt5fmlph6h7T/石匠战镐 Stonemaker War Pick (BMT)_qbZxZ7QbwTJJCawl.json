@@ -12,7 +12,7 @@
       "revision": 1
     },
     "description": {
-      "value": "<div class=\"rd__b  rd__b--2\"><p>武器（战镐），极珍稀（需同调）<br />你用这把魔法战镐发动的攻击检定与其伤害掷骰具有+1加值。且它具有以下的特殊属性：<br /></p><ul style=\"MARGIN:0px auto\"><li><p><strong>融身入石Meld into Stone。</strong>你可以用这把战镐施展法术<em>@UUID[Compendium.dnd5e_classpack.spell.Item.pJ6hE8Vab5Ypuqm4]{融身入石 Meld into Stone}</em>。一旦此属性被使用，直到次日黎明前不能被再次使用。</p></li><li><p><strong>石化Petrification。</strong>这把战镐具有[[/r 1d6 + 1]]发充能。如果你对一个生命值不满100点的生物掷出了一次重击，你可以消耗1发充能，迫使该生物通过一次[[/save ability=con dc=15]]豁免。豁免失败时，生物将陷入 <strong>石化Petrified</strong> 状态，持续8小时。当战镐的充能数归零后，它失去这条属性。</p></li></ul><p>You gain a +1 bonus to attack and damage rolls made with this magic war pick. It has the following special properties:</p><ul class=\"rd__list rd__list-hang-notitle\"><li class=\"rd__li \"><p class=\"rd__p-list-item\" data-roll-name-ancestor=\"Meld into Stone\"><span class=\"bold rd__list-item-name\">Meld into Stone.</span> You can cast the @spell[Meld into Stone] spell from this war pick. Once this property is used, it can't be used again until the next dawn.</p></li><li class=\"rd__li \"><p class=\"rd__p-list-item\" data-roll-name-ancestor=\"Petrification\"><span class=\"bold rd__list-item-name\">Petrification.</span> The war pick has [[/r 1d6 + 1]] charges. If you score a critical hit against a creature that has fewer than 100 hit points, you can expend 1 charge from the war pick to have that creature make a [[/save ability=con dc=15]] saving throw. On a failed save, the creature has the petrified condition for 8 hours. When the war pick has no charges remaining, it loses this property.</p></li></ul></div>",
+      "value": "<p>武器（战镐），极珍稀（需同调）</p><p>你用这把魔法战镐发动的攻击检定与其伤害掷骰具有+1加值。且它具有以下的特殊属性：</p><ul><li><h3>融身入石Meld into Stone。</h3><p>你可以用这把战镐施展法术<em>@UUID[Compendium.dnd5e_classpack.spell.Item.pJ6hE8Vab5Ypuqm4]{融身入石 Meld into Stone}</em>。一旦此属性被使用，直到次日黎明前不能被再次使用。</p></li><li><h3>石化Petrification。</h3><p>这把战镐具有[[/r 1d6 + 1]]发充能。如果你对一个生命值不满100点的生物掷出了一次重击，你可以消耗1发充能，迫使该生物通过一次[[/save ability=con dc=15]]豁免。豁免失败时，生物将陷入 <strong>石化Petrified</strong> 状态，持续8小时。当战镐的充能数归零后，它失去这条属性。</p></li></ul><p>You gain a +1 bonus to attack and damage rolls made with this magic war pick. It has the following special properties:</p><ul><li><p data-roll-name-ancestor=\"Meld into Stone\"><span class=\"bold\">Meld into Stone.</span> You can cast the @spell[Meld into Stone] spell from this war pick. Once this property is used, it can't be used again until the next dawn.</p></li><li><p data-roll-name-ancestor=\"Petrification\"><span class=\"bold\">Petrification.</span> The war pick has [[/r 1d6 + 1]] charges. If you score a critical hit against a creature that has fewer than 100 hit points, you can expend 1 charge from the war pick to have that creature make a [[/save ability=con dc=15]] saving throw. On a failed save, the creature has the petrified condition for 8 hours. When the war pick has no charges remaining, it loses this property.</p></li></ul>",
       "chat": ""
     },
     "proficient": null,
@@ -28,7 +28,6 @@
     "attuned": true,
     "identified": true,
     "equipped": true,
-    "rarity": "veryRare",
     "type": {
       "value": "martialM",
       "baseItem": "warpick"
@@ -48,7 +47,7 @@
       "spent": 0,
       "recovery": []
     },
-    "magicalBonus": 1,
+    "magicalBonus": "1",
     "damage": {
       "base": {
         "types": [
@@ -63,7 +62,8 @@
         },
         "custom": {
           "enabled": false
-        }
+        },
+        "modifiers": []
       },
       "versatile": {
         "number": null,
@@ -74,7 +74,8 @@
         },
         "scaling": {
           "number": 1
-        }
+        },
+        "modifiers": []
       }
     },
     "ammunition": {
@@ -98,20 +99,25 @@
           "spellSlot": true,
           "targets": []
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -153,7 +159,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -161,7 +168,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -172,18 +178,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "attackMode": "oneHanded",
         "ammunition": "",
-        "otherActivityUuid": ""
+        "otherActivityUuid": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       },
       "CrHNlvJazL3pjbfO": {
         "_id": "CrHNlvJazL3pjbfO",
@@ -201,19 +255,24 @@
           "spellSlot": true,
           "targets": []
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -233,8 +292,6 @@
         },
         "spell": {
           "challenge": {
-            "attack": null,
-            "save": null,
             "override": false
           },
           "level": null,
@@ -258,7 +315,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -266,7 +324,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -277,13 +334,58 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
         }
       }
     },
@@ -293,9 +395,14 @@
     },
     "container": null,
     "cover": null,
-    "crewed": false,
     "armor": {
       "value": null
+    },
+    "rarities": [
+      "veryRare"
+    ],
+    "crew": {
+      "value": []
     }
   },
   "img": "icons/weapons/axes/pickaxe-double-brown.webp",
@@ -327,16 +434,17 @@
       "noConcentrationCheck": false,
       "toggleEffect": false,
       "ignoreTotalCover": false
-    }
+    },
+    "dnd5e": {}
   },
   "effects": [],
   "folder": "JkCcQt5fmlph6h7T",
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1751738888053,
     "modifiedTime": 1751738888053,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

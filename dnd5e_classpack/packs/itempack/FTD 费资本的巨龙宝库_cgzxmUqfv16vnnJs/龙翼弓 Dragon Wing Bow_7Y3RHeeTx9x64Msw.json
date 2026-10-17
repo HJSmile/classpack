@@ -23,12 +23,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -39,7 +41,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -77,7 +80,7 @@
                 "formula": ""
               },
               "number": 1,
-              "denomination": "6",
+              "denomination": 6,
               "bonus": "",
               "types": [
                 "poison",
@@ -89,7 +92,11 @@
                 "acid",
                 "lightning",
                 "psychic"
-              ]
+              ],
+              "modifiers": [],
+              "scaling": {
+                "number": 1
+              }
             }
           ]
         },
@@ -104,7 +111,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -112,7 +120,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -123,13 +130,27 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "attackMode": "oneHanded",
@@ -137,7 +158,39 @@
         "otherActivityUuid": "",
         "name": "龙翼弓攻击",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       },
       "DwUh6V2cabsHLbEr": {
         "type": "enchant",
@@ -157,12 +210,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
@@ -177,7 +232,8 @@
               ],
               "effect": [],
               "item": []
-            }
+            },
+            "uuid": null
           }
         ],
         "range": {
@@ -188,7 +244,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -203,7 +260,7 @@
           "max": ""
         },
         "enchant": {
-          "identifier": ""
+          "self": false
         },
         "restrictions": {
           "allowMagical": false,
@@ -222,7 +279,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -230,7 +288,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -241,19 +298,61 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "",
         "img": "",
-        "appliedEffects": [
-          "y2cXmAZ1GbDnCkQ1"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
     "uses": {
@@ -262,7 +361,7 @@
       "max": ""
     },
     "description": {
-      "value": "<p>武器（任意弓），稀有（需要同调）</p><p>这把魔法弓的枝尖被塑造成龙翅膀的形状，并且这把弓被注入了色彩，宝石或金属龙吐息的精华。当你用这把魔法弓的攻击检定命中时，目标受到额外 1d6伤害，伤害类型与注入这把弓的吐息的伤害类型相同——强酸，冷冻，火焰，力场，闪电，黯蚀，毒素，心灵，光耀或雷鸣。</p><p>如果你在没有为这把武器装填弹药就拉动弓弦的情况下，它会自动为自己制造出一发魔法弹药。被创造出的弹药在击中或落空后会消失。</p><p></p><p>这是一件模板物品，请使用该武器的附魔功能将需要使用的符合要求的武器模板（如长弓等）完成附魔即可。</p>",
+      "value": "<p>武器（任意弓），稀有（需要同调）</p><p>这把魔法弓的枝尖被塑造成龙翅膀的形状，并且这把弓被注入了色彩，宝石或金属龙吐息的精华。当你用这把魔法弓的攻击检定命中时，目标受到额外 1d6伤害，伤害类型与注入这把弓的吐息的伤害类型相同——强酸，冷冻，火焰，力场，闪电，黯蚀，毒素，心灵，光耀或雷鸣。</p><p>如果你在没有为这把武器装填弹药就拉动弓弦的情况下，它会自动为自己制造出一发魔法弹药。被创造出的弹药在击中或落空后会消失。</p><p>这是一件模板物品，请使用该武器的附魔功能将需要使用的符合要求的武器模板（如长弓等）完成附魔即可。</p>",
       "chat": ""
     },
     "identifier": "-",
@@ -285,12 +384,10 @@
       "value": 0,
       "denomination": "gp"
     },
-    "rarity": "rare",
     "attunement": "required",
     "attuned": false,
     "equipped": false,
     "cover": null,
-    "crewed": false,
     "ammunition": {},
     "armor": {
       "value": null
@@ -306,7 +403,8 @@
         "scaling": {
           "number": 1
         },
-        "bonus": ""
+        "bonus": "",
+        "modifiers": []
       },
       "versatile": {
         "number": null,
@@ -317,10 +415,10 @@
         },
         "scaling": {
           "number": 1
-        }
+        },
+        "modifiers": []
       }
     },
-    "magicalBonus": null,
     "properties": [
       "mgc"
     ],
@@ -329,13 +427,19 @@
       "value": null,
       "long": null,
       "reach": null,
-      "units": ""
+      "units": "ft"
     },
     "type": {
       "value": "simpleR",
       "baseItem": ""
     },
-    "mastery": ""
+    "mastery": "",
+    "rarities": [
+      "rare"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "effects": [
     {
@@ -344,65 +448,103 @@
       "img": "icons/weapons/bows/bow-ornamental-carved-brown.webp",
       "disabled": true,
       "_id": "y2cXmAZ1GbDnCkQ1",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.rarity",
-          "mode": 5,
-          "value": "rare",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "system.rarity",
+            "value": "rare",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "zyFWJEZOaU6Hi94x",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.attunement",
+            "value": "required",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "U8ulAIJuBeoacQ60",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.description.value",
+            "value": "{}\n武器（任意弓），稀有（需要同调）\n\n这把魔法弓的枝尖被塑造成龙翅膀的形状，并且这把弓被注入了色彩，宝石或金属龙吐息的精华。当你用这把魔法弓的攻击检定命中时，目标受到额外 1d6伤害，伤害类型与注入这把弓的吐息的伤害类型相同——强酸，冷冻，火焰，力场，闪电，黯蚀，毒素，心灵，光耀或雷鸣。\n\n如果你在没有为这把武器装填弹药就拉动弓弦的情况下，它会自动为自己制造出一发魔法弹药。被创造出的弹药在击中或落空后会消失。",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "yrUxebRL5OnsXLSC",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "img",
+            "value": "icons/weapons/bows/bow-ornamental-carved-brown.webp",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "oeqJFXxOQf4jxWKl",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.price.value",
+            "value": 5000,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "L0oGaDVWP11YTC8U",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.price.denomination",
+            "value": "gp",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "15FVzO1BQQbUUdKo",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.properties",
+            "value": "mgc",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "e4lcloxsnrw0fKey",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "name",
+            "value": "龙翼 {}",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "443eWmDw2w9bLqhP",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
         },
-        {
-          "key": "system.attunement",
-          "mode": 5,
-          "value": "required",
-          "priority": 20
-        },
-        {
-          "key": "system.description.value",
-          "mode": 5,
-          "value": "{}\n武器（任意弓），稀有（需要同调）\n\n这把魔法弓的枝尖被塑造成龙翅膀的形状，并且这把弓被注入了色彩，宝石或金属龙吐息的精华。当你用这把魔法弓的攻击检定命中时，目标受到额外 1d6伤害，伤害类型与注入这把弓的吐息的伤害类型相同——强酸，冷冻，火焰，力场，闪电，黯蚀，毒素，心灵，光耀或雷鸣。\n\n如果你在没有为这把武器装填弹药就拉动弓弦的情况下，它会自动为自己制造出一发魔法弹药。被创造出的弹药在击中或落空后会消失。",
-          "priority": 20
-        },
-        {
-          "key": "img",
-          "mode": 5,
-          "value": "icons/weapons/bows/bow-ornamental-carved-brown.webp",
-          "priority": 20
-        },
-        {
-          "key": "system.price.value",
-          "mode": 2,
-          "value": "5000",
-          "priority": 20
-        },
-        {
-          "key": "system.price.denomination",
-          "mode": 5,
-          "value": "gp",
-          "priority": 20
-        },
-        {
-          "key": "system.properties",
-          "mode": 2,
-          "value": "mgc",
-          "priority": 20
-        },
-        {
-          "key": "name",
-          "mode": 5,
-          "value": "龙翼 {}",
-          "priority": 20
-        }
-      ],
+        "magical": true
+      },
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "origin": null,
@@ -421,42 +563,26 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1756789679851,
         "modifiedTime": 1756789844748,
         "lastModifiedBy": "WlyFYC2sYFseAvyj",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!7Y3RHeeTx9x64Msw.y2cXmAZ1GbDnCkQ1"
     }
   ],
@@ -489,17 +615,16 @@
       "riders": {
         "activity": [
           "oA8MEhqk4ri1bTdX"
-        ],
-        "effect": []
+        ]
       }
     }
   },
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1756725258908,
     "modifiedTime": 1757350424661,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

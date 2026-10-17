@@ -2,7 +2,7 @@
   "name": "反制善恶",
   "type": "consumable",
   "_id": "0IbmkfrfnDRCvoF5",
-  "img": "modules/dnd5e_classpack/Nicons/002505.png",
+  "img": "icons/magic/holy/barrier-shield-winged-blue.webp",
   "system": {
     "activities": {
       "D2LMn0JAF8uiS8If": {
@@ -22,17 +22,21 @@
           "spellSlot": true,
           "targets": [
             {
-              "type": "activityUses"
+              "type": "activityUses",
+              "value": "1",
+              "scaling": {}
             }
           ]
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -44,7 +48,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -75,7 +80,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -83,7 +89,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -94,18 +99,62 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "name": "破除附魔",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       },
       "KMvI2KNsJxhWDNit": {
         "type": "attack",
@@ -124,17 +173,21 @@
           "spellSlot": true,
           "targets": [
             {
-              "type": "activityUses"
+              "type": "activityUses",
+              "value": "1",
+              "scaling": {}
             }
           ]
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -146,7 +199,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -190,7 +244,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -198,7 +253,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "hitTargets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -209,13 +263,27 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "attackMode": "",
@@ -223,7 +291,39 @@
         "otherActivityUuid": "",
         "name": "驱逐",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       },
       "eXWisXuEklWML9ll": {
         "type": "save",
@@ -243,16 +343,21 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "zXq2ScJl74QSvMJJ"
+            "_id": "zXq2ScJl74QSvMJJ",
+            "uuid": null,
+            "level": {},
+            "onSave": false
           }
         ],
         "range": {
@@ -264,7 +369,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -292,7 +398,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -305,7 +412,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -313,7 +421,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -324,18 +431,63 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
     "uses": {
@@ -367,7 +519,6 @@
       "value": 0,
       "denomination": "gp"
     },
-    "rarity": "",
     "attunement": "",
     "attuned": false,
     "equipped": false,
@@ -385,46 +536,65 @@
         },
         "scaling": {
           "number": 1
-        }
+        },
+        "modifiers": []
       },
       "replace": false
     },
-    "magicalBonus": null,
     "properties": [
       "mgc"
-    ]
+    ],
+    "rarities": []
   },
   "effects": [
     {
       "name": "反制善恶",
-      "img": "modules/dnd5e_classpack/Nicons/002505.png",
-      "origin": "Compendium.dnd5e_classpack.itempack.Item.0IbmkfrfnDRCvoF5",
+      "img": "icons/magic/holy/barrier-shield-winged-blue.webp",
+      "origin": null,
       "_id": "Q0vfICSA1S82dFOW",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.grants.disadvantage.attack.all",
-          "mode": 2,
-          "value": "['fey', 'undead',\"celestial\",\"elemental\",\"fiend\"].includes(typeOrRace)",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.grants.disadvantage.attack.all",
+            "value": "['fey', 'undead',\"celestial\",\"elemental\",\"fiend\"].includes(typeOrRace)",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "O0fSaoprcsAjtGK9",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "macro.itemMacro",
+            "value": "",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "ZZ1507S4FtiSMtUT",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "macro.itemMacro",
-          "mode": 0,
-          "value": "",
-          "priority": 20
-        }
-      ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.itempack.Item.0IbmkfrfnDRCvoF5",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -441,62 +611,56 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": 1756368256348,
         "modifiedTime": 1756369585120,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!0IbmkfrfnDRCvoF5.Q0vfICSA1S82dFOW"
     },
     {
       "name": "放逐",
-      "img": "modules/dnd5e_classpack/Nicons/002505.png",
-      "origin": "Compendium.dnd5e_classpack.itempack.Item.0IbmkfrfnDRCvoF5",
+      "img": "icons/magic/holy/barrier-shield-winged-blue.webp",
+      "origin": null,
       "transfer": false,
       "_id": "zXq2ScJl74QSvMJJ",
       "type": "base",
-      "system": {},
-      "changes": [],
+      "system": {
+        "changes": [],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.itempack.Item.0IbmkfrfnDRCvoF5",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -520,42 +684,26 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": 1756368587432,
         "modifiedTime": 1756368633093,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!0IbmkfrfnDRCvoF5.zXq2ScJl74QSvMJJ"
     }
   ],
@@ -584,16 +732,11 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "dae": {
       "macro": {
         "name": "反制善恶",
-        "img": "modules/dnd5e_classpack/Nicons/002505.png",
+        "img": "icons/magic/holy/barrier-shield-winged-blue.webp",
         "type": "script",
         "scope": "global",
         "command": "// dae-remove-dispel\n// 通用 DAE 宏：当 DAE 效果被移除时 (args[0] === \"off\")，\n// 检查该效果的宿主 actor 并删除名为 \"反制善恶\" / \"Dispel Evil and Good\" 的 ActiveEffect（如果存在）。\n\n(async () => {\n  try {\n    console.log(\"🧩 dae-remove-dispel: args:\", args);\n\n    const mode = args[0]; // DAE 会传 \"on\" / \"off\" / \"each\" 等\n    // 只在效果被删除（off）时处理\n    if (mode !== \"off\" && mode !== \"remove\") {\n      // 有些版本/用法会给 \"off\" 或 \"remove\"，但通常是 \"off\"\n      console.log(\"🧩 dae-remove-dispel: non-off mode, skip:\", mode);\n      return;\n    }\n\n    // args 的最后一项通常包含关于触发上下文的信息（tokenId / origin 等）\n    const last = args.at?.(-1) ?? args[args.length - 1] ?? {};\n    // 尝试通过 tokenId 或 actorId 找到 actor（兼容不同 DAE/Foundry 版本）\n    const tokenId = last.tokenId ?? last.token?.id;\n    const actorId = last.actorId ?? last.actor?.id;\n    const actor = (tokenId ? canvas.tokens.get(tokenId)?.actor : null) || (actorId ? game.actors.get(actorId) : null) || (last.actor ? last.actor : null);\n\n    if (!actor) {\n      console.warn(\"🧩 dae-remove-dispel: 无法定位 actor（args 最后一项）：\", last);\n      return;\n    }\n\n    console.log(`🧩 dae-remove-dispel: 触发于 actor ${actor.name} (mode=${mode})`);\n\n    // 查找名为 \"反制善恶\" 或 \"Dispel Evil and Good\" 的效果（忽略大小写、支持中文/英文）\n    const targetEf = actor.effects.find(e => /反制善恶|Dispel Evil and Good/i.test(e.label ?? \"\"));\n    if (!targetEf) {\n      console.log(\"🧩 dae-remove-dispel: 目标 actor 上未发现 '反制善恶 Dispel Evil and Good' 效果\");\n      return;\n    }\n\n    // 删除它（使用 Actor 的 API）\n    await actor.deleteEmbeddedDocuments(\"ActiveEffect\", [targetEf.id]);\n    console.log(`🧩 dae-remove-dispel: 已删除效果: ${targetEf.label} (id=${targetEf.id})`);\n\n    // 可选：发送聊天提示\n    ChatMessage.create({\n      content: `${actor.name} 的效果 <strong>${targetEf.label}</strong> 因使用了驱逐或是解除附魔已被自动移除.`,\n      speaker: ChatMessage.getSpeaker({ actor })\n    });\n\n  } catch (err) {\n    console.error(\"🧩 dae-remove-dispel: 错误：\", err);\n    ui.notifications.error(\"dae-remove-dispel 宏执行出错，查看控制台以获取详情\");\n  }\n})();",
@@ -621,9 +764,9 @@
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1756368225248,
     "modifiedTime": 1756727011686,
     "lastModifiedBy": "WlyFYC2sYFseAvyj",

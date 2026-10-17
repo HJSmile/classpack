@@ -12,7 +12,8 @@
       "itemCondition": "",
       "effectCondition": "",
       "reactionCondition": "",
-      "otherCondition": ""
+      "otherCondition": "",
+      "onUseMacroName": "[templatePlaced]ActivityMacro-DHZ7t11hPdC6cb5l,[preItemRoll]ActivityMacro-DtCEDZgW0YxntcRt,[postActiveEffects]ActivityMacro-DtCEDZgW0YxntcRt,[preActiveEffects]ActivityMacro-cpWebExitCleanup"
     },
     "midiProperties": {
       "confirmTargets": "always",
@@ -33,25 +34,108 @@
       "idv": false,
       "ida": false
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
+    "dnd5e": {},
+    "dnd5e_classpack": {
+      "regionAutomation": {
+        "key": "web",
+        "main": "DHZ7t11hPdC6cb5l",
+        "repeated": "DtCEDZgW0YxntcRt",
+        "schemaVersion": 2,
+        "terrain": true,
+        "cleanup": "cpWebExitCleanup"
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/httpcloud3steamusercontentcomugc84259084127190629761D0A3D21C73A291011A77DB5152CB73E49B2759.jpg",
-  "effects": [],
+  "img": "icons/commodities/materials/material-webbing.webp",
+  "effects": [
+    {
+      "name": "蛛网束缚",
+      "img": "icons/commodities/materials/material-webbing.webp",
+      "system": {
+        "origin": {
+          "item": "Compendium.dnd5e_classpack.spell.Item.oopuSIBsaXzQKw1Q",
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "message": null
+        },
+        "changes": [
+          {
+            "key": "flags.midi-qol.OverTime",
+            "type": "add",
+            "value": "turn=start, label=蛛网束缚, rollType=check, saveAbility=str, saveDC=@activity.save.dc.value, saveCount=1-, actionSave=dialog",
+            "phase": "initial",
+            "_id": "M6ZRMlDrIXCSwyDp",
+            "conditions": "{}",
+            "replacement": "origin",
+            "priority": null
+          }
+        ],
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
+      "transfer": false,
+      "_id": "miBjJNHthckSNuIX",
+      "type": "base",
+      "disabled": false,
+      "start": null,
+      "duration": {
+        "value": 1,
+        "units": "hours",
+        "expiry": null,
+        "expired": false
+      },
+      "description": "",
+      "origin": null,
+      "tint": "#ffffff",
+      "statuses": [
+        "restrained"
+      ],
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "dae": {
+          "enableCondition": "",
+          "disableCondition": "",
+          "stackable": "noneName",
+          "applicationMode": "dnd5e",
+          "expiryMode": "default",
+          "durationExpression": "",
+          "macroRepeat": "none",
+          "disableIncapacitated": false,
+          "selfTarget": false,
+          "selfTargetAlways": false,
+          "dontApply": false,
+          "specialDuration": []
+        },
+        "core": {
+          "overlay": false
+        },
+        "dnd5e_classpack": {
+          "regionEffect": "web-binding"
+        }
+      },
+      "_stats": {
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
+        "createdTime": 1791733254774,
+        "modifiedTime": 1791733254774,
+        "lastModifiedBy": "dvg25zW2MvzsvMOU",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!items.effects!oopuSIBsaXzQKw1Q.miBjJNHthckSNuIX"
+    }
+  ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你在施法距离内指定一点，并召唤出一大片粘厚的网状物。\n<br />蛛网覆盖以该点为源点的20尺立方区域，并在法术持续时间内维持存在。蛛网使该区成为困难地形并造成轻度遮蔽。\n<br />如果蛛网没有被固定在两个固体中间（例如墙和树）或跨在一片地板、墙壁、天花板中间，则你召唤出的蛛网会自动坍塌，而导致法术在你的下一回合开始时终止。摊在平面上的蛛网深度为5尺。\n<br />任何在蛛网中开始其回合或在其回合中进入蛛网的生物必须进行一次敏捷豁免。豁免失败者将被束缚在网中，直至其离开蛛网或挣脱束缚。\n<br />被蛛网束缚的生物可以用一个动作尝试挣脱。该生物必须进行一次对抗法术豁免DC 的力量检定，检定成功则不再被束缚。\n<br />这些蛛网都是可燃物。每5尺立方的蛛网触及明火时将在1轮内被烧尽。而任何在燃烧区域内开始其回合的生物将因此受2d4点火焰伤害。\n<br /></div>",
+      "value": "<p>你在施法距离内指定一点，并召唤出一大片粘厚的网状物。蛛网覆盖以该点为源点的 20 尺立方区域，并在法术持续时间内维持存在。蛛网使该区成为困难地形并造成轻度遮蔽。</p><p>如果蛛网没有被固定在两个固体中间（例如墙和树）或跨在一片地板、墙壁、天花板中间，则你召唤出的蛛网会自动坍塌，而导致法术在你的下一回合开始时终止。摊在平面上的蛛网深度为 5 尺。</p><p>任何在蛛网中开始其回合或在其回合中进入蛛网的生物必须进行一次[[/save activity=DtCEDZgW0YxntcRt]]{敏捷豁免}。豁免失败者将被束缚在网中，直至其离开蛛网或挣脱束缚。</p><p>被蛛网束缚的生物可以用一个动作尝试挣脱。该生物必须进行一次对抗法术豁免 DC 的力量检定，检定成功则不再被束缚。</p><p>这些蛛网都是可燃物。每 5 尺立方的蛛网触及明火时将在 1 轮内被烧尽。而任何在燃烧区域内开始其回合的生物将因此受 [[/damage 2d4 type=fire]]{2d4} 点火焰伤害。</p>",
       "chat": ""
     },
     "source": {
@@ -67,19 +151,23 @@
     },
     "duration": {
       "value": "1",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
         "choice": false,
-        "type": ""
+        "type": "creature",
+        "count": "",
+        "special": ""
       },
       "template": {
         "units": "ft",
         "type": "cube",
         "size": "20",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -101,128 +189,24 @@
       "cost": 0,
       "supply": 0
     },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
-    },
     "properties": [
       "vocal",
       "somatic",
       "material",
-      "concentration",
-      "mgc"
+      "concentration"
     ],
     "activities": {
-      "dnd5eactivity000": {
-        "_id": "dnd5eactivity000",
-        "type": "save",
-        "activation": {
-          "type": "action",
-          "value": null,
-          "override": false
-        },
-        "consumption": {
-          "targets": [],
-          "scaling": {
-            "allowed": false,
-            "max": ""
-          },
-          "spellSlot": true
-        },
-        "description": {
-          "chatFlavor": ""
-        },
-        "duration": {
-          "units": "inst",
-          "concentration": false,
-          "override": false
-        },
-        "effects": [],
-        "range": {
-          "override": false
-        },
-        "target": {
-          "prompt": true,
-          "template": {
-            "contiguous": false,
-            "units": "ft"
-          },
-          "affects": {
-            "choice": false
-          },
-          "override": false
-        },
-        "uses": {
-          "spent": 0,
-          "max": "",
-          "recovery": []
-        },
-        "damage": {
-          "onSave": "half",
-          "parts": [],
-          "critical": {
-            "allow": false
-          }
-        },
-        "save": {
-          "ability": [
-            "dex"
-          ],
-          "dc": {
-            "calculation": "spellcasting",
-            "formula": ""
-          }
-        },
-        "sort": 0,
-        "useConditionText": "",
-        "useConditionReason": "",
-        "effectConditionText": "",
-        "macroData": {
-          "name": "",
-          "command": ""
-        },
-        "ignoreTraits": {
-          "idi": false,
-          "idr": false,
-          "idv": false,
-          "ida": false
-        },
-        "midiProperties": {
-          "ignoreTraits": [],
-          "triggeredActivityId": "none",
-          "triggeredActivityConditionText": "",
-          "triggeredActivityTargets": "targets",
-          "triggeredActivityRollAs": "self",
-          "forceDialog": false,
-          "confirmTargets": "default",
-          "autoTargetType": "any",
-          "autoTargetAction": "default",
-          "automationOnly": false,
-          "otherActivityCompatible": true,
-          "identifier": "",
-          "displayActivityName": false,
-          "rollMode": "default",
-          "chooseEffects": false,
-          "toggleEffect": false,
-          "ignoreFullCover": false
-        },
-        "isOverTimeFlag": false,
-        "overTimeProperties": {
-          "saveRemoves": true,
-          "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
-        },
-        "otherActivityId": ""
-      },
-      "Xallbasi9GbzqzB5": {
-        "type": "damage",
-        "_id": "Xallbasi9GbzqzB5",
+      "DHZ7t11hPdC6cb5l": {
+        "type": "utility",
+        "name": "施法与区域放置",
+        "_id": "DHZ7t11hPdC6cb5l",
+        "img": "",
         "sort": 0,
         "activation": {
           "type": "action",
-          "value": null,
           "override": false
         },
+        "behaviors": [],
         "consumption": {
           "scaling": {
             "allowed": false
@@ -231,20 +215,25 @@
           "targets": []
         },
         "description": {
+          "value": "",
           "chatFlavor": ""
         },
         "duration": {
           "units": "inst",
+          "expiry": null,
           "concentration": false,
           "override": false
         },
         "effects": [],
+        "flags": {},
         "range": {
+          "units": "self",
           "override": false
         },
         "target": {
           "template": {
             "contiguous": false,
+            "stationary": false,
             "units": "ft"
           },
           "affects": {
@@ -258,41 +247,35 @@
           "recovery": [],
           "max": ""
         },
-        "damage": {
-          "critical": {
-            "allow": false
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
           },
-          "parts": [
-            {
-              "custom": {
-                "enabled": false,
-                "formula": ""
-              },
-              "number": 2,
-              "denomination": 4,
-              "bonus": "",
-              "types": [
-                "fire"
-              ],
-              "scaling": {
-                "mode": "",
-                "number": 1
-              }
-            }
-          ]
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "roll": {
+          "prompt": false,
+          "visible": false,
+          "name": "",
+          "formula": ""
         },
         "useConditionText": "",
         "useConditionReason": "",
         "effectConditionText": "",
+        "otherActivityId": "none",
         "macroData": {
-          "name": "",
-          "command": ""
+          "name": "区域：放置后补 Entry",
+          "command": "const cfg = workflow.item.flags.dnd5e_classpack.regionAutomation;\nconst pass = args[0]?.macroPass;\nfunction ownEffect(effect, role) {\n  if (effect.flags?.dnd5e_classpack?.regionEffect !== role) return false;\n  const itemUuid = workflow.item.uuid;\n  return [effect.origin, ...Object.values(effect.system?.origin ?? {}),\n    effect._stats?.duplicateSource, effect.flags?.dnd5e_classpack?.sourceItemUuid]\n    .some(uuid => typeof uuid === \"string\" &&\n      (uuid === itemUuid || uuid.startsWith(itemUuid + \".\")));\n}\nfunction concentration() {\n  return MidiQOL.getConcentrationEffect(workflow.actor, workflow.item)\n    ?? MidiQOL.getConcentrationEffect(workflow.actor);\n}\nif (pass === \"templatePlaced\") {\n  const repeated = workflow.item.system.activities.get(cfg.repeated);\n  if (!repeated) throw new Error(\"区域重复活动不存在\");\n  for (const uuid of workflow.templateUuids ?? []) {\n    const region = await fromUuid(uuid);\n    if (region?.documentName !== \"Region\") continue;\n    const behavior = region.behaviors.find(b => b.type === \"midi-qol.regionActivity\" &&\n      b.system.sourceItemUuid === workflow.item.uuid && !b.flags?.dnd5e_classpack?.regionPassive);\n    if (!behavior) throw new Error(\"Midi 区域行为不存在\");\n    const rules = foundry.utils.deepClone(behavior.system.rules);\n    if (!rules.some(r => r.trigger === \"entry\" && r.action === \"useActivity\" && r.targetUuid === repeated.uuid)) {\n      rules.push({ trigger: \"entry\", action: \"useActivity\", targetUuid: repeated.uuid });\n    }\n    const extra = [];\n    if (cfg.terrain && !region.behaviors.some(b => b.type === \"dnd5e.difficultTerrain\")) {\n      extra.push({ name: workflow.item.name + \"：困难地形\", type: \"dnd5e.difficultTerrain\",\n        system: { magical: true, types: [], ignoredDispositions: [] } });\n    }\n    if (cfg.key === \"spiritGuardians\" && !region.behaviors.some(b =>\n      b.flags?.dnd5e_classpack?.regionPassive === \"spirit-slow\")) {\n      const enter = workflow.item.system.activities.get(cfg.slowEnter);\n      const exit = workflow.item.system.activities.get(cfg.slowExit);\n      if (!enter || !exit) throw new Error(\"灵体卫士减速活动不存在\");\n      extra.push({ name: \"灵体卫士：减速进出\", type: \"midi-qol.regionActivity\",\n        flags: { dnd5e_classpack: { regionPassive: \"spirit-slow\" } },\n        system: { sourceItemUuid: workflow.item.uuid, sourceActorUuid: workflow.actor.uuid,\n          castLevel: workflow.spellLevel ?? workflow.item.system.level,\n          dispositionFilter: 0, excludeSource: false, oncePerTurn: false, wallRestriction: \"none\",\n          rules: [{ trigger: \"entry\", action: \"useActivity\", targetUuid: enter.uuid },\n            { trigger: \"exit\", action: \"useActivity\", targetUuid: exit.uuid }] }\n      });\n    }\n    await MidiQOL.socket().executeAsGM(\"setupRegion\", {\n      regionUuid: region.uuid,\n      update: {\n        \"flags.dnd5e_classpack.regionAutomation\": { key: cfg.key, sourceItemUuid: workflow.item.uuid,\n          exemptActorUuids: workflow._spiritExemptActorUuids ?? [] },\n        behaviors: [{ _id: behavior.id, system: { rules } }]\n      }, behaviors: extra\n    });\n  }\n}\n"
         },
         "ignoreTraits": {
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -300,29 +283,411 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
           "automationOnly": false,
           "otherActivityCompatible": true,
-          "identifier": "",
+          "otherActivityAsParentType": true,
+          "identifier": "web-cast",
           "displayActivityName": false,
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
+          "rollAs": "target",
           "preRemoveConditionText": "",
           "postRemoveConditionText": ""
         },
-        "name": "点燃蛛网"
+        "regionBehavior": {
+          "enabled": true,
+          "dispositionFilter": 0,
+          "excludeSource": false,
+          "oncePerTurn": false,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": [
+            {
+              "trigger": "turnStart",
+              "action": "useActivity",
+              "targetId": "web-repeat"
+            },
+            {
+              "trigger": "exit",
+              "action": "useActivity",
+              "targetId": "web-exit-cleanup"
+            }
+          ]
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
+      },
+      "DtCEDZgW0YxntcRt": {
+        "type": "save",
+        "name": "区域重复豁免",
+        "_id": "DtCEDZgW0YxntcRt",
+        "img": "",
+        "sort": 100000,
+        "activation": {
+          "type": "",
+          "value": null,
+          "override": true,
+          "condition": ""
+        },
+        "behaviors": [],
+        "consumption": {
+          "targets": [],
+          "spellSlot": false,
+          "scaling": {
+            "allowed": false,
+            "max": ""
+          }
+        },
+        "description": {
+          "value": "",
+          "chatFlavor": ""
+        },
+        "duration": {
+          "override": true,
+          "units": "inst",
+          "concentration": false,
+          "expiry": null
+        },
+        "effects": [
+          {
+            "_id": "miBjJNHthckSNuIX",
+            "uuid": null,
+            "onSave": false,
+            "level": {
+              "min": null,
+              "max": null
+            },
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1791733254774,
+              "modifiedTime": 1791733254774,
+              "lastModifiedBy": "dvg25zW2MvzsvMOU",
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
+          }
+        ],
+        "flags": {},
+        "range": {
+          "override": true,
+          "units": "self",
+          "special": ""
+        },
+        "target": {
+          "override": true,
+          "prompt": false,
+          "template": {
+            "type": "",
+            "units": "ft",
+            "contiguous": false,
+            "stationary": false
+          },
+          "affects": {
+            "type": "creature",
+            "count": "1",
+            "choice": false
+          }
+        },
+        "uses": {
+          "spent": 0,
+          "recovery": [],
+          "max": ""
+        },
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "damage": {
+          "onSave": "half",
+          "critical": {
+            "allow": false
+          },
+          "parts": []
+        },
+        "save": {
+          "ability": [
+            "dex"
+          ],
+          "dc": {
+            "calculation": "spellcasting",
+            "formula": ""
+          },
+          "visible": true,
+          "bonus": ""
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": "none",
+        "macroData": {
+          "name": "区域豁免与束缚来源",
+          "command": "const cfg = workflow.item.flags.dnd5e_classpack.regionAutomation;\nconst pass = args[0]?.macroPass;\nfunction ownEffect(effect, role) {\n  if (effect.flags?.dnd5e_classpack?.regionEffect !== role) return false;\n  const itemUuid = workflow.item.uuid;\n  return [effect.origin, ...Object.values(effect.system?.origin ?? {}),\n    effect._stats?.duplicateSource, effect.flags?.dnd5e_classpack?.sourceItemUuid]\n    .some(uuid => typeof uuid === \"string\" &&\n      (uuid === itemUuid || uuid.startsWith(itemUuid + \".\")));\n}\nfunction concentration() {\n  return MidiQOL.getConcentrationEffect(workflow.actor, workflow.item)\n    ?? MidiQOL.getConcentrationEffect(workflow.actor);\n}\nconst role = cfg.key + \"-binding\";\nif (pass === \"preItemRoll\") {\n  const target = Array.from(workflow.targets ?? [])[0];\n  if (!target?.actor) return false;\n  if (cfg.key === \"web\" && game.combat?.active &&\n    game.combat.combatant?.token?.uuid !== (target.document ?? target).uuid) return false;\n  if (cfg.key === \"blackTentacles\" && Array.from(target.actor.appliedEffects ?? target.actor.effects)\n    .some(effect => !effect.disabled && !effect.isSuppressed && ownEffect(effect, role))) return false;\n}\nif (pass === \"postActiveEffects\") {\n  const dependentOn = concentration()?.uuid;\n  for (const target of workflow.targets ?? []) {\n    const updates = Array.from(target.actor?.appliedEffects ?? target.actor?.effects ?? [])\n      .filter(effect => ownEffect(effect, role)).map(effect => ({ _id: effect.id,\n        \"flags.dnd5e_classpack.sourceItemUuid\": workflow.item.uuid,\n        ...(dependentOn ? { \"flags.dnd5e.dependentOn\": dependentOn } : {})\n      }));\n    if (updates.length) await MidiQOL.socket().executeAsGM(\"updateEffects\", {\n      actorUuid: target.actor.uuid, updates\n    });\n  }\n}\n"
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "never",
+          "autoTargetType": "any",
+          "autoTargetAction": "none",
+          "automationOnly": true,
+          "otherActivityCompatible": false,
+          "otherActivityAsParentType": true,
+          "identifier": "web-repeat",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": true,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
+      },
+      "cpWebExitCleanup": {
+        "type": "utility",
+        "name": "离开蛛网：解除本次束缚",
+        "_id": "cpWebExitCleanup",
+        "img": "",
+        "sort": 0,
+        "activation": {
+          "type": "",
+          "value": null,
+          "override": true,
+          "condition": ""
+        },
+        "behaviors": [],
+        "consumption": {
+          "targets": [],
+          "spellSlot": false,
+          "scaling": {
+            "allowed": false,
+            "max": ""
+          }
+        },
+        "description": {
+          "value": "",
+          "chatFlavor": ""
+        },
+        "duration": {
+          "override": true,
+          "units": "inst",
+          "concentration": false,
+          "expiry": null
+        },
+        "effects": [],
+        "flags": {},
+        "range": {
+          "override": true,
+          "units": "self",
+          "special": ""
+        },
+        "target": {
+          "override": true,
+          "prompt": false,
+          "template": {
+            "type": "",
+            "units": "ft",
+            "contiguous": false,
+            "stationary": false
+          },
+          "affects": {
+            "type": "creature",
+            "count": "1",
+            "choice": false
+          }
+        },
+        "uses": {
+          "spent": 0,
+          "recovery": [],
+          "max": ""
+        },
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "roll": {
+          "prompt": false,
+          "visible": false,
+          "name": "",
+          "formula": ""
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": "none",
+        "macroData": {
+          "name": "离开蛛网：清除本次束缚",
+          "command": "const cfg = workflow.item.flags.dnd5e_classpack.regionAutomation;\nconst pass = args[0]?.macroPass;\nfunction ownEffect(effect, role) {\n  if (effect.flags?.dnd5e_classpack?.regionEffect !== role) return false;\n  const itemUuid = workflow.item.uuid;\n  return [effect.origin, ...Object.values(effect.system?.origin ?? {}),\n    effect._stats?.duplicateSource, effect.flags?.dnd5e_classpack?.sourceItemUuid]\n    .some(uuid => typeof uuid === \"string\" &&\n      (uuid === itemUuid || uuid.startsWith(itemUuid + \".\")));\n}\nfunction concentration() {\n  return MidiQOL.getConcentrationEffect(workflow.actor, workflow.item)\n    ?? MidiQOL.getConcentrationEffect(workflow.actor);\n}\nif (pass !== \"preActiveEffects\") return;\nfor (const target of workflow.targets ?? []) {\n  const effects = Array.from(target.actor?.appliedEffects ?? target.actor?.effects ?? [])\n    .filter(effect => ownEffect(effect, \"web-binding\")).map(effect => effect.id);\n  if (effects.length) await MidiQOL.removeEffects({ actorUuid: target.actor.uuid, effects });\n}\n"
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "never",
+          "autoTargetType": "any",
+          "autoTargetAction": "none",
+          "automationOnly": true,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "web-exit-cleanup",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": 0,
+          "excludeSource": false,
+          "oncePerTurn": false,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "web"
+    "identifier": "web",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -331,8 +696,8 @@
   "sort": 38500000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757419719404,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

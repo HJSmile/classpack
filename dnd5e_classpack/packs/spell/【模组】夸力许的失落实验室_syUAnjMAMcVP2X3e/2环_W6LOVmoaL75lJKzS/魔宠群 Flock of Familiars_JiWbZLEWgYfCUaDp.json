@@ -4,7 +4,7 @@
   "img": "icons/creatures/birds/birds-flock-fly-yellow.webp",
   "system": {
     "description": {
-      "value": "<p><br />    你召唤3只使用你所选择的动物精魂外貌的临时魔宠。每只魔宠所使用的规则与动物精魂外貌选项与@UUID[Compendium.dnd5e_classpack.spell.daB7oGSKy1BglKlt]{获得魔宠find familiar}相同。该法术所召唤的所有魔宠都必须属于同一生物种类（天界生物，精类生物，邪魔；你的选择）。如果你已经以@UUID[Compendium.dnd5e_classpack.spell.daB7oGSKy1BglKlt]{获得魔宠find familiar}或类似方式召唤一个魔宠，则你以该法术召唤的魔宠数量减少一个。</p><p>    该法术召唤的魔宠可以与你进行心灵交流且当它们在你1英里范围内时可以与你分享它们的视觉或听觉感官。</p><p>    当你施展施法距离为触及的法术时，该法术所召唤的其中一名魔宠可以如常传递法术。然而每回合你只能通过一只魔宠传递一次触及法术。</p><p><strong>升环施法效应。</strong>使用3环或更高法术位施展该法术时，你的法术位每比2环高一环，你可以召唤一只额外的魔宠。</p>",
+      "value": "<p>你召唤3只使用你所选择的动物精魂外貌的临时魔宠。每只魔宠所使用的规则与动物精魂外貌选项与<em>@UUID[Compendium.dnd5e_classpack.spell.daB7oGSKy1BglKlt]{寻获魔宠find familiar}</em>相同。本法术所召唤的所有魔宠都必须属于同一生物种类（天族，妖精，邪魔；你的选择）。如果你已经以<em>寻获魔宠find familiar</em>或类似方式召唤一个魔宠，则你以本法术召唤的魔宠数量减少一个。</p><p>本法术召唤的魔宠可以与你进行心灵交流且当它们在你1英里范围内时可以与你分享它们的视觉或听觉感官。</p><p>当你施放施法距离为触碰的法术时，本法术所召唤的其中一名魔宠可以如常传递法术。然而每回合你只能通过一只魔宠传递一次触及法术。</p><p><strong>升环施法效应。</strong>当你使用三环或更高法术位施放本法术时，使用的法术位每比二环高一环，你就可以召唤一只额外的魔宠。</p>",
       "chat": ""
     },
     "source": {
@@ -19,7 +19,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -27,13 +28,14 @@
         "type": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
-      "units": "",
+      "units": "touch",
       "special": ""
     },
     "uses": {
@@ -48,10 +50,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -77,22 +75,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -122,7 +124,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -130,7 +133,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -141,18 +143,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "flock-of-familiars"
+    "identifier": "flock-of-familiars",
+    "method": "spell",
+    "prepared": 0
   },
   "effects": [],
   "flags": {
@@ -177,17 +227,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "flockOfFamiliars",
@@ -204,8 +244,8 @@
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757235114937,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

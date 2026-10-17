@@ -12,7 +12,7 @@
       "revision": 1
     },
     "description": {
-      "value": "<div class=\"rd__b  rd__b--2\"><p><em>武器（链枷），珍稀（需同调）</em> <br />这把灰色的链枷摸起来是冰冷的。使用这把魔法武器进行的攻击检定和伤害掷骰获得+1加值，并且对物件和建筑物造成双倍伤害。</p><p>此外，当你用此武器击中生物时，你可以迫使该生物进行 [[/save ability=con dc=15]]豁免检定。若豁免失败，则该生物中毒1分钟。中毒生物在每个回合开始时都会受到[[/damage 2d4 type=necrotic]]点暗蚀伤害。该生物可以在每个回合结束时重复豁免检定，成功后结束该效应对自身的效果。此项属性一经使用，直到下次黎明前不能再次使用。</p><p>This ash-gray flail is cold to the touch. You gain a +1 bonus to attack and damage rolls made with this magic weapon, and it deals double damage to objects and structures.</p><p>Additionally, when you hit a creature with this weapon, you can force the creature to make a [[/save ability=con dc=15]] saving throw. On a failed save, the creature has the poisoned condition for 1 minute. The poisoned creature takes [[/damage 2d4 type=necrotic]] damage at the start of each of its turns. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. Once this property is used in this way, it can't be used again until the next dawn.</p></div>",
+      "value": "<p><em>武器（链枷），珍稀（需同调）</em></p><p>这把灰色的链枷摸起来是冰冷的。使用这把魔法武器进行的攻击检定和伤害掷骰获得+1加值，并且对物件和建筑物造成双倍伤害。</p><p>此外，当你用此武器击中生物时，你可以迫使该生物进行 [[/save ability=con dc=15]]豁免检定。若豁免失败，则该生物中毒1分钟。中毒生物在每个回合开始时都会受到[[/damage 2d4 type=necrotic]]点暗蚀伤害。该生物可以在每个回合结束时重复豁免检定，成功后结束该效应对自身的效果。此项属性一经使用，直到下次黎明前不能再次使用。</p><p>This ash-gray flail is cold to the touch. You gain a +1 bonus to attack and damage rolls made with this magic weapon, and it deals double damage to objects and structures.</p><p>Additionally, when you hit a creature with this weapon, you can force the creature to make a [[/save ability=con dc=15]] saving throw. On a failed save, the creature has the poisoned condition for 1 minute. The poisoned creature takes [[/damage 2d4 type=necrotic]] damage at the start of each of its turns. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. Once this property is used in this way, it can't be used again until the next dawn.</p>",
       "chat": ""
     },
     "proficient": null,
@@ -28,7 +28,6 @@
     "attuned": true,
     "identified": true,
     "equipped": true,
-    "rarity": "rare",
     "type": {
       "value": "martialM",
       "baseItem": "flail"
@@ -48,7 +47,7 @@
       "spent": 0,
       "recovery": []
     },
-    "magicalBonus": 1,
+    "magicalBonus": "1",
     "damage": {
       "base": {
         "types": [
@@ -63,7 +62,8 @@
         },
         "custom": {
           "enabled": false
-        }
+        },
+        "modifiers": []
       },
       "versatile": {
         "number": null,
@@ -74,7 +74,8 @@
         },
         "scaling": {
           "number": 1
-        }
+        },
+        "modifiers": []
       }
     },
     "ammunition": {
@@ -98,20 +99,25 @@
           "spellSlot": true,
           "targets": []
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -153,7 +159,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -161,7 +168,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -172,18 +178,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "attackMode": "oneHanded",
         "ammunition": "",
-        "otherActivityUuid": ""
+        "otherActivityUuid": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       }
     },
     "identifier": "ruinous-flail-bmt",
@@ -192,9 +246,14 @@
     },
     "container": null,
     "cover": null,
-    "crewed": false,
     "armor": {
       "value": null
+    },
+    "rarities": [
+      "rare"
+    ],
+    "crew": {
+      "value": []
     }
   },
   "img": "icons/weapons/maces/flail-triple-grey.webp",
@@ -226,16 +285,17 @@
       "noConcentrationCheck": false,
       "toggleEffect": false,
       "ignoreTotalCover": false
-    }
+    },
+    "dnd5e": {}
   },
   "effects": [],
   "folder": "4TOAfkeg3rPfaVef",
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1751738836954,
     "modifiedTime": 1757350873391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

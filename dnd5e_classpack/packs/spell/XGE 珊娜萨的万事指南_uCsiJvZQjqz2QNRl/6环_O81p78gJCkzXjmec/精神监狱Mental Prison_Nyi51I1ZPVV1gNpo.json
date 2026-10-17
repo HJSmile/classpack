@@ -27,37 +27,38 @@
       "effectCondition": "",
       "reactionCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/ability_demonhunter_imprison.png",
+  "img": "icons/magic/unholy/beam-ringed-impact-purple.webp",
   "effects": [
     {
       "name": "精神监狱Mental Prison",
-      "img": "modules/dnd5e_classpack/Nicons/ability_demonhunter_imprison.png",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.Nyi51I1ZPVV1gNpo",
+      "img": "icons/magic/unholy/beam-ringed-impact-purple.webp",
+      "origin": null,
       "transfer": false,
       "_id": "vP39Ils1v92w5Ys6",
       "type": "base",
-      "system": {},
-      "changes": [],
+      "system": {
+        "changes": [],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.Nyi51I1ZPVV1gNpo",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "minutes",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -82,48 +83,32 @@
           ]
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1756838420235,
         "modifiedTime": 1756838458253,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!Nyi51I1ZPVV1gNpo.vP39Ils1v92w5Ys6"
     }
   ],
   "system": {
     "description": {
-      "value": "<p>你试图将目标生物束缚在一个只有他自己能感知的幻觉牢房中。在距离内你可见的一个生物必须进行智力豁免检定。如果目标免疫魅惑，它在这次豁免中自动成功。若豁免成功，目标受到5d10精神伤害，同时法术结束。若豁免失败，在造成5d10精神伤害的同时你立即创造出环绕目标所在空间的某种危险区域。你也许会让目标感觉到自己被烈火、被浮动的刀锋、被可怕的獠牙所包围。<br />无论你采用什么形式的幻象，目标都不能越过它看到或听到任何事物，并且在法术持续时间内被束缚。如果目标移动出幻象，穿过它进行一次近战攻击检定，或尝试用身体的任何部分穿过它，目标受到10d10精神伤害，然后法术结束。</p>",
+      "value": "<p>你试图将目标生物束缚在一个只有他自己能感知的幻觉牢房中。在距离内你可见的一个生物必须进行[[/save activity=dnd5eactivity000]]{智力豁免检定}。如果目标免疫&amp;Reference[condition=charmed apply=false]{魅惑}，它在这次豁免中自动成功。若豁免成功，目标受到 [[/damage 5d10 type=psychic]]{5d10} 心灵伤害，同时法术结束。若豁免失败，在造成 5d10 心灵伤害的同时你立即创造出环绕目标所在空间的某种危险区域。你也许会让目标感觉到自己被烈火、被浮动的刀锋、被可怕的獠牙所包围。</p><p>无论你采用什么形式的幻象，目标都不能越过它看到或听到任何事物，并且在法术持续时间内被束缚。如果目标移动出幻象，穿过它进行一次近战攻击检定，或尝试用身体的任何部分穿过它，目标受到 [[/damage 10d10 type=psychic]]{10d10} 心灵伤害，然后法术结束。</p>",
       "chat": ""
     },
     "source": {
@@ -139,7 +124,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -149,9 +135,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -173,14 +160,9 @@
       "cost": 0,
       "supply": 0
     },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
-    },
     "properties": [
       "somatic",
-      "concentration",
-      "mgc"
+      "concentration"
     ],
     "activities": {
       "dnd5eactivity000": {
@@ -200,26 +182,36 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "vP39Ils1v92w5Ys6"
+            "_id": "vP39Ils1v92w5Ys6",
+            "uuid": null,
+            "onSave": false,
+            "level": {
+              "min": null,
+              "max": null
+            }
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -240,14 +232,16 @@
                 "formula": ""
               },
               "number": 5,
-              "denomination": "10",
+              "denomination": 10,
               "bonus": "",
               "types": [
                 "psychic"
               ],
               "scaling": {
-                "mode": ""
-              }
+                "mode": "",
+                "number": 1
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -261,7 +255,9 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true,
+          "bonus": ""
         },
         "sort": 0,
         "useConditionText": "",
@@ -275,7 +271,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -283,7 +280,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -294,21 +290,71 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": true,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "mental-prison"
+    "identifier": "mental-prison",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -317,8 +363,8 @@
   "sort": 9700000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711697241362,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

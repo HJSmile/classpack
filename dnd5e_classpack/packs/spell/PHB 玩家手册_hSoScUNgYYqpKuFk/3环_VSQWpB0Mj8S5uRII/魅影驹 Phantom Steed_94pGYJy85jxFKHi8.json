@@ -24,23 +24,13 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "ritual"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_DeathKnight_SummonDeathCharger.png",
+  "img": "icons/creatures/magical/humanoid-horned-rider.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你指定施法距离内一处未被占据空间，并从中显现一只似幻似真的马形生物。该生物的外形由你决定，但它必须装备着鞍座和辔具。而这些随法术创造的装备一旦离开战驹10尺即化作一阵烟消失不见。\n<br />在法术持续时间内，你或者一个你指定的生物可以骑乘此战驹。战驹使用骑乘用马的属性数据，不过其具有速度100尺，其每小时路程普通时可达10里，以快速步调行进时可达13里。法术终止时，战驹会慢慢消失，让骑手有1分钟的时间下马结束骑乘。你用一个动作解散战驹，或是当战驹受到伤害时，法术也将随即终止。\n<br /></div>",
+      "value": "<p>你指定施法距离内一处未占据空间，并从中显现一只似幻似真的马形生物。该生物的外形由你决定，但它必须装备着鞍座和辔具。而这些随法术创造的装备一旦离开战驹 10 尺即化作一阵烟消失不见。</p><p>在法术持续时间内，你或者一个你指定的生物可以骑乘此战驹。战驹使用骑乘用马的属性数据，不过其具有速度 100 尺，其每小时路程普通时可达 10 里，以快速步调行进时可达 13 里。法术终止时，战驹会慢慢消失，让骑手有 1 分钟的时间下马结束骑乘。你用一个动作解散战驹，或是当战驹受到伤害时，法术也将随即终止。</p>",
       "chat": ""
     },
     "source": {
@@ -56,7 +46,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -68,7 +59,8 @@
       "template": {
         "units": "any",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -89,10 +81,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -118,22 +106,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -163,7 +155,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -171,7 +164,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -182,18 +174,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "phantom-steed"
+    "identifier": "phantom-steed",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -202,8 +242,8 @@
   "sort": 18000000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

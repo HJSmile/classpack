@@ -4,7 +4,7 @@
   "img": "icons/weapons/polearms/glaive-hooked-steel.webp",
   "system": {
     "description": {
-      "value": "<p><em>（需同调）</em></p><p>龙枪是一种久负盛名的武器，铸造它不仅仅需要稀有的金属，还要有强力的神器加持。在克莱恩，它的诞生源于善神帕拉丁和抗击龙后邪恶的传奇英雄们。龙枪分为不同的种类，有步兵使用的长矛款式和骑兵使用的骑枪款式，但其魔法属性是相同的。</p><p>你用这把魔法武器进行的攻击检定和伤害掷骰获得+3加值。</p><p>当你用这把这把武器击中一条龙Dragon时，这条龙会受到额外[[/r 3d6]]力场伤害，并且你30尺内由你选择的任何你能看见的龙可以立刻使用它的反应进行一次近战攻击。</p><p></p>",
+      "value": "<p><em>（需同调）</em></p><p>龙枪是一种久负盛名的武器，铸造它不仅仅需要稀有的金属，还要有强力的神器加持。在克莱恩，它的诞生源于善神帕拉丁和抗击龙后邪恶的传奇英雄们。龙枪分为不同的种类，有步兵使用的长矛款式和骑兵使用的骑枪款式，但其魔法属性是相同的。</p><p>你用这把魔法武器进行的攻击检定和伤害掷骰获得+3加值。</p><p>当你用这把这把武器击中一条龙Dragon时，这条龙会受到额外[[/r 3d6]]力场伤害，并且你30尺内由你选择的任何你能看见的龙可以立刻使用它的反应进行一次近战攻击。</p>",
       "chat": ""
     },
     "source": {
@@ -24,10 +24,8 @@
     },
     "attunement": "required",
     "equipped": false,
-    "rarity": "legendary",
     "identified": true,
     "cover": null,
-    "crewed": false,
     "range": {
       "value": null,
       "long": null,
@@ -53,7 +51,8 @@
           "mode": "",
           "number": null,
           "formula": ""
-        }
+        },
+        "modifiers": []
       },
       "base": {
         "number": null,
@@ -70,7 +69,8 @@
           "mode": "",
           "number": null,
           "formula": ""
-        }
+        },
+        "modifiers": []
       }
     },
     "armor": {
@@ -115,14 +115,16 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
           "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -138,7 +140,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -185,7 +188,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -193,7 +197,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -204,18 +207,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "attackMode": "oneHanded",
         "ammunition": "",
-        "otherActivityUuid": ""
+        "otherActivityUuid": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       },
       "dnd5eactivity300": {
         "_id": "dnd5eactivity300",
@@ -235,14 +286,16 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
           "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -258,7 +311,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -292,7 +346,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -300,7 +355,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -311,32 +365,77 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-dragonlance",
     "container": null,
     "attuned": false,
     "ammunition": {},
-    "magicalBonus": null
+    "rarities": [
+      "legendary"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "effects": [],
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "fumbleThreshold": null,
       "rollAttackPerTarget": "default",
@@ -359,9 +458,9 @@
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1756725196590,
     "modifiedTime": 1757350424661,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -1,14 +1,14 @@
 {
   "name": "念力宗师 (免费)Telekinetic Master",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/spell_mage_supernova_nightborne.png",
+  "img": "icons/magic/perception/third-eye-blue-red.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>你用意念移动生物和物体的能力无人能及。你可以在无需施法材料的情况下使用@UUID[Compendium.dnd5e_classpack.spell.MTNfEcCXSJZ2m2nG]{心灵遥控 Telekinesis}，此时你的施法关键属性为智力。在每一个你对该法术维持专注的回合，包括你使用它的回合，你可以使用一个附赠动作进行一次武器攻击。</p>\n<p>每当你使用以特性施放此法术，你无法再次使用该特性直到你完成一次长休，除非你消耗一个灵能骰来再次使用该特性。</p>",
+      "value": "<p>你用意念移动生物和物体的能力无人能及。你可以在无需施法材料的情况下使用@UUID[Compendium.dnd5e_classpack.spell.MTNfEcCXSJZ2m2nG]{心灵遥控 Telekinesis}，此时你的施法属性为智力。在每一个你对该法术维持专注的回合，包括你使用它的回合，你可以使用一个附赠动作进行一次武器攻击。</p>\n<p>每当你使用以特性施放此法术，你无法再次使用该特性直到你完成一次长休，除非你消耗一个灵能骰来再次使用该特性。</p>",
       "chat": ""
     },
     "source": {
@@ -33,8 +33,6 @@
         "spell": {
           "uuid": "Compendium.dnd5e_classpack.spell.Item.MTNfEcCXSJZ2m2nG",
           "challenge": {
-            "attack": null,
-            "save": null,
             "override": false
           },
           "level": 5,
@@ -68,20 +66,24 @@
           ]
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -105,7 +107,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -113,7 +116,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "never",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -124,27 +126,78 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "name": ""
+        "name": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
     "identifier": "-telekinetic-master",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 18,
+      "repeatable": false,
+      "items": [
+        "subclass:psi-warrior"
+      ]
     },
-    "properties": []
+    "properties": [
+      "mgc"
+    ]
   },
   "effects": [],
   "folder": "lWuuznvhf9tYdVAU",
@@ -173,21 +226,14 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1749883541871,
     "modifiedTime": 1749883542518,
     "lastModifiedBy": "uXKCmWFprrvnSIDm",

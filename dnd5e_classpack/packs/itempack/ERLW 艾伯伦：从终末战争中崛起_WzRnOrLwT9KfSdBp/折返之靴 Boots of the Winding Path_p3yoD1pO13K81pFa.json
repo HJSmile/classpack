@@ -1,10 +1,10 @@
 {
   "name": "折返之靴 Boots of the Winding Path",
   "type": "equipment",
-  "img": "modules/dnd5e_classpack/Nicons/ABILITY_HUNTER_POSTHASTE.png",
+  "img": "icons/equipment/feet/boots-leather-brown.webp",
   "system": {
     "description": {
-      "value": "<blockquote><p>先决条件：6级奇械师<br />物品：一双靴子（需调谐）</p></blockquote><p>　　一个穿着这双靴子的生物能以一个附赠动作传送到一个该生物可以看到且距离15尺内的未占据空格中。该空间必须被该生物在当前回合中的某个时间点里占据过。</p>",
+      "value": "<blockquote><p>先决条件：6级奇械师</p><p>物品：一双靴子（需调谐）</p></blockquote><p>  一个穿着这双靴子的生物能以一个附赠动作传送到一个该生物可以看到且距离15尺内的未占据空格中。该空间必须被该生物在当前回合中的某个时间点里占据过。</p>",
       "chat": ""
     },
     "source": {
@@ -24,10 +24,8 @@
     },
     "attunement": "required",
     "equipped": false,
-    "rarity": "",
     "identified": true,
     "cover": null,
-    "crewed": false,
     "uses": {
       "max": "",
       "spent": null,
@@ -35,8 +33,7 @@
     },
     "armor": {
       "value": null,
-      "dex": null,
-      "magicalBonus": null
+      "dex": null
     },
     "hp": {
       "value": 0,
@@ -46,7 +43,8 @@
     },
     "speed": {
       "value": null,
-      "conditions": ""
+      "conditions": "",
+      "units": "ft"
     },
     "strength": 0,
     "proficient": null,
@@ -80,14 +78,16 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -104,7 +104,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "1",
@@ -126,11 +127,100 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-boots-of-the-winding-path",
-    "attuned": false
+    "attuned": false,
+    "rarities": [],
+    "crew": {
+      "value": []
+    }
   },
   "effects": [],
   "folder": "WzRnOrLwT9KfSdBp",
@@ -160,18 +250,12 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1686411814752,
     "modifiedTime": 1757872171326,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

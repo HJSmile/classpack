@@ -2,7 +2,7 @@
   "_id": "LglOxNHIfY66ZhZm",
   "name": "繁彩球\tChromatic Orb",
   "type": "spell",
-  "img": "modules/dnd5e_classpack/Nicons/ability_monk_forcesphere_arcane.jpg",
+  "img": "icons/magic/light/explosion-star-small-teal-purple.webp",
   "effects": [],
   "folder": "UpyidlPmP73pCiWN",
   "sort": 4700000,
@@ -29,17 +29,7 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "chromaticOrb",
@@ -50,7 +40,7 @@
   },
   "system": {
     "description": {
-      "value": "<div class=\"description \">\n<div class=\"description \">\n<div class=\"description \">你向施法距离内某个你能看见的生物掷出一颗直径4 寸的能量球，并从强酸、冷冻、火焰、闪电、毒素、雷鸣中选择一种类型以对该生物发动一次远程法术攻击。攻击命中时，该生物将受到3d8 点你所选类型的伤害。</div>\n<div class=\"description \"> </div>\n<div class=\"description \">升环施法效应。</div>\n<div class=\"description \">使用２环或更高法术位施展该法术时，你使用的法术位每比１环高一环，法术的伤害就增加1d8。</div>\n</div>\n</div>",
+      "value": "<p>你向施法距离内某个你能看见的生物掷出一颗直径 4 寸的能量球，并从强酸、寒冷、火焰、闪电、毒素、雷鸣中选择一种类型以对该生物发动一次远程法术攻击。攻击命中时，该生物将受到 3d8 点你所选类型的伤害。</p><p><strong>升环施法效应。</strong>使用二环或更高法术位施展该法术时，你使用的法术位每比一环高一环，法术的伤害就增加 1d8。</p>",
       "chat": ""
     },
     "source": {
@@ -66,7 +56,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -76,9 +67,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -99,10 +91,6 @@
       "consumed": false,
       "cost": 50,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -128,22 +116,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -179,7 +171,7 @@
                 "formula": ""
               },
               "number": 3,
-              "denomination": "8",
+              "denomination": 8,
               "bonus": "",
               "types": [
                 "cold",
@@ -193,7 +185,8 @@
                 "mode": "whole",
                 "number": 1,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ]
         },
@@ -209,7 +202,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -217,7 +211,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -228,13 +221,27 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "attackMode": "",
@@ -242,18 +249,52 @@
         "otherActivityUuid": "",
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       }
     },
-    "identifier": "chromatic-orb"
+    "identifier": "chromatic-orb",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

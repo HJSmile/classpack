@@ -4,7 +4,7 @@
   "img": "icons/sundries/books/book-tooled-silver-blue.webp",
   "system": {
     "description": {
-      "value": "<p><em>（需法师同调）</em><br />这本厚重的书被包在暗色的皮革中，皮革上纹有描绘了一张地图或海图的交错银线。<br />这本书在被找到时，包含了以下法术，且在你与其同调后对你视为法师法术：<span class=\"bbc_color\" style=\"COLOR:purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.GoHxmQDNg9i6lWU3]{秘法门Arcane Gate}</em></span>，<span class=\"bbc_color\" style=\"COLOR:purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.u86hMx0ODfccAtu8]{任意门Dimension Door}</em></span>，<span class=\"bbc_color\" style=\"COLOR:purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.bJdmgHYyhUJv8Zyc]{异界之门Gate}</em></span>，<span class=\"bbc_color\" style=\"COLOR:purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.Cnzcy1Tu7gt6xYHm]{迷踪步Misty Step}</em></span>，<span class=\"bbc_color\" style=\"COLOR:purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.VveuAHLNPiAY0yd5]{异界传送Plane Shift}</em></span>，<span class=\"bbc_color\" style=\"COLOR:purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.mcQ5lehafMClomzc]{传送法阵Teleportation Circle}</em></span> 和<span class=\"bbc_color\" style=\"COLOR:purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.saFwXc26RtQaVLWN]{回返真言Word of Recall}</em></span>。你可以将其作为法术书。<br />当你持握这本书时，你可以将其作为你法师法术的法器。<br />该书具有3发充能，且每天黎明时恢复1d3发已消耗的充能。你持握它时，可以通过以下方式消耗充能：<br /></p><ul class=\"bbc_list\"><li>如果你花费1分钟时间研究这本书，你可以消耗1发充能来将你的一道已准备法术替换为书中的另一道法术。新法术必须是咒法学派的法术。</li></ul><p> </p><p>当你被一次攻击命中时，你可以使用你的反应并消耗1发充能，传送到10尺内一个你能看见且未被占据的位置。若你的新位置在攻击的攻击距离以外，那么此次攻击失手。</p>",
+      "value": "<p><em>（需法师同调）</em></p><p>这本厚重的书被包在暗色的皮革中，皮革上纹有描绘了一张地图或海图的交错银线。</p><p>这本书在被找到时，包含了以下法术，且在你与其同调后对你视为法师法术：<span style=\"color: purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.GoHxmQDNg9i6lWU3]{秘法门Arcane Gate}</em></span>，<span style=\"color: purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.u86hMx0ODfccAtu8]{任意门Dimension Door}</em></span>，<span style=\"color: purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.bJdmgHYyhUJv8Zyc]{异界之门Gate}</em></span>，<span style=\"color: purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.Cnzcy1Tu7gt6xYHm]{迷踪步Misty Step}</em></span>，<span style=\"color: purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.VveuAHLNPiAY0yd5]{异界传送Plane Shift}</em></span>，<span style=\"color: purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.mcQ5lehafMClomzc]{传送法阵Teleportation Circle}</em></span> 和<span style=\"color: purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.saFwXc26RtQaVLWN]{回返真言Word of Recall}</em></span>。你可以将其作为法术书。</p><p>当你持握这本书时，你可以将其作为你法师法术的法器。</p><p>该书具有3发充能，且每天黎明时恢复1d3发已消耗的充能。你持握它时，可以通过以下方式消耗充能：</p><ul><li>如果你花费1分钟时间研究这本书，你可以消耗1发充能来将你的一道已准备法术替换为书中的另一道法术。新法术必须是咒法学派的法术。</li></ul><p>当你被一次攻击命中时，你可以使用你的反应并消耗1发充能，传送到10尺内一个你能看见且未被占据的位置。若你的新位置在攻击的攻击距离以外，那么此次攻击失手。</p>",
       "chat": ""
     },
     "source": {
@@ -24,10 +24,8 @@
     },
     "attunement": "required",
     "equipped": false,
-    "rarity": "rare",
     "identified": true,
     "cover": null,
-    "crewed": false,
     "uses": {
       "max": "3",
       "recovery": [
@@ -41,8 +39,7 @@
     },
     "armor": {
       "value": null,
-      "dex": null,
-      "magicalBonus": null
+      "dex": null
     },
     "hp": {
       "value": null,
@@ -52,7 +49,8 @@
     },
     "speed": {
       "value": null,
-      "conditions": ""
+      "conditions": "",
+      "units": "ft"
     },
     "strength": null,
     "proficient": 1,
@@ -96,18 +94,20 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -119,7 +119,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -141,11 +142,102 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-atlas-of-endless-horizons",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "rare"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "effects": [],
   "flags": {
@@ -172,19 +264,12 @@
       "reactionCondition": "",
       "effectCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 3,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1686059964887,
     "modifiedTime": 1757871332665,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

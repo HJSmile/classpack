@@ -26,21 +26,13 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "somatic"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Vehicle_RocketBoost.png",
+  "img": "icons/magic/earth/projectile-boulder-debris.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<p>选择距离之内，一个未被穿戴或持握的，重量为1到5磅的物体。此目标在你选择的一个方向上以直线轨迹飞行，在落到地面前至多行进90英尺，若其在此过程中撞击到了固体表面则会提前停止运动。若该物体将会撞击一个生物，该生物必须进行一次敏捷豁免检定。若检定失败，该物体击中目标并不再移动。无论如何，物体和被击中的生物或固体表面各受到3d8点钝击伤害。</p>\n<p><strong>升环效果：</strong>当你使用2环或更高的法术位施放该法术时，使用的法术位每高一环，你可以指定的物体的重量上限便增加5磅，而造成的伤害便提高1d8。</p>",
+      "value": "<p>选择施法距离之内，一个未被穿戴或携带的、重 1~5 磅的物件。该物件将向着你选择的一个方向，以直线轨迹飞出。弹射物在落到地面前至多可以飞行 90 尺距离，若其在此过程中弹射物撞击到了固体表面则会提前停止运动。若弹射物即将撞上一个生物，该生物必须进行一次[[/save activity=dnd5eactivity000]]{敏捷豁免检定}尝试避开它。若豁免失败，弹射物将击中该生物并停止运动。不论弹射物击中了什么东西，弹射物和被弹射物击中的东西都将各受到 [[/damage 3d8 type=bludgeoning]]{3d8} 点钝击伤害。</p><p><strong>升环施法效应。</strong>当你使用二环或更高的法术位施放该法术时，使用的法术位每高一环，你可以选择的物体重量上限便增加 5 磅，造成的伤害提高 1d8。</p>",
       "chat": ""
     },
     "source": {
@@ -56,7 +48,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -66,9 +59,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -89,10 +83,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "somatic",
@@ -116,22 +106,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -152,7 +146,7 @@
                 "formula": ""
               },
               "number": 3,
-              "denomination": "8",
+              "denomination": 8,
               "bonus": "",
               "types": [
                 "bludgeoning"
@@ -161,7 +155,8 @@
                 "mode": "whole",
                 "number": 1,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -175,7 +170,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -189,7 +185,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -197,7 +194,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -208,21 +204,68 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "catapult"
+    "identifier": "catapult",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -231,8 +274,8 @@
   "sort": 6900000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

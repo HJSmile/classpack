@@ -2,14 +2,14 @@
   "_id": "NOMp4AVrFi5GaTCb",
   "name": "魔力泉涌 Font of Magic",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Shaman_RepulsionTotem.png",
+  "img": "icons/magic/control/silhouette-hold-change-blue.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>第2级时，你解除了体内魔力之源的封印，从中涌现的魔力体现为你的可用术法点。你可以使用术法点创造各种魔法效应。</p>\n<h3><strong>术法点</strong></h3>\n<p>开始时，你拥有2个术法点。此后你每提升一个术士等级，都会获得更多的术法点，详见“术士职业表”中“术法点”一栏。你的术法点永远不能超过表中所列对应你当前等级的数值。而已消耗的术法点则可以通过完成一次长休进行恢复。</p>\n<h3><strong>易变施法</strong></h3>\n<p>你可以使用术法点来获得额外的法术位，或是消耗法术位来换取额外的术法点。随着术士等级的提升，你还可以学会其他术法点的使用方法。</p>\n<p><strong>生成法术位:</strong></p>\n<table>\n<tbody>\n<tr>\n<th>法术位环阶</th>\n<th>术法点消耗</th>\n</tr>\n<tr>\n<td>1环</td>\n<td>2</td>\n</tr>\n<tr>\n<td>2环</td>\n<td>3</td>\n</tr>\n<tr>\n<td>3环</td>\n<td>5</td>\n</tr>\n<tr>\n<td>4环</td>\n<td>6</td>\n</tr>\n<tr>\n<td>5环</td>\n<td>7</td>\n</tr>\n</tbody>\n</table>\n<p><strong>法术位转换术法点：</strong>你可以在自己回合内使用附赠动作将未使用的法术位转化为术法点。你消耗一枚法术位并获得等于该法术位环阶的术法点。</p>",
+      "value": "<p>第2级时，你解除了体内魔力之源的封印，从中涌现的魔力体现为你的可用术法点。你可以使用术法点创造各种魔法效应。</p><h3><strong>术法点</strong></h3><p>开始时，你拥有2个术法点。此后你每提升一个术士等级，都会获得更多的术法点，详见“术士职业表”中“术法点”一栏。你的术法点永远不能超过表中所列对应你当前等级的数值。而已消耗的术法点则可以通过完成一次长休进行恢复。</p><h3><strong>易变施法</strong></h3><p>你可以使用术法点来获得额外的法术位，或是消耗法术位来换取额外的术法点。随着术士等级的提升，你还可以学会其他术法点的使用方法。</p><h3><strong>生成法术位</strong></h3><p>在你的回合内，你可以用一个附赠动作消耗术法点，按照下表生成一个法术位。以此生成的法术位不能高于5环，并在你完成下一次长休时消失。</p><table><tbody><tr><th>法术位环阶</th><th>术法点消耗</th></tr><tr><td>1环</td><td>2</td></tr><tr><td>2环</td><td>3</td></tr><tr><td>3环</td><td>5</td></tr><tr><td>4环</td><td>6</td></tr><tr><td>5环</td><td>7</td></tr></tbody></table><h3>法术位转换术法点：</h3><p>你可以在自己回合内使用附赠动作将未使用的法术位转化为术法点。你消耗一枚法术位并获得等于该法术位环阶的术法点。</p>",
       "chat": ""
     },
     "source": {
@@ -47,17 +47,19 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -69,7 +71,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -91,17 +94,103 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 2,
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -134,21 +223,15 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "ownership": {
     "default": 0
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757136550803,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

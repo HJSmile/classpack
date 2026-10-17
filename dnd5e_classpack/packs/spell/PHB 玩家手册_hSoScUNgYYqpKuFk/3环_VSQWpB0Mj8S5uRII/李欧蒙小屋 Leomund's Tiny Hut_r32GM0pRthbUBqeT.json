@@ -28,24 +28,13 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "ritual"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/INV_Jewelry_Necklace_27.png",
+  "img": "icons/environment/settlement/blacksmith.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 一个半径10尺的半球形力场出现在你周围和上方，并在法术持续时间内保持固定。当你离开该区域时法术将随之终止。\n<br />半球可以容纳你和九个中型或更小的生物。如果区域内容纳了一个体型更大的生物或者容纳了多于九个生物，则法术失效。在施展此法术时即处于半球内的生物和物件可以自由进出半球。\n<br />而所有其他生物和物件都将被阻挡而无法进出。法术和其他魔法效应既无法延伸至穿过半球，也无法直接穿过半球施放。半球内的空气干爽舒适，而无论外侧气候如何。\n<br />你可以在法术终止前使半球内的光照变为微光或黑暗。半球从外侧看是不透明的，并且呈现出由你选定的颜色，但从内侧看它则是透明的。\n<br /></div>",
+      "value": "<p>一个半径 10 尺的半球形力场出现在你周围和上方，并在法术持续时间内保持固定。当你离开该区域时法术将随之终止。</p><p>半球可以容纳你和九个中型或更小的生物。如果区域内容纳了一个体型更大的生物或者容纳了多于九个生物，则法术失效。在施展此法术时即处于半球内的生物和物件可以自由进出半球。而所有其他生物和物件都将被阻挡而无法进出。法术和其他魔法效应既无法延伸至穿过半球，也无法直接穿过半球施放。半球内的空气干爽舒适，而无论外侧气候如何。</p><p>你可以在法术终止前使半球内的光照变为微光或黑暗。半球从外侧看是不透明的，并且呈现出由你选定的颜色，但从内侧看它则是透明的。</p>",
       "chat": ""
     },
     "source": {
@@ -63,7 +52,8 @@
     },
     "duration": {
       "value": "8",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -75,7 +65,8 @@
         "type": "sphere",
         "size": "10",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -95,10 +86,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -125,22 +112,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -170,7 +161,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -178,7 +170,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -189,18 +180,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "leomunds-tiny-hut"
+    "identifier": "leomunds-tiny-hut",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -209,8 +248,8 @@
   "sort": 16100000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757235114937,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

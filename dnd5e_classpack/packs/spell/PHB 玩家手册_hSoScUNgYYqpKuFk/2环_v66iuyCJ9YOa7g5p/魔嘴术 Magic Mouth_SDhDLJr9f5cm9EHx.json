@@ -28,25 +28,13 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "ritual"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/magic/air/wind-vortex-swirl-purple.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你将一段信息植入施法距离内的一个物件中，其信息会在满足预设条件时说出。指定一个你能看见且未被另一生物穿着或携带的物件。然后，你可以使用至多10分钟来传达这段不超过25个单词的信息。最后再来设定触发法术传达信息的事件。\n<br />预设的事件发生时，目标物件上的魔法将形成一张嘴，并用与你相同的声音和音量复述所存储的信息。如果你指定的目标本身有一张嘴或者类似嘴的结构（例如雕像的嘴），则魔法嘴将生成在该嘴结构的位置，使其看起来如同是物件的嘴在说话一样。\n<br />施展该法术时，你可以让法术在传达过信息后随即终止，或者也可以让法术一直持续并在每次被预设条件触发时进行复述。\n<br />你所决定的触发条件可以很概括也可以很具体，不过你只能根据目标物件30尺内的视觉或听觉状况来设定条件。例如，你可以命令魔嘴在任何生物移动至物件30尺内时说出信息，或者当其30尺内有银铃响起时说出信息。\n<br /></div>",
+      "value": "<p>你将一段信息植入施法距离内的一个物件中，其信息会在满足预设条件时说出。指定一个你能看见且未被另一生物穿着或携带的物件。然后，你可以使用至多 10 分钟来传达这段不超过 25 个单词的信息。最后再来设定触发法术传达信息的事件。</p><p>预设的事件发生时，目标物件上的魔法将形成一张嘴，并用与你相同的声音和音量复述所存储的信息。如果你指定的目标本身有一张嘴或者类似嘴的结构（例如雕像的嘴），则魔法嘴将生成在该嘴结构的位置，使其看起来如同是物件的嘴在说话一样。施展该法术时，你可以让法术在传达过信息后随即终止，或者也可以让法术一直持续并在每次被预设条件触发时进行复述。</p><p>你所决定的触发条件可以很概括也可以很具体，不过你只能根据目标物件 30 尺内的视觉或听觉状况来设定条件。例如，你可以命令魔嘴在任何生物移动至物件 30 尺内时说出信息，或者当其 30 尺内有银铃响起时说出信息。</p>",
       "chat": ""
     },
     "source": {
@@ -61,7 +49,8 @@
       "value": 1
     },
     "duration": {
-      "units": "disp"
+      "units": "disp",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -71,9 +60,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -94,10 +84,6 @@
       "consumed": true,
       "cost": 10,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -123,22 +109,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -168,7 +158,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -176,7 +167,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -187,18 +177,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "magic-mouth"
+    "identifier": "magic-mouth",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -207,8 +245,8 @@
   "sort": 20300000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757419719404,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -25,46 +25,49 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/002505.png",
+  "img": "icons/magic/symbols/fleur-de-lis-yellow.webp",
   "effects": [
     {
       "name": "反制善恶 Dispel Evil and Good",
-      "img": "modules/dnd5e_classpack/Nicons/002505.png",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.vWPApZRxvrKSiKKS",
+      "img": "icons/magic/symbols/fleur-de-lis-yellow.webp",
+      "origin": null,
       "transfer": false,
       "_id": "GvFcwdA7sA5EGb1I",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "macro.createItem",
-          "mode": 0,
-          "value": "Compendium.dnd5e_classpack.itempack.Item.0IbmkfrfnDRCvoF5",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "macro.createItem",
+            "value": "Compendium.dnd5e_classpack.itempack.Item.0IbmkfrfnDRCvoF5",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "7ftsRDhgRL39VcyL",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.vWPApZRxvrKSiKKS",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": 10,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 60,
+        "units": "seconds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -84,48 +87,32 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": 1756368177255,
         "modifiedTime": 1756368453314,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!vWPApZRxvrKSiKKS.GvFcwdA7sA5EGb1I"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 发光的能量环绕着你，并保护你免受来自精类生物、不死生物和源于主物质位面外异域生物的伤害。天界生物、元素生物、精类生物、邪魔、不死生物对你发动攻击检定时具有劣势。\n<br />你可以通过以下方式提前终止此法术。\n<br /><strong>破除附魔Break Enchantment。</strong>你使用动作触碰一个触及范围内的生物。如果该生物受天界生物、元素生物、精类生物、邪魔或不死生物影响而陷入魅惑、恐慌，或是被附身状态，则生物的这些状态即时结束。\n<br /><strong>驱逐Dismissal。</strong>你使用动作发动一次近战法术攻击，攻击一个天界生物、元素生物、精类生物、邪魔或不死生物。命中时，你可以尝试将该生物驱逐回其原属位面。该生物必须成功通过一此魅力豁免，否则将强制返回其原属位面（若已在原属位面则无效）。比如精类生物会返回妖精荒野，不死生物会返回堕影冥界。\n<br /></div>",
+      "value": "<p>发光的能量环绕着你，并保护你免受来自妖精、亡灵和源于主物质位面外异域生物的伤害。天族、元素、妖精、邪魔、亡灵生物对你发动攻击检定时具有劣势。</p><p>你可以通过以下方式提前终止此法术。</p><blockquote><p><strong>破除惑控Break Enchantment。</strong>你使用动作触碰一个触及范围内的生物。如果该生物受天族、元素、妖精、邪魔或亡灵生物影响而陷入&amp;Reference[condition=charmed apply=false]{魅惑}、恐慌，或是被附身状态，则生物的这些状态即时结束。</p><p><strong>驱逐Dismissal。</strong>你使用动作发动一次近战法术攻击，攻击一个天族、元素、妖精、邪魔或亡灵生物。命中时，你可以尝试将该生物驱逐回其原属位面。该生物必须成功通过一此魅力豁免，否则将强制返回其原属位面（若已在原属位面则无效）。比如妖精会返回妖精荒野，亡灵会返回堕影冥界。</p></blockquote>",
       "chat": ""
     },
     "source": {
@@ -141,7 +128,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -151,9 +139,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -173,10 +162,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -202,24 +187,31 @@
           "spellSlot": true,
           "targets": []
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "GvFcwdA7sA5EGb1I"
+            "_id": "GvFcwdA7sA5EGb1I",
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -246,7 +238,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -254,7 +247,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -265,18 +257,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "dispel-evil-and-good"
+    "identifier": "dispel-evil-and-good",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -285,8 +325,8 @@
   "sort": 5000000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711690279951,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

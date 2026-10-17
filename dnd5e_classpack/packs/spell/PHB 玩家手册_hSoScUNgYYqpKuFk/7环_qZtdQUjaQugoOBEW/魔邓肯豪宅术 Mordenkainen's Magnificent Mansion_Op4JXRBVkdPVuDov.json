@@ -24,23 +24,13 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/INV_Jewelry_Amulet_01.png",
+  "img": "icons/environment/settlement/house-manor.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你在施法距离内创造出一个异次元的居所，并维持至法术持续时间结束。居所唯一的入口宽5尺，高10尺而微微发光，其具体位置由你指定。只要该入口保持开启，你和你施展该法术时指定的任意生物都可以进入该异次元居所中。你可以在距入口不超过30尺处开启或关闭入口。而入口关闭时即其处于隐形状态。\n<br />入口内是一个连接着许多房间的华丽大厅。其内空气洁净清新而温暖舒适。\n<br />你可以随意创造自己喜欢的房间构造，但其总体积不得超过50个边长10尺的立方体。房间内依你喜好配置好家具和装饰，其内储备的食材足以制作供100人享用的九道菜大餐。一组共100名的半透明仆从会招待任何进入房间的人。仆从的外观衣着由你决定，而它们会完全服从你的命令。每个仆从都可以完成一个普通人程度的工作，但它们不能攻击或者进行任何直接伤害其他生物的行动。因而仆从可以完成的工作包括：取来物品、清洁、修理、叠衣服、生火、上菜、倒酒等等。仆从可以去豪宅中的任何地方，但不能里开宅子。由该法术创造的家具和其他物品如果被移出豪宅，就会消散成烟雾。该法术终止时，任何处于该异次元空间内的生物都将被移出空间内，并出现在距离入口最近的开放空间内。\n<br /></div>",
+      "value": "<p>你在施法距离内创造出一个异次元的居所，并维持至法术持续时间结束。居所唯一的入口宽 5 尺，高 10 尺而微微发光，其具体位置由你指定。只要该入口保持开启，你和你施展该法术时指定的任意生物都可以进入该异次元居所中。你可以在距入口不超过 30 尺处开启或关闭入口。而入口关闭时即其处于隐形状态。</p><p>入口内是一个连接着许多房间的华丽大厅。其内空气洁净清新而温暖舒适。</p><p>你可以随意创造自己喜欢的房间构造，但其总体积不得超过 50 个边长 10 尺的立方体。房间内依你喜好配置好家具和装饰，其内储备的食材足以制作供 100 人享用的九道菜大餐。一组共 100 名的半透明仆从会招待任何进入房间的人。仆从的外观衣着由你决定，而它们会完全服从你的命令。每个仆从都可以完成一个普通人程度的工作，但它们不能攻击或者进行任何直接伤害其他生物的行动。因而仆从可以完成的工作包括：取来物品、清洁、修理、叠衣服、生火、上菜、倒酒等等。仆从可以去豪宅中的任何地方，但不能里开宅子。由该法术创造的家具和其他物品如果被移出豪宅，就会消散成烟雾。该法术终止时，任何仍处于该异次元空间内的生物或物件都将被移出空间内，并出现在距离入口最近的开放空间内。</p>",
       "chat": ""
     },
     "source": {
@@ -58,7 +48,8 @@
     },
     "duration": {
       "value": "24",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -66,9 +57,10 @@
         "type": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -89,10 +81,6 @@
       "consumed": false,
       "cost": 15,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -118,22 +106,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -163,7 +155,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -171,7 +164,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -182,18 +174,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "mordenkainens-magnificent-mansion"
+    "identifier": "mordenkainens-magnificent-mansion",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -202,8 +242,8 @@
   "sort": 19200000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757235114937,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

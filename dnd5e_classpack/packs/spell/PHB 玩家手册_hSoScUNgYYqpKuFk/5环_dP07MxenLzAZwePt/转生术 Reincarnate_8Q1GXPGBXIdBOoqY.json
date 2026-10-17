@@ -24,23 +24,13 @@
       "removeAttackDamageButtons": "default",
       "reactionCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/000511.png",
+  "img": "icons/magic/nature/tree-spirit-glow-black-yellow.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你触碰一个类人生物的遗体或遗体的一部分，以此创造出一具新的成年身体，并呼唤该生物的灵魂进入此新身躯。该生物死亡时间必须不超过10日。此外，如果目标生物的灵魂此时不能或者不愿意完成该过程，则法术失败。\n<br />该法术要为目标生物创造出一具新的身体，因此很可能导致该生物的种族发生变动。DM 可以投一个d100来判定该生物以何种形态复生，也可以直接由DM 选择一种形态。\n<br />d100种族\n<br />01~04龙裔\n<br />05~13丘陵矮人\n<br />14~21山地矮人\n<br />22~25黑暗精灵\n<br />26~34高等精灵\n<br />35~42木精灵\n<br />43~46林侏儒\n<br />47~52岩侏儒\n<br />53~56半精灵\n<br />57~60半兽人\n<br />61~68轻足半身人\n<br />69~76强魄半身人\n<br />77~96人类\n<br />97~00提夫林\n<br />转生后的生物保留其前生记忆和经验。受术者保留原形的一切能力，不过其种族特性将以新种族的相应特性做更替。\n<br /></div>",
+      "value": "<p>你触碰一个类人生物的遗体或遗体的一部分，以此创造出一具新的成年身体，并呼唤该生物的灵魂进入此新身躯。该生物死亡时间必须不超过 10 日。此外，如果目标生物的灵魂此时不能或者不愿意完成该过程，则法术失败。</p><p>该法术要为目标生物创造出一具新的身体，因此很可能导致该生物的种族发生变动。DM 可以投一个 d100 来判定该生物以何种形态复生，也可以直接由 DM 选择一种形态。 ??</p><table><thead><tr><th><strong>d100</strong></th><th><strong>种族</strong></th><th></th><th><strong>d100</strong></th><th><strong>种族</strong></th></tr></thead><tbody><tr><td>01~04</td><td>龙裔</td><td></td><td>47~52</td><td>岩石侏儒</td></tr><tr><td>05~13</td><td>丘陵矮人</td><td></td><td>53~56</td><td>半精灵</td></tr><tr><td>14~21</td><td>山地矮人</td><td></td><td>57~60</td><td>半兽人</td></tr><tr><td>22~25</td><td>黑暗精灵</td><td></td><td>61~68</td><td>轻足半身人</td></tr><tr><td>26~34</td><td>高等精灵</td><td></td><td>69~76</td><td>强魄半身人</td></tr><tr><td>35~42</td><td>木精灵</td><td></td><td>77~96</td><td>人类</td></tr><tr><td>43~46</td><td>林侏儒</td><td></td><td>97~00</td><td>提夫林</td></tr></tbody></table><p>转生后的生物保留其前生记忆和经验。受术者保留原形的一切能力，不过其种族特质将以新种族的相应特性做更替。</p>",
       "chat": ""
     },
     "source": {
@@ -56,7 +46,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -66,9 +57,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -88,10 +80,6 @@
       "consumed": true,
       "cost": 1000,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -117,22 +105,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -162,7 +154,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -170,7 +163,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -181,18 +173,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "reincarnate"
+    "identifier": "reincarnate",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -201,8 +241,8 @@
   "sort": 38900000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

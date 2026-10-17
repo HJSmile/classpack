@@ -2,14 +2,14 @@
   "_id": "4k8CkHDM05RJUQF4",
   "name": "幽灵漫步Ghost Walk",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/spell_shadow_coneofsilence.png",
+  "img": "icons/magic/movement/portal-vortex-orange.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>你可以部分的进入死亡的领域，变得如同一个幽灵。作为一个附赠动作，你化为灵体的形态。处于这种形态时，你拥有10尺的飞行速度，能够盘旋，并且针对你的攻击都具有劣势。你也可以如同是困难地形那样穿过生物或者物品，但是如果回合结束时你仍然在内部，你将受到[[/r 1d10]]点力场伤害。</p>\n<p>该形态持续10分钟或直到你以一个附赠动作将其解除。你再次使用此特性前必须完成一次长休。或者你以同一个附赠动作销毁一个你的@UUID[Compendium.dnd5e_classpack.extra-ability.eXk4FM2eHvy3WS67]{魂器}并激活幽灵漫步。</p>",
+      "value": "<p>你可以部分的进入死亡的领域，变得如同一个幽灵。作为一个附赠动作，你化为灵体的形态。处于这种形态时，你拥有10尺的飞行速度，能够盘旋，并且针对你的攻击都具有劣势。你也可以如同是困难地形那样穿过生物或者物品，但是如果回合结束时你仍然在内部，你将受到[[/damage 1d10 type=force]]{1d10}点力场伤害。</p>\n<p>该形态持续10分钟或直到你以一个附赠动作将其解除。你再次使用此特性前必须完成一次长休。或者你以同一个附赠动作销毁一个你的@UUID[Compendium.dnd5e_classpack.extra-ability.eXk4FM2eHvy3WS67]{魂器}并激活幽灵漫步。</p>",
       "chat": ""
     },
     "source": {
@@ -47,13 +47,15 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -69,7 +71,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -106,11 +109,97 @@
                 "mode": "whole",
                 "number": null,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ]
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "name": "停留在实体内的力场伤害"
       },
       "PzgA1UA8Q8NxzjE0": {
         "type": "utility",
@@ -130,14 +219,23 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
-          "units": "inst",
+          "units": "minute",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null,
+          "value": "10"
         },
-        "effects": [],
+        "effects": [
+          {
+            "_id": "vSijTZvtSwJq8sI8",
+            "uuid": null,
+            "level": {}
+          }
+        ],
         "range": {
           "override": false,
           "units": "self",
@@ -147,11 +245,12 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
-            "type": ""
+            "type": "self"
           },
           "override": false,
           "prompt": true
@@ -178,7 +277,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -186,7 +286,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -197,66 +296,96 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
-        "name": "",
+        "name": "幽灵漫步（形态）",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "ghost-walk",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 13,
+      "repeatable": false,
+      "items": [
+        "subclass:phantom"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "_id": "vSijTZvtSwJq8sI8",
-      "changes": [
-        {
-          "key": "system.attributes.movement.fly",
-          "mode": 4,
-          "value": "10",
-          "priority": null
-        },
-        {
-          "key": "system.attributes.movement.hover",
-          "mode": 5,
-          "value": "true",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 10,
+        "units": "minutes",
+        "expiry": "turnStart",
+        "expired": false
       },
       "origin": "Compendium.dnd5e_classpack.extra-ability.4k8CkHDM05RJUQF4",
-      "transfer": true,
+      "transfer": false,
       "flags": {},
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -265,26 +394,57 @@
         "exportSource": null
       },
       "name": "获得 10 尺飞行速度",
-      "img": "modules/dnd5e_classpack/Nicons/spell_shadow_coneofsilence.png",
+      "img": "icons/magic/movement/portal-vortex-orange.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.movement.speeds.fly",
+            "value": 10,
+            "priority": null,
+            "type": "upgrade",
+            "phase": "initial",
+            "_id": "ELRjA6kmFK3yfoo5",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.attributes.movement.hover",
+            "value": true,
+            "priority": null,
+            "type": "override",
+            "phase": "initial",
+            "_id": "nLbTXcxrhHoiqupS",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!4k8CkHDM05RJUQF4.vSijTZvtSwJq8sI8"
     }
   ],
   "folder": "AC7FtXGN0G19Ba8I",
   "sort": 8700000,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -311,9 +471,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1749883542518,
     "lastModifiedBy": "uXKCmWFprrvnSIDm",

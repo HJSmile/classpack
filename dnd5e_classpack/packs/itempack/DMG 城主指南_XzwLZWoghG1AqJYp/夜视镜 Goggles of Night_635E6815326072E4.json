@@ -6,15 +6,12 @@
   "effects": [
     {
       "name": "夜视镜 Goggles of Night",
-      "origin": "Compendium.dnd5e_classpack.itempack.Item.635E6815326072E4",
+      "origin": null,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "disabled": false,
       "flags": {
@@ -30,41 +27,17 @@
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system"
         }
       },
       "_id": "DpKLWyLFgf6CrT00",
-      "changes": [
-        {
-          "key": "system.attributes.senses.darkvision",
-          "mode": 2,
-          "value": "+ 60",
-          "priority": 20
-        }
-      ],
       "description": "",
       "transfer": true,
       "statuses": [],
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -74,8 +47,36 @@
       },
       "img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.senses.ranges.darkvision",
+            "value": "+ 60",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "qT03f1TgqCj3Y5pj",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.itempack.Item.635E6815326072E4",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!635E6815326072E4.DpKLWyLFgf6CrT00"
     }
   ],
@@ -118,12 +119,7 @@
       "itemCondition": "",
       "effectCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
@@ -147,10 +143,8 @@
     },
     "attunement": "",
     "equipped": false,
-    "rarity": "uncommon",
     "identified": true,
     "cover": null,
-    "crewed": false,
     "uses": {
       "max": "",
       "spent": null,
@@ -158,8 +152,7 @@
     },
     "armor": {
       "value": 0,
-      "dex": 0,
-      "magicalBonus": null
+      "dex": 0
     },
     "hp": {
       "value": 0,
@@ -169,7 +162,8 @@
     },
     "speed": {
       "value": null,
-      "conditions": ""
+      "conditions": "",
+      "units": "ft"
     },
     "strength": 0,
     "proficient": null,
@@ -186,12 +180,18 @@
     ],
     "activities": {},
     "identifier": "-goggles-of-night",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "uncommon"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1713010439659,
     "modifiedTime": 1757871167239,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

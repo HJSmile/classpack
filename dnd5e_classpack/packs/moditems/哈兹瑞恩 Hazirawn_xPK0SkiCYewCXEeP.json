@@ -7,19 +7,12 @@
   "folder": null,
   "sort": 0,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 4,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1749710928408,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",
@@ -32,7 +25,7 @@
   },
   "system": {
     "description": {
-      "value": "<p><em>（需同调）</em></p>\n<p>作为一把智能巨剑（中立邪恶），哈兹瑞恩会说通用语和耐色瑞尔语。即使你未与它同调，你持用这把武器进行的攻击检定和伤害掷骰仍可获得 +1 加值。若你未与哈兹瑞恩同调， 你以该武器命中时只可额外造成[[/r 1d6]]的黯蚀伤害。</p>\n<p><strong>提升效能 Increased Potency。</strong>你与该武器同调后，其攻击检定和伤害掷骰的加值提升为 +2，且其命中时造成的额外伤害改为[[/r 2d6]]的黯蚀伤害（代替[[/r 1d6]]）。</p>\n<p><strong>法术 Spells。</strong>哈兹瑞恩 拥有 4 发充能用以施展法术。与这把剑同调并将其持握在手后，你可以施展法术@UUID[Compendium.dnd5e_classpack.spell.cGO3m3Xu4mtPegr4]{侦测魔法 Detect Magic}（1 充能）、@UUID[Compendium.dnd5e_classpack.spell.zeN5fxXLn4QE2YDa]{侦测善恶 Detect Evil and Good}（1 充能）或@UUID[Compendium.dnd5e_classpack.spell.YuGbz9k5JXA0kIgT]{侦测思想 Detect Thoughts}（2 充能）。在每日午夜时分，哈兹瑞恩 会回复 [[/r 1d4]]的充能。</p>\n<p><strong>致伤 Wounding。</strong>你与该武器同调后，任何被你以哈兹瑞恩 命中的生物在 1 分钟内无法恢复生命值。该目标在其每个自己 回合结束时，可以进行一次 DC 15 的体质豁免，豁免成功则该效应提前终止。</p>\n<p><em>注：伤害与加值已设为同调后的数值。请根据实际需要调整。</em></p>",
+      "value": "<p><em>（需同调）</em></p><p>作为一把智能巨剑（中立邪恶），哈兹瑞恩会说通用语和耐色瑞尔语。即使你未与它同调，你持用这把武器进行的攻击检定和伤害掷骰仍可获得 +1 加值。若你未与哈兹瑞恩同调， 你以该武器命中时只可额外造成[[/r 1d6]]的黯蚀伤害。</p><h3>提升效能 Increased Potency。</h3><p>你与该武器同调后，其攻击检定和伤害掷骰的加值提升为 +2，且其命中时造成的额外伤害改为[[/r 2d6]]的黯蚀伤害（代替[[/r 1d6]]）。</p><h3>法术 Spells。</h3><p>哈兹瑞恩 拥有 4 发充能用以施展法术。与这把剑同调并将其持握在手后，你可以施展法术@UUID[Compendium.dnd5e_classpack.spell.cGO3m3Xu4mtPegr4]{侦测魔法 Detect Magic}（1 充能）、@UUID[Compendium.dnd5e_classpack.spell.zeN5fxXLn4QE2YDa]{侦测善恶 Detect Evil and Good}（1 充能）或@UUID[Compendium.dnd5e_classpack.spell.YuGbz9k5JXA0kIgT]{侦测思想 Detect Thoughts}（2 充能）。在每日午夜时分，哈兹瑞恩 会回复 [[/r 1d4]]的充能。</p><h3>致伤 Wounding。</h3><p>你与该武器同调后，任何被你以哈兹瑞恩 命中的生物在 1 分钟内无法恢复生命值。该目标在其每个自己 回合结束时，可以进行一次 DC 15 的体质豁免，豁免成功则该效应提前终止。</p><p><em>注：伤害与加值已设为同调后的数值。请根据实际需要调整。</em></p>",
       "chat": ""
     },
     "source": {
@@ -51,7 +44,6 @@
     },
     "attunement": "required",
     "equipped": true,
-    "rarity": "legendary",
     "identified": true,
     "range": {
       "value": null,
@@ -78,7 +70,8 @@
           "mode": "",
           "number": null,
           "formula": ""
-        }
+        },
+        "modifiers": []
       },
       "base": {
         "number": null,
@@ -95,7 +88,8 @@
           "mode": "",
           "number": null,
           "formula": ""
-        }
+        },
+        "modifiers": []
       }
     },
     "armor": {
@@ -149,13 +143,15 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -171,7 +167,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -220,11 +217,102 @@
                 "mode": "whole",
                 "number": null,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ]
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackMode": "oneHanded",
+        "ammunition": "",
+        "otherActivityUuid": "",
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       },
       "dnd5eactivity100": {
         "_id": "dnd5eactivity100",
@@ -254,13 +342,15 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -276,7 +366,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -310,9 +401,13 @@
                 "mode": "whole",
                 "number": null,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
-          ]
+          ],
+          "critical": {
+            "allow": false
+          }
         },
         "save": {
           "ability": [
@@ -321,18 +416,109 @@
           "dc": {
             "calculation": "",
             "formula": "15"
-          }
+          },
+          "visible": true
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
     "identifier": "-hazirawn",
     "container": null,
     "attuned": false,
     "cover": null,
-    "crewed": false,
     "ammunition": {},
-    "magicalBonus": null
+    "rarities": [
+      "legendary"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "_key": "!items!xPK0SkiCYewCXEeP"
 }

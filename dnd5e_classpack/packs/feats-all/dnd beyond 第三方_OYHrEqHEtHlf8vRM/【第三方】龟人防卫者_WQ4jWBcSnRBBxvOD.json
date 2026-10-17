@@ -5,10 +5,10 @@
   "system": {
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "description": {
-      "value": "<p>你掌握了如何使用你的壳来更好地保护自己或其他人。你得到如下增益：<br /></p>\n<ul>\n<li>你的力量或感知上升1点，上限20。<br /></li>\n<li>你的天生护甲特性现在提供18点基础AC。如正常一般，你的敏捷调整值不会影响这个数字。<br /></li>\n<li>当你被迫进行敏捷豁免检定时，你可以以一个反应选择在你5英尺内的任意数量生物。直到你的下个回合开始，每个被选择的生物在对抗任何有害攻击或效应时都将被认为是处于半掩护之下，只要他们处于你周围5英尺内。一旦你使用这个能力，你将不能再次使用直到你完成了一次短休息或长休息。</li>\n</ul>",
+      "value": "<p>你掌握了如何使用你的壳来更好地保护自己或其他人。你得到如下增益：</p><ul><li>你的力量或感知上升1点，上限20。<br></li><li>你的天生护甲特性现在提供18点基础AC。如正常一般，你的敏捷调整值不会影响这个数字。<br></li><li>当你被迫进行敏捷豁免检定时，你可以以一个反应选择在你5英尺内的任意数量生物。直到你的下个回合开始，每个被选择的生物在对抗任何有害攻击或效应时都将被认为是处于半掩护之下，只要他们处于你周围5英尺内。一旦你使用这个能力，你将不能再次使用直到你完成了一次短休息或长休息。</li></ul>",
       "chat": ""
     },
     "source": {
@@ -17,37 +17,71 @@
       "rules": "2014"
     },
     "uses": {
-      "max": "0",
+      "max": "1",
       "spent": 0,
-      "recovery": []
+      "recovery": [
+        {
+          "period": "sr",
+          "type": "recoverAll",
+          "formula": ""
+        }
+      ]
     },
     "requirements": "龟人",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {
+      "07aac95f3ff8df4a": {
+        "_id": "07aac95f3ff8df4a",
+        "type": "AbilityScoreImprovement",
+        "name": "属性值提升",
+        "configuration": {
+          "cap": 1,
+          "fixed": {
+            "str": 0,
+            "dex": 0,
+            "con": 0,
+            "int": 0,
+            "wis": 0,
+            "cha": 0
+          },
+          "locked": [
+            "dex",
+            "con",
+            "int",
+            "cha"
+          ],
+          "points": 1,
+          "max": 20,
+          "recommendation": null
+        },
+        "value": {
+          "type": "asi"
+        },
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/equipment/shield/kite-wooden-oak-glow.webp",
   "effects": [],
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1749711029989,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

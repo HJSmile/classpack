@@ -2,7 +2,7 @@
   "_id": "KyGD0UqLk90Er2cd",
   "name": "熟练探险家 Deft Explorer",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Achievement_Zone_Feralas.png",
+  "img": "icons/tools/navigation/map-chart-tan.webp",
   "system": {
     "type": {
       "value": "class",
@@ -25,8 +25,8 @@
     "requirements": "游侠等级 1",
     "activities": {},
     "identifier": "-deft-explorer",
-    "advancement": [
-      {
+    "advancement": {
+      "CyQQdptuc4QLYf7e": {
         "_id": "CyQQdptuc4QLYf7e",
         "type": "AbilityScoreImprovement",
         "configuration": {
@@ -40,22 +40,106 @@
             "cha": 0
           },
           "locked": [],
-          "points": 0
+          "points": 0,
+          "recommendation": null
         },
         "value": {
           "type": "asi"
         },
         "level": 0,
-        "title": "",
-        "hint": ""
+        "hint": "",
+        "name": "",
+        "flags": {}
+      },
+      "8d79b9d02cccfafe": {
+        "_id": "8d79b9d02cccfafe",
+        "type": "ItemGrant",
+        "configuration": {
+          "items": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.extra-ability.Item.dyR8ImgN3MyQCMJ1",
+              "optional": false,
+              "sort": 0
+            }
+          ],
+          "optional": false,
+          "spell": null,
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 1,
+        "name": "精明",
+        "flags": {
+          "dnd5e_classpack": {
+            "content": {
+              "kind": "fixed-feature"
+            }
+          }
+        },
+        "hint": "随熟练探险家获得的游侠职业特性"
+      },
+      "7f8d1deb71960a73": {
+        "_id": "7f8d1deb71960a73",
+        "type": "ItemGrant",
+        "configuration": {
+          "items": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.extra-ability.Item.WYSbzjOzh5IVQYR1",
+              "optional": false,
+              "sort": 0
+            }
+          ],
+          "optional": false,
+          "spell": null,
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 6,
+        "name": "越野",
+        "flags": {
+          "dnd5e_classpack": {
+            "content": {
+              "kind": "fixed-feature"
+            }
+          }
+        },
+        "hint": "随熟练探险家获得的游侠职业特性"
+      },
+      "b7a55c5c785d8695": {
+        "_id": "b7a55c5c785d8695",
+        "type": "ItemGrant",
+        "configuration": {
+          "items": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.extra-ability.Item.xFXT58CpzavsEswS",
+              "optional": false,
+              "sort": 0
+            }
+          ],
+          "optional": false,
+          "spell": null,
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 10,
+        "name": "不知疲倦",
+        "flags": {
+          "dnd5e_classpack": {
+            "content": {
+              "kind": "fixed-feature"
+            }
+          }
+        },
+        "hint": "随熟练探险家获得的游侠职业特性"
       }
-    ],
+    },
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": [
       "trait"
@@ -64,21 +148,31 @@
   "effects": [
     {
       "name": "熟练探险家 Deft Explorer",
-      "img": "modules/dnd5e_classpack/Nicons/Achievement_Zone_Feralas.png",
-      "origin": "Compendium.dnd5e_classpack.extra-ability.Item.KyGD0UqLk90Er2cd",
+      "img": "icons/tools/navigation/map-chart-tan.webp",
+      "origin": null,
       "_id": "qKPF2p2jDfY4XCZk",
       "type": "base",
-      "system": {},
-      "changes": [],
+      "system": {
+        "changes": [],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.extra-ability.Item.KyGD0UqLk90Er2cd",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -95,54 +189,33 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": 1755062214157,
         "modifiedTime": 1755063088659,
         "lastModifiedBy": "vFLRCDyc5l72uRlV",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!KyGD0UqLk90Er2cd.qKPF2p2jDfY4XCZk"
     }
   ],
   "folder": "642mErmNZtsY0W10",
   "sort": 20000000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -163,9 +236,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1755063055681,
     "lastModifiedBy": "vFLRCDyc5l72uRlV",

@@ -23,25 +23,14 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "ritual"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/magic/control/debuff-energy-hold-blue-yellow.webp",
   "_id": "EuKITnw8F4mHUEEL",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 该法术创造出一个无心智、无实体的隐形力场生物。你可以在法术终止前命令它进行简单的工作。该仆从被创造出来后出现在施法距离内一处未被占据空间的地面上。其AC为10，生命值为1，力量为2，且不能攻击。若仆从的生命值降至0，则法术终止。\n<br />你可以自己每个回合内以一个附赠动作对仆役下达精神命令，使它移动最多15尺并与一个物件进行互动。仆从可以做人类仆从能做到的简单工作，例如拿取东西、打扫卫生、修补东西、叠衣服、点火、上菜、倒酒等。一旦你下达了命令，仆从就会尽全力去做你命令它做的工作直至完成，并在完成任务后静待你的下一个命令。\n<br />如果你命令仆从做一件需要它离开你身边60尺的工作，则法术随之终止。\n<br /></div>",
+      "value": "<p>该法术创造出一个隐形、无心智、无实体的中体型力场。你可以在法术终止前命令它进行简单的工作。该仆从被创造出来后出现在施法距离内一处未占据空间的地面上。其 AC 为 10，生命值为 1，力量为 2，且不能攻击。若仆从的生命值降至 0，则法术终止。</p><p>你可以自己每个回合内以一个附赠动作对仆役下达精神命令，使它移动最多15尺并与一个物件进行互动。仆从可以做人类仆从能做到的简单工作，例如拿取东西、打扫卫生、修补东西、叠衣服、点火、上菜、倒酒等。一旦你下达了命令，仆从就会尽全力去做你命令它做的工作直至完成，并在完成任务后静待你的下一个命令。</p><p>如果你命令仆从做一件需要它离开你身边 60 尺的工作，则法术随之终止。</p>",
       "chat": ""
     },
     "source": {
@@ -57,7 +46,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -66,8 +56,9 @@
         "choice": false
       },
       "template": {
-        "units": "",
-        "contiguous": false
+        "units": "ft",
+        "contiguous": false,
+        "stationary": false
       }
     },
     "range": {
@@ -87,10 +78,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -116,21 +103,25 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -157,7 +148,8 @@
           "attacks": false,
           "proficiency": false,
           "saves": false,
-          "ability": ""
+          "ability": "",
+          "disposition": false
         },
         "profiles": [
           {
@@ -168,7 +160,8 @@
             "level": {
               "min": null,
               "max": null
-            }
+            },
+            "types": []
           }
         ],
         "summon": {
@@ -186,7 +179,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -194,7 +188,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -205,20 +198,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "friendlySummon": false
       }
     },
-    "identifier": "unseen-servant"
+    "identifier": "unseen-servant",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -227,8 +267,8 @@
   "sort": 33800000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

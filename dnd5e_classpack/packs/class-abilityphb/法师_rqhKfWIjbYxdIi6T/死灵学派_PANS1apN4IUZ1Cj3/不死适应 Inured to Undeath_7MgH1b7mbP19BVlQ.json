@@ -2,14 +2,14 @@
   "_id": "7MgH1b7mbP19BVlQ",
   "name": "不死适应 Inured to Undeath",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/spell_warlock_demonsoul.png",
+  "img": "icons/magic/death/undead-skeleton-lich-armor.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>        第10级起，你对黯蚀伤害具有抗性，且你的生命值上限不会被降低。你已经花了相当长的时间研究不死生物和驱役其力量，所以你已经可以适应其一些负面效应。</p>",
+      "value": "<p>        第10级起，你对暗蚀伤害具有抗性，且你的生命值上限不会被降低。你已经花了相当长的时间研究亡灵和驱役其力量，所以你已经可以适应其一些负面效应。</p>",
       "chat": ""
     },
     "source": {
@@ -25,45 +25,37 @@
     "requirements": "死灵学派等级 10",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 10,
+      "repeatable": false,
+      "items": [
+        "subclass:school-of-necromancy"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "_id": "W678BdcJZzGZyi3M",
-      "changes": [
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "necrotic",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": "Compendium.dnd5e_classpack.class-abilityphb.7MgH1b7mbP19BVlQ",
       "transfer": true,
       "flags": {},
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -72,12 +64,40 @@
         "exportSource": null
       },
       "name": "获得黯蚀抗性",
-      "img": "modules/dnd5e_classpack/Nicons/spell_warlock_demonsoul.png",
+      "img": "icons/magic/death/undead-skeleton-lich-armor.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.dr.value",
+            "value": "necrotic",
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "AtlYoLPlHIGBytEW",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!7MgH1b7mbP19BVlQ.W678BdcJZzGZyi3M"
     }
   ],
@@ -93,12 +113,7 @@
       "alwaysActive": false,
       "effects": []
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -118,9 +133,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757093298361,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

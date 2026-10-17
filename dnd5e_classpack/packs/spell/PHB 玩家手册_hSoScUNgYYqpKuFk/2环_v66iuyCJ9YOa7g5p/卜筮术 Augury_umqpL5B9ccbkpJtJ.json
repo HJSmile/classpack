@@ -27,26 +27,13 @@
       "removeAttackDamageButtons": "default",
       "reactionCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "ritual"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Totem_WardOfDraining.png",
+  "img": "icons/sundries/scrolls/scroll-writing-brown-gold.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 借由镶嵌宝石的小短棒，龙骨，卡牌或是其他占卜器具，你从异界存在处获得对某件你计划在接下来的30分钟内做的事的预示。DM 从下列预示中选取一个：\n<br />吉：预示着好的结果。\n<br />凶：预示着坏的结果。\n<br />吉且凶：预示着结果既有好的方面，也有坏的方面。\n<br />无：预示着结果并无明显的好坏分别。\n<br />此法术不会将任何可能影响结果的偶然事件考虑在内。例如，额外施放某个法术，或是得到／失去某个同伴。\n<br />若你在两次长休之间使用两次或更多次的卜筮术，则法术有概率会给出随机的结果。此概率从第二次施展起每次累计25％。\n<br />具体结果由DM 暗骰决定。\n<br /></div>",
+      "value": "<p>借由镶嵌宝石的小短棒，龙骨，卡牌或是其他占卜器具，你从异界存在处获得对某件你计划在接下来的 30 分钟内做的事的预示。DM 从下列预示中选取一个：</p><ul><li><strong>吉兆：</strong>预示着好的结果。</li><li><strong>凶兆：</strong>预示着坏的结果。</li><li><strong>吉凶并存：</strong>预示着结果既有好的方面，也有坏的方面。</li><li><strong>无：</strong>预示着结果并无明显的好坏分别。</li></ul><p>此法术不会将任何可能影响结果的偶然事件考虑在内。例如，额外施放某个法术，或是得到/失去某个同伴。</p><p>若你在两次长休之间使用两次或更多次的卜筮术，则法术有概率会给出随机的结果。此概率从第二次施展起每次累计 25％。具体结果由 DM 暗骰决定。</p>",
       "chat": ""
     },
     "source": {
@@ -61,7 +48,8 @@
       "value": 1
     },
     "duration": {
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -70,9 +58,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -92,10 +81,6 @@
       "consumed": false,
       "cost": 25,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -121,22 +106,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -166,7 +155,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -174,7 +164,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -185,18 +174,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "augury"
+    "identifier": "augury",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -205,8 +242,8 @@
   "sort": 14991,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757419719404,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

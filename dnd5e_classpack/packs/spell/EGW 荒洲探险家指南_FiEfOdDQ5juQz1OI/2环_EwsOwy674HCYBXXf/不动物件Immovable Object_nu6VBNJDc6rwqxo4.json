@@ -3,17 +3,7 @@
   "name": "不动物件Immovable Object",
   "type": "spell",
   "flags": {
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -36,7 +26,7 @@
   "effects": [],
   "system": {
     "description": {
-      "value": "<p>你触摸一个至多不超过10磅的物件，使其魔法般地固定住。你与你施法时指定的生物能够如常移动它。你也可以设置一串密码，当密码在该物件5尺内被念出时，使这个法术暂时被压制1分钟。<br />若该物件被固定在空中，那么它可以至多承载4000磅的重量。更重的负载会使其坠落。另外，一个生物能以其动作进行一个对抗你的法术豁免DC的力量检定。若其成功，则该物件能被他移动10尺。</p>\n<p><strong>升环法术效应：</strong>若你使用四环或五环法术位施展该法术，使该物件移动的检定DC增加5，并且它能够承载8000磅重的负载并持续24小时。如果你用六环或者更高环的法术位施展该法术，那么使该物件移动的检定DC增加10，并且它能够承载20000磅重的负载并一直持续到法术被解除。</p>",
+      "value": "<p>你触摸一个至多不超过10磅的物件，使其魔法般地固定住。你与你施法时指定的生物能够如常移动它。你也可以设置一串密码，当密码在该物件5尺内被念出时，使这个法术暂时被压制1分钟。</p><p>若该物件被固定在空中，那么它可以至多承载4000磅的重量。更重的负载会使其坠落。另外，一个生物能以其动作进行一个对抗你的法术豁免DC的力量检定。若其成功，则该物件能被他移动10尺。</p><p><strong>升环施法效应。</strong>若你使用四环或五环法术位施展该法术，使该物件移动的检定DC增加5，并且它能够承载8000磅重的负载并持续24小时。如果你用六环或者更高环的法术位施展该法术，那么使该物件移动的检定DC增加10，并且它能够承载20000磅重的负载并一直持续到法术被解除。</p>",
       "chat": ""
     },
     "source": {
@@ -54,7 +44,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -64,9 +55,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -86,10 +78,6 @@
       "consumed": false,
       "cost": 25,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -114,22 +102,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -155,7 +147,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -169,7 +162,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -177,7 +171,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -188,18 +181,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "immovable-object"
+    "identifier": "immovable-object",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -208,8 +250,8 @@
   "sort": 300000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757260525462,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

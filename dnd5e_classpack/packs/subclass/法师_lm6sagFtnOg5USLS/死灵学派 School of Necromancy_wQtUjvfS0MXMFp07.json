@@ -2,15 +2,15 @@
   "_id": "wQtUjvfS0MXMFp07",
   "name": "死灵学派 School of Necromancy",
   "type": "subclass",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Creature_Cursed_05.png",
+  "img": "icons/magic/death/skull-humanoid-worn-teal.webp",
   "effects": [],
   "folder": "lm6sagFtnOg5USLS",
   "sort": 46875,
   "flags": {},
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757275023121,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",
@@ -23,7 +23,7 @@
   },
   "system": {
     "description": {
-      "value": "<p>        死灵学派致力于探索宇宙中的生命、死亡与亡灵之力。你在专注于该传承时学习了如何操控那些驱动活物的能量。而你随着研究的深入，还可以在用魔法摧毁敌人肉体的同时削弱其生命力，并将这些生命能量化作供你驱役的秘法之力。</p><p>        正因死灵学派与死亡的紧密联系，导致大多数人认为死灵师都是恐怖的邪恶份子。事实上，尽管其操纵的力量在许多社会中.都被视作禁忌，但仍有不少死灵师不属于邪恶一方。</p><p><strong>死灵学者Necromancy Savant</strong></p><p>        从第2级你选择该学派起，你向法术书中抄写死灵系法术的时间和金钱花费减半。</p>",
+      "value": "<p>        死灵学派致力于探索宇宙中的生命、死亡与亡灵之力。你在专注于该传承时学习了如何操控那些驱动活物的能量。而你随着研究的深入，还可以在用魔法摧毁敌人肉体的同时削弱其生命力，并将这些生命能量化作供你驱役的秘法之力。</p><p>        正因死灵学派与死亡的紧密联系，导致大多数人认为死灵师都是恐怖的邪恶份子。事实上，尽管其操纵的力量在许多社会中.都被视作禁忌，但仍有不少死灵师不属于邪恶一方。</p><h3><strong>死灵学者Necromancy Savant</strong></h3><p>        从第2级你选择该学派起，你向法术书中抄写死灵系法术的时间和金钱花费减半。</p>",
       "chat": ""
     },
     "source": {
@@ -34,80 +34,108 @@
     },
     "identifier": "school-of-necromancy",
     "classIdentifier": "wizard",
-    "advancement": [
-      {
+    "advancement": {
+      "u6mkf8avr1c7kg3x": {
         "_id": "u6mkf8avr1c7kg3x",
         "type": "ItemGrant",
         "configuration": {
           "items": [
             {
               "uuid": "Compendium.dnd5e_classpack.class-abilityphb.XHazIacJHm3jGfsR",
-              "optional": false
+              "optional": false,
+              "sort": 0
             }
           ],
           "optional": false,
-          "spell": null
+          "spell": null,
+          "sorting": "m"
         },
         "value": {},
         "level": 2,
-        "title": "职业特性"
+        "name": "职业特性",
+        "flags": {},
+        "hint": ""
       },
-      {
+      "m7xdaseh3xfcxnki": {
         "_id": "m7xdaseh3xfcxnki",
         "type": "ItemGrant",
         "configuration": {
           "items": [
             {
               "uuid": "Compendium.dnd5e_classpack.class-abilityphb.O6VMpcdq8i6MU019",
-              "optional": false
+              "optional": false,
+              "sort": 0
             },
             {
               "uuid": "Compendium.dnd5e_classpack.spell.xYpJGRI4xcMa41kO",
-              "optional": false
+              "optional": true,
+              "sort": 0
             }
           ],
-          "optional": true,
-          "spell": null
+          "optional": false,
+          "spell": {
+            "ability": [
+              "int"
+            ],
+            "method": "spell",
+            "prepared": 0,
+            "uses": {
+              "max": "",
+              "per": "",
+              "requireSlot": false
+            }
+          },
+          "sorting": "m"
         },
         "value": {},
         "level": 6,
-        "title": "职业特性"
+        "name": "职业特性",
+        "flags": {},
+        "hint": "若法术书中尚无此法术，可将其加入；已学会时无需重复加入法术书。"
       },
-      {
+      "hges9zqopy5eooq6": {
         "_id": "hges9zqopy5eooq6",
         "type": "ItemGrant",
         "configuration": {
           "items": [
             {
               "uuid": "Compendium.dnd5e_classpack.class-abilityphb.7MgH1b7mbP19BVlQ",
-              "optional": false
+              "optional": false,
+              "sort": 0
             }
           ],
           "optional": false,
-          "spell": null
+          "spell": null,
+          "sorting": "m"
         },
         "value": {},
         "level": 10,
-        "title": "职业特性"
+        "name": "职业特性",
+        "flags": {},
+        "hint": ""
       },
-      {
+      "4ji7jkn04mibz987": {
         "_id": "4ji7jkn04mibz987",
         "type": "ItemGrant",
         "configuration": {
           "items": [
             {
               "uuid": "Compendium.dnd5e_classpack.class-abilityphb.mXDgKc1aeLtMczOM",
-              "optional": false
+              "optional": false,
+              "sort": 0
             }
           ],
           "optional": false,
-          "spell": null
+          "spell": null,
+          "sorting": "m"
         },
         "value": {},
         "level": 14,
-        "title": "职业特性"
+        "name": "职业特性",
+        "flags": {},
+        "hint": ""
       }
-    ],
+    },
     "spellcasting": {
       "progression": "none",
       "ability": "",

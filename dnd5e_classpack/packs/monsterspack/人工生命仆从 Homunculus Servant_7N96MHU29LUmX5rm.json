@@ -8,10 +8,6 @@
       "str": {
         "value": 4,
         "proficient": 0,
-        "bonuses": {
-          "check": "",
-          "save": ""
-        },
         "max": null,
         "check": {
           "roll": {
@@ -21,6 +17,13 @@
           }
         },
         "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        },
+        "attack": {
           "roll": {
             "min": null,
             "max": null,
@@ -31,10 +34,6 @@
       "dex": {
         "value": 15,
         "proficient": 1,
-        "bonuses": {
-          "check": "",
-          "save": ""
-        },
         "max": null,
         "check": {
           "roll": {
@@ -44,6 +43,13 @@
           }
         },
         "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        },
+        "attack": {
           "roll": {
             "min": null,
             "max": null,
@@ -54,10 +60,6 @@
       "con": {
         "value": 12,
         "proficient": 0,
-        "bonuses": {
-          "check": "",
-          "save": ""
-        },
         "max": null,
         "check": {
           "roll": {
@@ -67,6 +69,13 @@
           }
         },
         "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        },
+        "attack": {
           "roll": {
             "min": null,
             "max": null,
@@ -77,10 +86,6 @@
       "int": {
         "value": 10,
         "proficient": 0,
-        "bonuses": {
-          "check": "",
-          "save": ""
-        },
         "max": null,
         "check": {
           "roll": {
@@ -90,6 +95,13 @@
           }
         },
         "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        },
+        "attack": {
           "roll": {
             "min": null,
             "max": null,
@@ -100,10 +112,6 @@
       "wis": {
         "value": 10,
         "proficient": 0,
-        "bonuses": {
-          "check": "",
-          "save": ""
-        },
         "max": null,
         "check": {
           "roll": {
@@ -113,6 +121,13 @@
           }
         },
         "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        },
+        "attack": {
           "roll": {
             "min": null,
             "max": null,
@@ -123,10 +138,6 @@
       "cha": {
         "value": 7,
         "proficient": 0,
-        "bonuses": {
-          "check": "",
-          "save": ""
-        },
         "max": null,
         "check": {
           "roll": {
@@ -136,6 +147,13 @@
           }
         },
         "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        },
+        "attack": {
           "roll": {
             "min": null,
             "max": null,
@@ -147,8 +165,11 @@
     "attributes": {
       "ac": {
         "flat": 13,
-        "calc": "natural",
-        "formula": ""
+        "calcs": [
+          "natural"
+        ],
+        "formulas": [],
+        "override": null
       },
       "hp": {
         "value": 1,
@@ -159,7 +180,6 @@
       },
       "init": {
         "ability": "",
-        "bonus": "",
         "roll": {
           "min": null,
           "max": null,
@@ -167,24 +187,29 @@
         }
       },
       "movement": {
-        "burrow": 0,
-        "climb": 0,
-        "fly": 30,
-        "swim": 0,
-        "walk": 20,
         "units": "ft",
-        "hover": false
+        "hover": false,
+        "speeds": {
+          "walk": "20",
+          "burrow": "0",
+          "climb": "0",
+          "fly": "30",
+          "swim": "0"
+        },
+        "ignoredDifficultTerrain": []
       },
       "attunement": {
         "max": 3
       },
       "senses": {
-        "darkvision": 60,
-        "blindsight": 0,
-        "tremorsense": 0,
-        "truesight": 0,
         "units": "ft",
-        "special": ""
+        "special": "",
+        "ranges": {
+          "darkvision": 60,
+          "blindsight": 0,
+          "tremorsense": 0,
+          "truesight": 0
+        }
       },
       "spellcasting": "int",
       "spell": {
@@ -197,9 +222,6 @@
           "min": null,
           "max": null,
           "mode": 0
-        },
-        "bonuses": {
-          "save": ""
         },
         "limit": 1
       },
@@ -216,15 +238,16 @@
           "mode": 0
         },
         "success": 0,
-        "failure": 0,
-        "bonuses": {
-          "save": ""
-        }
+        "failure": 0
+      },
+      "price": {
+        "value": null,
+        "denomination": "gp"
       }
     },
     "details": {
       "biography": {
-        "value": "<h2>人工生命仆从</h2><p>微型构装体，中立</p><hr /><p><strong>AC：</strong>13（天生护甲）<br /><strong>HP：</strong>1+你的智力调整值+你奇械师等级（人工生命拥有与你奇械师等级相同数量的D4生命骰）<br /><strong>速度：</strong>20尺，飞行30尺</p><hr /><table><tbody><tr><td><p><strong>力量</strong></p></td><td><p><strong>敏捷</strong></p></td><td><p><strong>体质</strong></p></td><td><p><strong>智力</strong></p></td><td><p><strong>感知</strong></p></td><td><p><strong>魅力</strong></p></td></tr><tr><td><p>4（-3）</p></td><td><p>15（+2）</p></td><td><p>12（+1）</p></td><td><p>10（+0）</p></td><td><p>10（+0）</p></td><td><p>7（-2）</p></td></tr></tbody></table><hr /><p><strong>豁免：</strong>敏捷+2+熟练加值<br /><strong>技能：</strong>察觉+0+熟练加值*2，隐匿+2+熟练加值<br /><strong>伤害免疫：</strong>毒素<br /><strong>状态免疫：</strong>力竭、中毒<br /><strong>感官：</strong>黑暗视觉60尺，被动察觉10+（熟练加值*2）<br /><strong>语言：</strong>理解你说的语言<strong>熟练加值：</strong>等于你的熟练加值。</p><hr /><p><strong>反射闪避。</strong>当需要通过敏捷豁免来使伤害减半时，若豁免成功则不受伤害，豁免失败则伤害减半。此特性在失能时无效。</p><hr /><h3>动作（需花费你的附赠动作）</h3><p><strong>力场冲击。</strong>远程武器攻击: 攻击加值等于你的法术攻击加值，射程30尺，单个你可见的目标。命中：1d4+熟练加值力场伤害。</p><hr /><h3>反应</h3><p><strong>传递法术。</strong>当你施展施法距离为触及的法术时，只要人工生命距离你120尺内，它就能替你传递该法术</p>",
+        "value": "<h2>人工生命仆从</h2><p>微型构装体，中立</p><hr><p><strong>AC：</strong>13（天生护甲）<br><strong>HP：</strong>1+你的智力调整值+你奇械师等级（人工生命拥有与你奇械师等级相同数量的D4生命骰）<br><strong>速度：</strong>20尺，飞行30尺</p><hr><table><tbody><tr><td><p><strong>力量</strong></p></td><td><p><strong>敏捷</strong></p></td><td><p><strong>体质</strong></p></td><td><p><strong>智力</strong></p></td><td><p><strong>感知</strong></p></td><td><p><strong>魅力</strong></p></td></tr><tr><td><p>4（-3）</p></td><td><p>15（+2）</p></td><td><p>12（+1）</p></td><td><p>10（+0）</p></td><td><p>10（+0）</p></td><td><p>7（-2）</p></td></tr></tbody></table><hr><p><strong>豁免：</strong>敏捷+2+熟练加值<br><strong>技能：</strong>察觉+0+熟练加值*2，隐匿+2+熟练加值<br><strong>伤害免疫：</strong>毒素<br><strong>状态免疫：</strong>力竭、中毒<br><strong>感官：</strong>黑暗视觉60尺，被动察觉10+（熟练加值*2）<br><strong>语言：</strong>理解你说的语言<strong>熟练加值：</strong>等于你的熟练加值。</p><hr><p><strong>反射闪避。</strong>当需要通过敏捷豁免来使伤害减半时，若豁免成功则不受伤害，豁免失败则伤害减半。此特性在失能时无效。</p><hr><h3>动作（需花费你的附赠动作）</h3><p><strong>力场冲击。</strong>远程武器攻击: 攻击加值等于你的法术攻击加值，射程30尺，单个你可见的目标。命中：1d4+熟练加值力场伤害。</p><hr><h3>反应</h3><p><strong>传递法术。</strong>当你施展施法距离为触及的法术时，只要人工生命距离你120尺内，它就能替你传递该法术</p>",
         "public": ""
       },
       "alignment": "中立",
@@ -296,7 +319,6 @@
         "value": 0,
         "ability": "dex",
         "bonuses": {
-          "check": "",
           "passive": ""
         },
         "roll": {
@@ -309,7 +331,6 @@
         "value": 0,
         "ability": "wis",
         "bonuses": {
-          "check": "",
           "passive": ""
         },
         "roll": {
@@ -322,7 +343,6 @@
         "value": 0,
         "ability": "int",
         "bonuses": {
-          "check": "",
           "passive": ""
         },
         "roll": {
@@ -335,7 +355,6 @@
         "value": 0,
         "ability": "str",
         "bonuses": {
-          "check": "",
           "passive": ""
         },
         "roll": {
@@ -348,7 +367,6 @@
         "value": 0,
         "ability": "cha",
         "bonuses": {
-          "check": "",
           "passive": ""
         },
         "roll": {
@@ -361,7 +379,6 @@
         "value": 0,
         "ability": "int",
         "bonuses": {
-          "check": "",
           "passive": ""
         },
         "roll": {
@@ -374,7 +391,6 @@
         "value": 0,
         "ability": "wis",
         "bonuses": {
-          "check": "",
           "passive": ""
         },
         "roll": {
@@ -387,7 +403,6 @@
         "value": 0,
         "ability": "cha",
         "bonuses": {
-          "check": "",
           "passive": ""
         },
         "roll": {
@@ -400,7 +415,6 @@
         "value": 0,
         "ability": "int",
         "bonuses": {
-          "check": "",
           "passive": ""
         },
         "roll": {
@@ -413,7 +427,6 @@
         "value": 0,
         "ability": "wis",
         "bonuses": {
-          "check": "",
           "passive": ""
         },
         "roll": {
@@ -426,7 +439,6 @@
         "value": 0,
         "ability": "int",
         "bonuses": {
-          "check": "",
           "passive": ""
         },
         "roll": {
@@ -439,7 +451,6 @@
         "value": 0,
         "ability": "wis",
         "bonuses": {
-          "check": "",
           "passive": ""
         },
         "roll": {
@@ -452,7 +463,6 @@
         "value": 0,
         "ability": "cha",
         "bonuses": {
-          "check": "",
           "passive": ""
         },
         "roll": {
@@ -465,7 +475,6 @@
         "value": 0,
         "ability": "cha",
         "bonuses": {
-          "check": "",
           "passive": ""
         },
         "roll": {
@@ -478,7 +487,6 @@
         "value": 0,
         "ability": "int",
         "bonuses": {
-          "check": "",
           "passive": ""
         },
         "roll": {
@@ -491,7 +499,6 @@
         "value": 0,
         "ability": "dex",
         "bonuses": {
-          "check": "",
           "passive": ""
         },
         "roll": {
@@ -504,7 +511,6 @@
         "value": 0,
         "ability": "dex",
         "bonuses": {
-          "check": "",
           "passive": ""
         },
         "roll": {
@@ -517,7 +523,6 @@
         "value": 0,
         "ability": "wis",
         "bonuses": {
-          "check": "",
           "passive": ""
         },
         "roll": {
@@ -571,39 +576,18 @@
       }
     },
     "bonuses": {
-      "mwak": {
-        "attack": "",
-        "damage": ""
-      },
-      "rwak": {
-        "attack": "",
-        "damage": ""
-      },
-      "msak": {
-        "attack": "",
-        "damage": ""
-      },
-      "rsak": {
-        "attack": "",
-        "damage": ""
-      },
-      "abilities": {
-        "check": "",
-        "save": "",
-        "skill": ""
-      },
       "spell": {
         "dc": ""
       }
     },
     "resources": {
       "legact": {
-        "value": 0,
-        "max": 0
+        "max": 0,
+        "spent": 0
       },
       "legres": {
-        "value": 0,
-        "max": 0
+        "max": 0,
+        "spent": 0
       },
       "lair": {
         "value": false,
@@ -615,7 +599,9 @@
       "custom": "ERLW",
       "revision": 1,
       "rules": "2024"
-    }
+    },
+    "identifier": "",
+    "rolls": {}
   },
   "prototypeToken": {
     "name": "人工生命仆从 Homunculus Servant",
@@ -627,9 +613,6 @@
       "src": "icons/svg/mystery-man.svg",
       "scaleX": 1,
       "scaleY": 1,
-      "offsetX": 0,
-      "offsetY": 0,
-      "rotation": 0,
       "anchorX": 0.5,
       "anchorY": 0.5,
       "fit": "contain",
@@ -685,7 +668,7 @@
       "contrast": 0,
       "color": null
     },
-    "detectionModes": [],
+    "detectionModes": {},
     "flags": {},
     "randomImg": false,
     "occludable": {
@@ -709,7 +692,8 @@
       "src": null,
       "disposition": false
     },
-    "movementAction": null
+    "movementAction": null,
+    "depth": 0.5
   },
   "items": [
     {
@@ -723,7 +707,7 @@
         "source": {
           "custom": "ERLW",
           "revision": 1,
-          "rules": "2024"
+          "rules": "2014"
         },
         "cover": null,
         "crewed": false,
@@ -738,12 +722,13 @@
         },
         "requirements": "人工生命仆从",
         "activities": {},
-        "identifier": "",
-        "advancement": [],
+        "identifier": "-evasion",
+        "advancement": {},
         "enchant": {},
         "prerequisites": {
           "level": null,
-          "repeatable": false
+          "repeatable": false,
+          "items": []
         },
         "properties": []
       },
@@ -759,8 +744,8 @@
       "flags": {},
       "_stats": {
         "systemId": "dnd5e",
-        "systemVersion": "2.2.1",
-        "coreVersion": "13.351",
+        "systemVersion": "6.0.5",
+        "coreVersion": "14.368",
         "createdTime": 1685886923127,
         "modifiedTime": 1685887022686,
         "lastModifiedBy": "Jo05tXxu7yf2dQe3",
@@ -781,7 +766,7 @@
         "source": {
           "custom": "ERLW",
           "revision": 1,
-          "rules": "2024"
+          "rules": "2014"
         },
         "quantity": 1,
         "weight": {
@@ -793,11 +778,9 @@
           "denomination": "gp"
         },
         "attunement": "",
-        "equipped": false,
-        "rarity": "",
+        "equipped": true,
         "identified": true,
         "cover": null,
-        "crewed": false,
         "range": {
           "value": 30,
           "long": null,
@@ -823,7 +806,8 @@
               "mode": "",
               "number": null,
               "formula": ""
-            }
+            },
+            "modifiers": []
           },
           "base": {
             "number": 1,
@@ -840,7 +824,8 @@
               "mode": "",
               "number": null,
               "formula": ""
-            }
+            },
+            "modifiers": []
           }
         },
         "armor": {
@@ -880,14 +865,16 @@
               "spellSlot": true
             },
             "description": {
-              "chatFlavor": ""
+              "chatFlavor": "",
+              "value": ""
             },
             "duration": {
               "concentration": false,
               "value": "",
-              "units": "",
+              "units": "inst",
               "special": "",
-              "override": false
+              "override": false,
+              "expiry": null
             },
             "effects": [],
             "range": {
@@ -904,7 +891,8 @@
                 "size": "",
                 "width": "",
                 "height": "",
-                "units": ""
+                "units": "ft",
+                "stationary": false
               },
               "affects": {
                 "count": "1",
@@ -939,14 +927,107 @@
               "includeBase": true,
               "parts": []
             },
-            "sort": 0
+            "sort": 0,
+            "img": null,
+            "behaviors": [],
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            },
+            "useConditionText": "",
+            "useConditionReason": "",
+            "effectConditionText": "",
+            "otherActivityId": null,
+            "macroData": {
+              "name": "",
+              "command": ""
+            },
+            "ignoreTraits": {
+              "idi": false,
+              "idr": false,
+              "idv": false,
+              "ida": false,
+              "idm": false
+            },
+            "midiProperties": {
+              "ignoreTraits": [],
+              "triggeredActivityId": "none",
+              "triggeredActivityConditionText": "",
+              "triggeredActivityTargets": "targets",
+              "triggeredActivityRollAs": "self",
+              "triggeredActivityConsume": true,
+              "triggeredActivityConfigure": true,
+              "autoConsume": false,
+              "forceConsumeDialog": "default",
+              "forceRollDialog": "default",
+              "forceDamageDialog": "default",
+              "confirmTargets": "default",
+              "autoTargetType": "any",
+              "autoTargetAction": "default",
+              "automationOnly": false,
+              "otherActivityCompatible": true,
+              "otherActivityAsParentType": true,
+              "identifier": "",
+              "displayActivityName": false,
+              "rollMode": "default",
+              "chooseEffects": false,
+              "toggleEffect": false,
+              "ignoreFullCover": false,
+              "removeChatButtons": "default",
+              "magicEffect": false,
+              "magicDamage": false,
+              "noConcentrationCheck": false,
+              "skipConcentrationCheck": false,
+              "autoCEEffects": "default"
+            },
+            "isOverTimeFlag": false,
+            "overTimeProperties": {
+              "saveRemoves": true,
+              "rollAs": "target",
+              "preRemoveConditionText": "",
+              "postRemoveConditionText": ""
+            },
+            "regionBehavior": {
+              "enabled": false,
+              "dispositionFilter": -1,
+              "excludeSource": true,
+              "oncePerTurn": true,
+              "wallRestriction": "none",
+              "regionVisibility": 2,
+              "attachToken": "default",
+              "templateOrigin": "default",
+              "rules": []
+            },
+            "regionLight": {
+              "enabled": false,
+              "dim": 0,
+              "bright": 0,
+              "color": null,
+              "alpha": 0.5,
+              "luminosity": 0.5,
+              "animationType": "",
+              "animationSpeed": 5,
+              "animationIntensity": 5
+            },
+            "otherActivityAsParentType": true,
+            "attackMode": "oneHanded",
+            "ammunition": "",
+            "otherActivityUuid": "",
+            "attackRollPerTarget": "default",
+            "fumbleThreshold": 1
           }
         },
-        "identifier": "",
+        "identifier": "-force-strike",
         "container": null,
         "attuned": false,
         "ammunition": {},
-        "magicalBonus": null
+        "rarities": [],
+        "crew": {
+          "value": []
+        }
       },
       "_id": "VVQKAYgZCERphX3G",
       "img": "icons/magic/fire/barrier-wall-flame-ring-blue.webp",
@@ -964,8 +1045,8 @@
       },
       "_stats": {
         "systemId": "dnd5e",
-        "systemVersion": "2.2.1",
-        "coreVersion": "13.351",
+        "systemVersion": "6.0.5",
+        "coreVersion": "14.368",
         "createdTime": 1685887168847,
         "modifiedTime": 1685887381282,
         "lastModifiedBy": "Jo05tXxu7yf2dQe3",
@@ -986,7 +1067,7 @@
         "source": {
           "custom": "ERLW",
           "revision": 1,
-          "rules": "2024"
+          "rules": "2014"
         },
         "cover": null,
         "crewed": false,
@@ -1019,18 +1100,20 @@
               "spellSlot": true
             },
             "description": {
-              "chatFlavor": ""
+              "chatFlavor": "",
+              "value": ""
             },
             "duration": {
               "concentration": false,
               "value": "",
-              "units": "",
+              "units": "inst",
               "special": "",
-              "override": false
+              "override": false,
+              "expiry": null
             },
             "effects": [],
             "range": {
-              "units": "",
+              "units": "self",
               "special": "",
               "override": false
             },
@@ -1042,7 +1125,8 @@
                 "size": "",
                 "width": "",
                 "height": "",
-                "units": ""
+                "units": "ft",
+                "stationary": false
               },
               "affects": {
                 "count": "",
@@ -1064,15 +1148,101 @@
               "prompt": false,
               "visible": false
             },
-            "sort": 0
+            "sort": 0,
+            "img": null,
+            "behaviors": [],
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            },
+            "useConditionText": "",
+            "useConditionReason": "",
+            "effectConditionText": "",
+            "otherActivityId": null,
+            "macroData": {
+              "name": "",
+              "command": ""
+            },
+            "ignoreTraits": {
+              "idi": false,
+              "idr": false,
+              "idv": false,
+              "ida": false,
+              "idm": false
+            },
+            "midiProperties": {
+              "ignoreTraits": [],
+              "triggeredActivityId": "none",
+              "triggeredActivityConditionText": "",
+              "triggeredActivityTargets": "targets",
+              "triggeredActivityRollAs": "self",
+              "triggeredActivityConsume": true,
+              "triggeredActivityConfigure": true,
+              "autoConsume": false,
+              "forceConsumeDialog": "default",
+              "forceRollDialog": "default",
+              "forceDamageDialog": "default",
+              "confirmTargets": "default",
+              "autoTargetType": "any",
+              "autoTargetAction": "default",
+              "automationOnly": false,
+              "otherActivityCompatible": true,
+              "otherActivityAsParentType": true,
+              "identifier": "",
+              "displayActivityName": false,
+              "rollMode": "default",
+              "chooseEffects": false,
+              "toggleEffect": false,
+              "ignoreFullCover": false,
+              "removeChatButtons": "default",
+              "magicEffect": false,
+              "magicDamage": false,
+              "noConcentrationCheck": false,
+              "skipConcentrationCheck": false,
+              "autoCEEffects": "default"
+            },
+            "isOverTimeFlag": false,
+            "overTimeProperties": {
+              "saveRemoves": true,
+              "rollAs": "target",
+              "preRemoveConditionText": "",
+              "postRemoveConditionText": ""
+            },
+            "regionBehavior": {
+              "enabled": false,
+              "dispositionFilter": -1,
+              "excludeSource": true,
+              "oncePerTurn": true,
+              "wallRestriction": "none",
+              "regionVisibility": 2,
+              "attachToken": "default",
+              "templateOrigin": "default",
+              "rules": []
+            },
+            "regionLight": {
+              "enabled": false,
+              "dim": 0,
+              "bright": 0,
+              "color": null,
+              "alpha": 0.5,
+              "luminosity": 0.5,
+              "animationType": "",
+              "animationSpeed": 5,
+              "animationIntensity": 5
+            },
+            "otherActivityAsParentType": true
           }
         },
-        "identifier": "",
-        "advancement": [],
+        "identifier": "-channel-magic",
+        "advancement": {},
         "enchant": {},
         "prerequisites": {
           "level": null,
-          "repeatable": false
+          "repeatable": false,
+          "items": []
         },
         "properties": []
       },
@@ -1092,8 +1262,8 @@
       },
       "_stats": {
         "systemId": "dnd5e",
-        "systemVersion": "2.2.1",
-        "coreVersion": "13.351",
+        "systemVersion": "6.0.5",
+        "coreVersion": "14.368",
         "createdTime": 1685887395534,
         "modifiedTime": 1685887464630,
         "lastModifiedBy": "Jo05tXxu7yf2dQe3",
@@ -1110,8 +1280,8 @@
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1685886326342,
     "modifiedTime": 1750220734086,
     "lastModifiedBy": "A6zoJ8r1FeeiU1rB",

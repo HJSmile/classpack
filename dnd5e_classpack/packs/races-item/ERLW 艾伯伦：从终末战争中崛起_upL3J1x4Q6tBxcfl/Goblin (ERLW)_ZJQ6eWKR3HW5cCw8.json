@@ -3,7 +3,7 @@
   "type": "race",
   "system": {
     "description": {
-      "value": "<div><table class=\"w-100 summary stripe-even\"><tbody><tr><th class=\"ve-col-4 ve-text-center\"><p>Ability Scores</p></th><th class=\"ve-col-4 ve-text-center\"><p>Size</p></th><th class=\"ve-col-4 ve-text-center\"><p>Speed</p></th></tr><tr><td class=\"ve-text-center\"><p>Dexterity +2; Constitution +1</p></td><td class=\"ve-text-center\"><p>Small</p></td><td class=\"ve-text-center\"><p>30 ft.</p></td></tr></tbody></table><div class=\"rd__b  rd__b--2\"><div data-roll-name-ancestor=\"Age\" class=\"rd__b  rd__b--3\"><p><span class=\"entry-title-inner\">Age.</span> Goblins reach adulthood at age 8 and live up to 60 years.</p></div><div data-roll-name-ancestor=\"Size\" class=\"rd__b  rd__b--3\"><p><span class=\"entry-title-inner\">Size.</span> Your size is Small.</p></div><div data-roll-name-ancestor=\"Darkvision\" class=\"rd__b  rd__b--3\"><p><span class=\"entry-title-inner\">Darkvision.</span> You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</p></div><div data-roll-name-ancestor=\"Fury of the Small\" class=\"rd__b  rd__b--3\"><p><span class=\"entry-title-inner\">Fury of the Small.</span> When you damage a creature with an attack or a spell and the creature's size is larger than yours, you can cause the attack or spell to deal extra damage to the creature. The extra damage equals your level. Once you use this trait, you can't use it again until you finish a short or long rest.</p></div><div data-roll-name-ancestor=\"Nimble Escape\" class=\"rd__b  rd__b--3\"><p><span class=\"entry-title-inner\">Nimble Escape.</span> You can take the @action[Disengage] or @action[Hide] action as a bonus action on each of your turns.</p></div><div data-roll-name-ancestor=\"Languages\" class=\"rd__b  rd__b--3\"><p><span class=\"entry-title-inner\">Languages.</span> You can speak, read, and write Common and Goblin.</p></div><div data-roll-name-ancestor=\"Alignment\" class=\"rd__b  rd__b--3\"><p><span class=\"entry-title-inner\">Alignment.</span> In Eberron, goblins are usually neutral. They tend to look out for themselves, preferably without drawing unwanted attention from any larger, more powerful people.</p></div></div><hr class=\"hr-1\" /></div>",
+      "value": "<table class=\"w-100 summary stripe-even\"><tbody><tr><th class=\"ve-col-4 ve-text-center\"><p>Ability Scores</p></th><th class=\"ve-col-4 ve-text-center\"><p>Size</p></th><th class=\"ve-col-4 ve-text-center\"><p>Speed</p></th></tr><tr><td class=\"ve-text-center\"><p>Dexterity +2; Constitution +1</p></td><td class=\"ve-text-center\"><p>Small</p></td><td class=\"ve-text-center\"><p>30 ft.</p></td></tr></tbody></table><div data-roll-name-ancestor=\"Age\"><p><span class=\"entry-title-inner\">Age.</span> Goblins reach adulthood at age 8 and live up to 60 years.</p></div><div data-roll-name-ancestor=\"Size\"><p><span class=\"entry-title-inner\">Size.</span> Your size is Small.</p></div><div data-roll-name-ancestor=\"Darkvision\"><p><span class=\"entry-title-inner\">Darkvision.</span> You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</p></div><div data-roll-name-ancestor=\"Fury of the Small\"><p><span class=\"entry-title-inner\">Fury of the Small.</span> When you damage a creature with an attack or a spell and the creature's size is larger than yours, you can cause the attack or spell to deal extra damage to the creature. The extra damage equals your level. Once you use this trait, you can't use it again until you finish a short or long rest.</p></div><div data-roll-name-ancestor=\"Nimble Escape\"><p><span class=\"entry-title-inner\">Nimble Escape.</span> You can take the @action[Disengage] or @action[Hide] action as a bonus action on each of your turns.</p></div><div data-roll-name-ancestor=\"Languages\"><p><span class=\"entry-title-inner\">Languages.</span> You can speak, read, and write Common and Goblin.</p></div><div data-roll-name-ancestor=\"Alignment\"><p><span class=\"entry-title-inner\">Alignment.</span> In Eberron, goblins are usually neutral. They tend to look out for themselves, preferably without drawing unwanted attention from any larger, more powerful people.</p></div>",
       "chat": ""
     },
     "source": {
@@ -15,13 +15,12 @@
       "revision": 1
     },
     "movement": {
-      "burrow": null,
-      "climb": null,
-      "fly": null,
-      "swim": null,
-      "walk": 30,
       "units": "ft",
-      "hover": false
+      "hover": false,
+      "speeds": {
+        "walk": "30"
+      },
+      "ignoredDifficultTerrain": []
     },
     "type": {
       "value": "humanoid",
@@ -29,19 +28,21 @@
       "custom": ""
     },
     "senses": {
-      "darkvision": 60,
-      "blindsight": null,
-      "truesight": null,
-      "tremorsense": null,
       "units": "ft",
-      "special": ""
+      "special": "",
+      "ranges": {
+        "darkvision": 60,
+        "blindsight": null,
+        "tremorsense": null,
+        "truesight": null
+      }
     },
-    "advancement": [
-      {
+    "advancement": {
+      "Kfkvg7y0px8XbKJC": {
         "_id": "Kfkvg7y0px8XbKJC",
         "type": "AbilityScoreImprovement",
         "configuration": {
-          "points": 1,
+          "points": 0,
           "fixed": {
             "str": 0,
             "dex": 2,
@@ -50,16 +51,19 @@
             "wis": 0,
             "cha": 0
           },
-          "cap": 1,
-          "locked": []
+          "cap": null,
+          "locked": [],
+          "recommendation": null
         },
         "value": {
           "type": "asi"
         },
         "level": 0,
-        "title": ""
+        "name": "",
+        "flags": {},
+        "hint": ""
       },
-      {
+      "i4Ek8dhTuU1ILIzs": {
         "_id": "i4Ek8dhTuU1ILIzs",
         "type": "Size",
         "configuration": {
@@ -71,9 +75,57 @@
           "size": "sm"
         },
         "level": 0,
-        "title": ""
+        "name": "",
+        "flags": {},
+        "hint": ""
+      },
+      "a2211f62f2ef6694": {
+        "_id": "a2211f62f2ef6694",
+        "type": "ItemGrant",
+        "configuration": {
+          "items": [
+            {
+              "optional": false,
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.6pMeCJllLBZhHvgm",
+              "sort": 0
+            },
+            {
+              "optional": false,
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.CvfOpR9eGWGuIQTy",
+              "sort": 0
+            }
+          ],
+          "optional": false,
+          "spell": null,
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "hint": "",
+        "name": "特质",
+        "flags": {}
+      },
+      "54715a960b65f26f": {
+        "_id": "54715a960b65f26f",
+        "type": "Trait",
+        "configuration": {
+          "allowReplacements": false,
+          "choices": [],
+          "grants": [
+            "languages:standard:goblin",
+            "languages:standard:common"
+          ],
+          "mode": "default"
+        },
+        "value": {
+          "chosen": []
+        },
+        "level": 0,
+        "hint": "",
+        "name": "语言",
+        "flags": {}
       }
-    ],
+    },
     "identifier": "goblin-erlw"
   },
   "effects": [],
@@ -85,14 +137,14 @@
       "propDroppable": "race"
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/img/races/ERLW/Goblinoids.webp",
+  "img": "icons/creatures/magical/humanoid-silhoette-alien-gray.webp",
   "folder": "upL3J1x4Q6tBxcfl",
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1751822701823,
     "modifiedTime": 1756028738005,
     "lastModifiedBy": "sPF2dtZDreDpJaW6",

@@ -22,12 +22,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -38,7 +40,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -87,7 +90,8 @@
               ],
               "scaling": {
                 "number": 1
-              }
+              },
+              "modifiers": []
             }
           ]
         },
@@ -103,7 +107,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -111,7 +116,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -122,20 +126,68 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "attackMode": "oneHanded",
         "ammunition": "",
         "otherActivityUuid": "",
         "name": "",
-        "_id": "SmYGG9yFOVp76t2h"
+        "_id": "SmYGG9yFOVp76t2h",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       },
       "17gzFjrDNXeTbD8c": {
         "type": "save",
@@ -161,12 +213,14 @@
           ]
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -179,7 +233,8 @@
             "units": "ft",
             "type": "cone",
             "size": "90",
-            "count": "1"
+            "count": "1",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -212,7 +267,8 @@
               ],
               "scaling": {
                 "number": 1
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -228,7 +284,8 @@
           "dc": {
             "calculation": "",
             "formula": "18"
-          }
+          },
+          "visible": true
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -241,7 +298,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -249,7 +307,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -260,17 +317,64 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "name": "龙火",
-        "_id": "17gzFjrDNXeTbD8c"
+        "_id": "17gzFjrDNXeTbD8c",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
     "uses": {
@@ -284,7 +388,7 @@
       "max": "1"
     },
     "description": {
-      "value": "<div class=\"rd__b  rd__b--2\"><div id=\"winchm_template_container\" style=\"HEIGHT:1162px;WIDTH:805px;TOP:74px\"><div id=\"winchm_template_content\"><div id=\"msg_1138201\"><p><em>武器（连枷），传说（需要同调）</em><br />这把魔法连枷是按照提亚马特的形象制成的，有着五个参差不齐的龙头，如同五种不同的色彩龙的头部的造型。你用这把连枷进行的攻击检定和伤害掷骰获得 <span lang=\"EN-US\">+3</span>，当你用它进行的攻击检定击中一个目标时，目标受到额外<span lang=\"EN-US\">5d4</span>由你选择的一种如下选项类型的伤害：强酸，冷冻，火焰，闪电或毒素。<br />当你持用这把连枷时，可以用一个动作说出一个命令语，使龙头呼出一团 <span lang=\"EN-US\">90</span>尺锥型的多彩烈焰。范围内的每个生物必须进行一次<span lang=\"EN-US\">DC18</span>的敏捷豁免。失败则要承受<span lang=\"EN-US\">14d6</span>一种如下选项类型的伤害：强酸，冷冻，火焰，闪电或毒素。成功则只承受一半伤害。一旦使用了此动作，直到下次黎明之前不能再使用</p></div></div></div></div>",
+      "value": "<div id=\"winchm_template_container\"><div id=\"winchm_template_content\"><div id=\"msg_1138201\"><p><em>武器（连枷），传说（需要同调）</em></p><p>这把魔法连枷是按照提亚马特的形象制成的，有着五个参差不齐的龙头，如同五种不同的色彩龙的头部的造型。你用这把连枷进行的攻击检定和伤害掷骰获得 +3，当你用它进行的攻击检定击中一个目标时，目标受到额外5d4由你选择的一种如下选项类型的伤害：强酸，冷冻，火焰，闪电或毒素。</p><p>当你持用这把连枷时，可以用一个动作说出一个命令语，使龙头呼出一团 90尺锥型的多彩烈焰。范围内的每个生物必须进行一次DC18的敏捷豁免。失败则要承受14d6一种如下选项类型的伤害：强酸，冷冻，火焰，闪电或毒素。成功则只承受一半伤害。一旦使用了此动作，直到下次黎明之前不能再使用</p></div></div></div>",
       "chat": ""
     },
     "identifier": "-",
@@ -307,12 +411,10 @@
       "value": 0,
       "denomination": "gp"
     },
-    "rarity": "legendary",
     "attunement": "required",
     "attuned": true,
     "equipped": false,
     "cover": null,
-    "crewed": false,
     "ammunition": {},
     "armor": {
       "value": null
@@ -330,7 +432,8 @@
         "scaling": {
           "number": 1
         },
-        "bonus": ""
+        "bonus": "",
+        "modifiers": []
       },
       "versatile": {
         "number": null,
@@ -341,10 +444,11 @@
         },
         "scaling": {
           "number": 1
-        }
+        },
+        "modifiers": []
       }
     },
-    "magicalBonus": 3,
+    "magicalBonus": "3",
     "properties": [
       "mgc"
     ],
@@ -359,7 +463,13 @@
       "value": "martialM",
       "baseItem": "flail"
     },
-    "mastery": ""
+    "mastery": "",
+    "rarities": [
+      "legendary"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "effects": [],
   "sort": 0,
@@ -386,19 +496,14 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1756726837765,
     "modifiedTime": 1757350424661,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -30,23 +30,13 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Frost_FrozenCore.png",
+  "img": "icons/commodities/gems/pearl-water.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 一个冷冻能量形成的冰球从你的指尖射向施法距离内一处指定点，并在该处迸裂为一个半径60尺的球状区域。区域内的每个生物必须进行一次体质豁免。豁免失败者将受到10d6点冷冻伤害。豁免成功则伤害减半。\n<br />如果冰球击中某处水体或者某处以水分为主的液态表面（不包括由水组成的生物），其触及的水面将凝结出6寸厚、30尺宽的方形冻结区域。任何在其中游泳的生物将被冰面所困。受困的生物可以用一个动作进行一次对抗法术豁免DC 的力量检定以破冰挣脱。\n<br />你可以在完成该法术后延迟发射冰。此时你手上将形成一个弹丸般大小，摸起来感觉冰冷的小冰球。你或者任意从你手上获得冰球的生物可以随时将冰球投出去（以40尺射程）或者用投石索将其弹射出去（以投石索的正常射程），并以冲击将其打破再产生正常施法时相同的效应。你还可以将冰球设置好，然后使其在不需要打破的情况下维持1分钟后自动迸裂。\n<br /><strong>升环施法效应。</strong>使用7环或更高法术位施展该法术时，你使用的法术位每比6环高一环，其伤害就增加1d6。\n<br /></div>",
+      "value": "<p>一个冷冻能量形成的冰球从你的指尖射向施法距离内一处指定点，并在该处迸裂为一个半径 60 尺的球状区域。区域内的每个生物必须进行一次体质豁免。豁免失败者将受到 10d6 点寒冷伤害。豁免成功则伤害减半。</p><p>如果冰球击中某处水体或者某处以水分为主的液态表面（不包括由水组成的生物），其触及的水面将凝结出 6 寸厚、30 尺宽的方形冻结区域。任何在其中游泳的生物将被冰面所困。受困的生物可以用一个动作进行一次对抗法术豁免 DC 的力量检定以破冰挣脱。</p><p>你可以在完成该法术后延迟发射冰。此时你手上将形成一枚如投石索弹丸般的冰冷触感的小冰球。你或者任意从你手上获得冰球的生物可以随时将冰球投出去（以 40 尺射程）或者用投石索将其弹射出去（以投石索的正常射程），并以冲击将其打破。被打破后，冰球将产生与正常施法时相同的效应。你还可以将冰球设置成陷阱而不直接打破它。不论如何，被创造的小冰球1 分钟后若仍未被打破，它将自动迸裂。</p><p><strong>升环施法效应。</strong>使用七环或更高法术位施展该法术时，你使用的法术位每比六环高一环，其伤害就增加 1d6。</p>",
       "chat": ""
     },
     "source": {
@@ -62,7 +52,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -74,7 +65,8 @@
         "type": "sphere",
         "size": "60",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -95,10 +87,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -124,22 +112,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -160,7 +152,7 @@
                 "formula": ""
               },
               "number": 10,
-              "denomination": "6",
+              "denomination": 6,
               "bonus": "",
               "types": [
                 "cold"
@@ -169,7 +161,8 @@
                 "mode": "whole",
                 "number": 1,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -183,7 +176,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -197,7 +191,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -205,7 +200,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -216,18 +210,63 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "name": "直接释放",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       },
       "fKnpsQHzcZVnNv2N": {
         "type": "utility",
@@ -246,12 +285,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -263,7 +304,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -294,7 +336,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -302,7 +345,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -313,21 +355,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "name": "制作冰球",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "freezing-sphere"
+    "identifier": "freezing-sphere",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -336,8 +424,8 @@
   "sort": 20700000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

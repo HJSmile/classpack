@@ -5,7 +5,7 @@
   "img": "icons/skills/melee/weapons-crossed-swords-white-blue.webp",
   "system": {
     "description": {
-      "value": "<p>使用两把武器战斗时，你可以将相应属性调整值加到第二次攻击的伤害上。</p>\n<p> </p>",
+      "value": "<p>使用两把武器战斗时，你可以将相应属性调整值加到第二次攻击的伤害上。</p>",
       "chat": ""
     },
     "source": {
@@ -23,15 +23,21 @@
       "value": "class",
       "subtype": "fightingStyle"
     },
-    "requirements": "战士等级 1，勇士等级  10，圣武士等级 2，游侠等级 2，剑舞学院等级 3",
+    "requirements": "战士等级 1，勇士等级 10，圣武士等级 2，游侠等级 2，剑舞学院等级 3；或战斗学徒专长",
     "activities": {},
     "identifier": "-two-weapon-fighting",
-    "advancement": [],
+    "advancement": {},
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": [
+        "feat:fighting-style",
+        "feat:-fighting-style",
+        "subclass:college-of-swords",
+        "feat:-fighting-initiatetce"
+      ]
     },
     "properties": []
   },
@@ -39,12 +45,7 @@
   "folder": "HPxKtBgwXzbuWVTR",
   "sort": 10800000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -68,8 +69,8 @@
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757273518112,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

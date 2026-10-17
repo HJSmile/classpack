@@ -2,7 +2,7 @@
   "_id": "I1C2EQxwynPd7dOC",
   "name": "次级复原术 Lesser Restoration",
   "type": "spell",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_Renew.png",
+  "img": "icons/consumables/plants/leaf-hastate-glowing-green.webp",
   "effects": [],
   "folder": "v66iuyCJ9YOa7g5p",
   "sort": 2100000,
@@ -29,24 +29,21 @@
       "effectCondition": "",
       "removeAttackDamageButtons": "default",
       "reactionCondition": "",
-      "otherCondition": ""
+      "otherCondition": "",
+      "onUseMacroName": "[postActiveEffects]ItemMacro"
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
-      "migratedProperties": [
-        "vocal",
-        "somatic"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
+    "dnd5e": {},
+    "dae": {
+      "macro": {
+        "name": "次级复原术 Lesser Restoration",
+        "type": "script",
+        "command": "// 物品 On Use：postActiveEffects 选择并执行。\nconst greater = false;\nconst pass = args[0]?.macroPass;\nif (pass !== \"postActiveEffects\" || workflow.aborted) return;\nif (args[0]?.tag === \"TargetOnUse\" || workflow.item.uuid !== macroItem.uuid) return;\nconst key = greater ? \"classpackGreaterRestoration\" : \"classpackLesserRestoration\";\nconst title = greater ? \"高等复原术\" : \"次级复原术\";\nconst dialogs = dnd5eClasspack.dialogUtils;\nconst names = { blinded: \"目盲\", deafened: \"耳聋\", paralyzed: \"麻痹\", poisoned: \"中毒\",\n  diseased: \"疾病\", cursed: \"诅咒\", charmed: \"魅惑\", petrified: \"石化\" };\nconst esc = s => String(s ?? \"\").replaceAll(\"&\", \"&amp;\").replaceAll(\"<\", \"&lt;\").replaceAll(\">\", \"&gt;\");\nconst effectActor = e => e.actor ?? e.parent?.actor ?? (e.parent?.documentName === \"Actor\" ? e.parent : null);\nconst effects = actor => Array.from(actor.appliedEffects ?? actor.effects ?? []).filter(e =>\n  e.active && e.type !== \"enchantment\" && effectActor(e)?.uuid === actor.uuid);\nconst statuses = e => Array.from(e.statuses ?? []);\nconst categoryStatus = { disease: \"diseased\", curse: \"cursed\" };\nconst numeric = value => (typeof value === \"number\" || typeof value === \"string\" && value.trim() !== \"\")\n  && Number.isFinite(Number(value)) ? Number(value) : null;\nfunction reduction(change, actor, kind) {\n  if (kind === \"ability\" ? !/^system\\.abilities\\.[^.]+\\.value$/.test(change.key)\n    : change.key !== \"system.attributes.hp.tempmax\") return false;\n  const value = numeric(change.value);\n  if (value === null) return false;\n  const type = change.type ?? ({ 1: \"multiply\", 2: \"add\", 3: \"downgrade\", 4: \"upgrade\", 5: \"override\" })[change.mode];\n  if (type === \"add\") return value < 0;\n  if (type === \"subtract\") return value > 0;\n  const source = change.key.split(\".\").reduce((data, key) => data?.[key], actor._source);\n  const base = numeric(source);\n  if (base === null) return false;\n  if (type === \"multiply\") return value >= 0 && base * value < base;\n  if ([\"downgrade\", \"override\"].includes(type)) return value < base;\n  return false;\n}\nfunction matches(effect, kind, actor) {\n  if ([\"ability\", \"hpmax\"].includes(kind)) return (effect.system?.changes ?? []).some(c => reduction(c, actor, kind));\n  return statuses(effect).includes(categoryStatus[kind] ?? kind);\n}\nconst describe = e => {\n  const labels = statuses(e).map(s => names[s] ?? game.i18n.localize(CONFIG.statusEffects[s]?.name ?? s));\n  const changes = (e.system?.changes ?? []).map(c => `${c.key}: ${c.value}`).join(\"；\");\n  return `${labels.join(\"、\")}${labels.length && changes ? \"；\" : \"\"}${changes}`;\n};\nfunction rootEffect(effect, actor) {\n  const seen = new Set();\n  while (!seen.has(effect.uuid)) {\n    seen.add(effect.uuid);\n    const parentUuid = effect.flags?.dnd5e?.dependentOn;\n    if (!parentUuid) break;\n    const parent = actor.effects?.get?.(parentUuid)\n      ?? fromUuidSync(parentUuid, { relative: effect, strict: false });\n    // 不沿着专注关系删除另一名施法者的效果。\n    if (parent?.documentName !== \"ActiveEffect\" || !parent.active\n      || [\"enchantment\", \"concentration\"].includes(parent.type) || statuses(parent).includes(\"concentrating\")\n      || effectActor(parent)?.uuid !== actor.uuid) break;\n    effect = parent;\n  }\n  return effect;\n}\nasync function selectEffect(actor, list, category) {\n  const rows = list.map(e => ({ id: e.uuid, uuid: e.uuid,\n    name: `${e.name}${statuses(e).length ? `（${statuses(e).map(s => names[s] ?? s).join(\"、\")}）` : \"\"}`,\n    img: e.img, system: { description: { value: `${e.description ?? \"\"}<p>${esc(describe(e))}</p>` } } }));\n  const selected = await dialogs.selectDocumentDialog(`${title}：${category}`, esc(actor.name), rows,\n    { displayTooltips: true, width: 520 });\n  return list.find(e => e.uuid === selected?.id);\n}\n\nconst existing = workflow[key];\nif (existing?.pending) return await existing.pending;\nif (existing) return;\nconst state = workflow[key] = {};\nstate.pending = (async () => {\n  await (async () => {\n    const actors = new Map(Array.from(workflow.targets ?? [], t => [t.actor?.uuid, t.actor]).filter(([id]) => id));\n    if (actors.size !== 1) {\n      ui.notifications.warn(`${title}：请选择一个生物。`);\n      state.cancelled = true;\n      return false;\n    }\n    const actor = actors.values().next().value;\n    const list = effects(actor);\n    const kinds = greater ? [\"charmed\", \"petrified\"] : [\"blinded\", \"deafened\", \"paralyzed\", \"poisoned\"];\n    const buttons = kinds.filter(s => list.some(e => statuses(e).includes(s)))\n      .map(s => [names[s], s, { image: CONFIG.statusEffects[s]?.img }]);\n    if (greater && Number(actor.system.attributes.exhaustion) > 0) buttons.unshift([\"力竭降低一级\", \"exhaustion\"]);\n    const attuned = Array.from(actor.items ?? []).filter(i => i.system.attuned);\n    if (greater) {\n      for (const [label, category] of [[\"诅咒效应\", \"curse\"], [\"属性值减损\", \"ability\"], [\"生命值上限减损\", \"hpmax\"]]) {\n        if (list.some(e => matches(e, category, actor))) buttons.push([label, category]);\n      }\n      if (attuned.length) buttons.push([\"解除被诅咒物品的同调\", \"attunement\"]);\n    } else if (list.some(e => matches(e, \"disease\", actor))) buttons.push([\"一项疾病\", \"disease\"]);\n    if (!buttons.length) {\n      ui.notifications.info(`${title}：目标身上没有可供选择的状态或效应。`);\n      state.cancelled = true;\n      return false;\n    }\n    const kind = await dialogs.buttonDialog(title, esc(actor.name), buttons, { width: 440 });\n    if (!buttons.some(b => b[1] === kind)) { state.cancelled = true; return false; }\n    state.actor = actor.uuid;\n    state.kind = kind;\n    if (kind === \"exhaustion\") return;\n    if (kind === \"attunement\") {\n      const item = await dialogs.selectDocumentDialog(`${title}：选择被诅咒的同调物品`, esc(actor.name), attuned,\n        { displayTooltips: true, width: 520 });\n      if (!item || !attuned.some(i => i.uuid === item.uuid)) { state.cancelled = true; return false; }\n      state.item = item.uuid;\n      return;\n    }\n    const condition = kinds.includes(kind);\n    const candidates = list.filter(e => matches(e, kind, actor));\n    const label = names[kind] ?? ({ disease: \"选择疾病效应\", curse: \"选择诅咒效应\", ability: \"选择属性值减损效应\", hpmax: \"选择生命上限减损效应\" })[kind];\n    const effect = await selectEffect(actor, candidates, label);\n    if (!effect) { state.cancelled = true; return false; }\n    const root = rootEffect(effect, actor);\n    state.effect = root.uuid;\n    state.statusEffect = effect.uuid;\n    state.mode = \"effect\";\n    if (condition && (root.uuid !== effect.uuid || statuses(root).some(s => s !== kind))) {\n      const mode = await dialogs.buttonDialog(title, `${esc(root.name)}<p>${esc(describe(root))}</p>`, [\n        [`仅解除${names[kind]}状态`, \"status\"], [\"终止整个效应\", \"effect\"]\n      ], { width: 520 });\n      if (![\"status\", \"effect\"].includes(mode)) { state.cancelled = true; return false; }\n      state.mode = mode;\n    }\n  })();\n  if (state.cancelled) return false;\n  if (workflow.aborted) return;\n  const actor = await fromUuid(state.actor);\n  if (!actor || !Array.from(workflow.targets ?? []).some(t => t.actor?.uuid === state.actor)) {\n    ui.notifications.warn(`${title}：施法目标已改变，未执行解除。`);\n    return;\n  }\n  const gm = async (handler, data) => {\n    const result = await MidiQOL.socket().executeAsGM(handler, data);\n    if (result === false || result === \"gmBlocked\") throw new Error(`${title}：GM 未能执行 ${handler}`);\n    return result;\n  };\n  const endEffect = async effect => {\n    const options = { \"expiry-reason\": `dnd5e_classpack:${greater ? \"greater\" : \"lesser\"}-restoration` };\n    if (effect.transfer) return await gm(\"updateEffects\", {\n      actorUuid: effect.parent.uuid, updates: [{ _id: effect.id, disabled: true }]\n    });\n    if (effect.isOwner) return await effect.delete(options);\n    // 永久诅咒必须真正删除；仅标记 duration.expired 可能被无限时长重新激活。\n    const result = await DAE.deleteActiveEffect(actor.uuid, effect.origin, [], [effect.id], false, options);\n    if (result === false) throw new Error(`${title}：所选效应未能删除`);\n  };\n  if (state.kind === \"exhaustion\") {\n    if (Number(actor.system.attributes.exhaustion) > 0) await gm(\"toggleStatusEffect\", {\n      actorUuid: actor.uuid, statusId: \"exhaustion\", options: { levels: -1 }\n    });\n    return;\n  }\n  if (state.kind === \"attunement\") {\n    const item = await fromUuid(state.item);\n    if (item?.actor?.uuid === actor.uuid && item.system.attuned) await gm(\"updateItems\", {\n      actorUuid: actor.uuid, updates: [{ _id: item.id, \"system.attuned\": false }]\n    });\n    return;\n  }\n  const effect = await fromUuid(state.effect);\n  const current = effects(actor);\n  if (!effect || !current.some(e => e.uuid === effect.uuid)) {\n    ui.notifications.info(`${title}：所选效应已不再生效。`);\n    return;\n  }\n  const condition = (greater ? [\"charmed\", \"petrified\"] : [\"blinded\", \"deafened\", \"paralyzed\", \"poisoned\"]).includes(state.kind);\n  const selected = await fromUuid(state.statusEffect);\n  if (!selected || !current.some(e => e.uuid === selected.uuid) || !matches(selected, state.kind, actor)) return;\n  const statusEffect = condition ? await fromUuid(state.statusEffect) : null;\n  if (condition && (!statusEffect || !current.some(e => e.uuid === statusEffect.uuid)\n    || !statuses(statusEffect).includes(state.kind))) return;\n  if (state.mode === \"status\") {\n    // 只修改使用者选中的状态，不删除该 AE 的其他状态或数值变更。\n    const remaining = statuses(statusEffect).filter(s => s !== state.kind);\n    const riders = Array.from(effect.system?.rider?.statuses ?? []);\n    if (effect.uuid !== statusEffect.uuid && riders.includes(state.kind)) await gm(\"updateEffects\", {\n      actorUuid: effect.parent.uuid,\n      updates: [{ _id: effect.id, \"system.rider.statuses\": riders.filter(s => s !== state.kind) }]\n    });\n    if (remaining.length || statusEffect.system?.changes?.length\n      || Array.from(statusEffect.system?.rider?.statuses ?? []).length) await gm(\"updateEffects\", {\n      actorUuid: statusEffect.parent.uuid, updates: [{ _id: statusEffect.id, statuses: remaining }]\n    });\n    else await endEffect(statusEffect);\n    return;\n  }\n  await endEffect(effect);\n})();\ntry { return await state.pending; }\ncatch (error) {\n  console.error(`${title}：解除失败`, error);\n  ui.notifications.error(`${title}：未完成解除，请检查控制台。`);\n  return false;\n}\nfinally { delete state.pending; state.done = true; }\n"
       }
     }
   },
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你触碰一个生物，并终止正影响它的一项疾病或一种状态。该状态可以是目盲，耳聋，麻痹或中毒其一。</div>",
+      "value": "<p>你触碰一个生物，并终止正影响它的一项疾病或一种状态。该状态可以是目盲，耳聋，麻痹或中毒其一。</p>",
       "chat": ""
     },
     "source": {
@@ -61,7 +58,8 @@
       "value": 1
     },
     "duration": {
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -71,9 +69,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -93,10 +92,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -120,22 +115,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -165,7 +164,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -173,7 +173,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -184,26 +183,74 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "lesser-restoration"
+    "identifier": "lesser-restoration",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757419719404,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

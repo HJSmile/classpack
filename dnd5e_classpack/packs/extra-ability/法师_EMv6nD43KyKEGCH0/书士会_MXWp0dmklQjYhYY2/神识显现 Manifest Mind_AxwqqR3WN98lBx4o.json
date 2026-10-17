@@ -2,7 +2,7 @@
   "_id": "AxwqqR3WN98lBx4o",
   "name": "神识显现 Manifest Mind",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/inv_pet_naaru.jpg",
+  "img": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
   "system": {
     "description": {
       "value": "<p>你能将你觉醒法术书中的意识召唤出来。当你持有该法术书时，你可以以一个附赠动作令书中的意识显现为一个微型的灵体物件，使其悬浮于距离你60尺以内且未被占据的、由你选择的空间中。这一灵体意识是无形的，不会占据其空间，并会在其周围半径10尺范围内发出微光光照。它看上去如同一本灵体卷宗、一摞文字、或是一位历史中的学者（由你选择）。</p>\n<p>显现时，该灵体意识能够听音视物，并具有60尺的黑暗视觉。它能用心灵感应将它所看见和听到的信息分享给你（无需动作）。</p>\n<p>每当你在自己的回合内施放法师法术时，你可以使用灵体意识的感官、如同身处它所在的空间一样释放该法术。你能使用该能力的次数等于你的熟练加值，完成一次长休后，你将重获所有消耗掉的使用次数。</p>\n<p>以一个附赠动作，你可以令灵体意识飘浮到其周围30尺内、你或它可见且未被占据的空间。灵体意识可以穿过生物但不能穿过物件。</p>\n<p>若遇到以下情况之一，灵体意识的显现将会停止：与你的距离超过300尺，成为解除魔法的目标，觉醒魔法书被摧毁，你死亡时，或是你以一个附赠动作将其驱散。</p>\n<p>召唤过灵体意识后，你必须完成一次长休、或是消耗一枚任意环位的法术位，才能再次召唤。</p>",
@@ -23,7 +23,7 @@
           "type": "recoverAll"
         }
       ],
-      "spent": 0
+      "spent": 1
     },
     "type": {
       "value": "class",
@@ -59,13 +59,15 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -82,7 +84,8 @@
             "size": "10",
             "width": "",
             "height": "",
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -104,15 +107,103 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-manifest-mind",
-    "advancement": [],
+    "advancement": {},
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 6,
+      "repeatable": false,
+      "items": [
+        "subclass:order-of-scribes"
+      ]
     },
     "properties": []
   },
@@ -120,22 +211,15 @@
   "folder": "MXWp0dmklQjYhYY2",
   "sort": 13600000,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "ownership": {
     "default": 0
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1749883542518,
     "lastModifiedBy": "uXKCmWFprrvnSIDm",

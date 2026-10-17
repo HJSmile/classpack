@@ -23,36 +23,22 @@
       "effectCondition": "",
       "reactionCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "ritual"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/magic/earth/projectile-spiked-stone-boulder-blue.webp",
   "_id": "pJ6hE8Vab5Ypuqm4",
   "effects": [
     {
       "name": "融身入石 Meld into Stone",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.pJ6hE8Vab5Ypuqm4",
+      "origin": null,
       "duration": {
-        "rounds": 4800,
-        "startTime": null,
-        "seconds": 30000,
-        "combat": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 30000,
+        "units": "seconds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "disabled": false,
       "_id": "w9slgjEJSuNVEdAy",
-      "changes": [],
       "description": "",
       "transfer": false,
       "statuses": [],
@@ -63,33 +49,16 @@
           "selfTargetAlways": false,
           "dontApply": false,
           "stackable": "noneName",
-          "showIcon": true,
           "durationExpression": "",
           "macroRepeat": "none",
           "specialDuration": []
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system"
         }
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -99,14 +68,31 @@
       },
       "img": "icons/magic/earth/projectile-spiked-stone-boulder-blue.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.pJ6hE8Vab5Ypuqm4",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 2,
+      "folder": null,
       "_key": "!items.effects!pJ6hE8Vab5Ypuqm4.w9slgjEJSuNVEdAy"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你进入一个足以完全容纳你身体的石制物件或石材表面内，使你自己和你携带的所有装备在法术持续时间内与石头融为一体。你可以在移动时从一个你能接触到的位置进入石中。此后，任何非魔法的感官都无法看到或侦测到你的存在。\n<br />与石头融合后，你看不到外界发生了什么，并且你为了聆听外界声音而进行的任何感知（察觉）检定都具有劣势。与石头融合时，你仍能感觉到时间的流逝，也可以对自己施展法术。此时你无法移动，不过可以从进入石头的地方以移动的方式离开石内并终止该法术。\n<br />石头所受的轻微损伤不会对你造成伤害，不过石头部分损毁或者形状改变时（改变到不再适合容纳你的程度），会将你从石中排挤出并对你造成6d6的钝击伤害。石头完全损毁（或材质改变）时，也会将你从石中排挤出并对你造成50点钝击伤害。被排挤出石头时，你将被摔至距离第一次进入石头处最近一处未被占据的空间位置，并陷入倒地状态。\n<br /></div>",
+      "value": "<p>你进入一个足以完全容纳你身体的石制物件或石材表面内，使你自己和你携带的所有装备在法术持续时间内与石头融为一体。你可以在移动时从一个你能接触到的位置进入石中。此后，任何非魔法的感官都无法看到或侦测到你的存在。</p><p>与石头融合后，你看不到外界发生了什么，并且你为了聆听外界声音而进行的任何[[/check ability=wis skill=prc]]{感知（察觉）检定}都具有劣势。与石头融合时，你仍能感觉到时间的流逝，也可以对自己施展法术。此时你无法移动，不过可以从进入石头的地方以移动的方式离开石内并终止该法术。</p><p>石头所受的轻微损伤不会对你造成伤害，不过石头部分损毁或者形状改变时（改变到不再适合容纳你的程度），会将你从石中排挤出并对你造成 [[/damage 6d6 type=bludgeoning]]{6d6} 的钝击伤害。石头完全损毁（或材质改变）时，也会将你从石中排挤出并对你造成 50 点钝击伤害。被排挤出石头时，你将被摔至距离第一次进入石头处最近一处未占据空间位置，并陷入&amp;Reference[condition=prone apply=false]{倒地}状态。</p>",
       "chat": ""
     },
     "source": {
@@ -124,7 +110,8 @@
     },
     "duration": {
       "value": "8",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -134,9 +121,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -156,10 +144,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -184,26 +168,32 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "w9slgjEJSuNVEdAy"
+            "_id": "w9slgjEJSuNVEdAy",
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -233,7 +223,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -241,7 +232,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -252,15 +242,61 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       },
       "dnd5eactivity200": {
         "_id": "dnd5eactivity200",
@@ -279,26 +315,32 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "w9slgjEJSuNVEdAy"
+            "_id": "w9slgjEJSuNVEdAy",
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -329,7 +371,8 @@
                 "mode": "",
                 "number": null,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ]
         },
@@ -345,7 +388,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -353,7 +397,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -364,17 +407,65 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
         }
       }
     },
-    "identifier": "meld-into-stone"
+    "identifier": "meld-into-stone",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -383,8 +474,8 @@
   "sort": 23000000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711724267620,
     "modifiedTime": 1757235114937,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

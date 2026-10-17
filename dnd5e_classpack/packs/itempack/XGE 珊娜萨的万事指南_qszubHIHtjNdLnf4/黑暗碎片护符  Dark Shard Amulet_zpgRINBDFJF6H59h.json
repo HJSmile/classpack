@@ -4,7 +4,7 @@
   "img": "icons/equipment/neck/necklace-simple-carved-stone.webp",
   "system": {
     "description": {
-      "value": "<p><em>奇物（需邪术师同调）</em></p><p>这个护符是由你的邪术师宗主所在领域的一块独立且具有恢复力的异位面物质碎片制作的。只要你佩戴着它，你就获得以下好处：</p><ul><li><p>你可以使用这个护符作为你的邪术师法术的法器。</p></li><li><p>你可以尝试施展你不知晓的戏法。这个戏法必须是@UUID[Compendium.dnd5e_classpack.spell-table.JournalEntry.YyMwDyBTAhKSA6Ci.JournalEntryPage.Lu1nZLg80ere5Lf5]{邪术师戏法表}里的，并且你必须通过DC10的智力（奥术）检定。如果检定成功则你可以施展戏法。如果检定失败，那么戏法也失败，并且施法的动作也照常消耗。不论哪种结果，你都不能再使用这个能力直到你完成一次长休。</p></li></ul>",
+      "value": "<p><em>奇物（需魔契师同调）</em></p><p>这个护符是由你的魔契师宗主所在领域的一块独立且具有恢复力的异位面物质碎片制作的。只要你佩戴着它，你就获得以下好处：</p><ul><li><p>你可以使用这个护符作为你的魔契师法术的法器。</p></li><li><p>你可以尝试施展你不知晓的戏法。这个戏法必须是@UUID[Compendium.dnd5e_classpack.spell-table.JournalEntry.YyMwDyBTAhKSA6Ci.JournalEntryPage.Lu1nZLg80ere5Lf5]{魔契师戏法表}里的，并且你必须通过DC10的智力（奥术）检定。如果检定成功则你可以施展戏法。如果检定失败，那么戏法也失败，并且施法的动作也照常消耗。不论哪种结果，你都不能再使用这个能力直到你完成一次长休。</p></li></ul>",
       "chat": ""
     },
     "source": {
@@ -24,10 +24,8 @@
     },
     "attunement": "required",
     "equipped": false,
-    "rarity": "common",
     "identified": true,
     "cover": null,
-    "crewed": false,
     "uses": {
       "max": "1",
       "recovery": [
@@ -40,8 +38,7 @@
     },
     "armor": {
       "value": null,
-      "dex": null,
-      "magicalBonus": null
+      "dex": null
     },
     "hp": {
       "value": null,
@@ -51,7 +48,8 @@
     },
     "speed": {
       "value": null,
-      "conditions": ""
+      "conditions": "",
+      "units": "ft"
     },
     "strength": null,
     "proficient": 1,
@@ -96,18 +94,20 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -119,7 +119,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -141,11 +142,102 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-dark-shard-amulet",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "common"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "effects": [],
   "flags": {
@@ -174,19 +266,12 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1686059531735,
     "modifiedTime": 1757872130710,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

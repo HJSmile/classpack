@@ -7,17 +7,11 @@
   "folder": "tBltNHvQID4vNcLI",
   "flags": {
     "core": {},
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
-      "value": "<p><em>奇物（需同调）</em></p>\n<p>艾恩Ioun在许多世界被尊为知识和预言之神，而其名字则被用来命名这种石头。艾恩石 有许多种，每一种都有与众不同的形状和颜色。</p>\n<p>如果你用一个动作将一块艾恩石抛到空中，则它将环绕你的头部，与你的头部距离[[/r 1d3]]尺移动，并为你带来一些增益。另一名生物必须用一个动作抓住或用网网住艾恩石，才能将它与你分开。上述方法需要成功通过一次对抗AC 24的攻击检定，或一次对抗DC 24的敏捷（体操）检定。你自己则可以用一个动作抓住并收起石头，终止它的效应。</p>\n<p>每颗石头拥有AC 24，生命值为10，具有所有伤害类型的抗性。即使只是环绕你的头部移动，它依然视为由你着装。</p>\n<p><strong>@UUID[Compendium.dnd5e_classpack.itempack.0E8E0A61C4782C06]{维生 Sustenance}（珍稀）。</strong>该透明的纺锤形艾恩石环绕你时，你无需饮食也能生存。</p>",
+      "value": "<p><em>奇物（需同调）</em></p><p>艾恩Ioun在许多世界被尊为知识和预言之神，而其名字则被用来命名这种石头。艾恩石 有许多种，每一种都有与众不同的形状和颜色。</p><p>如果你用一个动作将一块艾恩石抛到空中，则它将环绕你的头部，与你的头部距离[[/r 1d3]]尺移动，并为你带来一些增益。另一名生物必须用一个动作抓住或用网网住艾恩石，才能将它与你分开。上述方法需要成功通过一次对抗AC 24的攻击检定，或一次对抗DC 24的敏捷（体操）检定。你自己则可以用一个动作抓住并收起石头，终止它的效应。</p><p>每颗石头拥有AC 24，生命值为10，具有所有伤害类型的抗性。即使只是环绕你的头部移动，它依然视为由你着装。</p><h3>@UUID[Compendium.dnd5e_classpack.itempack.0E8E0A61C4782C06]{维生 Sustenance}（珍稀）。</h3><p>该透明的纺锤形艾恩石环绕你时，你无需饮食也能生存。</p>",
       "chat": ""
     },
     "source": {
@@ -37,10 +31,8 @@
     },
     "attunement": "required",
     "equipped": false,
-    "rarity": "rare",
     "identified": true,
     "cover": null,
-    "crewed": false,
     "uses": {
       "max": "",
       "spent": null,
@@ -48,8 +40,7 @@
     },
     "armor": {
       "value": 0,
-      "dex": 0,
-      "magicalBonus": null
+      "dex": 0
     },
     "hp": {
       "value": 0,
@@ -59,7 +50,8 @@
     },
     "speed": {
       "value": null,
-      "conditions": ""
+      "conditions": "",
+      "units": "ft"
     },
     "strength": 0,
     "proficient": null,
@@ -93,14 +85,16 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -116,7 +110,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -151,20 +146,111 @@
                 "mode": "whole",
                 "number": null,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ]
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
     "identifier": "ioun-stone-of-sustenance",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "rare"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1713010438641,
     "modifiedTime": 1757871100276,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -24,23 +24,13 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Hunter_BeastWithin.png",
+  "img": "icons/commodities/treasure/totem-wooden-glowing-green.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 此法术吸引或驱赶你指定的生物。在施法距离内指定一个巨型或更小体型的物件或生物，或是一处不超过200尺的立方区域。你指定一类智慧生物（例如红龙、地精、吸血鬼等），并为目标注入能吸引或是驱赶所选类型生物的灵光。你可以选择嫌恶或是关怀作为法术的效应。\n<br /><strong>嫌恶Antipathy。</strong>法术的影响让你选定类型的生物不可遏止的想要远离被附魔目标。当符合条件的生物看到目标或是距离目标不足60尺时，该生物必须进行一次感知豁免并成功通过，否则将陷入恐慌。只要还能看到目标或是在目标60尺内，该生物就会维持恐慌状态。陷入该恐慌状态的生物必须自主移动至附近无法看到目标的安全地点。离开目标至少60尺且无法看到目标后，该生物的恐慌状态终止。但再次看到目标或是进入目标60尺内时他也将再次陷入恐慌。\n<br /><strong>关怀Sympathy。</strong>法术的影响让你选定类型的生物不可遏止的想要接近被附魔目标。当符合条件的生物看到目标或是距离目标不足60尺时，该生物必须进行一次感知豁免并成功通过，否则便会每回合自主移动并靠近目标。靠近后，该生物不能自主的远离目标。\n<br />若目标对该生物造成伤害或是以其他方式对其造成危害，则该生物可以再进行一次感知豁免以终止效应，详情见下节。\n<br /><strong>终止效应Ending the Effect。</strong>如果受影响的生物在距离目标60尺外或是无法看到目标的地方终止其回合，则其可以进行一次感知豁免，豁免成功则不再受法术影响并意识到厌恶感或诱惑力是来自魔法的影响。另外，在法术持续时间内，受影响的生物每24小时可以再进行一次感知豁免。\n<br />对该法术效应豁免成功的生物在1分钟内免疫该效应，但随后仍会受该效应影响。\n<br /></div>",
+      "value": "<p>此法术吸引或驱赶你指定的生物。在施法距离内指定一个巨型或更小体型的物件或生物，或是一处不超过 200 尺的立方区域。你指定一类智慧生物（例如红龙、地精、吸血鬼等），并为目标注入能吸引或是驱赶所选类型生物的灵光。你可以选择嫌恶或是关怀作为法术的效应。</p><blockquote><p><strong>嫌恶Antipathy。</strong>法术的影响让你选定类型的生物不可遏止的想要远离受术目标。当符合条件的生物看到目标或是距离目标不足 60 尺时，该生物必须进行一次[[/save activity=dnd5eactivity000]]{感知豁免}并成功通过，否则将陷入&amp;Reference[condition=frightened apply=false]{恐慌}。只要还能看到目标或是在目标 60 尺内，该生物就会维持恐慌状态。陷入该恐慌状态的生物必须自主移动至附近无法看到目标的安全地点。离开目标至少 60 尺且无法看到目标后，该生物的恐慌状态终止。但再次看到目标或是进入目标 60 尺内时他也将再次陷入恐慌。</p><p><strong>关怀Sympathy。</strong>法术的影响让你选定类型的生物不可遏止的想要接近受术目标。当符合条件的生物看到目标或是距离目标不足60尺时，该生物必须进行一次感知豁免并成功通过，否则便会每回合自主移动并靠近目标。靠近后，该生物不能自主的远离目标。 若目标对该生物造成伤害或是以其他方式对其造成危害，则该生物可以再进行一次感知豁免以终止效应，详情见下节。</p></blockquote><p><strong>终止效应Ending the Effect。</strong>如果受影响的生物在距离目标 60 尺外或是无法看到目标的地方终止其回合，则其可以进行一次感知豁免，豁免成功则不再受法术影响并意识到厌恶感或诱惑力是来自魔法的影响。另外，在法术持续时间内，受影响的生物每 24 小时可以再进行一次感知豁免。</p><p>对该法术效应豁免成功的生物将不受此法术的效应影响，持续 1 分钟，随后仍可能受到该效应影响。</p>",
       "chat": ""
     },
     "source": {
@@ -56,7 +46,8 @@
     },
     "duration": {
       "value": "10",
-      "units": "day"
+      "units": "day",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -66,9 +57,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -89,10 +81,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -118,22 +106,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -159,7 +151,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -173,7 +166,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -181,7 +175,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -192,18 +185,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "antipathysympathy"
+    "identifier": "antipathysympathy",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -212,8 +254,8 @@
   "sort": 29800000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

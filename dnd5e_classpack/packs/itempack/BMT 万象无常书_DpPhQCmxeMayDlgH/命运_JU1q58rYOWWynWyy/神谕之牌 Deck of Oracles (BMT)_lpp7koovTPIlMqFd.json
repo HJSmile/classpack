@@ -12,7 +12,7 @@
       "revision": 1
     },
     "description": {
-      "value": "<div class=\"rd__b  rd__b--2\"><p><em>奇物，珍稀（需同调）</em> <br />这副神谕之牌上的插图在间接观察时会发生微小的移动或变化。当你完成了一次长休时，你可以花10分钟向卡牌咨询关于即将到来的日子的一个预兆。骰一次[[/r d20]]并记录骰点结果。接下来的8小时内限一次，当一个在你60尺内的生物进行了一次属性检定，攻击检定或豁免检定后，你可以立即以反应以弃用该[[/r d20]]骰点；该生物必须使用你所骰出的数字取代其骰点结果。<br />此外，持握该牌组期间，你可以用它施展法术<em>@UUID[Compendium.dnd5e_classpack.spell.Item.0An7Gb3wSSffcHhV]{预言术 Divination}</em>。一旦使用了该特性后，直到第二天黎明之前你无法再次使用该特性。</p><p>The illustrations on this deck of oracle cards move or change subtly when viewed indirectly. When you finish a long rest, you can spend 10 minutes consulting the cards for an omen of the coming day. Roll a [[/r d20]] and record the number rolled. Once in the next 8 hours, immediately after a creature within 60 feet of you makes an ability check, an attack roll, or a saving throw, you can use your reaction to discard the [[/r d20]] roll; the creature must use the number you rolled in place of its roll.</p><p>Additionally, while holding the cards, you can cast @spell[Divination] from them. Once this property is used, it can't be used again until the next dawn.</p></div>",
+      "value": "<p><em>奇物，珍稀（需同调）</em></p><p>这副神谕之牌上的插图在间接观察时会发生微小的移动或变化。当你完成了一次长休时，你可以花10分钟向卡牌咨询关于即将到来的日子的一个预兆。骰一次[[/r d20]]并记录骰点结果。接下来的8小时内限一次，当一个在你60尺内的生物进行了一次属性检定，攻击检定或豁免检定后，你可以立即以反应以弃用该[[/r d20]]骰点；该生物必须使用你所骰出的数字取代其骰点结果。</p><p>此外，持握该牌组期间，你可以用它施展法术<em>@UUID[Compendium.dnd5e_classpack.spell.Item.0An7Gb3wSSffcHhV]{预言术 Divination}</em>。一旦使用了该特性后，直到第二天黎明之前你无法再次使用该特性。</p><p>The illustrations on this deck of oracle cards move or change subtly when viewed indirectly. When you finish a long rest, you can spend 10 minutes consulting the cards for an omen of the coming day. Roll a [[/r d20]] and record the number rolled. Once in the next 8 hours, immediately after a creature within 60 feet of you makes an ability check, an attack roll, or a saving throw, you can use your reaction to discard the [[/r d20]] roll; the creature must use the number you rolled in place of its roll.</p><p>Additionally, while holding the cards, you can cast @spell[Divination] from them. Once this property is used, it can't be used again until the next dawn.</p>",
       "chat": ""
     },
     "proficient": null,
@@ -28,7 +28,6 @@
     "attuned": true,
     "identified": true,
     "equipped": true,
-    "rarity": "rare",
     "type": {
       "value": "wondrous",
       "baseItem": ""
@@ -45,7 +44,7 @@
     "armor": {
       "value": null,
       "dex": null,
-      "magicalBonus": 0
+      "magicalBonus": "0"
     },
     "strength": null,
     "activities": {
@@ -65,19 +64,24 @@
           "spellSlot": true,
           "targets": []
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -97,8 +101,6 @@
         },
         "spell": {
           "challenge": {
-            "attack": null,
-            "save": null,
             "override": false
           },
           "level": null,
@@ -122,7 +124,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -130,7 +133,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -141,13 +143,58 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
         }
       }
     },
@@ -157,7 +204,12 @@
     },
     "container": null,
     "cover": null,
-    "crewed": false
+    "rarities": [
+      "rare"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "img": "systems/dnd5e/icons/svg/items/equipment.svg",
   "ownership": {
@@ -187,16 +239,17 @@
       "noConcentrationCheck": false,
       "toggleEffect": false,
       "ignoreTotalCover": false
-    }
+    },
+    "dnd5e": {}
   },
   "effects": [],
   "folder": "JU1q58rYOWWynWyy",
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1751738830899,
     "modifiedTime": 1751738830899,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

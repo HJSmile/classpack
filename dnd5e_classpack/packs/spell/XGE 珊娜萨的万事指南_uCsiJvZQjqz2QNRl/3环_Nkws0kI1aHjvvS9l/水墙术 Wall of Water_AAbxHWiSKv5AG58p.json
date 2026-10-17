@@ -27,23 +27,12 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/ability_mage_waterjet.jpg",
+  "img": "icons/magic/water/wave-water-blue.webp",
   "system": {
     "description": {
-      "value": "<p>你在距离内你能看到的地表的一点上召唤出由流水构成的墙体。你可以制造出的墙体长度至多为30尺，高度至多为10尺，厚度至多为1英尺。或者你也可以制造出直径至多为20尺的环形墙体，高度至多为20英尺，厚度至多为1英尺。该墙体将在法术终结时消失。该墙体所在的区域是困难地形。<br />任何进入墙体所在空间的远程武器攻击在攻击检定中具有劣势，而穿过墙体到达其目标的火焰效果所造成的火焰伤害将减半。造成寒冷伤害的法术若穿过墙体会令穿过的部分被冻结（至少5平方尺的空间被冻结）。每个被冻结的5平方英尺的方格具有AC5和15点生命值。令一块被冻结的区域生命值降为0将摧毁它。当一个部分被摧毁时，墙体的水不会填补其位置。</p>",
+      "value": "<p>你在距离内你能看到的地表的一点上召唤出由水构成的墙体。你可以制造出的墙体长度至多为 30 尺，高度至多为 10 尺，厚度至多为 1 尺。或者你也可以制造出直径至多为 20 尺的环形墙体，高度至多为 20 尺，厚度至多为 1 尺。该墙体将在法术终结时消失。该墙体所在的区域是困难地形。</p><p>任何进入墙体所在空间的远程武器攻击在攻击检定中具有劣势，而穿过墙体到达其目标的火焰效果所造成的火焰伤害将减半。造成寒冷伤害的法术若穿过墙体会令穿过的部分被冻结（至少 5 平方尺的空间被冻结）。每个被冻结的5平方尺的方格具有 AC5 和 15 点生命值。令一块被冻结的区域生命值降为 0 将摧毁它。当一个部分被摧毁时，墙体的水不会填补其位置。</p>",
       "chat": ""
     },
     "source": {
@@ -59,7 +48,8 @@
     },
     "duration": {
       "value": "10",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -73,7 +63,8 @@
         "contiguous": false,
         "width": "",
         "height": "",
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -93,10 +84,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -123,22 +110,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -168,7 +159,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -176,7 +168,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -187,18 +178,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "wall-of-water"
+    "identifier": "wall-of-water",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -208,8 +247,8 @@
   "sort": 13800000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

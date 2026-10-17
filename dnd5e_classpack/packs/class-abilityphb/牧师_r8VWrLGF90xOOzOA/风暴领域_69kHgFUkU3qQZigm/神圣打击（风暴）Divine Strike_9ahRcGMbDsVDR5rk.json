@@ -2,7 +2,7 @@
   "_id": "9ahRcGMbDsVDR5rk",
   "name": "神圣打击（风暴）Divine Strike",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_ThunderKing_Decapitate.png",
+  "img": "icons/skills/melee/weapons-crossed-swords-yellow-teal.webp",
   "system": {
     "type": {
       "value": "class",
@@ -30,13 +30,16 @@
     "requirements": "风暴领域等级 8",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 8,
+      "repeatable": false,
+      "items": [
+        "subclass:tempest-domain"
+      ]
     },
     "properties": [
       "mgc"
@@ -45,46 +48,72 @@
   "effects": [
     {
       "name": "神圣打击（风暴）",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_CrusaderStrike.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.9ahRcGMbDsVDR5rk",
+      "img": "icons/skills/melee/weapons-crossed-swords-yellow-teal.webp",
+      "origin": null,
       "_id": "RMzLyJ2d7jHU5DZy",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.optional.神圣打击（风暴）.damage.mwak",
-          "mode": 2,
-          "value": "+1@scale.cleric.divine-strike[thunder]",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.optional.神圣打击（风暴）.damage.mwak",
+            "value": "+@scale.cleric.divine-strike[thunder]",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "LioARRSJpYU1CNbm",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.神圣打击（风暴）.damage.rwak",
+            "value": "+@scale.cleric.divine-strike[thunder]",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "l9fv3YFIA9HpK61E",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.神圣打击（风暴）.count",
+            "value": "ItemUses.神圣打击（风暴）Divine Strike",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "Lc8rikCGodHGp6u7",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.神圣打击（风暴）.criticalDamage",
+            "value": true,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "Ag0oswKmqfxDsMaC",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.optional.神圣打击（风暴）.damage.rwak",
-          "mode": 2,
-          "value": "+1@scale.cleric.divine-strike[thunder]",
-          "priority": 20
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.9ahRcGMbDsVDR5rk",
+          "message": null
         },
-        {
-          "key": "flags.midi-qol.optional.神圣打击（风暴）.count",
-          "mode": 2,
-          "value": "ItemUses.神圣打击（风暴）",
-          "priority": 20
-        },
-        {
-          "key": "flags.midi-qol.optional.神圣打击（风暴）.criticalDamage",
-          "mode": 2,
-          "value": "true",
-          "priority": 20
-        }
-      ],
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -99,45 +128,30 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": "Compendium.dnd5e_classpack.class-abilityphb.Item.twDzAZCJeSqZnLTW.ActiveEffect.DQnaCQ8dcfCWxKRr",
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757145834326,
         "modifiedTime": 1757146374656,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!9ahRcGMbDsVDR5rk.RMzLyJ2d7jHU5DZy"
     }
   ],
@@ -168,13 +182,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "divineStrike",
@@ -184,9 +192,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757145896692,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

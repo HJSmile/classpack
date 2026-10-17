@@ -4,7 +4,7 @@
   "img": "icons/magic/movement/portal-vortex-orange.webp",
   "system": {
     "description": {
-      "value": "<p>借由你与巨人之力量的链接，你可以猛投战场上的盟友与敌人。狂暴期间，以一个附赠动作，你可以选择触及范围内的一个不超过中型体型的生物，将其移动到你周围30尺内的一处你可见的、未被占据的空间。非自愿的生物必须成功通过一次力量豁免（DC=8+你的熟练加值+你的力量调整值）才能避免遭受这一效应。<br />若在这次移动结束时，被投掷的生物并未站在一个可以支撑他的固体表面或液体中，该生物将坠落，正常承受摔落伤害并在落地时陷入 倒地Prone。</p>",
+      "value": "<p>借由你与巨人之力量的链接，你可以猛投战场上的盟友与敌人。狂暴期间，以一个附赠动作，你可以选择触及范围内的一个不超过中型体型的生物，将其移动到你周围30尺内的一处你可见的、未被占据的空间。非自愿的生物必须成功通过一次力量豁免（DC=8+你的熟练加值+你的力量调整值）才能避免遭受这一效应。</p><p>若在这次移动结束时，被投掷的生物并未站在一个可以支撑他的固体表面或液体中，该生物将坠落，正常承受摔落伤害并在落地时陷入 倒地Prone。</p>",
       "chat": ""
     },
     "source": {
@@ -23,12 +23,13 @@
       "recovery": []
     },
     "type": {
-      "value": "",
+      "value": "class",
       "subtype": ""
     },
     "prerequisites": {
       "level": 10,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": [],
     "requirements": "第10级巨人道途特性",
@@ -51,14 +52,16 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -74,7 +77,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "1",
@@ -92,7 +96,10 @@
         },
         "damage": {
           "onSave": "half",
-          "parts": []
+          "parts": [],
+          "critical": {
+            "allow": false
+          }
         },
         "save": {
           "ability": [
@@ -101,13 +108,100 @@
           "dc": {
             "calculation": "str",
             "formula": ""
-          }
+          },
+          "visible": true
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "enchant": {}
   },
   "effects": [],
@@ -142,13 +236,7 @@
       "otherCondition": ""
     },
     "core": {},
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "mightyImpel",
@@ -159,8 +247,8 @@
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1724869073277,
     "modifiedTime": 1757864689275,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

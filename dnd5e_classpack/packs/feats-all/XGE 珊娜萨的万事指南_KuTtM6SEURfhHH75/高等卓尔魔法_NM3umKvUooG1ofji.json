@@ -6,10 +6,10 @@
   "system": {
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "description": {
-      "value": "<p>你学到了更多种类的黑暗精灵魔法。你学会侦测魔法并可以任意释放他，而不会消耗法术位。</p>\n<p>你学会解除魔法和漂浮术，你可以释放每种一次不消耗法术位。直到你完成一次长休息你才可以再度释放他们。</p>\n<p>魅力是你施放这三个法术的施法主属性。</p>",
+      "value": "<p>你学到了更多种类的黑暗精灵魔法。你学会侦测魔法并可以任意释放他，而不会消耗法术位。</p>\n<p>你学会解除魔法和浮空术，你可以释放每种一次不消耗法术位。直到你完成一次长休息你才可以再度释放他们。</p>\n<p>魅力是你施放这三个法术的施法主属性。</p>",
       "chat": ""
     },
     "source": {
@@ -28,34 +28,129 @@
         }
       ]
     },
-    "requirements": "卓尔精灵",
+    "requirements": "精灵（卓尔）",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {
+      "1a4317207b1d7688": {
+        "_id": "1a4317207b1d7688",
+        "type": "ItemGrant",
+        "name": "Detect Magic",
+        "configuration": {
+          "items": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.spell.Item.cGO3m3Xu4mtPegr4",
+              "optional": false,
+              "sort": 0
+            }
+          ],
+          "optional": false,
+          "spell": {
+            "ability": [
+              "cha"
+            ],
+            "method": "innate",
+            "prepared": 0,
+            "uses": {
+              "max": "",
+              "per": "",
+              "requireSlot": false
+            }
+          },
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      },
+      "18c37abd226f7928": {
+        "_id": "18c37abd226f7928",
+        "type": "ItemGrant",
+        "name": "Levitate",
+        "configuration": {
+          "items": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.spell.Item.GNvrHluGdgqD06wZ",
+              "optional": false,
+              "sort": 0
+            }
+          ],
+          "optional": false,
+          "spell": {
+            "ability": [
+              "cha"
+            ],
+            "method": "innate",
+            "prepared": 0,
+            "uses": {
+              "max": "1",
+              "per": "lr",
+              "requireSlot": false
+            }
+          },
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      },
+      "025815929c313408": {
+        "_id": "025815929c313408",
+        "type": "ItemGrant",
+        "name": "Dispel Magic",
+        "configuration": {
+          "items": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.spell.Item.as6xgBANCbyoWPXX",
+              "optional": false,
+              "sort": 0
+            }
+          ],
+          "optional": false,
+          "spell": {
+            "ability": [
+              "cha"
+            ],
+            "method": "innate",
+            "prepared": 0,
+            "uses": {
+              "max": "1",
+              "per": "lr",
+              "requireSlot": false
+            }
+          },
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
-    "properties": []
+    "properties": [
+      "mgc"
+    ]
   },
   "effects": [],
   "folder": "KuTtM6SEURfhHH75",
   "sort": 125000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757275287302,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

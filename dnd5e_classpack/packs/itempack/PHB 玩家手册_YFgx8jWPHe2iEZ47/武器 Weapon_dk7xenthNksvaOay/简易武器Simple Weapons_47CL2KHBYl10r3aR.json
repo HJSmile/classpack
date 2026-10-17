@@ -5,7 +5,7 @@
   "img": "systems/dnd5e/icons/svg/items/weapon.svg",
   "system": {
     "description": {
-      "value": "<p>简易近战武器Simple Melee Weapons</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.3C012E09E4E59AA9]{短棒 Club}</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.78342EC246D19CE6]{匕首 Dagger}</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.5473F7C30428D7D3]{巨棒 Greatclub}</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.5680E5DF807D71EA]{手斧 Handaxe}</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.2C26259A532C7D91]{标枪 Javelin}</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.6007BDFC48583052]{轻锤 Light Hammer}</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.FA55F1F44608ED67]{硬头锤 Mace}</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.F567808128333146]{长棍 Quarterstaff}</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.C24C62C9BDFCACA4]{镰刀 Sickle}</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.8D4EB908E928B7A5]{矛 Spear}</p><p></p><p>简易远程武器Simple Ranged Weapons</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.15A3A6D6FEF0A465]{轻弩 Light Crossbow}</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.D39AC491B799FEC3]{飞镖 Dart}</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.567A278AA577CF7D]{短弓 Shortbow}</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.7D2577156D15CAD1]{投石索 Sling}</p>",
+      "value": "<p>简易近战武器Simple Melee Weapons</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.3C012E09E4E59AA9]{短棒 Club}</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.78342EC246D19CE6]{匕首 Dagger}</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.5473F7C30428D7D3]{巨棒 Greatclub}</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.5680E5DF807D71EA]{手斧 Handaxe}</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.2C26259A532C7D91]{标枪 Javelin}</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.6007BDFC48583052]{轻锤 Light Hammer}</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.FA55F1F44608ED67]{硬头锤 Mace}</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.F567808128333146]{长棍 Quarterstaff}</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.C24C62C9BDFCACA4]{镰刀 Sickle}</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.8D4EB908E928B7A5]{矛 Spear}</p><p>简易远程武器Simple Ranged Weapons</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.15A3A6D6FEF0A465]{轻弩 Light Crossbow}</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.D39AC491B799FEC3]{飞镖 Dart}</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.567A278AA577CF7D]{短弓 Shortbow}</p><p>@UUID[Compendium.dnd5e_classpack.itempack.Item.7D2577156D15CAD1]{投石索 Sling}</p>",
       "chat": ""
     },
     "source": {
@@ -27,16 +27,14 @@
       "value": 0,
       "denomination": "gp"
     },
-    "rarity": "",
     "attunement": "",
     "attuned": false,
     "equipped": false,
     "cover": null,
-    "crewed": false,
     "range": {
       "value": null,
       "long": null,
-      "units": "",
+      "units": "ft",
       "reach": null
     },
     "uses": {
@@ -58,7 +56,8 @@
           "mode": "",
           "number": null,
           "formula": ""
-        }
+        },
+        "modifiers": []
       },
       "base": {
         "number": null,
@@ -69,7 +68,8 @@
         },
         "scaling": {
           "number": 1
-        }
+        },
+        "modifiers": []
       }
     },
     "armor": {
@@ -85,7 +85,6 @@
       "value": "simpleM",
       "baseItem": ""
     },
-    "magicalBonus": null,
     "properties": [],
     "proficient": null,
     "activities": {
@@ -105,20 +104,25 @@
           "spellSlot": true,
           "targets": []
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -141,11 +145,105 @@
           "critical": {},
           "includeBase": true,
           "parts": []
-        }
+        },
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackMode": "oneHanded",
+        "ammunition": "",
+        "otherActivityUuid": "",
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       }
     },
     "identifier": "simple-weapons",
-    "ammunition": {}
+    "ammunition": {},
+    "rarities": [],
+    "crew": {
+      "value": []
+    }
   },
   "effects": [],
   "folder": "dk7xenthNksvaOay",
@@ -180,17 +278,12 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1724938810177,
     "modifiedTime": 1757422875388,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

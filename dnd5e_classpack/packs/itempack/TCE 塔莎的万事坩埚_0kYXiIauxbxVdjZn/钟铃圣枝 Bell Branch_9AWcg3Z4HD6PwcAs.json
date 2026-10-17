@@ -4,7 +4,7 @@
   "img": "icons/consumables/plants/leaf-stem-tree-bud-green-brown.webp",
   "system": {
     "description": {
-      "value": "<p><em>（需邪术师或德鲁伊同调）</em><br />这个银色的小物件看起来就像一根树枝，上面正挂着许多金色的小铃铛。你持握着它时可以将其作为法器。<br />树枝具有3发充能，且每天黎明时恢复1d3发已消耗的充能。你持握它时，可以通过以下方式消耗充能：</p><ul class=\"bbc_list\"><li>作为一个附赠动作，你可以消耗1发充能以侦测距离你60尺内的异怪、天界生物、构装体、元素、精类、邪魔与不死生物。若这些生物存在在60尺内且对你没有处于全身掩护，那么金铃便会轻声作响，它们的音调揭示了所存在生物的种类。</li><li>以一个动作，你可以消耗1发充能施展<span class=\"bbc_color\" style=\"COLOR:purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.IuzXxwP3EhWGhtXC]{防护善恶Protection From Evil and Good}</em></span>法术。</li></ul>",
+      "value": "<p><em>（需魔契师或德鲁伊同调）</em></p><p>这个银色的小物件看起来就像一根树枝，上面正挂着许多金色的小铃铛。你持握着它时可以将其作为法器。</p><p>树枝具有3发充能，且每天黎明时恢复1d3发已消耗的充能。你持握它时，可以通过以下方式消耗充能：</p><ul><li>作为一个附赠动作，你可以消耗1发充能以侦测距离你60尺内的异怪、天界生物、构装体、元素、精类、邪魔与不死生物。若这些生物存在在60尺内且对你没有处于全身掩护，那么金铃便会轻声作响，它们的音调揭示了所存在生物的种类。</li><li>以一个动作，你可以消耗1发充能施展<span style=\"color: purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.IuzXxwP3EhWGhtXC]{防护善恶Protection From Evil and Good}</em></span>法术。</li></ul>",
       "chat": ""
     },
     "source": {
@@ -24,10 +24,8 @@
     },
     "attunement": "required",
     "equipped": false,
-    "rarity": "rare",
     "identified": true,
     "cover": null,
-    "crewed": false,
     "uses": {
       "max": "3",
       "recovery": [
@@ -41,8 +39,7 @@
     },
     "armor": {
       "value": null,
-      "dex": null,
-      "magicalBonus": null
+      "dex": null
     },
     "hp": {
       "value": null,
@@ -52,7 +49,8 @@
     },
     "speed": {
       "value": null,
-      "conditions": ""
+      "conditions": "",
+      "units": "ft"
     },
     "strength": null,
     "proficient": 1,
@@ -96,18 +94,20 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -119,7 +119,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -141,11 +142,102 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-bell-branch",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "rare"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "effects": [],
   "flags": {
@@ -171,19 +263,12 @@
       "itemCondition": "",
       "effectCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 3,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1686059964887,
     "modifiedTime": 1757871210949,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

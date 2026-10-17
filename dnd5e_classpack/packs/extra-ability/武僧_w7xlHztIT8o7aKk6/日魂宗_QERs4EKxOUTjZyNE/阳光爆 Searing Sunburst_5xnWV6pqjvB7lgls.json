@@ -1,15 +1,15 @@
 {
   "_id": "5xnWV6pqjvB7lgls",
-  "name": "阳光爆 Searing Sunburst",
+  "name": "焰阳爆 Searing Sunburst",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/PALADIN_HOLY.png",
+  "img": "icons/magic/light/projectile-beam-yellow.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>从11级起，武僧可以创造出一个纯粹的光能量球以引起一场毁灭性的爆炸。</p><p>以一个动作，你可以魔法般地创造一个球体并且向150尺内的任意一点投掷，在那里瞬间扩张成一个光芒四射的区域。以目标点为中心半径20尺内的所有生物必须立即通过一次体质豁免，若未通过将受到[[/r 2d6]]的光耀伤害。若生物处于全掩护环境并且掩体不透光，那么他不需要进行豁免。</p><p>你可以花费额外的气以提高这个能量球的威力。每花费1点可以使伤害上升[[/r 2d6]]，上限3点。</p>",
+      "value": "<p>从11级起，武僧可以创造出一个纯粹的光能量球以引起一场毁灭性的爆炸。</p><p>以一个动作，你可以魔法般地创造一个球体并且向150尺内的任意一点投掷，在那里瞬间扩张成一个光芒四射的区域。以目标点为中心半径20尺内的所有生物必须立即通过一次体质豁免，若未通过将受到[[/damage 2d6 type=radiant]]{2d6}的光耀伤害。若生物处于全掩护环境并且掩体不透光，那么他不需要进行豁免。</p><p>你可以花费额外的气以提高这个能量球的威力。每花费1点可以使伤害上升[[/r 2d6]]，上限3点。</p>",
       "chat": ""
     },
     "source": {
@@ -52,13 +52,15 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -75,7 +77,8 @@
             "size": "20",
             "width": "",
             "height": "",
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -100,7 +103,7 @@
                 "formula": ""
               },
               "number": 2,
-              "denomination": "6",
+              "denomination": 6,
               "bonus": "",
               "types": [
                 "radiant"
@@ -109,9 +112,13 @@
                 "mode": "whole",
                 "number": 2,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
-          ]
+          ],
+          "critical": {
+            "allow": false
+          }
         },
         "save": {
           "ability": [
@@ -120,22 +127,110 @@
           "dc": {
             "calculation": "wis",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
     "identifier": "-searing-sunburst",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 11,
+      "repeatable": false,
+      "items": [
+        "subclass:way-of-the-sun-soul"
+      ]
     },
     "properties": [
       "mgc"
@@ -175,19 +270,12 @@
       "idv": false,
       "ida": false
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757865961550,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

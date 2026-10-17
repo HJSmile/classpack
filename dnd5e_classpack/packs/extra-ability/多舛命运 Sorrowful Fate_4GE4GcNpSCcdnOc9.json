@@ -36,13 +36,15 @@
           ]
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "minute",
           "concentration": false,
           "override": false,
-          "value": "1"
+          "value": "1",
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -54,7 +56,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -71,7 +74,7 @@
           "max": ""
         },
         "enchant": {
-          "identifier": ""
+          "self": false
         },
         "restrictions": {
           "allowMagical": false,
@@ -90,7 +93,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -98,7 +102,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -109,15 +112,61 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "name": ""
+        "name": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
     "uses": {
@@ -135,7 +184,7 @@
       "max": "1"
     },
     "description": {
-      "value": "<p>自3级起，你能够利用敌人深陷险境来为其灌输深深的悲伤和破灭感。当你或你可见的盟友正迫使某一生物进行一次豁免检定时，你能消耗一次诗人激励来将豁免的类型改为一次魅力豁免。<br />若其豁免失败，投掷你的诗人激励骰，那个生物还将受到等同于投掷结果的心灵伤害，并在接下来的1分钟内被悔恨所困扰。若目标具有语言能力，且在这段时间内生命值被降为了0，他们将会在陷入濒死前，被魔法强迫着、阴惨惨的念出充满诗意的遗言。<br />一旦你使用了这一特性，直到完成一次短休或长休前你都无法再次使用它。</p>",
+      "value": "<p>自3级起，你能够利用敌人深陷险境来为其灌输深深的悲伤和破灭感。当你或你可见的盟友正迫使某一生物进行一次豁免检定时，你能消耗一次诗人激励来将豁免的类型改为一次魅力豁免。</p><p>若其豁免失败，投掷你的诗人激励骰，那个生物还将受到等同于投掷结果的心灵伤害，并在接下来的1分钟内被悔恨所困扰。若目标具有语言能力，且在这段时间内生命值被降为了0，他们将会在陷入濒死前，被魔法强迫着、阴惨惨的念出充满诗意的遗言。</p><p>一旦你使用了这一特性，直到完成一次短休或长休前你都无法再次使用它。</p>",
       "chat": ""
     },
     "identifier": "-",
@@ -143,13 +192,14 @@
       "revision": 1,
       "rules": "2024"
     },
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": [],
     "requirements": "",
@@ -177,19 +227,14 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1756716236239,
     "modifiedTime": 1756716236440,
     "lastModifiedBy": "aV0bUYaBrKQMbD8k",

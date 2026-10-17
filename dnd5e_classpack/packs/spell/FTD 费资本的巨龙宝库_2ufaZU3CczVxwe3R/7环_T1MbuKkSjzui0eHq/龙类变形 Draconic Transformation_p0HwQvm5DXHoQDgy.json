@@ -1,10 +1,10 @@
 {
   "name": "龙类变形 Draconic Transformation",
   "type": "spell",
-  "img": "modules/dnd5e_classpack/Nicons/ability_racial_visage.png",
+  "img": "icons/creatures/abilities/dragon-fire-breath-orange.webp",
   "system": {
     "description": {
-      "value": "<p>伴随着一声怒吼，你<span class=\"GramE\">用龙族的</span>魔法变化自身，获得<span class=\"GramE\">多种龙族</span>特征。直至法术结束，你获得以下好处：<span><br />      </span><strong><span style=\"font-family:宋体;mso-bidi-font-family:宋体\">盲视</span></strong>：你获得<span>30</span>尺盲视。此范围内，任何不处于全身掩护后的东西对于你来说清晰可见，即使你处于目<span class=\"GramE\">盲状态</span>或黑暗中。此外，你可以看见隐形的生物，除非该生物对你处于躲藏状态。<span><br />      </span><strong><span style=\"font-family:宋体;mso-bidi-font-family:宋体\">吐息武器</span></strong>：当你施展此法术时，以及在持续时间内随后的回合以一个附赠动作，你可以在<span>60</span>尺锥形内呼出一道闪着光的能量。范围内的每个生物都必须成功通过一次敏捷豁免，否则受到<span>6d8</span>点力场伤害，成功则伤害减半。<span><br />      </span><strong><span style=\"font-family:宋体;mso-bidi-font-family:宋体\">飞翼</span></strong>：无形之翼从你背后长出，使你获得<span>60</span>尺飞行速度。<span><br /><br /></span></p>",
+      "value": "<p>伴随着一声怒吼，你用龙族的魔法变化自身，获得多种龙族特征。直至法术结束，你获得以下好处：</p><blockquote><p><strong>盲视Blindsight。</strong>你获得30尺盲视。此范围内，任何不处于全身掩护后的东西对于你来说清晰可见，即使你处于目盲状态或黑暗中。此外，你可以看见隐形的生物，除非该生物对你处于躲藏状态。</p><p><strong>吐息武器Breath Weapon。</strong>当你施展此法术时，以及在持续时间内随后的回合以一个附赠动作，你可以在60尺锥形内呼出一道闪着光的能量。范围内的每个生物都必须成功通过一次敏捷豁免，否则受到6d8点力场伤害，成功则伤害减半。</p><p><strong>飞翼Wings。</strong>无形之翼从你背后长出，使你获得60尺飞行速度。</p></blockquote>",
       "chat": ""
     },
     "source": {
@@ -20,7 +20,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -30,10 +31,11 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "width": "20",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -54,76 +56,142 @@
       "cost": 0,
       "supply": 0
     },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
-    },
     "properties": [
       "vocal",
       "somatic",
       "material",
-      "concentration",
-      "mgc"
+      "concentration"
     ],
     "activities": {
-      "dnd5eactivity000": {
-        "_id": "dnd5eactivity000",
-        "type": "utility",
+      "6yHDmOliZtChqdTi": {
+        "type": "save",
+        "name": "",
+        "_id": "6yHDmOliZtChqdTi",
+        "img": "",
+        "sort": 0,
         "activation": {
           "type": "action",
-          "value": null,
           "override": false
         },
+        "behaviors": [],
         "consumption": {
-          "targets": [],
           "scaling": {
-            "allowed": false,
-            "max": ""
+            "allowed": false
           },
-          "spellSlot": true
+          "spellSlot": true,
+          "targets": []
         },
         "description": {
+          "value": "",
           "chatFlavor": ""
         },
         "duration": {
           "units": "inst",
-          "concentration": false,
-          "override": false
+          "expiry": null,
+          "concentration": true,
+          "override": true
         },
         "effects": [
           {
-            "_id": "0uacPy6kvOWs77dz"
+            "_id": "0uacPy6kvOWs77dz",
+            "uuid": null,
+            "onSave": false,
+            "level": {
+              "min": null,
+              "max": null
+            },
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": 1756664203411,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
+        "flags": {},
         "range": {
+          "units": "self",
           "override": false
         },
         "target": {
-          "prompt": false,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "stationary": false,
+            "units": "ft",
+            "type": "cone",
+            "size": "60",
+            "width": "",
+            "height": "",
+            "count": ""
           },
           "affects": {
-            "choice": false
+            "choice": false,
+            "type": "creature",
+            "count": "",
+            "special": "-self"
           },
-          "override": false
+          "override": true,
+          "prompt": true
         },
         "uses": {
           "spent": 0,
-          "max": "",
-          "recovery": []
+          "recovery": [],
+          "max": ""
         },
-        "roll": {
-          "formula": "",
-          "name": "",
-          "prompt": false,
-          "visible": false
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
         },
-        "sort": 0,
+        "damage": {
+          "onSave": "half",
+          "critical": {
+            "allow": false
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              },
+              "number": 6,
+              "denomination": 8,
+              "bonus": "",
+              "modifiers": [],
+              "types": [
+                "force"
+              ],
+              "scaling": {
+                "mode": "",
+                "number": 1
+              }
+            }
+          ]
+        },
+        "save": {
+          "ability": [
+            "dex"
+          ],
+          "dc": {
+            "calculation": "spellcasting",
+            "formula": ""
+          },
+          "visible": true,
+          "bonus": ""
+        },
         "useConditionText": "",
         "useConditionReason": "",
         "effectConditionText": "",
+        "otherActivityId": "none",
         "macroData": {
           "name": "",
           "command": ""
@@ -132,7 +200,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -140,65 +209,265 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
           "automationOnly": false,
-          "otherActivityCompatible": true,
+          "otherActivityCompatible": false,
+          "otherActivityAsParentType": true,
           "identifier": "",
           "displayActivityName": false,
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": true,
+          "magicDamage": true,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
+          "rollAs": "target",
           "preRemoveConditionText": "",
           "postRemoveConditionText": ""
         },
-        "otherActivityId": "none"
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
+      },
+      "3yCmb8fKDWeWJJI5": {
+        "type": "save",
+        "name": "吐息武器",
+        "_id": "3yCmb8fKDWeWJJI5",
+        "img": "icons/creatures/abilities/dragon-fire-breath-orange.webp",
+        "sort": 100000,
+        "activation": {
+          "type": "action",
+          "override": false,
+          "condition": ""
+        },
+        "behaviors": [],
+        "consumption": {
+          "scaling": {
+            "allowed": false
+          },
+          "spellSlot": false,
+          "targets": []
+        },
+        "description": {
+          "value": "",
+          "chatFlavor": ""
+        },
+        "duration": {
+          "units": "inst",
+          "expiry": null,
+          "concentration": false,
+          "override": true
+        },
+        "effects": [],
+        "flags": {
+          "dnd5e_classpack": {
+            "hidden": true
+          }
+        },
+        "range": {
+          "units": "self",
+          "override": false
+        },
+        "target": {
+          "template": {
+            "contiguous": false,
+            "stationary": false,
+            "units": "ft",
+            "type": "cone",
+            "size": "60",
+            "count": ""
+          },
+          "affects": {
+            "choice": false,
+            "type": "creature",
+            "count": "",
+            "special": "-self"
+          },
+          "override": true,
+          "prompt": true
+        },
+        "uses": {
+          "spent": 0,
+          "recovery": [],
+          "max": ""
+        },
+        "visibility": {
+          "level": {
+            "min": 0,
+            "max": 0
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "damage": {
+          "onSave": "half",
+          "critical": {
+            "allow": false
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              },
+              "number": 6,
+              "denomination": 8,
+              "bonus": "",
+              "modifiers": [],
+              "types": [
+                "force"
+              ],
+              "scaling": {
+                "mode": "",
+                "number": 1
+              }
+            }
+          ]
+        },
+        "save": {
+          "ability": [
+            "dex"
+          ],
+          "dc": {
+            "calculation": "spellcasting",
+            "formula": ""
+          },
+          "visible": true,
+          "bonus": ""
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": "none",
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": true,
+          "otherActivityCompatible": false,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": true,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "draconic-transformation"
+    "identifier": "draconic-transformation",
+    "method": "spell",
+    "prepared": 0
   },
   "effects": [
     {
       "name": "龙类变形 Draconic Transformation",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.p0HwQvm5DXHoQDgy",
+      "origin": null,
       "duration": {
-        "rounds": 10,
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 10,
+        "units": "rounds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "disabled": false,
       "_id": "0uacPy6kvOWs77dz",
-      "changes": [
-        {
-          "key": "system.attributes.movement.fly",
-          "mode": 2,
-          "value": "+60",
-          "priority": 20
-        },
-        {
-          "key": "system.attributes.senses.blindsight",
-          "mode": 2,
-          "value": "+60",
-          "priority": 20
-        },
-        {
-          "key": "",
-          "mode": 2,
-          "value": "Compendium.dnd5e_classpack.itempack.Item.3miJNGAo1VE5Dlw2",
-          "priority": 20
-        }
-      ],
       "description": "",
       "transfer": false,
       "statuses": [],
@@ -206,37 +475,19 @@
         "dae": {
           "disableIncapacitated": false,
           "selfTarget": false,
-          "selfTargetAlways": false,
+          "selfTargetAlways": true,
           "dontApply": false,
           "stackable": "noneName",
-          "showIcon": true,
           "durationExpression": "",
           "macroRepeat": "none",
           "specialDuration": [],
           "enableCondition": "",
-          "disableCondition": ""
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
+          "disableCondition": "",
+          "applicationMode": "default",
+          "expiryMode": "default"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
@@ -244,9 +495,9 @@
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1756664203411,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
@@ -254,10 +505,58 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/ability_racial_visage.png",
+      "img": "icons/creatures/abilities/dragon-fire-breath-orange.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.movement.speeds.fly",
+            "value": "+60",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "uTR7ZlYaMq9ydILl",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.attributes.senses.ranges.blindsight",
+            "value": "+60",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "MK5hNwOOPsYkdXyW",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "macro.itemMacro",
+            "type": "custom",
+            "value": "",
+            "phase": "initial",
+            "_id": "as4lf92vGhwkFnfm",
+            "conditions": "{}",
+            "replacement": "",
+            "priority": null
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.p0HwQvm5DXHoQDgy",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 2,
+      "folder": null,
       "_key": "!items.effects!p0HwQvm5DXHoQDgy.0uacPy6kvOWs77dz"
     }
   ],
@@ -276,7 +575,8 @@
       "itemCondition": "",
       "effectCondition": "",
       "reactionCondition": "",
-      "otherCondition": ""
+      "otherCondition": "",
+      "onUseMacroName": "[postActiveEffects]ItemMacro"
     },
     "midiProperties": {
       "confirmTargets": "always",
@@ -293,16 +593,33 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
+    "dnd5e": {},
+    "dae": {
+      "macro": {
+        "name": "龙类变形 Draconic Transformation",
+        "img": "icons/creatures/abilities/dragon-fire-breath-orange.webp",
+        "type": "script",
+        "scope": "global",
+        "command": "if (args[0] === \"off\") {\n  const state = args.at(-1).efData.flags.world?.draconicTransformation;\n  if (!state) return;\n  const spell = await fromUuid(state.item);\n  await dnd5eClasspack.hideActivity(`${spell.uuid}.Activity.${state.activity}`);\n  if (state.favoriteAdded) await spell.actor.system.removeFavorite(state.favorite);\n  return;\n}\n\nif (args[0].macroPass !== \"postActiveEffects\") return;\n\nconst spell = await fromUuid(macroItem.uuid);\nconst breath = spell.system.activities.find(a => a.name === \"吐息武器\");\nif (workflow.activity.id === breath.id) return;\n\nconst effect = spell.actor.effects.find(e => e.system?.origin?.message === workflow.itemCardUuid);\nif (!effect) {\n  ui.notifications.warn(\"龙类变形：未找到本次施法应用的自身效果。\");\n  return;\n}\nconst favorite = `${foundry.utils.buildRelativeUuid(spell, spell.actor)}.Activity.${breath.id}`;\nawait effect.setFlag(\"world\", \"draconicTransformation\", {\n  item: spell.uuid, activity: breath.id, favorite,\n  favoriteAdded: !spell.actor.system.hasFavorite(favorite)\n});\n\nawait spell.update({ [`system.activities.${breath.id}.visibility.level.max`]: null });\nawait dnd5eClasspack.hideActivity(breath.uuid, false);\nawait dnd5eClasspack.addFavorite(breath.uuid);",
+        "author": "dvg25zW2MvzsvMOU",
+        "ownership": {
+          "default": 3
+        },
+        "_id": null,
+        "folder": null,
+        "sort": 0,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.369",
+          "systemId": "dnd5e",
+          "systemVersion": "6.0.6",
+          "createdTime": null,
+          "modifiedTime": null,
+          "lastModifiedBy": null,
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null
+        }
       }
     }
   },
@@ -314,8 +631,8 @@
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711699909889,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -24,51 +24,18 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal"
-      ]
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/ability_revendreth_priest.jpg",
+  "img": "icons/magic/air/wind-vortex-swirl-blue.webp",
   "effects": [
     {
-      "changes": [
-        {
-          "key": "flags.midi-qol.fail.ability.save.dex",
-          "mode": 0,
-          "value": "1",
-          "priority": 0
-        },
-        {
-          "key": "flags.midi-qol.fail.ability.save.str",
-          "mode": 0,
-          "value": "1",
-          "priority": 0
-        },
-        {
-          "key": "flags.midi-qol.grants.advantage.attack.all",
-          "mode": 0,
-          "value": "1",
-          "priority": 0
-        },
-        {
-          "key": "flags.midi-qol.OverTime",
-          "mode": 2,
-          "value": "turn=end, label=Stunned, saveAbility=con, saveDC=@attributes.spell.dc, saveMagic=true, saveCount=1-, allowIncapacitated=true",
-          "priority": 20
-        }
-      ],
-      "description": "<p>- A stunned creature is incapacitated (see the condition), can't move, and can speak only falteringly.<br />- The creature automatically fails Strength and Dexterity saving throws.<br />- Attack rolls against the creature have advantage.</p>",
+      "description": "<p>- A stunned creature is incapacitated (see the condition), can't move, and can speak only falteringly.<br>- The creature automatically fails Strength and Dexterity saving throws.<br>- Attack rolls against the creature have advantage.</p>",
       "disabled": false,
       "duration": {
-        "rounds": 10,
-        "seconds": null,
-        "turns": null,
-        "startTime": null,
-        "combat": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 10,
+        "units": "rounds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "flags": {
         "dfreds-convenient-effects": {
@@ -89,36 +56,19 @@
           "macroRepeat": "none",
           "specialDuration": [],
           "enableCondition": "attributes.hp.value<=150",
-          "disableCondition": ""
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
+          "disableCondition": "",
+          "applicationMode": "dnd5e",
+          "expiryMode": "default"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
         }
       },
       "name": "Stunned",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.JZSNvGikwyPAR0UY",
+      "origin": null,
       "tint": "#ffffff",
       "transfer": false,
       "statuses": [
@@ -127,9 +77,9 @@
       ],
       "_id": "mUlVVfhQimYYkcir",
       "_stats": {
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1786656065693,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
@@ -137,16 +87,74 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dfreds-convenient-effects/images/stunned.svg",
+      "img": "systems/dnd5e/icons/svg/statuses/stunned.svg",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.fail.ability.save.dex",
+            "value": 1,
+            "priority": 0,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "nctX6xphwtRE9ORy",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.fail.ability.save.str",
+            "value": 1,
+            "priority": 0,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "1t0S5657KmEjb43g",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.grants.advantage.attack.all",
+            "value": 1,
+            "priority": 0,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "vyU6ezcqdREbdsM3",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.OverTime",
+            "value": "turn=end, label=Stunned, saveAbility=con, saveDC=@attributes.spell.dc, saveMagic=true, saveCount=1-, allowIncapacitated=true",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "hvteT84Yu4K8QEkf",
+            "conditions": "{}",
+            "replacement": "origin"
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.JZSNvGikwyPAR0UY",
+          "message": null
+        },
+        "conditions": "[{\"k\":\"attributes.hp.value\",\"o\":\"lte\",\"v\":150}]",
+        "magical": true
+      },
       "sort": 0,
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!JZSNvGikwyPAR0UY.mUlVVfhQimYYkcir"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你说出一蕴含威力的单词，其足以使施法距离内一个你能看见的生物意志受压迫而震惊。如果你所指定的生物现有生命值为150或更少，则其被震慑。否则该法术不产生任何效应。\n<br />被震慑目标必须在其每回合结束时进行一次体质豁免。豁免成功，则此震慑效果终止。\n<br /></div>",
+      "value": "<p>你说出一蕴含威力的单词，其足以使施法距离内一个你能看见的生物意志受压迫而震惊。如果你所指定的生物现有生命值为 150 或更少，则其被震慑。否则该法术不产生任何效应。</p><p>被震慑目标必须在其每回合结束时进行一次体质豁免。豁免成功，则此震慑效果终止。</p>",
       "chat": ""
     },
     "source": {
@@ -162,7 +170,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -172,9 +181,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -195,10 +205,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -222,12 +228,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
@@ -235,6 +243,18 @@
             "level": {
               "min": null,
               "max": null
+            },
+            "uuid": null,
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": 1786656065693,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
             }
           }
         ],
@@ -277,7 +297,7 @@
         },
         "useConditionText": "",
         "useConditionReason": "",
-        "effectConditionText": "target.attributes.hp.value <= 150",
+        "effectConditionText": "",
         "macroData": {
           "name": "",
           "command": ""
@@ -329,10 +349,35 @@
         },
         "otherActivityId": "none",
         "otherActivityAsParentType": true,
-        "name": ""
+        "name": "",
+        "behaviors": [],
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
-    "identifier": "power-word-stun"
+    "identifier": "power-word-stun",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -341,8 +386,8 @@
   "sort": 17700000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711700493756,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

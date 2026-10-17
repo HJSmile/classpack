@@ -29,20 +29,11 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "dae": {
       "macro": {
         "name": "浓酸球Vitriolic Sphere",
-        "img": "modules/dnd5e_classpack/Nicons/spell_fire_ragnaros_lavaboltgreen.png",
+        "img": "icons/magic/acid/orb-bubble-smoke-drip.webp",
         "type": "script",
         "scope": "global",
         "command": "(async () => {\n  // 确认宏触发时 args[0] 存在“on”或“off”\n  const hook = args[0];\n  const tokenD = canvas.tokens.get(args[1]?.tokenId);\n  if (!tokenD) return;\n\n  if (hook === \"off\") {\n    // 效果创建时：立即造成 5d10 力场伤害\n    const roll = await new Roll(\"5d4[acid]\").roll({async: true});\n    await new MidiQOL.DamageOnlyWorkflow(\n      actor,\n      token,\n      roll.total,\n      'acid',\n      tokenD ? [tokenD] : [],\n      roll,\n      { flavor: \"浓酸球派生伤害\" }\n    );\n  }\n  // hook === \"on\" 时，无操作\n})();",
@@ -74,33 +65,47 @@
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/spell_fire_ragnaros_lavaboltgreen.png",
+  "img": "icons/magic/acid/orb-bubble-smoke-drip.webp",
   "effects": [
     {
       "name": "浓酸球Vitriolic Sphere",
-      "img": "modules/dnd5e_classpack/Nicons/spell_fire_ragnaros_lavaboltgreen.png",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.amBKEklOriWxAnof",
+      "img": "icons/magic/acid/orb-bubble-smoke-drip.webp",
+      "origin": null,
       "transfer": false,
       "_id": "5vvraQxWF4m4DRDA",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "macro.itemMacro",
-          "mode": 0,
-          "value": "",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "macro.itemMacro",
+            "value": "",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "T44w993ZiXVQJECw",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.amBKEklOriWxAnof",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": 1,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "rounds",
+        "expiry": "targetEnd",
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -118,54 +123,36 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": [
-            "turnEnd"
-          ]
+          "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757001518085,
         "modifiedTime": 1757001618280,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!amBKEklOriWxAnof.5vvraQxWF4m4DRDA"
     }
   ],
   "_id": "amBKEklOriWxAnof",
   "system": {
     "description": {
-      "value": "<p>你指定距离之内的一点，一颗发光的1英尺直径的强酸球飞向那里爆炸，酸液飞溅到20英尺半径内的球形区域。在该区域中的每个生物必须进行一次敏捷豁免检定。若检定失败，其受到10d4点强酸伤害，并在其下个回合结束时再受到5d4点强酸伤害。若豁免成功，该生物只受到初始伤害的一半且不会在其下个回合结束时受到伤害。</p>\n<p><strong>升环效果：</strong>当你使用5环或更高的法术位施放该法术时，使用的法术位每高一环，初始伤害便增加2d4。</p>",
+      "value": "<p>你指定距离之内的一点，一颗发光的 1 尺直径的强酸球飞向那个位置，爆炸并溅射 20 尺半径内的球形区域。在该区域中的每个生物必须进行一次[[/save activity=dnd5eactivity000]]{敏捷豁免检定}。豁免失败的生物不仅将受到 [[/damage 10d4 type=acid]]{10d4} 点强酸伤害，其下个回合结束时还将再受到 [[/damage 5d4 type=acid]]{5d4} 点强酸伤害。若豁免成功，该生物只受到初始伤害的一半且不会在其下个回合结束时受到伤害。</p><p><strong>升环施法效应。</strong>当你使用五环或更高的法术位施放该法术时，使用的法术位每高一环，初始伤害便增加 2d4。</p>",
       "chat": ""
     },
     "source": {
@@ -181,7 +168,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -193,7 +181,8 @@
         "type": "sphere",
         "size": "20",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -214,10 +203,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -243,26 +228,33 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "5vvraQxWF4m4DRDA"
+            "_id": "5vvraQxWF4m4DRDA",
+            "uuid": null,
+            "level": {},
+            "onSave": false
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -292,7 +284,8 @@
                 "mode": "whole",
                 "number": 2,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -306,7 +299,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": "9"
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -320,7 +314,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -328,7 +323,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -339,18 +333,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "vitriolic-sphere"
+    "identifier": "vitriolic-sphere",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -359,8 +402,8 @@
   "sort": 12000000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

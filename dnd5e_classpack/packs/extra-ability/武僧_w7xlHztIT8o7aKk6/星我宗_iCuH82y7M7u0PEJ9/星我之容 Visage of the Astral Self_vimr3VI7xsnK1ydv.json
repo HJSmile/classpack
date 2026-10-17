@@ -2,14 +2,14 @@
   "_id": "vimr3VI7xsnK1ydv",
   "name": "星我之容 Visage of the Astral Self",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/ability_bastion_priest.jpg",
+  "img": "icons/magic/control/silhouette-aura-energy.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>你可以召唤你的星我之容，以一个附赠动作，或者作为你召唤@UUID[Compendium.dnd5e_classpack.extra-ability.Qctmiuim4M9SfU1E]{星我之臂}时的附赠动作中的一部分，你可以花费1点气来召唤星我之容，持续10分钟，如果你失能或死亡，则它会立即消失。</p>\n<p>幽光般的头盔或面具遮挡着你的脸，你来决定它的外观。</p>\n<p>当星我之容存在时，你将获得如下增益：</p>\n<ul>\n<li><strong>星之视觉</strong>。你在黑暗中拥有120尺的可视距离，而无论其属于魔法黑暗还是非魔法黑暗。</li>\n<li><strong>灵魂感知</strong>。你的感知（洞悉）和魅力（威吓）检定具有优势。</li>\n<li><strong>灵魂之语</strong>。当你说话时，你可以将你的话语指向你选择的一个60尺范围内的可视生物，这种情况下只有这个生物才能听到你的声音。 或者你可以放大你的声音，这种情况下600尺内的所有生物都能听到你的声音。</li>\n</ul>",
+      "value": "<p>你可以召唤你的星我之容，以一个附赠动作，或者作为你召唤@UUID[Compendium.dnd5e_classpack.extra-ability.Qctmiuim4M9SfU1E]{星我之臂}时的附赠动作中的一部分，你可以花费1点气来召唤星我之容，持续10分钟，如果你失能或死亡，则它会立即消失。</p>\n<p>幽光般的头盔或面具遮挡着你的脸，你来决定它的外观。</p>\n<p>当星我之容存在时，你将获得如下增益：</p>\n<ul>\n<li><strong>星之视觉</strong>。你在黑暗中拥有120尺的可视距离，而无论其属于魔法黑暗还是非魔法黑暗。</li>\n<li><strong>灵魂感知</strong>。你的感知（洞悉）和[[/check ability=cha skill=itm]]{魅力（威吓）检定}具有优势。</li>\n<li><strong>灵魂之语</strong>。当你说话时，你可以将你的话语指向你选择的一个60尺范围内的可视生物，这种情况下只有这个生物才能听到你的声音。 或者你可以放大你的声音，这种情况下600尺内的所有生物都能听到你的声音。</li>\n</ul>",
       "chat": ""
     },
     "source": {
@@ -52,18 +52,33 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "10",
           "units": "minute",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "x8KUn9QtAhrUt90L"
+            "_id": "x8KUn9QtAhrUt90L",
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": null,
+              "lastModifiedBy": null,
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {
@@ -79,7 +94,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -101,32 +117,117 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-visage-of-the-astral-self",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 6,
+      "repeatable": false,
+      "items": [
+        "subclass:way-of-the-astral-self"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "name": "星我之容 Visage of the Astral Self",
-      "origin": "Compendium.dnd5e_classpack.extra-ability.Item.vimr3VI7xsnK1ydv",
+      "origin": null,
       "duration": {
-        "startTime": null,
-        "seconds": 600,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 600,
+        "units": "seconds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "disabled": false,
       "flags": {
@@ -134,48 +235,32 @@
         "dae": {
           "enableCondition": "",
           "disableCondition": "",
-          "disableIncapacitated": false,
+          "disableIncapacitated": true,
           "selfTarget": false,
           "selfTargetAlways": false,
           "dontApply": false,
           "stackable": "noneName",
           "showIcon": false,
           "durationExpression": "",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "core": {
           "overlay": false
+        },
+        "dnd5e_classpack": {
+          "astralVisage": true
         }
       },
       "_id": "x8KUn9QtAhrUt90L",
-      "changes": [
-        {
-          "key": "system.attributes.senses.darkvision",
-          "mode": 4,
-          "value": "120",
-          "priority": 20
-        },
-        {
-          "key": "flags.midi-qol.advantage.skill.ins",
-          "mode": 0,
-          "value": "1",
-          "priority": 20
-        },
-        {
-          "key": "flags.midi-qol.advantage.skill.itm",
-          "mode": 0,
-          "value": "1",
-          "priority": 20
-        }
-      ],
       "description": "",
       "transfer": false,
       "statuses": [],
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -183,10 +268,68 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/ability_bastion_priest.jpg",
+      "img": "icons/magic/control/silhouette-aura-energy.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.senses.ranges.darkvision",
+            "value": 120,
+            "priority": 20,
+            "type": "upgrade",
+            "phase": "initial",
+            "_id": "VQYsWYepLCS989oX",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.advantage.skill.ins",
+            "value": 1,
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "PF3An0VjKmCE1RPA",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.advantage.skill.itm",
+            "value": 1,
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "MHrZNtYySFIoYT5o",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "_id": "3a531b270aaf69b5",
+            "key": "macro.itemMacro",
+            "value": "",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.extra-ability.Item.vimr3VI7xsnK1ydv",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!vimr3VI7xsnK1ydv.x8KUn9QtAhrUt90L"
     }
   ],
@@ -217,19 +360,19 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
-      "riders": {
-        "activity": [],
-        "effect": []
+    "dnd5e": {},
+    "dae": {
+      "macro": {
+        "name": "星我之容 Visage of the Astral Self",
+        "type": "script",
+        "command": "if (args[0] !== \"off\") return;\nconst last = args.at(-1);\nconst actor = await fromUuid(last.actorUuid);\nif (!actor || !MidiQOL.checkIncapacitated(actor, false, false)) return;\nconst effects = actor.appliedEffects.filter(effect => effect.flags.dnd5e_classpack?.astralVisage);\nif (effects.length) await MidiQOL.socket().executeAsGM(\"removeEffects\", {\n  actorUuid: actor.uuid, effects: effects.map(effect => effect.id),\n  options: { \"expiry-reason\": \"midi-qol:incapacitated\" }\n});\n"
       }
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1725892123440,
     "modifiedTime": 1757416982475,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

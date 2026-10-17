@@ -2,10 +2,10 @@
   "_id": "2cgAxjikz2zE4uuU",
   "name": "引导神力：驱散无信者 Channel Divinity: Turn the Faithless",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_TurnUndead.png",
+  "img": "icons/magic/holy/barrier-shield-winged-cross.webp",
   "system": {
     "description": {
-      "value": "<p>         你可以用@UUID[Compendium.dnd5e_classpack.class-abilityphb.3eyfqXMTJMG9AxYH]{引导神力}特性发出远古的圣言，使听到圣言的精类生物和邪魔感到痛苦。作为一个动作，你亮出@UUID[Compendium.dnd5e_classpack.itempack.TJi1q6Bm8IGoJJVL]{圣徽}，迫使身边30尺范围内能够听到你声音的所有精类生物或邪魔都进行一次感知豁免，豁免失败者将受到驱散，其效应持续1分钟或直至其受到任何伤害。</p>\n<p>以该方式被驱散的生物必须花费其回合内的所有移动力尽量远离你，且无法主动靠近你30尺内。被驱散的生物无法执行反应，只能使用既有的疾走Dash动作或从任何妨碍其移动的效应中挣脱。该生物无路可走时会执行回避Dodge动作。</p>\n<p>如果被驱散生物的真实外形被幻术、变形、或其他效应掩盖，那么在被驱散后，它将显露出原形。</p>",
+      "value": "<p>         你可以用@UUID[Compendium.dnd5e_classpack.class-abilityphb.3eyfqXMTJMG9AxYH]{引导神力}特性发出远古的圣言，使听到圣言的妖精和邪魔感到痛苦。作为一个动作，你亮出@UUID[Compendium.dnd5e_classpack.itempack.TJi1q6Bm8IGoJJVL]{圣徽}，迫使身边30尺范围内能够听到你声音的所有妖精或邪魔都进行一次感知豁免，豁免失败者将受到驱散，其效应持续1分钟或直至其受到任何伤害。</p>\n<p>以该方式被驱散的生物必须花费其回合内的所有移动力尽量远离你，且无法主动靠近你30尺内。被驱散的生物无法执行反应，只能使用既有的疾走Dash动作或从任何妨碍其移动的效应中挣脱。该生物无路可走时会执行回避Dodge动作。</p>\n<p>如果被驱散生物的真实外形被幻术、变形、或其他效应掩盖，那么在被驱散后，它将显露出原形。</p>",
       "chat": ""
     },
     "source": {
@@ -39,7 +39,8 @@
             {
               "type": "itemUses",
               "value": "1",
-              "target": "Compendium.dnd5e_classpack.class-abilityphb.Item.v8z4Z2NuBAbYnjxk"
+              "target": "Compendium.dnd5e_classpack.class-abilityphb.Item.v8z4Z2NuBAbYnjxk",
+              "scaling": {}
             }
           ],
           "scaling": {
@@ -49,18 +50,23 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "1",
           "units": "minute",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "HTZfJXEqmEOzrwQt"
+            "_id": "HTZfJXEqmEOzrwQt",
+            "uuid": null,
+            "level": {},
+            "onSave": false
           }
         ],
         "range": {
@@ -76,7 +82,8 @@
             "size": "30",
             "width": "",
             "height": "",
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -94,7 +101,10 @@
         },
         "damage": {
           "onSave": "half",
-          "parts": []
+          "parts": [],
+          "critical": {
+            "allow": false
+          }
         },
         "save": {
           "ability": [
@@ -103,43 +113,141 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 3,
+      "repeatable": false,
+      "items": []
     },
-    "properties": []
+    "properties": [
+      "mgc"
+    ]
   },
   "effects": [
     {
       "name": "引导神力：驱散无信者 Channel Divinity",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_TurnUndead.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.2cgAxjikz2zE4uuU",
+      "img": "icons/magic/holy/barrier-shield-winged-cross.webp",
+      "origin": null,
       "transfer": false,
       "_id": "HTZfJXEqmEOzrwQt",
       "type": "base",
-      "system": {},
-      "changes": [],
+      "system": {
+        "changes": [],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.2cgAxjikz2zE4uuU",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": 10,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 60,
+        "units": "seconds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -162,56 +270,33 @@
           ]
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757269939594,
         "modifiedTime": 1757270023064,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!2cgAxjikz2zE4uuU.HTZfJXEqmEOzrwQt"
     }
   ],
   "folder": "vwDvCpIHYZNhOxTd",
   "sort": 6100000,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -232,7 +317,7 @@
     "dae": {
       "macro": {
         "name": "引导神力：驱散无信者 Channel Divinity: Turn the Faithless",
-        "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_TurnUndead.png",
+        "img": "icons/magic/holy/barrier-shield-winged-cross.webp",
         "type": "script",
         "scope": "global",
         "command": "// FilterTargets: 从当前选中的 targets 中移除非不死生物（优先读取 actor.system.details.type.value）\n(async () => {\n  const targets = Array.from(game.user.targets);\n  if (!targets.length) return ui.notifications.warn(\"请先选中一个或多个目标（使用 Target 工具），然后再运行此宏。\");\n\n  // 可靠读取 creature type 的函数，优先用 actor.system.details.type.value\n  function readCreatureType(actor) {\n    if (!actor) return null;\n    // 优先路径（与你提供的输出一致）\n    const primary = actor?.system?.details?.type?.value ?? actor?.system?.details?.type;\n    if (typeof primary === \"string\" && primary.trim()) return primary.trim().toLowerCase();\n    // 回退至 prototypeToken.actorData（如果存在）\n    const proto = actor?.prototypeToken?.actorData?.details?.type?.value ?? actor?.prototypeToken?.actorData?.details?.type;\n    if (typeof proto === \"string\" && proto.trim()) return proto.trim().toLowerCase();\n    // 进一步回退：getRollData 也可能包含 details\n    if (typeof actor.getRollData === \"function\") {\n      try {\n        const rd = actor.getRollData();\n        const rdType = rd?.details?.type;\n        if (typeof rdType === \"string\" && rdType.trim()) return rdType.trim().toLowerCase();\n      } catch (e) { /* ignore */ }\n    }\n    return null;\n  }\n\n  const removed = [];\n  const kept = [];\n\n  for (const t of targets) {\n    try {\n      // t 可能是 Canvas Token 或 TokenDocument 或其他。尽力解析到 canvas Token 和 actor\n      let token = null;\n      if (t?.document && canvas.tokens.get(t.id)) token = canvas.tokens.get(t.id);\n      else if (t?.id && canvas.tokens.get(t.id)) token = canvas.tokens.get(t.id);\n      else token = t; // 也有可能已经是 canvas token\n\n      // 最终确保拿到 actor\n      const actor = token?.actor ?? (await fromUuid(token?.actor?.uuid).catch(()=>null)) ?? null;\n      if (!actor) {\n        console.warn(\"无法解析目标 actor：\", t);\n        continue;\n      }\n\n      const ctype = readCreatureType(actor); // e.g. \"undead\", \"humanoid\"\n      const isUndead = !!ctype && (ctype.includes(\"fiend\") || ctype.includes(\"fey\"));\n      if (!isUndead) {\n        // 取消目标：优先用 canvas token 的 setTarget 方法\n        try {\n          if (token && typeof token.setTarget === \"function\") {\n            token.setTarget(false, { user: game.user.id });\n          } else {\n            // 回退：删除 game.user.targets 中的条目\n            game.user.targets.delete(t);\n            // 另一回退：尝试找画布上对应 token 并取消\n            const canvasToken = canvas.tokens.placeables.find(p => p.actor?.id === actor.id);\n            if (canvasToken && typeof canvasToken.setTarget === \"function\") canvasToken.setTarget(false, { user: game.user.id });\n          }\n        } catch (e) {\n          // 最终回退：直接从 Set 中删除\n          try { game.user.targets.delete(t); } catch(e2) { /* ignore */ }\n        }\n        removed.push(actor.name ?? token?.name ?? t?.id);\n      } else {\n        kept.push(actor.name ?? token?.name ?? t?.id);\n      }\n    } catch (err) {\n      console.error(\"处理目标时出错：\", err);\n    }\n  }\n\n  // 输出结果\n  const removedText = removed.length ? removed.join(\", \") : \"（无）\";\n  const keptText = kept.length ? kept.join(\", \") : \"（无）\";\n})();",
@@ -268,9 +353,9 @@
     "default": 0
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757271942548,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

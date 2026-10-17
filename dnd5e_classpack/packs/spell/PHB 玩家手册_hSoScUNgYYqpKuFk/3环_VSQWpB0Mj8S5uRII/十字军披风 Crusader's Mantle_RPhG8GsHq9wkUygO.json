@@ -24,16 +24,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "crusadersMantle",
@@ -42,36 +33,19 @@
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_HolyGuidance.png",
+  "img": "icons/skills/melee/sword-winged-holy-orange.webp",
   "effects": [
     {
       "name": "十字军披风Crusader's Mantle",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.RPhG8GsHq9wkUygO",
+      "origin": null,
       "duration": {
-        "rounds": 10,
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 10,
+        "units": "rounds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "disabled": false,
       "_id": "W42jKt8C1Merlj9d",
-      "changes": [
-        {
-          "key": "system.bonuses.All-Damage",
-          "mode": 2,
-          "value": "+1d4[radiant]",
-          "priority": 20
-        },
-        {
-          "key": "system.bonuses.mwak.damage",
-          "mode": 2,
-          "value": "",
-          "priority": 20
-        }
-      ],
       "description": "",
       "transfer": false,
       "statuses": [],
@@ -82,44 +56,29 @@
           "selfTargetAlways": false,
           "dontApply": false,
           "stackable": "noneName",
-          "showIcon": true,
           "durationExpression": "",
           "macroRepeat": "none",
           "specialDuration": [],
           "enableCondition": "",
-          "disableCondition": ""
-        },
-        "ActiveAuras": {
-          "isAura": true,
-          "aura": "Allies",
-          "nameOverride": "",
-          "radius": "30",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
+          "disableCondition": "",
+          "applicationMode": "default",
+          "expiryMode": "default"
         },
         "core": {
           "overlay": false
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
+        },
+        "auraeffects": {
+          "originalType": "base"
         }
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1756453313893,
         "lastModifiedBy": "vFLRCDyc5l72uRlV",
@@ -127,16 +86,69 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_HolyGuidance.png",
-      "type": "base",
-      "system": {},
+      "img": "icons/skills/melee/sword-winged-holy-orange.webp",
+      "type": "auraeffects.aura",
+      "system": {
+        "changes": [
+          {
+            "key": "system.rolls.damage.mwak.bonus",
+            "value": "+1d4[radiant]",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "MmniVzx7xcw3bf6i",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.rolls.damage.rwak.bonus",
+            "value": "+1d4[radiant]",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "conditions": "{}",
+            "replacement": "",
+            "_id": "OXyl0zuTBxJcjwwB"
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.RPhG8GsHq9wkUygO",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "showRadius": false,
+        "applyToSelf": true,
+        "bestFormula": "",
+        "canStack": false,
+        "collisionType": "move",
+        "color": null,
+        "combatOnly": false,
+        "disableOnHidden": true,
+        "distanceFormula": "30",
+        "disposition": 1,
+        "evaluatePreApply": false,
+        "overrideName": "",
+        "script": "",
+        "stashedChanges": [],
+        "stashedStatuses": []
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 2,
+      "folder": null,
       "_key": "!items.effects!RPhG8GsHq9wkUygO.W42jKt8C1Merlj9d"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \">神圣的能量自你身上发出并形成30 尺半径的灵光，并为友方生物激励勇气。在法术持续时间内，灵光将以你为中心随你移动。灵光范围内的非敌对生物（包括你自己）的武器攻击命中时将额外造成1d4 的光耀伤害。</div>",
+      "value": "<p>神圣的能量自你身上发出并形成 30 尺半径的灵光，并为友方生物激励勇气。在法术持续时间内，灵光将以你为中心随你移动。灵光范围内的非敌对生物（包括你自己）的武器攻击命中时将额外造成 [[/damage 1d4 type=radiant]]{1d4} 的光耀伤害。</p>",
       "chat": ""
     },
     "source": {
@@ -152,7 +164,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -160,9 +173,10 @@
         "type": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -182,10 +196,6 @@
       "consumed": false,
       "cost": null,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -209,26 +219,32 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "W42jKt8C1Merlj9d"
+            "_id": "W42jKt8C1Merlj9d",
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -258,7 +274,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -266,7 +283,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -277,18 +293,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "crusaders-mantle"
+    "identifier": "crusaders-mantle",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -297,8 +361,8 @@
   "sort": 25000000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711704442285,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

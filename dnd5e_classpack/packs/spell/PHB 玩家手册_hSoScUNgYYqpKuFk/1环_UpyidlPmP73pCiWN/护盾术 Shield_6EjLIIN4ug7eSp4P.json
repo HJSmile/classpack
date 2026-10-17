@@ -25,16 +25,7 @@
       "removeAttackDamageButtons": "default",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "shield",
@@ -43,29 +34,18 @@
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Nature_LightningShield.png",
+  "img": "icons/magic/defensive/barrier-shield-dome-blue-purple.webp",
   "effects": [
     {
-      "origin": "Compendium.dnd5e_classpack.spell.Item.6EjLIIN4ug7eSp4P",
+      "origin": null,
       "duration": {
-        "rounds": 1,
-        "startTime": null,
-        "seconds": 6,
-        "combat": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 6,
+        "units": "seconds",
+        "expiry": "targetStart",
+        "expired": false
       },
       "disabled": false,
       "_id": "12oJ5jVCx8i48uFC",
-      "changes": [
-        {
-          "key": "system.attributes.ac.bonus",
-          "mode": 2,
-          "value": "+5",
-          "priority": 20
-        }
-      ],
       "tint": "#ffffff",
       "transfer": false,
       "flags": {
@@ -77,9 +57,7 @@
           "selfTargetAlways": false,
           "stackable": "noneName",
           "durationExpression": "",
-          "specialDuration": [
-            "turnStart"
-          ],
+          "specialDuration": [],
           "macroRepeat": "none",
           "enableCondition": "",
           "disableCondition": "",
@@ -90,36 +68,17 @@
         "core": {
           "overlay": false
         },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "nameOverride": "",
-          "customCheck": "",
-          "wallsBlock": "system",
-          "statuses": []
-        },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         }
       },
       "name": "护盾术 Shield",
       "description": "",
       "statuses": [],
       "_stats": {
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1757188222803,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
@@ -127,16 +86,44 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Nature_LightningShield.png",
+      "img": "icons/magic/defensive/barrier-shield-dome-blue-purple.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.ac.bonus",
+            "value": "+5",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "G0hVwsCnJsoStC2Q",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.6EjLIIN4ug7eSp4P",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!6EjLIIN4ug7eSp4P.12oJ5jVCx8i48uFC"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 一道看不见的法力护盾浮现在你身边，保护着你。在你的下一回合开始前，你的AC具有 +5加值（在触发该法术的攻击之前生效），并且不会受到魔法飞弹的伤害。</div>",
+      "value": "<p>一道看不见的力场制护盾浮现在你身旁，保护着你。在你的下一回合开始前，你的 AC 具有+5 加值（在触发该法术的攻击之前生效），并且不会受到魔法飞弹的伤害。</p>",
       "chat": ""
     },
     "source": {
@@ -152,7 +139,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "round"
+      "units": "round",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -162,9 +150,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -184,10 +173,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -212,26 +197,32 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "12oJ5jVCx8i48uFC"
+            "_id": "12oJ5jVCx8i48uFC",
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -261,7 +252,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -269,7 +261,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -280,18 +271,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "shield"
+    "identifier": "shield",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -300,8 +339,8 @@
   "sort": 9600000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711694475616,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

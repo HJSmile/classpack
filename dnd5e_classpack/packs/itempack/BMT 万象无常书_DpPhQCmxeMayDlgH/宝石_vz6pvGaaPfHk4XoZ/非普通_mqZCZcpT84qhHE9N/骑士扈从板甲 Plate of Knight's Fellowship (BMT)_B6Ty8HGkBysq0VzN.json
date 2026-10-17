@@ -12,7 +12,7 @@
       "revision": 1
     },
     "description": {
-      "value": "<div class=\"rd__b  rd__b--2\"><p><em>护甲（板甲），非普通（需同调）</em><br />这套闪闪发光的银金板甲永远不会失去光泽。着装这件盔甲期间，你可以用一个附赠动作召唤一位武者的精魂来协助你。精魂会以实体形态显现在你选择的距你30尺内的一个未被占据的空间中，它使用<strong>@UUID[Compendium.dnd5e_classpack.monsterspack.Actor.D5UqYD1EnTrJaMTO]{骑士Knight}</strong>的资料。精魄会持续存在1分钟，并在其生命值降至0时提前消失。精魂使用你的先攻，并且在你的回合后立即行动。精魂服从你的命令（无需动作）。如果你没有发出命令，精魂就会在它的回合进行闪避@action[Dodge]动作并移动以躲避危险。此附赠动作一经使用，直到下次黎明前不能再次使用。</p><p>This gleaming set of silver-and-gold plate armor never tarnishes.</p><p>While wearing this armor, you can use a bonus action to summon the spirit of a warrior to your aid. The spirit's corporeal form manifests in an unoccupied space of your choice within 30 feet of you, and it uses the @creature[knight] stat block. The spirit disappears when it drops to 0 hit points or after 1 minute, whichever comes first.</p><p>The spirit is an ally to you and your companions. In combat, the spirit shares your initiative count but takes its turn immediately after yours. The spirit obeys your commands (no action required by you); if you don't issue any commands, the spirit takes the @action[Dodge] action and uses its movement to avoid danger.</p><p>Once this bonus action is used, it can't be used again until the next dawn.</p><p>Plate consists of shaped, interlocking metal plates to cover the entire body. A suit of plate includes gauntlets, heavy leather boots, a visored helmet, and thick layers of padding underneath the armor. Buckles and straps distribute the weight over the body.</p></div>",
+      "value": "<p><em>护甲（板甲），非普通（需同调）</em></p><p>这套闪闪发光的银金板甲永远不会失去光泽。着装这件盔甲期间，你可以用一个附赠动作召唤一位武者的精魂来协助你。精魂会以实体形态显现在你选择的距你30尺内的一个未被占据的空间中，它使用<strong>@UUID[Compendium.dnd5e_classpack.monsterspack.Actor.D5UqYD1EnTrJaMTO]{骑士Knight}</strong>的资料。精魄会持续存在1分钟，并在其生命值降至0时提前消失。精魂使用你的先攻，并且在你的回合后立即行动。精魂服从你的命令（无需动作）。如果你没有发出命令，精魂就会在它的回合进行闪避@action[Dodge]动作并移动以躲避危险。此附赠动作一经使用，直到下次黎明前不能再次使用。</p><p>This gleaming set of silver-and-gold plate armor never tarnishes.</p><p>While wearing this armor, you can use a bonus action to summon the spirit of a warrior to your aid. The spirit's corporeal form manifests in an unoccupied space of your choice within 30 feet of you, and it uses the @creature[knight] stat block. The spirit disappears when it drops to 0 hit points or after 1 minute, whichever comes first.</p><p>The spirit is an ally to you and your companions. In combat, the spirit shares your initiative count but takes its turn immediately after yours. The spirit obeys your commands (no action required by you); if you don't issue any commands, the spirit takes the @action[Dodge] action and uses its movement to avoid danger.</p><p>Once this bonus action is used, it can't be used again until the next dawn.</p><p>Plate consists of shaped, interlocking metal plates to cover the entire body. A suit of plate includes gauntlets, heavy leather boots, a visored helmet, and thick layers of padding underneath the armor. Buckles and straps distribute the weight over the body.</p>",
       "chat": ""
     },
     "proficient": null,
@@ -28,7 +28,6 @@
     "attuned": true,
     "identified": true,
     "equipped": true,
-    "rarity": "uncommon",
     "type": {
       "value": "heavy",
       "baseItem": "plate"
@@ -46,7 +45,7 @@
     "armor": {
       "value": 18,
       "dex": 0,
-      "magicalBonus": 0
+      "magicalBonus": "0"
     },
     "strength": 15,
     "activities": {
@@ -68,12 +67,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -85,7 +86,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -113,7 +115,8 @@
           "attacks": false,
           "proficiency": false,
           "saves": false,
-          "ability": ""
+          "ability": "",
+          "disposition": false
         },
         "profiles": [
           {
@@ -124,13 +127,13 @@
             "level": {
               "min": null,
               "max": null
-            }
+            },
+            "types": []
           }
         ],
         "summon": {
           "prompt": true,
-          "mode": "",
-          "identifier": ""
+          "mode": ""
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -143,7 +146,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -151,7 +155,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -162,17 +165,62 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "friendlySummon": false
       }
     },
     "identifier": "plate-of-knights-fellowship-bmt",
@@ -181,7 +229,12 @@
     },
     "container": null,
     "cover": null,
-    "crewed": false
+    "rarities": [
+      "uncommon"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "img": "icons/equipment/chest/breastplate-collared-steel.webp",
   "ownership": {
@@ -212,21 +265,16 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "effects": [],
   "folder": "mqZCZcpT84qhHE9N",
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1751738836954,
     "modifiedTime": 1756786833800,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

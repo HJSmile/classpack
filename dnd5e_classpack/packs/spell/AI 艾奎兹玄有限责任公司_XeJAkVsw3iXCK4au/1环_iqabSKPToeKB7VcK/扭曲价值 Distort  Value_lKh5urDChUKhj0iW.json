@@ -4,7 +4,7 @@
   "img": "icons/magic/control/control-influence-crown-gold.webp",
   "system": {
     "description": {
-      "value": "<p>　　当你试图卖掉从混沌神殿中解放出来的那座奇异章鱼雕像时，你是否需要从那个无良商人口袋里再压榨几块黄金？当收税员驻足你的身前时，你是否需要贬低一些魔法资产的价值呢？扭曲价值法术为你保驾护航。</p><p>　　你施展此法术于边长不超过 1 尺的一个物件上，以幻术的滋养和抛光来加倍它看起来的价值，或者是用虚幻的划痕、凹陷和其他不雅的特征来减半它看起来的价值。任何检查物件的人，可以通过智力（调查）检定对抗你的法术 DC，若成功将会确定它的真实价值。</p><p>　　<strong>升环施法效应</strong>：当你使用二环或更高的法术位施放该法术时，使用的法术位每高一环，目标物件的最大尺寸就可以增加 1 尺。</p>",
+      "value": "<p>当你试图卖掉从混沌神殿中解放出来的那座奇异章鱼雕像时，你是否需要从那个无良商人口袋里再压榨几块黄金？当收税员驻足你的身前时，你是否需要贬低一些魔法资产的价值呢？扭曲价值法术为你保驾护航。</p><p>你施展此法术于边长不超过 1 尺的一个物件上，以幻术的滋养和抛光来加倍它看起来的价值，或者是用虚幻的划痕、凹陷和其他不雅的特征来减半它看起来的价值。任何检查物件的人，可以通过智力（调查）检定对抗你的法术 DC，若成功将会确定它的真实价值。</p><p><strong>升环施法效应。</strong>当你使用二环或更高的法术位施放该法术时，使用的法术位每高一环，目标物件的最大尺寸就可以增加 1 尺。</p>",
       "chat": ""
     },
     "source": {
@@ -20,7 +20,8 @@
     },
     "duration": {
       "value": "8",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -28,9 +29,10 @@
         "type": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -49,10 +51,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -76,22 +74,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -121,7 +123,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -129,7 +132,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -140,18 +142,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "distort-value"
+    "identifier": "distort-value",
+    "method": "spell",
+    "prepared": 0
   },
   "effects": [],
   "flags": {
@@ -176,15 +226,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_id": "lKh5urDChUKhj0iW",
   "folder": "iqabSKPToeKB7VcK",
@@ -194,8 +236,8 @@
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

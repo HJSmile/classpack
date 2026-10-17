@@ -7,10 +7,6 @@
       "str": {
         "value": 16,
         "proficient": 0,
-        "bonuses": {
-          "check": "",
-          "save": "0"
-        },
         "max": null,
         "check": {
           "roll": {
@@ -20,6 +16,14 @@
           }
         },
         "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0,
+            "bonus": "0"
+          }
+        },
+        "attack": {
           "roll": {
             "min": null,
             "max": null,
@@ -30,10 +34,6 @@
       "dex": {
         "value": 16,
         "proficient": 0,
-        "bonuses": {
-          "check": "",
-          "save": "0"
-        },
         "max": null,
         "check": {
           "roll": {
@@ -43,6 +43,14 @@
           }
         },
         "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0,
+            "bonus": "0"
+          }
+        },
+        "attack": {
           "roll": {
             "min": null,
             "max": null,
@@ -53,10 +61,6 @@
       "con": {
         "value": 16,
         "proficient": 0,
-        "bonuses": {
-          "check": "",
-          "save": "0"
-        },
         "max": null,
         "check": {
           "roll": {
@@ -66,6 +70,14 @@
           }
         },
         "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0,
+            "bonus": "0"
+          }
+        },
+        "attack": {
           "roll": {
             "min": null,
             "max": null,
@@ -76,10 +88,6 @@
       "int": {
         "value": 16,
         "proficient": 0,
-        "bonuses": {
-          "check": "",
-          "save": "0"
-        },
         "max": null,
         "check": {
           "roll": {
@@ -89,6 +97,14 @@
           }
         },
         "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0,
+            "bonus": "0"
+          }
+        },
+        "attack": {
           "roll": {
             "min": null,
             "max": null,
@@ -99,10 +115,6 @@
       "wis": {
         "value": 16,
         "proficient": 0,
-        "bonuses": {
-          "check": "",
-          "save": "0"
-        },
         "max": null,
         "check": {
           "roll": {
@@ -112,6 +124,14 @@
           }
         },
         "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0,
+            "bonus": "0"
+          }
+        },
+        "attack": {
           "roll": {
             "min": null,
             "max": null,
@@ -122,10 +142,6 @@
       "cha": {
         "value": 16,
         "proficient": 0,
-        "bonuses": {
-          "check": "",
-          "save": "0"
-        },
         "max": null,
         "check": {
           "roll": {
@@ -138,6 +154,14 @@
           "roll": {
             "min": null,
             "max": null,
+            "mode": 0,
+            "bonus": "0"
+          }
+        },
+        "attack": {
+          "roll": {
+            "min": null,
+            "max": null,
             "mode": 0
           }
         }
@@ -145,9 +169,19 @@
     },
     "attributes": {
       "ac": {
-        "calc": "custom",
-        "formula": "@attributes.ac.armor + @attributes.ac.dex -2",
-        "flat": null
+        "flat": null,
+        "formulas": [
+          {
+            "formula": "@attributes.ac.armor + @attributes.ac.dex -2",
+            "armored": null,
+            "shielded": null
+          }
+        ],
+        "calcs": [
+          "unarmored",
+          "armored"
+        ],
+        "override": null
       },
       "hp": {
         "value": 40,
@@ -157,31 +191,33 @@
         "formula": ""
       },
       "init": {
-        "bonus": "0",
         "ability": "",
         "roll": {
           "min": null,
           "max": null,
-          "mode": 0
+          "mode": 0,
+          "bonus": "0"
         }
       },
       "movement": {
-        "burrow": null,
-        "climb": null,
-        "fly": 30,
-        "swim": null,
-        "walk": 30,
         "units": "ft",
-        "hover": true
+        "hover": true,
+        "speeds": {
+          "walk": "30",
+          "fly": "30"
+        },
+        "ignoredDifficultTerrain": []
       },
       "spellcasting": "str",
       "senses": {
-        "darkvision": 60,
-        "blindsight": 0,
-        "tremorsense": 0,
-        "truesight": 0,
         "units": "ft",
-        "special": ""
+        "special": "",
+        "ranges": {
+          "darkvision": 60,
+          "blindsight": 0,
+          "tremorsense": 0,
+          "truesight": 0
+        }
       },
       "attunement": {
         "max": 3
@@ -193,9 +229,6 @@
           "min": null,
           "max": null,
           "mode": 0
-        },
-        "bonuses": {
-          "save": ""
         },
         "limit": 1
       },
@@ -209,16 +242,17 @@
           "mode": 0
         },
         "success": 0,
-        "failure": 0,
-        "bonuses": {
-          "save": ""
-        }
+        "failure": 0
       },
       "spell": {
         "level": 0
       },
       "loyalty": {
         "value": null
+      },
+      "price": {
+        "value": null,
+        "denomination": "gp"
       }
     },
     "details": {
@@ -249,7 +283,6 @@
         "value": 0,
         "ability": "dex",
         "bonuses": {
-          "check": "0",
           "passive": ""
         },
         "roll": {
@@ -262,7 +295,6 @@
         "value": 0,
         "ability": "wis",
         "bonuses": {
-          "check": "0",
           "passive": ""
         },
         "roll": {
@@ -275,7 +307,6 @@
         "value": 0,
         "ability": "int",
         "bonuses": {
-          "check": "0",
           "passive": ""
         },
         "roll": {
@@ -288,7 +319,6 @@
         "value": 0,
         "ability": "str",
         "bonuses": {
-          "check": "0",
           "passive": ""
         },
         "roll": {
@@ -301,7 +331,6 @@
         "value": 0,
         "ability": "cha",
         "bonuses": {
-          "check": "0",
           "passive": ""
         },
         "roll": {
@@ -314,7 +343,6 @@
         "value": 0,
         "ability": "int",
         "bonuses": {
-          "check": "0",
           "passive": ""
         },
         "roll": {
@@ -327,7 +355,6 @@
         "value": 0,
         "ability": "wis",
         "bonuses": {
-          "check": "0",
           "passive": ""
         },
         "roll": {
@@ -340,7 +367,6 @@
         "value": 0,
         "ability": "cha",
         "bonuses": {
-          "check": "0",
           "passive": ""
         },
         "roll": {
@@ -353,7 +379,6 @@
         "value": 0,
         "ability": "int",
         "bonuses": {
-          "check": "0",
           "passive": ""
         },
         "roll": {
@@ -366,7 +391,6 @@
         "value": 0,
         "ability": "wis",
         "bonuses": {
-          "check": "0",
           "passive": ""
         },
         "roll": {
@@ -379,7 +403,6 @@
         "value": 0,
         "ability": "int",
         "bonuses": {
-          "check": "0",
           "passive": ""
         },
         "roll": {
@@ -392,7 +415,6 @@
         "value": 0,
         "ability": "wis",
         "bonuses": {
-          "check": "0",
           "passive": ""
         },
         "roll": {
@@ -405,7 +427,6 @@
         "value": 0,
         "ability": "cha",
         "bonuses": {
-          "check": "0",
           "passive": ""
         },
         "roll": {
@@ -418,7 +439,6 @@
         "value": 0,
         "ability": "cha",
         "bonuses": {
-          "check": "0",
           "passive": ""
         },
         "roll": {
@@ -431,7 +451,6 @@
         "value": 0,
         "ability": "int",
         "bonuses": {
-          "check": "0",
           "passive": ""
         },
         "roll": {
@@ -444,7 +463,6 @@
         "value": 0,
         "ability": "dex",
         "bonuses": {
-          "check": "0",
           "passive": ""
         },
         "roll": {
@@ -457,7 +475,6 @@
         "value": 0,
         "ability": "dex",
         "bonuses": {
-          "check": "0",
           "passive": ""
         },
         "roll": {
@@ -470,7 +487,6 @@
         "value": 0,
         "ability": "wis",
         "bonuses": {
-          "check": "0",
           "passive": ""
         },
         "roll": {
@@ -572,12 +588,12 @@
     },
     "resources": {
       "legact": {
-        "value": 0,
-        "max": 0
+        "max": 0,
+        "spent": 0
       },
       "legres": {
-        "value": 0,
-        "max": 0
+        "max": 0,
+        "spent": 0
       },
       "lair": {
         "value": false,
@@ -586,27 +602,6 @@
       }
     },
     "bonuses": {
-      "mwak": {
-        "attack": "",
-        "damage": ""
-      },
-      "rwak": {
-        "attack": "",
-        "damage": ""
-      },
-      "msak": {
-        "attack": "",
-        "damage": ""
-      },
-      "rsak": {
-        "attack": "",
-        "damage": ""
-      },
-      "abilities": {
-        "check": "",
-        "save": "",
-        "skill": ""
-      },
       "spell": {
         "dc": ""
       }
@@ -619,7 +614,9 @@
       "license": "",
       "revision": 1,
       "rules": "2024"
-    }
+    },
+    "identifier": "",
+    "rolls": {}
   },
   "prototypeToken": {
     "displayName": 20,
@@ -642,15 +639,12 @@
     "bar2": {
       "attribute": null
     },
-    "detectionModes": [],
+    "detectionModes": {},
     "name": "Reaper Spirit",
     "texture": {
       "src": "assets/srd5e/img/bestiary/tokens/BMT/Reaper Spirit.webp",
       "scaleX": 1,
       "scaleY": 1,
-      "offsetX": 0,
-      "offsetY": 0,
-      "rotation": 0,
       "anchorX": 0.5,
       "anchorY": 0.5,
       "fit": "contain",
@@ -713,7 +707,8 @@
       "src": null,
       "disposition": false
     },
-    "movementAction": null
+    "movementAction": null,
+    "depth": 1
   },
   "flags": {
     "plutonium": {
@@ -738,7 +733,7 @@
           "page": "50",
           "license": "",
           "revision": 1,
-          "rules": "2024"
+          "rules": "2014"
         },
         "description": {
           "value": "<div class=\"rd__b  rd__b--3\"><p>灵魄发动等同于法术环阶一半的次数的攻击 （向下取整）。</p></div>",
@@ -758,7 +753,8 @@
         "crewed": false,
         "prerequisites": {
           "level": null,
-          "repeatable": false
+          "repeatable": false,
+          "items": []
         },
         "requirements": "",
         "activities": {
@@ -780,18 +776,20 @@
               "spellSlot": true
             },
             "description": {
-              "chatFlavor": ""
+              "chatFlavor": "",
+              "value": ""
             },
             "duration": {
               "concentration": false,
               "value": "",
-              "units": "",
+              "units": "inst",
               "special": "",
-              "override": false
+              "override": false,
+              "expiry": null
             },
             "effects": [],
             "range": {
-              "units": "",
+              "units": "self",
               "special": "",
               "override": false
             },
@@ -803,7 +801,8 @@
                 "size": "",
                 "width": "",
                 "height": "",
-                "units": ""
+                "units": "ft",
+                "stationary": false
               },
               "affects": {
                 "count": "",
@@ -825,11 +824,96 @@
               "prompt": false,
               "visible": false
             },
-            "sort": 0
+            "sort": 0,
+            "img": null,
+            "behaviors": [],
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            },
+            "useConditionText": "",
+            "useConditionReason": "",
+            "effectConditionText": "",
+            "otherActivityId": null,
+            "macroData": {
+              "name": "",
+              "command": ""
+            },
+            "ignoreTraits": {
+              "idi": false,
+              "idr": false,
+              "idv": false,
+              "ida": false,
+              "idm": false
+            },
+            "midiProperties": {
+              "ignoreTraits": [],
+              "triggeredActivityId": "none",
+              "triggeredActivityConditionText": "",
+              "triggeredActivityTargets": "targets",
+              "triggeredActivityRollAs": "self",
+              "triggeredActivityConsume": true,
+              "triggeredActivityConfigure": true,
+              "autoConsume": false,
+              "forceConsumeDialog": "default",
+              "forceRollDialog": "default",
+              "forceDamageDialog": "default",
+              "confirmTargets": "default",
+              "autoTargetType": "any",
+              "autoTargetAction": "default",
+              "automationOnly": false,
+              "otherActivityCompatible": true,
+              "otherActivityAsParentType": true,
+              "identifier": "",
+              "displayActivityName": false,
+              "rollMode": "default",
+              "chooseEffects": false,
+              "toggleEffect": false,
+              "ignoreFullCover": false,
+              "removeChatButtons": "default",
+              "magicEffect": false,
+              "magicDamage": false,
+              "noConcentrationCheck": false,
+              "skipConcentrationCheck": false,
+              "autoCEEffects": "default"
+            },
+            "isOverTimeFlag": false,
+            "overTimeProperties": {
+              "saveRemoves": true,
+              "rollAs": "target",
+              "preRemoveConditionText": "",
+              "postRemoveConditionText": ""
+            },
+            "regionBehavior": {
+              "enabled": false,
+              "dispositionFilter": -1,
+              "excludeSource": true,
+              "oncePerTurn": true,
+              "wallRestriction": "none",
+              "regionVisibility": 2,
+              "attachToken": "default",
+              "templateOrigin": "default",
+              "rules": []
+            },
+            "regionLight": {
+              "enabled": false,
+              "dim": 0,
+              "bright": 0,
+              "color": null,
+              "alpha": 0.5,
+              "luminosity": 0.5,
+              "animationType": "",
+              "animationSpeed": 5,
+              "animationIntensity": 5
+            },
+            "otherActivityAsParentType": true
           }
         },
-        "identifier": "",
-        "advancement": [],
+        "identifier": "-multiattack",
+        "advancement": {},
         "enchant": {}
       },
       "ownership": {
@@ -872,8 +956,8 @@
       "sort": 0,
       "_stats": {
         "systemId": "dnd5e",
-        "systemVersion": "3.3.1",
-        "coreVersion": "13.351",
+        "systemVersion": "6.0.5",
+        "coreVersion": "14.368",
         "createdTime": null,
         "modifiedTime": 1724943570992,
         "lastModifiedBy": "pF5tIzH2aEMuTR6D",
@@ -903,7 +987,8 @@
               "mode": "",
               "number": null,
               "formula": ""
-            }
+            },
+            "modifiers": []
           },
           "base": {
             "number": null,
@@ -920,7 +1005,8 @@
               "mode": "",
               "number": null,
               "formula": ""
-            }
+            },
+            "modifiers": []
           }
         },
         "source": {
@@ -929,7 +1015,7 @@
           "page": "50",
           "license": "",
           "revision": 1,
-          "rules": "2024"
+          "rules": "2014"
         },
         "description": {
           "value": "<div class=\"rd__b  rd__b--3\"><p>近战武器攻击：命中使用你的法术攻击调整值(具有优势)，触及5尺，单一被作祟的生物。命中：[[/damage 1d8 + 3 ]]+该法术环阶的黯蚀伤害。</p><p></p><div class=\"rd__spc-inline-post\"><p></p></div></div>",
@@ -957,12 +1043,10 @@
           "value": 0,
           "denomination": "gp"
         },
-        "rarity": "",
         "attunement": "",
         "attuned": false,
         "equipped": true,
         "cover": null,
-        "crewed": false,
         "uses": {
           "max": "",
           "spent": 0,
@@ -977,7 +1061,6 @@
           "dt": null,
           "conditions": ""
         },
-        "magicalBonus": null,
         "activities": {
           "dnd5eactivity000": {
             "_id": "dnd5eactivity000",
@@ -997,14 +1080,16 @@
               "spellSlot": true
             },
             "description": {
-              "chatFlavor": ""
+              "chatFlavor": "",
+              "value": ""
             },
             "duration": {
               "concentration": false,
               "value": "",
-              "units": "",
+              "units": "inst",
               "special": "",
-              "override": false
+              "override": false,
+              "expiry": null
             },
             "effects": [],
             "range": {
@@ -1021,7 +1106,8 @@
                 "size": "",
                 "width": "",
                 "height": "",
-                "units": ""
+                "units": "ft",
+                "stationary": false
               },
               "affects": {
                 "count": "",
@@ -1056,11 +1142,105 @@
               "includeBase": true,
               "parts": []
             },
-            "sort": 0
+            "sort": 0,
+            "img": null,
+            "behaviors": [],
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            },
+            "useConditionText": "",
+            "useConditionReason": "",
+            "effectConditionText": "",
+            "otherActivityId": null,
+            "macroData": {
+              "name": "",
+              "command": ""
+            },
+            "ignoreTraits": {
+              "idi": false,
+              "idr": false,
+              "idv": false,
+              "ida": false,
+              "idm": false
+            },
+            "midiProperties": {
+              "ignoreTraits": [],
+              "triggeredActivityId": "none",
+              "triggeredActivityConditionText": "",
+              "triggeredActivityTargets": "targets",
+              "triggeredActivityRollAs": "self",
+              "triggeredActivityConsume": true,
+              "triggeredActivityConfigure": true,
+              "autoConsume": false,
+              "forceConsumeDialog": "default",
+              "forceRollDialog": "default",
+              "forceDamageDialog": "default",
+              "confirmTargets": "default",
+              "autoTargetType": "any",
+              "autoTargetAction": "default",
+              "automationOnly": false,
+              "otherActivityCompatible": true,
+              "otherActivityAsParentType": true,
+              "identifier": "",
+              "displayActivityName": false,
+              "rollMode": "default",
+              "chooseEffects": false,
+              "toggleEffect": false,
+              "ignoreFullCover": false,
+              "removeChatButtons": "default",
+              "magicEffect": false,
+              "magicDamage": false,
+              "noConcentrationCheck": false,
+              "skipConcentrationCheck": false,
+              "autoCEEffects": "default"
+            },
+            "isOverTimeFlag": false,
+            "overTimeProperties": {
+              "saveRemoves": true,
+              "rollAs": "target",
+              "preRemoveConditionText": "",
+              "postRemoveConditionText": ""
+            },
+            "regionBehavior": {
+              "enabled": false,
+              "dispositionFilter": -1,
+              "excludeSource": true,
+              "oncePerTurn": true,
+              "wallRestriction": "none",
+              "regionVisibility": 2,
+              "attachToken": "default",
+              "templateOrigin": "default",
+              "rules": []
+            },
+            "regionLight": {
+              "enabled": false,
+              "dim": 0,
+              "bright": 0,
+              "color": null,
+              "alpha": 0.5,
+              "luminosity": 0.5,
+              "animationType": "",
+              "animationSpeed": 5,
+              "animationIntensity": 5
+            },
+            "otherActivityAsParentType": true,
+            "attackMode": "oneHanded",
+            "ammunition": "",
+            "otherActivityUuid": "",
+            "attackRollPerTarget": "default",
+            "fumbleThreshold": 1
           }
         },
-        "identifier": "",
-        "ammunition": {}
+        "identifier": "-reaping-scythe",
+        "ammunition": {},
+        "rarities": [],
+        "crew": {
+          "value": []
+        }
       },
       "_id": "RdiFALHOpWQJSTgR",
       "name": "收割之镰 Reaping Scythe",
@@ -1107,8 +1287,8 @@
       "sort": 0,
       "_stats": {
         "systemId": "dnd5e",
-        "systemVersion": "3.3.1",
-        "coreVersion": "13.351",
+        "systemVersion": "6.0.5",
+        "coreVersion": "14.368",
         "createdTime": null,
         "modifiedTime": 1724943552024,
         "lastModifiedBy": "pF5tIzH2aEMuTR6D",
@@ -1129,7 +1309,7 @@
           "page": "50",
           "license": "",
           "revision": 1,
-          "rules": "2024"
+          "rules": "2014"
         },
         "description": {
           "value": "<div class=\"rd__b  rd__b--3\"><p>灵魄可以如同穿过困难地形一样穿过其他生物和物件。如果它在自己的回合结束时仍处在物件内部则受到5（[[/damage 1d10 type=force]]）的力场伤害。</p><p></p><p>The spirit can move through other creatures and objects as if they were difficult terrain. If it ends its turn inside an object, it is shunted to the nearest unoccupied space and takes [[/damage 1d10 type=force]] damage for every 5 feet shunted.</p><div class=\"rd__spc-inline-post\"><p></p></div></div>",
@@ -1149,7 +1329,8 @@
         "crewed": false,
         "prerequisites": {
           "level": null,
-          "repeatable": false
+          "repeatable": false,
+          "items": []
         },
         "requirements": "",
         "activities": {
@@ -1171,18 +1352,20 @@
               "spellSlot": true
             },
             "description": {
-              "chatFlavor": ""
+              "chatFlavor": "",
+              "value": ""
             },
             "duration": {
               "concentration": false,
               "value": "",
-              "units": "",
+              "units": "inst",
               "special": "",
-              "override": false
+              "override": false,
+              "expiry": null
             },
             "effects": [],
             "range": {
-              "units": "",
+              "units": "self",
               "special": "",
               "override": false
             },
@@ -1194,7 +1377,8 @@
                 "size": "",
                 "width": "",
                 "height": "",
-                "units": ""
+                "units": "ft",
+                "stationary": false
               },
               "affects": {
                 "count": "",
@@ -1231,15 +1415,100 @@
                     "mode": "whole",
                     "number": null,
                     "formula": ""
-                  }
+                  },
+                  "modifiers": []
                 }
               ]
             },
-            "sort": 0
+            "sort": 0,
+            "img": null,
+            "behaviors": [],
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            },
+            "useConditionText": "",
+            "useConditionReason": "",
+            "effectConditionText": "",
+            "otherActivityId": null,
+            "macroData": {
+              "name": "",
+              "command": ""
+            },
+            "ignoreTraits": {
+              "idi": false,
+              "idr": false,
+              "idv": false,
+              "ida": false,
+              "idm": false
+            },
+            "midiProperties": {
+              "ignoreTraits": [],
+              "triggeredActivityId": "none",
+              "triggeredActivityConditionText": "",
+              "triggeredActivityTargets": "targets",
+              "triggeredActivityRollAs": "self",
+              "triggeredActivityConsume": true,
+              "triggeredActivityConfigure": true,
+              "autoConsume": false,
+              "forceConsumeDialog": "default",
+              "forceRollDialog": "default",
+              "forceDamageDialog": "default",
+              "confirmTargets": "default",
+              "autoTargetType": "any",
+              "autoTargetAction": "default",
+              "automationOnly": false,
+              "otherActivityCompatible": true,
+              "otherActivityAsParentType": true,
+              "identifier": "",
+              "displayActivityName": false,
+              "rollMode": "default",
+              "chooseEffects": false,
+              "toggleEffect": false,
+              "ignoreFullCover": false,
+              "removeChatButtons": "default",
+              "magicEffect": false,
+              "magicDamage": false,
+              "noConcentrationCheck": false,
+              "skipConcentrationCheck": false,
+              "autoCEEffects": "default"
+            },
+            "isOverTimeFlag": false,
+            "overTimeProperties": {
+              "saveRemoves": true,
+              "rollAs": "target",
+              "preRemoveConditionText": "",
+              "postRemoveConditionText": ""
+            },
+            "regionBehavior": {
+              "enabled": false,
+              "dispositionFilter": -1,
+              "excludeSource": true,
+              "oncePerTurn": true,
+              "wallRestriction": "none",
+              "regionVisibility": 2,
+              "attachToken": "default",
+              "templateOrigin": "default",
+              "rules": []
+            },
+            "regionLight": {
+              "enabled": false,
+              "dim": 0,
+              "bright": 0,
+              "color": null,
+              "alpha": 0.5,
+              "luminosity": 0.5,
+              "animationType": "",
+              "animationSpeed": 5,
+              "animationIntensity": 5
+            }
           }
         },
-        "identifier": "",
-        "advancement": [],
+        "identifier": "-incorporeal-movement",
+        "advancement": {},
         "enchant": {}
       },
       "ownership": {
@@ -1283,8 +1552,8 @@
       "sort": 0,
       "_stats": {
         "systemId": "dnd5e",
-        "systemVersion": "3.3.1",
-        "coreVersion": "13.351",
+        "systemVersion": "6.0.5",
+        "coreVersion": "14.368",
         "createdTime": null,
         "modifiedTime": 1724943421867,
         "lastModifiedBy": "pF5tIzH2aEMuTR6D",
@@ -1305,7 +1574,7 @@
           "page": "50",
           "license": "",
           "revision": 1,
-          "rules": "2024"
+          "rules": "2014"
         },
         "description": {
           "value": "<div class=\"rd__b  rd__b--3\"><p>灵魄以自己10尺内的一个生物为目标，并开始作祟该生物。当目标被作祟时，如果目标和你在同一个存在位面上，你和灵魄就会感知到目标的方向和距离。此外，如果目标在灵魄10尺内开始其回合，则该目标必须对你的法术豁免DC进行一次成功的感知豁免，否则将陷入恐慌状态直到目标的下一回合开始。目标在死亡、灵魄消失或灵魄再次使用此动作前一直处于被作祟状态。</p><div class=\"rd__spc-inline-post\"><p></p></div></div>",
@@ -1325,7 +1594,8 @@
         "crewed": false,
         "prerequisites": {
           "level": null,
-          "repeatable": false
+          "repeatable": false,
+          "items": []
         },
         "requirements": "",
         "activities": {
@@ -1347,18 +1617,20 @@
               "spellSlot": true
             },
             "description": {
-              "chatFlavor": ""
+              "chatFlavor": "",
+              "value": ""
             },
             "duration": {
               "concentration": false,
               "value": "",
-              "units": "",
+              "units": "inst",
               "special": "",
-              "override": false
+              "override": false,
+              "expiry": null
             },
             "effects": [],
             "range": {
-              "units": "",
+              "units": "self",
               "special": "",
               "override": false
             },
@@ -1370,7 +1642,8 @@
                 "size": "",
                 "width": "",
                 "height": "",
-                "units": ""
+                "units": "ft",
+                "stationary": false
               },
               "affects": {
                 "count": "",
@@ -1392,11 +1665,96 @@
               "prompt": false,
               "visible": false
             },
-            "sort": 0
+            "sort": 0,
+            "img": null,
+            "behaviors": [],
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            },
+            "useConditionText": "",
+            "useConditionReason": "",
+            "effectConditionText": "",
+            "otherActivityId": null,
+            "macroData": {
+              "name": "",
+              "command": ""
+            },
+            "ignoreTraits": {
+              "idi": false,
+              "idr": false,
+              "idv": false,
+              "ida": false,
+              "idm": false
+            },
+            "midiProperties": {
+              "ignoreTraits": [],
+              "triggeredActivityId": "none",
+              "triggeredActivityConditionText": "",
+              "triggeredActivityTargets": "targets",
+              "triggeredActivityRollAs": "self",
+              "triggeredActivityConsume": true,
+              "triggeredActivityConfigure": true,
+              "autoConsume": false,
+              "forceConsumeDialog": "default",
+              "forceRollDialog": "default",
+              "forceDamageDialog": "default",
+              "confirmTargets": "default",
+              "autoTargetType": "any",
+              "autoTargetAction": "default",
+              "automationOnly": false,
+              "otherActivityCompatible": true,
+              "otherActivityAsParentType": true,
+              "identifier": "",
+              "displayActivityName": false,
+              "rollMode": "default",
+              "chooseEffects": false,
+              "toggleEffect": false,
+              "ignoreFullCover": false,
+              "removeChatButtons": "default",
+              "magicEffect": false,
+              "magicDamage": false,
+              "noConcentrationCheck": false,
+              "skipConcentrationCheck": false,
+              "autoCEEffects": "default"
+            },
+            "isOverTimeFlag": false,
+            "overTimeProperties": {
+              "saveRemoves": true,
+              "rollAs": "target",
+              "preRemoveConditionText": "",
+              "postRemoveConditionText": ""
+            },
+            "regionBehavior": {
+              "enabled": false,
+              "dispositionFilter": -1,
+              "excludeSource": true,
+              "oncePerTurn": true,
+              "wallRestriction": "none",
+              "regionVisibility": 2,
+              "attachToken": "default",
+              "templateOrigin": "default",
+              "rules": []
+            },
+            "regionLight": {
+              "enabled": false,
+              "dim": 0,
+              "bright": 0,
+              "color": null,
+              "alpha": 0.5,
+              "luminosity": 0.5,
+              "animationType": "",
+              "animationSpeed": 5,
+              "animationIntensity": 5
+            },
+            "otherActivityAsParentType": true
           }
         },
-        "identifier": "",
-        "advancement": [],
+        "identifier": "-haunt-creature",
+        "advancement": {},
         "enchant": {}
       },
       "ownership": {
@@ -1439,8 +1797,8 @@
       "sort": 0,
       "_stats": {
         "systemId": "dnd5e",
-        "systemVersion": "3.3.1",
-        "coreVersion": "13.351",
+        "systemVersion": "6.0.5",
+        "coreVersion": "14.368",
         "createdTime": null,
         "modifiedTime": 1724943595184,
         "lastModifiedBy": "pF5tIzH2aEMuTR6D",
@@ -1455,8 +1813,8 @@
   "folder": null,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1724943186541,
     "modifiedTime": 1756539313640,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -11,13 +11,14 @@
       "rules": "2014"
     },
     "description": {
-      "value": "<div><hr /><div><p>先决条件：第4级，施法特性</p><p>你学会了通过一副牌组来引导你的魔法，你可以用一副牌组作为你的法器，并获得下列增益：</p><p>卡牌诈术Card Tricks。你习得戏法 @UUID[Compendium.dnd5e_classpack.spell.Item.zaUmr54yGtLyvUVC]{魔法伎俩Prestidigitation}，并可以用其创造幻象来复制舞台魔术的效果。当你以此法使用魔法伎俩时，你可以隐藏此法术的言语和姿势成分</p><p>隐藏王牌Hidden Ace。当你完成一次长休时，你可以从你的职业法术列表中选择一个法术，并将其注入一张卡牌之中，被选择的法术施法时间必须为1动作，并必须是你拥有法术位的环阶。卡牌将被魔法侵染8小时，期间，你可以以你的附赠动作展示出卡牌并且施展其内的法术。之后卡牌立刻失去魔力。</p><p>（注：隐藏王牌效果没有明确说明是否需要法术位以及何时需要法术位，导致出现严重的歧义并在外网备受争论。使用前请询问你的DM该专长与法术位如何互动，并静候本书的Errata（若有）。）</p></div></div>",
+      "value": "<p>你学会了通过一副牌组来引导你的魔法，你可以用一副牌组作为你的法器，并获得下列增益：</p><p>卡牌诈术Card Tricks。你习得戏法 @UUID[Compendium.dnd5e_classpack.spell.Item.zaUmr54yGtLyvUVC]{魔法伎俩Prestidigitation}，并可以用其创造幻象来复制舞台魔术的效果。当你以此法使用魔法伎俩时，你可以隐藏此法术的言语和姿势成分</p><p>隐藏王牌Hidden Ace。当你完成一次长休时，你可以从你的职业法术列表中选择一个法术，并将其注入一张卡牌之中，被选择的法术施法时间必须为1动作，并必须是你拥有法术位的环阶。卡牌将被魔法侵染8小时，期间，你可以以你的附赠动作展示出卡牌并且施展其内的法术。之后卡牌立刻失去魔力。</p><p>（注：隐藏王牌效果没有明确说明是否需要法术位以及何时需要法术位，导致出现严重的歧义并在外网备受争论。使用前请询问你的DM该专长与法术位如何互动，并静候本书的Errata（若有）。）</p>",
       "chat": ""
     },
-    "requirements": "Spellcasting Feature",
+    "requirements": "等级4+，施法特性",
     "prerequisites": {
       "level": 4,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "uses": {
       "max": "1",
@@ -31,7 +32,7 @@
     },
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "properties": [],
     "cover": null,
@@ -65,18 +66,20 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -88,7 +91,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -110,11 +114,131 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-cartomancer",
-    "advancement": [],
+    "advancement": {
+      "d3f5259509484f96": {
+        "_id": "d3f5259509484f96",
+        "type": "ItemGrant",
+        "name": "Prestidigitation",
+        "configuration": {
+          "items": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.spell.Item.zaUmr54yGtLyvUVC",
+              "optional": false,
+              "sort": 0
+            }
+          ],
+          "optional": false,
+          "spell": {
+            "ability": [
+              "int",
+              "wis",
+              "cha"
+            ],
+            "method": "innate",
+            "prepared": 0,
+            "uses": {
+              "max": "",
+              "per": "",
+              "requireSlot": false
+            }
+          },
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "enchant": {}
   },
   "ownership": {
@@ -154,21 +278,14 @@
       "otherCondition": ""
     },
     "core": {},
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "effects": [],
   "folder": "aFZZrF2I0mY7UZpk",
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1724941882525,
     "modifiedTime": 1757057486358,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

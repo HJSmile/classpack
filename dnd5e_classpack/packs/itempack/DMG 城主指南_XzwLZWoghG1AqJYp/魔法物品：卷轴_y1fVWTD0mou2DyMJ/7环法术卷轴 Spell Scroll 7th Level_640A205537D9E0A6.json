@@ -7,18 +7,11 @@
   "folder": "y1fVWTD0mou2DyMJ",
   "flags": {
     "core": {},
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
-      "value": "<p>每张法术卷轴都以神秘暗语记录了一道法术。如果卷轴记载的法术在你职业的法术列表内，你可以用一个动作阅读卷轴以施展其中的法术，而无需支付任何法术成分。反之，卷轴上的文字对你是晦涩难懂的。</p>\n<p>假如7环卷轴记载的法术在你职业的法术列表内，但其环数超过了你目前能施展的水平，则你必须以你的施法关键属性通过一次DC为17的属性检定。如果检定失败，7环卷轴上记载的法术将消失而不生效。</p>\n<p>卷轴上的法术一经施展即消失。卷轴本身则化为尘埃。</p>\n<p>卷轴的稀有度、其法术的豁免DC和攻击加值由它所记载的法术环数决定，如下表所示：</p>\n<table border=\"1\">\n<tbody>\n<tr>\n<td><strong> 法术环数</strong></td>\n<td><strong>稀有度</strong></td>\n<td><strong>豁免DC</strong></td>\n<td><strong>攻击加值</strong></td>\n</tr>\n<tr>\n<td>@UUID[Compendium.dnd5e_classpack.itempack.640A205537D9E0A6]{7环}</td>\n<td>非常珍稀</td>\n<td>18</td>\n<td>+10</td>\n</tr>\n</tbody>\n</table>\n<p>你可以如同抄录法术书上的法术一般抄录7环法术卷轴上的法师法术。抄录7环卷轴上的法术时，抄录者必须通过一次DC为17的智力（神秘）检定以成功抄录。无论检定成功与否，7环法术卷轴都将被摧毁。</p>",
+      "value": "<p>每张法术卷轴都以神秘暗语记录了一道法术。如果卷轴记载的法术在你职业的法术列表内，你可以用一个动作阅读卷轴以施展其中的法术，而无需支付任何法术成分。反之，卷轴上的文字对你是晦涩难懂的。</p><p>假如7环卷轴记载的法术在你职业的法术列表内，但其环数超过了你目前能施展的水平，则你必须以你的施法关键属性通过一次DC为17的属性检定。如果检定失败，7环卷轴上记载的法术将消失而不生效。</p><p>卷轴上的法术一经施展即消失。卷轴本身则化为尘埃。</p><p>卷轴的稀有度、其法术的豁免DC和攻击加值由它所记载的法术环数决定，如下表所示：</p><table><tbody><tr><td><strong> 法术环数</strong></td><td><strong>稀有度</strong></td><td><strong>豁免DC</strong></td><td><strong>攻击加值</strong></td></tr><tr><td>@UUID[Compendium.dnd5e_classpack.itempack.640A205537D9E0A6]{7环}</td><td>非常珍稀</td><td>18</td><td>+10</td></tr></tbody></table><p>你可以如同抄录法术书上的法术一般抄录7环法术卷轴上的法师法术。抄录7环卷轴上的法术时，抄录者必须通过一次DC为17的智力（神秘）检定以成功抄录。无论检定成功与否，7环法术卷轴都将被摧毁。</p>",
       "chat": ""
     },
     "source": {
@@ -38,7 +31,6 @@
     },
     "attunement": "",
     "equipped": false,
-    "rarity": "veryRare",
     "identified": true,
     "uses": {
       "max": "1",
@@ -56,7 +48,8 @@
         },
         "scaling": {
           "number": 1
-        }
+        },
+        "modifiers": []
       },
       "replace": false
     },
@@ -68,7 +61,6 @@
       "subtype": ""
     },
     "container": null,
-    "magicalBonus": null,
     "properties": [
       "mgc"
     ],
@@ -101,18 +93,20 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -124,7 +118,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -159,16 +154,109 @@
           "includeBase": true,
           "parts": []
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackMode": "oneHanded",
+        "ammunition": "",
+        "otherActivityUuid": "",
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       }
     },
     "identifier": "7-spell-scroll-7th-level",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "veryRare"
+    ]
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1713010439659,
     "modifiedTime": 1757871168166,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

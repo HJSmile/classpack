@@ -2,14 +2,14 @@
   "_id": "wQtUjvfS0MXMFp06",
   "name": "幻术学派 School of Illusion",
   "type": "subclass",
-  "img": "modules/dnd5e_classpack/Nicons/ability_mage_GreaterInvisibility.png",
+  "img": "icons/magic/control/hypnosis-mesmerism-eye-tan.webp",
   "effects": [],
   "folder": "lm6sagFtnOg5USLS",
   "sort": 43750,
   "flags": {},
   "system": {
     "description": {
-      "value": "<p>        你专注于用魔法扰乱感官，迷惑意识，甚至可以欺诈最具智慧的人。你的魔法看似细微却奥妙无穷，这些用你的敏锐思维创造的幻象足够以假乱真。一些幻术师(包括许多侏儒法师)是些以法术娱乐他人的和善戏法师。而另一些更险恶的欺诈大师，则用他们的幻术恐吓愚弄他人以满足其个人的利益。</p><p><strong>幻术学者Illusion Savant</strong></p><p>        从第2级你选择该学派起,你向法术书中抄写幻术系法术的时间和金钱花费减半。</p>",
+      "value": "<p>        你专注于用魔法扰乱感官，迷惑意识，甚至可以欺诈最具智慧的人。你的魔法看似细微却奥妙无穷，这些用你的敏锐思维创造的幻象足够以假乱真。一些幻术师(包括许多侏儒法师)是些以法术娱乐他人的和善戏法师。而另一些更险恶的欺诈大师，则用他们的幻术恐吓愚弄他人以满足其个人的利益。</p><h3><strong>幻术学者Illusion Savant</strong></h3><p>        从第2级你选择该学派起,你向法术书中抄写幻术系法术的时间和金钱花费减半。</p>",
       "chat": ""
     },
     "source": {
@@ -20,76 +20,92 @@
     },
     "identifier": "school-of-illusion",
     "classIdentifier": "wizard",
-    "advancement": [
-      {
+    "advancement": {
+      "u6mkf8avr1c7kg3x": {
         "_id": "u6mkf8avr1c7kg3x",
         "type": "ItemGrant",
         "configuration": {
           "items": [
             {
               "uuid": "Compendium.dnd5e_classpack.class-abilityphb.lnr4PHCReFAzQhXg",
-              "optional": false
+              "optional": false,
+              "sort": 0
             }
           ],
           "optional": true,
-          "spell": null
+          "spell": null,
+          "sorting": "m"
         },
         "value": {},
         "level": 2,
-        "title": "职业特性"
+        "name": "职业特性",
+        "flags": {},
+        "hint": ""
       },
-      {
+      "m7xdaseh3xfcxnki": {
         "_id": "m7xdaseh3xfcxnki",
         "type": "ItemGrant",
         "configuration": {
           "items": [
             {
               "uuid": "Compendium.dnd5e_classpack.class-abilityphb.vn5jPYjB6w0GmfCY",
-              "optional": false
+              "optional": false,
+              "sort": 0
             }
           ],
           "optional": false,
-          "spell": null
+          "spell": null,
+          "sorting": "m"
         },
         "value": {},
         "level": 6,
-        "title": "职业特性"
+        "name": "职业特性",
+        "flags": {},
+        "hint": ""
       },
-      {
+      "hges9zqopy5eooq6": {
         "_id": "hges9zqopy5eooq6",
         "type": "ItemGrant",
         "configuration": {
           "items": [
             {
               "uuid": "Compendium.dnd5e_classpack.class-abilityphb.Dwrhd7TijJRyg4iN",
-              "optional": false
+              "optional": false,
+              "sort": 0
             }
           ],
           "optional": false,
-          "spell": null
+          "spell": null,
+          "sorting": "m"
         },
         "value": {},
         "level": 10,
-        "title": "职业特性"
+        "name": "职业特性",
+        "flags": {},
+        "hint": ""
       },
-      {
+      "4ji7jkn04mibz987": {
         "_id": "4ji7jkn04mibz987",
         "type": "ItemGrant",
         "configuration": {
           "items": [
             {
               "uuid": "Compendium.dnd5e_classpack.class-abilityphb.utiy2TGJ0Ue1P3RL",
-              "optional": false
+              "optional": false,
+              "sort": 0
             }
           ],
           "optional": false,
-          "spell": null
+          "spell": null,
+          "sorting": "m"
         },
         "value": {},
         "level": 14,
-        "title": "职业特性"
+        "name": "职业特性",
+        "flags": {},
+        "hint": ""
       },
-      {
+      "9hH9IPSSwuERt8eK": {
         "_id": "9hH9IPSSwuERt8eK",
         "type": "ItemChoice",
         "configuration": {
@@ -103,32 +119,37 @@
           "type": "spell",
           "pool": [
             {
-              "uuid": "Compendium.dnd5e_classpack.spell.Item.ErbvJsxASx22Goxe"
+              "uuid": "Compendium.dnd5e_classpack.spell.Item.ErbvJsxASx22Goxe",
+              "sort": 0
             }
           ],
           "spell": {
             "ability": [
               ""
             ],
-            "preparation": "",
             "uses": {
               "max": "",
               "per": "",
               "requireSlot": false
-            }
+            },
+            "prepared": 0
           },
           "restriction": {
-            "level": "0"
-          }
+            "level": "0",
+            "list": [],
+            "school": []
+          },
+          "sorting": "a"
         },
         "value": {
           "added": {},
           "replaced": {}
         },
-        "title": "精通次级幻影",
-        "hint": "从第2级你选择该学派起，你习得戏法次级幻影。如果你已学会此戏法，则你可以学习另一个自选的法师戏法。该戏法不计入你的已知戏法数目限制。你施展戏法次级幻影时，可以在一次施法中同时创造出声音和影像。"
+        "hint": "从第2级你选择该学派起，你习得戏法次级幻影。如果你已学会此戏法，则你可以学习另一个自选的法师戏法。该戏法不计入你的已知戏法数目限制。你施展戏法次级幻影时，可以在一次施法中同时创造出声音和影像。",
+        "name": "精通次级幻影",
+        "flags": {}
       }
-    ],
+    },
     "spellcasting": {
       "progression": "none",
       "ability": "",
@@ -142,8 +163,8 @@
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757275023121,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

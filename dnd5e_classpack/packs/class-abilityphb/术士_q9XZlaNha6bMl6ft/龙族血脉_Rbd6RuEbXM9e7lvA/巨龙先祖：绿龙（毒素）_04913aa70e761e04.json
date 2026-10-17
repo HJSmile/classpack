@@ -1,0 +1,169 @@
+{
+  "_id": "04913aa70e761e04",
+  "name": "巨龙先祖：绿龙（毒素）",
+  "type": "feat",
+  "img": "icons/creatures/abilities/dragon-fire-breath-orange.webp",
+  "system": {
+    "type": {
+      "value": "class",
+      "subtype": ""
+    },
+    "description": {
+      "value": "<p>你选择绿龙作为你的巨龙先祖，对应的伤害类型为<strong>毒素</strong>。6级获得的元素亲和使用此伤害类型。</p>",
+      "chat": ""
+    },
+    "source": {
+      "custom": "PHB pg. 102",
+      "revision": 1,
+      "rules": "2014",
+      "book": "PHB"
+    },
+    "cover": null,
+    "uses": {
+      "max": "",
+      "spent": 0,
+      "recovery": []
+    },
+    "requirements": "龙族血脉等级 1",
+    "activities": {},
+    "identifier": "draconic-ancestry",
+    "advancement": {
+      "a9bab38e39aa752c": {
+        "_id": "a9bab38e39aa752c",
+        "type": "ScaleValue",
+        "name": "先祖龙种",
+        "configuration": {
+          "identifier": "dragon-type",
+          "type": "string",
+          "scale": {
+            "1": {
+              "value": "green"
+            }
+          }
+        },
+        "value": {},
+        "flags": {}
+      },
+      "e2d958f8fdcc47da": {
+        "_id": "e2d958f8fdcc47da",
+        "type": "ScaleValue",
+        "name": "先祖伤害类型",
+        "configuration": {
+          "identifier": "damage-type",
+          "type": "string",
+          "scale": {
+            "1": {
+              "value": "poison"
+            }
+          }
+        },
+        "value": {},
+        "flags": {}
+      },
+      "669e9ff611daeb8d": {
+        "_id": "669e9ff611daeb8d",
+        "type": "ModifyItem",
+        "name": "元素亲和伤害类型",
+        "level": 6,
+        "configuration": {
+          "changes": [
+            {
+              "_id": "6772883515ce709b",
+              "uuid": null,
+              "identifiers": [
+                "feat:elemental-affinity"
+              ]
+            }
+          ]
+        },
+        "value": {
+          "modified": []
+        },
+        "flags": {},
+        "hint": "元素亲和的伤害类型为毒素。"
+      }
+    },
+    "crewed": false,
+    "enchant": {},
+    "prerequisites": {
+      "level": 1,
+      "repeatable": false,
+      "items": [
+        "subclass:draconic-bloodline"
+      ]
+    },
+    "properties": []
+  },
+  "effects": [
+    {
+      "_id": "6772883515ce709b",
+      "_key": "!items.effects!04913aa70e761e04.6772883515ce709b",
+      "name": "元素亲和：毒素",
+      "img": "icons/magic/symbols/elements-air-earth-fire-water.webp",
+      "type": "enchantment",
+      "transfer": false,
+      "disabled": false,
+      "showIcon": 0,
+      "statuses": [],
+      "flags": {},
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "system": {
+        "magical": false,
+        "changes": [
+          {
+            "_id": "c76c2eb227d50aa1",
+            "key": "activities[damage].damage.parts",
+            "value": [
+              {
+                "number": null,
+                "denomination": null,
+                "bonus": "",
+                "types": [
+                  "poison"
+                ],
+                "custom": {
+                  "enabled": true,
+                  "formula": "@abilities.cha.mod"
+                },
+                "scaling": {
+                  "mode": "whole",
+                  "number": null,
+                  "formula": ""
+                },
+                "modifiers": []
+              }
+            ],
+            "type": "override",
+            "phase": "initial",
+            "priority": 20,
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ]
+      }
+    }
+  ],
+  "folder": "Rbd6RuEbXM9e7lvA",
+  "sort": 4300000,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "14.368",
+    "systemId": "dnd5e",
+    "systemVersion": "6.0.5",
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!04913aa70e761e04"
+}

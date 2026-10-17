@@ -23,25 +23,14 @@
       "removeAttackDamageButtons": "default",
       "reactionCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/creatures/unholy/demon-fanged-horned-yellow.webp",
   "_id": "lI7RcmepcbATWP5h",
   "effects": [],
   "system": {
     "description": {
-      "value": "<p>你吐出污秽的词语，从无底深渊的无尽混沌中召唤来恶魔。遵从下表Roll点来决定什么生物出现。<br />D6    被召唤的恶魔<br />1-2    2个挑战等级为1或更低的恶魔<br />3-4    4个挑战等级为1/2或更低的恶魔<br />5-6    8个挑战等级为1/4或更低的恶魔<br />DM选择恶魔的种类，例如原魔Manes或者怯魔dretches，然后你选择施法距离内可见的未被占据空间让它们出现。被召唤的恶魔在生命值降低为0或法术结束时消失。<br />恶魔对包括你在内的所有生物抱有敌意。它们拥有自己的回合，将它们整体视作一组来投掷先攻。恶魔会花费它的回合用于追逐和攻击最近的非恶魔生物，尽其所能。<br />作为施放此法术的一部分，你可以使用作为施法材料的血液在地上绘制一个法阵。法阵大到可以包括你在的空间。在法术的持续时间内，被召唤来的恶魔无法穿过或伤害法阵，也无法以其中的任何人作为目标。用这种方式使用的施法材料会在法术结束时被消耗。</p>\n<p><strong>升环效果：</strong>当你使用6环或7环的法术位施放该法术时，被召唤的恶魔数量变为两倍。当你使用8环或9环的法术位施放该法术时，被召唤的恶魔数量变为三倍。</p>",
+      "value": "<p>你吐出污秽的词语，从无底深渊的无尽混沌中召唤来恶魔。遵从下表掷骰来决定什么生物出现。</p><table><thead><tr><th><strong>D6</strong></th><th><strong>被召唤的恶魔</strong></th></tr></thead><tbody><tr><td>1~2</td><td>2 个挑战等级为 1 或更低的恶魔</td></tr><tr><td>3~4</td><td>4 个挑战等级为 1/2 或更低的恶魔</td></tr><tr><td>5~6</td><td>8 个挑战等级为 1/4 或更低的恶魔</td></tr></tbody></table><p>DM 选择恶魔的种类，例如原魔Manes 或者怯魔dretches，然后你选择施法距离内可见的未占据空间让它们出现。被召唤的恶魔在生命值降低为 0 或法术结束时消失。</p><p>恶魔对包括你在内的所有生物抱有敌意。它们拥有自己的回合，将它们整体视作一组来投掷先攻。恶魔会花费它的回合用于追逐和攻击最近的非恶魔生物，尽其所能。</p><p>作为施放此法术的一部分，你可以使用作为施法材料的血液在地上绘制一个法阵。法阵大到可以包括你在的空间。在法术的持续时间内，被召唤来的恶魔无法穿过或伤害法阵，也无法以其中的任何人作为目标。用这种方式使用的施法材料会在法术结束时被消耗。</p><p><strong>升环施法效应。</strong>当你使用六环或七环的法术位施放该法术时，被召唤的恶魔数量变为两倍。当你使用八环或九环的法术位施放该法术时，被召唤的恶魔数量变为三倍。</p>",
       "chat": ""
     },
     "source": {
@@ -57,7 +46,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -65,9 +55,10 @@
         "type": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -88,10 +79,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -118,12 +105,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -133,7 +122,8 @@
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -160,7 +150,8 @@
           "attacks": false,
           "proficiency": false,
           "saves": false,
-          "ability": ""
+          "ability": "",
+          "disposition": false
         },
         "profiles": [
           {
@@ -168,7 +159,7 @@
             "cr": "1",
             "name": "",
             "_id": "7IA6qqiZfJTBuXtm",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "fiend"
             ],
@@ -182,7 +173,7 @@
             "cr": "1/2",
             "name": "",
             "_id": "Cx1sUSctyqFZYBbc",
-            "uuid": "",
+            "uuid": null,
             "types": [],
             "level": {
               "min": 3,
@@ -194,7 +185,7 @@
             "cr": "1/4",
             "name": "",
             "_id": "jku7uoAlqP9fXyV2",
-            "uuid": "",
+            "uuid": null,
             "types": [],
             "level": {
               "min": 3,
@@ -206,7 +197,7 @@
             "cr": "1",
             "name": "",
             "_id": "h4UpZdnjg1BdShYT",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "fiend"
             ],
@@ -220,7 +211,7 @@
             "cr": "1/2",
             "name": "",
             "_id": "sO0YXmYlDCKi5qI9",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "fiend"
             ],
@@ -234,7 +225,7 @@
             "cr": "1/4",
             "name": "",
             "_id": "3JM43SSnHcME3TNw",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "fiend"
             ],
@@ -248,7 +239,7 @@
             "cr": "1",
             "name": "",
             "_id": "TrFza9oE4Emo4Jya",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "fiend"
             ],
@@ -262,7 +253,7 @@
             "cr": "1/2",
             "name": "",
             "_id": "rJTn4Dp1vdfN2hHv",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "fiend"
             ],
@@ -276,7 +267,7 @@
             "cr": "1/4",
             "name": "",
             "_id": "JRTzBWParL3xYEJa",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "fiend"
             ],
@@ -301,7 +292,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -309,7 +301,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -320,20 +311,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "friendlySummon": false
       }
     },
-    "identifier": "summon-lesser-demon"
+    "identifier": "summon-lesser-demon",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -342,8 +380,8 @@
   "sort": 7500000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

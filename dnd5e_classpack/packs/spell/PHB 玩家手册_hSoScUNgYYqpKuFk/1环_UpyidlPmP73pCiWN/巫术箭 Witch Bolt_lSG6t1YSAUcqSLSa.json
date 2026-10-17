@@ -10,7 +10,8 @@
       "itemCondition": "",
       "effectCondition": "",
       "reactionCondition": "",
-      "otherCondition": ""
+      "otherCondition": "",
+      "onUseMacroName": "[postActiveEffects]ItemMacro,[preItemRoll]ItemMacro"
     },
     "midiProperties": {
       "confirmTargets": "always",
@@ -25,36 +26,49 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
+    "dnd5e": {},
+    "dae": {
+      "macro": {
+        "name": "巫术箭 Witch Bolt",
+        "img": "icons/magic/lightning/bolt-strike-beam-purple.webp",
+        "type": "script",
+        "scope": "global",
+        "command": "// 法术物品挂载 preItemRoll、postActiveEffects；初始攻击关联自身/目标连接 AE。\n// 自身 AE 勾选 DAE selfTarget；双方 AE 都添加 macro.itemMacro。\nfunction connected(state) {\n  const source = fromUuidSync(state.source);\n  const target = fromUuidSync(state.target);\n  if (!source || !target) return false;\n  if (!source.object || !target.object) return true;\n  const distance = MidiQOL.getDistance(source.object, target.object, {\n    wallsBlock: true, includeCover: true\n  });\n  return distance >= 0 && distance <= state.range\n    && !target.actor.statuses.has(\"coverTotal\")\n    && MidiQOL.computeCoverBonus(source.object, target.object) < 999;\n}\n\nasync function endLink(state) {\n  const effect = await fromUuid(state.effect);\n  if (effect) await MidiQOL.socket().executeAsGM(\"removeEffects\", {\n    actorUuid: effect.parent.uuid, effects: [effect.id]\n  });\n}\n\nif (args[0] === \"off\") {\n  const state = args.at(-1).efData.flags.world?.witchBolt;\n  if (!state?.effect) return;\n  await endLink(state);\n  if (state.role === \"source\") {\n    const spell = await fromUuid(state.item);\n    await dnd5eClasspack.hideActivity(state.damageActivity);\n    if (state.favoriteAdded) await spell.actor.system.removeFavorite(state.favorite);\n  }\n  return;\n}\nif (typeof args[0] === \"string\") return;\n\nconst spell = await fromUuid(macroItem.uuid);\nconst sustain = spell.system.activities.find(a => a.name === \"持续闪电\");\nconst link = spell.actor.effects.find(e => e.active\n  && e.getFlag(\"world\", \"witchBolt\")?.item === spell.uuid\n  && e.getFlag(\"world\", \"witchBolt\")?.role === \"source\");\nconst state = link?.getFlag(\"world\", \"witchBolt\");\nconst pass = args[0].macroPass;\nconst combat = game.combat;\nconst turn = combat?.started ? `${combat.id}:${combat.round}:${combat.turn}` : null;\n\nif (pass === \"preItemRoll\") {\n  if (workflow.activity.uuid !== sustain.uuid) return;\n  if (!state) return false;\n  if (!connected(state)) {\n    await endLink(state);\n    return false;\n  }\n  if (turn && state.usedTurn === turn) {\n    ui.notifications.warn(\"本回合已使用持续闪电。\");\n    return false;\n  }\n  const target = fromUuidSync(state.target).object;\n  workflow.targets = new Set([target]);\n  args[0].options.usage.midiOptions.targetsToUse = new Set([target]);\n  MidiQOL.updateUserTargets([target.id]);\n  return;\n}\nif (pass !== \"postActiveEffects\") return;\n// 物品宏与 actor OnUse 可能同时调用此宏，同一工作流只处理一次。\nworkflow.witchBoltHandled ??= new Set();\nif (workflow.witchBoltHandled.has(spell.uuid)) return;\nworkflow.witchBoltHandled.add(spell.uuid);\n\nif (workflow.activity.uuid === sustain.uuid) {\n  if (turn && state) await link.setFlag(\"world\", \"witchBolt\", { ...state, usedTurn: turn });\n  return;\n}\n\n// 由连接 AE 注册的 actor OnUse：其他真正使用动作的工作流会删除连接效果。\nif (workflow.item.uuid !== spell.uuid || workflow.activity.type !== \"attack\") {\n  if (!state || workflow.itemCardUuid === state.cast) return;\n  const options = workflow.workflowOptions;\n  if (workflow.itemUsesReaction || options.castUsesReaction\n    || workflow.itemUsesBonusAction || options.castUsesBonusAction) return;\n  if (workflow.activity.effectiveActivationType === \"action\") await endLink(state);\n  return;\n}\n\nif (!workflow.hitTargets.size) return;\nif (state?.cast === workflow.itemCardUuid) return;\nconst target = workflow.hitTargets.first();\nconst sourceEffect = spell.actor.effects.find(e => e.system?.origin?.message === workflow.itemCardUuid\n  && e.getFlag(\"dae\", \"selfTarget\"));\nconst targetEffect = target.actor.effects.find(e => e.system?.origin?.message === workflow.itemCardUuid\n  && !e.getFlag(\"dae\", \"selfTarget\"));\nif (!sourceEffect || !targetEffect) {\n  ui.notifications.warn(\"巫术箭：初始攻击行动需要关联自身与目标的连接效果。\");\n  return;\n}\nconst favorite = `${foundry.utils.buildRelativeUuid(spell, spell.actor)}.Activity.${sustain.id}`;\nconst data = {\n  item: spell.uuid, cast: workflow.itemCardUuid,\n  source: workflow.token.document.uuid, target: target.document.uuid,\n  range: MidiQOL.checkActivityRange(workflow.activity, workflow.token, new Set([target]), false).range\n    ?? workflow.activity.range.value,\n  effect: sourceEffect.uuid, damageActivity: sustain.uuid, favorite,\n  favoriteAdded: !spell.actor.system.hasFavorite(favorite)\n};\nconst condition = `(${connected.toString()})(effect.flags.world.witchBolt)`;\nfor (const [role, actor, effect] of [\n  [\"source\", spell.actor, sourceEffect], [\"target\", target.actor, targetEffect]\n]) {\n  const changes = [...effect.system.changes];\n  if (role === \"source\") changes.push({ key: \"flags.midi-qol.onUseMacroName\",\n    value: `[postActiveEffects]ItemMacro.${spell.uuid}`,\n    type: \"add\", phase: \"initial\", priority: 20 });\n  await MidiQOL.socket().executeAsGM(\"updateEffects\", {\n    actorUuid: actor.uuid,\n    updates: [{\n      _id: effect.id,\n      \"system.changes\": changes,\n      ...(role === \"target\" ? { \"flags.dnd5e.dependentOn\": sourceEffect.uuid } : {}),\n      \"flags.dae.itemUuid\": spell.uuid,\n      \"flags.dae.enableCondition\": condition,\n      \"flags.dae.expiryMode\": \"delete\",\n      \"flags.world.witchBolt\": { ...data, role }\n    }]\n  });\n}\nawait dnd5eClasspack.hideActivity(sustain.uuid, false);\nawait dnd5eClasspack.addFavorite(sustain.uuid);",
+        "author": "dvg25zW2MvzsvMOU",
+        "ownership": {
+          "default": 3
+        },
+        "_id": null,
+        "folder": null,
+        "sort": 0,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.369",
+          "systemId": "dnd5e",
+          "systemVersion": "6.0.6",
+          "createdTime": null,
+          "modifiedTime": null,
+          "lastModifiedBy": null,
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null
+        }
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/spell_mage_focusingcrystal.png",
+  "img": "icons/magic/lightning/bolt-strike-beam-purple.webp",
   "effects": [
     {
-      "name": "巫术箭 Witch Bolt",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.lSG6t1YSAUcqSLSa",
+      "name": "巫术箭-链接 Witch Bolt",
+      "origin": null,
       "duration": {
-        "rounds": 10,
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 10,
+        "units": "rounds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "disabled": false,
       "_id": "V2r4UhEN6EbvxXsX",
-      "changes": [],
       "description": "",
       "transfer": false,
       "statuses": [],
@@ -65,33 +79,16 @@
           "selfTargetAlways": false,
           "dontApply": false,
           "stackable": "noneName",
-          "showIcon": true,
           "durationExpression": "",
           "macroRepeat": "none",
           "specialDuration": [],
           "enableCondition": "",
-          "disableCondition": ""
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system"
+          "disableCondition": "",
+          "applicationMode": "default",
+          "expiryMode": "default"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
@@ -99,9 +96,9 @@
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1753012634153,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
@@ -109,16 +106,123 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/spell_mage_focusingcrystal.png",
+      "img": "icons/magic/lightning/bolt-strike-beam-purple.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "macro.itemMacro",
+            "type": "custom",
+            "value": "",
+            "phase": "initial",
+            "_id": "iKeDqwBHGdR10fwp",
+            "conditions": "{}",
+            "replacement": "",
+            "priority": null
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.lSG6t1YSAUcqSLSa",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 2,
+      "folder": null,
       "_key": "!items.effects!lSG6t1YSAUcqSLSa.V2r4UhEN6EbvxXsX"
+    },
+    {
+      "name": "巫术箭-自身 Witch Bolt",
+      "img": "icons/magic/lightning/bolt-strike-beam-purple.webp",
+      "system": {
+        "origin": {
+          "item": "Compendium.dnd5e_classpack.spell.Item.lSG6t1YSAUcqSLSa",
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "message": null
+        },
+        "changes": [
+          {
+            "key": "macro.itemMacro",
+            "type": "custom",
+            "value": "",
+            "phase": "initial",
+            "_id": "hlQu1JsxXbagbiZC",
+            "conditions": "{}",
+            "replacement": "",
+            "priority": null
+          }
+        ],
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
+      "transfer": false,
+      "_id": "dHVu5KnHyCGVn44V",
+      "type": "base",
+      "disabled": false,
+      "start": null,
+      "duration": {
+        "value": 60,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "description": "",
+      "origin": null,
+      "tint": "#ffffff",
+      "statuses": [],
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "dae": {
+          "enableCondition": "",
+          "disableCondition": "",
+          "stackable": "noneName",
+          "applicationMode": "default",
+          "expiryMode": "default",
+          "durationExpression": "",
+          "macroRepeat": "none",
+          "disableIncapacitated": false,
+          "selfTarget": true,
+          "selfTargetAlways": false,
+          "dontApply": false,
+          "specialDuration": []
+        },
+        "core": {
+          "overlay": false
+        }
+      },
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1792044887980,
+        "modifiedTime": 1792044967365,
+        "lastModifiedBy": "dvg25zW2MvzsvMOU",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!items.effects!lSG6t1YSAUcqSLSa.dHVu5KnHyCGVn44V"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \">\n<div class=\"description \">一支缠绕着碎裂魔力的蓝色能量长矛射向施法距离内的一个生物，并在你与目标之间生成一道持久的闪电弧。对目标生物进行一次远程法术攻击。若命中，则目标受到1d12 点闪电伤害。</div>\n<div class=\"description \">在法术持续时间内，你在每个自己的回合中可以用一个动作直接对目标造成1d12 点闪电伤害。如果你执行动作做其他任何事情，法术将随即终止。此外，如果目标离开法术的施法距离或相对你处于全身掩护状态，法术也将随即终止。</div>\n<div class=\"description \"> </div>\n<div class=\"description \">升环施法效应。</div>\n<div class=\"description \">使用2 环或更高法术位施展该法术时，你使用的法术位每比1 环高一环，法术的初始伤害就增加1d12。</div>\n</div>",
+      "value": "<p>一支缠绕着碎裂魔力的蓝色能量长矛射向施法距离内的一个生物，并在你与目标之间生成一道持久的闪电弧。对目标生物进行一次远程法术攻击。若命中，则目标受到 [[/damage 1d12 type=lightning]]{1d12} 点闪电伤害。在法术持续时间内，你在每个自己的回合中可以用一个动作直接对目标造成 1d12 点闪电伤害。如果你执行动作做其他任何事情，法术将随即终止。此外，如果目标离开法术的施法距离或相对你处于全身掩护状态，法术也将随即终止。</p><p><strong>升环施法效应。</strong>使用二环或更高法术位施展该法术时，你使用的法术位每比一环高一环，法术的初始伤害就增加 1d12。</p>",
       "chat": ""
     },
     "source": {
@@ -134,22 +238,27 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
         "type": "creature",
         "count": "1",
-        "choice": false
+        "choice": false,
+        "special": ""
       },
       "template": {
-        "units": "",
-        "contiguous": false
+        "units": "ft",
+        "contiguous": false,
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
       "value": "30",
-      "units": "ft"
+      "units": "ft",
+      "special": ""
     },
     "uses": {
       "max": "",
@@ -165,16 +274,11 @@
       "cost": 0,
       "supply": 0
     },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
-    },
     "properties": [
       "vocal",
       "somatic",
       "material",
-      "concentration",
-      "mgc"
+      "concentration"
     ],
     "activities": {
       "dnd5eactivity000": {
@@ -194,26 +298,37 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "V2r4UhEN6EbvxXsX"
+            "_id": "V2r4UhEN6EbvxXsX",
+            "uuid": null,
+            "level": {}
+          },
+          {
+            "_id": "dHVu5KnHyCGVn44V",
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -249,7 +364,7 @@
                 "formula": ""
               },
               "number": 1,
-              "denomination": "12",
+              "denomination": 12,
               "bonus": "1d6",
               "types": [
                 "lightning"
@@ -258,7 +373,8 @@
                 "mode": "whole",
                 "number": 1,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ]
         },
@@ -274,7 +390,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -282,7 +399,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -293,13 +409,27 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "attackMode": "",
@@ -307,9 +437,39 @@
         "otherActivityUuid": "",
         "name": "",
         "img": "",
-        "appliedEffects": [
-          "V2r4UhEN6EbvxXsX"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       },
       "5YER5wKK8mhs4aTp": {
         "type": "damage",
@@ -324,30 +484,37 @@
           "scaling": {
             "allowed": false
           },
-          "spellSlot": true,
+          "spellSlot": false,
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": true,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": true,
+          "units": "self",
+          "special": ""
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false,
+            "type": ""
           },
           "affects": {
-            "choice": false
+            "choice": false,
+            "type": ""
           },
-          "override": false,
+          "override": true,
           "prompt": true
         },
         "uses": {
@@ -366,11 +533,15 @@
                 "formula": ""
               },
               "number": 1,
-              "denomination": "12",
+              "denomination": 12,
               "bonus": "",
-              "types": [],
+              "modifiers": [],
+              "types": [
+                "lightning"
+              ],
               "scaling": {
-                "mode": ""
+                "mode": "",
+                "number": 1
               }
             }
           ]
@@ -386,7 +557,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -394,7 +566,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -405,20 +576,73 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "name": "",
-        "img": "",
-        "appliedEffects": []
+        "name": "持续闪电",
+        "img": "icons/magic/lightning/bolt-strike-beam-purple.webp",
+        "behaviors": [],
+        "flags": {
+          "dnd5e_classpack": {
+            "hidden": true
+          }
+        },
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": "",
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
-    "identifier": "witch-bolt"
+    "identifier": "witch-bolt",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -427,8 +651,8 @@
   "sort": 29000000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711705180432,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

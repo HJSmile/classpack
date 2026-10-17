@@ -1,15 +1,15 @@
 {
   "_id": "cbcMje3zSLozblAJ",
-  "name": "有限许愿术Limited Wish",
+  "name": "有限祈愿术Limited Wish",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/002658.png",
+  "img": "icons/magic/holy/chalice-glowing-yellow-blue.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>你祈求你的宗主，并实现你的小小愿望。以一个动作，你可以向你的@UUID[Compendium.dnd5e_classpack.extra-ability.94prCWbgDDsOtodq]{巨灵器皿}说出你的愿望，并请求实现一个6环或更低环阶的，且施法时间为1动作的法术效应。这一法术可以来自任何职业的法术列表，且你不需要满足法术材料需求，法术仅仅是作为此动作的一部分生效。</p>\n<p>你使用此特性后，你直到完成[[/r 1d4]]次长休后才能再次使用它。</p>",
+      "value": "<p>你祈求你的宗主，并实现你的小小愿望。以一个动作，你可以向你的@UUID[Compendium.dnd5e_classpack.extra-ability.94prCWbgDDsOtodq]{巨灵器皿}说出你的愿望，并请求实现一个6环或更低环阶的，且施法时间为1动作的法术效应。这一法术可以来自任何职业的法术列表，且你不需要满足该法术的任何需求，包括具有价值的材料成分，法术仅仅是作为此动作的一部分生效。</p>\n<p>你使用此特性后，你直到完成[[/r 1d4]]次长休后才能再次使用它。</p>",
       "chat": ""
     },
     "source": {
@@ -48,17 +48,19 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -70,7 +72,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -92,17 +95,105 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "limited-wish",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 14,
+      "repeatable": false,
+      "items": [
+        "subclass:the-genie"
+      ]
     },
     "properties": []
   },
@@ -110,13 +201,7 @@
   "folder": "F8vOrKy8c7vmsQAB",
   "sort": 33300000,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -136,9 +221,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757414113668,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

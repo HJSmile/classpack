@@ -24,42 +24,21 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/httpcloud3steamusercontentcomugc842586004367121393DCD7AFDB511D291B44480E4688A71887EBC98AB6.jpg",
+  "img": "icons/tools/navigation/map-marked-white-red.webp",
   "effects": [
     {
       "name": "迷宫术 Maze",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.mUBhfPyZBYYXg5Eo",
+      "origin": null,
       "duration": {
-        "rounds": null,
-        "startTime": null,
-        "seconds": 600,
-        "combat": null,
-        "turns": 100,
-        "startRound": null,
-        "startTurn": null
+        "value": 600,
+        "units": "seconds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "disabled": false,
       "_id": "cG7axpx5lhNkVaAZ",
-      "changes": [
-        {
-          "key": "flags.midi-qol.OverTime",
-          "mode": 0,
-          "value": "turn=start,rollType=check,saveAbility=int,saveDC=20,saveDamage=nodamage,saveRemove=true,saveMagic=true,actionSave=dialog,rollMode=publicroll,",
-          "priority": 20
-        }
-      ],
       "description": "",
       "transfer": false,
       "statuses": [],
@@ -70,34 +49,15 @@
           "selfTargetAlways": false,
           "dontApply": false,
           "stackable": "noneName",
-          "showIcon": true,
           "durationExpression": "",
           "macroRepeat": "none",
           "specialDuration": [],
           "enableCondition": "",
-          "disableCondition": ""
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
+          "disableCondition": "",
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
@@ -105,9 +65,9 @@
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1756657887924,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
@@ -115,16 +75,44 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/httpcloud3steamusercontentcomugc842586004367121393DCD7AFDB511D291B44480E4688A71887EBC98AB6.jpg",
+      "img": "icons/tools/navigation/map-marked-white-red.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.OverTime",
+            "value": "turn=start,rollType=check,saveAbility=int,saveDC=20,saveDamage=nodamage,saveRemove=true,saveMagic=true,actionSave=dialog,rollMode=publicroll,",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "Xh3l3FHdBmBC3O5G",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.mUBhfPyZBYYXg5Eo",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 2,
+      "folder": null,
       "_key": "!items.effects!mUBhfPyZBYYXg5Eo.cG7axpx5lhNkVaAZ"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你将施法距离内一个你能看见的生物放逐到一个迷宫般错综复杂的半位面。目标将一直留在该处直至法术持续时间结束，或者直到它逃出该迷宫。\n<br />目标可以使用其动作尝试逃出迷宫。此时它可以进行一次DC20的智力检定，检定成功者将逃出迷宫，而该法术随之终止。\n<br />牛头人和巨牛魔进行该检定时直接成功。\n<br />法术终止时，目标将重新出现在它之前消失的位置。如果该位置被占据，则目标出现在最近的未占据位置。\n<br /></div>",
+      "value": "<p>你将施法距离内一个你能看见的生物放逐到一个迷宫般错综复杂的半位面。目标将一直留在该处直至法术持续时间结束，或者直到它逃出该迷宫。</p><p>目标可以使用其动作尝试逃出迷宫。此时它可以进行一次 DC20 的智力检定，检定成功者将逃出迷宫，而该法术随之终止。牛头人和巨牛魔进行该检定时直接成功。</p><p>法术终止时，目标将重新出现在它之前消失的位置。如果该位置被占据，则目标出现在最近的未占据位置。</p>",
       "chat": ""
     },
     "source": {
@@ -140,7 +128,8 @@
     },
     "duration": {
       "value": "10",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -150,9 +139,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -173,10 +163,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -202,26 +188,43 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "cG7axpx5lhNkVaAZ"
+            "_id": "cG7axpx5lhNkVaAZ",
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": 1756657887924,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -251,7 +254,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -259,7 +263,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -270,18 +273,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "maze"
+    "identifier": "maze",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -290,8 +341,8 @@
   "sort": 18400000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711701705339,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

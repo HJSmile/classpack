@@ -11,7 +11,7 @@
       "revision": 1
     },
     "description": {
-      "value": "<div class=\"rd__b  rd__b--3\"><div><div class=\"rd__b  rd__b--2\"><div data-roll-name-ancestor=\"Size\" class=\"rd__b  rd__b--3\"><p><span style=\"font-family:Arial, Helvetica, sans-serif\">以一个附赠动作，你能用你的脚操纵一个物件、打开或关上一扇门或容器、或是捡起或放下一个微型物件。</span></p></div></div></div><p>As a bonus action, you can use your feet to manipulate an object, open or close a door or container, or pick up or set down a Tiny object.</p></div>",
+      "value": "<div data-roll-name-ancestor=\"Size\"><p>以一个附赠动作，你能用你的脚操纵一个物件、打开或关上一扇门或容器、或是捡起或放下一个微型物件。</p></div><p>As a bonus action, you can use your feet to manipulate an object, open or close a door or container, or pick up or set down a Tiny object.</p>",
       "chat": ""
     },
     "requirements": "Hadozee",
@@ -25,7 +25,7 @@
       "subtype": ""
     },
     "properties": [],
-    "advancement": [],
+    "advancement": {},
     "activities": {
       "TPcZ3FWRaoNssySQ": {
         "_id": "TPcZ3FWRaoNssySQ",
@@ -42,20 +42,25 @@
           "spellSlot": true,
           "targets": []
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -83,7 +88,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -91,7 +97,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -102,15 +107,61 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "dexterous-feet",
@@ -119,10 +170,11 @@
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     }
   },
-  "img": "modules/plutonium/media/icon/family-tree.svg",
+  "img": "icons/commodities/biological/foot-black-grey.webp",
   "flags": {
     "plutonium": {
       "page": "raceFeature",
@@ -131,10 +183,7 @@
     },
     "dnd5e": {
       "sourceId": ".j1YSXPvsPmspZkSC",
-      "advancementOrigin": "5aTMTCMrc9NmizeY.e0bkzgFa28sqA10W",
-      "riders": {
-        "activity": []
-      }
+      "advancementOrigin": "5aTMTCMrc9NmizeY.e0bkzgFa28sqA10W"
     },
     "midi-qol": {
       "rollAttackPerTarget": "default",
@@ -158,9 +207,9 @@
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1754661391565,
     "modifiedTime": 1754661428283,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

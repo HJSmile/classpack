@@ -12,7 +12,7 @@
       "revision": 1
     },
     "description": {
-      "value": "<div class=\"rd__b  rd__b--3\"><div><div class=\"rd__b  rd__b--2\"><div data-roll-name-ancestor=\"Creature Type\" class=\"rd__b  rd__b--3\"><p><span style=\"font-family:Arial, Helvetica, sans-serif\">你的身体有着由薄金属或其他的耐用材料制成的外壳。若你未穿着护甲，你的基础护甲等级变为 13+你的敏捷调整值。</span></p></div></div></div><p>You are encased in thin metal or some other durable material. While you aren't wearing armor, your base Armor Class is 13 + your Dexterity modifier.</p></div>",
+      "value": "<div data-roll-name-ancestor=\"Creature Type\"><p>你的身体有着由薄金属或其他的耐用材料制成的外壳。若你未穿着护甲，你的基础护甲等级变为 13+你的敏捷调整值。</p></div><p>You are encased in thin metal or some other durable material. While you aren't wearing armor, your base Armor Class is 13 + your Dexterity modifier.</p>",
       "chat": ""
     },
     "requirements": "Autognome",
@@ -26,7 +26,7 @@
       "subtype": ""
     },
     "properties": [],
-    "advancement": [],
+    "advancement": {},
     "activities": {},
     "identifier": "armored-casing",
     "cover": null,
@@ -34,14 +34,15 @@
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     }
   },
   "ownership": {
     "default": 0,
     "qKmljmeCDhGDkX2L": 3
   },
-  "img": "modules/plutonium/media/icon/family-tree.svg",
+  "img": "icons/magic/defensive/armor-shield-barrier-steel.webp",
   "flags": {
     "plutonium": {
       "page": "raceFeature",
@@ -50,10 +51,7 @@
     },
     "dnd5e": {
       "sourceId": ".ERu9rtF1JJXfwnSq",
-      "advancementOrigin": "y6NPeywcqkjVzKyM.0KzwB4iXa11LQqHX",
-      "riders": {
-        "activity": []
-      }
+      "advancementOrigin": "y6NPeywcqkjVzKyM.0KzwB4iXa11LQqHX"
     },
     "midi-qol": {
       "rollAttackPerTarget": "default",
@@ -84,33 +82,16 @@
     {
       "_id": "9O0XFxHvNPGtOmXQ",
       "name": "Armored Casing",
-      "img": "modules/plutonium/media/icon/family-tree.svg",
+      "img": "icons/magic/defensive/armor-shield-barrier-steel.webp",
       "description": "",
-      "changes": [
-        {
-          "key": "system.attributes.ac.calc",
-          "mode": 5,
-          "value": "custom",
-          "priority": 4
-        },
-        {
-          "key": "system.attributes.ac.formula",
-          "mode": 5,
-          "value": "13 + @abilities.dex.mod",
-          "priority": 4
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": 1632,
-        "seconds": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": 3,
-        "startTurn": 0,
-        "combat": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
-      "origin": "Actor.aYAJq5f5bQ2rhZ8V.Item.ERu9rtF1JJXfwnSq",
+      "origin": null,
       "transfer": true,
       "flags": {
         "plutonium": {
@@ -118,30 +99,75 @@
         }
       },
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.ac.calc",
+            "value": "custom",
+            "priority": 4,
+            "type": "override",
+            "phase": "initial",
+            "_id": "sOJ2WmqAh8qPp3ZG",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.attributes.ac.formula",
+            "value": "13 + @abilities.dex.mod",
+            "priority": 4,
+            "type": "override",
+            "phase": "initial",
+            "_id": "4GeQXD4RBwQPkS3g",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Actor.aYAJq5f5bQ2rhZ8V.Item.ERu9rtF1JJXfwnSq",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "tint": "#ffffff",
       "statuses": [],
       "sort": 0,
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
         "exportSource": null
       },
+      "start": {
+        "combat": null,
+        "round": 3,
+        "time": 1632,
+        "turn": 0,
+        "combatant": null,
+        "initiative": null
+      },
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!QzRX9x9xqAAo1wOn.9O0XFxHvNPGtOmXQ"
     }
   ],
   "_stats": {
     "compendiumSource": "Actor.aYAJq5f5bQ2rhZ8V.Item.ERu9rtF1JJXfwnSq",
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1754658815962,
     "modifiedTime": 1754658886969,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

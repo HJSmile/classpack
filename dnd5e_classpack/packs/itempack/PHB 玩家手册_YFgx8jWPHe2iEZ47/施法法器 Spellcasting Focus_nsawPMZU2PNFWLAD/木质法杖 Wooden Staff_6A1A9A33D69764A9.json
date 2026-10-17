@@ -32,17 +32,11 @@
       "idv": false,
       "ida": false
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
-      "value": "<p>从活树上折下的粗糙多瘤或天然光滑的法杖，那些听从自然呼唤的人能用它运用自然的强大力量。</p>\n<p>德鲁伊法器可以是一枝槲寄生或冬青，一根用紫衫木或其它特殊木材制作的魔杖或节杖，一根从活树上折下的法杖或是一个包含神圣动物身上的羽毛、毛皮、骨头和牙齿组合成的图腾。</p>\n<p><strong>法器。</strong>德鲁伊法器是一件用来引导德鲁伊法术的特殊物品。德鲁伊能将这样的物品用作其施法的法器。</p>",
+      "value": "<p>从活树上折下的粗糙多瘤或天然光滑的法杖，那些听从自然呼唤的人能用它运用自然的强大力量。</p><p>德鲁伊法器可以是一枝槲寄生或冬青，一根用紫衫木或其它特殊木材制作的魔杖或节杖，一根从活树上折下的法杖或是一个包含神圣动物身上的羽毛、毛皮、骨头和牙齿组合成的图腾。</p><h3>法器。</h3><p>德鲁伊法器是一件用来引导德鲁伊法术的特殊物品。德鲁伊能将这样的物品用作其施法的法器。</p>",
       "chat": ""
     },
     "source": {
@@ -62,10 +56,8 @@
     },
     "attunement": "",
     "equipped": false,
-    "rarity": "",
     "identified": true,
     "cover": null,
-    "crewed": false,
     "range": {
       "value": null,
       "long": null,
@@ -91,7 +83,8 @@
           "mode": "",
           "number": null,
           "formula": ""
-        }
+        },
+        "modifiers": []
       },
       "base": {
         "number": 1,
@@ -108,7 +101,8 @@
           "mode": "",
           "number": null,
           "formula": ""
-        }
+        },
+        "modifiers": []
       }
     },
     "armor": {
@@ -134,7 +128,6 @@
       "baseItem": "quarterstaff"
     },
     "container": null,
-    "magicalBonus": null,
     "activities": {
       "dnd5eactivity000": {
         "_id": "dnd5eactivity000",
@@ -154,14 +147,16 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -177,7 +172,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -212,18 +208,112 @@
           "includeBase": true,
           "parts": []
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackMode": "oneHanded",
+        "ammunition": "",
+        "otherActivityUuid": "",
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       }
     },
     "identifier": "-wooden-staff",
     "attuned": false,
     "ammunition": {},
-    "mastery": ""
+    "mastery": "",
+    "rarities": [],
+    "crew": {
+      "value": []
+    }
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1713010439659,
     "modifiedTime": 1757688978128,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

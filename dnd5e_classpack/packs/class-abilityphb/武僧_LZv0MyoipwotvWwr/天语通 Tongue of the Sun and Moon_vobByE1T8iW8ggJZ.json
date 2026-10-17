@@ -2,7 +2,7 @@
   "_id": "vobByE1T8iW8ggJZ",
   "name": "天语通 Tongue of the Sun and Moon",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Monk_ZenMeditation.png",
+  "img": "icons/magic/time/day-night-sunset-sunrise.webp",
   "system": {
     "type": {
       "value": "class",
@@ -25,45 +25,37 @@
     "requirements": "武僧等级 13",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 13,
+      "repeatable": false,
+      "items": [
+        "class:monk"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "_id": "qyiCcAQ7FzlOIbFC",
-      "changes": [
-        {
-          "key": "system.traits.languages.custom",
-          "mode": 2,
-          "value": ";理解所有语言",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": "Compendium.dnd5e_classpack.class-abilityphb.vobByE1T8iW8ggJZ",
       "transfer": true,
       "flags": {},
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -72,12 +64,40 @@
         "exportSource": null
       },
       "name": "习得所有语言、获得心灵交流",
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Monk_ZenMeditation.png",
+      "img": "icons/magic/time/day-night-sunset-sunrise.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.languages.custom",
+            "value": ";理解所有语言",
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "pevdOzHQBWdg09J3",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!vobByE1T8iW8ggJZ.qyiCcAQ7FzlOIbFC"
     }
   ],
@@ -88,12 +108,7 @@
     "entityorder": {
       "order": 171
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -113,9 +128,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757172502477,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

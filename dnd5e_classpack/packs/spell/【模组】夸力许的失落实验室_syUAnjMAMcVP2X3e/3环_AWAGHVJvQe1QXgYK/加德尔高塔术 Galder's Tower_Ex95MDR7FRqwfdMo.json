@@ -4,7 +4,7 @@
   "img": "icons/environment/settlement/watchtower-silhouette-yellow.webp",
   "system": {
     "description": {
-      "value": "<p>    你召唤一座两层的石制，木制，或其他合适建筑材料所制成的塔楼。塔的形状既可以是圆形也可以为方形。塔的每层有10尺高并有着最高100平方的面积。层与层之间的通道有一个简单的梯子与舱口组成。当你施法时，每一层有以下形式供你选择。</p><ul><li><p>有床，椅子，柜子和魔法壁炉的卧室</p></li><li><p>有书桌，书，书架，羊皮纸，墨水和墨水笔的书房</p></li><li><p>有餐桌、椅子、魔法壁炉、容器和炊具的用餐处</p></li><li><p>有沙发、扶手椅、边桌和脚凳的休息室</p></li><li><p>有厕所、浴缸、魔法火盆和桑拿椅的卫生间</p></li><li><p>有望远镜和夜空地图的天文台</p></li><li><p>一间没有家具的空房间</p></li></ul><p>    塔的内部温暖而又干燥，且不受外部环境影响。任何随塔一同召唤的家具或设备如果被挪出塔外便会化为烟雾。法术结束时，与该法术无关的一切生物或物件将安全地出现在室外的地面上，且塔与其中家具的一切痕迹都将消失。</p><p>   你可以在法术持续时再次施展该法术来将塔的存在延长24小时。在一年的时间内，你可以通过每天在相同的位置并以同样的配置来施放这个法术来创造一个永久塔。</p><p><strong>升环施法效应。</strong>使用4环或更高法术位施展该法术时，你的法术位每比3环高一环，召唤的塔可以多一层。</p>",
+      "value": "<p>你召唤一座两层的石制，木制，或其他合适建筑材料所制成的塔楼。塔的形状既可以是圆形也可以为方形。塔的每层有10尺高并有着最高100平方的面积。层与层之间的通道有一个简单的梯子与舱口组成。当你施法时，每一层有以下形式供你选择：</p><ul><li>有床，椅子，柜子和魔法壁炉的卧室</li><li>有书桌，书，书架，羊皮纸，墨水和墨水笔的书房</li><li>有餐桌、椅子、魔法壁炉、容器和炊具的用餐处</li><li>有沙发、扶手椅、边桌和脚凳的休息室</li><li>有厕所、浴缸、魔法火盆和桑拿椅的卫生间</li><li>有望远镜和夜空地图的天文台</li><li>一间没有家具的空房间</li></ul><p>塔的内部温暖而又干燥，且不受外部环境影响。任何随塔一同召唤的家具或设备如果被挪出塔外便会化为烟雾。法术结束时，与本法术无关的一切生物或物件将安全地出现在室外的地面上，且塔与其中家具的一切痕迹都将消失。</p><p>你可以在法术持续时再次施放本法术来将塔的存在延长24小时。在一年的时间内，你可以通过每天在相同的位置并以同样的配置来施放这个法术来创造一个永久塔。</p><p><strong>升环施法效应。</strong>当你使用四环或更高法术位施放本法术时，使用的法术位每比三环高一环，召唤的塔就可以多一层。</p>",
       "chat": ""
     },
     "source": {
@@ -19,7 +19,8 @@
     },
     "duration": {
       "value": "24",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -27,9 +28,10 @@
         "type": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -49,10 +51,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -78,22 +76,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -123,7 +125,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -131,7 +134,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -142,18 +144,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "galders-tower"
+    "identifier": "galders-tower",
+    "method": "spell",
+    "prepared": 0
   },
   "effects": [],
   "flags": {
@@ -178,17 +228,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_id": "Ex95MDR7FRqwfdMo",
   "folder": "AWAGHVJvQe1QXgYK",
@@ -198,8 +238,8 @@
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757235114937,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

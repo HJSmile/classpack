@@ -28,25 +28,13 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/ability_warlock_whiplash.png",
+  "img": "icons/sundries/survival/rope-wrapped-purple.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你触碰一段长度不超过60尺的绳子。绳的一端会向上升起，直到整条绳索都垂直于地面挂在空中。绳子的上端存在一个隐形的入口，其通往一个法术持续时间内一直存在的异次元空间。\n<br />该异次元空间可以从绳子的顶端进入，其内至多可容纳八个中型或更小的生物。魔绳可以被拉回到此空间里，此时从异次元空间外面就再看不到这条绳索。\n<br />攻击和法术都无法从异次元空间的入口进出，但空间内的生物可以通过入口看到外面的景象，就如同在绳索的位置有一个3尺×5尺大小的窗口一样。\n<br />法术终止时，异次元空间内的一切东西都会掉出来。\n<br /></div>",
+      "value": "<p>你触碰一段长度不超过 60 尺的绳子。绳的一端会向上升起，直到整条绳索都垂直于地面挂在空中。绳子的上端存在一个隐形的入口，其通往一个法术持续时间内一直存在的异次元空间。</p><p>该异次元空间可以从绳子的顶端进入，其内至多可容纳八个中型或更小的生物。魔绳可以被拉回到此空间里，此时从异次元空间外面就再看不到这条绳索。</p><p>攻击和法术都无法从异次元空间的入口进出，但空间内的生物可以通过入口看到外面的景象，就如同在绳索的位置有一个 3 尺×5 尺大小的窗口一样。</p><p>法术终止时，异次元空间内的一切东西都会掉出来。</p>",
       "chat": ""
     },
     "source": {
@@ -62,7 +50,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -74,7 +63,8 @@
       "template": {
         "units": "spec",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -94,10 +84,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -123,22 +109,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -168,7 +158,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -176,7 +167,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -187,18 +177,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "rope-trick"
+    "identifier": "rope-trick",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -207,8 +245,8 @@
   "sort": 20200000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757419719404,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

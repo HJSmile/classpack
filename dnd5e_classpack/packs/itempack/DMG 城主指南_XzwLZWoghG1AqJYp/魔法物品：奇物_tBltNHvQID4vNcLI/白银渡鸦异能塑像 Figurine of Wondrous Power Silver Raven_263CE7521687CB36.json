@@ -31,18 +31,11 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
-      "value": "<p><em>奇物</em></p>\n<p>异能塑像是小到可以装在口袋里的野兽雕像。当你用一个动作说出命令字并把雕像扔到你周围60尺以内的某处时，它将变成一只活的生物。如果雕像被扔到的地方被其他生物或物品占据，或者周围的空间不足以容纳雕像变成的生物，则它不会变成生物。</p>\n<p>雕像变成的生物对你和你的同伴友善。它能听懂你的语言并且按你的口头命令行事。如果你不下达任何命令，该生物会保护自己而不采取其他行动。生物数据见怪物图鉴。</p>\n<p>生物存在的时间依雕像而不同。持续时间结束时，生物变回异能塑像形态。如果它的HP降至0，或是你用一个动作碰触它并说出命令字，那么它会提前变回雕像。变回雕像后，异能塑像的特性必须经过一段时间后才能再次启动，时间长短依雕像种类而不同。</p>\n<p><strong>白银渡鸦（非普通）。</strong>这个银制渡鸦雕像可以变为一只@UUID[Compendium.dnd5e_classpack.monsterspack.LPdX5YLlwci0NDZx]{渡鸦}达12小时。你可以对渡鸦形态的此雕像随意施展@UUID[Compendium.dnd5e_classpack.spell.9IngOEqWWDsYnzCJ]{动物信使 Animal Messenger}。使用后，此雕像需要经过2天才能再次启动。</p>",
+      "value": "<p><em>奇物</em></p><p>异能塑像是小到可以装在口袋里的野兽雕像。当你用一个动作说出命令字并把雕像扔到你周围60尺以内的某处时，它将变成一只活的生物。如果雕像被扔到的地方被其他生物或物品占据，或者周围的空间不足以容纳雕像变成的生物，则它不会变成生物。</p><p>雕像变成的生物对你和你的同伴友善。它能听懂你的语言并且按你的口头命令行事。如果你不下达任何命令，该生物会保护自己而不采取其他行动。生物数据见怪物图鉴。</p><p>生物存在的时间依雕像而不同。持续时间结束时，生物变回异能塑像形态。如果它的HP降至0，或是你用一个动作碰触它并说出命令字，那么它会提前变回雕像。变回雕像后，异能塑像的特性必须经过一段时间后才能再次启动，时间长短依雕像种类而不同。</p><h3>白银渡鸦（非普通）。</h3><p>这个银制渡鸦雕像可以变为一只@UUID[Compendium.dnd5e_classpack.monsterspack.LPdX5YLlwci0NDZx]{渡鸦}达12小时。你可以对渡鸦形态的此雕像随意施展@UUID[Compendium.dnd5e_classpack.spell.9IngOEqWWDsYnzCJ]{动物信使 Animal Messenger}。使用后，此雕像需要经过2天才能再次启动。</p>",
       "chat": ""
     },
     "source": {
@@ -62,7 +55,6 @@
     },
     "attunement": "",
     "equipped": false,
-    "rarity": "uncommon",
     "identified": true,
     "uses": {
       "max": "1",
@@ -80,7 +72,8 @@
         },
         "scaling": {
           "number": 1
-        }
+        },
+        "modifiers": []
       },
       "replace": false
     },
@@ -92,7 +85,6 @@
       "subtype": ""
     },
     "container": null,
-    "magicalBonus": null,
     "properties": [
       "mgc"
     ],
@@ -125,14 +117,16 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "12",
           "units": "hour",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -149,7 +143,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "2.5",
@@ -171,7 +166,92 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       },
       "dnd5eactivity100": {
         "_id": "dnd5eactivity100",
@@ -201,14 +281,16 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "12",
           "units": "hour",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -225,7 +307,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "2.5",
@@ -243,7 +326,10 @@
         },
         "damage": {
           "onSave": "half",
-          "parts": []
+          "parts": [],
+          "critical": {
+            "allow": false
+          }
         },
         "save": {
           "ability": [
@@ -252,18 +338,108 @@
           "dc": {
             "calculation": "",
             "formula": "15"
-          }
+          },
+          "visible": true
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
     "identifier": "-figurine-of-wondrous-power-silver-raven",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "uncommon"
+    ]
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1713010438952,
     "modifiedTime": 1757871114807,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

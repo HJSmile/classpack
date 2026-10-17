@@ -2,14 +2,14 @@
   "_id": "aIXN1FpSuEH3Midz",
   "name": "自然之护 Nature’s Ward",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Druid_Cyclone.png",
+  "img": "icons/commodities/flowers/lotus-pink.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>第10级起，你免疫元素生物或精类生物造成的魅惑或恐慌状态，并且免疫中毒和疾病。</p>",
+      "value": "<p>第10级起，你免疫元素生物或妖精造成的魅惑或&amp;Reference[condition=frightened apply=false]{恐慌}状态，并且免疫&amp;Reference[condition=poisoned apply=false]{中毒}和疾病。</p>",
       "chat": ""
     },
     "source": {
@@ -25,44 +25,30 @@
     "requirements": "大地结社等级 10",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 10,
+      "repeatable": false,
+      "items": [
+        "subclass:circle-of-the-land"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "_id": "UkGE1b9xNjD3rsHc",
-      "changes": [
-        {
-          "key": "system.traits.ci.value",
-          "mode": 2,
-          "value": "poisoned",
-          "priority": 20
-        },
-        {
-          "key": "system.traits.ci.value",
-          "mode": 2,
-          "value": "diseased",
-          "priority": 20
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.aIXN1FpSuEH3Midz",
+      "origin": null,
       "transfer": true,
       "flags": {
         "dae": {
@@ -82,9 +68,9 @@
       "description": "",
       "statuses": [],
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -92,10 +78,48 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Druid_Cyclone.png",
+      "img": "icons/commodities/flowers/lotus-pink.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.ci.value",
+            "value": "poisoned",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "X8RVhSFOnofF4A6A",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.ci.value",
+            "value": "diseased",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "74zvQ27rxMOQ72s2",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.aIXN1FpSuEH3Midz",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!aIXN1FpSuEH3Midz.UkGE1b9xNjD3rsHc"
     }
   ],
@@ -130,17 +154,12 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1725697670500,
     "modifiedTime": 1757407650518,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

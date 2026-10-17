@@ -12,7 +12,7 @@
       "revision": 1
     },
     "description": {
-      "value": "<div class=\"rd__b  rd__b--2\"><p><em>护甲（胸甲），珍稀（需同调）</em><br />这件抛光的铜胸甲看起来像是由互锁的齿轮交错而成的，其胸前饰有天平的图案。这套护甲有4发充能。着装护甲期间，你可以通过以下方式消耗充能：<br /><em><strong>均衡Equalize。</strong></em>当你或距你60尺内的可见生物即将以优势或劣势进行[[/r d20]]掷骰时，你可以用一个反应消耗1发充能使这次掷骰免受优势或劣势的影响。<br /><em><strong>抹除不均Expunge Imbalance。</strong></em>以一个附赠动作，你可以消耗2发充能用护甲施放<em>@UUID[Compendium.dnd5e_classpack.spell.Item.I1C2EQxwynPd7dOC]{次级复原术 Lesser Restoration}</em>。<br />护甲在每个黎明时恢复[[/r 1d4]]发已消耗的充能。</p><p>This burnished copper breastplate looks as if it were made of interlocking gears. Merchant's scales are emblazoned across the chest.</p><p>The armor has 4 charges. You can use the charges in the following ways while wearing the armor:</p><ul class=\"rd__list rd__list-hang-notitle\"><li class=\"rd__li \"><p class=\"rd__p-list-item\" data-roll-name-ancestor=\"Equalize\"><span class=\"bold rd__list-item-name\">Equalize.</span> When you or a creature you can see within 60 feet of yourself is about to roll a [[/r d20]] with advantage or disadvantage, you can expend 1 charge and take a reaction to prevent the roll from being affected by advantage or disadvantage.</p></li><li class=\"rd__li \"><p class=\"rd__p-list-item\" data-roll-name-ancestor=\"Expunge Imbalance\"><span class=\"bold rd__list-item-name\">Expunge Imbalance.</span> As a bonus action, you can expend 2 charges to cast the @spell[Lesser Restoration] spell from the armor.</p></li></ul><p>The armor regains [[/r 1d4]] expended charges daily at dawn.</p><p>This armor consists of a fitted metal chest piece worn with supple leather. Although it leaves the legs and arms relatively unprotected, this armor provides good protection for the wearer's vital organs while leaving the wearer relatively unencumbered.</p></div>",
+      "value": "<p><em>护甲（胸甲），珍稀（需同调）</em></p><p>这件抛光的铜胸甲看起来像是由互锁的齿轮交错而成的，其胸前饰有天平的图案。这套护甲有4发充能。着装护甲期间，你可以通过以下方式消耗充能：</p><p><em><strong>均衡Equalize。</strong></em>当你或距你60尺内的可见生物即将以优势或劣势进行[[/r d20]]掷骰时，你可以用一个反应消耗1发充能使这次掷骰免受优势或劣势的影响。</p><p><em><strong>抹除不均Expunge Imbalance。</strong></em>以一个附赠动作，你可以消耗2发充能用护甲施放<em>@UUID[Compendium.dnd5e_classpack.spell.Item.I1C2EQxwynPd7dOC]{次级复原术 Lesser Restoration}</em>。</p><p>护甲在每个黎明时恢复[[/r 1d4]]发已消耗的充能。</p><p>This burnished copper breastplate looks as if it were made of interlocking gears. Merchant's scales are emblazoned across the chest.</p><p>The armor has 4 charges. You can use the charges in the following ways while wearing the armor:</p><ul><li><p data-roll-name-ancestor=\"Equalize\"><span class=\"bold\">Equalize.</span> When you or a creature you can see within 60 feet of yourself is about to roll a [[/r d20]] with advantage or disadvantage, you can expend 1 charge and take a reaction to prevent the roll from being affected by advantage or disadvantage.</p></li><li><p data-roll-name-ancestor=\"Expunge Imbalance\"><span class=\"bold\">Expunge Imbalance.</span> As a bonus action, you can expend 2 charges to cast the @spell[Lesser Restoration] spell from the armor.</p></li></ul><p>The armor regains [[/r 1d4]] expended charges daily at dawn.</p><p>This armor consists of a fitted metal chest piece worn with supple leather. Although it leaves the legs and arms relatively unprotected, this armor provides good protection for the wearer's vital organs while leaving the wearer relatively unencumbered.</p>",
       "chat": ""
     },
     "proficient": null,
@@ -28,7 +28,6 @@
     "attuned": true,
     "identified": true,
     "equipped": true,
-    "rarity": "rare",
     "type": {
       "value": "medium",
       "baseItem": "breastplate"
@@ -51,7 +50,7 @@
     "armor": {
       "value": 14,
       "dex": 2,
-      "magicalBonus": 0
+      "magicalBonus": "0"
     },
     "strength": null,
     "activities": {
@@ -77,19 +76,24 @@
             }
           ]
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -103,8 +107,6 @@
         },
         "spell": {
           "challenge": {
-            "attack": null,
-            "save": null,
             "override": false
           },
           "level": null,
@@ -128,7 +130,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -136,7 +139,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -147,13 +149,58 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
         }
       }
     },
@@ -163,7 +210,12 @@
     },
     "container": null,
     "cover": null,
-    "crewed": false
+    "rarities": [
+      "rare"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "img": "icons/equipment/chest/breastplate-collared-steel-grey.webp",
   "ownership": {
@@ -193,16 +245,17 @@
       "noConcentrationCheck": false,
       "toggleEffect": false,
       "ignoreTotalCover": false
-    }
+    },
+    "dnd5e": {}
   },
   "effects": [],
   "folder": "4TOAfkeg3rPfaVef",
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1751738836954,
     "modifiedTime": 1751738836954,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

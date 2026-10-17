@@ -2,7 +2,7 @@
   "_id": "nFxBGG5SqcoUb0vA",
   "name": "高效猎人防术: 反射闪避 Superior Hunter's Defense: Evasion",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Priest_PathofDevout.png",
+  "img": "icons/skills/movement/figure-running-gray.webp",
   "system": {
     "description": {
       "value": "<p>当你作为目标受某个区域效应影响时（比如@UUID[Compendium.dnd5e_classpack.monsterspack.ZyIBOoZZD0nDaO2s]{红龙}的火焰吐息或是法术@UUID[Compendium.dnd5e_classpack.spell.dHg72reVMXYFu4lR]{闪电束 Lightning Bolt}），如果该效应需要你通过敏捷豁免来使伤害减半，则当你豁免成功时不再受到伤害，豁免失败则只受一半伤害。</p>",
@@ -26,40 +26,55 @@
     "requirements": "猎人等级 15",
     "activities": {},
     "identifier": "-",
-    "advancement": [],
+    "advancement": {},
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
   "effects": [
     {
       "name": "高效猎人防术: 反射闪避 Superior Hunter’s Defense: Evasion",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Priest_PathofDevout.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.nFxBGG5SqcoUb0vA",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "origin": null,
       "_id": "UMmmXAaCyf3Ys9GP",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.superSaver.dex",
-          "mode": 2,
-          "value": "+1",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.superSaver.dex",
+            "value": "(workflow?.saveActivity ?? activity)?.damage?.onSave === \"half\"",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "4qbfmPNdlQZIPFz6",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.nFxBGG5SqcoUb0vA",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -74,45 +89,30 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757097608618,
         "modifiedTime": 1757097621487,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!nFxBGG5SqcoUb0vA.UMmmXAaCyf3Ys9GP"
     }
   ],
@@ -123,12 +123,7 @@
     "entityorder": {
       "order": 107
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -158,9 +153,9 @@
     "default": 0
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757099644150,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

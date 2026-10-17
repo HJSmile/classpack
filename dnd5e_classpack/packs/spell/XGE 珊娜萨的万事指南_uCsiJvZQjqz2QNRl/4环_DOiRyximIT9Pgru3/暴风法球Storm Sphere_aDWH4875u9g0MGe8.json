@@ -2,80 +2,52 @@
   "type": "spell",
   "system": {
     "description": {
-      "value": "<p><span style=\"font-family:Arial, Helvetica, sans-serif\">你选择以在施法距离内的一点，以那点为中心出现一个由强风构成的 20 尺半径的球体。该球体将在法术的持续时间内持续存在。在球体出现时，身处其中的生物均必须通过一次力量豁免，豁免失败将受到 2d6 点钝击伤害。若生物在球体内结束其回合，则也需要进行这一力量豁免。球体内部的空间视为困难地形。<br style=\"color:rgb(0, 0, 0);font-family:Arial, Helvetica, sans-serif;font-size:medium;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\" />直至法术结束前，你可以在每个你的回合中使用一个附赠动作，令球体中心射出一发闪电，攻击距中心不超过 60 尺范围内的生物。进行一次远程法术攻击，如果攻击目标在球体内，这次攻击检定具有优势。若击中，目标受到 4d6 点闪电伤害。<br style=\"color:rgb(0, 0, 0);font-family:Arial, Helvetica, sans-serif;font-size:medium;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\" />在球体周围 30 尺范围内的生物为聆听所做的感知（察觉）检定具有劣势。<br style=\"color:rgb(0, 0, 0);font-family:Arial, Helvetica, sans-serif;font-size:medium;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\" /><strong style=\"color:rgb(0, 0, 0);font-family:Arial, Helvetica, sans-serif;font-size:medium;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\">升环施法效应：</strong>当你使用五环或更高的法术位施放该法术时，使用的法术位每高一环，所有效应产生的伤害便各增加 1d6。</span></p><p>If you use \"Tidy 5e Sheet\" it will automatically be favorited.</p><p>If you use \"Custom Character Sheet Sections\" it will be in it's own section called \"Spell Features.\"</p><p><em>This spell is safe to rename.</em></p>",
+      "value": "<p>你选择以在施法距离内的一点，以那点为中心出现一个由强风构成的 20 尺半径的球体。该球体将在法术的持续时间内持续存在。在球体出现时，身处其中的生物均必须通过一次[[/save activity=bsxBqmB55koA2xB3]]{力量豁免}，豁免失败将受到 [[/damage 2d6 type=bludgeoning]]{2d6} 点钝击伤害。若生物在球体内结束其回合，则也需要进行这一力量豁免。球体内部的空间视为困难地形。</p><p>直至法术结束前，你可以在每个你的回合中使用一个附赠动作，令球体中心射出一发闪电，攻击距中心不超过 60 尺范围内的生物。进行一次远程法术攻击，如果攻击目标在球体内，这次攻击检定具有优势。若击中，目标受到 [[/damage 4d6 type=lightning]]{4d6} 点闪电伤害。</p><p>在球体周围 30 尺范围内的生物为聆听所做的[[/check ability=wis skill=prc]]{感知（察觉）检定}具有劣势。</p><p><strong>升环施法效应。</strong>当你使用五环或更高的法术位施放该法术时，使用的法术位每高一环，所有效应产生的伤害便各增加 1d6。</p>",
       "chat": ""
     },
     "source": {
       "custom": "Elemental Evil Player's Companion pg 166",
       "book": "XGE",
       "page": "",
-      "license": ""
+      "license": "",
+      "revision": 1,
+      "rules": "2014"
     },
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
+      "condition": "",
+      "value": 1
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
-    "cover": null,
-    "crewed": false,
     "target": {
-      "value": 20,
-      "width": null,
-      "units": "ft",
-      "type": "sphere",
-      "prompt": true,
       "affects": {
-        "type": ""
+        "type": "",
+        "choice": false
       },
       "template": {
-        "count": ""
+        "count": "",
+        "units": "ft",
+        "type": "sphere",
+        "size": "20",
+        "contiguous": false,
+        "stationary": false
       }
     },
     "range": {
-      "value": 150,
-      "long": null,
+      "value": "150",
       "units": "ft",
       "special": ""
     },
     "uses": {
-      "value": null,
       "max": "",
-      "per": null,
-      "recovery": "",
-      "prompt": true
-    },
-    "consume": {
-      "type": "",
-      "target": "",
-      "amount": null,
-      "scale": false
+      "spent": 0,
+      "recovery": []
     },
     "ability": "",
-    "actionType": "save",
-    "chatFlavor": "[2d8 - bludgeoning] Each creature in the sphere when it appears or that ends its turn there, [4d6 - lightning] On a ranged spell attack hit",
-    "critical": {
-      "threshold": null,
-      "damage": ""
-    },
-    "damage": {
-      "parts": [
-        [
-          "2d8[bludgeoning]",
-          "bludgeoning"
-        ]
-      ],
-      "versatile": ""
-    },
-    "formula": "",
-    "save": {
-      "ability": "str",
-      "dc": null,
-      "scaling": "spell"
-    },
     "level": 4,
     "school": "evo",
     "materials": {
@@ -84,25 +56,12 @@
       "cost": 0,
       "supply": 0
     },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": true
-    },
-    "scaling": {
-      "mode": "level",
-      "formula": "1d8"
-    },
     "properties": [
       "vocal",
       "somatic",
       "concentration",
       "mgc"
     ],
-    "attack": {
-      "bonus": "",
-      "flat": false
-    },
-    "summons": null,
     "activities": {
       "bsxBqmB55koA2xB3": {
         "type": "save",
@@ -121,12 +80,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -136,7 +97,8 @@
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -157,14 +119,16 @@
                 "formula": ""
               },
               "number": 2,
-              "denomination": "6",
+              "denomination": 6,
               "bonus": "",
               "types": [
                 "bludgeoning"
               ],
               "scaling": {
-                "mode": "whole"
-              }
+                "mode": "whole",
+                "number": 1
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -179,7 +143,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -192,7 +157,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -200,7 +166,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -211,18 +176,63 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       },
       "n8fg7h7e3jt7KKIf": {
         "type": "utility",
@@ -241,16 +251,31 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "TRSU07bjIlEvXdDn"
+            "_id": "TRSU07bjIlEvXdDn",
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1756492710156,
+              "modifiedTime": 1786655531642,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "exportSource": null
+            }
           }
         ],
         "range": {
@@ -260,7 +285,8 @@
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -290,7 +316,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -298,7 +325,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -309,20 +335,62 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "name": "",
         "img": "",
-        "appliedEffects": [
-          "TRSU07bjIlEvXdDn"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       },
       "mK0kCVqxUjiIfhLK": {
         "type": "attack",
@@ -342,12 +410,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -359,7 +429,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -399,14 +470,16 @@
                 "formula": ""
               },
               "number": 4,
-              "denomination": "6",
+              "denomination": 6,
               "bonus": "",
               "types": [
                 "lightning"
               ],
               "scaling": {
-                "mode": "whole"
-              }
+                "mode": "whole",
+                "number": 1
+              },
+              "modifiers": []
             }
           ]
         },
@@ -421,7 +494,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -429,7 +503,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -440,13 +513,27 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "attackMode": "",
@@ -454,10 +541,44 @@
         "otherActivityUuid": "",
         "name": "闪电攻击",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       }
     },
-    "identifier": "storm-sphere"
+    "identifier": "storm-sphere",
+    "method": "spell",
+    "prepared": 1
   },
   "name": "暴风法球Storm Sphere",
   "flags": {
@@ -465,14 +586,6 @@
       "onUseMacroName": "[postActiveEffects]function.chrisPremades.macros.stormSphere.item",
       "forceCEOff": true,
       "effectActivation": false,
-      "onUseMacroParts": {
-        "items": {
-          "0": {
-            "macroName": "function.chrisPremades.macros.stormSphere.item",
-            "option": "postActiveEffects"
-          }
-        }
-      },
       "AoETargetType": "any",
       "AoETargetTypeIncludeSelf": true,
       "autoTarget": "default",
@@ -717,12 +830,7 @@
         "source": "chris-premades"
       }
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "scene-packer": {
       "hash": "5e9f2a1be3ebe964a910b37eb71f97c7ce1bb278",
       "sourceId": "Actor.bvEYS7EFkAFT4pCf.Item.GUN45SW9ja9nmR6u"
@@ -759,28 +867,42 @@
     {
       "name": "暴风法球Storm Sphere",
       "img": "icons/commodities/gems/pearl-storm.webp",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.aDWH4875u9g0MGe8",
+      "origin": null,
       "transfer": false,
       "_id": "TRSU07bjIlEvXdDn",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.OverTime",
-          "mode": 2,
-          "value": "turn=end, label=暴风法球Storm Sphere, saveAbility=str, saveDC=@attributes.spell.dc, saveMagic=true, damageRoll=[@flags.dnd5e.spellLevel/2]d6, damageType=bludgeoning, saveDamage=halfdamage, allowIncapacitated=true",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.OverTime",
+            "value": "turn=end, label=暴风法球Storm Sphere, saveAbility=str, saveDC=@attributes.spell.dc, saveMagic=true, damageRoll=(2 + @scaling.increase)d6, damageType=bludgeoning, saveDamage=halfdamage, allowIncapacitated=true, saveCount=0",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "cZN56jWl7HjGVzKJ",
+            "conditions": "{}",
+            "replacement": "origin"
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.aDWH4875u9g0MGe8",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "minutes",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -798,53 +920,38 @@
           "showIcon": false,
           "durationExpression": "",
           "specialDuration": [],
-          "macroRepeat": "none"
+          "macroRepeat": "none",
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": true,
-          "aura": "All",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": true,
-          "hostile": false,
-          "onlyOnce": true,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1756492710156,
         "modifiedTime": 1786655531642,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!aDWH4875u9g0MGe8.TRSU07bjIlEvXdDn"
     }
   ],
   "img": "icons/commodities/gems/pearl-storm.webp",
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1676798650449,
     "modifiedTime": 1757260847563,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -2,14 +2,14 @@
   "_id": "uCwcaFGcyIGftJr4",
   "name": "虚弱矢 Enfeebling Arrow",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Hunter_ChimeraShot2.png",
+  "img": "icons/magic/death/hand-withered-gray.webp",
   "system": {
     "type": {
       "value": "class",
-      "subtype": ""
+      "subtype": "arcaneShot"
     },
     "description": {
-      "value": "<p>         你在你的箭上施展死灵魔法。被这发箭击中的角色会额外受到[[/r 2d6]]的黯蚀伤害。目标必须成功通过一个体质豁免，或者他的武器攻击造成的伤害在你的下一个回合开始之前减半。</p>\n<p>         当你的战士等级到18级时该黯蚀伤害增加到[[/r 4d6]]。</p>",
+      "value": "<p>         你在你的箭上施展死灵魔法。被这发箭击中的角色会额外受到[[/damage 2d6 type=necrotic]]{2d6}的暗蚀伤害。目标必须成功通过一个体质豁免，或者他的武器攻击造成的伤害在你的下一个回合开始之前减半。</p>\n<p>         当你的战士等级到18级时该暗蚀伤害增加到[[/r 4d6]]。</p>",
       "chat": ""
     },
     "source": {
@@ -38,7 +38,8 @@
             {
               "type": "itemUses",
               "value": "1",
-              "target": "Compendium.dnd5e_classpack.extra-ability.Item.w3EVK3XBgi1HZ5K2"
+              "target": "Compendium.dnd5e_classpack.extra-ability.Item.w3EVK3XBgi1HZ5K2",
+              "scaling": {}
             }
           ],
           "scaling": {
@@ -48,18 +49,22 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "59DnRL2TqhkaWMv5",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
@@ -75,7 +80,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -104,9 +110,16 @@
               "bonus": "",
               "types": [
                 "necrotic"
-              ]
+              ],
+              "modifiers": [],
+              "scaling": {
+                "number": 1
+              }
             }
-          ]
+          ],
+          "critical": {
+            "allow": false
+          }
         },
         "save": {
           "ability": [
@@ -115,46 +128,129 @@
           "dc": {
             "calculation": "int",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "name": "",
         "img": "",
-        "appliedEffects": [
-          "59DnRL2TqhkaWMv5"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
     "identifier": "-enfeebling-arrow",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 3,
+      "repeatable": false,
+      "items": [
+        "subclass:arcane-archer"
+      ]
     },
-    "properties": []
+    "properties": [
+      "mgc"
+    ]
   },
   "effects": [
     {
       "name": "凋零箭 Enfeebling Arrow",
-      "origin": "Compendium.dnd5e_classpack.extra-ability.Item.uCwcaFGcyIGftJr4",
+      "origin": null,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": "sourceStart",
+        "expired": false
       },
       "disabled": false,
       "flags": {
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "dae": {
           "enableCondition": "",
@@ -173,15 +269,14 @@
         }
       },
       "_id": "59DnRL2TqhkaWMv5",
-      "changes": [],
       "description": "",
       "transfer": false,
       "statuses": [],
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1749809374644,
         "lastModifiedBy": "uXKCmWFprrvnSIDm",
@@ -189,10 +284,27 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Hunter_ChimeraShot2.png",
+      "img": "icons/magic/death/hand-withered-gray.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.extra-ability.Item.uCwcaFGcyIGftJr4",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!uCwcaFGcyIGftJr4.59DnRL2TqhkaWMv5"
     }
   ],
@@ -225,18 +337,12 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1725707745189,
     "modifiedTime": 1749883542518,
     "lastModifiedBy": "uXKCmWFprrvnSIDm",

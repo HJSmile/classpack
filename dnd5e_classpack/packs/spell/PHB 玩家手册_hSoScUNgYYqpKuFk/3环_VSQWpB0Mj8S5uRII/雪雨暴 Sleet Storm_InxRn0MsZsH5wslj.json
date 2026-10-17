@@ -31,18 +31,7 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "sleetStorm",
@@ -53,7 +42,7 @@
   },
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你指定施法距离内一点,并使以该点为中心，半径40尺、高20尺的区域内降下寒冷刺骨的冻雨和冰雹直至法术终止。该区域将造成重度遮蔽，且该区域内的一切开放的明火都将被浇熄。\n<br />该区域的地面上覆着一层光滑的冰，使地面变成困难地形。\n<br />生物在一个回合内第一次进入该区域或在区域内开始其回合时，必须进行一次敏捷豁免，豁免失败则失足倒地。\n<br />如果法术区域内有一个生物正进行专注，则该生物必须进行一次对抗你法术豁免DC 的体质豁免，豁免失败则其专注被打断。\n<br /></div>",
+      "value": "<p>你指定施法距离内一点,并使以该点为中心，半径 40 尺、高 20 尺的区域内降下冷冻刺骨的冻雨和冰雹直至法术终止。该区域将造成重度遮蔽，且该区域内的一切开放的明火都将被浇熄。</p><p>该区域的地面上覆着一层光滑的冰，使地面变成困难地形。生物在一个回合内第一次进入该区域或在区域内开始其回合时，必须进行一次[[/save activity=dnd5eactivity000]]{敏捷豁免}，豁免失败则失足倒地。</p><p>在该法术区域内开始其回合的生物若正在进行专注，则该生物必须进行一次对抗你法术豁免 DC 的体质豁免，豁免失败则其专注被打断。</p>",
       "chat": ""
     },
     "source": {
@@ -69,7 +58,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -82,7 +72,8 @@
         "size": "40",
         "contiguous": false,
         "height": "",
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -103,10 +94,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -133,22 +120,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -174,7 +165,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -188,7 +180,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -196,7 +189,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -207,26 +199,75 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "sleet-storm"
+    "identifier": "sleet-storm",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -2,14 +2,14 @@
   "_id": "daUkOPLMsi9wXl0C",
   "name": "战歌训练  Traning in Sword and Song(TCE)",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_DeathKnight_SpellDeflection.png",
+  "img": "icons/skills/melee/weapons-crossed-swords-purple.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>你获得轻甲的熟练项，并获得一种自选的单手近战武器熟练项。<br />如果你尚未熟练表演技能，则还可以获得表演技能的熟练项。</p>",
+      "value": "<p>你获得轻甲的熟练项，并获得一种自选的单手近战武器熟练项。</p><p>如果你尚未熟练表演技能，则还可以获得表演技能的熟练项。</p>",
       "chat": ""
     },
     "source": {
@@ -25,45 +25,35 @@
     "requirements": "剑咏者等级 2",
     "activities": {},
     "identifier": "-traning-in-sword-and-songtce",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 2,
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
   "effects": [
     {
       "_id": "zWgM4eZOp0UEduvH",
-      "changes": [
-        {
-          "key": "system.traits.armorProf.value",
-          "mode": 2,
-          "value": "lgt",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": "Compendium.dnd5e_classpack.extra-ability.daUkOPLMsi9wXl0C",
       "transfer": true,
       "flags": {},
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -72,42 +62,59 @@
         "exportSource": null
       },
       "name": "获得简易护甲熟练",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_DeathKnight_SpellDeflection.png",
+      "img": "icons/skills/melee/weapons-crossed-swords-purple.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.armorProf.value",
+            "value": "lgt",
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "8dPzhOY0UXI6Pj8H",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!daUkOPLMsi9wXl0C.zWgM4eZOp0UEduvH"
     },
     {
       "_id": "vgkYx93TA1zgt66e",
-      "changes": [
-        {
-          "key": "system.skills.prf.value",
-          "mode": 4,
-          "value": "1",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": "Compendium.dnd5e_classpack.extra-ability.daUkOPLMsi9wXl0C",
       "transfer": true,
       "flags": {},
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -116,24 +123,47 @@
         "exportSource": null
       },
       "name": "获得表演熟练",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_DeathKnight_SpellDeflection.png",
+      "img": "icons/skills/melee/weapons-crossed-swords-purple.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.skills.prf.value",
+            "value": 1,
+            "priority": null,
+            "type": "upgrade",
+            "phase": "initial",
+            "_id": "glKzH7hKKlNhibSJ",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!daUkOPLMsi9wXl0C.vgkYx93TA1zgt66e"
     }
   ],
   "folder": "p6wdRXK9aVCbH0eK",
   "sort": 33800000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -153,9 +183,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757414251491,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

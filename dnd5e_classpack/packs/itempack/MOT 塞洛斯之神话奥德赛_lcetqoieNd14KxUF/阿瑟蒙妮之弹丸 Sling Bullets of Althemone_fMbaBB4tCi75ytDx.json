@@ -29,17 +29,11 @@
       "idv": false,
       "ida": false
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
-      "value": "<div class=\"WordSection1\" style=\"LAYOUT-GRID:15.6pt none\"><p class=\"MsoNormal\">这些弹药装在一个袋子里，里面有[[/r 1d4+4]]颗弹丸。在列表上为每颗弹丸投骰，以确定其魔法属性。</p><p class=\"MsoNormal\">你在用这些弹丸做出的攻击和伤害检定有<span>+2</span>的加成。如果弹丸没有击中目标，弹丸会传送回弹袋。一旦弹丸击中目标，弹丸就会失去魔力。</p><p class=\"MsoNormal\"><span>1</span>、放逐<span>Banishment</span>。受到此弹丸伤害的生物必须在<span>DC15</span>的魅力豁免检定中成功，否则将被驱逐，就像被@UUID[Compendium.dnd5e_classpack.spell.Item.lopw7wVkPoE7gbNu]{放逐术}影响一样。</p><p class=\"MsoNormal\"><span>2</span>、闪光<span>Fulguration</span>。命中后，这颗弹丸会对目标造成额外<span>2d8</span>闪电伤害。目标周围<span>10</span>尺内的所有其他生物必须在<span>DC15</span>的体质豁免中成功，否则将受到<span>1d8</span>的闪电伤害。</p><p class=\"MsoNormal\"><span>3</span>、震慑<span>Stunning</span>。命中后，此弹丸会造成额外的<span>1d10</span>力场伤害，目标会被震慑直到你的下一回合结束。</p><p class=\"MsoNormal\"><span>4</span>、追踪<span>Tracking</span>。受到这颗弹丸伤害的生物会在被子弹击中的地方被标记上一个发光符文。这个标记会持续<span>24</span>小时。当生物被标记时，你总是知道它的方向。</p></div>",
+      "value": "<p>这些弹药装在一个袋子里，里面有[[/r 1d4+4]]颗弹丸。在列表上为每颗弹丸投骰，以确定其魔法属性。</p><p>你在用这些弹丸做出的攻击和伤害检定有+2的加成。如果弹丸没有击中目标，弹丸会传送回弹袋。一旦弹丸击中目标，弹丸就会失去魔力。</p><p>1、放逐Banishment。受到此弹丸伤害的生物必须在DC15的魅力豁免检定中成功，否则将被驱逐，就像被@UUID[Compendium.dnd5e_classpack.spell.Item.lopw7wVkPoE7gbNu]{放逐术}影响一样。</p><p>2、闪光Fulguration。命中后，这颗弹丸会对目标造成额外2d8闪电伤害。目标周围10尺内的所有其他生物必须在DC15的体质豁免中成功，否则将受到1d8的闪电伤害。</p><p>3、震慑Stunning。命中后，此弹丸会造成额外的1d10力场伤害，目标会被震慑直到你的下一回合结束。</p><p>4、追踪Tracking。受到这颗弹丸伤害的生物会在被子弹击中的地方被标记上一个发光符文。这个标记会持续24小时。当生物被标记时，你总是知道它的方向。</p>",
       "chat": ""
     },
     "source": {
@@ -59,7 +53,6 @@
     },
     "attunement": "",
     "equipped": false,
-    "rarity": "veryRare",
     "identified": true,
     "uses": {
       "max": "",
@@ -83,7 +76,8 @@
           "mode": "",
           "number": null,
           "formula": ""
-        }
+        },
+        "modifiers": []
       },
       "replace": false
     },
@@ -98,7 +92,6 @@
       "subtype": ""
     },
     "container": null,
-    "magicalBonus": null,
     "activities": {
       "dnd5eactivity000": {
         "_id": "dnd5eactivity000",
@@ -118,14 +111,16 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -142,7 +137,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "0",
@@ -177,16 +173,109 @@
           "includeBase": true,
           "parts": []
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackMode": "oneHanded",
+        "ammunition": "",
+        "otherActivityUuid": "",
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       }
     },
     "identifier": "-sling-bullets-of-althemone",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "veryRare"
+    ]
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1692348384925,
     "modifiedTime": 1757871336975,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

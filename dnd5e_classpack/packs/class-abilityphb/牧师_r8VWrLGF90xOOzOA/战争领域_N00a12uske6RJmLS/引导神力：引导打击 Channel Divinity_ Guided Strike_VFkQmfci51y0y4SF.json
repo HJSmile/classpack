@@ -2,7 +2,7 @@
   "_id": "VFkQmfci51y0y4SF",
   "name": "引导神力：引导打击 Channel Divinity: Guided Strike",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/ability_rogue_redirect.png",
+  "img": "icons/skills/targeting/target-strike-triple-blue.webp",
   "system": {
     "description": {
       "value": "<p>         第2级起，你可以用@UUID[Compendium.dnd5e_classpack.class-abilityphb.WPevnsjK8Cjd9Fcl]{引导神力}特性作出精准的打击。你在进行攻击检定时，可以使用引导神力令该次检定获得+10加值。你可以在看到掷骰结果后DM公布是否命中前，决定是否使用该特性。</p>",
@@ -26,12 +26,15 @@
     "requirements": "战争领域等级 2",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 2,
+      "repeatable": false,
+      "items": [
+        "subclass:war-domain"
+      ]
     },
     "properties": [
       "mgc"
@@ -40,34 +43,52 @@
   "effects": [
     {
       "name": "引导神力-引导打击",
-      "img": "modules/dnd5e_classpack/Nicons/ability_rogue_redirect.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.VFkQmfci51y0y4SF",
+      "img": "icons/skills/targeting/target-strike-triple-blue.webp",
+      "origin": null,
       "_id": "iihWlMjMbwVN0SQa",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.optional.引导神力-引导打击.attack.fail.all",
-          "mode": 2,
-          "value": "+10",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.optional.引导神力-引导打击.attack.fail.all",
+            "value": "+10",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "HcOAg49uPEIbiHUf",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.引导神力-引导打击.count",
+            "value": "ItemUses.引导神力 Channel Divinity",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "MU8pfgvISDOqySu2",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.optional.引导神力-引导打击.count",
-          "mode": 2,
-          "value": "ItemUses.引导神力 Channel Divinity",
-          "priority": 20
-        }
-      ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.VFkQmfci51y0y4SF",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -85,42 +106,26 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757272017300,
         "modifiedTime": 1757272103111,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!VFkQmfci51y0y4SF.iihWlMjMbwVN0SQa"
     }
   ],
@@ -151,14 +156,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "guidedStrike",
@@ -171,9 +169,9 @@
     "default": 0
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757272015894,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

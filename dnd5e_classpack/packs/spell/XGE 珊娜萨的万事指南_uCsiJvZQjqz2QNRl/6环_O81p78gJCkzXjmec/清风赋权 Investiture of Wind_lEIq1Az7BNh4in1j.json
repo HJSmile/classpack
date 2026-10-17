@@ -28,49 +28,22 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/magic/control/debuff-energy-hold-levitate-blue-yellow.webp",
   "_id": "lEIq1Az7BNh4in1j",
   "effects": [
     {
       "name": "清风赋权Investiture of Wind",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.lEIq1Az7BNh4in1j",
+      "origin": null,
       "duration": {
-        "rounds": 100,
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 100,
+        "units": "rounds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "disabled": false,
       "_id": "bFKTQNbsof6vczcw",
-      "changes": [
-        {
-          "key": "flags.midi-qol.grants.disadvantage.attack.rwak",
-          "mode": 2,
-          "value": "1",
-          "priority": 20
-        },
-        {
-          "key": "system.attributes.movement.fly",
-          "mode": 2,
-          "value": "+60",
-          "priority": 20
-        }
-      ],
       "description": "",
       "transfer": false,
       "statuses": [],
@@ -81,33 +54,17 @@
           "selfTargetAlways": false,
           "dontApply": false,
           "stackable": "noneName",
-          "showIcon": true,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system"
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         }
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -117,14 +74,52 @@
       },
       "img": "icons/magic/control/debuff-energy-hold-levitate-blue-yellow.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.grants.disadvantage.attack.rwak",
+            "value": 1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "luqPZjuOeidsCK3n",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.attributes.movement.speeds.fly",
+            "value": 60,
+            "priority": 20,
+            "type": "upgrade",
+            "phase": "initial",
+            "_id": "0lWMCn1URz1pYeYK",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.lEIq1Az7BNh4in1j",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 2,
+      "folder": null,
       "_key": "!items.effects!lEIq1Az7BNh4in1j.bFKTQNbsof6vczcw"
     }
   ],
   "system": {
     "description": {
-      "value": "<p>直到此法术终止，风在你的身旁回旋，而你得到下述好处：<br />·对你进行的远程武器攻击，在其攻击检定中具有劣势。<br />·你得到60英尺的飞行速度。若此法术终止时，你仍处于飞行状态，你会坠落，除非你有其他方法避免坠落。<br />·你可以使用你的动作以在你60英尺范围内，以你能看到的一点为中心，制造出15立方英尺的呼啸之风。每个在该空间内的生物必须进行一次体质豁免检定。豁免失败的生物受到2d10点钝击伤害，豁免成功者受到上述伤害的一半。若体型不超过大型的生物在此豁免中失败。该生物将在远离该空间中心的方向上被推离10英尺。</p>",
+      "value": "<p>直到此法术终止，风在你的身旁回旋，而你得到下述好处：</p><ul><li>对你进行的远程武器攻击，在其攻击检定中具有劣势。</li><li>你得到60尺的飞行速度。若此法术终止时，你仍处于飞行状态，你会坠落，除非你有其他方法避免坠落。</li><li>你可以使用你的动作以在你 60 尺范围内，以你能看到的一点为中心，制造出 15 立方尺的呼啸之风。每个在该空间内的生物必须进行一次[[/save activity=ywEXMNCFEzybrzbx]]{体质豁免检定}。豁免失败的生物受到 [[/damage 2d10 type=bludgeoning]]{2d10} 钝击伤害，豁免成功者受到上述伤害的一半。若体型不超过大型的生物在此豁免中失败。该生物将在远离该空间中心的方向上被推离 10 尺。</li></ul>",
       "chat": ""
     },
     "source": {
@@ -140,7 +135,8 @@
     },
     "duration": {
       "value": "10",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -150,9 +146,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -172,10 +169,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -200,12 +193,14 @@
           "spellSlot": false
         },
         "description": {
-          "chatFlavor": "若体型不超过大型的生物在此豁免中失败。该生物将在远离该空间中心的方向上被推离10英尺"
+          "chatFlavor": "若体型不超过大型的生物在此豁免中失败。该生物将在远离该空间中心的方向上被推离10英尺",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": true
+          "override": true,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -222,7 +217,8 @@
             "type": "cube",
             "size": "15",
             "width": "5",
-            "count": ""
+            "count": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -246,14 +242,16 @@
                 "formula": ""
               },
               "number": 2,
-              "denomination": "10",
+              "denomination": 10,
               "bonus": "",
               "types": [
                 "bludgeoning"
               ],
               "scaling": {
-                "mode": ""
-              }
+                "mode": "",
+                "number": 1
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -267,7 +265,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -281,7 +280,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -289,7 +289,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -300,19 +299,64 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "name": "旋风呼啸",
         "_id": "ywEXMNCFEzybrzbx",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       },
       "xyDcyhWZkhMRo4fV": {
         "type": "damage",
@@ -330,16 +374,31 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "bFKTQNbsof6vczcw"
+            "_id": "bFKTQNbsof6vczcw",
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": null,
+              "lastModifiedBy": null,
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {
@@ -353,7 +412,8 @@
             "units": "ft",
             "type": "",
             "size": "5",
-            "count": ""
+            "count": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -385,7 +445,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -393,7 +454,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -404,23 +464,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "施放法术",
         "_id": "xyDcyhWZkhMRo4fV",
         "img": "",
-        "appliedEffects": [
-          "bFKTQNbsof6vczcw"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
-    "identifier": "investiture-of-wind"
+    "identifier": "investiture-of-wind",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -429,8 +533,8 @@
   "sort": 12200000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711723887216,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

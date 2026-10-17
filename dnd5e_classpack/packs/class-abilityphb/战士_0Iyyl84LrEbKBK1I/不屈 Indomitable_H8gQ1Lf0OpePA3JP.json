@@ -2,7 +2,7 @@
   "_id": "H8gQ1Lf0OpePA3JP",
   "name": "不屈 Indomitable",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_AshesToAshes.png",
+  "img": "icons/magic/fire/flame-burning-fist-strike.webp",
   "system": {
     "type": {
       "value": "class",
@@ -30,47 +30,68 @@
     "requirements": "战士等级 9",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 9,
+      "repeatable": false,
+      "items": [
+        "class:fighter"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "name": "不屈",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_AshesToAshes.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.H8gQ1Lf0OpePA3JP",
+      "img": "icons/magic/fire/flame-burning-fist-strike.webp",
+      "origin": null,
       "_id": "5AsdhQoAdtH2a4lR",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.optional.不屈.save.fail.all",
-          "mode": 2,
-          "value": "reroll",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.optional.不屈.save.fail.all",
+            "value": "reroll",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "l3Mo1pVkTJlCXk7H",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.不屈.count",
+            "value": "ItemUses.不屈 Indomitable",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "10Ht7tcwf5xBIu3y",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.optional.不屈.count",
-          "mode": 2,
-          "value": "ItemUses.buqu",
-          "priority": 20
-        }
-      ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.H8gQ1Lf0OpePA3JP",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -85,59 +106,37 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757057721261,
         "modifiedTime": 1757057817993,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!H8gQ1Lf0OpePA3JP.5AsdhQoAdtH2a4lR"
     }
   ],
   "folder": "0Iyyl84LrEbKBK1I",
   "sort": 14900000,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -157,9 +156,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757063792006,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

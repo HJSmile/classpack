@@ -28,42 +28,22 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/skills/targeting/target-glowing-yellow.webp",
   "_id": "wMEtvmN9ZcwU6o82",
   "effects": [
     {
       "name": "扩大重力Magnify Gravity",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.wMEtvmN9ZcwU6o82",
+      "origin": null,
       "duration": {
-        "rounds": 1,
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "rounds",
+        "expiry": "targetEnd",
+        "expired": false
       },
       "disabled": false,
       "_id": "mfedas8D5jCzoFKf",
-      "changes": [
-        {
-          "key": "system.attributes.movement.walk",
-          "mode": 1,
-          "value": "0.5",
-          "priority": 20
-        }
-      ],
       "description": "",
       "transfer": false,
       "statuses": [],
@@ -74,36 +54,14 @@
           "selfTargetAlways": false,
           "dontApply": false,
           "stackable": "noneName",
-          "showIcon": true,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": [
-            "turnEnd"
-          ],
+          "specialDuration": [],
           "enableCondition": "",
           "disableCondition": ""
         },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
-        },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
@@ -111,9 +69,9 @@
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1756930288791,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
@@ -123,14 +81,42 @@
       },
       "img": "icons/skills/targeting/target-glowing-yellow.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.movement.speeds.walk",
+            "value": 0.5,
+            "priority": 20,
+            "type": "multiply",
+            "phase": "initial",
+            "_id": "0QKfdGjETN8S4VKy",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.wMEtvmN9ZcwU6o82",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 2,
+      "folder": null,
       "_key": "!items.effects!wMEtvmN9ZcwU6o82.mfedas8D5jCzoFKf"
     }
   ],
   "system": {
     "description": {
-      "value": "<p>施法距离内你可见的一点的10尺半径球形范围内的重力暂时性地增加了。</p>\n<p>在你施法时，所有处于该范围内的生物必须通过一个体质豁免。若豁免失败，该生物受到2d8点力场伤害且其移动速度在他的下个回合结束前减半。若豁免成功，该生物受到一半的伤害且在移动速度上没有减值。</p>\n<p>直到你的下个回合开始，任何想要把该范围内未被着装或携带的物品移动或捡起都需要进行一次对抗你的法术豁免DC的成功的力量检定，若成功才可行。</p>\n<p><strong>升环法术效应：</strong>每当你使用二环或更高的法术位施展该法术时，每比一环多一的法术位能使该法术的伤害增加1d8。</p>",
+      "value": "<p>施法距离内你可见的一点的10尺半径球形范围内的重力暂时性地增加了。</p><p>在你施法时，所有处于该范围内的生物必须通过一个体质豁免。若豁免失败，该生物受到2d8力场伤害且其移动速度在他的下个回合结束前减半。若豁免成功，该生物受到一半的伤害且在移动速度上没有减值。</p><p>直到你的下个回合开始，任何想要把该范围内未被着装或携带的物品移动或捡起都需要进行一次对抗你的法术豁免DC的成功的力量检定，若成功才可行。</p><p><strong>升环施法效应。</strong>每当你使用二环或更高的法术位施展该法术时，使用的法术位每比一环高一环，该法术的伤害就增加1d8。</p>",
       "chat": ""
     },
     "source": {
@@ -148,7 +134,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -160,7 +147,8 @@
         "type": "sphere",
         "size": "10",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -181,10 +169,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -209,27 +193,33 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "mfedas8D5jCzoFKf",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -259,7 +249,8 @@
                 "mode": "whole",
                 "number": 1,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -273,7 +264,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -287,7 +279,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -295,7 +288,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -306,18 +298,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "magnify-gravity"
+    "identifier": "magnify-gravity",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -326,8 +367,8 @@
   "sort": 400000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711698238603,
     "modifiedTime": 1757260532359,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

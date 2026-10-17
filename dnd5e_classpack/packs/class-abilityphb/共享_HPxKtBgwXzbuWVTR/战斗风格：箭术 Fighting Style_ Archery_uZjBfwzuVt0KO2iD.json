@@ -23,15 +23,20 @@
       "value": "class",
       "subtype": "fightingStyle"
     },
-    "requirements": "战士等级 1，勇士等级 10，游侠等级 2",
+    "requirements": "战士等级 1，勇士等级 10，游侠等级 2；或战斗学徒专长",
     "activities": {},
     "identifier": "-archery",
-    "advancement": [],
+    "advancement": {},
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": [
+        "feat:fighting-style",
+        "feat:-fighting-style",
+        "feat:-fighting-initiatetce"
+      ]
     },
     "properties": []
   },
@@ -41,34 +46,23 @@
       "flags": {
         "core": {}
       },
-      "changes": [
-        {
-          "key": "system.bonuses.rwak.attack",
-          "mode": 2,
-          "value": "+2",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.uZjBfwzuVt0KO2iD",
+      "origin": null,
       "tint": "#ffffff",
       "transfer": true,
       "name": "战斗风格：箭术",
       "description": "",
       "statuses": [],
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -78,8 +72,36 @@
       },
       "img": "icons/weapons/bows/shortbow-recurve-yellow.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.rolls.attack.rwak.bonus",
+            "value": "+2",
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "8fCyuZEQfUQJwBPQ",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.uZjBfwzuVt0KO2iD",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!uZjBfwzuVt0KO2iD.ZDgCN7P5zEfBq8dC"
     }
   ],
@@ -110,20 +132,15 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "ownership": {
     "default": 0
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711461521253,
     "modifiedTime": 1757273492383,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

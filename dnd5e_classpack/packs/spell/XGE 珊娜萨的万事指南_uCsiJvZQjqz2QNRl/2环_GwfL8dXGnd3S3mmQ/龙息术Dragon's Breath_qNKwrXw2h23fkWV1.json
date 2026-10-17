@@ -30,26 +30,15 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "dae": {
       "macro": {
         "name": "龙息术Dragon's Breath",
-        "img": "modules/dnd5e_classpack/Nicons/spell_deathknight_breathofsindragosa.png",
+        "img": "icons/creatures/abilities/dragon-fire-breath-orange.webp",
         "type": "script",
         "scope": "global",
-        "command": "(async () => {\n  const caster = actor;\n  const target = canvas.tokens.controlled[0]?.actor;\n  if (!caster || !target) return ui.notifications.warn(\"请选择施法者和目标\");\n\n  const saveDC = caster.system.attributes.spell.dc;\n  if (!saveDC) return ui.notifications.warn(\"未找到施法者的豁免 DC\");\n\n  const damageType = await new Promise(r => new Dialog({\n    title: \"选择伤害类型\",\n    content:`<form><label>类型：<select id=\"dt\">\n      <option value=\"fire\">火焰</option><option value=\"cold\">寒冷</option>\n      <option value=\"lightning\">闪电</option><option value=\"poison\">毒素</option>\n      <option value=\"acid\">酸性</option></select></label></form>`,\n    buttons:{ ok:{label:\"确定\",callback:h=>r(h.find(\"#dt\").val())}, cancel:{label:\"取消\",callback:()=>r(null)} },\n    default:\"ok\"\n  }).render(true));\n  if (!damageType) return ui.notifications.warn(\"未选择伤害类型\");\n\n  const spellLevel = await new Promise(r => new Dialog({\n    title: \"选择法术位环级\",\n    content:`<form><label>环级（最少 2）：<input id=\"lvl\" type=\"number\" min=\"2\" value=\"2\"></label></form>`,\n    buttons:{ ok:{label:\"确定\",callback:h=>r(parseInt(h.find(\"#lvl\").val())||3)}, cancel:{label:\"取消\",callback:()=>r(null)} },\n    default:\"ok\"\n  }).render(true));\n  if (!spellLevel) return ui.notifications.warn(\"未选择环级\");\n\n  const extraDice = Math.max(0, spellLevel - 2);\n\n  const item = target.items.find(i => i.name === \"龙息\");\n  if (!item) return ui.notifications.warn(\"目标无“龙息”物品\");\n\n  const formula = `3d6[${damageType}]${extraDice>0? `+${extraDice}d6`: \"\"}`;\n\n  await item.update({\n    [`system.activities.nt6z0FF53gKwBdeL.damage.parts`]: [{\n      custom: { enabled: false, formula: \"\" },\n      number: 3 + extraDice,\n      denomination: 6,\n      bonus: \"\",\n      types: [damageType],\n      scaling: { number: 1 }\n    }],\n    [`system.activities.nt6z0FF53gKwBdeL.save.dc.formula`]: saveDC.toString()\n  });\n\n  ui.notifications.info(`更新成功：类型 ${damageType}，伤害 ${formula}，豁免 DC ${saveDC}`);\n})();",
-        "author": "WqWGW8MuBm7BNHxt",
+        "command": "// 法术物品自带 OnUse 宏，挂载 postActiveEffects。目标为获得喷吐能力的生物。\nif (args[0].macroPass !== \"postActiveEffects\") return;\n\nconst caster = macroItem.actor;\nconst target = workflow.targets.first()?.actor;\nif (!target) return;\n\nconst damageType = await dnd5eClasspack.dialogUtils.selectDamageType(\n  [\"acid\", \"cold\", \"fire\", \"lightning\", \"poison\"],\n  macroItem.name, \"\",\n  { userId: dnd5eClasspack.firstOwner(caster, true) }\n);\nif (!damageType) return;\n\nconst effect = target.effects.find(e => e.system.origin?.message === workflow.itemCardUuid);\n\nconst dc = caster.system.abilities[workflow.activity.spellcastingAbility]?.dc\n  ?? caster.system.attributes.spell.dc;\nconst dice = workflow.spellLevel + 1;\nconst label = game.i18n.localize(CONFIG.DND5E.damageTypes[damageType].label);\nconst id = foundry.utils.randomID();\n\nawait dnd5eClasspack.createActorItems(target, [{\n  name: `${macroItem.name}：喷吐（${label}）`,\n  type: \"feat\", img: macroItem.img, effects: [],\n  flags: { dnd5e: { dependentOn: effect.uuid } },\n  system: {\n    properties: [\"mgc\"],\n    description: {\n      value: `<p>以一个动作喷吐 15 尺锥形的${label}能量。区域内生物进行 DC ${dc} 敏捷豁免，失败受到 ${dice}d6 ${label}伤害，成功则伤害减半。</p>`\n    },\n    activities: { [id]: {\n      _id: id, name: \"喷吐\", type: \"save\",\n      activation: { type: \"action\", cost: 1 },\n      consumption: { spellSlot: false, targets: [] },\n      range: { units: \"self\" },\n      target: {\n        prompt: true,\n        template: { type: \"cone\", size: \"15\", units: \"ft\", count: \"1\" },\n        affects: { type: \"creature\" }\n      },\n      save: { ability: [\"dex\"], dc: { calculation: \"\", formula: String(dc) } },\n      damage: {\n        onSave: \"half\",\n        parts: [{ number: dice, denomination: 6, bonus: \"\", types: [damageType] }]\n      }\n    } }\n  }\n}], { favorite: true });",
+        "author": "dvg25zW2MvzsvMOU",
         "ownership": {
           "default": 3
         },
@@ -58,14 +47,15 @@
         "sort": 0,
         "flags": {},
         "_stats": {
-          "coreVersion": "12.343",
+          "coreVersion": "14.369",
           "systemId": "dnd5e",
-          "systemVersion": "4.3.9",
+          "systemVersion": "6.0.6",
           "createdTime": null,
           "modifiedTime": null,
           "lastModifiedBy": null,
           "compendiumSource": null,
-          "duplicateSource": null
+          "duplicateSource": null,
+          "exportSource": null
         }
       }
     },
@@ -77,33 +67,36 @@
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/spell_deathknight_breathofsindragosa.png",
+  "img": "icons/creatures/abilities/dragon-fire-breath-orange.webp",
   "effects": [
     {
       "name": "龙息术Dragon's Breath",
-      "img": "modules/dnd5e_classpack/Nicons/spell_deathknight_breathofsindragosa.png",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.qNKwrXw2h23fkWV1",
+      "img": "icons/creatures/abilities/dragon-fire-breath-orange.webp",
+      "origin": null,
       "transfer": false,
       "_id": "lLd5lqmkodGbfEnu",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "macro.createItem",
-          "mode": 0,
-          "value": "Compendium.dnd5e_classpack.itempack.Item.M2EwVDNrqUFP33cO",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.qNKwrXw2h23fkWV1",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": 10,
-        "startRound": null,
-        "startTurn": null
+        "value": 60,
+        "units": "seconds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -120,51 +113,38 @@
           "stackable": "noneName",
           "showIcon": false,
           "durationExpression": "",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "default",
+          "expiryMode": "default",
+          "macroRepeat": "none"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": 1755161026064,
         "modifiedTime": 1755161152482,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!qNKwrXw2h23fkWV1.lLd5lqmkodGbfEnu"
     }
   ],
   "system": {
     "description": {
-      "value": "<p>你触碰一个自愿生物，使它能喷吐出魔法能量，只要它拥有一张嘴。选择强酸、寒冷、火焰、闪电或毒素中的一种。直到法术结束前，生物可以使用一个动作放射出15尺锥形的对应能量。区域内的每个生物必须进行敏捷豁免检定，若失败将受到3d6对应能量类型的伤害，成功则只承受一半。</p>\n<p><strong>升环效果：</strong>当你使用3环或更高的法术位施放该法术时，使用的法术位每高一环，伤害就增加1d6。</p>",
+      "value": "<p>你触碰一个自愿生物，使它能喷吐出魔法能量，只要它拥有一张嘴。选择强酸、寒冷、火焰、闪电或毒素中的一种。直到法术结束前，生物可以使用一个动作放射出 15 尺锥形的对应能量。区域内的每个生物必须进行敏捷豁免检定，若失败将受到 3d6 对应能量类型的伤害，成功则只承受一半。</p><p><strong>升环施法效应。</strong>当你使用三环或更高的法术位施放该法术时，使用的法术位每高一环，伤害就增加 1d6。</p>",
       "chat": ""
     },
     "source": {
@@ -180,7 +160,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -189,10 +170,11 @@
       },
       "template": {
         "units": "ft",
-        "type": "cone",
+        "type": "",
         "size": "15",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -213,16 +195,11 @@
       "cost": 0,
       "supply": 0
     },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
-    },
     "properties": [
       "vocal",
       "somatic",
       "material",
-      "concentration",
-      "mgc"
+      "concentration"
     ],
     "activities": {
       "byqHskM2rbIBscCu": {
@@ -241,24 +218,42 @@
           "spellSlot": true,
           "targets": []
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "lLd5lqmkodGbfEnu"
+            "_id": "lLd5lqmkodGbfEnu",
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1755161026064,
+              "modifiedTime": 1755161152482,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -285,7 +280,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -293,7 +289,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -304,18 +299,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "dragons-breath"
+    "identifier": "dragons-breath",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -324,8 +367,8 @@
   "sort": 10600000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -12,7 +12,7 @@
       "revision": 1
     },
     "description": {
-      "value": "<p>第 1 级时，你得到引导、甚至是牺牲你的活力精华来以鲜血秘法诅咒和操控生物的能力。你学会一种你所选的血咒（在后文中详细描述）。在你第 6、第 10、第 14 及第 18 级时，你学会一种新的血咒，且你可以选择一个已知血咒替换为另一个。<br />当你使用鲜血恶戾时，你选择要使用哪种血咒。在血咒影响目标前，你可以通过失去一个鲜血秘法骰的生命值来增幅你的血咒。一个增幅的血咒会得到额外效果，具体参照诅咒的描述。体内没有血液的生物对未增幅的血咒免疫。<br />你能够使用此特性 1 次。从第 6 级开始，你可以使用此特性 2 次，第 13 级时增为 3 次，第 17 级时增为 4 次。完成一次短休或长休后，你将重获所有消耗掉的鲜血恶戾次数。</p>",
+      "value": "<p>第 1 级时，你得到引导、甚至是牺牲你的活力精华来以鲜血秘法诅咒和操控生物的能力。你学会一种你所选的血咒（在后文中详细描述）。在你第 6、第 10、第 14 及第 18 级时，你学会一种新的血咒，且你可以选择一个已知血咒替换为另一个。</p><p>当你使用鲜血恶戾时，你选择要使用哪种血咒。在血咒影响目标前，你可以通过失去一个鲜血秘法骰的生命值来增幅你的血咒。一个增幅的血咒会得到额外效果，具体参照诅咒的描述。体内没有血液的生物对未增幅的血咒免疫。</p><p>你能够使用此特性 1 次。从第 6 级开始，你可以使用此特性 2 次，第 13 级时增为 3 次，第 17 级时增为 4 次。完成一次短休或长休后，你将重获所有消耗掉的鲜血恶戾次数。</p>",
       "chat": ""
     },
     "requirements": "血猎手等级 1",
@@ -33,7 +33,7 @@
     "properties": [
       "mgc"
     ],
-    "advancement": [],
+    "advancement": {},
     "activities": {
       "GD2tScNz7XINHo4M": {
         "_id": "GD2tScNz7XINHo4M",
@@ -57,11 +57,14 @@
             }
           ]
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -71,7 +74,8 @@
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -99,7 +103,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -107,7 +112,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -118,15 +122,61 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "blood-maledict",
@@ -135,7 +185,8 @@
     "enchant": {},
     "prerequisites": {
       "level": 1,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     }
   },
   "img": "icons/skills/wounds/blood-spurt-spray-red.webp",
@@ -163,11 +214,7 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "riders": {
-        "activity": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "bloodMaledict",
@@ -181,9 +228,9 @@
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1757153159764,
     "modifiedTime": 1757421431952,
     "lastModifiedBy": "hzd8mTtpA2xMcmGp",

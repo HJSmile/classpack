@@ -3,18 +3,7 @@
   "name": "操控天气 Control Weather",
   "type": "spell",
   "flags": {
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -33,11 +22,11 @@
       "ignoreTotalCover": false
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/spell_nature_tranquility.jpg",
+  "img": "icons/magic/air/wind-tornado-cyclone-white.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你在法术持续时间内控制自身5里范围内的天气状况。施展该法术时你必须身处户外，而一旦移动到无法直接看到天空的地点时，法术也会随即终止。\n<br />本来由DM 基于季节和气候所决定的天气状况，在你施展此法术时可以由你随意操控。你可以改变降水、气温以及风势等状况。新的天气状况生效需要经过1d4×10分钟的时间才能完成。\n<br />状况改变完成后，你可以再次对当前对天气状况作改变。法术终止时，天气将渐渐恢复成平常状态。\n<br />改变天气状况时，你可以从以下表格查明与目前对应的等级，再选择同一表格中高一级或第一级的状况作为其改变结果。改变风势时，你还可以同时改变其风向。\n<br />降水Precipitation\n<br />等级 状况\n<br />1  天晴clear\n<br />2   薄云light clouds\n<br />3   多云overcast 或有雾ground fog\n<br />4   下雨rain，下冰雹hail 或下雪snow\n<br />5   暴雨torrential rain，大冰雹driving hail 或暴雪blizzard\n<br />气温Temperature\n<br />等级 状况\n<br />1  酷热unbearable heat\n<br />2   炎热hot\n<br />3   暖和warm\n<br />4   清凉cool\n<br />5   寒冷cold\n<br />6   严寒arctic cold\n<br />风势Wind\n<br />等级 状况\n<br />1  无风calm\n<br />2   和风moderate wind\n<br />3   强风strong wind\n<br />4   狂风gale\n<br />5   暴风strom\n<br /></div>",
+      "value": "<p>你在法术持续时间内控制自身 5 里范围内的天气状况。施展该法术时你必须身处户外，而一旦移动到无法直接看到天空的地点时，法术也会随即终止。</p><p>本来由 DM 基于季节和气候所决定的天气状况，在你施展此法术时可以由你随意操控。你可以改变降水、气温以及风势等状况。新的天气状况生效需要经过1d4×10分钟的时间才能完成。状况改变完成后，你可以再次对当前对天气状况作改变。法术终止时，天气将渐渐恢复成平常状态。</p><p>改变天气状况时，你可以从以下表格查明与目前对应的等级，再选择同一表格中高一级或低一级的状况作为其改变结果。改变风势时，你还可以同时改变其风向。</p><table><thead><tr><th colspan=\"2\"><strong>降水Precipitation</strong></th><th></th><th colspan=\"2\"><strong>气温Temperature</strong></th><th></th><th colspan=\"2\"><strong>风势Wind</strong></th></tr></thead><tbody><tr><td><strong>等级</strong></td><td><strong>状况</strong></td><td></td><td><strong>等级</strong></td><td><strong>状况</strong></td><td></td><td><strong>等级</strong></td><td><strong>状况</strong></td></tr><tr><td>1</td><td>天晴clear</td><td></td><td>1</td><td>酷热unbearable heat</td><td></td><td>1</td><td>无风calm</td></tr><tr><td>2</td><td>薄云light clouds</td><td></td><td>2</td><td>炎热hot</td><td></td><td>2</td><td>和风moderate wind</td></tr><tr><td>3</td><td>多云overcast，有雾ground fog</td><td></td><td>3</td><td>暖和warm</td><td></td><td>3</td><td>强风strong wind</td></tr><tr><td>4</td><td>有雨rain，冰雹hail，有雪snow</td><td></td><td>4</td><td>清凉cool</td><td></td><td>4</td><td>狂风gale</td></tr><tr><td>5</td><td>暴雨torrential rain，冰暴driving hail，暴雪blizzard</td><td></td><td>5</td><td>寒冷cold</td><td></td><td>5</td><td>暴风storm</td></tr><tr><td></td><td></td><td></td><td>6</td><td>极寒arctic cold</td><td></td><td></td><td></td></tr></tbody></table>",
       "chat": ""
     },
     "source": {
@@ -53,7 +42,8 @@
     },
     "duration": {
       "value": "8",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -65,7 +55,8 @@
         "type": "radius",
         "size": "5",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -85,10 +76,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -114,22 +101,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -159,7 +150,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -167,7 +159,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -178,18 +169,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "control-weather"
+    "identifier": "control-weather",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -198,8 +237,8 @@
   "sort": 500000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

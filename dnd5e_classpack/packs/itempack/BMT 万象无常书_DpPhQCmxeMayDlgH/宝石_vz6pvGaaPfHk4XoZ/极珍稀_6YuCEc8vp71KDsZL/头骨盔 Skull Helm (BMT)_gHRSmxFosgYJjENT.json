@@ -12,7 +12,7 @@
       "revision": 1
     },
     "description": {
-      "value": "<div class=\"rd__b  rd__b--2\"><p><em>奇物，极珍稀（需同调）</em> <br />着装这顶骷髅形状的头盔期间，你获得对寒冷、毒素和暗蚀伤害的抗性。</p><p>此外，着装头盔期间，你可以用头盔施展法术<em>@UUID[Compendium.dnd5e_classpack.spell.Item.6vnUcrrwP7bygCfX]{死神灵魄 Spirit of Death}</em>（见第7章），而无需任何材料成分。此法术一经头盔施放，直到下次黎明前不能再次以此法施放该法术。</p><p>While wearing this skull-shaped helm, you have resistance to cold, poison, and necrotic damage.</p><p>Additionally, while wearing the helm, you can cast @spell[Spirit of Death|BMT] from it without requiring material components. Once you use the helm to cast the spell, the helm can't cast this spell again until the next dawn.</p></div>",
+      "value": "<p><em>奇物，极珍稀（需同调）</em></p><p>着装这顶骷髅形状的头盔期间，你获得对寒冷、毒素和暗蚀伤害的抗性。</p><p>此外，着装头盔期间，你可以用头盔施展法术<em>@UUID[Compendium.dnd5e_classpack.spell.Item.6vnUcrrwP7bygCfX]{死神灵魄 Spirit of Death}</em>（见第7章），而无需任何材料成分。此法术一经头盔施放，直到下次黎明前不能再次以此法施放该法术。</p><p>While wearing this skull-shaped helm, you have resistance to cold, poison, and necrotic damage.</p><p>Additionally, while wearing the helm, you can cast @spell[Spirit of Death|BMT] from it without requiring material components. Once you use the helm to cast the spell, the helm can't cast this spell again until the next dawn.</p>",
       "chat": ""
     },
     "proficient": null,
@@ -28,7 +28,6 @@
     "attuned": true,
     "identified": true,
     "equipped": true,
-    "rarity": "veryRare",
     "type": {
       "value": "wondrous",
       "baseItem": ""
@@ -45,7 +44,7 @@
     "armor": {
       "value": null,
       "dex": null,
-      "magicalBonus": 0
+      "magicalBonus": "0"
     },
     "strength": null,
     "activities": {
@@ -65,19 +64,24 @@
           "spellSlot": true,
           "targets": []
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -97,8 +101,6 @@
         },
         "spell": {
           "challenge": {
-            "attack": null,
-            "save": null,
             "override": false
           },
           "level": null,
@@ -122,7 +124,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -130,7 +133,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -141,13 +143,58 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
         }
       }
     },
@@ -157,7 +204,12 @@
     },
     "container": null,
     "cover": null,
-    "crewed": false
+    "rarities": [
+      "veryRare"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "img": "systems/dnd5e/icons/svg/items/equipment.svg",
   "ownership": {
@@ -187,7 +239,8 @@
       "noConcentrationCheck": false,
       "toggleEffect": false,
       "ignoreTotalCover": false
-    }
+    },
+    "dnd5e": {}
   },
   "effects": [
     {
@@ -195,23 +248,12 @@
       "name": "Damage Resistance",
       "img": "systems/dnd5e/icons/svg/items/equipment.svg",
       "description": "",
-      "changes": [
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "cold",
-          "priority": 7
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null,
-        "combat": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": null,
       "transfer": true,
@@ -221,21 +263,49 @@
         }
       },
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.dr.value",
+            "value": "cold",
+            "priority": 7,
+            "type": "add",
+            "phase": "initial",
+            "_id": "UifAg0q0Hr45xqL8",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "tint": "#ffffff",
       "statuses": [],
       "sort": 0,
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!gHRSmxFosgYJjENT.B3NwCFjXWQGbxWGn"
     },
     {
@@ -243,23 +313,12 @@
       "name": "Damage Resistance",
       "img": "systems/dnd5e/icons/svg/items/equipment.svg",
       "description": "",
-      "changes": [
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "necrotic",
-          "priority": 7
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null,
-        "combat": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": null,
       "transfer": true,
@@ -269,21 +328,49 @@
         }
       },
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.dr.value",
+            "value": "necrotic",
+            "priority": 7,
+            "type": "add",
+            "phase": "initial",
+            "_id": "8by1Eg3Pwc5BbubS",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "tint": "#ffffff",
       "statuses": [],
       "sort": 0,
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!gHRSmxFosgYJjENT.2AuZEeL291lxItPA"
     },
     {
@@ -291,23 +378,12 @@
       "name": "Damage Resistance",
       "img": "systems/dnd5e/icons/svg/items/equipment.svg",
       "description": "",
-      "changes": [
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "poison",
-          "priority": 7
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null,
-        "combat": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": null,
       "transfer": true,
@@ -317,21 +393,49 @@
         }
       },
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.dr.value",
+            "value": "poison",
+            "priority": 7,
+            "type": "add",
+            "phase": "initial",
+            "_id": "b9Y4j9KTWzTiPQMS",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "tint": "#ffffff",
       "statuses": [],
       "sort": 0,
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!gHRSmxFosgYJjENT.wXbDSFUFKnb6CveQ"
     }
   ],
@@ -339,9 +443,9 @@
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1751738836954,
     "modifiedTime": 1751738836954,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

@@ -30,20 +30,11 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "dae": {
       "macro": {
         "name": "脉冲波动 Pulse Wave",
-        "img": "modules/dnd5e_classpack/Nicons/ability_warlock_Coil2.png",
+        "img": "icons/magic/sonic/projectile-shock-wave-blue.webp",
         "type": "script",
         "scope": "global",
         "command": "/*******************************\n * Dialog: choose Push / Pull (caster-centered)\n * - 参考点 = 当前控制的施法者 token（必须先控制）\n * - 弹窗只需选择 Push/Away or Pull/Toward\n * - 默认距离 DEFAULT_FEET 内置，无需在对话中设置\n * - 使用 MidiQOL.moveTokenFromPoint(..., animate=true)\n *******************************/\n(async () => {\n  const DEFAULT_FEET = 15;\n  const gs = canvas.grid.size;\n  const feetPerSquare = canvas.scene.grid?.distance ?? 5;\n\n  function getTargets() {\n    const t = Array.from(game.user.targets ?? []);\n    if (t.length) return t;\n    return canvas.tokens.controlled.filter(tok => true);\n  }\n  function getTokenCenter(t) { return { x: (t.center?.x ?? (t.x + t.w/2)), y: (t.center?.y ?? (t.y + t.h/2)) }; }\n  function getTokenGridSize(t) { return { w: Math.max(1, Math.floor(Number(t.document?.width ?? t.document?._source?.width ?? 1))), h: Math.max(1, Math.floor(Number(t.document?.height ?? t.document?._source?.height ?? 1))) }; }\n  function snapCenterForToken(rawCenter, tokenGridW, tokenGridH) {\n    const S = CONST.GRID_SNAPPING_MODES;\n    let cell;\n    try { cell = canvas.grid.getSnappedPoint({ x: rawCenter.x, y: rawCenter.y }, { mode: S.CENTER, resolution: 1 }); }\n    catch(e) { cell = { x: Math.round(rawCenter.x / gs) * gs, y: Math.round(rawCenter.y / gs) * gs }; }\n    const snapX = (tokenGridW % 2 === 1) ? cell.x : Math.round(rawCenter.x / gs) * gs;\n    const snapY = (tokenGridH % 2 === 1) ? cell.y : Math.round(rawCenter.y / gs) * gs;\n    const col = Math.floor(snapX / gs), row = Math.floor(snapY / gs);\n    const topLeftCol = col - Math.floor(tokenGridW / 2), topLeftRow = row - Math.floor(tokenGridH / 2);\n    const centerX = Math.round((topLeftCol + tokenGridW/2) * gs), centerY = Math.round((topLeftRow + tokenGridH/2) * gs);\n    return { center: { x: centerX, y: centerY }, topLeft: { x: Math.round(topLeftCol * gs), y: Math.round(topLeftRow * gs) } };\n  }\n\n  // get caster\n  const caster = canvas.tokens.controlled[0] ?? token ?? null;\n  if (!caster) { ui.notifications.warn(\"请先控制施法者的 Token 再运行此宏\"); return; }\n  const casterCenter = getTokenCenter(caster);\n  // targets\n  const targets = getTargets().filter(t => t.id !== caster.id);\n  if (!targets.length) { ui.notifications.warn(\"未发现目标（targets 或被控制 tokens）\"); return; }\n\n  // dialog: choose push or pull\n  const choice = await new Promise(resolve => {\n    new Dialog({\n      title: \"选择 强制位移 方向\",\n      content: `<p>选择是将目标推离施法者（push），还是拉近施法者（pull）？</p>`,\n      buttons: {\n        pull: { label: \"拉近 (Toward)\", callback: () => resolve(\"toward\") },\n        push: { label: \"推离 (Away)\", callback: () => resolve(\"away\") },\n        cancel: { label: \"取消\", callback: () => resolve(null) }\n      },\n      default: \"pull\"\n    }).render(true);\n  });\n  if (!choice) return ui.notifications.info(\"已取消\");\n\n  for (const tk of targets) {\n    try {\n      const distFeet = DEFAULT_FEET;\n      const moveDistanceArg = (choice === \"away\") ? Math.abs(distFeet) : -Math.abs(distFeet); // positive=away, negative=toward\n      if (typeof MidiQOL?.moveTokenFromPoint === \"function\") {\n        await MidiQOL.moveTokenFromPoint(tk, moveDistanceArg, casterCenter);\n      } else {\n        // fallback: compute raw toward/toward center and animate via moveToken\n        const cur = getTokenCenter(tk);\n        const vx = (casterCenter.x - cur.x) || 1;\n        const vy = (casterCenter.y - cur.y) || 0;\n        const norm = Math.hypot(vx, vy) || 1;\n        const raw = { x: Math.round(cur.x + (vx/norm) * pxFromFeet(distFeet)), y: Math.round(cur.y + (vy/norm) * pxFromFeet(distFeet)) };\n        await MidiQOL.moveToken(tk, raw, true);\n      }\n\n      // wait short for animation, then snap quietly\n      await new Promise(r => setTimeout(r, 250));\n      const { w: tgW, h: tgH } = getTokenGridSize(tk);\n      const curCenter = getTokenCenter(tk);\n      const snap = snapCenterForToken(curCenter, tgW, tgH);\n      if (Math.abs(curCenter.x - snap.center.x) > 1 || Math.abs(curCenter.y - snap.center.y) > 1) {\n        await MidiQOL.moveToken(tk, { x: snap.center.x, y: snap.center.y }, false);\n      }\n\n      ChatMessage.create({ content: `${tk.name} 已被 ${choice === \"away\" ? \"推离\" : \"拉近\"} (${DEFAULT_FEET} ft)` });\n    } catch (e) {\n      console.error(\"Dialog push/pull failed\", e);\n      ChatMessage.create({ content: `${tk.name} 的移动失败` });\n    }\n  }\n\n  function pxFromFeet(feet) { return (feet / feetPerSquare) * gs; }\n})();",
@@ -68,23 +59,19 @@
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/ability_warlock_Coil2.png",
+  "img": "icons/magic/sonic/projectile-shock-wave-blue.webp",
   "effects": [
     {
       "name": "脉冲波动Pulse Wave",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.ZGvthYJNmIv8sDqj",
+      "origin": null,
       "duration": {
-        "rounds": null,
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "turns": 1,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "turns",
+        "expiry": "turnStart",
+        "expired": false
       },
       "disabled": false,
       "_id": "iITXAE1XWdXb41b7",
-      "changes": [],
       "description": "",
       "transfer": false,
       "statuses": [],
@@ -95,7 +82,6 @@
           "selfTargetAlways": false,
           "dontApply": false,
           "stackable": "noneName",
-          "showIcon": true,
           "durationExpression": "",
           "macroRepeat": "none",
           "specialDuration": [
@@ -104,27 +90,8 @@
           "enableCondition": "",
           "disableCondition": ""
         },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
-        },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
@@ -132,9 +99,9 @@
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1756826242626,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
@@ -142,16 +109,33 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/ability_warlock_Coil2.png",
+      "img": "icons/magic/sonic/projectile-shock-wave-blue.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.ZGvthYJNmIv8sDqj",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 2,
+      "folder": null,
       "_key": "!items.effects!ZGvthYJNmIv8sDqj.iITXAE1XWdXb41b7"
     }
   ],
   "system": {
     "description": {
-      "value": "<p>你创造出一股强烈的冲压，将其释放向30尺锥形范围，并决定该冲压会推开还是拉近范围内的物品与生物。在锥形范围内的每个生物必须要通过一个体质豁免，若豁免失败则会受到6d6点力场伤害，豁免成功则受到一半伤害。豁免失败的生物会向你被拉进15尺，或从你处被推开15尺，取决于你施展法术时的选择。</p>\n<p>另外，完全处于锥形范围内的物件也会被向你被拉进或者被推开15尺。</p>\n<p><strong>升环法术效应：</strong>当你使用四环或更高环的法术位施展该法术时，每比三环高出一环的法术位就能使法术的伤害增加1d6，并使推拉的距离增加5尺。</p>",
+      "value": "<p>你创造出一股强烈的冲压，将其释放向30尺锥形范围，并决定该冲压会推开还是拉近范围内的物品与生物。在锥形范围内的每个生物必须要通过一个体质豁免，若豁免失败则会受到6d6点力场伤害，豁免成功则受到一半伤害。豁免失败的生物会向你被拉进15尺，或从你处被推开15尺，取决于你施展法术时的选择。</p><p>另外，完全处于锥形范围内未被着装的物件也会被向你被拉进或者被推开15尺。</p><p><strong>升环施法效应。</strong>当你使用四环或更高环的法术位施展该法术时，使用的法术位每比三环高一环，该法术的伤害就增加1d6，并使推拉的距离增加5尺。</p>",
       "chat": ""
     },
     "source": {
@@ -169,7 +153,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -181,7 +166,8 @@
         "type": "cone",
         "size": "30",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -201,10 +187,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -229,27 +211,33 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "iITXAE1XWdXb41b7",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -279,7 +267,8 @@
                 "mode": "whole",
                 "number": 1,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -293,7 +282,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -307,7 +297,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -315,7 +306,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -326,18 +316,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "pulse-wave"
+    "identifier": "pulse-wave",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -346,8 +385,8 @@
   "sort": 600000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711700933046,
     "modifiedTime": 1757260545914,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

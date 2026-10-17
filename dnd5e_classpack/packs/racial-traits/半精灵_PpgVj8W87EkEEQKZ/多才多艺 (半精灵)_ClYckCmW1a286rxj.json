@@ -7,7 +7,7 @@
       "subtype": ""
     },
     "description": {
-      "value": "<p>你获得两项自选技能的熟练项。<br /></p>",
+      "value": "<p>你获得两项自选技能的熟练项。</p>",
       "chat": ""
     },
     "source": {
@@ -24,13 +24,37 @@
     "properties": [],
     "activities": {},
     "identifier": "-",
-    "advancement": [],
+    "advancement": {
+      "5503961b77161c01": {
+        "_id": "5503961b77161c01",
+        "type": "Trait",
+        "name": "熟练项",
+        "configuration": {
+          "mode": "default",
+          "allowReplacements": false,
+          "grants": [],
+          "choices": [
+            {
+              "count": 2,
+              "pool": [
+                "skills:*"
+              ]
+            }
+          ]
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     }
   },
   "flags": {
@@ -52,12 +76,7 @@
       "itemCondition": "",
       "effectCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/skills/trades/academics-investigation-puzzles.webp",
   "_id": "ClYckCmW1a286rxj",
@@ -69,8 +88,8 @@
   "sort": 16400000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757945155404,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

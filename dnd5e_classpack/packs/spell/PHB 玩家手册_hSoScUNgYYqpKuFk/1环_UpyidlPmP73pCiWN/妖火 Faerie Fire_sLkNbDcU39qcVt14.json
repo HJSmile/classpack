@@ -27,16 +27,7 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "faerieFire",
@@ -45,39 +36,57 @@
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Fire_FelFire.png",
+  "img": "icons/magic/light/orbs-smoke-pink.webp",
   "effects": [
     {
       "name": "妖火 Faerie Fire",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Fire_FelFire.png",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.sLkNbDcU39qcVt14",
+      "img": "icons/magic/light/orbs-smoke-pink.webp",
+      "origin": null,
       "transfer": false,
       "_id": "XXYFo1UCqoxfzDZr",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.grants.advantage.attack.all",
-          "mode": 2,
-          "value": "1",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.grants.advantage.attack.all",
+            "value": "canSee(tokenUuid, \"@targetUuid\")",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "CKe3X8SDOOKBTZFd",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.ci.value",
+            "value": "invisible",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "A006uSmC5u9bMY0A",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "system.traits.ci.value",
-          "mode": 2,
-          "value": "invisible",
-          "priority": 20
-        }
-      ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.sLkNbDcU39qcVt14",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": 10,
-        "startRound": null,
-        "startTurn": null
+        "value": 60,
+        "units": "seconds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -94,12 +103,11 @@
           "stackable": "noneName",
           "showIcon": false,
           "durationExpression": "",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
@@ -108,20 +116,23 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": 1753012984290,
         "modifiedTime": 1753013071799,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!sLkNbDcU39qcVt14.XXYFo1UCqoxfzDZr"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 指定施法距离内一处20尺立方区域，其内每个物件都将被蓝色，绿色或紫色的光所包围（颜色由你指定）。区域内敏捷豁免失败的生物也会被光包围。受术物件和生物在法术持续时间内发出10尺半径的微光。\n<br />受术生物或物件无法受益于隐形，且任何能看见他们的攻击者对其发动攻击检定时具有优势。\n<br /></div>",
+      "value": "<p>指定施法距离内一处 20 尺立方区域，其内每个物件都将被蓝色、绿色、或紫色的光所包围（颜色由你指定）。区域内的生物则必须进行一次[[/save activity=dnd5eactivity000]]{敏捷豁免}，豁免失败时也会被光线勾勒出轮廓。受术物件和生物在法术持续时间内发出 10 尺半径的微光。</p><p>受术生物或物件无法受益于隐形，且任何能看见他们的攻击者对其发动的攻击检定具有优势。</p>",
       "chat": ""
     },
     "source": {
@@ -137,7 +148,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -147,7 +159,8 @@
         "units": "ft",
         "type": "cube",
         "size": "20",
-        "contiguous": false
+        "contiguous": false,
+        "stationary": false
       }
     },
     "range": {
@@ -167,10 +180,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -195,26 +204,44 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "XXYFo1UCqoxfzDZr"
+            "_id": "XXYFo1UCqoxfzDZr",
+            "uuid": null,
+            "level": {},
+            "onSave": false,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1753012984290,
+              "modifiedTime": 1753013071799,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -240,7 +267,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -254,7 +282,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -262,7 +291,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -273,18 +301,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "faerie-fire"
+    "identifier": "faerie-fire",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -293,8 +370,8 @@
   "sort": 32300000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

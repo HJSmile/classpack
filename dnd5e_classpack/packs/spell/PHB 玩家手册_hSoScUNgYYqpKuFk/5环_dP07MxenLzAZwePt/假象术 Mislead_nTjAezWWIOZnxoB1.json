@@ -24,22 +24,13 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Magic_LesserInvisibilty.png",
+  "img": "icons/equipment/head/hood-cloth-teal-gold.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你变为隐形，同时在你站的地方出现一个和你一样的幻象分身。分身会持续存在至法术持续时间结束；但如果你发动攻击或施展法术，则终止该隐形效应。\n<br />你可以用你的动作将分身以至多两倍于你的速度移动，并且可以让他打手势、说话，以及以任何你指定的方式行事。\n<br />你可以通过分身的眼睛视物，用分身的耳朵聆听，如同你处于它的位置一样。你可以在自己回合内以一个附赠动作在自己与分身的感官间切换。而当你使用分身的感官时，本体周边的事物对你而言等同于处于目盲且耳聋的状态。\n<br /></div>",
+      "value": "<p>你变为隐形，同时在你站的地方出现一个和你一样的幻象分身。分身会持续存在至法术持续时间结束；但如果你发动攻击或施展法术，则终止该隐形效应。</p><p>你可以用你的动作将分身以至多两倍于你的速度移动，并且可以让他打手势、说话，以及以任何你指定的方式行事。</p><p>你可以通过分身的眼睛视物，用分身的耳朵聆听，如同你处于它的位置一样。你可以在自己回合内以一个附赠动作在自己与分身的感官间切换。而当你使用分身的感官时，本体周边的事物对你而言等同于处于&amp;Reference[condition=blinded apply=false]{目盲}且耳聋的状态。</p>",
       "chat": ""
     },
     "source": {
@@ -55,7 +46,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -65,9 +57,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -87,10 +80,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "somatic",
@@ -115,22 +104,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -160,7 +153,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -168,7 +162,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -179,18 +172,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "mislead"
+    "identifier": "mislead",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -199,8 +240,8 @@
   "sort": 12500000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

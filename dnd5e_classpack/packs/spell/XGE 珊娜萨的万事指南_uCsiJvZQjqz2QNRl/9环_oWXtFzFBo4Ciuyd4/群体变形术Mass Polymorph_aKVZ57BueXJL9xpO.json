@@ -23,37 +23,22 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/environment/creatures/frog-spotted-green.webp",
   "_id": "aKVZ57BueXJL9xpO",
   "effects": [
     {
       "name": "群体变形术Mass Polymorph",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.aKVZ57BueXJL9xpO",
+      "origin": null,
       "duration": {
-        "rounds": 600,
-        "startTime": null,
-        "seconds": 3600,
-        "combat": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 3600,
+        "units": "seconds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "disabled": false,
       "_id": "7L96pVRsjWLxA4Iu",
-      "changes": [],
       "description": "",
       "transfer": false,
       "statuses": [],
@@ -64,33 +49,16 @@
           "selfTargetAlways": false,
           "dontApply": false,
           "stackable": "noneName",
-          "showIcon": true,
           "durationExpression": "",
           "macroRepeat": "none",
           "specialDuration": []
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system"
         }
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -100,14 +68,31 @@
       },
       "img": "icons/environment/creatures/frog-spotted-green.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.aKVZ57BueXJL9xpO",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 2,
+      "folder": null,
       "_key": "!items.effects!aKVZ57BueXJL9xpO.7L96pVRsjWLxA4Iu"
     }
   ],
   "system": {
     "description": {
-      "value": "<p>你可以转变施法距离内最多10个由你选择的可见生物。非自愿的目标必须通过一次感知豁免检定来对抗变形。非自愿的变形者（shapechanger）在这次豁免中自动成功。<br />每一个目标都获得由你选择的、相同或是不同的野兽形态。新的形态可以是你曾见过的、挑战等级低于或等于目标挑战等级任意野兽（如果目标没有挑战等级，那么上限是目标等级的一半）。这些目标的游戏数据，包括心智属性值，将被你所选择的野兽数据所取代，但仍然保留他们的生命值、阵营和人格。<br />每一个目标都得到等同于新形态生命值的临时生命值。这些临时生命值不能被其他来源的临时生命值替换。生物会在失去这些临时生命值或者死亡时变回原本的形态。如果法术在这之前结束，这些临时生命值也会失去且生物变回原形。<br />生物能进行的动作被它新形态的特质所限制。它将不能说话、施展法术、或是做其他需要用到手或言语的事情。<br />目标的装备融合进新形态，目标生物不能启动，使用，挥舞或其他方式从它的装备上获得增益。</p>",
+      "value": "<p>你可以转变施法距离内最多 10 个由你选择的可见生物。非自愿的目标必须通过一次[[/save activity=dnd5eactivity000]]{感知豁免检定}来对抗变形。非自愿的变形生物shapechanger 在这次豁免中自动成功。</p><p>每一个目标都获得由你选择的、相同或是不同的野兽形态。新的形态可以是你曾见过的、挑战等级低于或等于目标挑战等级任意野兽（如果目标没有挑战等级，那么上限是目标等级的一半）。这些目标的游戏数据，包括心智属性值，将被你所选择的野兽数据所取代，但仍然保留他们的生命值、阵营和人格。</p><p>每一个目标都得到等同于新形态生命值的临时生命值。这些临时生命值不能被其他来源的临时生命值替换。生物会在失去这些临时生命值或者死亡时变回原本的形态。如果法术在这之前结束，这些临时生命值也会失去且生物变回原形。</p><p>生物能进行的动作被它新形态的特质所限制。它将不能说话、施展法术、或是做其他需要用到手或言语的事情。</p><p>目标的装备融合进新形态，目标生物不能启动，使用，挥舞或其他方式从它的装备上获得增益。</p>",
       "chat": ""
     },
     "source": {
@@ -123,7 +108,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -133,9 +119,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -156,10 +143,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -186,27 +169,33 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "7L96pVRsjWLxA4Iu",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -232,7 +221,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -246,7 +236,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -254,7 +245,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -265,18 +255,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "mass-polymorph"
+    "identifier": "mass-polymorph",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -285,8 +324,8 @@
   "sort": 12500000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711724049461,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

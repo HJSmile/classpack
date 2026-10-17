@@ -31,17 +31,11 @@
       "itemCondition": "",
       "effectCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
-      "value": "<p><em>奇物</em></p>\n<p>这个2尺直径的黑色球体是多元宇宙中的一个空洞，由一个围绕在它周围的魔法场维持稳定。</p>\n<p>湮灭法球会毁灭任何穿过它或被它穿过的物质。神器，除非标注了易受湮灭法球影响，否则可以不受影响的穿过法球。其它接触到法球但未被完全毁灭或吞噬的东西都将受到[[/r 4d10]]力场伤害。</p>\n<p>除非被人控制，湮灭法球总是保持静止。如果你在一个未被控制的湮灭法球周围60尺内，你可以用一个动作进行一次DC25的智力（神秘）检定。如果检定成功，你可以让法球向一个你选择的方向移动5*你的智力调整值尺（最少5尺）；如果检定失败，湮灭法球将向你移动10尺。如果法球进入了某名生物占据的空间，该生物必须通过一次DC13的敏捷豁免以避开法球，失败则受到[[/r 4d10]]力场伤害。</p>\n<p>你可以尝试从另一名生物处夺取湮灭法球的控制权。你和该生物进行智力（神秘）对抗，胜者将获得法球的控制权并可以如从操纵它移动。</p>\n<p>如果湮灭法球与位面传送门（例如@UUID[Compendium.dnd5e_classpack.spell.bJdmgHYyhUJv8Zyc]{异界之门 Gate}制造的）或是异位面空间（例如@UUID[Compendium.dnd5e_classpack.itempack.387A15D30FA11064]{次元洞 Portable Hole}内部）接触，DM按下表决定发生的事件：</p>\n<table border=\"1\">\n<tbody>\n<tr>\n<td><strong>[[/r d100]]</strong></td>\n<td><strong>结果</strong></td>\n</tr>\n<tr>\n<td>01-50<p></p>\n</td>\n<td>法球被摧毁</td>\n</tr>\n<tr>\n<td>51-85<p></p>\n</td>\n<td>法球穿过位面传送门或进入异位面空间</td>\n</tr>\n<tr>\n<td>86-00<p></p>\n</td>\n<td>一个空间裂缝出现，将湮灭法球和其周围180尺范围内的生物和物体送到一个随机地点。</td>\n</tr>\n</tbody>\n</table>",
+      "value": "<p><em>奇物</em></p><p>这个2尺直径的黑色球体是多元宇宙中的一个空洞，由一个围绕在它周围的魔法场维持稳定。</p><p>湮灭法球会毁灭任何穿过它或被它穿过的物质。神器，除非标注了易受湮灭法球影响，否则可以不受影响的穿过法球。其它接触到法球但未被完全毁灭或吞噬的东西都将受到[[/r 4d10]]力场伤害。</p><p>除非被人控制，湮灭法球总是保持静止。如果你在一个未被控制的湮灭法球周围60尺内，你可以用一个动作进行一次DC25的智力（神秘）检定。如果检定成功，你可以让法球向一个你选择的方向移动5*你的智力调整值尺（最少5尺）；如果检定失败，湮灭法球将向你移动10尺。如果法球进入了某名生物占据的空间，该生物必须通过一次DC13的敏捷豁免以避开法球，失败则受到[[/r 4d10]]力场伤害。</p><p>你可以尝试从另一名生物处夺取湮灭法球的控制权。你和该生物进行智力（神秘）对抗，胜者将获得法球的控制权并可以如从操纵它移动。</p><p>如果湮灭法球与位面传送门（例如@UUID[Compendium.dnd5e_classpack.spell.bJdmgHYyhUJv8Zyc]{异界之门 Gate}制造的）或是异位面空间（例如@UUID[Compendium.dnd5e_classpack.itempack.387A15D30FA11064]{次元洞 Portable Hole}内部）接触，DM按下表决定发生的事件：</p><table><tbody><tr><td><strong>[[/r d100]]</strong></td><td><strong>结果</strong></td></tr><tr><td>01-50\n</td><td>法球被摧毁</td></tr><tr><td>51-85\n</td><td>法球穿过位面传送门或进入异位面空间</td></tr><tr><td>86-00\n</td><td>一个空间裂缝出现，将湮灭法球和其周围180尺范围内的生物和物体送到一个随机地点。</td></tr></tbody></table>",
       "chat": ""
     },
     "source": {
@@ -61,7 +55,6 @@
     },
     "attunement": "",
     "equipped": false,
-    "rarity": "legendary",
     "identified": true,
     "uses": {
       "max": "",
@@ -85,7 +78,8 @@
           "mode": "",
           "number": null,
           "formula": ""
-        }
+        },
+        "modifiers": []
       },
       "replace": false
     },
@@ -97,7 +91,6 @@
       "subtype": ""
     },
     "container": null,
-    "magicalBonus": null,
     "properties": [
       "mgc"
     ],
@@ -120,14 +113,16 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -144,7 +139,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "1",
@@ -162,7 +158,10 @@
         },
         "damage": {
           "onSave": "half",
-          "parts": []
+          "parts": [],
+          "critical": {
+            "allow": false
+          }
         },
         "save": {
           "ability": [
@@ -171,18 +170,108 @@
           "dc": {
             "calculation": "",
             "formula": "13"
-          }
+          },
+          "visible": true
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
     "identifier": "-sphere-of-annihilation",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "legendary"
+    ]
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1713010440538,
     "modifiedTime": 1757871200169,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

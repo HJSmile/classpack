@@ -24,24 +24,13 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/003139.png",
+  "img": "icons/magic/control/silhouette-hold-change-green.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你创造一个自己的幻象分身，并使其在法术持续时间内维持存在。该分身可以出现在施法距离内你曾见过的任何地点，而不论中间是否存在障碍物。该幻象外观和声音与你一样，只是没有现实形体。幻象受到伤害时会立即消失并终止法术。\n<br />你可以用你的动作移动该分身至多两倍于你速度的尺数，而其姿态、言语和行为均按照你的指定作表现。此外幻象还可以完美的模仿你的举止。\n<br />你可以通过分身的眼睛视物，用分身的耳朵聆听，如同你处于它的位置一样。你可以在自己回合内以一个附赠动作在自己与分身的感官间切换。而当你使用分身的感官时，本体周边的事物对你而言等同于处于目盲且耳聋的状态。\n<br />由于幻象无法被碰到，任何与该幻象进行的物理互动都会暴露其幻觉本质。一个生物用其动作调查幻象时，它可以进行一次对抗法术豁免DC 的智力（调查）检定，以判定是否看穿幻象。辨出幻象的生物可以看穿该影像，其产生的声响对该生物而言显得虚假。\n<br /></div>",
+      "value": "<p>你创造一个自己的幻象分身，并使其在法术持续时间内维持存在。该分身可以出现在施法距离内你曾见过的任何地点，而不论中间是否存在障碍物。该幻象外观和声音与你一样，只是没有现实形体。幻象受到伤害时会立即消失并终止法术。</p><p>你可以用你的动作移动该分身至多两倍于你速度的尺数，而其姿态、言语和行为均按照你的指定作表现。此外幻象还可以完美的模仿你的举止。</p><p>你可以通过分身的眼睛视物，用分身的耳朵聆听，如同你处于它的位置一样。你可以在自己回合内以一个附赠动作在自己与分身的感官间切换。而当你使用分身的感官时，本体周边的事物对你而言等同于处于&amp;Reference[condition=blinded apply=false]{目盲}且耳聋的状态。</p><p>由于幻象无法被碰到，任何与该幻象进行的物理互动都会暴露其幻觉本质。一个生物用其动作调查幻象时，它可以进行一次对抗法术豁免 DC 的[[/check ability=int skill=inv]]{智力（调查）检定}，以判定是否看穿幻象。辨出幻象的生物可以看穿该影像，其产生的声响对该生物而言显得虚假。</p>",
       "chat": ""
     },
     "source": {
@@ -57,7 +46,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "day"
+      "units": "day",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -69,7 +59,8 @@
       "template": {
         "units": "any",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -90,10 +81,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -120,22 +107,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -165,7 +156,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -173,7 +165,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -184,18 +175,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "project-image"
+    "identifier": "project-image",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -204,8 +243,8 @@
   "sort": 28200000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

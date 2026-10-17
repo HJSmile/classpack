@@ -2,21 +2,12 @@
   "_id": "hbVFl8RD8KWkMkSe",
   "name": "混乱箭 Chaos Bolt",
   "type": "spell",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Warlock_ChaosBolt.png",
+  "img": "icons/magic/light/projectiles-pink-purple.webp",
   "effects": [],
   "folder": "cfhFGivQBWoAk8hD",
   "sort": 9100000,
   "flags": {
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "fumbleThreshold": null,
       "rollAttackPerTarget": "default",
@@ -24,7 +15,8 @@
       "itemCondition": "",
       "reactionCondition": "",
       "otherCondition": "",
-      "effectCondition": ""
+      "effectCondition": "",
+      "onUseMacroName": "[postActiveEffects]ItemMacro,[postDamageRoll]ItemMacro"
     },
     "midiProperties": {
       "autoFailFriendly": false,
@@ -41,11 +33,39 @@
         "source": "chris-premades",
         "version": "0.0.0"
       }
+    },
+    "dae": {
+      "macro": {
+        "name": "混乱箭 Chaos Bolt",
+        "img": "icons/magic/light/projectiles-pink-purple.webp",
+        "type": "script",
+        "scope": "global",
+        "command": "if (workflow.aborted || workflow.activity.type !== \"attack\") return;\nconst pass = args[0]?.macroPass;\nif (![\"postDamageRoll\", \"postActiveEffects\"].includes(pass)) return;\nconst targets = Array.from(workflow.targets);\nif (targets.length !== 1) {\n  return ui.notifications.warn(\"混乱箭：每次攻击只能选择一个目标。\");\n}\nconst current = targets[0];\nconst dialogs = game.modules.get(\"dnd5e_classpack\").api.dialogUtils;\nconst types = {\n  1: { key: \"acid\", label: \"强酸\" },\n  2: { key: \"cold\", label: \"寒冷\" },\n  3: { key: \"fire\", label: \"火焰\" },\n  4: { key: \"force\", label: \"力场\" },\n  5: { key: \"lightning\", label: \"闪电\" },\n  6: { key: \"poison\", label: \"毒素\" },\n  7: { key: \"psychic\", label: \"心灵\" },\n  8: { key: \"thunder\", label: \"雷鸣\" }\n};\n\nif (pass === \"postDamageRoll\") {\n  if (!workflow.hitTargets?.size || workflow._chaosBoltDamageDone) return;\n  const rolls = workflow.damageRolls;\n  const d8 = rolls.flatMap(roll => roll.dice)\n    .filter(die => die.faces === 8)\n    .flatMap(die => die.results.filter(result =>\n      result.active !== false && !result.discarded && !result.rerolled\n    ).map(result => result.result)).slice(0, 2);\n  if (d8.length !== 2 || !d8.every(value => types[value])) {\n    return ui.notifications.warn(\"混乱箭：无法读取两颗 d8，请检查攻击活动的伤害配置。\");\n  }\n\n  const choices = [...new Set(d8)];\n  const selected = choices.length === 1 ? types[choices[0]].key :\n    await dialogs.selectDamageType(\n      choices.map(value => types[value].key),\n      \"混乱箭：选择伤害类型\",\n      `<p>两颗 d8：${d8.map(value => `${value}（${types[value].label}）`).join(\"、\")}。选择本次全部伤害的类型。</p>`\n    );\n  // Closing the damage-type dialog uses the first eligible type.\n  const type = selected || types[choices[0]].key;\n  for (const roll of rolls) {\n    roll.options.type = type;\n    roll.options.types = [type];\n    for (const die of roll.dice) die.options.flavor = type;\n    roll.resetFormula();\n  }\n  workflow.defaultDamageType = type;\n  await workflow.setDamageRolls(rolls);\n  workflow._chaosBoltDamageDone = true;\n  workflow._chaosBoltCanLeap = d8[0] === d8[1];\n  return;\n}\n\nif (!workflow.hitTargets?.size || !workflow._chaosBoltCanLeap\n  || workflow._chaosBoltLeapQueued) return;\nconst visited = new Set(workflow.workflowOptions.chaosBoltVisited ?? []);\nvisited.add(current.document.uuid);\nconst distance = dnd5e.utils.convertLength(30, \"ft\", canvas.scene.grid.units, { strict: false });\nconst candidates = MidiQOL.findNearby(null, current, distance, {\n  includeToken: false,\n  includeIncapacitated: true,\n  canSee: false,\n  isSeen: false\n}).filter(token => [\"character\", \"npc\"].includes(token.actor?.type)\n  && !visited.has(token.document.uuid));\nif (!candidates.length) {\n  return ui.notifications.info(\"混乱箭：30 尺内没有尚未被本次施法选中过的生物。\");\n}\n\nconst [next] = await dialogs.selectTargetDialog(\n  \"混乱箭：选择跳跃目标\",\n  \"<p>两颗 d8 相同。选择 30 尺内的新目标；取消或关闭窗口可结束跳跃。</p>\",\n  candidates,\n  { type: \"one\", skipDeadAndUnconscious: false }\n);\nif (!next) return;\nvisited.add(next.document.uuid);\n\n// A leap is measured from the previous target, not the original caster.\n// Temporary item clone removes the original caster-to-target range check.\n// Only this clone changes; the character's original spell is not edited.\nconst path = `system.activities.${workflow.activity.id}`;\nconst nextItem = macroItem.clone({\n  [`${path}.range.override`]: true,\n  [`${path}.range.value`]: null,\n  [`${path}.range.long`]: null,\n  [`${path}.range.units`]: \"spec\",\n  [`${path}.activation.type`]: \"\",\n  [`${path}.otherActivityId`]: \"none\",\n  [`${path}.midiProperties.triggeredActivityId`]: \"\"\n}, { keepId: true });\nconst nextActivity = nextItem.system.activities.get(workflow.activity.id);\nconst baseLevel = Number(macroItem.system.level) || 1;\nconst castLevel = Math.max(baseLevel, Number(workflow.spellLevel) || baseLevel);\nconst usage = {\n  consume: { resources: false, spellSlot: false, action: false },\n  create: { measuredTemplate: false },\n  scaling: castLevel - baseLevel,\n  midiOptions: {\n    spellLevel: castLevel,\n    targetsToUse: new Set([next]),\n    ignoreUserTargets: true,\n    isCritical: false,\n    workflowOptions: {\n      targetConfirmation: \"none\",\n      notReaction: true,\n      notBonusAction: true,\n      chaosBoltVisited: Array.from(visited)\n    }\n  }\n};\n\n// Launch after the current workflow cleans up, avoiding nested chain timeouts\n// and letting Midi restore the previous workflow's target selection first.\nworkflow._chaosBoltLeapQueued = true;\nconst hookName = `midi-qol.postCleanup.${workflow.activity.uuid}`;\nconst hookId = Hooks.on(hookName, finished => {\n  if (finished.id !== workflow.id) return;\n  Hooks.off(hookName, hookId);\n  if (finished.aborted) return;\n  void MidiQOL.completeActivityUse(nextActivity, usage,\n    { configure: false }, { create: true }).catch(error => {\n    console.error(\"混乱箭跳跃失败\", error);\n    ui.notifications.error(`混乱箭跳跃失败：${error.message}`);\n  });\n});",
+        "author": "dvg25zW2MvzsvMOU",
+        "ownership": {
+          "default": 3
+        },
+        "_id": null,
+        "folder": null,
+        "sort": 0,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.369",
+          "systemId": "dnd5e",
+          "systemVersion": "6.0.6",
+          "createdTime": null,
+          "modifiedTime": null,
+          "lastModifiedBy": null,
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null
+        }
+      }
     }
   },
   "system": {
     "description": {
-      "value": "<p>你向着距离内的一个生物掷出一团变化不定、高声尖鸣的混乱能量。对目标进行一次远程法术攻击。击中时，目标受到2d8+1d6点伤害。选择一颗d8投出的数字来决定它的伤害类型，投出的数字与对应的类别见下表。</p>\n<table>\n<thead>\n<tr>\n<th>[[/r D8]]</th>\n<th>伤害类别</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>1</td>\n<td>强酸</td>\n</tr>\n<tr>\n<td>2</td>\n<td>寒冷</td>\n</tr>\n<tr>\n<td>3</td>\n<td>火焰</td>\n</tr>\n<tr>\n<td>4</td>\n<td>力场</td>\n</tr>\n<tr>\n<td>5</td>\n<td>闪电</td>\n</tr>\n<tr>\n<td>6</td>\n<td>毒素</td>\n</tr>\n<tr>\n<td>7</td>\n<td>精神</td>\n</tr>\n<tr>\n<td>8</td>\n<td>雷鸣</td>\n</tr>\n</tbody>\n</table>\n<p>若你的两颗d8投出了相同的数字，混乱能量将从目标跳跃到一个由你选择的、处于它周围30英尺内的其他生物上。对新目标进行一次新的攻击检定，进行新的伤害检定，这次伤害检定也可能令混沌能量跳跃。</p>\n<p>一个生物只能被此混乱箭选作目标一次。</p>\n<p><strong>升环效果：</strong>当你使用2环或更高的法术位施展此法术时，每个生物受到额外伤害，类型与投出的一致。额外伤害等于高于1环的每个等级1d6点。</p>",
+      "value": "<p>你向着施法距离内的一个生物掷出一团变化不定、高声尖鸣的混乱能量。对目标进行一次远程法术攻击。击中时，目标受到 2d8+1d6 点伤害。选择一颗 [[/r D8]] 投出的数字来决定它的伤害类型，投出的数字与对应的类别见下表。</p><table><thead><tr><th><p>D8</p></th><th><p>伤害类别</p></th><th><p>D8</p></th><th><p>伤害类别</p></th></tr></thead><tbody><tr><td><p>1</p></td><td><p>强酸</p></td><td><p>5</p></td><td><p>闪电</p></td></tr><tr><td><p>2</p></td><td><p>寒冷</p></td><td><p>6</p></td><td><p>毒素</p></td></tr><tr><td><p>3</p></td><td><p>火焰</p></td><td><p>7</p></td><td><p>心灵</p></td></tr><tr><td><p>4</p></td><td><p>力场</p></td><td><p>8</p></td><td><p>雷鸣</p></td></tr></tbody></table><p>若你的两颗 d8 投出了相同的数字，混乱能量将从目标跳跃到一个由你选择的、处于它周围 30 尺内的其他生物上。对新目标进行一次新的攻击检定，进行新的伤害掷骰，这次伤害掷骰也可能令混沌能量跳跃。</p><p>一个生物只能被此混乱箭选作目标一次。</p><p><strong>升环施法效应。</strong>当你使用二环或更高的法术位施展此法术时，每个生物受到额外伤害，类型与投出的一致。额外伤害等于高于一环的每个等级 1d6 点。</p>",
       "chat": ""
     },
     "source": {
@@ -61,7 +81,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -71,9 +92,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -94,10 +116,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -121,22 +139,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -172,7 +194,7 @@
                 "formula": ""
               },
               "number": 2,
-              "denomination": "8",
+              "denomination": 8,
               "bonus": "1d6",
               "types": [
                 "poison",
@@ -188,7 +210,8 @@
                 "mode": "whole",
                 "number": null,
                 "formula": "1d6"
-              }
+              },
+              "modifiers": []
             }
           ]
         },
@@ -204,7 +227,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -212,7 +236,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -223,13 +246,27 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "attackMode": "",
@@ -237,109 +274,52 @@
         "otherActivityUuid": "",
         "name": "",
         "img": "",
-        "appliedEffects": []
-      },
-      "dnd5eactivity300": {
-        "_id": "dnd5eactivity300",
-        "type": "utility",
-        "activation": {
-          "type": "action",
-          "value": null,
-          "override": false
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
         },
-        "consumption": {
-          "targets": [],
-          "scaling": {
-            "allowed": false,
-            "max": ""
-          },
-          "spellSlot": true
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
         },
-        "description": {
-          "chatFlavor": ""
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
         },
-        "duration": {
-          "units": "inst",
-          "concentration": false,
-          "override": false
-        },
-        "effects": [],
-        "range": {
-          "override": false
-        },
-        "target": {
-          "prompt": true,
-          "template": {
-            "contiguous": false,
-            "units": "ft"
-          },
-          "affects": {
-            "choice": false
-          },
-          "override": false
-        },
-        "uses": {
-          "spent": 0,
-          "max": "",
-          "recovery": []
-        },
-        "roll": {
-          "formula": "d8",
-          "name": "",
-          "prompt": false,
-          "visible": false
-        },
-        "sort": 0,
-        "useConditionText": "",
-        "useConditionReason": "",
-        "effectConditionText": "",
-        "macroData": {
-          "name": "",
-          "command": ""
-        },
-        "ignoreTraits": {
-          "idi": false,
-          "idr": false,
-          "idv": false,
-          "ida": false
-        },
-        "midiProperties": {
-          "ignoreTraits": [],
-          "triggeredActivityId": "none",
-          "triggeredActivityConditionText": "",
-          "triggeredActivityTargets": "targets",
-          "triggeredActivityRollAs": "self",
-          "forceDialog": false,
-          "confirmTargets": "default",
-          "autoTargetType": "any",
-          "autoTargetAction": "default",
-          "automationOnly": false,
-          "otherActivityCompatible": true,
-          "identifier": "",
-          "displayActivityName": false,
-          "rollMode": "default",
-          "chooseEffects": false,
-          "toggleEffect": false,
-          "ignoreFullCover": false
-        },
-        "isOverTimeFlag": false,
-        "overTimeProperties": {
-          "saveRemoves": true,
-          "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
-        },
-        "otherActivityId": "none"
+        "otherActivityAsParentType": true,
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       }
     },
-    "identifier": "chaos-bolt"
+    "identifier": "chaos-bolt",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

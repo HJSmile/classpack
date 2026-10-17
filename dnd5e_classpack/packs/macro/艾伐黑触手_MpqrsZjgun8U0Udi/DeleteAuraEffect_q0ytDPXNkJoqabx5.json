@@ -4,7 +4,7 @@
   "author": "WqWGW8MuBm7BNHxt",
   "img": "icons/svg/dice-target.svg",
   "scope": "global",
-  "command": "(async () => {\n  // 检查 args[0] 是否为 \"off\"，表示效果被删除\n  if (args[0] !== \"off\") {\n    console.log(\"❌ 宏未触发：args[0] 不是 'off'，当前值为\", args[0]);\n    return;\n  }\n\n  // 获取目标 Token 和 Actor\n  const tokenId = args[1]?.tokenId || args[1]?.token?.id;\n  const token = canvas.tokens.get(tokenId);\n  const actor = token?.actor;\n  if (!actor) {\n    console.log(\"❌ 未找到目标 Actor，无法继续执行宏\");\n    return;\n  }\n\n  console.log(\"✅ 成功获取 Actor：\", actor.name);\n\n  // 查找名为“艾伐黑触手 Black Tentacles (In Aura)”的效果\n  const auraEffect = actor.effects.find(e => e.label === \"艾伐黑触手 Black Tentacles (In Aura)\");\n  if (!auraEffect) {\n    console.log(\"⚠️ 未找到 '艾伐黑触手 Black Tentacles (In Aura)' 效果\");\n    return;\n  }\n\n  // 删除该效果\n  await auraEffect.delete();\n  console.log(\"🧹 已成功删除 '艾伐黑触手 Black Tentacles (In Aura)' 效果\");\n})();",
+  "command": "return (async () => {\n  if (args[0] !== \"off\") return;\n  const last = args.at(-1) ?? {};\n  const targetDocument = last.tokenUuid ? await fromUuid(last.tokenUuid) : null;\n  const targetToken = targetDocument ? targetDocument.object : canvas.tokens?.get(last.tokenId);\n  const targetActor = (typeof actor !== \"undefined\" && actor) || targetDocument?.actor || targetToken?.actor || (last.actorUuid ? await fromUuid(last.actorUuid) : null);\n  if (!targetActor) return;\n\n  const aura = targetActor.effects.find(e => e.name === \"艾伐黑触手 Black Tentacles (In Aura)\" && (!last.origin || e.origin === last.origin));\n  if (aura) await aura.delete();\n})();",
   "folder": "MpqrsZjgun8U0Udi",
   "ownership": {
     "default": 0,
@@ -14,9 +14,9 @@
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1756529882843,
     "modifiedTime": 1756529882843,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

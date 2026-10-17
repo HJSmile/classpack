@@ -28,18 +28,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "crownOfMadness",
@@ -48,49 +37,64 @@
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/httpcloud3steamusercontentcomugc764896815834374808A2AF03DA4EAF33236D084DA24D268F5A5E747D33.jpg",
+  "img": "icons/magic/control/control-influence-crown-gold.webp",
   "effects": [
     {
       "name": "疯狂冠冕Crown of Madness",
-      "img": "modules/dnd5e_classpack/Nicons/httpcloud3steamusercontentcomugc764896815834374808A2AF03DA4EAF33236D084DA24D268F5A5E747D33.jpg",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.otAaRLMc7OfxRYAw",
+      "img": "icons/magic/control/control-influence-crown-gold.webp",
+      "origin": null,
       "transfer": false,
       "_id": "VCRXg8cR08dF3Y4u",
       "type": "base",
-      "system": {},
-      "changes": [],
+      "system": {
+        "changes": [],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.otAaRLMc7OfxRYAw",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "minutes",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
-      "statuses": [],
+      "statuses": [
+        "charmed"
+      ],
       "sort": 0,
       "flags": {},
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!otAaRLMc7OfxRYAw.VCRXg8cR08dF3Y4u"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \">\n<div class=\"description \">你指定施法距离内一名你能看见的类人生物，并迫使该生物进行一次感知豁免，豁免失败则该生物将在法术持续时间内受你魅惑。以该方式被魅惑的生物其头顶上将出现铁质锯齿的扭曲头冠，而其眼神则闪烁着疯狂。</div>\n<div class=\"description \">受魅惑目标在其每个回合里，必须在移动前对身边一个你在心中指定的生物发动一次近战攻击。如果你并没有为其指定目标，或者其触及范围内并没有目标，则该生物在本回合里可以按正常状态行动。</div>\n<div class=\"description \">施法后你在每个自己回合里必须用你的动作维持对目标的控制，否则法术将提前终止。另外，受术目标还可以在每个自己回合结束时再进行一次感知豁免，豁免成功则法术终止。</div>\n</div>",
+      "value": "<p>你指定施法距离内一名你能看见的类人生物，并迫使该生物进行一次[[/save activity=dnd5eactivity000]]{感知豁免}，豁免失败则该生物将在法术持续时间内受你魅惑。以该方式被魅惑的生物其头顶上将出现铁质锯齿的扭曲头冠，而其眼神则闪烁着疯狂。</p><p>受魅惑目标在其每个回合中，必须在移动前使用其动作对一名你在心中指定的除其自身以外的生物发动一次近战攻击。如果你并没有为其指定目标，或者其触及范围内并没有目标，则该生物在本回合里可以按正常状态行动。</p><p>施法后你在每个自己回合里必须用你的动作维持对目标的控制，否则法术将提前终止。另外，受术目标还可以在每个自己回合结束时再进行一次感知豁免，豁免成功则法术终止。</p>",
       "chat": ""
     },
     "source": {
@@ -106,7 +110,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -118,7 +123,8 @@
       "template": {
         "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -139,10 +145,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -168,18 +170,22 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "minute",
           "concentration": true,
           "override": true,
-          "value": "1"
+          "value": "1",
+          "expiry": null
         },
         "effects": [
           {
             "_id": "VCRXg8cR08dF3Y4u",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
@@ -192,7 +198,8 @@
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -218,7 +225,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "name": "",
@@ -233,7 +241,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -241,7 +250,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -252,18 +260,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "crown-of-madness"
+    "identifier": "crown-of-madness",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -272,8 +329,8 @@
   "sort": 6900000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757419719404,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -29,12 +29,14 @@
           ]
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -46,7 +48,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -71,7 +74,8 @@
           "scaling": {
             "number": 1
           },
-          "bonus": ""
+          "bonus": "",
+          "modifiers": []
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -84,7 +88,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -92,7 +97,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -103,16 +107,62 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "",
-        "_id": "eXCn96OTakFarLqY"
+        "_id": "eXCn96OTakFarLqY",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
     "uses": {
@@ -126,25 +176,26 @@
       "max": "1"
     },
     "description": {
-      "value": "<p>以一个附赠动作，你的外表能够变得更为野性。这个变化将持续1分钟，或直到你死亡。你能以一个附赠动作恢复原来的外表。当你兽化，你获得等同于你的等级+体质调整值的临时生命值（最少1点）。同时你还将根据亚种获得额外的好处，具体见下。<br />当你兽化之后，必须经过一次短休或长休才能再次使用。<br /></p><p></p><p><strong>兽皮 Beasthide</strong>坚忍又结实的兽皮化兽者从内心的野兽处汲取力量和耐力。兽皮化<strong>兽化特性。</strong>当你兽化时，能够额外得到1d6临时生命值，并且在处于兽化状态时，你在AC上获得+1加值。</p><p><strong>长牙 Longtooth</strong><br /><strong>兽化特性。</strong>当你兽化时，你能以一个附赠动作用利齿发动徒手攻击。如果命中，你将造成1d6+力量调整值的穿刺伤害，而不是通常的徒手攻击伤害。</p><p><strong>疾驰 Swiftstride</strong><br /><strong>兽化特性。</strong>当你兽化时，步行速度增加5英尺。此外，当敌人在距离你5英尺处结束回合时，你能以一个反应动作移动10英尺。<br />此移动不会引发借机攻击。</p><p><strong>狩猎 Wildhunt</strong> <br /><strong>兽化特性。</strong>当你兽化时，你在感知检定中具有优势。</p>",
+      "value": "<p>以一个附赠动作，你的外表能够变得更为野性。这个变化将持续1分钟，或直到你死亡。你能以一个附赠动作恢复原来的外表。当你兽化，你获得等同于你的等级+体质调整值的临时生命值（最少1点）。同时你还将根据亚种获得额外的好处，具体见下。</p><p>当你兽化之后，必须经过一次短休或长休才能再次使用。</p><p><strong>兽皮 Beasthide</strong>坚忍又结实的兽皮化兽者从内心的野兽处汲取力量和耐力。兽皮化<strong>兽化特性。</strong>当你兽化时，能够额外得到1d6临时生命值，并且在处于兽化状态时，你在AC上获得+1加值。</p><h3><strong>长牙 Longtooth</strong></h3><h3>兽化特性。</h3><p>当你兽化时，你能以一个附赠动作用利齿发动徒手攻击。如果命中，你将造成1d6+力量调整值的穿刺伤害，而不是通常的徒手攻击伤害。</p><h3><strong>疾驰 Swiftstride</strong></h3><h3>兽化特性。</h3><p>当你兽化时，步行速度增加5英尺。此外，当敌人在距离你5英尺处结束回合时，你能以一个反应动作移动10英尺。</p><p>此移动不会引发借机攻击。</p><h3><strong>狩猎 Wildhunt</strong></h3><h3>兽化特性。</h3><p>当你兽化时，你在感知检定中具有优势。</p>",
       "chat": ""
     },
     "identifier": "-",
     "source": {
       "revision": 1,
-      "rules": "2024",
+      "rules": "2014",
       "book": "WGE",
       "page": "",
       "custom": "",
       "license": ""
     },
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": [
       "mgc"
@@ -180,19 +231,14 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1753969104253,
     "modifiedTime": 1756544420586,
     "lastModifiedBy": "sPF2dtZDreDpJaW6",

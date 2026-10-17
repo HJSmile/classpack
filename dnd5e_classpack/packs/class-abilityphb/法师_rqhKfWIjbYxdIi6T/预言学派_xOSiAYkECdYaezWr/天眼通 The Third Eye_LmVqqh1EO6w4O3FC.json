@@ -2,14 +2,14 @@
   "_id": "LmVqqh1EO6w4O3FC",
   "name": "天眼通 The Third Eye",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_DivineIllumination.png",
+  "img": "icons/magic/perception/third-eye-blue-red.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>        第10级起，你可以用你的动作增强你的感知能力。使用此特性时，你选择一下增益其中之一。其效应将持续至你陷入失能状态，或直至你开始一次短休或长休。你必须完成一次休息才能再次使用该特性。</p>\n<p>   <strong>     黑暗视觉Darkvision。</strong>你获得60尺的黑暗视觉。<br />     <strong>   灵视Ethereal Sight。</strong>你可以看到自身周边60尺范围内的以太位面。<br /><strong>        高等理解力Greater Comprehension。</strong>你可以读懂任何语言。<br />       <strong> 识破隐形See Invisibility。</strong>你可以看到距离你10尺内，且处于你视野内的隐形生物或物件。</p>",
+      "value": "<p>        第10级起，你可以用你的动作增强你的感知能力。使用此特性时，你选择一下增益其中之一。其效应将持续至你陷入&amp;Reference[condition=incapacitated apply=false]{失能}状态，或直至你开始一次短休或长休。你必须完成一次休息才能再次使用该特性。</p><h3>黑暗视觉Darkvision。</h3><p>你获得60尺的黑暗视觉。</p><h3>灵视Ethereal Sight。</h3><p>你可以看到自身周边60尺范围内的以太位面。</p><h3>高等理解力Greater Comprehension。</h3><p>你可以读懂任何语言。</p><h3>识破隐形See Invisibility。</h3><p>你可以看到距离你10尺内，且处于你视野内的隐形生物或物件。</p>",
       "chat": ""
     },
     "source": {
@@ -61,30 +61,40 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "NHJgwC81Wo7djXAP"
+            "_id": "NHJgwC81Wo7djXAP",
+            "uuid": null,
+            "level": {}
           },
           {
-            "_id": "BPdEZhURm9u6b1l9"
+            "_id": "BPdEZhURm9u6b1l9",
+            "uuid": null,
+            "level": {}
           },
           {
-            "_id": "wpYbM59GO6Qky61H"
+            "_id": "wpYbM59GO6Qky61H",
+            "uuid": null,
+            "level": {}
           },
           {
-            "_id": "LQkOybEAjuLsMc61"
+            "_id": "LQkOybEAjuLsMc61",
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -96,7 +106,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -118,17 +129,105 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": [
+        "subclass:school-of-divination"
+      ]
     },
     "properties": [
       "trait",
@@ -138,29 +237,43 @@
   "effects": [
     {
       "name": "黑暗视觉Darkvision",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_DivineIllumination.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.LmVqqh1EO6w4O3FC",
+      "img": "icons/magic/perception/third-eye-blue-red.webp",
+      "origin": null,
       "transfer": false,
       "_id": "NHJgwC81Wo7djXAP",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.attributes.senses.darkvision",
-          "mode": 4,
-          "value": "60",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.senses.ranges.darkvision",
+            "value": 60,
+            "priority": 20,
+            "type": "upgrade",
+            "phase": "initial",
+            "_id": "MKYylfwod2ginmbd",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.LmVqqh1EO6w4O3FC",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -181,62 +294,56 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757170926362,
         "modifiedTime": 1757170981870,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!LmVqqh1EO6w4O3FC.NHJgwC81Wo7djXAP"
     },
     {
       "name": "灵视Ethereal Sight",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_DivineIllumination.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.LmVqqh1EO6w4O3FC",
+      "img": "icons/magic/perception/third-eye-blue-red.webp",
+      "origin": null,
       "transfer": false,
       "_id": "BPdEZhURm9u6b1l9",
       "type": "base",
-      "system": {},
-      "changes": [],
+      "system": {
+        "changes": [],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.LmVqqh1EO6w4O3FC",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -257,69 +364,67 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757170927066,
         "modifiedTime": 1757171004737,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!LmVqqh1EO6w4O3FC.BPdEZhURm9u6b1l9"
     },
     {
       "name": "高等理解力Greater Comprehension",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_DivineIllumination.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.LmVqqh1EO6w4O3FC",
+      "img": "icons/magic/perception/third-eye-blue-red.webp",
+      "origin": null,
       "transfer": false,
       "_id": "wpYbM59GO6Qky61H",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.traits.languages.all",
-          "mode": 2,
-          "value": "+1",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.languages.all",
+            "value": "+1",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "gvG5BAdJ7q6Y1MsZ",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.LmVqqh1EO6w4O3FC",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -340,62 +445,56 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757170927665,
         "modifiedTime": 1757171028367,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!LmVqqh1EO6w4O3FC.wpYbM59GO6Qky61H"
     },
     {
       "name": "天眼通",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_DivineIllumination.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.LmVqqh1EO6w4O3FC",
+      "img": "icons/magic/perception/third-eye-blue-red.webp",
+      "origin": null,
       "transfer": false,
       "_id": "LQkOybEAjuLsMc61",
       "type": "base",
-      "system": {},
-      "changes": [],
+      "system": {
+        "changes": [],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.LmVqqh1EO6w4O3FC",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -405,14 +504,17 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757170928090,
         "modifiedTime": 1757170928090,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!LmVqqh1EO6w4O3FC.LQkOybEAjuLsMc61"
     }
   ],
@@ -428,14 +530,7 @@
       "alwaysActive": false,
       "effects": []
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -455,9 +550,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757172469458,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

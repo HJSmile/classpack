@@ -2,14 +2,14 @@
   "_id": "iPIlsq9L8FVE9Xl0",
   "name": "游侠伴侣 Ranger's Companion",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Hunter_Pet_Assist.png",
+  "img": "icons/magic/nature/wolf-paw-glow-large-orange.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>        第3级时，你获得一个野兽伴侣陪你一起冒险，这名训练有素的伙伴能与你合作无间地战斗。指定一个不大于中型体型，且挑战等级为1/4或更低的野兽(其属性数据以@UUID[Compendium.dnd5e_classpack.monsterspack.fnkPNfIpS62LqOu4]{鹰}、@UUID[Compendium.dnd5e_classpack.monsterspack.YTpL2c3NO4sOn2UA]{獒犬}和@UUID[Compendium.dnd5e_classpack.monsterspack.AijNdqMurWxDxUSl]{黑豹}为例)。将你的熟练加值加到该野普的AC，攻击检定，伤害掷骰以及其所有具有熟练项的豁免和技能检定中。其生命值上限选用其原上限，或你游侠等级的四倍两者中较高者。</p>\n<p>        动物伴侣会尽可能地执行你的命令。由于它只会听令于你而采取行动，因此，它将与你使用同一个先攻序列位置。你在自己回合内可以用声音指令指示该野善往何处移动(无需执行其他动作)。你可以用你的动作以声音指令指示它执行攻击Attack,疾走Dash,撇离Disengage， 闪避Dodge,或协助Help 动作。如果你具有额外攻击特性，则你可以在命令该野兽执行攻击动作的同时自己发动一次武器攻击。      </p>\n<p>        如果该野兽死亡，则你可以耗费8小时与另一个非敌对关系的野兽建立魔法联结成为伴侣，新的伴侣不一定要与之前的野兽类型相同。</p>\n<p>        该野兽可以跟其他生物一样在短休时使用其生命骰。当你陷入失能或不在身边时，该野兽也可以自主的保护你或者它自身。它被借机攻击时，不需等待你的命令就可以执行其反应。</p>",
+      "value": "<p>        第3级时，你获得一个野兽伴侣陪你一起冒险，这名训练有素的伙伴能与你合作无间地战斗。指定一个不大于中型体型，且挑战等级为1/4或更低的野兽(其属性数据以@UUID[Compendium.dnd5e_classpack.monsterspack.fnkPNfIpS62LqOu4]{鹰}、@UUID[Compendium.dnd5e_classpack.monsterspack.YTpL2c3NO4sOn2UA]{獒犬}和@UUID[Compendium.dnd5e_classpack.monsterspack.AijNdqMurWxDxUSl]{黑豹}为例)。将你的熟练加值加到该野普的AC，攻击检定，伤害掷骰以及其所有具有熟练项的豁免和技能检定中。其生命值上限选用其原上限，或你游侠等级的四倍两者中较高者。</p>\n<p>        动物伴侣会尽可能地执行你的命令。由于它只会听令于你而采取行动，因此，它将与你使用同一个先攻序列位置。你在自己回合内可以用声音指令指示该野善往何处移动(无需执行其他动作)。你可以用你的动作以声音指令指示它执行攻击Attack,疾走Dash,撇离Disengage， 闪避Dodge,或协助Help 动作。如果你具有额外攻击特性，则你可以在命令该野兽执行攻击动作的同时自己发动一次武器攻击。      </p>\n<p>        如果该野兽死亡，则你可以耗费8小时与另一个非敌对关系的野兽建立魔法联结成为伴侣，新的伴侣不一定要与之前的野兽类型相同。</p>\n<p>        该野兽可以跟其他生物一样在短休时使用其生命骰。当你陷入&amp;Reference[condition=incapacitated apply=false]{失能}或不在身边时，该野兽也可以自主的保护你或者它自身。它被借机攻击时，不需等待你的命令就可以执行其反应。</p>",
       "chat": ""
     },
     "source": {
@@ -42,16 +42,20 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "6vwgdX8VcVd5pyQ0"
+            "_id": "6vwgdX8VcVd5pyQ0",
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
@@ -63,7 +67,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -91,7 +96,8 @@
           "attacks": false,
           "proficiency": true,
           "saves": false,
-          "ability": ""
+          "ability": "",
+          "disposition": false
         },
         "profiles": [
           {
@@ -99,7 +105,7 @@
             "cr": "1/4",
             "name": "",
             "_id": "OEzAnQukPGzzKN8t",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "beast"
             ],
@@ -111,8 +117,7 @@
         ],
         "summon": {
           "prompt": true,
-          "mode": "cr",
-          "identifier": "ranger"
+          "mode": "cr"
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -125,7 +130,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -133,7 +139,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -144,56 +149,117 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "visibility": {
+          "identifier": "ranger",
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "behaviors": [],
+        "flags": {},
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "friendlySummon": false
       }
     },
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 3,
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
   "effects": [
     {
       "name": "游侠伴侣",
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Hunter_Pet_Assist.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.iPIlsq9L8FVE9Xl0",
+      "img": "icons/magic/nature/wolf-paw-glow-large-orange.webp",
+      "origin": null,
       "transfer": false,
       "_id": "6vwgdX8VcVd5pyQ0",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.bonuses.All-Attacks",
-          "mode": 2,
-          "value": "+@prof",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "system.rolls.attack.bonus",
+            "value": "+@prof",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "AzWPlXSo8R2IdRbi",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.iPIlsq9L8FVE9Xl0",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -214,54 +280,33 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757272635948,
         "modifiedTime": 1757272656345,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!iPIlsq9L8FVE9Xl0.6vwgdX8VcVd5pyQ0"
     }
   ],
   "folder": "9rxjXjdzrgpOTI3s",
   "sort": 32300000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -281,9 +326,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757272702187,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

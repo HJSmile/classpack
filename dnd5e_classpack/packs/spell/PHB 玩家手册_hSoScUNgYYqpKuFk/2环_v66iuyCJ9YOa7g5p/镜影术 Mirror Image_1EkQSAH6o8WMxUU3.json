@@ -28,17 +28,7 @@
       "removeAttackDamageButtons": "default",
       "reactionCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedProperties": [
-        "vocal",
-        "somatic"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "mirrorImage",
@@ -47,26 +37,36 @@
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Shaman_ElementalOath.png",
+  "img": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
   "effects": [
     {
       "name": "镜影术 Mirror Image",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Shaman_ElementalOath.png",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.1EkQSAH6o8WMxUU3",
+      "img": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
+      "origin": null,
       "transfer": false,
       "_id": "gWfr0sENKE31TU0R",
       "type": "base",
-      "system": {},
-      "changes": [],
+      "system": {
+        "changes": [],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.1EkQSAH6o8WMxUU3",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 60,
+        "units": "seconds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -86,9 +86,7 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
@@ -97,20 +95,23 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!1EkQSAH6o8WMxUU3.gWfr0sENKE31TU0R"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 三个你自身的幻象分身出现在你的位置上。直至法术终止前，分身都会随你移动，并模仿你的动作和位置变换，使人无法追踪判断哪一个是你的真身。分身存在时，你可以用动作来解散这些幻象分身。\n<br />在法术持续时间内，每当一个生物以你为攻击目标时，掷一次d20决定该次攻击击中的是否其中一个分身。\n<br />如果你有三个分身，则你必须掷出6或更高数值才能使目标的攻击命中分身。如果你有两个分身，则你必须掷出8或更高数值。如果你有一个分身，则你必须掷出11或更高数值。\n<br />分身的AC等于10＋你的敏捷调整值。单次攻击命中分身时，相应分身立即被摧毁。分身只会被一次命中它的攻击摧毁，而无视所有其他的伤害和效应。三个分身全部被毁后该法术终止。\n<br />如果一个生物无法视物，或者它可以依靠视觉之外的其它感官（例如盲视），又或者它可以如同真实视觉一样洞察幻象，则该法术无法影响该生物。\n<br /></div>",
+      "value": "<p>三个与你自身一模一样的幻象分身出现在你所处的空间中。直至法术终止前，所有分身都会随你移动、模仿你的动作、并不断地变换位置，使人无法追踪判断哪个是你的分身哪个是你的真身。分身存在期间，你可以用动作来消解这些幻象分身。</p><p>在法术持续时间内，每当有生物以你为目标发动攻击时，其攻击都有概率改为以三个分身之一为目标，你掷一枚d20：</p><p>如果你有三个分身，则你必须掷出 6 或更高数值才能使此次攻击的目标改为分身；</p><p>如果你有两个分身，则你必须掷出 8 或更高数值；</p><p>如果你有一个分身，则你必须掷出 11 或更高数值。</p><p>每个分身的AC都等于10+你的敏捷调整值。如果一次攻击命中了分身，该分身将立即被摧毁。分身只会被命中它的攻击摧毁，其无视所有其他的伤害和效应。三个分身全部被毁后此法术提前终止。</p><p>如果一个生物无法视物、它可以依靠视觉之外的其他感官视物（例如盲视），又或者它可以看破幻象（例如真实视觉），则该生物将不受此法术影响。</p>",
       "chat": ""
     },
     "source": {
@@ -126,7 +127,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -135,9 +137,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -157,10 +160,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -185,26 +184,32 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "gWfr0sENKE31TU0R"
+            "_id": "gWfr0sENKE31TU0R",
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -234,7 +239,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -242,7 +248,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -253,18 +258,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "mirror-image"
+    "identifier": "mirror-image",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -273,8 +326,8 @@
   "sort": 14600000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757419719404,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

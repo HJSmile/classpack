@@ -13,7 +13,8 @@
       "itemCondition": "",
       "effectCondition": "",
       "otherCondition": "",
-      "reactionCondition": ""
+      "reactionCondition": "",
+      "onUseMacroName": "[postActiveEffects]ItemMacro"
     },
     "midiProperties": {
       "confirmTargets": "always",
@@ -28,141 +29,39 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
+    "dnd5e": {},
+    "dae": {
+      "macro": {
+        "name": "睡眠术 Sleep",
+        "img": "icons/magic/control/sleep-bubble-purple.webp",
+        "type": "script",
+        "scope": "global",
+        "command": "if (!workflow) {\n  console.warn(\"睡眠术宏：无法获取 workflow\");\n  return;\n}\n\nconst totalHP = workflow.utilityRoll?.total || 0;\nif (totalHP <= 0) {\n  ui.notifications.warn(\"睡眠术掷骰为 0，没有生物受到影响。\");\n  return;\n}\n\nconst tokens = Array.from(workflow.targets).filter(t => t.actor);\nif (tokens.length === 0) {\n  ui.notifications.warn(\"睡眠术没有可用目标。\");\n  return;\n}\n\nconst validTokens = tokens.filter(t => {\n  const actor = t.actor;\n  const type = actor.system.details?.type?.value;\n  if (type === 'undead') return false;\n  const ci = actor.system.traits?.ci?.value;\n  if (ci && ci.has('charmed')) return false;\n  return true;\n});\n\nif (validTokens.length === 0) {\n  ui.notifications.info(\"睡眠术范围内没有可影响的生物（不死或免疫魅惑）。\");\n  return;\n}\n\nvalidTokens.sort((a, b) => (a.actor.system.attributes.hp.value || 0) - (b.actor.system.attributes.hp.value || 0));\n\nlet remaining = totalHP;\nconst affectedActors = [];\n\nfor (const token of validTokens) {\n  const hp = token.actor.system.attributes.hp.value || 0;\n  if (hp <= remaining) {\n    affectedActors.push(token.actor);\n    remaining -= hp;\n  } else {\n    break;\n  }\n}\n\nif (affectedActors.length === 0) {\n  ui.notifications.info(\"睡眠术未能影响任何生物（总 HP 不足）。\");\n  return;\n}\n\n// 6. 准备效果数据（昏迷 + 持续轮数 + 受伤解除）\nconst durationRounds = 10; // 可自行调整\nconst effectData = {\n  label: \"睡眠术\",\n  name: \"睡眠术\",\n  img: \"icons/svg/sleep.svg\",\n  origin: workflow.item?.uuid || args[0].uuid,\n  disabled: false,\n  duration: {\n    rounds: durationRounds,\n    startRound: game.combat?.round || 0,\n    startTime: game.time.worldTime\n  },\n  flags: {\n    dae: {\n      specialDuration: [\"isDamaged\"] // 受伤即解除\n    }\n  },\n  statuses: [\"unconscious\"],\n  changes: [] \n};\n\nconst socket = MidiQOL.socket();\nconst promises = affectedActors.map(actor =>\n  socket.executeAsGM(\"createEffects\", {\n    actorUuid: actor.uuid,\n    effects: [effectData],\n    options: { keepId: true }\n  })\n);\n\nawait Promise.all(promises);\n\n// 获取原有卡片内容\n// 构建美观的信息卡片 HTML\nconst infoHTML = `\n  <div class=\"midi-qol-sleep-info\" style=\"\n    margin-top: 0.75rem;\n    padding: 0.75rem 1rem;\n    background: #f8f4ff;\n    border-radius: 10px;\n    border-left: 6px solid #6a4c9c;\n    box-shadow: 0 2px 4px rgba(0,0,0,0.06);\n  \">\n    <!-- 头部：图标 + 标题 + 掷骰总值 -->\n    <div style=\"display: flex; align-items: center; gap: 8px; margin-bottom: 10px;\">\n      <i class=\"fas fa-moon\" style=\"color: #6a4c9c; font-size: 1.2em;\"></i>\n      <span style=\"font-weight: bold; font-size: 1.1em;\">睡眠术</span>\n      <span style=\"margin-left: auto; font-size: 0.9em; color: #5a5a5a; background: #ede7f6; padding: 2px 12px; border-radius: 12px;\">\n        🎲 ${totalHP}\n      </span>\n    </div>\n\n    <!-- 受影响生物列表（头像 + 名称 + HP + 状态） -->\n    <div style=\"display: flex; flex-wrap: wrap; gap: 8px;\">\n      ${affectedActors.map(a => `\n        <div style=\"\n          display: flex;\n          align-items: center;\n          gap: 6px;\n          background: white;\n          padding: 4px 12px 4px 4px;\n          border-radius: 30px;\n          box-shadow: 0 1px 3px rgba(0,0,0,0.08);\n          border: 1px solid #e8e0f0;\n        \">\n          <img src=\"${a.img}\" style=\"\n            width: 28px;\n            height: 28px;\n            border-radius: 50%;\n            object-fit: cover;\n            border: 2px solid #d4c8e0;\n          \" />\n          <span style=\"font-weight: 500;\">${a.name}</span>\n          <span style=\"font-size: 0.8em; color: #777;\">HP ${a.system.attributes.hp.value}</span>\n          <i class=\"fas fa-bed\" style=\"color: #6a4c9c; font-size: 0.9em;\" title=\"昏迷中\"></i>\n        </div>\n      `).join('')}\n    </div>\n\n    <!-- 脚注：持续时间和解除条件 -->\n    <div style=\"margin-top: 10px; font-size: 0.8em; color: #888; border-top: 1px dashed #ddd; padding-top: 6px;\">\n      <i class=\"fas fa-clock\"></i> 持续 ${durationRounds} 轮 &nbsp;|&nbsp; \n      <i class=\"fas fa-shield-alt\"></i> 受伤即解除\n    </div>\n  </div>\n`;\nlet content = workflow.chatCard.content;\ncontent = content + infoHTML;\nawait workflow.chatCard.update({ content });",
+        "author": "TEhQZHmGMOcY5c4a",
+        "ownership": {
+          "default": 3
+        },
+        "_id": null,
+        "folder": null,
+        "sort": 0,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3",
+          "lastModifiedBy": null,
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null
+        }
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/ability_foundryraid_dormant.jpg",
-  "effects": [
-    {
-      "changes": [
-        {
-          "key": "flags.midi-qol.fail.ability.save.dex",
-          "mode": 0,
-          "value": "1",
-          "priority": null
-        },
-        {
-          "key": "flags.midi-qol.fail.ability.save.str",
-          "mode": 0,
-          "value": "1",
-          "priority": null
-        },
-        {
-          "key": "flags.midi-qol.grants.advantage.attack.all",
-          "mode": 0,
-          "value": "1",
-          "priority": null
-        },
-        {
-          "key": "flags.midi-qol.grants.critical.range",
-          "mode": 5,
-          "value": "5",
-          "priority": null
-        },
-        {
-          "key": "system.attributes.movement.all",
-          "mode": 0,
-          "value": "0",
-          "priority": 25
-        },
-        {
-          "key": "flags.midi-qol.grants.advantage.attack.mwak",
-          "value": "1",
-          "mode": 0,
-          "priority": null
-        },
-        {
-          "key": "flags.midi-qol.grants.advantage.attack.msak",
-          "value": "1",
-          "mode": 0,
-          "priority": null
-        },
-        {
-          "key": "flags.midi-qol.grants.disadvantage.attack.rwak",
-          "value": "1",
-          "mode": 0,
-          "priority": null
-        },
-        {
-          "key": "flags.midi-qol.grants.disadvantage.attack.rsak",
-          "value": "1",
-          "mode": 0,
-          "priority": null
-        },
-        {
-          "key": "flags.midi-qol.disadvantage.attack.all",
-          "value": "1",
-          "mode": 0,
-          "priority": null
-        },
-        {
-          "key": "system.attributes.movement.all",
-          "value": "*0.5",
-          "mode": 0,
-          "priority": 25
-        }
-      ],
-      "description": "- An unconscious creature is incapacitated (See the condition) can't move or speak, and is unaware of its surroundings.<br />- The creature drops whatever its holding and falls prone (See the condition).<br />- The creature automatically fails Strength and Dexterity saving throws.<br />- Attack rolls against the creature have advantage.<br />- Any attack that hits the creature is a critical hit if the attacker is within 5 feet of the creature.",
-      "disabled": false,
-      "duration": {
-        "rounds": null,
-        "seconds": null,
-        "turns": null,
-        "startTime": null,
-        "combat": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "flags": {
-        "dfreds-convenient-effects": {
-          "isConvenient": true,
-          "isDynamic": false,
-          "isViewable": true,
-          "nestedEffects": [],
-          "subEffects": []
-        }
-      },
-      "name": "Unconscious",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.hFHF7vm3FYyTN288",
-      "tint": "#ffffff",
-      "transfer": false,
-      "statuses": [
-        "Convenient Effect: Unconscious",
-        "unconscious",
-        "incapacitated",
-        "prone"
-      ],
-      "_id": "pQ02FB9JXTX13Sfr",
-      "_stats": {
-        "coreVersion": "13.351",
-        "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
-        "createdTime": null,
-        "modifiedTime": 1749806768327,
-        "lastModifiedBy": "WqWGW8MuBm7BNHxt",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "img": "icons/svg/unconscious.svg",
-      "type": "base",
-      "system": {},
-      "sort": 0,
-      "_key": "!items.effects!hFHF7vm3FYyTN288.pQ02FB9JXTX13Sfr"
-    }
-  ],
+  "img": "icons/magic/control/sleep-bubble-purple.webp",
+  "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 该法术使一些生物陷入魔法造成的沉睡中。掷一次5d8；其结果为受该法术影响生物的生命值总数。你指定施法距离一点，该点周围20尺区域内的生物以剩余生命值由小至大的顺序受法术影响（生效时忽略昏迷生物）。\n<br />计算受法术影响生物时，从剩余生命值最低的生物开始逐个计算。每个受术生物均陷入昏迷，直至法术终止。睡眠者受到伤害也会惊醒，又或者由其他人以一个动作将其摇醒或打醒。法术掷骰的生命值总数减去一个受术生物的生命值后，余数再用以计算生命值稍高者是否受法术影响。生物剩余生命值，必须小于等于该余数法术才能成功影响该生物。\n<br />不死生物以及免疫魅惑效果的生物不受该法术影响。\n<br /><strong>升环施法效应。</strong>使用2环或更高法术位施展该法术时，使用的法术位每比1环高一环，法术的掷骰就增加2d8。\n<br /></div>",
+      "value": "<p>该法术使一些生物陷入魔法造成的沉睡中。掷一次 5d8；其结果为受该法术影响生物的生命值总数。你指定施法距离一点，该点周围 20 尺区域内的生物以剩余生命值由小至大的顺序受法术影响（生效时忽略&amp;Reference[condition=unconscious apply=false]{昏迷}生物）。</p><p>计算受法术影响生物时，从剩余生命值最低的生物开始逐个计算。每个受术生物均陷入昏迷，直至法术终止。睡眠者受到伤害也会惊醒，又或者由其他人以一个动作将其摇醒或打醒。法术掷骰的生命值总数减去一个受术生物的生命值后，余数再用以计算生命值稍高者是否受法术影响。生物剩余生命值，必须小于等于该余数法术才能成功影响该生物。</p><p>亡灵以及免疫&amp;Reference[condition=charmed apply=false]{魅惑}效果的生物不受该法术影响。</p><p><strong>升环施法效应。</strong>使用二环或更高法术位施展该法术时，使用的法术位每比一环高一环，法术的掷骰就增加 2d8。</p>",
       "chat": ""
     },
     "source": {
@@ -178,7 +77,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -190,7 +90,8 @@
         "type": "sphere",
         "size": "20",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -211,10 +112,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -240,26 +137,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
-        "effects": [
-          {
-            "_id": "pQ02FB9JXTX13Sfr"
-          }
-        ],
+        "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -272,7 +169,7 @@
           "recovery": []
         },
         "roll": {
-          "formula": "",
+          "formula": "(3+2*@scaling)d8",
           "name": "",
           "prompt": false,
           "visible": false
@@ -289,7 +186,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -297,7 +195,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -308,133 +205,70 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "name": "",
         "img": "",
-        "appliedEffects": [
-          "pQ02FB9JXTX13Sfr"
-        ]
-      },
-      "WU7goIgBsu7uUEh7": {
-        "type": "damage",
-        "_id": "WU7goIgBsu7uUEh7",
-        "sort": 0,
-        "activation": {
-          "type": "action",
-          "value": null,
-          "override": false
-        },
-        "consumption": {
-          "scaling": {
-            "allowed": false
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
           },
-          "spellSlot": true,
-          "targets": []
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
         },
-        "description": {
-          "chatFlavor": ""
+        "behaviors": [],
+        "flags": {},
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
         },
-        "duration": {
-          "units": "inst",
-          "concentration": false,
-          "override": false
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
         },
-        "effects": [],
-        "range": {
-          "override": false
-        },
-        "target": {
-          "template": {
-            "contiguous": false,
-            "units": "ft"
-          },
-          "affects": {
-            "choice": false
-          },
-          "override": false,
-          "prompt": true
-        },
-        "uses": {
-          "spent": 0,
-          "recovery": [],
-          "max": ""
-        },
-        "damage": {
-          "critical": {
-            "allow": false
-          },
-          "parts": [
-            {
-              "custom": {
-                "enabled": false,
-                "formula": ""
-              },
-              "number": 5,
-              "denomination": "8",
-              "bonus": "",
-              "types": [
-                "midi-none"
-              ],
-              "scaling": {
-                "mode": "whole",
-                "number": 2,
-                "formula": ""
-              }
-            }
-          ]
-        },
-        "useConditionText": "",
-        "useConditionReason": "",
-        "effectConditionText": "",
-        "macroData": {
-          "name": "",
-          "command": ""
-        },
-        "ignoreTraits": {
-          "idi": false,
-          "idr": false,
-          "idv": false,
-          "ida": false
-        },
-        "midiProperties": {
-          "ignoreTraits": [],
-          "triggeredActivityId": "none",
-          "triggeredActivityConditionText": "",
-          "triggeredActivityTargets": "targets",
-          "triggeredActivityRollAs": "self",
-          "forceDialog": false,
-          "confirmTargets": "default",
-          "autoTargetType": "any",
-          "autoTargetAction": "default",
-          "automationOnly": false,
-          "otherActivityCompatible": true,
-          "identifier": "",
-          "displayActivityName": false,
-          "rollMode": "default",
-          "chooseEffects": false,
-          "toggleEffect": false,
-          "ignoreFullCover": false
-        },
-        "isOverTimeFlag": false,
-        "overTimeProperties": {
-          "saveRemoves": true,
-          "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
-        },
-        "name": "",
-        "img": "",
-        "appliedEffects": []
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "sleep"
+    "identifier": "sleep",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -443,8 +277,8 @@
   "sort": 26300000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711713684414,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

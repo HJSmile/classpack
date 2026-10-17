@@ -6,23 +6,12 @@
   "effects": [
     {
       "_id": "EAdQG0KgkvSmEJ22",
-      "changes": [
-        {
-          "key": "system.abilities.str.value",
-          "mode": 4,
-          "value": "25",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": "Compendium.dnd5e_classpack.itempack.CF55CA99126EBE5C",
       "transfer": true,
@@ -32,9 +21,9 @@
       "description": "",
       "statuses": [],
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -44,8 +33,36 @@
       },
       "img": "icons/equipment/waist/belt-coiled-leather-steel.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.abilities.str.value",
+            "value": 25,
+            "priority": null,
+            "type": "upgrade",
+            "phase": "initial",
+            "_id": "TWoa97W84gRkhjgo",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!CF55CA99126EBE5C.EAdQG0KgkvSmEJ22"
     }
   ],
@@ -76,12 +93,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
@@ -105,10 +117,8 @@
     },
     "attunement": "required",
     "equipped": false,
-    "rarity": "veryRare",
     "identified": true,
     "cover": null,
-    "crewed": false,
     "uses": {
       "max": "",
       "spent": null,
@@ -116,8 +126,7 @@
     },
     "armor": {
       "value": 0,
-      "dex": 0,
-      "magicalBonus": null
+      "dex": 0
     },
     "hp": {
       "value": 0,
@@ -127,7 +136,8 @@
     },
     "speed": {
       "value": null,
-      "conditions": ""
+      "conditions": "",
+      "units": "ft"
     },
     "strength": 0,
     "proficient": null,
@@ -144,12 +154,18 @@
     ],
     "activities": {},
     "identifier": "-belt-of-fire-giant-strength",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "veryRare"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1713010441792,
     "modifiedTime": 1757875211799,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

@@ -2,7 +2,7 @@
   "_id": "yJmyesVEgGP7ZXr1",
   "name": "无甲防御 (野蛮人) Unarmored Defense",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Warrior_SecondWind.png",
+  "img": "icons/magic/control/silhouette-hold-change-blue.webp",
   "system": {
     "type": {
       "value": "class",
@@ -25,41 +25,58 @@
     "requirements": "野蛮人等级 1",
     "activities": {},
     "identifier": "-",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 1,
+      "repeatable": false,
+      "items": [
+        "class:barbarian"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "name": "无甲防御 (野蛮人) Unarmored Defense",
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Warrior_SecondWind.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.yJmyesVEgGP7ZXr1",
+      "img": "icons/magic/control/silhouette-hold-change-blue.webp",
+      "origin": null,
       "_id": "aq0V8yYxlhZzat8o",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.attributes.ac.calc",
-          "mode": 5,
-          "value": "unarmoredBarb",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.ac.calc",
+            "value": "unarmoredBarb",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "vVLXKWqRUxg26Chc",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.yJmyesVEgGP7ZXr1",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -77,54 +94,33 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757175185769,
         "modifiedTime": 1757679840514,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!yJmyesVEgGP7ZXr1.aq0V8yYxlhZzat8o"
     }
   ],
   "folder": "yHRuDCK2hvnV9bfU",
   "sort": 43700000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -151,9 +147,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757407537872,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

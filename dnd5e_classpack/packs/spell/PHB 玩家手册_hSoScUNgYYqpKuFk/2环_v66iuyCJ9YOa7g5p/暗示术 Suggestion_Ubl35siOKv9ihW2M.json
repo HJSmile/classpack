@@ -28,62 +28,82 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedProperties": [
-        "vocal",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Nature_AstralRecal.png",
+  "img": "icons/magic/unholy/silhouette-light-fire-blue.webp",
   "effects": [
     {
       "name": "暗示术 Suggestion",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Nature_AstralRecal.png",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.Ubl35siOKv9ihW2M",
+      "img": "icons/magic/unholy/silhouette-light-fire-blue.webp",
+      "origin": null,
       "transfer": false,
       "_id": "CjkbR8loOWyecniH",
       "type": "base",
-      "system": {},
-      "changes": [],
+      "system": {
+        "changes": [],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.Ubl35siOKv9ihW2M",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 8,
+        "units": "hours",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
       "statuses": [],
       "sort": 0,
-      "flags": {},
+      "flags": {
+        "dae": {
+          "enableCondition": "",
+          "disableCondition": "",
+          "stackable": "noneName",
+          "applicationMode": "default",
+          "expiryMode": "default",
+          "durationExpression": "",
+          "macroRepeat": "none",
+          "disableIncapacitated": false,
+          "selfTarget": false,
+          "selfTargetAlways": false,
+          "dontApply": false,
+          "specialDuration": []
+        },
+        "core": {
+          "overlay": false
+        }
+      },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!Ubl35siOKv9ihW2M.CjkbR8loOWyecniH"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你以魔法影响施法距离内一个你能看见的生物，并对其施以某种行动暗示（至多以一两句话的形式）。由你指定的受术目标必须能听到并理解你的话语。而不能被魅惑的生物也将免疫此效应。你的暗示言辞必须能让其行为听起来合乎情理。要求生物刺伤它自己，自己撞向矛尖上，让它自我牺牲，或是让它做任何明显有害的行为都会直接取消该法术所产生的效应。\n<br />该目标必须进行一次感知豁免，豁免失败者将尽其所能地从事你所描述的行为。你所暗示的行为可能会在法术持续时间内始终一直进行。而如果你所暗示的活动可以用更短的时间完成，则此法术会在目标完成了你的要求后随即终止。\n<br />你也可以描述一种在持续时间内发生的特定状况，作为触发特殊行为的条件。例如，你可以暗示一队士兵将所有的钱交给他们遇到的第一个乞丐。如果在法术终止前条件始终没有满足，则指定的行为不会被执行。\n<br />若你或你同伴中任何人伤害了受术者，则该法术随即终止。\n<br /></div>",
+      "value": "<p>你以魔法影响施法距离内一个你能看见的生物，并对其施以某种行动暗示（至多以一两句话的形式）。由你指定的受术目标必须能听到并理解你的话语。而不能被魅惑的生物也将免疫此效应。你的暗示言辞必须能让其行为听起来合乎情理。要求生物刺伤它自己，自己撞向矛尖上，让它自我牺牲，或是让它做任何明显有害的行为都会直接取消该法术所产生的效应。</p><p>该目标必须进行一次[[/save activity=dnd5eactivity000]]{感知豁免}，豁免失败者将尽其所能地从事你所描述的行为。你所暗示的行为可能会在法术持续时间内始终一直进行。而如果你所暗示的活动可以用更短的时间完成，则此法术会在目标完成了你的要求后随即终止。</p><p>你也可以描述一种在持续时间内发生的特定状况，作为触发特殊行为的条件。例如，你可以暗示一名骑士将她所有的钱交给她遇到的第一名乞丐。如果在法术终止前条件始终没有满足，则指定的行为不会被执行。</p><p>若你或你同伴中任何人伤害了受术者，则该法术随即终止。</p>",
       "chat": ""
     },
     "source": {
@@ -99,7 +119,8 @@
     },
     "duration": {
       "value": "8",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -109,9 +130,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -132,10 +154,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -161,27 +179,33 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "CjkbR8loOWyecniH",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -207,7 +231,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -221,7 +246,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -229,7 +255,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -240,18 +265,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "suggestion"
+    "identifier": "suggestion",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -260,8 +334,8 @@
   "sort": 25000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711684230123,
     "modifiedTime": 1757419719404,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

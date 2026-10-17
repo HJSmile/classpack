@@ -6,32 +6,21 @@
   "effects": [
     {
       "_id": "Z0TGPeq6zaDtSB3T",
-      "changes": [
-        {
-          "key": "system.traits.di.value",
-          "mode": 2,
-          "value": "poison",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
-      "origin": "Item.07DgmrhScaPwGUwr",
+      "origin": null,
       "transfer": true,
       "flags": {},
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -42,30 +31,50 @@
       "name": "+ 毒素抗性",
       "img": "icons/equipment/chest/breastplate-banded-steel-studded.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.di.value",
+            "value": "poison",
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "sYZMyQD83OZrSJhF",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Item.07DgmrhScaPwGUwr",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!07DgmrhScaPwGUwr.Z0TGPeq6zaDtSB3T"
     }
   ],
   "folder": null,
   "sort": 0,
   "flags": {
-    "dnd5e": {
-      "migratedProperties": [
-        "stealthDisadvantage"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1749710928408,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",
@@ -97,7 +106,6 @@
     },
     "attunement": "",
     "equipped": false,
-    "rarity": "legendary",
     "identified": true,
     "uses": {
       "spent": 0,
@@ -105,8 +113,7 @@
     },
     "armor": {
       "value": 20,
-      "dex": 0,
-      "magicalBonus": null
+      "dex": 0
     },
     "hp": {
       "value": 0,
@@ -116,7 +123,8 @@
     },
     "speed": {
       "value": null,
-      "conditions": ""
+      "conditions": "",
+      "units": "ft"
     },
     "strength": 15,
     "proficient": null,
@@ -132,8 +140,15 @@
     "identifier": "-obsidian-flint-dragon-plate",
     "container": null,
     "cover": null,
-    "crewed": false,
-    "properties": []
+    "properties": [
+      "stealthDisadvantage"
+    ],
+    "rarities": [
+      "legendary"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "_key": "!items!07DgmrhScaPwGUwr"
 }

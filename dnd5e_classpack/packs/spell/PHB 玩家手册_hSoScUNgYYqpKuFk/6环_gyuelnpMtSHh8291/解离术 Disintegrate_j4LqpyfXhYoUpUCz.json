@@ -26,17 +26,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "disintegrate",
@@ -45,11 +35,11 @@
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Nature_MoonGlow.png",
+  "img": "icons/magic/unholy/beam-impact-green.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 一束纤细的绿射线从你的指尖射向施法距离内一个你能看见的目标。该目标可以是一个生物或一个物件，或者是一个魔法力场（比如由力场墙wall of force 创造的墙壁）。目标生物必须进行一次敏捷豁免，豁免失败则受10d6+40点力场伤害，如果目标生命值因此降至0，则目标被解离。\n<br />除魔法物品外，被解离的生物连同其穿着携带的所有随身物品一起变成一堆灰尘。此后该生物只能通过完全复生术trueresurrection 和祈愿术wish 复活。\n<br />此法术会直接解离大型或更小的非魔法物件或魔法力场。如果目标是巨型或更大的物件或魔法力场，则此法术会解离其10尺立方大小的部分。魔法物品不受此法术影响。\n<br /><strong>升环施法效应。</strong>使用7环或更高法术位施展该法术时，你使用的法术位每比6环高一环，伤害就提高3d6。\n<br /></div>",
+      "value": "<p>一束纤细的绿射线从你的指尖射向施法距离内一个你能看见的目标。该目标可以是一个生物或一个物件，或者是一个以魔法力场制造的造物（例如由<em>力场墙 wall of force</em>创造的墙壁）。</p><p>目标生物必须进行一次[[/save activity=dnd5eactivity000]]{敏捷豁免}，豁免失败则受 [[/damage 10d6+40 type=force]]{10d6+40} 点力场伤害，若目标生命值因此降至 0，则目标被解离。</p><p>除魔法物品外，被解离的生物连同其穿着携带的所有随身物品一起变成一堆灰尘。此后该生物只能通过<em>完全复生术true resurrection</em>和<em>祈愿术wish</em>复活。</p><p>此法术会直接解离大型或更小的非魔法物件或魔法力场。如果目标是巨型或更大的物件或魔法力场，则此法术会解离其 10 尺立方大小的部分。魔法物品不受此法术影响。</p><p><strong>升环施法效应。</strong>使用七环或更高法术位施展该法术时，你使用的法术位每比六环高一环，伤害就提高 3d6。</p>",
       "chat": ""
     },
     "source": {
@@ -65,7 +55,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -75,9 +66,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -98,10 +90,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -127,22 +115,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -172,7 +164,8 @@
                 "mode": "whole",
                 "number": 3,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -186,7 +179,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -200,7 +194,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -208,7 +203,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -219,18 +213,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "disintegrate"
+    "identifier": "disintegrate",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -239,8 +282,8 @@
   "sort": 13300000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

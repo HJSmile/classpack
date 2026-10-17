@@ -2,14 +2,14 @@
   "_id": "d95UkOAuMRp6BtlO",
   "name": "飘忽不定 Elusive",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Rogue_UnfairAdvantage.png",
+  "img": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>第18级起，你飘忽不定的身形让敌人攻击时无从下手。除非你处于失能状态，否则以你为目标的攻击检定无法取得优势。</p>",
+      "value": "<p>第18级起，你飘忽不定的身形让敌人攻击时无从下手。除非你处于&amp;Reference[condition=incapacitated apply=false]{失能}状态，否则以你为目标的攻击检定无法取得优势。</p>",
       "chat": ""
     },
     "source": {
@@ -25,13 +25,16 @@
     "requirements": "游荡者等级 18",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 18,
+      "repeatable": false,
+      "items": [
+        "class:rogue"
+      ]
     },
     "properties": []
   },
@@ -43,12 +46,7 @@
     "entityorder": {
       "order": 148
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -68,9 +66,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757144365298,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

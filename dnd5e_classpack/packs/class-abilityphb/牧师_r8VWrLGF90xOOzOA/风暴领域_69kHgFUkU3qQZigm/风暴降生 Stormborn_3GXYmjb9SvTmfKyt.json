@@ -2,7 +2,7 @@
   "_id": "3GXYmjb9SvTmfKyt",
   "name": "风暴降生 Stormborn",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Priest_PathofTheDevout.png",
+  "img": "icons/creatures/abilities/wings-birdlike-blue.webp",
   "system": {
     "type": {
       "value": "class",
@@ -25,41 +25,58 @@
     "requirements": "风暴领域等级 17",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 17,
+      "repeatable": false,
+      "items": [
+        "subclass:tempest-domain"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "name": "风暴降生 Stormborn",
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Priest_PathofTheDevout.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.3GXYmjb9SvTmfKyt",
+      "img": "icons/creatures/abilities/wings-birdlike-blue.webp",
+      "origin": null,
       "_id": "E6YtTy0MeBEDKWIQ",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.attributes.movement.fly",
-          "mode": 2,
-          "value": "+@attributes.movement.walk",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.movement.speeds.fly",
+            "value": "+@attributes.movement.walk",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "Tx8XD85ub73uOMnz",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.3GXYmjb9SvTmfKyt",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -77,42 +94,26 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757092898366,
         "modifiedTime": 1757092948494,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!3GXYmjb9SvTmfKyt.E6YtTy0MeBEDKWIQ"
     }
   ],
@@ -143,18 +144,12 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757092976450,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

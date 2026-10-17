@@ -2,7 +2,7 @@
   "_id": "ctlu15kCzlkOtpUk",
   "name": "可靠才能 Reliable Talent",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Hunter_FocusedAim.png",
+  "img": "icons/skills/ranged/target-bullseye-arrow-glowing.webp",
   "system": {
     "type": {
       "value": "class",
@@ -25,50 +25,42 @@
     "requirements": "游荡者等级 11",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 11,
+      "repeatable": false,
+      "items": [
+        "class:rogue"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "name": "可靠才能",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.ctlu15kCzlkOtpUk",
+      "origin": null,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "disabled": false,
       "flags": {
         "dnd5e": {}
       },
       "_id": "tkoOfe3OmlZXOVTs",
-      "changes": [
-        {
-          "key": "flags.dnd5e.reliableTalent",
-          "mode": 5,
-          "value": "true",
-          "priority": null
-        }
-      ],
       "description": "",
       "transfer": true,
       "statuses": [],
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -76,10 +68,38 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Hunter_FocusedAim.png",
+      "img": "icons/skills/ranged/target-bullseye-arrow-glowing.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "flags.dnd5e.reliableTalent",
+            "value": true,
+            "priority": null,
+            "type": "override",
+            "phase": "initial",
+            "_id": "4bqpLgVjr4GIhMmx",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.ctlu15kCzlkOtpUk",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!ctlu15kCzlkOtpUk.tkoOfe3OmlZXOVTs"
     }
   ],
@@ -90,12 +110,7 @@
     "entityorder": {
       "order": 145
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -115,9 +130,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1724329746251,
     "modifiedTime": 1757101844478,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

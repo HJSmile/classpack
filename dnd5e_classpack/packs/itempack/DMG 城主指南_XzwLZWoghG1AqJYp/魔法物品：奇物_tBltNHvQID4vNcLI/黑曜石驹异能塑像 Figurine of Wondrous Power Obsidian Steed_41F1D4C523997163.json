@@ -31,18 +31,11 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
-      "value": "<p><em>奇物</em></p>\n<p>异能塑像是小到可以装在口袋里的野兽雕像。当你用一个动作说出命令语并把雕像扔到你周围60尺以内的某处时，它将变成一只活体生物。如果雕像被扔到的地方被其他生物或物件占据，或者周围的空间不足以容纳该雕像变成的生物，则它将不会变成生物。</p>\n<p>雕像变成的生物对你和你的同伴态度友善。它能听懂你的语言并会按你的口头命令行事。如果你不下达任何命令，则该生物会保护自己而不作其他动作。</p>\n<p>生物存在的时间依雕像而不同。持续时间结束时，生物将变回异能塑像形态。它的生命值降至0，或你用一个动作碰触它并说出命令语时，它将提前变回雕像状态。变回雕像后，异能塑像的属性必须经过一段时间后才能再次启动，时间长短依雕像种类而不同。</p>\n<p><strong>@UUID[Compendium.dnd5e_classpack.itempack.41F1D4C523997163]{黑曜石驹 Obsidian Steed}（极珍稀）。</strong>这个打磨过的黑曜石驹雕像可以变为一只@UUID[Compendium.dnd5e_classpack.monsterspack.5SgVGhQBswgWRwsF]{梦魇Nightmare}，其存在至多维持24小时。梦魇只会为了保护自己而战斗。使用后，此雕像需要经过5日才能再次启动。如果你属于善良阵营，则每次你使用此雕像时它有10%的概率会无视你的命令，包括让它变回雕像的命令。如果你在梦魇无视你命令时骑上它，则你和梦魇会一起立刻被传送到哈迪斯Hades位面的随机地点。之后梦魇将变回雕像。</p>",
+      "value": "<p><em>奇物</em></p><p>异能塑像是小到可以装在口袋里的野兽雕像。当你用一个动作说出命令语并把雕像扔到你周围60尺以内的某处时，它将变成一只活体生物。如果雕像被扔到的地方被其他生物或物件占据，或者周围的空间不足以容纳该雕像变成的生物，则它将不会变成生物。</p><p>雕像变成的生物对你和你的同伴态度友善。它能听懂你的语言并会按你的口头命令行事。如果你不下达任何命令，则该生物会保护自己而不作其他动作。</p><p>生物存在的时间依雕像而不同。持续时间结束时，生物将变回异能塑像形态。它的生命值降至0，或你用一个动作碰触它并说出命令语时，它将提前变回雕像状态。变回雕像后，异能塑像的属性必须经过一段时间后才能再次启动，时间长短依雕像种类而不同。</p><h3>@UUID[Compendium.dnd5e_classpack.itempack.41F1D4C523997163]{黑曜石驹 Obsidian Steed}（极珍稀）。</h3><p>这个打磨过的黑曜石驹雕像可以变为一只@UUID[Compendium.dnd5e_classpack.monsterspack.5SgVGhQBswgWRwsF]{梦魇Nightmare}，其存在至多维持24小时。梦魇只会为了保护自己而战斗。使用后，此雕像需要经过5日才能再次启动。如果你属于善良阵营，则每次你使用此雕像时它有10%的概率会无视你的命令，包括让它变回雕像的命令。如果你在梦魇无视你命令时骑上它，则你和梦魇会一起立刻被传送到哈迪斯Hades位面的随机地点。之后梦魇将变回雕像。</p>",
       "chat": ""
     },
     "source": {
@@ -62,7 +55,6 @@
     },
     "attunement": "",
     "equipped": false,
-    "rarity": "veryRare",
     "identified": true,
     "uses": {
       "max": "1",
@@ -80,7 +72,8 @@
         },
         "scaling": {
           "number": 1
-        }
+        },
+        "modifiers": []
       },
       "replace": false
     },
@@ -92,7 +85,6 @@
       "subtype": ""
     },
     "container": null,
-    "magicalBonus": null,
     "properties": [
       "mgc"
     ],
@@ -125,14 +117,16 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "24",
           "units": "hour",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -149,7 +143,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "10",
@@ -171,16 +166,104 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-figurine-of-wondrous-power-obsidian-steed",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "veryRare"
+    ]
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1713010439307,
     "modifiedTime": 1757874949898,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

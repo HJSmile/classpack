@@ -12,7 +12,7 @@
       "revision": 1
     },
     "description": {
-      "value": "<div class=\"rd__b  rd__b--3\"><div><div class=\"rd__b  rd__b--2\"><div data-roll-name-ancestor=\"Creature Type\" class=\"rd__b  rd__b--3\"><p><span style=\"font-family:Arial, Helvetica, sans-serif\">使用一个附赠动作，你能魔法地传送到30尺内一处你可见且未被占据的空间里。你能使用本特质的次数与你的熟练加值相同，当你完成一次长休后，你恢复所有已使用的次数。</span></p></div></div></div><p>As a bonus action, you can magically teleport up to 30 feet to an unoccupied space you can see. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.</p></div>",
+      "value": "<div data-roll-name-ancestor=\"Creature Type\"><p>使用一个附赠动作，你能魔法地传送到30尺内一处你可见且未被占据的空间里。你能使用本特质的次数与你的熟练加值相同，当你完成一次长休后，你恢复所有已使用的次数。</p></div><p>As a bonus action, you can magically teleport up to 30 feet to an unoccupied space you can see. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.</p>",
       "chat": ""
     },
     "requirements": "Astral Elf",
@@ -31,7 +31,7 @@
       "subtype": ""
     },
     "properties": [],
-    "advancement": [],
+    "advancement": {},
     "activities": {
       "2rR1PmBc86guNgcV": {
         "_id": "2rR1PmBc86guNgcV",
@@ -50,28 +50,33 @@
           "targets": [
             {
               "type": "itemUses",
-              "value": "1"
+              "value": "1",
+              "scaling": {}
             }
           ]
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
           "override": false,
-          "special": ""
+          "special": "",
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -103,7 +108,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -111,7 +117,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -122,18 +127,62 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "starlight-step",
@@ -142,14 +191,15 @@
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     }
   },
   "ownership": {
     "default": 0,
     "qKmljmeCDhGDkX2L": 3
   },
-  "img": "modules/plutonium/media/icon/family-tree.svg",
+  "img": "icons/magic/light/projectiles-star-purple.webp",
   "flags": {
     "plutonium": {
       "page": "raceFeature",
@@ -158,11 +208,7 @@
     },
     "dnd5e": {
       "sourceId": ".dPueYLydKJIA3Fdv",
-      "advancementOrigin": "GoNX6eiWb1XwILpc.Vf5NSPemIyG3gTCx",
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
+      "advancementOrigin": "GoNX6eiWb1XwILpc.Vf5NSPemIyG3gTCx"
     },
     "midi-qol": {
       "rollAttackPerTarget": "default",
@@ -193,9 +239,9 @@
   "_stats": {
     "compendiumSource": "Actor.aYAJq5f5bQ2rhZ8V.Item.dPueYLydKJIA3Fdv",
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1754657825894,
     "modifiedTime": 1757945330560,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

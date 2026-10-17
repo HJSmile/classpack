@@ -1,15 +1,15 @@
 {
   "_id": "Ny7aYganLo78DUfw",
-  "name": "法术盗贼 Spell Thief",
+  "name": "法术窃贼 Spell Thief",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Mage_IncantersAbsorbtion.png",
+  "img": "icons/magic/control/orb-web-hold.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>      第17级起，你获得盗取其他施法者施法知识的能力。</p>\n<p>        当一个生物施展的一一个法术以你为目标，或其法术效应范围包含你所在区域时，你可以立即用你的反应强迫该生物以其施法关键属性调整值进行一次豁免。其DC等同于你的法术豁免DC。若其豁免失败，则你取消该法术对你的效应。如果该法术至少为1环且属于你可以施展的环阶(但不需要是法师法术)，则你还可以盗取该法术的知识。在接下来的8小时内，你视为习得该法术且能用你的法术位施展该法术。而目标生物则无法施展该法术直至8小时过去。</p>\n<p>        你必须完成一次长休后才能再次使用该特性。</p>",
+      "value": "<p>      第17级起，你获得盗取其他施法者施法知识的能力。</p>\n<p>        当一个生物施展的一个法术以你为目标，或其法术效应范围包含你所在区域时，你可以立即用你的反应强迫该生物以其施法属性调整值进行一次豁免。其DC等同于你的法术豁免DC。若其豁免失败，则你取消该法术对你的效应。如果该法术至少为1环且属于你可以施展的环阶(但不需要是法师法术)，则你还可以盗取该法术的知识。在接下来的8小时内，你视为习得该法术且能用你的法术位施展该法术。而目标生物则无法施展该法术直至8小时过去。</p>\n<p>        你必须完成一次长休后才能再次使用该特性。</p>",
       "chat": ""
     },
     "source": {
@@ -47,14 +47,16 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "8",
           "units": "hour",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -70,7 +72,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -88,7 +91,10 @@
         },
         "damage": {
           "onSave": "none",
-          "parts": []
+          "parts": [],
+          "critical": {
+            "allow": false
+          }
         },
         "save": {
           "ability": [
@@ -99,16 +105,97 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "name": "",
         "img": "",
-        "appliedEffects": [],
         "midiProperties": {
-          "triggeredActivityId": "none"
+          "triggeredActivityId": "none",
+          "ignoreTraits": [],
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
-        "useConditionText": "item.itemType === \"spell\""
+        "useConditionText": "item.itemType === \"spell\"",
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       },
       "mE6AneA2CzvsPC2B": {
         "type": "utility",
@@ -118,7 +205,7 @@
           "type": "reaction",
           "value": null,
           "override": false,
-          "condition": " 当一个生物施展的一一个法术以你为目标，或其法术效应范围包含你所在区域时"
+          "condition": "当一个生物施展的一一个法术以你为目标，或其法术效应范围包含你所在区域时"
         },
         "consumption": {
           "scaling": {
@@ -128,12 +215,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -145,7 +234,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -169,20 +259,103 @@
         },
         "name": "",
         "img": "",
-        "appliedEffects": [],
         "midiProperties": {
-          "triggeredActivityId": "豁免"
-        }
+          "triggeredActivityId": "豁免",
+          "ignoreTraits": [],
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 17,
+      "repeatable": false,
+      "items": [
+        "subclass:arcane-trickster"
+      ]
     },
     "properties": []
   },
@@ -190,14 +363,7 @@
   "folder": "QP4F5QBPG8QKsDqY",
   "sort": 19000000,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -217,9 +383,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757090043804,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

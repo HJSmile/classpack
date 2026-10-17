@@ -1,0 +1,169 @@
+{
+  "_id": "450b18c610464996",
+  "name": "巨龙先祖：银龙（冰冻）",
+  "type": "feat",
+  "img": "icons/creatures/abilities/dragon-fire-breath-orange.webp",
+  "system": {
+    "type": {
+      "value": "class",
+      "subtype": ""
+    },
+    "description": {
+      "value": "<p>你选择银龙作为你的巨龙先祖，对应的伤害类型为<strong>冰冻</strong>。6级获得的元素亲和使用此伤害类型。</p>",
+      "chat": ""
+    },
+    "source": {
+      "custom": "PHB pg. 102",
+      "revision": 1,
+      "rules": "2014",
+      "book": "PHB"
+    },
+    "cover": null,
+    "uses": {
+      "max": "",
+      "spent": 0,
+      "recovery": []
+    },
+    "requirements": "龙族血脉等级 1",
+    "activities": {},
+    "identifier": "draconic-ancestry",
+    "advancement": {
+      "71bed895b32d724c": {
+        "_id": "71bed895b32d724c",
+        "type": "ScaleValue",
+        "name": "先祖龙种",
+        "configuration": {
+          "identifier": "dragon-type",
+          "type": "string",
+          "scale": {
+            "1": {
+              "value": "silver"
+            }
+          }
+        },
+        "value": {},
+        "flags": {}
+      },
+      "7579c4bba3f63e28": {
+        "_id": "7579c4bba3f63e28",
+        "type": "ScaleValue",
+        "name": "先祖伤害类型",
+        "configuration": {
+          "identifier": "damage-type",
+          "type": "string",
+          "scale": {
+            "1": {
+              "value": "cold"
+            }
+          }
+        },
+        "value": {},
+        "flags": {}
+      },
+      "85873ccf2c1ec81b": {
+        "_id": "85873ccf2c1ec81b",
+        "type": "ModifyItem",
+        "name": "元素亲和伤害类型",
+        "level": 6,
+        "configuration": {
+          "changes": [
+            {
+              "_id": "31243631a1018356",
+              "uuid": null,
+              "identifiers": [
+                "feat:elemental-affinity"
+              ]
+            }
+          ]
+        },
+        "value": {
+          "modified": []
+        },
+        "flags": {},
+        "hint": "元素亲和的伤害类型为冰冻。"
+      }
+    },
+    "crewed": false,
+    "enchant": {},
+    "prerequisites": {
+      "level": 1,
+      "repeatable": false,
+      "items": [
+        "subclass:draconic-bloodline"
+      ]
+    },
+    "properties": []
+  },
+  "effects": [
+    {
+      "_id": "31243631a1018356",
+      "_key": "!items.effects!450b18c610464996.31243631a1018356",
+      "name": "元素亲和：冰冻",
+      "img": "icons/magic/symbols/elements-air-earth-fire-water.webp",
+      "type": "enchantment",
+      "transfer": false,
+      "disabled": false,
+      "showIcon": 0,
+      "statuses": [],
+      "flags": {},
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "system": {
+        "magical": false,
+        "changes": [
+          {
+            "_id": "c2642b41aca0d6c9",
+            "key": "activities[damage].damage.parts",
+            "value": [
+              {
+                "number": null,
+                "denomination": null,
+                "bonus": "",
+                "types": [
+                  "cold"
+                ],
+                "custom": {
+                  "enabled": true,
+                  "formula": "@abilities.cha.mod"
+                },
+                "scaling": {
+                  "mode": "whole",
+                  "number": null,
+                  "formula": ""
+                },
+                "modifiers": []
+              }
+            ],
+            "type": "override",
+            "phase": "initial",
+            "priority": 20,
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ]
+      }
+    }
+  ],
+  "folder": "Rbd6RuEbXM9e7lvA",
+  "sort": 4300000,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "14.368",
+    "systemId": "dnd5e",
+    "systemVersion": "6.0.5",
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!450b18c610464996"
+}

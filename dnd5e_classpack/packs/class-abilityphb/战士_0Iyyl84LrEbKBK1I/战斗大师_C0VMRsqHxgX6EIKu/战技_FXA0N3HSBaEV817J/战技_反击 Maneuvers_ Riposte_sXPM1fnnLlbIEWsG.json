@@ -2,7 +2,7 @@
   "_id": "sXPM1fnnLlbIEWsG",
   "name": "战技:反击 Maneuvers: Riposte",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Warrior_Vigilance.png",
+  "img": "icons/skills/melee/strike-sword-steel-yellow.webp",
   "system": {
     "description": {
       "value": "<p>         当某生物对你发动近战攻击而未命中时，你可以使用反应并消耗一粒卓越骰对其发动一次近战武器攻击。如果该攻击命中，则将卓越骰加在此攻击的伤害掷骰中。</p>",
@@ -44,21 +44,37 @@
             {
               "type": "itemUses",
               "value": "1",
-              "target": "Compendium.dnd5e_classpack.class-abilityphb.Item.etA1oLtnnD27jna2"
+              "target": "Compendium.dnd5e_classpack.class-abilityphb.Item.etA1oLtnnD27jna2",
+              "scaling": {}
             }
           ]
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "ciCgPHfpNO8j8EZJ"
+            "_id": "ciCgPHfpNO8j8EZJ",
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1757090578850,
+              "modifiedTime": 1757091462653,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           }
         ],
         "range": {
@@ -70,7 +86,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -101,7 +118,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -109,7 +127,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -120,70 +137,129 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "name": "",
         "img": "",
-        "appliedEffects": [
-          "ciCgPHfpNO8j8EZJ"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": [
+        "subclass:battle-master",
+        "feat:superior-technique",
+        "feat:martial-adept"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "name": "反击",
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Warrior_Vigilance.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.sXPM1fnnLlbIEWsG",
+      "img": "icons/skills/melee/strike-sword-steel-yellow.webp",
+      "origin": null,
       "transfer": false,
       "_id": "ciCgPHfpNO8j8EZJ",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.optional.反击.damage.mwak",
-          "mode": 2,
-          "value": "+1@scale.battle-master.superiority-die",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.optional.反击.damage.mwak",
+            "value": "+1@scale.battle-master.superiority-die",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "PWLwmMQl2dmiVzgu",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.反击.force",
+            "value": true,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "iGbJvxCGe1gMiejE",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.optional.反击.damage.rwak",
-          "mode": 2,
-          "value": "+1@scale.battle-master.superiority-die",
-          "priority": 20
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.sXPM1fnnLlbIEWsG",
+          "message": null
         },
-        {
-          "key": "flags.midi-qol.optional.反击.force",
-          "mode": 2,
-          "value": "true",
-          "priority": 20
-        }
-      ],
+        "conditions": "{}",
+        "magical": false
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -202,47 +278,31 @@
           "durationExpression": "",
           "macroRepeat": "none",
           "specialDuration": [
-            "1Attack:mwak",
-            "1Attack:rwak"
-          ]
+            "1Attack:mwak"
+          ],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757090578850,
         "modifiedTime": 1757091462653,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!sXPM1fnnLlbIEWsG.ciCgPHfpNO8j8EZJ"
     }
   ],
@@ -273,14 +333,7 @@
       "removeAttackDamageButtons": "default",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "maneuversRiposte",
@@ -293,9 +346,9 @@
     "default": 0
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757091303457,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

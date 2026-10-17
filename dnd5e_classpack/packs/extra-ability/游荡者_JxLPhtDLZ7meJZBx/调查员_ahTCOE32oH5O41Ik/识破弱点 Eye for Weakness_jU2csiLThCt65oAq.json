@@ -1,15 +1,15 @@
 {
   "_id": "jU2csiLThCt65oAq",
-  "name": "识破弱点 Eye for Weakness",
+  "name": "伺隙锐瞳 Eye for Weakness",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_MindSooth.png",
+  "img": "icons/skills/ranged/target-bullseye-arrow-blue.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>         17级时，你学会通过认真的研究一个生物的战术和移动来找到他的弱点的能力。当你的@UUID[Compendium.dnd5e_classpack.extra-ability.J4PCHlmBmtS4CRSB]{战斗洞察}对一个生物使用时，你对该生物的@UUID[Compendium.dnd5e_classpack.class-abilityphb.AlFAC3Lz1ud2ry9T]{偷袭}伤害提高[[/r 3d6]]。</p>",
+      "value": "<p>         17级时，你学会通过认真的研究一个生物的战术和移动来找到他的弱点的能力。当你的@UUID[Compendium.dnd5e_classpack.extra-ability.J4PCHlmBmtS4CRSB]{战术洞悉}对一个生物使用时，你对该生物的@UUID[Compendium.dnd5e_classpack.class-abilityphb.AlFAC3Lz1ud2ry9T]{偷袭}伤害提高[[/r 3d6]]。</p>",
       "chat": ""
     },
     "source": {
@@ -42,12 +42,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -59,7 +61,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -86,9 +89,13 @@
                 "formula": ""
               },
               "number": 3,
-              "denomination": "6",
+              "denomination": 6,
               "bonus": "",
-              "types": []
+              "types": [],
+              "modifiers": [],
+              "scaling": {
+                "number": 1
+              }
             }
           ]
         },
@@ -103,7 +110,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -111,7 +119,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -122,27 +129,72 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
     "identifier": "-eye-for-weakness",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 17,
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -150,12 +202,7 @@
   "folder": "ahTCOE32oH5O41Ik",
   "sort": 38400000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -182,9 +229,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1749883542518,
     "lastModifiedBy": "uXKCmWFprrvnSIDm",

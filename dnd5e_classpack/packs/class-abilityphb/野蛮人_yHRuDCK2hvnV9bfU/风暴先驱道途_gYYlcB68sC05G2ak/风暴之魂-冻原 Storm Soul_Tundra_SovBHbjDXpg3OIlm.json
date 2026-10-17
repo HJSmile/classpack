@@ -8,7 +8,7 @@
       "subtype": ""
     },
     "description": {
-      "value": "<ul><li><strong>冻原。</strong>你得到对冷冻伤害的抗性，并不会受到极端低温的效果影响。此外，以一个动作，你可以触摸水并且把5立方尺的水冻结成冰，这种冰将会在1分钟后融化。如果有生物处于该立方空间中，你的行动将会失败。</li></ul>",
+      "value": "<ul><li><strong>冻原。</strong>你得到对寒冷伤害的抗性，并不会受到极端低温的效果影响。此外，以一个动作，你可以触摸水并且把5尺立方的水冻结成冰，这种冰将会在1分钟后融化。如果有生物处于该立方空间中，你的行动将会失败。</li></ul>",
       "chat": ""
     },
     "source": {
@@ -26,26 +26,24 @@
     "crewed": false,
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": [],
     "activities": {},
     "identifier": "-",
-    "advancement": [],
+    "advancement": {},
     "enchant": {}
   },
   "effects": [
     {
       "name": "风暴之魂-冻原",
-      "origin": "Item.ErQdYMDGKWn9kuRy",
+      "origin": null,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "disabled": false,
       "flags": {
@@ -63,22 +61,14 @@
         }
       },
       "_id": "58dA00lmEAGeLaQQ",
-      "changes": [
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "cold",
-          "priority": 20
-        }
-      ],
       "description": "",
       "transfer": true,
       "statuses": [],
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -86,10 +76,38 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Shaman_Ascendance.png",
+      "img": "icons/magic/water/heart-ice-freeze.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.dr.value",
+            "value": "cold",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "DZIfv8c5N8Pbf8GN",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Item.ErQdYMDGKWn9kuRy",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!SovBHbjDXpg3OIlm.58dA00lmEAGeLaQQ"
     }
   ],
@@ -120,17 +138,12 @@
       "otherCondition": ""
     },
     "core": {},
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1724858139041,
     "modifiedTime": 1757094328802,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -2,14 +2,14 @@
   "_id": "jfNnScfW0WmSHnuA",
   "name": "武器联结 Weapon Bond",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_RetributionAura.png",
+  "img": "icons/skills/melee/hand-grip-sword-orange.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>        第3级时，你习得一种让你和你的武器建立魔法联结的仪式。仪式耗时1小时，且可在短休时进行。仪式过程中武器必须在你的触及范围内，直至仪式结束前，你都要碰触该武器以完成联结。</p>\n<p>        联结建立后，只要你不处于失能状态，使用联结武器时就不会被缴械。如果联结武器与你处于同一位面，则你可以用一个附赠动作召唤其回到你手中。</p>\n<p>        你至多可以拥有两把建立联结的武器，但一个附赠动作只能.召唤一把武器 。如果你试图和第三把武器建立联结，则必须与已经联结的一把武器取消联结。</p>",
+      "value": "<p>        第3级时，你习得一种让你和你的武器建立魔法联结的仪式。仪式耗时1小时，且可在短休时进行。仪式过程中武器必须在你的触及范围内，直至仪式结束前，你都要碰触该武器以完成联结。</p>\n<p>        联结建立后，只要你不处于&amp;Reference[condition=incapacitated apply=false]{失能}状态，使用联结武器时就不会被缴械。如果联结武器与你处于同一位面，则你可以用一个附赠动作召唤其瞬间传送回到你手中。</p>\n<p>        你至多可以拥有两把建立联结的武器，但一个附赠动作只能.召唤一把武器 。如果你试图和第三把武器建立联结，则必须与已经联结的一把武器取消联结。</p>",
       "chat": ""
     },
     "source": {
@@ -42,12 +42,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "dstr",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -59,7 +61,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -90,7 +93,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -98,7 +102,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -109,28 +112,75 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 3,
+      "repeatable": false,
+      "items": [
+        "subclass:eldritch-knight"
+      ]
     },
     "properties": [
       "mgc"
@@ -149,14 +199,7 @@
       "alwaysActive": false,
       "effects": []
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -176,9 +219,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757175354058,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

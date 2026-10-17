@@ -2,7 +2,7 @@
   "_id": "ItY6A8FHA5CK5oIy",
   "name": "幸运一击 Stroke of Luck",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/httpcloud3steamusercontentcomugc84258505323639544266632CED299C8A0A6E818F2B0E923FB372065932.jpg",
+  "img": "icons/magic/light/hand-sparks-glow-yellow.webp",
   "system": {
     "type": {
       "value": "class",
@@ -61,13 +61,15 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -83,7 +85,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -105,57 +108,167 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 20,
+      "repeatable": false,
+      "items": [
+        "class:rogue"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "name": "幸运一击",
-      "img": "modules/dnd5e_classpack/Nicons/httpcloud3steamusercontentcomugc84258505323639544266632CED299C8A0A6E818F2B0E923FB372065932.jpg",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.ItY6A8FHA5CK5oIy",
+      "img": "icons/magic/light/hand-sparks-glow-yellow.webp",
+      "origin": null,
       "_id": "KyaGizLGTbPy9Ouc",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.optional.幸运一击.attack.fail.all",
-          "mode": 2,
-          "value": "+99",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.optional.幸运一击.attack.fail.all",
+            "value": "+99",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "SYLuFEiQfjdiZhXp",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.幸运一击.check.fail.all",
+            "value": "ItemMacro",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "BbY0rI6SIUcADoSV",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.幸运一击.count",
+            "value": "ItemUses.幸运一击 Stroke of Luck",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "zTC2NvdgEYzya8aA",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.optional.幸运一击.check.fail.all",
-          "mode": 2,
-          "value": "reroll-max",
-          "priority": 20
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.ItY6A8FHA5CK5oIy",
+          "message": null
         },
-        {
-          "key": "flags.midi-qol.optional.幸运一击.count",
-          "mode": 2,
-          "value": "ItemUses.幸运一击 Stroke of Luck",
-          "priority": 20
-        }
-      ],
+        "conditions": "{}",
+        "magical": false
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -170,45 +283,30 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757176550434,
         "modifiedTime": 1757176707966,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!ItY6A8FHA5CK5oIy.KyaGizLGTbPy9Ouc"
     }
   ],
@@ -219,14 +317,7 @@
     "entityorder": {
       "order": 141
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -243,12 +334,19 @@
       "noConcentrationCheck": false,
       "toggleEffect": false,
       "ignoreTotalCover": false
+    },
+    "dae": {
+      "macro": {
+        "name": "幸运一击 Stroke of Luck",
+        "type": "script",
+        "command": "function copyRoll(roll) {\n  return roll.constructor.fromData(foundry.utils.deepClone(roll.toJSON()));\n}\nfunction refreshRoll(roll) {\n  for (const term of roll.terms) {\n    if (term.roll) refreshRoll(term.roll);\n    for (const inner of term.rolls ?? []) refreshRoll(inner);\n    for (const inner of term.terms ?? []) if (inner?.terms) refreshRoll(inner);\n  }\n  roll._total = roll._evaluateTotal();\n  return roll;\n}\nfunction weaponDice(roll, workflow) {\n  if (workflow.item?.type !== \"weapon\" || !workflow.activity?.damage?.includeBase) return [];\n  const part = workflow.activity.damage.parts[0];\n  if (!part) return [];\n  const formula = part.formula ?? part.custom?.formula;\n  if (!formula) return [];\n  const base = foundry.dice.Roll.create(formula, workflow.activity.getRollData());\n  return roll.dice.slice(0, base.dice.length);\n}\nasync function rerollLowWeaponDice(roll, workflow) {\n  const properties = workflow.item?.system?.properties;\n  if (workflow.activity?.actionType !== \"mwak\" || workflow.attackMode !== \"twoHanded\"\n    || ![\"two\", \"ver\"].some(key => properties?.has(key))) return false;\n  let changed = false;\n  for (const die of weaponDice(roll, workflow)) {\n    if (die.options.dnd5e_classpackGreatWeaponFighting) continue;\n    die.options.dnd5e_classpackGreatWeaponFighting = true;\n    changed = true;\n    for (const result of [...die.results]) {\n      if (!result.active || result.result > 2) continue;\n      const replacement = new die.constructor({ number: 1, faces: die.faces });\n      await replacement.evaluate();\n      result.active = false;\n      result.rerolled = true;\n      die.results.push(...replacement.results);\n    }\n  }\n  if (changed) refreshRoll(roll);\n  return changed;\n}\n\nconst original = args[0]?.roll;\nif (args[0]?.tag !== \"optional\" || !original) return;\nconst revised = copyRoll(original);\nconst d20 = revised.dice.find(die => die.faces === 20);\nif (!d20) return original;\nfor (const result of d20.results.filter(result => result.active)) {\n  result.result = 20;\n  delete result.count;\n}\nreturn refreshRoll(revised);\n"
+      }
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757176565497,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

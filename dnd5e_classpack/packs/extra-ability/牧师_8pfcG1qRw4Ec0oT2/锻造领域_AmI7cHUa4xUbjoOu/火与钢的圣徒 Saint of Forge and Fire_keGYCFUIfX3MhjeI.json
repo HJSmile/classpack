@@ -1,8 +1,8 @@
 {
   "_id": "keGYCFUIfX3MhjeI",
-  "name": "火与钢的圣徒 Saint of Forge and Fire",
+  "name": "锻炉与烈焰的圣徒 Saint of Forge and Fire",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_BurningSoul.png",
+  "img": "icons/magic/defensive/armor-stone-skin.webp",
   "system": {
     "type": {
       "value": "class",
@@ -25,38 +25,30 @@
     "requirements": "锻造领域等级 17",
     "activities": {},
     "identifier": "-saint-of-forge-and-fire",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 17,
+      "repeatable": false,
+      "items": [
+        "subclass:forge-domain"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "_id": "wQHyNFr3TqlvxgUI",
-      "changes": [
-        {
-          "key": "system.traits.di.value",
-          "mode": 2,
-          "value": "fire",
-          "priority": 20
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
-      "origin": "Compendium.dnd5e_classpack.extra-ability.Item.keGYCFUIfX3MhjeI",
+      "origin": null,
       "transfer": true,
       "flags": {
         "dae": {
@@ -76,9 +68,9 @@
       "description": "",
       "statuses": [],
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -86,23 +78,48 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/Spell_BurningSoul.png",
+      "img": "icons/magic/defensive/armor-stone-skin.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.di.value",
+            "value": "fire",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "XOlYp2fDWmBJJoI2",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.extra-ability.Item.keGYCFUIfX3MhjeI",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!keGYCFUIfX3MhjeI.wQHyNFr3TqlvxgUI"
     },
     {
       "name": "穿着重甲时非魔法物理抗性",
-      "origin": "Compendium.dnd5e_classpack.extra-ability.Item.keGYCFUIfX3MhjeI",
+      "origin": null,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "disabled": false,
       "flags": {
@@ -120,40 +137,14 @@
         }
       },
       "_id": "ZQadVKC8jePNAnyN",
-      "changes": [
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "piercing",
-          "priority": 20
-        },
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "bludgeoning",
-          "priority": 20
-        },
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "slashing",
-          "priority": 20
-        },
-        {
-          "key": "system.traits.dr.bypasses",
-          "mode": 0,
-          "value": "mgc",
-          "priority": 20
-        }
-      ],
       "description": "",
       "transfer": true,
       "statuses": [],
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -161,10 +152,68 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/Spell_BurningSoul.png",
+      "img": "icons/magic/defensive/armor-stone-skin.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.dr.value",
+            "value": "piercing",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "vZBMp9leZvuufdYi",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.dr.value",
+            "value": "bludgeoning",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "hQVaS2xBeDqgKwWK",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.dr.value",
+            "value": "slashing",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "3xq0ISzrB8E5rD1Y",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.dr.bypasses",
+            "value": "mgc",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "m3TelxD2Nt48pXSr",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.extra-ability.Item.keGYCFUIfX3MhjeI",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!keGYCFUIfX3MhjeI.ZQadVKC8jePNAnyN"
     }
   ],
@@ -195,17 +244,12 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1725558182688,
     "modifiedTime": 1757416197267,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

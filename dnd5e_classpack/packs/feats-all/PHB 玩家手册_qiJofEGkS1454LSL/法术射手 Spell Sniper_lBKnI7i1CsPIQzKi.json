@@ -3,12 +3,7 @@
   "name": "法术射手 Spell Sniper",
   "type": "feat",
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -25,12 +20,19 @@
       "noConcentrationCheck": false,
       "toggleEffect": false,
       "ignoreTotalCover": false
+    },
+    "dae": {
+      "macro": {
+        "name": "法术射手 Spell Sniper",
+        "type": "script",
+        "command": "const pass = args[0]?.macroPass;\nconst key = Symbol.for(\"dnd5e_classpack.spellSniper.range\");\nconst activity = workflow.activity;\nif (pass === \"preItemRoll\" && workflow.item.type === \"spell\" && activity.actionType === \"msak\"\n  && [\"ft\", \"m\"].includes(activity.range.units) && Number(activity.range.value) > 0) {\n  if (activity[key] !== undefined) return;\n  activity[key] = activity.range.value;\n  activity.range.value *= 2;\n}\nif (pass === \"postCleanup\" && activity[key] !== undefined) {\n  activity.range.value = activity[key];\n  delete activity[key];\n}\n"
+      }
     }
   },
   "img": "icons/magic/light/projectile-beam-yellow.webp",
   "system": {
     "description": {
-      "value": "<p>你学会如何操控特定的法术进行攻击，并获得下列增益：</p><ul><li><p>当你施展需要进行攻击检定的法术时，则该法术的施法距离加倍。</p></li><li><p>你的远程法术攻击忽视半身掩护和四分之三掩护状态。</p></li><li><p>你习得一个需要进行攻击检定的戏法。从吟游诗人、牧师、德鲁伊、术士、邪术师、法师中选择其一，并从其相应的法术列表里选择该戏法。你施展该戏法的施法关键属性取决于你选择的职业：吟游诗人、术士、邪术师用魅力；牧师、德鲁伊用感知；法师用智力。</p></li></ul>",
+      "value": "<p>你学会如何操控特定的法术进行攻击，并获得下列增益：</p><ul><li><p>当你施展需要进行攻击检定的法术时，则该法术的施法距离加倍。</p></li><li><p>你的远程法术攻击忽视半身掩护和四分之三掩护状态。</p></li><li><p>你习得一个需要进行攻击检定的戏法。从吟游诗人、牧师、德鲁伊、术士、魔契师、法师中选择其一，并从其相应的法术列表里选择该戏法。你施展该戏法的施法属性取决于你选择的职业：吟游诗人、术士、魔契师用魅力；牧师、德鲁伊用感知；法师用智力。</p></li></ul>",
       "chat": ""
     },
     "source": {
@@ -41,23 +43,71 @@
     },
     "cover": null,
     "uses": {
-      "max": "0",
+      "max": "",
       "spent": 0,
       "recovery": []
     },
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "requirements": "至少可以施展一个法术",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {
+      "52b112efb062241e": {
+        "_id": "52b112efb062241e",
+        "type": "ItemChoice",
+        "name": "选择法术列表",
+        "configuration": {
+          "choices": {
+            "0": {
+              "count": 1,
+              "replacement": false
+            }
+          },
+          "allowDrops": false,
+          "type": "feat",
+          "pool": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.e88659ab95d2005b",
+              "sort": 0
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.93511bfb929f77fc",
+              "sort": 1
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.e21898e923d365a5",
+              "sort": 2
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.beb0a174694d2e85",
+              "sort": 3
+            }
+          ],
+          "spell": null,
+          "restriction": {
+            "type": "feat",
+            "subtype": "",
+            "level": "",
+            "list": [],
+            "school": []
+          },
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -68,33 +118,61 @@
     {
       "name": "法术射手",
       "img": "icons/magic/light/projectile-beam-yellow.webp",
-      "origin": "Compendium.dnd5e_classpack.feats-all.Item.lBKnI7i1CsPIQzKi",
+      "origin": null,
       "_id": "rLvrbJSWDSItIEmW",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.long.rsak",
-          "mode": 2,
-          "value": "+item.long.value",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "flags.dnd5e.spellSniper",
+            "value": "true",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "vBKRbxibw9EsPEmV",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.onUseMacroName",
+            "value": "ItemMacro,preItemRoll",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "xD9IgNaRiTbkVYQb",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.onUseMacroName",
+            "value": "ItemMacro,postCleanup",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "",
+            "conditions": "{}",
+            "_id": "4c112821ed5216fd"
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.range.rsak",
-          "mode": 2,
-          "value": "+item.range.value",
-          "priority": 20
-        }
-      ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.feats-all.Item.lBKnI7i1CsPIQzKi",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -108,54 +186,39 @@
           "stackable": "noneName",
           "showIcon": false,
           "durationExpression": "",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1756534106482,
         "modifiedTime": 1756534924260,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!lBKnI7i1CsPIQzKi.rLvrbJSWDSItIEmW"
     }
   ],
   "folder": "qiJofEGkS1454LSL",
   "sort": 700000,
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757864646196,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

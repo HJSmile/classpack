@@ -5,33 +5,16 @@
   "effects": [
     {
       "name": "虔信护符+3  Amulet of the Devout",
-      "origin": "Compendium.dnd5e_classpack.itempack.Item.447YRQ0xR88D6D3u",
+      "origin": null,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "transfer": true,
       "disabled": false,
       "_id": "02iScOajBnK23Pa8",
-      "changes": [
-        {
-          "key": "system.bonuses.spell.attack",
-          "mode": 2,
-          "value": "+ 3",
-          "priority": 20
-        },
-        {
-          "key": "system.bonuses.spell.dc",
-          "mode": 2,
-          "value": "+ 3",
-          "priority": 20
-        }
-      ],
       "description": "",
       "statuses": [],
       "flags": {
@@ -49,29 +32,13 @@
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system"
         }
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -81,8 +48,46 @@
       },
       "img": "icons/equipment/neck/pendant-rough-silver-blue.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.rolls.attack.spell.bonus",
+            "value": "+ 3",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "cQFKS9ExBxPbliv0",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.bonuses.spell.dc",
+            "value": "+ 3",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "doMVKHKYetDrC6cY",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.itempack.Item.447YRQ0xR88D6D3u",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!447YRQ0xR88D6D3u.02iScOajBnK23Pa8"
     }
   ],
@@ -125,16 +130,11 @@
       "itemCondition": "",
       "effectCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
-      "value": "<p><em style=\"mso-bidi-font-style:normal\">（需牧师或圣武士同调）</em></p><p>这件护符载有一位神祇的圣徽，由珍稀石料或金属雕刻。当佩戴这枚护符时，你在你法术的法术攻击骰和法术豁免DC上获得加值，加值取决于护符的稀有度。<br />当你穿戴这枚护符时，你可以使用一次你的引导神力特性而不消耗特性的使用次数。此属性使用后，直到下次黎明前，不能再次使用。<br /></p>",
+      "value": "<p><em style=\"mso-bidi-font-style:normal\">（需牧师或圣武士同调）</em></p><p>这件护符载有一位神祇的圣徽，由珍稀石料或金属雕刻。当佩戴这枚护符时，你在你法术的法术攻击骰和法术豁免DC上获得加值，加值取决于护符的稀有度。</p><p>当你穿戴这枚护符时，你可以使用一次你的引导神力特性而不消耗特性的使用次数。此属性使用后，直到下次黎明前，不能再次使用。</p>",
       "chat": ""
     },
     "source": {
@@ -154,10 +154,8 @@
     },
     "attunement": "required",
     "equipped": false,
-    "rarity": "veryRare",
     "identified": true,
     "cover": null,
-    "crewed": false,
     "uses": {
       "max": "",
       "spent": null,
@@ -165,8 +163,7 @@
     },
     "armor": {
       "value": 0,
-      "dex": 0,
-      "magicalBonus": null
+      "dex": 0
     },
     "hp": {
       "value": 0,
@@ -176,7 +173,8 @@
     },
     "speed": {
       "value": null,
-      "conditions": ""
+      "conditions": "",
+      "units": "ft"
     },
     "strength": 0,
     "proficient": null,
@@ -193,12 +191,18 @@
     ],
     "activities": {},
     "identifier": "3-amulet-of-the-devout",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "veryRare"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1692348996712,
     "modifiedTime": 1757871141076,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

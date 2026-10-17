@@ -2,7 +2,7 @@
   "_id": "gBmIzudMHZvEoyr2",
   "name": "熵光结界 Entropic Ward",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_TitanKeeper_UncheckedCorruption.png",
+  "img": "icons/magic/control/buff-luck-fortune-rainbow.webp",
   "system": {
     "type": {
       "value": "class",
@@ -37,7 +37,7 @@
         "_id": "dnd5eactivity000",
         "type": "utility",
         "activation": {
-          "type": "reaction",
+          "type": "reactionpreattack",
           "value": 1,
           "condition": "",
           "override": false
@@ -47,7 +47,8 @@
             {
               "type": "itemUses",
               "value": "1",
-              "target": ""
+              "target": "",
+              "scaling": {}
             }
           ],
           "scaling": {
@@ -57,23 +58,39 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "a1WvCzt8rfy8OtSf"
+            "_id": "a1WvCzt8rfy8OtSf",
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1757072538678,
+              "modifiedTime": 1757072583353,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           }
         ],
         "range": {
-          "units": "",
+          "units": "any",
           "special": "",
-          "override": false
+          "override": true,
+          "value": null
         },
         "target": {
           "template": {
@@ -83,13 +100,13 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
-            "count": "",
-            "type": "",
-            "choice": false,
-            "special": ""
+            "count": "1",
+            "type": "creature",
+            "choice": false
           },
           "prompt": true,
           "override": false
@@ -108,47 +125,158 @@
         "sort": 0,
         "name": "",
         "img": "",
-        "appliedEffects": [],
-        "useConditionText": "reaction === preAttack"
+        "useConditionText": "reaction === preAttack",
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 6,
+      "repeatable": false,
+      "items": [
+        "subclass:the-great-old-one"
+      ]
     },
-    "properties": []
+    "properties": [
+      "mgc"
+    ]
   },
   "effects": [
     {
       "name": "熵光结界",
-      "img": "modules/dnd5e_classpack/Nicons/Ability_TitanKeeper_UncheckedCorruption.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.gBmIzudMHZvEoyr2",
+      "img": "icons/magic/control/buff-luck-fortune-rainbow.webp",
+      "origin": null,
       "transfer": false,
       "_id": "a1WvCzt8rfy8OtSf",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.grants.disadvantage.attack.all",
-          "mode": 2,
-          "value": "+1",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.disadvantage.attack.all",
+            "value": "workflow?.actor?.uuid === \"@ward.attackerUuid\" && targetActorUuid === \"@actorUuid\" && (\"@ward.workflowId\" === \"\" || workflow.id === \"@ward.workflowId\")",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "Wg1eHzyR69NXkzu0",
+            "conditions": "{}",
+            "replacement": "origin"
+          },
+          {
+            "key": "flags.midi-qol.onUseMacroName",
+            "value": "ItemMacro,postActiveEffects",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "",
+            "conditions": "{}",
+            "_id": "5218305ba999ec62"
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.gBmIzudMHZvEoyr2",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": "turnEnd",
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -166,46 +294,116 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
         },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
+        "dnd5e_classpack": {
+          "entropicWard": "ward"
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757072538678,
         "modifiedTime": 1757072583353,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!gBmIzudMHZvEoyr2.a1WvCzt8rfy8OtSf"
+    },
+    {
+      "name": "熵光结界：反击优势",
+      "img": "icons/magic/control/buff-luck-fortune-rainbow.webp",
+      "origin": null,
+      "transfer": false,
+      "_id": "368d3ab4828aa73a",
+      "type": "base",
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.advantage.attack.all",
+            "value": "false",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "",
+            "conditions": "{}",
+            "_id": "499c0f44aafaf0c3"
+          },
+          {
+            "key": "flags.midi-qol.onUseMacroName",
+            "value": "ItemMacro,postActiveEffects",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "",
+            "conditions": "{}",
+            "_id": "a89046e5c3cabe65"
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.gBmIzudMHZvEoyr2",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
+      "disabled": false,
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": "targetEnd",
+        "expired": false
+      },
+      "description": "",
+      "tint": "#ffffff",
+      "statuses": [],
+      "sort": 0,
+      "flags": {
+        "dae": {
+          "applicationMode": "dnd5e",
+          "stackable": "noneName",
+          "specialDuration": [],
+          "selfTarget": false,
+          "selfTargetAlways": false
+        },
+        "dnd5e_classpack": {
+          "entropicWard": "counter"
+        }
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
+        "createdTime": 1757072538678,
+        "modifiedTime": 1757072583353,
+        "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+        "exportSource": null
+      },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
+      "_key": "!items.effects!gBmIzudMHZvEoyr2.368d3ab4828aa73a"
     }
   ],
   "folder": "wzMkhokUrcKBbXh5",
@@ -220,21 +418,15 @@
       "alwaysActive": false,
       "effects": []
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
       "itemCondition": "",
-      "reactionCondition": "",
+      "reactionCondition": "reaction === \"preAttack\"",
       "otherCondition": "",
-      "effectCondition": ""
+      "effectCondition": "",
+      "onUseMacroName": "[preActiveEffects]ItemMacro,[postActiveEffects]ItemMacro"
     },
     "midiProperties": {
       "autoFailFriendly": false,
@@ -244,12 +436,19 @@
       "noConcentrationCheck": false,
       "toggleEffect": false,
       "ignoreTotalCover": false
+    },
+    "dae": {
+      "macro": {
+        "name": "熵光结界 Entropic Ward",
+        "type": "script",
+        "command": "const pass = args[0]?.macroPass;\nconst dataKey = Symbol.for(\"dnd5e_classpack.entropicWard.rollData\");\nif (pass === \"preActiveEffects\") {\n  const attacker = workflow.targets.first()?.actor;\n  if (!attacker) return;\n  const sourceItem = workflow.workflowOptions?.sourceItemUuid;\n  const interrupted = sourceItem ? MidiQOL.Workflow.getWorkflow(sourceItem) : null;\n  const ward = { workflowId: interrupted?.id ?? \"\", attackerUuid: attacker.uuid };\n  const previous = workflow.item[dataKey] ?? workflow.item.getRollData;\n  workflow.item[dataKey] = previous;\n  workflow.item.getRollData = function (...options) { return { ...previous.apply(this, options), ward }; };\n  return;\n}\nif (pass === \"postActiveEffects\" && workflow.item[dataKey]) {\n  workflow.item.getRollData = workflow.item[dataKey];\n  delete workflow.item[dataKey];\n  return;\n}\nif (pass !== \"postActiveEffects\" || !workflow.attackRoll) return;\nconst context = MidiQOL.createConditionData({ workflow, actor: workflow.actor, target: workflow.targets.first() });\nconst effects = workflow.actor.appliedEffects.filter(effect => {\n  const role = effect.flags.dnd5e_classpack?.entropicWard;\n  if (!role || effect.disabled || effect.isSuppressed) return false;\n  const key = role === \"ward\" ? \"flags.midi-qol.disadvantage.attack.all\" : \"flags.midi-qol.advantage.attack.all\";\n  const change = effect.system.changes.find(c => c.key === key);\n  return change && MidiQOL.evalCondition(change.value, context, { errorReturn: false });\n});\nfor (const effect of effects) {\n  if (effect.flags.dnd5e_classpack.entropicWard === \"ward\") {\n    const protectedActor = macroItem.actor;\n    const protectedTokens = [...workflow.targets].filter(t => t.actor?.uuid === protectedActor?.uuid);\n    if (protectedActor && protectedTokens.length && protectedTokens.every(t => !workflow.hitTargets.has(t))) {\n      const template = macroItem.effects.find(e => e.flags.dnd5e_classpack?.entropicWard === \"counter\");\n      const data = template.toObject();\n      delete data._id; delete data._key;\n      data.origin = macroItem.uuid;\n      data.system.origin = { item: macroItem.uuid, actor: protectedActor.uuid };\n      data.system.changes.find(c => c.key === \"flags.midi-qol.advantage.attack.all\").value =\n        `targetActorUuid === ${JSON.stringify(workflow.actor.uuid)}`;\n      await MidiQOL.socket().executeAsGM(\"createEffects\", { actorUuid: protectedActor.uuid, effects: [data] });\n    }\n  }\n  await MidiQOL.socket().executeAsGM(\"removeEffects\", {\n    actorUuid: workflow.actor.uuid, effects: [effect.id], options: { \"expiry-reason\": \"midi-qol:entropicWardAttack\" }\n  });\n}\n"
+      }
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757145245149,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

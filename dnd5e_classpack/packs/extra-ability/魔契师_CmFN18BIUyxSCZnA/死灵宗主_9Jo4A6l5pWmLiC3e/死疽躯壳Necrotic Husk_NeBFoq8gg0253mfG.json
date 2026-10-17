@@ -2,14 +2,14 @@
   "_id": "NeBFoq8gg0253mfG",
   "name": "死疽躯壳Necrotic Husk",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/spell_animarevendreth_buff.jpg",
+  "img": "icons/magic/death/undead-skeleton-lich-armor.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>你与亡灵和暗蚀能量的联系现在充斥着你的身体。你对暗蚀伤害具有抗性。如果你使用@UUID[Compendium.dnd5e_classpack.extra-ability.39YlsyoJXTtDSGf4]{战栗形态}变身，你转而会对暗蚀伤害免疫。</p>\n<p>此外，当你的生命值降低到0时，你可以使用反应，改为将生命值降低到1，并使你的身体爆发出死亡能量。你周围30尺内的由你选择的生物都会受到相当于2d10+你的邪术师等级的暗蚀伤害。你获得1级的力竭。一旦你使用该反应，你就不能再这样做，直到你完成1d4次长休。</p>",
+      "value": "<p>你与亡灵和暗蚀能量的联系现在充斥着你的身体。你对暗蚀伤害具有抗性。如果你使用@UUID[Compendium.dnd5e_classpack.extra-ability.39YlsyoJXTtDSGf4]{战栗形态}变身，你转而会对暗蚀伤害免疫。</p><p>此外，当你的生命值降低到0时，你可以使用反应，改为将生命值降低到1，并使你的身体爆发出死亡能量。你周围30尺内的由你选择的生物都会受到相当于2d10+你的魔契师等级的暗蚀伤害。你获得1级的力竭。一旦你使用该反应，你就不能再这样做，直到你完成1d4次长休。</p>",
       "chat": ""
     },
     "source": {
@@ -42,13 +42,15 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -64,7 +66,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "30",
@@ -101,21 +104,107 @@
                 "mode": "whole",
                 "number": null,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ]
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
     "identifier": "necrotic-husk",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 10,
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -123,14 +212,7 @@
   "folder": "9Jo4A6l5pWmLiC3e",
   "sort": 22000000,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -150,9 +232,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757420910468,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

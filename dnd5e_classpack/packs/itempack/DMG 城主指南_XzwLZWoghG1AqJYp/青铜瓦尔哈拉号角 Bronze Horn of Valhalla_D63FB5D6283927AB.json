@@ -29,18 +29,11 @@
       "itemCondition": "",
       "effectCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
-      "value": "<p><em>奇物</em></p>\n<p>你可以用一个动作吹响号角。作为回应，约瑟园Ysgard的战士英灵们将在你周围60尺内出现。这些英灵使用@UUID[Compendium.dnd5e_classpack.monsterspack.kz1t6xeXVwODpYb2]{狂战士 Berserker}的资料。生命值降至0，或者1小时之后英灵们将返回约瑟园。使用后，号角需要经过7日才能再次启动。</p>\n<p>已知共有四种类型的瓦尔哈拉号角，分别由不同的金属制成。号角的类型决定了使用它的前提条件，以及回应你呼唤的狂战士数量。号角的类型由DM决定或随机决定。</p>\n<table border=\"1\">\n<tbody>\n<tr>\n<th>[[/r d100]]</th>\n<th>号角类型</th>\n<th>狂战士数量</th>\n<th>前提条件</th>\n</tr>\n<tr>\n<td>76~90</td>\n<td>@UUID[Compendium.dnd5e_classpack.itempack.D63FB5D6283927AB]{青铜}</td>\n<td>[[/r 4d4+4]]</td>\n<td>所有中型护甲熟练项</td>\n</tr>\n</tbody>\n</table>\n<p>如果你在不满足前提条件的情况下吹响了号角，则召唤出的英灵们将对你发动攻击。如果你满足前提条件，他们将对你和你的同伴态度友善，并听从你的命令。</p>",
+      "value": "<p><em>奇物</em></p><p>你可以用一个动作吹响号角。作为回应，约瑟园Ysgard的战士英灵们将在你周围60尺内出现。这些英灵使用@UUID[Compendium.dnd5e_classpack.monsterspack.kz1t6xeXVwODpYb2]{狂战士 Berserker}的资料。生命值降至0，或者1小时之后英灵们将返回约瑟园。使用后，号角需要经过7日才能再次启动。</p><p>已知共有四种类型的瓦尔哈拉号角，分别由不同的金属制成。号角的类型决定了使用它的前提条件，以及回应你呼唤的狂战士数量。号角的类型由DM决定或随机决定。</p><table><tbody><tr><th>[[/r d100]]</th><th>号角类型</th><th>狂战士数量</th><th>前提条件</th></tr><tr><td>76~90</td><td>@UUID[Compendium.dnd5e_classpack.itempack.D63FB5D6283927AB]{青铜}</td><td>[[/r 4d4+4]]</td><td>所有中型护甲熟练项</td></tr></tbody></table><p>如果你在不满足前提条件的情况下吹响了号角，则召唤出的英灵们将对你发动攻击。如果你满足前提条件，他们将对你和你的同伴态度友善，并听从你的命令。</p>",
       "chat": ""
     },
     "source": {
@@ -60,7 +53,6 @@
     },
     "attunement": "",
     "equipped": false,
-    "rarity": "veryRare",
     "identified": true,
     "uses": {
       "max": "1",
@@ -82,7 +74,8 @@
           "mode": "",
           "number": null,
           "formula": ""
-        }
+        },
+        "modifiers": []
       },
       "replace": false
     },
@@ -94,7 +87,6 @@
       "subtype": ""
     },
     "container": null,
-    "magicalBonus": null,
     "properties": [
       "mgc"
     ],
@@ -127,14 +119,16 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "1",
           "units": "hour",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -151,7 +145,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "0",
@@ -173,16 +168,104 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-bronze-horn-of-valhalla",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "veryRare"
+    ]
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1713010441792,
     "modifiedTime": 1757871250182,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

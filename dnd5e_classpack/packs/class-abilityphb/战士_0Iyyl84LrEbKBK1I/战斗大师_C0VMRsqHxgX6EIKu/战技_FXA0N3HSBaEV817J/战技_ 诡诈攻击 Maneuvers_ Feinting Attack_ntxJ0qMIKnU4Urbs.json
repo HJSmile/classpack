@@ -2,7 +2,7 @@
   "_id": "ntxJ0qMIKnU4Urbs",
   "name": "战技: 诡诈攻击 Maneuvers: Feinting Attack",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Rogue_FocusedAttacks.png",
+  "img": "icons/skills/melee/maneuver-daggers-paired-orange.webp",
   "system": {
     "description": {
       "value": "<p>        你可以在自己回合内消耗一粒卓越骰，以此指定你身边5尺范围内一个生物为目标，并使用附赠动作对其虚晃一招。你在本回合内对该生物发动的下一次攻击检定具有优势。如果该攻击命中，则将消耗的卓越骰加在此次攻击的伤害掷骰中。</p>",
@@ -44,24 +44,53 @@
             {
               "type": "itemUses",
               "value": "1",
-              "target": "Compendium.dnd5e_classpack.class-abilityphb.Item.etA1oLtnnD27jna2"
+              "target": "Compendium.dnd5e_classpack.class-abilityphb.Item.etA1oLtnnD27jna2",
+              "scaling": {}
             }
           ]
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "UHl5AL9jNHzcdghw"
+            "_id": "UHl5AL9jNHzcdghw",
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": null,
+              "lastModifiedBy": null,
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           },
           {
-            "_id": "7m1K3dXpd8LN6mSa"
+            "_id": "7m1K3dXpd8LN6mSa",
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1757098445419,
+              "modifiedTime": 1757098721937,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           }
         ],
         "range": {
@@ -74,7 +103,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -107,7 +137,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -115,7 +146,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -126,44 +156,88 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "name": "",
         "img": "",
-        "appliedEffects": [
-          "UHl5AL9jNHzcdghw"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": [
+        "subclass:battle-master",
+        "feat:superior-technique",
+        "feat:martial-adept"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "name": "诡诈攻击",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.ntxJ0qMIKnU4Urbs",
+      "origin": null,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": "turnEnd",
+        "expired": false
       },
       "disabled": false,
       "flags": {
@@ -178,31 +252,25 @@
           "stackable": "noneName",
           "showIcon": false,
           "durationExpression": "",
-          "specialDuration": [
-            "isAttacked"
-          ]
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "core": {
           "overlay": false
+        },
+        "dnd5e_classpack": {
+          "feint": "mark"
         }
       },
       "_id": "UHl5AL9jNHzcdghw",
-      "changes": [
-        {
-          "key": "flags.midi-qol.grants.advantage.attack.all",
-          "mode": 0,
-          "value": "1",
-          "priority": 20
-        }
-      ],
       "description": "",
       "transfer": false,
       "statuses": [],
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -210,37 +278,119 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Rogue_FocusedAttacks.png",
+      "img": "icons/skills/melee/maneuver-daggers-paired-orange.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.grants.advantage.attack.all",
+            "value": "workflow?.actor?.uuid === \"@actorUuid\"",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "nltSeIJeD0tONF3N",
+            "conditions": "{}",
+            "replacement": "origin"
+          },
+          {
+            "key": "flags.midi-qol.onUseMacroName",
+            "value": "ItemMacro,isAttacked",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "",
+            "conditions": "{}",
+            "_id": "b219fd6fd8d40a35"
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.ntxJ0qMIKnU4Urbs",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!ntxJ0qMIKnU4Urbs.UHl5AL9jNHzcdghw"
     },
     {
       "name": "战技: 诡诈攻击 Maneuvers: Feinting Attack",
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Rogue_FocusedAttacks.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.ntxJ0qMIKnU4Urbs",
+      "img": "icons/skills/melee/maneuver-daggers-paired-orange.webp",
+      "origin": null,
       "transfer": false,
       "_id": "7m1K3dXpd8LN6mSa",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.bonuses.mwak.damage",
-          "mode": 2,
-          "value": "+@scale.battle-master.superiority-die",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.optional.诡诈攻击.damage.all",
+            "value": "+1@scale.battle-master.superiority-die",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "mIajDJfHW3RsS1Cc",
+            "conditions": "{}",
+            "replacement": "origin"
+          },
+          {
+            "key": "flags.midi-qol.optional.诡诈攻击.activation",
+            "value": "targetActorUuid === \"@feint.targetActorUuid\"",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "origin",
+            "conditions": "{}",
+            "_id": "4b64b6ecaab8e572"
+          },
+          {
+            "key": "flags.midi-qol.optional.诡诈攻击.force",
+            "value": "true",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "",
+            "conditions": "{}",
+            "_id": "1725dccc494f528f"
+          },
+          {
+            "key": "flags.midi-qol.onUseMacroName",
+            "value": "ItemMacro,postActiveEffects",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "",
+            "conditions": "{}",
+            "_id": "aff6293d685e3891"
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.ntxJ0qMIKnU4Urbs",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": 1,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": "turnEnd",
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -258,47 +408,33 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": [
-            "1Attack:mwak"
-          ]
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
         },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
+        "dnd5e_classpack": {
+          "feint": "damage"
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757098445419,
         "modifiedTime": 1757098721937,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!ntxJ0qMIKnU4Urbs.7m1K3dXpd8LN6mSa"
     }
   ],
@@ -327,21 +463,22 @@
       "effectCondition": "",
       "removeAttackDamageButtons": "default",
       "reactionCondition": "",
-      "otherCondition": ""
+      "otherCondition": "",
+      "onUseMacroName": "[preActiveEffects]ItemMacro,[postActiveEffects]ItemMacro"
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "maneuversFeintingAttack",
         "source": "chris-premades",
         "version": "0.0.0"
+      }
+    },
+    "dae": {
+      "macro": {
+        "name": "战技: 诡诈攻击 Maneuvers: Feinting Attack",
+        "type": "script",
+        "command": "const pass = args[0]?.macroPass;\nconst dataKey = Symbol.for(\"dnd5e_classpack.feint.rollData\");\nif (pass === \"preActiveEffects\") {\n  const target = workflow.targets.first();\n  if (!target?.actor) return;\n  const previous = workflow.item[dataKey] ?? workflow.item.getRollData;\n  workflow.item[dataKey] = previous;\n  workflow.item.getRollData = function (...options) {\n    return { ...previous.apply(this, options), feint: { targetActorUuid: target.actor.uuid } };\n  };\n  return;\n}\nif (pass === \"postActiveEffects\" && workflow.item[dataKey]) {\n  workflow.item.getRollData = workflow.item[dataKey];\n  delete workflow.item[dataKey];\n  return;\n}\nif (![\"isAttacked\", \"postActiveEffects\"].includes(pass) || !workflow.attackRoll) return;\nconst holders = pass === \"isAttacked\" ? [...workflow.targets].map(t => t.actor) : [workflow.actor];\nfor (const holder of holders.filter(Boolean)) {\n  const effects = holder.appliedEffects.filter(effect => {\n    if (effect.disabled || effect.isSuppressed) return false;\n    const role = effect.flags.dnd5e_classpack?.feint;\n    if (role !== (pass === \"isAttacked\" ? \"mark\" : \"damage\")) return false;\n    const key = role === \"mark\" ? \"flags.midi-qol.grants.advantage.attack.all\" : \"flags.midi-qol.optional.诡诈攻击.activation\";\n    const change = effect.system.changes.find(c => c.key === key);\n    const target = role === \"mark\" ? workflow.token : workflow.targets.first();\n    return change && MidiQOL.evalCondition(change.value,\n      MidiQOL.createConditionData({ workflow, actor: workflow.actor, target }), { errorReturn: false });\n  });\n  if (effects.length) await MidiQOL.socket().executeAsGM(\"removeEffects\", {\n    actorUuid: holder.uuid, effects: effects.map(e => e.id), options: { \"expiry-reason\": \"midi-qol:feintAttack\" }\n  });\n}\n"
       }
     }
   },
@@ -349,9 +486,9 @@
     "default": 0
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1725706457096,
     "modifiedTime": 1757098445517,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

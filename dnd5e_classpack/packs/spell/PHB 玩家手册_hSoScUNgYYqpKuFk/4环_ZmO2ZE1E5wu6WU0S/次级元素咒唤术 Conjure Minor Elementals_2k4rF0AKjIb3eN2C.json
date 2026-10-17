@@ -24,17 +24,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "conjureMinorElementals",
@@ -43,11 +33,11 @@
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/000516.png",
+  "img": "icons/creatures/magical/spirit-fire-yellow.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你召唤元素生物并使其显现在施法范围内一处你能看见但未被占据的空间。选择以下选项之一作为显现的生物：\n<br />一个挑战等级2或更低的元素生物\n<br />两个挑战等级1或更低的元素生物\n<br />四个挑战等级1/2或更低的元素生物\n<br />八个挑战等级1/4或更低的元素生物\n<br />每个被该法术召唤的元素生物在生命值降至0，或者法术终止时消失不见。\n<br />被召唤的生物对你和你的伙伴保持友善关系。每次召唤出来的所有生物视为一个团体来掷先攻权，并依此获得其自己的行动回合。他们服从你发出的所有语言命令（不需要你作动作）。如果你不发出任何命令，这些生物会在敌对生物前保护自己，如果没有敌对生物则不执行任何动作。\n<br />这些生物的具体数值由DM 掌控。\n<br /><strong>升环施法效应。</strong>使用更高法术位施展该法术时，选择上文所述召唤选项之一，并显现更多生物：6环法术位显现两倍生物，8环法术位显现三倍生物。\n<br /></div>",
+      "value": "<p>你咒唤元素并使其显现在施法范围内一处你能看见但未占据空间。选择以下选项之一作为显现的生物：</p><ul><li>一个挑战等级 2 或更低的元素生物</li><li>两个挑战等级 1 或更低的元素生物</li><li>四个挑战等级 1/2 或更低的元素生物</li><li>八个挑战等级 1/4 或更低的元素生物</li></ul><p>每个被该法术召唤的元素生物在生命值降至0，或者法术终止时消失不见。</p><p>被召唤的生物对你和你的伙伴保持友善关系。你将召唤出来的所有生物视为一个团体来骰出先攻，它们也依此获得其自己的行动回合。他们服从你发出的所有语言命令（不需要你作动作）。如果你不发出任何命令，这些生物会在敌对生物前保护自己，如果没有敌对生物则不执行任何动作。</p><p>这些生物的具体数值由 DM 掌控。</p><p><strong>升环施法效应。</strong>使用更高法术位施展该法术时，选择上文所述召唤选项之一，并显现更多生物：六环法术位显现两倍生物，八环法术位显现三倍生物。</p>",
       "chat": ""
     },
     "source": {
@@ -63,7 +53,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -75,7 +66,8 @@
       "template": {
         "units": "any",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -96,10 +88,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -125,21 +113,25 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -166,7 +158,8 @@
           "attacks": false,
           "proficiency": false,
           "saves": false,
-          "ability": ""
+          "ability": "",
+          "disposition": false
         },
         "profiles": [
           {
@@ -174,7 +167,7 @@
             "cr": "2",
             "name": "",
             "_id": "wPgt32Z9aehiOKCB",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "elemental"
             ],
@@ -188,7 +181,7 @@
             "cr": "1",
             "name": "",
             "_id": "E6y3COzjx3JH6jlr",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "elemental"
             ],
@@ -202,7 +195,7 @@
             "cr": "1/2",
             "name": "",
             "_id": "NIvw0ckH5Ppq2Xfp",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "elemental"
             ],
@@ -216,7 +209,7 @@
             "cr": "1/4",
             "name": "",
             "_id": "RgvOiYuzzzELLwWx",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "elemental"
             ],
@@ -230,7 +223,7 @@
             "cr": "2",
             "name": "",
             "_id": "ZhmOzJm0T6oiW5GY",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "elemental"
             ],
@@ -244,7 +237,7 @@
             "cr": "1",
             "name": "",
             "_id": "xOqJmGXHwfrJdBtk",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "elemental"
             ],
@@ -258,7 +251,7 @@
             "cr": "1/2",
             "name": "",
             "_id": "UHutAmtc1hjZwyNr",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "elemental"
             ],
@@ -272,7 +265,7 @@
             "cr": "1/4",
             "name": "",
             "_id": "EHJJteCzong42blb",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "elemental"
             ],
@@ -286,7 +279,7 @@
             "cr": "2",
             "name": "",
             "_id": "NC1LpDIE3A1BwxJD",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "elemental"
             ],
@@ -300,7 +293,7 @@
             "cr": "1",
             "name": "",
             "_id": "ktdneg367LuA8ArX",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "elemental"
             ],
@@ -314,7 +307,7 @@
             "cr": "1/2",
             "name": "",
             "_id": "rVqlCLPPefNFiorq",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "elemental"
             ],
@@ -328,7 +321,7 @@
             "cr": "1/4",
             "name": "",
             "_id": "SfE3n9Tl4oabznAa",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "elemental"
             ],
@@ -353,7 +346,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -361,7 +355,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -372,20 +365,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "friendlySummon": false
       }
     },
-    "identifier": "conjure-minor-elementals"
+    "identifier": "conjure-minor-elementals",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -394,8 +434,8 @@
   "sort": 2300000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

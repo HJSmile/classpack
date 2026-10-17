@@ -24,23 +24,13 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Shadow_Contagion.png",
+  "img": "icons/creatures/invertebrates/spider-mandibles-brown.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你指定施法距离内至多十只蜈蚣，或三只蜘蛛，或五只黄蜂，或一只蝎子作为法术目标，在法术持续时间内你将其转化为它们自然形态的巨大版本。蜈蚣变成巨型蜈蚣，蜘蛛变成巨型蜘蛛，黄蜂变成巨型黄蜂，蝎子变成巨型蝎子。\n<br />每只生物都将服从你的口头命令。在战斗中，它们每轮在你的回合行动。这些生物的属性数据及其动作选项和移动能力均由DM 掌控。\n<br />在法术持续时间内，目标生物将维持其巨大的体型，直到其生命值降至0或你用一个动作解除其身上的效应为止。</div>",
+      "value": "<p>你指定施法距离内至多十只蜈蚣，或三只蜘蛛，或五只黄蜂，或一只蝎子作为法术目标，在法术持续时间内你将其转化为它们自然形态的巨大版本。蜈蚣变成巨蜈蚣，蜘蛛变成巨蜘蛛，黄蜂变成巨黄蜂，蝎子变成巨蝎。</p><p>每只生物都将服从你的口头命令。在战斗中，它们每轮在你的回合行动。这些生物的属性数据及其动作选项和移动能力均由 DM 掌控。</p><p>在法术持续时间内，目标生物将维持其巨大的体型，直到其生命值降至 0 或你用一个动作解除其身上的效应为止。</p><p>DM 可能会允许你指定不同的生物作为法术目标。例如，如果你转化一只蜜蜂，则其巨大版本可能会使用与巨黄蜂一样的属性数据。</p>",
       "chat": ""
     },
     "source": {
@@ -56,7 +46,8 @@
     },
     "duration": {
       "value": "10",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -66,9 +57,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -89,10 +81,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -118,21 +106,25 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -159,7 +151,8 @@
           "attacks": false,
           "proficiency": false,
           "saves": false,
-          "ability": ""
+          "ability": "",
+          "disposition": false
         },
         "profiles": [
           {
@@ -170,7 +163,8 @@
             "level": {
               "min": null,
               "max": null
-            }
+            },
+            "types": []
           },
           {
             "count": "1",
@@ -180,7 +174,8 @@
             "level": {
               "min": null,
               "max": null
-            }
+            },
+            "types": []
           },
           {
             "count": "5",
@@ -190,7 +185,8 @@
             "level": {
               "min": null,
               "max": null
-            }
+            },
+            "types": []
           },
           {
             "count": "3",
@@ -200,7 +196,8 @@
             "level": {
               "min": null,
               "max": null
-            }
+            },
+            "types": []
           }
         ],
         "summon": {
@@ -218,7 +215,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -226,7 +224,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -237,20 +234,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "friendlySummon": false
       }
     },
-    "identifier": "giant-insect"
+    "identifier": "giant-insect",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -259,8 +303,8 @@
   "sort": 14900000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

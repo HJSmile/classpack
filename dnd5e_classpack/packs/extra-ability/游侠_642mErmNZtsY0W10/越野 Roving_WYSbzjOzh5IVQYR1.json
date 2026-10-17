@@ -25,62 +25,40 @@
     "requirements": "游侠等级 6",
     "activities": {},
     "identifier": "-roving",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": 6,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
   "effects": [
     {
       "name": "越野 Roving",
-      "origin": "Compendium.dnd5e_classpack.extra-ability.Item.WYSbzjOzh5IVQYR1",
+      "origin": null,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "disabled": false,
       "flags": {
         "dnd5e": {}
       },
       "_id": "e76qL3uF54E1SKga",
-      "changes": [
-        {
-          "key": "system.attributes.movement.walk",
-          "mode": 2,
-          "value": "5",
-          "priority": null
-        },
-        {
-          "key": "system.attributes.movement.climb",
-          "mode": 5,
-          "value": "+ 5 + @attributes.movement.walk",
-          "priority": null
-        },
-        {
-          "key": "system.attributes.movement.swim",
-          "mode": 5,
-          "value": "+ 5 + @attributes.movement.walk",
-          "priority": null
-        }
-      ],
       "description": "",
       "transfer": true,
       "statuses": [],
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -90,20 +68,63 @@
       },
       "img": "icons/skills/movement/feet-bladed-boots-fire.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.movement.speeds.walk",
+            "value": 5,
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "Rv3WCOR3Dbp7Liwe",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.attributes.movement.speeds.climb",
+            "value": "+ 5 + @attributes.movement.walk",
+            "priority": null,
+            "type": "override",
+            "phase": "initial",
+            "_id": "TdtZRANWmZAMKDdF",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.attributes.movement.speeds.swim",
+            "value": "+ 5 + @attributes.movement.walk",
+            "priority": null,
+            "type": "override",
+            "phase": "initial",
+            "_id": "0x0ZzlGrGhY84sqU",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.extra-ability.Item.WYSbzjOzh5IVQYR1",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!WYSbzjOzh5IVQYR1.e76qL3uF54E1SKga"
     }
   ],
   "folder": "642mErmNZtsY0W10",
   "sort": 28200000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -123,9 +144,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1724328146418,
     "modifiedTime": 1753690573108,
     "lastModifiedBy": "vFLRCDyc5l72uRlV",

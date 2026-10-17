@@ -28,19 +28,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "detectThoughts",
@@ -49,23 +37,19 @@
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Nature_MentalQuickness.png",
+  "img": "icons/magic/perception/third-eye-blue-red.webp",
   "effects": [
     {
       "name": "侦测思想 Detect Thoughts",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.YuGbz9k5JXA0kIgT",
+      "origin": null,
       "duration": {
-        "rounds": 10,
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 10,
+        "units": "rounds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "disabled": false,
       "_id": "Sk7gkZux1d2oYVvr",
-      "changes": [],
       "description": "",
       "transfer": false,
       "statuses": [],
@@ -76,33 +60,16 @@
           "selfTargetAlways": false,
           "dontApply": false,
           "stackable": "noneName",
-          "showIcon": true,
           "durationExpression": "",
           "macroRepeat": "none",
           "specialDuration": []
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system"
         }
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -110,16 +77,33 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Nature_MentalQuickness.png",
+      "img": "icons/magic/perception/third-eye-blue-red.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.YuGbz9k5JXA0kIgT",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 2,
+      "folder": null,
       "_key": "!items.effects!YuGbz9k5JXA0kIgT.Sk7gkZux1d2oYVvr"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你在法术持续时间内能读取特定生物的思想。你可以在施展法术时，或者在法术持续时间内以一个动作实现该效应。此时，受术生物必须身处你30尺内并且能被你看见，而你必须对其集中注意力。如果该生物智力为3或更低，或者不懂任何语言，则该生物不受影响。\n<br />你最初了解的是该生物的表面想法，一般就是其此刻正想着的东西。你可以使用动作继续深入一个生物的思想，也可以用动作转移读心的目标。如果你继续深入，则目标必须进行一次感知豁免。豁免失败时，你了解到他的逻辑推理（如果有的话）、情绪状态以及他头脑中的一些大事（比如忧虑、挚爱和仇恨的事物）。\n<br />豁免成功时，本法术终止。无论哪种情况，目标都会知道你正在窥探他的思想。除非你转移注意力到其他生物，否则他可以在其回合内使用动作进行一次智力检定，并与你的智力检定作对抗；生物胜出对抗时，法术终止。\n<br />向目标提问可以引导目标的思想历程，因此此法术在审讯中特别有效。\n<br />你还能用此法术侦测看不见的有思维生物。你可以在施展法术时，或者在法术持续时间内以一个动作实现该效应。此时，你可以搜寻30尺内的思想。该法术可以穿透大部分障碍，但仍会被2尺厚的石质，或2寸厚的金属质，或一层薄铅质材料所阻隔。你无法侦测到智力为3或更低的生物，也无法侦测不懂任何语言的生物。\n<br />以该方式侦测到一个生物后，你可以在法术持续时间内如上文所述的读取其思想。你甚至不需要看见该生物，但其必须在其30尺内。\n<br /></div>",
+      "value": "<p>你在法术持续时间内能读取特定生物的思想。你可以在施展法术时，或者在法术持续时间内以一个动作实现该效应。此时，受术生物必须身处你 30 尺内并且能被你看见，而你必须对其集中注意力。如果该生物智力为 3 或更低，或者不懂任何语言，则该生物不受影响。</p><p>你最初了解的是该生物的表面想法，一般就是其此刻正想着的东西。你可以使用动作继续深入一个生物的思想，也可以用动作转移读心的目标。如果你继续深入，则目标必须进行一次[[/save activity=dnd5eactivity000]]{感知豁免}。豁免失败时，你了解到他的逻辑推理（如果有的话）、情绪状态以及他头脑中的一些大事（比如忧虑、挚爱和仇恨的事物）。豁免成功时，本法术终止。无论哪种情况，目标都会知道你正在窥探他的思想。除非你转移注意力到其他生物，否则他可以在其回合内使用动作进行一次智力检定，并与你的智力检定作对抗；生物胜出对抗时，法术终止。</p><p>向目标提问可以引导目标的思想历程，因此此法术在审讯中特别有效。</p><p>你还能用此法术侦测看不见的有思维生物。你可以在施展法术时，或者在法术持续时间内以一个动作实现该效应。此时，你可以搜寻 30 尺内的思想。该法术可以穿透大部分障碍，但仍会被 2 尺厚的石质，或 2 寸厚的金属质，或一层薄铅质材料所阻隔。你无法侦测到智力为 3 或更低的生物，也无法侦测不懂任何语言的生物。</p><p>以该方式侦测到一个生物后，你可以在法术持续时间内如上文所述的读取其思想。你甚至不需要看见该生物，但其必须在其 30 尺内。</p>",
       "chat": ""
     },
     "source": {
@@ -135,7 +119,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -145,14 +130,15 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
-      "value": "30",
-      "units": "ft",
+      "value": "",
+      "units": "self",
       "special": ""
     },
     "uses": {
@@ -168,10 +154,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -198,17 +180,21 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "Sk7gkZux1d2oYVvr",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
@@ -221,7 +207,8 @@
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -247,7 +234,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "name": "",
@@ -262,7 +250,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -270,7 +259,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -281,18 +269,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "detect-thoughts"
+    "identifier": "detect-thoughts",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -301,8 +338,8 @@
   "sort": 37000000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711706205697,
     "modifiedTime": 1757419719404,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

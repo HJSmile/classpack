@@ -27,18 +27,11 @@
       "itemCondition": "",
       "effectCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 10,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
-      "value": "<div class=\"WordSection1\"><p class=\"MsoNormal\"><span style=\"FONT-SIZE:10pt;COLOR:black\">这根光滑的灰色木棒上刻着无数的符文。该法杖有</span><span class=\"1\">10</span><span style=\"FONT-SIZE:10pt;COLOR:black\">充能，每天黎明重新获得[[/r 1d6+4]]充能。如果你用完最后一发充能，骰一个</span><span class=\"1\">d20</span><span style=\"FONT-SIZE:10pt;COLOR:black\">。若骰出</span><span class=\"1\">1</span><span style=\"FONT-SIZE:10pt;COLOR:black\">，则这根法杖变为灰尘，被摧毁了。</span><br style=\"WORD-SPACING:0px;ORPHANS:2;WIDOWS:2;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;text-decoration-style:initial;text-decoration-color:initial\" /><span style=\"FONT-SIZE:10pt;COLOR:black\">当你持杖时，你可以使用一个动作，消耗</span><span class=\"1\">2</span><span style=\"FONT-SIZE:10pt;COLOR:black\">或更多的充能，来施放下列的法术之一，使用你的法术豁免</span><span class=\"1\">DC</span><span style=\"FONT-SIZE:10pt;COLOR:black\">和法术攻击加成：@UUID[Compendium.dnd5e_classpack.spell.Item.QD0hMadacCVoJGkn]{命运宠儿fortune’s favor}</span><span class=\"1\">(2</span><span style=\"FONT-SIZE:10pt;COLOR:black\">次</span><span class=\"1\">)</span><span style=\"FONT-SIZE:10pt;COLOR:black\">，@UUID[Compendium.dnd5e_classpack.spell.Item.ZGvthYJNmIv8sDqj]{脉冲波动pulse wave}</span><span class=\"1\">(3</span><span style=\"FONT-SIZE:10pt;COLOR:black\">次</span><span class=\"1\">)</span><span style=\"FONT-SIZE:10pt;COLOR:black\">，@UUID[Compendium.dnd5e_classpack.spell.Item.c4Rwx5li2TEEQPzf]{引力裂沟gravity sinkhole}</span><span class=\"1\">(4</span><span style=\"FONT-SIZE:10pt;COLOR:black\">次</span><span class=\"1\">)</span><span style=\"FONT-SIZE:10pt;COLOR:black\">。</span><br style=\"WORD-SPACING:0px;ORPHANS:2;WIDOWS:2;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;text-decoration-style:initial;text-decoration-color:initial\" /><span style=\"FONT-SIZE:10pt;COLOR:black\">当你持有该杖时，若一个只针对你的咒语豁免失败，你可以把此次失败的豁免改为成功。这个属性直到第二天黎明不能再次使用。</span><br style=\"WORD-SPACING:0px;ORPHANS:2;WIDOWS:2;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;text-decoration-style:initial;text-decoration-color:initial\" /></p></div>",
+      "value": "<p>这根光滑的灰色木棒上刻着无数的符文。该法杖有<span class=\"1\">10</span>充能，每天黎明重新获得[[/r 1d6+4]]充能。如果你用完最后一发充能，骰一个<span class=\"1\">d20</span>。若骰出<span class=\"1\">1</span>，则这根法杖变为灰尘，被摧毁了。</p><p>当你持杖时，你可以使用一个动作，消耗<span class=\"1\">2</span>或更多的充能，来施放下列的法术之一，使用你的法术豁免<span class=\"1\">DC</span>和法术攻击加成：@UUID[Compendium.dnd5e_classpack.spell.Item.QD0hMadacCVoJGkn]{命运宠儿fortune’s favor}<span class=\"1\">(2</span>次<span class=\"1\">)</span>，@UUID[Compendium.dnd5e_classpack.spell.Item.ZGvthYJNmIv8sDqj]{脉冲波动pulse wave}<span class=\"1\">(3</span>次<span class=\"1\">)</span>，@UUID[Compendium.dnd5e_classpack.spell.Item.c4Rwx5li2TEEQPzf]{引力裂沟gravity sinkhole}<span class=\"1\">(4</span>次<span class=\"1\">)</span>。</p><p>当你持有该杖时，若一个只针对你的咒语豁免失败，你可以把此次失败的豁免改为成功。这个属性直到第二天黎明不能再次使用。</p>",
       "chat": ""
     },
     "source": {
@@ -58,10 +51,8 @@
     },
     "attunement": "",
     "equipped": false,
-    "rarity": "veryRare",
     "identified": true,
     "cover": null,
-    "crewed": false,
     "range": {
       "value": null,
       "long": null,
@@ -93,7 +84,8 @@
           "mode": "",
           "number": null,
           "formula": ""
-        }
+        },
+        "modifiers": []
       },
       "base": {
         "number": null,
@@ -104,7 +96,8 @@
         },
         "scaling": {
           "number": 1
-        }
+        },
+        "modifiers": []
       }
     },
     "armor": {
@@ -129,7 +122,6 @@
       "baseItem": ""
     },
     "container": null,
-    "magicalBonus": null,
     "activities": {
       "dnd5eactivity000": {
         "_id": "dnd5eactivity000",
@@ -159,14 +151,16 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -182,7 +176,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -204,17 +199,108 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-staff-of-dunamancy",
     "attuned": false,
-    "ammunition": {}
+    "ammunition": {},
+    "rarities": [
+      "veryRare"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1692165427028,
     "modifiedTime": 1757871224710,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

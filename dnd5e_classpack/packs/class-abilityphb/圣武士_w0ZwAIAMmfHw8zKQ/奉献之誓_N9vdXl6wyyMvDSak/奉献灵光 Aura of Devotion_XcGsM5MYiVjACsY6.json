@@ -2,7 +2,7 @@
   "_id": "XcGsM5MYiVjACsY6",
   "name": "奉献灵光 Aura of Devotion",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_SpellWarding.png",
+  "img": "icons/magic/life/heart-glowing-red.webp",
   "system": {
     "description": {
       "value": "<p>第7级起，你与友方生物在你身边10尺内不会被魅惑。提供该增益时你必须保持意识清醒。</p><p>第18级起，灵光的作用范围扩展至30尺。</p>",
@@ -27,41 +27,33 @@
     "requirements": "奉献之誓等级 7",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 7,
+      "repeatable": false,
+      "items": [
+        "subclass:oath-of-devotion"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "_id": "otTJ5iZxZIEfwWDa",
-      "changes": [
-        {
-          "key": "system.traits.ci.value",
-          "mode": 2,
-          "value": "charmed",
-          "priority": 20
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.XcGsM5MYiVjACsY6",
+      "origin": null,
       "transfer": true,
       "flags": {
         "dae": {
           "disableCondition": "",
-          "disableIncapacitated": false,
+          "disableIncapacitated": true,
           "stackable": "none",
           "showIcon": false,
           "durationExpression": "",
@@ -69,36 +61,20 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
         },
-        "ActiveAuras": {
-          "isAura": true,
-          "aura": "Allies",
-          "nameOverride": "",
-          "radius": "@classes.paladin.levels > 17 ? 30 : 10",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": true,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
+        "auraeffects": {
+          "originalType": "base"
         }
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1757095261807,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
@@ -107,12 +83,55 @@
         "exportSource": null
       },
       "name": "获得魅惑免疫",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_SpellWarding.png",
-      "type": "base",
-      "system": {},
+      "img": "icons/magic/life/heart-glowing-red.webp",
+      "type": "auraeffects.aura",
+      "system": {
+        "showRadius": true,
+        "applyToSelf": true,
+        "bestFormula": "",
+        "canStack": false,
+        "color": null,
+        "combatOnly": true,
+        "disableOnHidden": true,
+        "distanceFormula": "@scale.paladin.aura-radius",
+        "disposition": 1,
+        "evaluatePreApply": false,
+        "overrideName": "",
+        "script": "",
+        "stashedChanges": [],
+        "stashedStatuses": [],
+        "changes": [
+          {
+            "key": "system.traits.ci.value",
+            "value": "charmed",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "XIKkLrxxPbs9YbSl",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "collisionType": "move",
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.XcGsM5MYiVjACsY6",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!XcGsM5MYiVjACsY6.otTJ5iZxZIEfwWDa"
     }
   ],
@@ -123,13 +142,7 @@
     "entityorder": {
       "order": 108
     },
-    "dnd5e": {
-      "migratedUses": 0,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -160,8 +173,8 @@
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757095185690,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -26,24 +26,14 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/magic/life/ankh-gold-blue.webp",
   "_id": "G1TzQn2GM4lvqUOi",
   "effects": [],
   "system": {
     "description": {
-      "value": "<p>你让一座神庙在闪耀的光辉中出现。选择施法距离内一处你可见的地面，为了容纳神庙这个空间必须是一个未被占用的立方体，每边至少120英尺长。神庙维持到法术结束。它被用于供奉施法时所用圣徽体现的神明、众神或是哲学理念。<br />你可以对这座神庙的外观做出所有决定。它的内部被地板、墙壁和屋顶所包围，有一扇作为入口的门扉和任意数量的窗户，如你所愿。只有你或任何你在施法时指定的生物可以开启或关闭这扇门。<br />神庙的内部是个开放性空间，在一端摆放着神像或者是祭坛。你决定神庙是否被照亮，决定照亮神庙的是明亮光照还是微光光照。这里的温度适宜，熏香的气味弥漫在空气中。<br />在你施展这个法术的时候，你选择数种生物类型被神庙所敌对。从以下列表中选择一项或更多：天界生物，元素生物，精类，邪魔，或是不死生物。如果选定类型的生物试图进入神庙，它必须立即进行一次魅力豁免检定。若豁免失败，他在24小时内不能进入神庙。即使生物能够进入神庙，魔法的力量也会妨碍它；每当它在神庙里进行攻击检定，属性检定或者是豁免检定时，它必须额外骰一个d4骰，把那个数值从d20的结果中减去。<br />此外，预言系法术所创造的传感器不能在神庙中出现，并且神庙里的生物无法被预言系法术定位。<br />最后，每次在神庙里的任何生物从1环或更高环的法术中恢复生命时，它将恢复等同于你感知调整值的额外生命值（至少1点）。<br />神庙由不透明的魔法力场所创造并延伸至以太位面，因此会阻碍任何试图从以太旅行中进入神庙内部的行为。没有东西能物理性地穿过神庙的外部。它不会被解除魔法所解消，也不会受到反魔场的影响。一道解离术能立即摧毁神庙。<br />如果你在一年中每天都对同一地点施展这个法术，法术的效果将持续永久。</p>",
+      "value": "<p>你让一座神庙在闪耀的光辉中出现。选择施法距离内一处你可见的地面，为了容纳神庙这个空间必须是一个未被占用的立方体，每边至少 120 尺长。神庙维持到法术结束。它被用于供奉施法时所用圣徽体现的神明、众神或是哲学理念。</p><p>你可以对这座神庙的外观做出所有决定。它的内部被地板、墙壁和屋顶所包围，有一扇作为入口的门扉和任意数量的窗户，如你所愿。只有你或任何你在施法时指定的生物可以开启或关闭这扇门。</p><p>神庙的内部是个开放性空间，在一端摆放着神像或者是祭坛。你决定神庙是否被照亮，决定照亮神庙的是明亮光照还是微光光照。这里的温度适宜，熏香的气味弥漫在空气中。</p><p>在你施展这个法术的时候，你选择数种生物类型被神庙所敌对。从以下列表中选择一项或更多：天族，元素生物，妖精，邪魔，或是亡灵。如果选定类型的生物试图进入神庙，它必须立即进行一次魅力豁免检定。若豁免失败，他在 24 小时内不能进入神庙。即使生物能够进入神庙，魔法的力量也会妨碍它；每当它在神庙里进行攻击检定，属性检定或者是豁免检定时，它必须额外掷一个 d4 骰，把那个数值从 d20 的结果中减去。</p><p>此外，预言系法术所创造的传感器不能在神庙中出现，并且神庙里的生物无法被预言系法术定位。</p><p>最后，每次在神庙里的任何生物从一环或更高环的法术中恢复生命时，它将恢复等同于你感知调整值的额外生命值（至少 1 点）。</p><p>神庙由不透明的魔法力场所创造并延伸至以太位面，因此会阻碍任何试图从以太旅行中进入神庙内部的行为。没有东西能物理性地穿过神庙的外部。它不会被解除魔法所解消，也不会受到反魔法场的影响。一道解离术能立即摧毁神庙。</p><p>如果你在一年中每天都对同一地点施展这个法术，法术的效果将持续永久。</p>",
       "chat": ""
     },
     "source": {
@@ -59,7 +49,8 @@
     },
     "duration": {
       "value": "24",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -67,11 +58,12 @@
         "type": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "type": "cube",
         "size": "120",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -92,10 +84,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -121,22 +109,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -166,7 +158,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -174,7 +167,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -185,18 +177,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "temple-of-the-gods"
+    "identifier": "temple-of-the-gods",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -205,8 +245,8 @@
   "sort": 12800000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

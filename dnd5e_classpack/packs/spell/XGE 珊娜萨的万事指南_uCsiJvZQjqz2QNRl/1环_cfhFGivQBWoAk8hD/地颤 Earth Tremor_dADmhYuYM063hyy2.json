@@ -28,16 +28,7 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "earthTremor",
@@ -50,54 +41,13 @@
   "_id": "dADmhYuYM063hyy2",
   "effects": [
     {
-      "changes": [
-        {
-          "key": "flags.midi-qol.grants.advantage.attack.mwak",
-          "mode": 0,
-          "value": "1",
-          "priority": 0
-        },
-        {
-          "key": "flags.midi-qol.grants.advantage.attack.msak",
-          "mode": 0,
-          "value": "1",
-          "priority": 0
-        },
-        {
-          "key": "flags.midi-qol.grants.disadvantage.attack.rwak",
-          "mode": 0,
-          "value": "1",
-          "priority": 0
-        },
-        {
-          "key": "flags.midi-qol.grants.disadvantage.attack.rsak",
-          "mode": 0,
-          "value": "1",
-          "priority": 0
-        },
-        {
-          "key": "flags.midi-qol.disadvantage.attack.all",
-          "mode": 0,
-          "value": "1",
-          "priority": 0
-        },
-        {
-          "key": "system.attributes.movement.all",
-          "mode": 0,
-          "value": "*0.5",
-          "priority": 25
-        }
-      ],
-      "description": "<p>- A prone creature's only movement option is to crawl, unless it stands up and thereby ends the condition.<br />- The creature has disadvantage on attack rolls.<br />- An attack roll against the creature has advantage if the attacker is within 5 feet of the creature. Otherwise, the attack roll has disadvantage.</p>",
+      "description": "<p>- A prone creature's only movement option is to crawl, unless it stands up and thereby ends the condition.<br>- The creature has disadvantage on attack rolls.<br>- An attack roll against the creature has advantage if the attacker is within 5 feet of the creature. Otherwise, the attack roll has disadvantage.</p>",
       "disabled": false,
       "duration": {
-        "rounds": null,
-        "seconds": null,
-        "turns": null,
-        "startTime": null,
-        "combat": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "flags": {
         "dfreds-convenient-effects": {
@@ -118,36 +68,18 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "name": "Prone",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.dADmhYuYM063hyy2",
+      "origin": null,
       "tint": "#ffffff",
       "transfer": false,
       "statuses": [
@@ -155,9 +87,9 @@
       ],
       "_id": "3EsHBstwrMw1ddPE",
       "_stats": {
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1756996918158,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
@@ -167,14 +99,72 @@
       },
       "img": "icons/environment/settlement/watchtower-silhouette-yellow.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.grants.advantage.attack.all",
+            "value": "(distance => distance >= 0 && distance <= 5)(computeDistance(tokenUuid, \"@targetUuid\"))",
+            "priority": 0,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "ujYt6GmQmR0KjAL3",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.grants.disadvantage.attack.all",
+            "value": "computeDistance(tokenUuid, \"@targetUuid\") > 5",
+            "priority": 0,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "Md0SodF3mVLnoBQD",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.disadvantage.attack.all",
+            "value": 1,
+            "priority": 0,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "JAV8eK1xbZdY9yOi",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.attributes.movement.all",
+            "value": "*0.5",
+            "priority": 25,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "53bEPFnQ5Yrlnnab",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.dADmhYuYM063hyy2",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "sort": 0,
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!dADmhYuYM063hyy2.3EsHBstwrMw1ddPE"
     }
   ],
   "system": {
     "description": {
-      "value": "<p>你在施法距离内引发地面颤动。处于该区域，除你之外的其他生物必须进行一次敏捷豁免检定。若检定失败，该生物受到1d6点钝击伤害并倒地。若区域的地表为松软的土壤或石头，其在被清理之前成为困难地形。每5尺直径的部分都需要至少1分钟来手动清理。</p>\n<p><br /><strong>升环效果：</strong>当你使用2环或更高的法术位施放该法术时，使用的法术位每高一环，伤害便增加1d6。</p>",
+      "value": "<p>你在施法距离内引发地面颤动。处于该区域，除你之外的其他生物必须进行一次[[/save activity=dnd5eactivity000]]{敏捷豁免检定}。若检定失败，该生物受到 [[/damage 1d6 type=bludgeoning]]{1d6} 点钝击伤害并倒地。若区域的地表为松软的土壤或石头，其在被清理之前成为困难地形。每 5 尺直径的部分都需要至少 1 分钟来手动清理。</p><p><strong>升环施法效应。</strong>当你使用二环或更高的法术位施放该法术时，使用的法术位每高一环，伤害便增加 1d6。</p>",
       "chat": ""
     },
     "source": {
@@ -190,7 +180,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -204,7 +195,8 @@
         "type": "radius",
         "size": "10",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -224,10 +216,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -252,27 +240,44 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "3EsHBstwrMw1ddPE",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": 1756996918158,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -302,7 +307,8 @@
                 "mode": "whole",
                 "number": 1,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -316,7 +322,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -330,7 +337,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -338,7 +346,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -349,18 +356,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "earth-tremor"
+    "identifier": "earth-tremor",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -369,8 +425,8 @@
   "sort": 7100000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711689533295,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

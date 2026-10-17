@@ -2,14 +2,14 @@
   "_id": "2Rgb3ND4IL7eMZgg",
   "name": "回音显现 Manifest Echo",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Magic_LesserInvisibilty.png",
+  "img": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>         从3级起，你能使用一个附赠动作来在你可见的15尺内，一处尚未被占据的空间处，魔法地显现一个你自身的回音。该回音是魔法的，半透明的，形如你的黑白形象，回音持续直到被摧毁、你用一个附赠动作消解、显现另一个回音，或你处于失能状态。</p>\n<p>         你的回音的AC值为14+你的熟练值，生命值为1，并对所有的状态都免疫。如果回音要进行一次豁免，它在这次豁免中使用你的豁免调整值。它的体型和你一样，并且会占据空间。在你的回合时，你能精神地命令回音朝任意方向移动至多30尺（无需动作）。如果你的回音在你的回合结束时远离你超过30尺，那么它会被摧毁。<br />         你能按照以下方法使用回音：</p>\n<ul>\n<li>使用一个附赠动作，你能消耗15尺的移动力进行传送，魔法地与你的回音交换位置，且无论回音与你之间的距离。</li>\n<li>当你在你的回合里进行攻击动作时，你用该动作进行的任何攻击可以用你或回音的空间作为源点。每一次攻击的源点都由你决定。</li>\n<li>当一个位于你的回音5尺内，且你可见的生物远离回音至少5尺时，你能用你的反应动作来对该生物进行一次借机攻击，就如同你位于回音的空间上一样。</li>\n</ul>",
+      "value": "<p>         从3级起，你能使用一个附赠动作来在你可见的15尺内，一处尚未被占据的空间处，魔法地显现一个你自身的回音。该回音是魔法的，半透明的，形如你的黑白形象，回音持续直到被摧毁、你用一个附赠动作消解、显现另一个回音，或你处于失能状态。</p><p>         你的回音的AC值为14+你的熟练值，生命值为1，并对所有的状态都免疫。如果回音要进行一次豁免，它在这次豁免中使用你的豁免调整值。它的体型和你一样，并且会占据空间。在你的回合时，你能精神地命令回音朝任意方向移动至多30尺（无需动作）。如果你的回音在你的回合结束时远离你超过30尺，那么它会被摧毁。</p><p>         你能按照以下方法使用回音：</p><ul><li>使用一个附赠动作，你能消耗15尺的移动力进行传送，魔法地与你的回音交换位置，且无论回音与你之间的距离。</li><li>当你在你的回合里进行攻击动作时，你用该动作进行的任何攻击可以用你或回音的空间作为源点。每一次攻击的源点都由你决定。</li><li>当一个位于你的回音5尺内，且你可见的生物远离回音至少5尺时，你能用你的反应动作来对该生物进行一次借机攻击，就如同你位于回音的空间上一样。</li></ul>",
       "chat": ""
     },
     "source": {
@@ -42,12 +42,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "dstr",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -60,7 +62,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -88,7 +91,8 @@
           "attacks": false,
           "proficiency": false,
           "saves": false,
-          "ability": ""
+          "ability": "",
+          "disposition": false
         },
         "profiles": [
           {
@@ -99,13 +103,13 @@
             "level": {
               "min": null,
               "max": null
-            }
+            },
+            "types": []
           }
         ],
         "summon": {
           "prompt": true,
-          "mode": "",
-          "identifier": ""
+          "mode": ""
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -118,7 +122,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -126,7 +131,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -137,29 +141,77 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "friendlySummon": false
       }
     },
     "identifier": "-manifest-echo",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 3,
+      "repeatable": false,
+      "items": []
     },
-    "properties": []
+    "properties": [
+      "mgc"
+    ]
   },
   "effects": [],
   "folder": "VljBPUI0cyJrHC1x",
@@ -189,14 +241,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "manifestEcho",
@@ -206,9 +251,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1749890566169,
     "lastModifiedBy": "uXKCmWFprrvnSIDm",

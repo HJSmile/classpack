@@ -21,23 +21,13 @@
       "itemCondition": "",
       "effectCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_Rapture.png",
+  "img": "icons/sundries/books/book-tooled-eye-gold-red.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 点名或描述一个人物，或一处地点、一个物件。并用法术在你脑海中形成一段关于该事物重要传闻的简单概述。传闻可能是最近的流言，也可能是被遗忘的故事或不曾为人知晓的秘闻。如果该事物没有任何传奇事迹，则你不会获得任何信息。你掌握目标越多的信息，所得到的信息就越精确细致。\n<br />你由此得到的信息必定是准确的，但仍可能会以隐晦的话语表达。例如，如果你拿着一把神秘的魔法斧，则该法术可能会给你如下信息：“斧头嫉恶如仇，触碰其之邪恶者即受其苦痛惩戒，哪怕仅是光身斧柄也会反噬恶人之手。斧头的真正威力正在沉睡，唯有真正的石之子——那些爱慕着摩拉丁又被其眷恋之人在双唇咏出圣言鲁那格Rudnogg 时才能将其唤醒。”\n<br /></div>",
+      "value": "<p>点名或描述一个人物，或一处地点、一个物件。并用法术在你脑海中形成一段关于该事物重要传闻的简单概述。传闻可能是最近的流言，也可能是被遗忘的故事或不曾为人知晓的秘闻。如果该事物没有任何传奇事迹，则你不会获得任何信息。你掌握目标越多的信息，所得到的信息就越精确细致。</p><p>你由此得到的信息必定是准确的，但仍可能会以隐晦的话语表达。例如，如果你拿着一把神秘的魔法斧，则该法术可能会给你如下信息：“斧头嫉恶如仇，触碰其之邪恶者即受其苦痛惩戒，哪怕仅是光身斧柄也会反噬恶人之手。斧头的真正威力正在沉睡，唯有真正的石之子那些爱慕着摩拉丁又被其眷恋之人在双唇咏出圣言鲁那格Rudnogg时才能将其唤醒。”</p>",
       "chat": ""
     },
     "source": {
@@ -53,7 +43,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -62,8 +53,9 @@
         "choice": false
       },
       "template": {
-        "units": "",
-        "contiguous": false
+        "units": "ft",
+        "contiguous": false,
+        "stationary": false
       }
     },
     "range": {
@@ -82,10 +74,6 @@
       "consumed": true,
       "cost": 450,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -111,22 +99,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -156,7 +148,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -164,7 +157,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -175,18 +167,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "legend-lore"
+    "identifier": "legend-lore",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -195,8 +235,8 @@
   "sort": 27900000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

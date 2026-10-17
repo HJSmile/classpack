@@ -25,50 +25,42 @@
     "requirements": "野蛮人等级 5",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 5,
+      "repeatable": false,
+      "items": [
+        "class:barbarian"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "name": "快速移动",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.nRxAaPdKbTB0Fk6U",
+      "origin": null,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "disabled": false,
       "flags": {
         "dnd5e": {}
       },
       "_id": "ltXSMAAIYSgbPz8x",
-      "changes": [
-        {
-          "key": "system.attributes.movement.walk",
-          "mode": 2,
-          "value": "10",
-          "priority": null
-        }
-      ],
       "description": "",
       "transfer": true,
       "statuses": [],
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -78,20 +70,43 @@
       },
       "img": "icons/skills/movement/feet-winged-boots-brown.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.movement.speeds.walk",
+            "value": 10,
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "hrInKDQjSzKz3Wu5",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.nRxAaPdKbTB0Fk6U",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!nRxAaPdKbTB0Fk6U.ltXSMAAIYSgbPz8x"
     }
   ],
   "folder": "yHRuDCK2hvnV9bfU",
   "sort": 36000000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -111,9 +126,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1724127018383,
     "modifiedTime": 1757407904154,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

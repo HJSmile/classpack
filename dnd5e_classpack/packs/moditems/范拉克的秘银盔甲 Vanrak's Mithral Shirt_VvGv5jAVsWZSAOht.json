@@ -6,32 +6,21 @@
   "effects": [
     {
       "_id": "LcRju1b6TMBopC17",
-      "changes": [
-        {
-          "key": "system.attributes.senses.darkvision",
-          "mode": 2,
-          "value": "60",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
-      "origin": "Item.VvGv5jAVsWZSAOht",
+      "origin": null,
       "transfer": true,
       "flags": {},
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -42,27 +31,50 @@
       "name": "+ 60 ft. 黑暗视觉",
       "img": "icons/equipment/chest/breastplate-banded-steel-grey.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.senses.ranges.darkvision",
+            "value": 60,
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "ECVVwUfQrOBxMflL",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Item.VvGv5jAVsWZSAOht",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!VvGv5jAVsWZSAOht.LcRju1b6TMBopC17"
     }
   ],
   "folder": null,
   "sort": 0,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1749710928408,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",
@@ -94,7 +106,6 @@
     },
     "attunement": "",
     "equipped": true,
-    "rarity": "uncommon",
     "identified": true,
     "uses": {
       "spent": 0,
@@ -102,8 +113,7 @@
     },
     "armor": {
       "value": 13,
-      "dex": 2,
-      "magicalBonus": null
+      "dex": 2
     },
     "hp": {
       "value": 0,
@@ -113,7 +123,8 @@
     },
     "speed": {
       "value": null,
-      "conditions": ""
+      "conditions": "",
+      "units": "ft"
     },
     "strength": null,
     "proficient": 1,
@@ -129,8 +140,13 @@
     "identifier": "-vanraks-mithral-shirt",
     "container": null,
     "cover": null,
-    "crewed": false,
-    "properties": []
+    "properties": [],
+    "rarities": [
+      "uncommon"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "_key": "!items!VvGv5jAVsWZSAOht"
 }

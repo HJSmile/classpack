@@ -28,24 +28,14 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/magic/symbols/runes-carved-stone-yellow.webp",
   "_id": "kftB3w0yPx6DMT1b",
   "effects": [],
   "system": {
     "description": {
-      "value": "<p>你选定距离内，你能看到的，不超过40立方英尺区域内的岩石或泥土，并选择下述效果之一。</p>\n<p><strong>化石为泥Transmute Rock to Mud</strong>：该区域内任何种类的非魔法石块在法术的持续时间内变成等量的稀薄、可流动的泥浆。<br />若你将法术施放在一处区域或地表，其将变得足够瘫软，足以令生物陷入其中。生物穿过泥浆的每英尺均消耗4英尺的移动力，而在你施法时处于该区域内的生物需要进行一次力量豁免检定。若一个生物在一个回合内第一次进入此区域，或在此区域内结束其回合，其也需要进行此豁免检定。若豁免失败，其将没入泥浆并被束缚，虽然他可以以一个动作来把自己拽出泥浆以结束束缚。<br />若你对天花板施放此法术，泥浆会掉落。在泥浆掉落时处于其下方的所有生物必须进行一次敏捷豁免检定。若检定失败则该生物受到4d8点钝击伤害，检定成功者只受到上述伤害的一半。</p>\n<p><strong>化泥为石Transmute Mud to Rock</strong>：在法术的持续时间内，区域内不超过10英尺深的非魔法泥土或流沙变为柔软的岩石。在变化的泥土中的生物需要进行一次敏捷豁免检定。若豁免成功，该生物安全的移动到未被占据的一处地表上。若豁免失败，该生物被岩石所束缚。被束缚的生物、或者是其他可以触及到它的生物，可以使用一个动作以试图通过一次力量检定（DC20）来令其脱困。岩石拥有15AC和25点生命值，并且免疫毒素和精神伤害。</p>",
+      "value": "<p>你选定距离内，你能看到的，不超过 40 立方尺区域内的岩石或泥土，并选择下述效果之一。</p><blockquote><p><strong>化石为泥Transmute Rock to Mud。</strong>该区域内任何种类的非魔法石块在法术的持续时间内变成等量的稀薄、可流动的泥浆。</p><p>若你将法术施放在一处区域或地表，其将变得足够瘫软，足以令生物陷入其中。生物穿过泥浆的每尺均消耗 4 尺的移动力，而在你施法时处于该区域内的生物需要进行一次力量豁免检定。若一个生物在一个回合内第一次进入此区域，或在此区域内结束其回合，其也需要进行此豁免检定。若豁免失败，其将没入泥浆并被束缚，虽然他可以以一个动作来把自己拽出泥浆以结束束缚。</p><p>若你对天花板施放此法术，泥浆会掉落。在泥浆掉落时处于其下方的所有生物必须进行一次[[/save activity=dnd5eactivity000]]{敏捷豁免检定}。若检定失败则该生物受到 [[/damage 4d8 type=bludgeoning]]{4d8} 钝击伤害，检定成功者只受到上述伤害的一半。</p><p><strong>化泥为石Transmute Mud to Rock。</strong>在法术的持续时间内，区域内不超过 10 尺深的非魔法泥土或流沙变为柔软的岩石。在变化的泥土中的生物需要进行一次敏捷豁免检定。若豁免成功，该生物安全的移动到未被占据的一处地表上。若豁免失败，该生物被岩石所束缚。被束缚的生物、或者是其他可以触及到它的生物，可以使用一个动作以试图通过一次力量检定（DC20）来令其脱困。岩石拥有 AC15 和 25 HP，并且免疫毒素和心灵伤害。</p></blockquote>",
       "chat": ""
     },
     "source": {
@@ -61,7 +51,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "perm",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -73,7 +64,8 @@
         "type": "cube",
         "size": "40",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -94,10 +86,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -123,22 +111,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -168,7 +160,8 @@
                 "mode": "",
                 "number": null,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -182,7 +175,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -196,7 +190,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -204,7 +199,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -215,18 +209,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "transmute-rock"
+    "identifier": "transmute-rock",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -235,8 +278,8 @@
   "sort": 16700000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

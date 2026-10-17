@@ -24,16 +24,7 @@
       "removeAttackDamageButtons": "default",
       "reactionCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "blink",
@@ -42,11 +33,11 @@
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Arcane_Blink.png",
+  "img": "icons/creatures/magical/spirit-fear-energy-pink.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你在法术持续时间内每次自己回合结束时掷一次d20。如果结果大于等于11，则你从所处位面消失并出现在以太位面（如果你已经在以太位面，则法术失败且被消耗）。在你每次自己回合开始以及法术终止时，如果你身处以太位面，则你在之前消失的位置10尺内自选一处未被占据且你能看见的空间出现。如果范围内没有未被占据的空间，则你随机出现在最近的一处未被占据空间里。你可以用一个动作解除该法术。\n<br />身处以太位面时，你可以听见和看见原位面，但只限于60尺之内，且所有事物都是黑白画面。其他生物只有当其身处以太位面时才能对你产生影响，或者被你影响。不处于以太位面的生物无法察觉你也无法和你交流，除非其具有相应的能力。\n<br /></div>",
+      "value": "<p>你在法术持续时间内每次自己回合结束时掷一次 d20。如果结果大于等于 11，则你从所处位面消失并出现在以太位面（如果你已经在以太位面，则法术失败且被消耗）。在你每次自己回合开始以及法术终止时，如果你身处以太位面，则你在之前消失的位置 10 尺内自选一处未被占据且你能看见的空间出现。如果范围内没有未占据空间，则你随机出现在最近的一处未占据空间里。你可以用一个动作解除该法术。</p><p>身处以太位面时，你可以听见和看见原位面，但只限于 60 尺之内，且所有事物都是黑白画面。其他生物只有当其身处以太位面时才能对你产生影响，或者被你影响。不处于以太位面的生物无法察觉你也无法和你交流，除非其具有相应的能力。</p>",
       "chat": ""
     },
     "source": {
@@ -62,7 +53,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -72,9 +64,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -94,10 +87,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -122,22 +111,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -167,7 +160,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -175,7 +169,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -186,18 +179,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "blink"
+    "identifier": "blink",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -206,8 +247,8 @@
   "sort": 23500000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

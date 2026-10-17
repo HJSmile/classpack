@@ -24,35 +24,50 @@
       "itemCondition": "",
       "effectCondition": "",
       "reactionCondition": "",
-      "otherCondition": ""
+      "otherCondition": "",
+      "onUseMacroName": "[preSave]ItemMacro"
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
+    "dnd5e": {},
+    "dae": {
+      "macro": {
+        "name": "不谐低语 Dissonant Whispers",
+        "img": "icons/magic/sonic/scream-wail-shout-teal.webp",
+        "type": "script",
+        "scope": "global",
+        "command": "const workflow = args[0].workflow;\n\nconst DEAFENED = CONFIG.specialStatusEffects?.DEAF ?? \"deafened\";\n\nfor (const t of workflow.targets) {\n  const actor = t.actor;\n  if (!actor?.statuses.has(DEAFENED)) continue;\n\n  await MidiQOL.createEffects({\n    actorUuid: actor.uuid,\n    effects: [\n      {\n        name: \"Deafened Auto Save\",\n        icon: \"icons/svg/upgrade.svg\",\n        origin: workflow.item?.uuid,\n        transfer: false,\n        disabled: false,\n        changes: [\n          {\n            key: \"flags.midi-qol.success.ability.save.all\",\n            mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,\n            value: \"true\",\n            priority: 10\n          }\n        ],\n        flags: {\n          dae: {\n            specialDuration: [\"isSave\"]\n          }\n        }\n      }\n    ]\n  });\n}",
+        "author": "TEhQZHmGMOcY5c4a",
+        "ownership": {
+          "default": 3
+        },
+        "_id": null,
+        "folder": null,
+        "sort": 0,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3",
+          "lastModifiedBy": null,
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null
+        }
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/httpcloud3steamusercontentcomugc842585341025537431C8D829D636A4FF883DA7B75CB91A77B63ECEA582.jpg",
+  "img": "icons/magic/sonic/scream-wail-shout-teal.webp",
   "effects": [
     {
       "name": "不谐低语Dissonant Whispers",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.j8wwbcc1tlY9hLRf",
+      "origin": null,
       "duration": {
-        "rounds": 1,
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "rounds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "disabled": false,
       "_id": "ouuEVafbbgXTT8nv",
-      "changes": [],
       "description": "",
       "transfer": false,
       "statuses": [],
@@ -63,7 +78,6 @@
           "selfTargetAlways": false,
           "dontApply": false,
           "stackable": "noneName",
-          "showIcon": true,
           "durationExpression": "",
           "macroRepeat": "none",
           "specialDuration": [
@@ -72,27 +86,8 @@
           "enableCondition": "",
           "disableCondition": ""
         },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
-        },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
@@ -100,9 +95,9 @@
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1753090770102,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
@@ -110,16 +105,33 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/httpcloud3steamusercontentcomugc842585341025537431C8D829D636A4FF883DA7B75CB91A77B63ECEA582.jpg",
+      "img": "icons/magic/sonic/scream-wail-shout-teal.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.j8wwbcc1tlY9hLRf",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 2,
+      "folder": null,
       "_key": "!items.effects!j8wwbcc1tlY9hLRf.ouuEVafbbgXTT8nv"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \">\n<div class=\"description \">你指定一个施法距离内能够听到你声音的生物，并对其说出只有他能听到的不谐低语，使其受强烈的痛苦折磨。目标必须进行一次感知豁免。豁免失败则受到3d6 点心灵伤害，并立即执行反应往远离你的方向移动其速度所允许的距离。该生物不会进入明显危险的地域，如火堆或陷坑。豁免成功则伤害减半，且不会执行远离的反应。陷入耳聋状态的目标，进行该豁免时直接判定为成功。</div>\n<div class=\"description \"> </div>\n<div class=\"description \">升环施法效应。</div>\n<div class=\"description \">使用2 环或更高法术位施展该法术，你使用的法术位每比1 环高一环，伤害就提高1d6。</div>\n</div>",
+      "value": "<p>你指定一个施法距离内能够听到你声音的生物，并对其说出只有他能听到的不谐低语，使其受强烈的痛苦折磨。目标必须进行一次[[/save activity=dnd5eactivity000]]{感知豁免}。豁免失败则受到 [[/damage 3d6 type=psychic]]{3d6} 点心灵伤害，并立即执行反应往远离你的方向移动其速度所允许的距离。该生物不会进入明显危险的地域，如火堆或陷坑。豁免成功则伤害减半，且不会执行远离的反应。陷入&amp;Reference[condition=deafened apply=false]{耳聋}状态的目标，进行该豁免时直接判定为成功。</p><p><strong>升环施法效应。</strong>使用二环或更高法术位施展该法术，你使用的法术位每比一环高一环，伤害就提高 1d6。</p>",
       "chat": ""
     },
     "source": {
@@ -135,7 +147,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -145,9 +158,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -168,10 +182,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -195,27 +205,33 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "ouuEVafbbgXTT8nv",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -245,7 +261,8 @@
                 "mode": "whole",
                 "number": 1,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -259,7 +276,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -273,7 +291,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -281,7 +300,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -292,18 +310,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "dissonant-whispers"
+    "identifier": "dissonant-whispers",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -312,8 +379,8 @@
   "sort": 300000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711686584573,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

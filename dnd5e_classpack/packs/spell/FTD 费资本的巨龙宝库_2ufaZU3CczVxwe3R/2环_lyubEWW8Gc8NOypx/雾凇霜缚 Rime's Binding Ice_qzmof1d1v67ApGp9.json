@@ -1,10 +1,10 @@
 {
   "name": "雾凇霜缚 Rime's Binding Ice",
   "type": "spell",
-  "img": "modules/dnd5e_classpack/Nicons/ability_evoker_essenceburst2.png",
+  "img": "icons/magic/water/tendrils-ice-thorns.webp",
   "system": {
     "description": {
-      "value": "<p>你向<span>30</span>尺锥形范围内放出一股冰冷的能量。范围内的每个生物都必须成功通过<span class=\"GramE\">一</span>体质豁免，否则将受到<span>3d8</span>寒冷伤害并且被冰霜包裹，持续一分钟或直至一个生物用动作为自己或触及范围内的其他生物破冰。被冰霜包裹的生物其速度降至<span>0</span>。豁免成功则伤害减半，并且不会受到其他效应影响。<span><br />      </span><span class=\"GramE\"><strong><span style=\"font-family:宋体;mso-bidi-font-family:宋体\">升环效果</span></strong></span>：当你用<span>3</span>环或更高的<span class=\"GramE\">法术位</span>施展此法术时，你使用的<span class=\"GramE\">法术位每比</span><span>2</span>环高一环，法术的伤害增加<span>1d8</span>。<span><br /></span></p>",
+      "value": "<p>你向30尺锥形范围内放出一股冰冷的能量。范围内的每个生物都必须成功通过一体质豁免，否则将受到3d8寒冷伤害并且被冰霜包裹，持续一分钟或直至一个生物用动作为自己或触及范围内的其他生物破冰。被冰霜包裹的生物其速度降至0。豁免成功则伤害减半，并且不会受到其他效应影响。</p><p><strong>升环施法效应。</strong>当你用3环或更高的法术位施展此法术时，你使用的法术位每比2环高一环，法术的伤害增加1d8。</p>",
       "chat": ""
     },
     "source": {
@@ -20,7 +20,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -33,7 +34,8 @@
         "type": "cone",
         "size": "30",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -53,10 +55,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "somatic",
@@ -81,27 +79,33 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "o9DVGxZUTXYHDxPK",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -131,7 +135,8 @@
                 "mode": "whole",
                 "number": 1,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -145,7 +150,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -159,7 +165,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -167,7 +174,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -178,42 +184,80 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "rimes-binding-ice"
+    "identifier": "rimes-binding-ice",
+    "method": "spell",
+    "prepared": 0
   },
   "effects": [
     {
       "name": "莱姆束缚之霜 Rime's Binding Ice",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.qzmof1d1v67ApGp9",
+      "origin": null,
       "duration": {
-        "rounds": 10,
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 10,
+        "units": "rounds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "disabled": false,
       "_id": "o9DVGxZUTXYHDxPK",
-      "changes": [
-        {
-          "key": "system.attributes.movement.walk",
-          "mode": 5,
-          "value": "0",
-          "priority": 20
-        }
-      ],
       "description": "",
       "transfer": false,
       "statuses": [],
@@ -224,46 +268,57 @@
           "selfTargetAlways": false,
           "dontApply": false,
           "stackable": "noneName",
-          "showIcon": true,
           "durationExpression": "",
           "macroRepeat": "none",
           "specialDuration": [
             "isMoved"
           ]
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system"
         }
       },
       "tint": "#ffffff",
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/ability_evoker_essenceburst2.png",
+      "img": "icons/magic/water/tendrils-ice-thorns.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.movement.speeds.walk",
+            "value": 0,
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "sck4LsFwkLLsGykY",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.qzmof1d1v67ApGp9",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 2,
+      "folder": null,
       "_key": "!items.effects!qzmof1d1v67ApGp9.o9DVGxZUTXYHDxPK"
     }
   ],
@@ -299,16 +354,7 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "rimesBindingIce",
@@ -322,9 +368,9 @@
   "_stats": {
     "compendiumSource": "Item.LYx7fa92PlJmMYsF",
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1752917751736,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

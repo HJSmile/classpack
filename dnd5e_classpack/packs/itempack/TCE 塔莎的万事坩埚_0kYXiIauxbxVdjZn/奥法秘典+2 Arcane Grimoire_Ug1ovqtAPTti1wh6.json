@@ -4,7 +4,7 @@
   "img": "icons/sundries/books/book-symbol-hexagram-silver-red.webp",
   "system": {
     "description": {
-      "value": "<p class=\"MsoNormal\" style=\"MARGIN-BOTTOM:12pt;TEXT-ALIGN:left;mso-pagination:widow-orphan\"><em style=\"mso-bidi-font-style:normal\">需法师同调</em></p><p class=\"MsoNormal\" style=\"MARGIN-BOTTOM:12pt;TEXT-ALIGN:left;mso-pagination:widow-orphan\">当你持握着这件皮革封皮的书籍时，你可以将其作为你法师法术的法器，你在你法师法术的法术攻击骰和法术豁免DC上获得加值。加值取决于书的稀有度。<br />你可以将其作为法术书。此外，当你使用你的奥术回想特性时，你能够恢复的法术位环阶总和额外增加1环。<br /></p>",
+      "value": "<p style=\"TEXT-ALIGN:left\"><em style=\"mso-bidi-font-style:normal\">需法师同调</em></p><p style=\"TEXT-ALIGN:left\">当你持握着这件皮革封皮的书籍时，你可以将其作为你法师法术的法器，你在你法师法术的法术攻击骰和法术豁免DC上获得加值。加值取决于书的稀有度。</p><p style=\"TEXT-ALIGN:left\">你可以将其作为法术书。此外，当你使用你的奥术回想特性时，你能够恢复的法术位环阶总和额外增加1环。</p>",
       "chat": ""
     },
     "source": {
@@ -24,10 +24,8 @@
     },
     "attunement": "required",
     "equipped": false,
-    "rarity": "rare",
     "identified": true,
     "cover": null,
-    "crewed": false,
     "uses": {
       "max": "",
       "spent": null,
@@ -35,8 +33,7 @@
     },
     "armor": {
       "value": null,
-      "dex": null,
-      "magicalBonus": null
+      "dex": null
     },
     "hp": {
       "value": null,
@@ -46,7 +43,8 @@
     },
     "speed": {
       "value": null,
-      "conditions": ""
+      "conditions": "",
+      "units": "ft"
     },
     "strength": null,
     "proficient": 1,
@@ -63,38 +61,27 @@
     ],
     "activities": {},
     "identifier": "2-arcane-grimoire",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "rare"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "effects": [
     {
       "name": "奥法秘典+2 Arcane Grimoire",
-      "origin": "Compendium.dnd5e_classpack.itempack.Item.Ug1ovqtAPTti1wh6",
+      "origin": null,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "transfer": true,
       "disabled": false,
       "_id": "uWPp3aISJsUdnJWk",
-      "changes": [
-        {
-          "key": "system.bonuses.spell.attack",
-          "mode": 2,
-          "value": "+ 2",
-          "priority": 20
-        },
-        {
-          "key": "system.bonuses.spell.dc",
-          "mode": 2,
-          "value": "+ 2",
-          "priority": 20
-        }
-      ],
       "description": "",
       "statuses": [],
       "flags": {
@@ -112,29 +99,13 @@
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system"
         }
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -144,8 +115,46 @@
       },
       "img": "icons/sundries/books/book-symbol-hexagram-silver-red.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.rolls.attack.spell.bonus",
+            "value": "+ 2",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "EBNoVUnQhQrXZ6G2",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.bonuses.spell.dc",
+            "value": "+ 2",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "r2xeeiZh8vPH5pZf",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.itempack.Item.Ug1ovqtAPTti1wh6",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!Ug1ovqtAPTti1wh6.uWPp3aISJsUdnJWk"
     }
   ],
@@ -190,17 +199,12 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1686059964887,
     "modifiedTime": 1757871312925,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

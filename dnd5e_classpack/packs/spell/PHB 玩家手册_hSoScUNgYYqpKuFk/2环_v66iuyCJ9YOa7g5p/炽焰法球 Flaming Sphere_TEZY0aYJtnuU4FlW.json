@@ -33,15 +33,7 @@
       "idv": false,
       "ida": false
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ]
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "flamingSphere",
@@ -50,11 +42,11 @@
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/INV_Elemental_Primal_Fire.png",
+  "img": "icons/magic/earth/orb-lava-orange.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 一个直径5尺的球状火焰显现在施法距离内你指定的一处未被占据空间，并在法术持续时间内维持存在。任何生物在火球周围5尺内结束其回合时必须进行一次敏捷豁免。豁免失败者将受到2d6点火焰伤害，豁免成功则伤害减半。\n<br />你可以用一个附赠动作将火球移动30尺。如果你将火球推向某生物，则该生物必须进行抵抗火球伤害的豁免，而火球在该回合内停止移动。\n<br />移动火球时，你可以指引它越过不高于5尺的障碍，或者越过不宽过10尺的陷坑。火球将点燃任何未被着装或携带的可燃物件，并向其周围散发出半径20尺的明亮光照，以及该范围外20尺的微光光照。\n<br /><strong>升环施法效应。</strong>使用3环或更高法术位施展该法术时，你使用的法术位每比2环高一环，其伤害就增加1d6。\n<br /></div>",
+      "value": "<p>一个直径 5 尺的球状火焰显现在施法距离内你指定的一处未占据空间，并在法术持续时间内维持存在。任何生物在火球周围 5 尺内结束其回合时必须进行一次[[/save activity=8FeLgI16840MQgwt]]{敏捷豁免}。豁免失败者将受到 [[/damage 2d6 type=fire]]{2d6} 点火焰伤害，豁免成功则伤害减半。</p><p>你可以用一个附赠动作将火球移动 30 尺。如果你将火球推向某生物，则该生物必须进行抵抗火球伤害的豁免，而火球在该回合内停止移动。</p><p>移动火球时，你可以指引它越过不高于 5 尺的障碍，或者越过不宽过 10 尺的陷坑。火球将点燃任何未被着装或携带的可燃物件，并向其周围散发出半径 20 尺的明亮光照，以及该范围外 20 尺的微光光照。</p><p><strong>升环施法效应。</strong>使用三环或更高法术位施展该法术时，你使用的法术位每比二环高一环，其伤害就增加 1d6。</p>",
       "chat": ""
     },
     "source": {
@@ -70,7 +62,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -82,7 +75,8 @@
         "contiguous": false,
         "type": "sphere",
         "size": "5",
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -103,10 +97,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -133,22 +123,26 @@
           "spellSlot": false
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -174,7 +168,8 @@
           "proficiency": true,
           "attacks": false,
           "saves": true,
-          "ability": ""
+          "ability": "",
+          "disposition": false
         },
         "profiles": [
           {
@@ -267,7 +262,6 @@
           }
         ],
         "summon": {
-          "identifier": "",
           "mode": "",
           "prompt": true
         },
@@ -280,7 +274,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -290,7 +283,20 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -303,14 +309,49 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
-        }
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "friendlySummon": false
       },
       "8FeLgI16840MQgwt": {
         "type": "save",
@@ -329,21 +370,25 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -360,7 +405,8 @@
           "parts": [],
           "critical": {
             "allow": false
-          }
+          },
+          "onSave": "half"
         },
         "save": {
           "ability": [
@@ -369,7 +415,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -382,7 +429,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -390,7 +438,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -401,13 +448,27 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "name": "",
@@ -416,11 +477,42 @@
           "level": {
             "min": null,
             "max": null
-          }
-        }
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "behaviors": [],
+        "flags": {},
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "flaming-sphere"
+    "identifier": "flaming-sphere",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -429,8 +521,8 @@
   "sort": 900000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

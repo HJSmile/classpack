@@ -4,7 +4,7 @@
   "img": "icons/magic/control/mouth-smile-deception-purple.webp",
   "system": {
     "description": {
-      "value": "<blockquote><h3><strong>版税成分</strong></h3><p>　　吉姆·达克马奇的独特施法品牌混合了专业的奥术知识和特殊的财富热情。起初由吉姆开发的新法术产生了新的法术成分，此后，这个成分扩散到了收购公司的雇员和特许经营人所创造的其他法术：这也就是版税成分。</p><p>　　如果要施展一个使用版税成分的法术（包括使用魔法卷轴或其他储存了这个法术的魔法物品），施法者必须拥有足够的个人资金。施法的成本由创造了这个法术的施法者确定，通常是每个法术位等级 1gp。当这个法术被施展时，版税成分将魔法性地传送到由法术创造者设计的一个保险柜或其他物品中。无论施展法术的施法者是否知道版税成分，付款都将会产生。如果这个施法者没有足够的资金，法术并不会丢失，但也不能被施展。</p><p>　　虽然有许多施法者曾经试着绕开版税成分，但并没有人完全成功。不过，据说一名角色可以在施展拥有版税成分的法术同时尝试进行一次 DC15 的智力（奥秘）检定。若检定成功，这个付款将由施法者周围 10 尺内的随机生物进行，而那个生物并不知情。</p></blockquote><p>　　据说是吉姆·达克马奇发明了这个魔法，并且它最开始的名字叫“我说了啥？！”你有没有曾经在与当地领主开玩笑时，不小心提到他的儿子长得像你家农场里那只你最喜欢的猪？我们过去都经历过！不过你可以确保没人知道这件事情，来假装它从未发生过，以此来避免因为一次诚实的失言而丢掉脑袋。</p><p>　　当你施展这个法术时，你可以通过巧妙的操作修整你周围听众的记忆，从而使在你周围 5 尺内、每一个你所选择的生物立即忘掉在最后六秒中你所说过的每一句话。之后，他们会记住你实际上说的是作为这个法术言语成分的那些话语。</p>",
+      "value": "<blockquote><h3><strong>版税成分</strong></h3><p>吉姆·达克马奇的独特施法品牌混合了专业的奥术知识和特殊的财富热情。起初由吉姆开发的新法术产生了新的法术成分，此后，这个成分扩散到了收购公司的雇员和特许经营人所创造的其他法术：这也就是版税成分。</p><p>如果要施展一个使用版税成分的法术（包括使用魔法卷轴或其他储存了这个法术的魔法物品），施法者必须拥有足够的个人资金。施法的成本由创造了这个法术的施法者确定，通常是每个法术位等级 1gp。当这个法术被施展时，版税成分将魔法性地传送到由法术创造者设计的一个保险柜或其他物品中。无论施展法术的施法者是否知道版税成分，付款都将会产生。如果这个施法者没有足够的资金，法术并不会丢失，但也不能被施展。</p><p>虽然有许多施法者曾经试着绕开版税成分，但并没有人完全成功。不过，据说一名角色可以在施展拥有版税成分的法术同时尝试进行一次 DC15 的智力（奥秘）检定。若检定成功，这个付款将由施法者周围 10 尺内的随机生物进行，而那个生物并不知情。</p></blockquote><p>据说是吉姆·达克马奇发明了这个魔法，并且它最开始的名字叫“我说了啥？！”你有没有曾经在与当地领主开玩笑时，不小心提到他的儿子长得像你家农场里那只你最喜欢的猪？我们过去都经历过！不过你可以确保没人知道这件事情，来假装它从未发生过，以此来避免因为一次诚实的失言而丢掉脑袋。</p><p>当你施展这个法术时，你可以通过巧妙的操作修整你周围听众的记忆，从而使在你周围 5 尺内、每一个你所选择的生物立即忘掉在最后六秒中你所说过的每一句话。之后，他们会记住你实际上说的是作为这个法术言语成分的那些话语。</p>",
       "chat": ""
     },
     "source": {
@@ -20,7 +20,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -32,7 +33,8 @@
         "type": "radius",
         "size": "5",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -51,10 +53,6 @@
       "consumed": true,
       "cost": 2,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -79,22 +77,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -124,7 +126,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -132,7 +135,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -143,18 +145,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "gift-of-gab"
+    "identifier": "gift-of-gab",
+    "method": "spell",
+    "prepared": 0
   },
   "effects": [],
   "flags": {
@@ -182,17 +232,7 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_id": "CpvtM9z1XpTyxqj1",
   "folder": "vGShO9eTE2x92WtJ",
@@ -202,8 +242,8 @@
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

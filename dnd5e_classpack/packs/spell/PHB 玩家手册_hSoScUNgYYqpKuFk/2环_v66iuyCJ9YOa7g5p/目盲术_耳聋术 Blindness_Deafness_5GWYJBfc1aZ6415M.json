@@ -28,44 +28,18 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedProperties": [
-        "vocal"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Hibernation.png",
+  "img": "icons/magic/perception/eye-slit-orange.webp",
   "effects": [
     {
-      "changes": [
-        {
-          "key": "flags.midi-qol.disadvantage.attack.all",
-          "mode": 0,
-          "value": "1",
-          "priority": null
-        },
-        {
-          "key": "flags.midi-qol.grants.advantage.attack.all",
-          "mode": 0,
-          "value": "1",
-          "priority": null
-        }
-      ],
-      "description": "- A blinded creature can't see and automatically fails any ability check that requires sight.<br />- Attack rolls against the creature have advantage, and the creature's attack rolls have disadvantage.",
+      "description": "- A blinded creature can't see and automatically fails any ability check that requires sight.<br>- Attack rolls against the creature have advantage, and the creature's attack rolls have disadvantage.",
       "disabled": false,
       "duration": {
-        "rounds": null,
-        "seconds": null,
-        "turns": null,
-        "startTime": null,
-        "combat": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "minutes",
+        "expiry": null,
+        "expired": false
       },
       "flags": {
         "dfreds-convenient-effects": {
@@ -74,10 +48,13 @@
           "isViewable": true,
           "nestedEffects": [],
           "subEffects": []
+        },
+        "dae": {
+          "applicationMode": "dnd5e"
         }
       },
       "name": "Blinded",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.5GWYJBfc1aZ6415M",
+      "origin": null,
       "tint": "#ffffff",
       "transfer": false,
       "statuses": [
@@ -88,32 +65,76 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
         "exportSource": null
       },
-      "img": "modules/dfreds-convenient-effects/images/blinded.svg",
+      "img": "systems/dnd5e/icons/svg/statuses/blinded.svg",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.disadvantage.attack.all",
+            "value": 1,
+            "priority": null,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "xhsWpIrsrjeBwNqW",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.grants.advantage.attack.all",
+            "value": 1,
+            "priority": null,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "nanL7NgZpw0S1qPM",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "_id": "d35c794e747c5335",
+            "key": "flags.midi-qol.OverTime",
+            "value": "turn=end,saveAbility=con,saveDC=@activity.save.dc.value,saveMagic=true,saveCount=1,allowIncapacitated=true",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "conditions": "{}",
+            "replacement": "origin"
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.5GWYJBfc1aZ6415M",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!5GWYJBfc1aZ6415M.7lKV7PMgMj9lYGr9"
     },
     {
-      "changes": [],
       "description": "- A deafened creature can't hear and automatically fails any ability check that requires hearing.",
       "disabled": false,
       "duration": {
-        "rounds": null,
-        "seconds": null,
-        "turns": null,
-        "startTime": null,
-        "combat": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "minutes",
+        "expiry": null,
+        "expired": false
       },
       "flags": {
         "dfreds-convenient-effects": {
@@ -122,10 +143,13 @@
           "isViewable": true,
           "nestedEffects": [],
           "subEffects": []
+        },
+        "dae": {
+          "applicationMode": "dnd5e"
         }
       },
       "name": "Deafened",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.5GWYJBfc1aZ6415M",
+      "origin": null,
       "tint": "#ffffff",
       "transfer": false,
       "statuses": [
@@ -136,24 +160,52 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
         "exportSource": null
       },
-      "img": "modules/dfreds-convenient-effects/images/deafened.svg",
+      "img": "systems/dnd5e/icons/svg/statuses/deafened.svg",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "_id": "1ed12195c605cf2b",
+            "key": "flags.midi-qol.OverTime",
+            "value": "turn=end,saveAbility=con,saveDC=@activity.save.dc.value,saveMagic=true,saveCount=1,allowIncapacitated=true",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "conditions": "{}",
+            "replacement": "origin"
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.5GWYJBfc1aZ6415M",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!5GWYJBfc1aZ6415M.5rljVKiE7mq3gbsN"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你尝试令敌人目盲或耳聋。在施法距离内指定一个你能看见的生物，并迫使其进行一次体质豁免。豁免失败者将在法术持续时间内陷入目盲或耳聋（由你选择）。目标可以在每次自己回合结束时再进行一次体质豁免，豁免成功则法术终止。\n<br /><strong>升环施法效应。</strong>使用3环或更高法术位施展该法术时，你使用的法术位每比2环高一环，就可以多指定一个目标。\n<br /></div>",
+      "value": "<p>你尝试令敌人&amp;Reference[condition=blinded apply=false]{目盲}或耳聋。在施法距离内指定一个你能看见的生物，并迫使其进行一次[[/save activity=dnd5eactivity000]]{体质豁免}。豁免失败者将在法术持续时间内陷入目盲或耳聋（由你选择）。目标可以在每次自己回合结束时再进行一次体质豁免，豁免成功则法术终止。</p><p><strong>升环施法效应。</strong>使用三环或更高法术位施展该法术时，你使用的法术位每比二环高一环，就可以多指定一个目标。</p>",
       "chat": ""
     },
     "source": {
@@ -169,7 +221,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -179,9 +232,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -202,10 +256,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -229,31 +279,61 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "7lKV7PMgMj9lYGr9",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": null,
+              "lastModifiedBy": null,
+              "exportSource": null
+            }
           },
           {
             "_id": "5rljVKiE7mq3gbsN",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": null,
+              "lastModifiedBy": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -279,7 +359,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "name": "",
@@ -290,7 +371,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -300,14 +380,28 @@
           "displayActivityName": false,
           "rollMode": "default",
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": true,
         "overTimeProperties": {
           "turnChoice": "end",
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -320,20 +414,56 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "blindnessdeafness"
+    "identifier": "blindnessdeafness",
+    "method": "spell",
+    "prepared": 0
   },
   "folder": "v66iuyCJ9YOa7g5p",
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1755115286942,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

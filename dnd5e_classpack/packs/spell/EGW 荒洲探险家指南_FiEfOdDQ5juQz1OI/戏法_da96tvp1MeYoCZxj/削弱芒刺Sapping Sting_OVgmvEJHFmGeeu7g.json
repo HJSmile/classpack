@@ -26,16 +26,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "sappingSting",
@@ -47,54 +38,13 @@
   "img": "icons/skills/melee/strike-dagger-arcane-pink.webp",
   "effects": [
     {
-      "changes": [
-        {
-          "key": "flags.midi-qol.grants.advantage.attack.mwak",
-          "mode": 0,
-          "value": "1",
-          "priority": 0
-        },
-        {
-          "key": "flags.midi-qol.grants.advantage.attack.msak",
-          "mode": 0,
-          "value": "1",
-          "priority": 0
-        },
-        {
-          "key": "flags.midi-qol.grants.disadvantage.attack.rwak",
-          "mode": 0,
-          "value": "1",
-          "priority": 0
-        },
-        {
-          "key": "flags.midi-qol.grants.disadvantage.attack.rsak",
-          "mode": 0,
-          "value": "1",
-          "priority": 0
-        },
-        {
-          "key": "flags.midi-qol.disadvantage.attack.all",
-          "mode": 0,
-          "value": "1",
-          "priority": 0
-        },
-        {
-          "key": "system.attributes.movement.all",
-          "mode": 0,
-          "value": "*0.5",
-          "priority": 25
-        }
-      ],
-      "description": "<p>- A prone creature's only movement option is to crawl, unless it stands up and thereby ends the condition.<br />- The creature has disadvantage on attack rolls.<br />- An attack roll against the creature has advantage if the attacker is within 5 feet of the creature. Otherwise, the attack roll has disadvantage.</p>",
+      "description": "<p>- A prone creature's only movement option is to crawl, unless it stands up and thereby ends the condition.<br>- The creature has disadvantage on attack rolls.<br>- An attack roll against the creature has advantage if the attacker is within 5 feet of the creature. Otherwise, the attack roll has disadvantage.</p>",
       "disabled": false,
       "duration": {
-        "rounds": null,
-        "seconds": null,
-        "turns": null,
-        "startTime": null,
-        "combat": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "flags": {
         "dfreds-convenient-effects": {
@@ -115,27 +65,12 @@
           "macroRepeat": "none",
           "specialDuration": [
             "isMoved"
-          ]
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system"
+          ],
+          "applicationMode": "dnd5e"
         }
       },
       "name": "Prone",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.OVgmvEJHFmGeeu7g",
+      "origin": null,
       "tint": "#ffffff",
       "transfer": false,
       "statuses": [
@@ -144,9 +79,9 @@
       ],
       "_id": "bLGEl1iaM754WulO",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -154,16 +89,74 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dfreds-convenient-effects/images/prone.svg",
+      "img": "systems/dnd5e/icons/svg/statuses/prone.svg",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.grants.advantage.attack.all",
+            "value": "(distance => distance >= 0 && distance <= 5)(computeDistance(tokenUuid, \"@targetUuid\"))",
+            "priority": 0,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "HR2q1m6dx6ZKduoF",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.grants.disadvantage.attack.all",
+            "value": "computeDistance(tokenUuid, \"@targetUuid\") > 5",
+            "priority": 0,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "OesStO7nkexnY0lS",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.disadvantage.attack.all",
+            "value": 1,
+            "priority": 0,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "Xwc096kdX27yo73d",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.attributes.movement.all",
+            "value": "*0.5",
+            "priority": 25,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "b6evhnWBdRtOPZZ0",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.OVgmvEJHFmGeeu7g",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!OVgmvEJHFmGeeu7g.bLGEl1iaM754WulO"
     }
   ],
   "system": {
     "description": {
-      "value": "<p>你削弱施法距离内一个你看得见的生物的生命活力。目标必须通过一个体质豁免，否则就会受到1d4点暗蚀伤害并且倒地。<br />该法术的伤害会在你到达5级（2d4），11级（3d4）与17级（4d4）时增加1d4。</p>",
+      "value": "<p>你削弱施法距离内一个你看得见的生物的生命活力。目标必须通过一个体质豁免，否则就会受到1d4暗蚀伤害并且倒地。</p><p>该法术的伤害会在你到达5级（2d4），11级（3d4）与17级（4d4）时增加1d4。</p>",
       "chat": ""
     },
     "source": {
@@ -181,7 +174,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -191,9 +185,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -214,10 +209,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -242,27 +233,44 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "bLGEl1iaM754WulO",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": null,
+              "lastModifiedBy": null,
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -292,7 +300,8 @@
                 "mode": "whole",
                 "number": 1,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -306,7 +315,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -320,7 +330,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -328,7 +339,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -339,18 +349,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "sapping-sting"
+    "identifier": "sapping-sting",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -359,8 +418,8 @@
   "sort": 1300000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711705729210,
     "modifiedTime": 1757260583005,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

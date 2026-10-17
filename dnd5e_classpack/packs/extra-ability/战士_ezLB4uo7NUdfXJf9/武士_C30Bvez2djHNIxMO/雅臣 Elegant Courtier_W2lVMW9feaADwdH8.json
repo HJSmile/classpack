@@ -2,7 +2,7 @@
   "_id": "W2lVMW9feaADwdH8",
   "name": "雅臣 Elegant Courtier",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Achievement_Faction_LoreWalkers.png",
+  "img": "icons/skills/social/diplomacy-writing-letter.webp",
   "system": {
     "type": {
       "value": "class",
@@ -25,28 +25,26 @@
     "requirements": "武士等级 7",
     "activities": {},
     "identifier": "-elegant-courtier",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 7,
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
   "effects": [
     {
       "name": "雅臣 Elegant Courtier",
-      "origin": "Compendium.dnd5e_classpack.extra-ability.Item.W2lVMW9feaADwdH8",
+      "origin": null,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "disabled": false,
       "flags": {
@@ -64,22 +62,14 @@
         }
       },
       "_id": "RzXzKLfZSNB9F5Xv",
-      "changes": [
-        {
-          "key": "system.skills.per.bonuses.check",
-          "mode": 2,
-          "value": "+ @abilities.wis.mod",
-          "priority": 20
-        }
-      ],
       "description": "",
       "transfer": true,
       "statuses": [],
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -87,10 +77,38 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/Achievement_Faction_LoreWalkers.png",
+      "img": "icons/skills/social/diplomacy-writing-letter.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.skills.per.roll.bonus",
+            "value": "+ @abilities.wis.mod",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "38F8yX1kFiCWnFQ3",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.extra-ability.Item.W2lVMW9feaADwdH8",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!W2lVMW9feaADwdH8.RzXzKLfZSNB9F5Xv"
     }
   ],
@@ -121,17 +139,12 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1725708711155,
     "modifiedTime": 1749883542518,
     "lastModifiedBy": "uXKCmWFprrvnSIDm",

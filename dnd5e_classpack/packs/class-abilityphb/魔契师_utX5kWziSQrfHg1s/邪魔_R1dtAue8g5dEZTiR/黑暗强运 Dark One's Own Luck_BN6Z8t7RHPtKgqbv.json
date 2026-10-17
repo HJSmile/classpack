@@ -2,7 +2,7 @@
   "_id": "BN6Z8t7RHPtKgqbv",
   "name": "黑暗强运 Dark One's Own Luck",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Shadow_DemonicEmpathy.png",
+  "img": "icons/creatures/unholy/demon-fanged-horned-yellow.webp",
   "system": {
     "type": {
       "value": "class",
@@ -34,59 +34,88 @@
     "requirements": "邪魔等级 6",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 6,
+      "repeatable": false,
+      "items": [
+        "subclass:the-fiend"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "name": "黑暗强运",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Shadow_DemonicEmpathy.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.BN6Z8t7RHPtKgqbv",
+      "img": "icons/creatures/unholy/demon-fanged-horned-yellow.webp",
+      "origin": null,
       "_id": "fsZVcTbUy4cBfvyC",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.optional.黑暗强运.count",
-          "mode": 2,
-          "value": "ItemUses.黑暗强运 Dark One's Own Luck",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.optional.黑暗强运.count",
+            "value": "ItemUses.黑暗强运 Dark One's Own Luck",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "54plC7TsGbBACiGn",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.黑暗强运.check.all",
+            "value": "+1d10",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "bfRuu7clJZBxcyic",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.黑暗强运.save.all",
+            "value": "+1d10",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "YbsotILadfI9oLQO",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.黑暗强运.label",
+            "value": "黑暗强运",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "WTojU6HUOiB1oCSU",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.optional.黑暗强运.check.all",
-          "mode": 2,
-          "value": "+1d10",
-          "priority": 20
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.BN6Z8t7RHPtKgqbv",
+          "message": null
         },
-        {
-          "key": "flags.midi-qol.optional.黑暗强运.save.all",
-          "mode": 2,
-          "value": "+1d10",
-          "priority": 20
-        },
-        {
-          "key": "flags.midi-qol.optional.NAME.label",
-          "mode": 2,
-          "value": "黑暗强运",
-          "priority": 20
-        }
-      ],
+        "conditions": "{}",
+        "magical": false
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -101,59 +130,37 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757099113766,
         "modifiedTime": 1757100345052,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!BN6Z8t7RHPtKgqbv.fsZVcTbUy4cBfvyC"
     }
   ],
   "folder": "R1dtAue8g5dEZTiR",
   "sort": 11900000,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -180,9 +187,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757099560407,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

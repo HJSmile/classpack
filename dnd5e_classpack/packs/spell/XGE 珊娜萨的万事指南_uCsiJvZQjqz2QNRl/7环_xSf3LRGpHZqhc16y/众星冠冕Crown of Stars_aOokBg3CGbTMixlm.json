@@ -25,16 +25,7 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "crownOfStars",
@@ -43,33 +34,47 @@
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/spell_azerite_essence03.jpg",
+  "img": "icons/magic/light/projectiles-star-purple.webp",
   "effects": [
     {
       "name": "众星冠冕Crown of Stars",
-      "img": "modules/dnd5e_classpack/Nicons/spell_azerite_essence03.jpg",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.aOokBg3CGbTMixlm",
+      "img": "icons/magic/light/projectiles-star-purple.webp",
+      "origin": null,
       "transfer": false,
       "_id": "Fk1Qa4AKkpgvCdKG",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "macro.createItem",
-          "mode": 0,
-          "value": "Compendium.dnd5e_classpack.itempack.Item.WBUEPq06qZAEMpgE",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "macro.createItem",
+            "value": "Compendium.dnd5e_classpack.itempack.Item.WBUEPq06qZAEMpgE",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "qoT4FpYlHxcXETqy",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.aOokBg3CGbTMixlm",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "hours",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -90,48 +95,32 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757168874134,
         "modifiedTime": 1757168896191,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!aOokBg3CGbTMixlm.Fk1Qa4AKkpgvCdKG"
     }
   ],
   "system": {
     "description": {
-      "value": "<p>七个星型的光点在你的头顶浮现并环绕，直到法术结束。你可以使用一个附赠动作消耗一个光点袭向在你120英尺内的一个生物或物品。当你这么做时，进行一次远程法术攻击检定。若击中，目标受到4d12光耀伤害。无论你击中与否光点都将被消耗。如果你消耗了最后一枚光点，法术将提前结束。<br />如果你还留存4个或更多的光点，它们会发出30英尺半径的明亮照明和额外30英尺的微亮照明。如果你还留存1至3个光点，它们只会发出30尺的微亮照明。</p>\n<p><strong>升环效果：</strong>当你使用8环或更高的法术位施放该法术时，使用的法术位每高一环，你就可以多创造两枚额外的光点。</p>",
+      "value": "<p>七个星型的光点在你的头顶浮现并环绕，直到法术结束。你可以使用一个附赠动作消耗一个光点袭向在你 120 尺内的一个生物或物品。当你这么做时，进行一次远程法术攻击检定。若击中，目标受到 [[/damage 4d12 type=radiant]]{4d12} 光耀伤害。无论你击中与否光点都将被消耗。如果你消耗了最后一枚光点，法术将提前结束。</p><p>如果你还留存 4 个或更多的光点，它们会发出 30 尺半径的明亮光照和额外 30 尺的微亮照明。如果你还留存 1 至 3 个光点，它们只会发出 30 尺的微亮照明。</p><p><strong>升环施法效应。</strong>当你使用八环或更高的法术位施放该法术时，使用的法术位每高一环，你就可以多创造两枚额外的光点。</p>",
       "chat": ""
     },
     "source": {
@@ -147,7 +136,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -157,9 +147,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -180,10 +171,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -208,16 +195,20 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "Fk1Qa4AKkpgvCdKG"
+            "_id": "Fk1Qa4AKkpgvCdKG",
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
@@ -227,7 +218,8 @@
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -257,7 +249,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -265,7 +258,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -276,21 +268,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "crown-of-stars"
+    "identifier": "crown-of-stars",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -299,8 +337,8 @@
   "sort": 16600000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

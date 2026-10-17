@@ -24,23 +24,13 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_DeathKnight_FrostFever.png",
+  "img": "icons/magic/water/ice-snowman.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你花费整段施法时间为施法距离内一个野兽或类人生物塑造出一个幻像分身。该分身是一个由冰雪构成的半真实生物，它可以执行动作，也能在其他方面如同正常生物一样受到各种影响。它与其本体生物看起来一样，但是其生命值上限只有本体一半，而且在成型时不带任何装备。除此之外，幻象分身的属性数据都与本体相同。\n<br />拟像对你和你所选定的生物保持友好关系。它会服从你说出的命令，按照你的愿望行动，在战斗中还会在你的回合行动。拟像无法学习，也不知道如何变得更强大，因此它永远不会升级，其他能力也不会变得更强，而它用掉的法术位也不能恢复。\n<br />拟像受损后，你可以在炼金实验室里修理它。拟像每恢复一点生命值就要消耗价值100gp 的稀有矿物和药草。拟像会一直持续到其生命值降至0，随后就变回冰雪并立刻融化。再次施放该法术时，任何你已用该法术创造出来并且正在活动中的分身都会立刻被摧毁。\n<br /></div>",
+      "value": "<p>你花费整段施法时间为施法距离内一个野兽或类人生物塑造出一个幻象分身。该分身是一个由冰雪构成的半真实生物，它可以执行动作，也能在其他方面如同正常生物一样受到各种影响。它与其本体生物看起来一样，但是其生命值上限只有本体一半，而且在成型时不带任何装备。除此之外，幻象分身的属性数据都与本体相同，不过生物类型是构装生物。</p><p>拟像对你和你所选定的生物保持友好关系。它会服从你说出的命令，按照你的愿望行动，在战斗中还会在你的回合行动。拟像无法学习，也不知道如何变得更强大，因此它永远不会升级，其他能力也不会变得更强，而它用掉的法术位也不能恢复。</p><p>拟像受损后，你可以在炼金实验室里修理它。拟像每恢复一点生命值就要消耗价值 100gp 的稀有矿物和药草。拟像会一直持续到其生命值降至 0，随后就变回冰雪并立刻融化。</p><p>再次施放该法术时，任何你已用该法术创造出来并且正在活动中的分身都会立刻被摧毁。</p>",
       "chat": ""
     },
     "source": {
@@ -56,7 +46,8 @@
     },
     "duration": {
       "value": "",
-      "units": "perm"
+      "units": "perm",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -66,9 +57,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -88,10 +80,6 @@
       "consumed": true,
       "cost": 1500,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -117,22 +105,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -162,7 +154,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -170,7 +163,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -181,18 +173,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "simulacrum"
+    "identifier": "simulacrum",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -201,8 +241,8 @@
   "sort": 20500000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

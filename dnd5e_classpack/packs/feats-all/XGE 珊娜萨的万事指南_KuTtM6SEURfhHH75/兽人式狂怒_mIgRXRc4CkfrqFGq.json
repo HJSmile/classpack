@@ -1,12 +1,12 @@
 {
   "_id": "mIgRXRc4CkfrqFGq",
-  "name": "兽人式狂怒",
+  "name": "兽人狂怒",
   "type": "feat",
   "img": "icons/skills/toxins/cup-goblet-poisoned-spilled.webp",
   "system": {
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "description": {
       "value": "<p>你的狂怒爆发时不知疲倦，你获得以下好处：</p>\n<ul>\n<li>你的力量或者体质+1，最高20</li>\n<li>当你用简易或者军用武器进行一次攻击命中时，你可以再扔一个武器伤害骰并且用武器伤害同样的伤害类型将它加入额外伤害。你只能使用一次，直到你进行一次短休息或者长休息。</li>\n<li>在你进行坚韧不屈特性之后，你可以立即以反应进行一次武器攻击。</li>\n</ul>",
@@ -19,20 +19,59 @@
       "book": "XGE"
     },
     "uses": {
-      "max": "0",
+      "max": "1",
       "spent": 0,
-      "recovery": []
+      "recovery": [
+        {
+          "period": "sr",
+          "type": "recoverAll",
+          "formula": ""
+        }
+      ]
     },
     "requirements": "半兽人",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {
+      "8ef26e74f8e0e0bc": {
+        "_id": "8ef26e74f8e0e0bc",
+        "type": "AbilityScoreImprovement",
+        "name": "属性值提升",
+        "configuration": {
+          "cap": 1,
+          "fixed": {
+            "str": 0,
+            "dex": 0,
+            "con": 0,
+            "int": 0,
+            "wis": 0,
+            "cha": 0
+          },
+          "locked": [
+            "dex",
+            "int",
+            "wis",
+            "cha"
+          ],
+          "points": 1,
+          "max": 20,
+          "recommendation": null
+        },
+        "value": {
+          "type": "asi"
+        },
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -40,17 +79,12 @@
   "folder": "KuTtM6SEURfhHH75",
   "sort": 100782,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757275287302,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

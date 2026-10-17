@@ -2,7 +2,7 @@
   "_id": "1dJj246jXjakEHne",
   "name": "不屈勇武 Indomitable Might",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Warrior_TitansGrip.png",
+  "img": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
   "system": {
     "type": {
       "value": "class",
@@ -25,53 +25,78 @@
     "requirements": "野蛮人等级 18",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 18,
+      "repeatable": false,
+      "items": [
+        "class:barbarian"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "name": "不屈勇武",
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Warrior_TitansGrip.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.1dJj246jXjakEHne",
+      "img": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+      "origin": null,
       "_id": "DxBsdJLe4fR7ScxR",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.optional.不屈勇武.check.str",
-          "mode": 2,
-          "value": "replace @abilities.str.value",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.optional.不屈勇武.check.str",
+            "value": "replace @abilities.str.value",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "OcgUK8SNDBqZcsnQ",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.不屈勇武.label",
+            "value": "是否使用力量属性值替代掷骰结果",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "6NkQVkPGBzwV0Wyr",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.不屈勇武.count",
+            "value": "every",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "NdbvWV6TpCQMaZ7o",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.optional.不屈勇武.label",
-          "mode": 2,
-          "value": "是否使用力量属性值替代掷骰结果",
-          "priority": 20
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.1dJj246jXjakEHne",
+          "message": null
         },
-        {
-          "key": "flags.midi-qol.optional.不屈勇武.count",
-          "mode": 2,
-          "value": "every",
-          "priority": 20
-        }
-      ],
+        "conditions": "{}",
+        "magical": false
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -89,56 +114,33 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757057843564,
         "modifiedTime": 1757058064743,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!1dJj246jXjakEHne.DxBsdJLe4fR7ScxR"
     }
   ],
   "folder": "yHRuDCK2hvnV9bfU",
   "sort": 5400000,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -158,9 +160,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757063817481,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

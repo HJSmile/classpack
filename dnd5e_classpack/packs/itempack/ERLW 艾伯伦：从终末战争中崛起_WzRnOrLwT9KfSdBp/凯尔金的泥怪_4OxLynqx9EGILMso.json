@@ -4,7 +4,7 @@
   "img": "icons/commodities/materials/slime-thick-blue.webp",
   "system": {
     "description": {
-      "value": "<div class=\"WordSection1\" style=\"LAYOUT-GRID:15.6pt none\"><p class=\"MsoNormal\" style=\"TEXT-ALIGN:left\">这团乳白色的共生体黏液被密封在一个罐子里，不断缓慢地移动和变化，仿佛是在探索罐子内部。要与该共生体同调，你必须先喝下罐子里的黏液，以获取以下特性：</p><ul><li><p class=\"MsoNormal\" style=\"TEXT-ALIGN:left;LINE-HEIGHT:16.8pt\"><strong>获得抗力：</strong>当你与凯尔金的泥怪同调时，你获得对毒素和强酸伤害的抗力，同时对中毒状态免疫。</p></li><li><p class=\"MsoNormal\" style=\"TEXT-ALIGN:left;LINE-HEIGHT:16.8pt\"><strong>不定形态：</strong>你可以耗费一个动作说出一个命令词，来使你的身体呈现出泥怪的不定形态特性。在接下来的一分钟里，你（连同你所穿戴或携带的任何设备）可以通过一个只有1英寸宽的空间而不视为挤入。本能力被使用后，直到次日黎明前将无法再使用。<br /><strong>强酸喷吐：</strong>你可以耗费一个动作，喷出一条30英尺长、5英尺宽的强酸吐息。范围内的每一个生物都要进行一次DC 15的敏捷检定，豁免失败将受到36（8d8）点强酸伤害，成功则只承受一半伤害。本能力被使用后，直到次日黎明前将无法再使用。</p><p class=\"MsoNormal\" style=\"TEXT-ALIGN:left;LINE-HEIGHT:16.8pt\"></p></li></ul><p class=\"MsoNormal\" style=\"TEXT-ALIGN:left;LINE-HEIGHT:16.8pt\"><strong>共生体：</strong>当你与凯尔金的泥怪同调时，泥怪不能从你身上被移除，你也不能主动结束对它的同调。如果你成为一个能结束诅咒的法术的目标，那么你与泥怪的同调自动结束，它将会渗出你的身体。<br />如果你在体内含有泥怪的时候死亡，泥怪将会破体而出将你的尸体吞噬，然后变成一只@UUID[Compendium.dnd5e_classpack.monsterspack.Actor.NwQpeeaMxAC3fRft]{黑布丁}，其视为异变魔的盟友。<br /></p></div>",
+      "value": "<p style=\"TEXT-ALIGN:left\">这团乳白色的共生体黏液被密封在一个罐子里，不断缓慢地移动和变化，仿佛是在探索罐子内部。要与该共生体同调，你必须先喝下罐子里的黏液，以获取以下特性：</p><ul><li><h3>获得抗力：</h3><p style=\"TEXT-ALIGN:left\">当你与凯尔金的泥怪同调时，你获得对毒素和强酸伤害的抗力，同时对中毒状态免疫。</p></li><li><h3>不定形态：</h3><p style=\"TEXT-ALIGN:left\">你可以耗费一个动作说出一个命令词，来使你的身体呈现出泥怪的不定形态特性。在接下来的一分钟里，你（连同你所穿戴或携带的任何设备）可以通过一个只有1英寸宽的空间而不视为挤入。本能力被使用后，直到次日黎明前将无法再使用。</p><h3>强酸喷吐：</h3><p style=\"TEXT-ALIGN:left\">你可以耗费一个动作，喷出一条30英尺长、5英尺宽的强酸吐息。范围内的每一个生物都要进行一次DC 15的敏捷检定，豁免失败将受到36（8d8）点强酸伤害，成功则只承受一半伤害。本能力被使用后，直到次日黎明前将无法再使用。</p></li></ul><h3>共生体：</h3><p style=\"TEXT-ALIGN:left\">当你与凯尔金的泥怪同调时，泥怪不能从你身上被移除，你也不能主动结束对它的同调。如果你成为一个能结束诅咒的法术的目标，那么你与泥怪的同调自动结束，它将会渗出你的身体。</p><p style=\"TEXT-ALIGN:left\">如果你在体内含有泥怪的时候死亡，泥怪将会破体而出将你的尸体吞噬，然后变成一只@UUID[Compendium.dnd5e_classpack.monsterspack.Actor.NwQpeeaMxAC3fRft]{黑布丁}，其视为异变魔的盟友。</p>",
       "chat": ""
     },
     "source": {
@@ -24,10 +24,8 @@
     },
     "attunement": "required",
     "equipped": false,
-    "rarity": "veryRare",
     "identified": true,
     "cover": null,
-    "crewed": false,
     "uses": {
       "max": "",
       "spent": null,
@@ -35,8 +33,7 @@
     },
     "armor": {
       "value": null,
-      "dex": null,
-      "magicalBonus": null
+      "dex": null
     },
     "hp": {
       "value": null,
@@ -46,7 +43,8 @@
     },
     "speed": {
       "value": null,
-      "conditions": ""
+      "conditions": "",
+      "units": "ft"
     },
     "strength": null,
     "proficient": 1,
@@ -80,14 +78,16 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -104,7 +104,8 @@
             "size": "30",
             "width": "5",
             "height": "",
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -138,9 +139,13 @@
                 "mode": "whole",
                 "number": null,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
-          ]
+          ],
+          "critical": {
+            "allow": false
+          }
         },
         "save": {
           "ability": [
@@ -149,13 +154,106 @@
           "dc": {
             "calculation": "",
             "formula": "15"
-          }
+          },
+          "visible": true
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
     "identifier": "",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "veryRare"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "effects": [],
   "folder": "WzRnOrLwT9KfSdBp",
@@ -188,18 +286,12 @@
       "idv": false,
       "ida": false
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1691471469657,
     "modifiedTime": 1757871148765,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

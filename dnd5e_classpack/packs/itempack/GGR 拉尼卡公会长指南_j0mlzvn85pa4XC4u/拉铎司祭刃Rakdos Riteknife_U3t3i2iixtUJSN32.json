@@ -29,17 +29,11 @@
       "idv": false,
       "ida": false
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
-      "value": "<div class=\"WordSection1\" style=\"LAYOUT-GRID:15.6pt none\"><p class=\"MsoNormal\">你在用该魔法武器发动攻击检定和伤害掷骰时获得+1加值。<br />匕首的刀刃是残忍无情的锯齿，握柄犹如恶魔的头颅与蝠翼。每当你用该匕首杀死一个生物，其灵魂将被囚入匕首，只有许愿术wish能将其复活。匕首最多同时囚禁5个灵魂，每囚禁1个灵魂，匕首攻击命中时额外造成1d4黯蚀伤害。若匕首在距你5尺范围内，你的梦境将受到被困灵魂低语的纠缠。该匕首具有以下额外属性:</p><p class=\"MsoNormal\">吸取活力Siphon Vitality.你可以用一个附赠动作释放任意数量储存于匕首中的灵魂，每释放1个灵魂，你恢复1d10生命值。</p><p class=\"MsoNormal\"><br />湮灭Annihilation.你可以在匕首囚禁5个灵魂时使用此项属性。你可以在用匕首攻击命中一个生物造成伤害后，立即用反应释放这5个灵魂，如果此时该生物生命值低于75，他必须进行一次DC为15的体质豁免，豁免失败则死亡。若该生物死亡，你必须完成一次长休才能再次使用这项属性。<br /></p></div>",
+      "value": "<p>你在用该魔法武器发动攻击检定和伤害掷骰时获得+1加值。</p><p>匕首的刀刃是残忍无情的锯齿，握柄犹如恶魔的头颅与蝠翼。每当你用该匕首杀死一个生物，其灵魂将被囚入匕首，只有许愿术wish能将其复活。匕首最多同时囚禁5个灵魂，每囚禁1个灵魂，匕首攻击命中时额外造成1d4黯蚀伤害。若匕首在距你5尺范围内，你的梦境将受到被困灵魂低语的纠缠。该匕首具有以下额外属性:</p><p>吸取活力Siphon Vitality.你可以用一个附赠动作释放任意数量储存于匕首中的灵魂，每释放1个灵魂，你恢复1d10生命值。</p><p>湮灭Annihilation.你可以在匕首囚禁5个灵魂时使用此项属性。你可以在用匕首攻击命中一个生物造成伤害后，立即用反应释放这5个灵魂，如果此时该生物生命值低于75，他必须进行一次DC为15的体质豁免，豁免失败则死亡。若该生物死亡，你必须完成一次长休才能再次使用这项属性。</p>",
       "chat": ""
     },
     "source": {
@@ -59,10 +53,8 @@
     },
     "attunement": "",
     "equipped": false,
-    "rarity": "legendary",
     "identified": true,
     "cover": null,
-    "crewed": false,
     "range": {
       "value": 20,
       "long": 60,
@@ -93,7 +85,8 @@
           "mode": "",
           "number": null,
           "formula": ""
-        }
+        },
+        "modifiers": []
       },
       "base": {
         "number": null,
@@ -110,7 +103,8 @@
           "mode": "",
           "number": null,
           "formula": ""
-        }
+        },
+        "modifiers": []
       }
     },
     "armor": {
@@ -137,7 +131,6 @@
       "baseItem": "dagger"
     },
     "container": null,
-    "magicalBonus": null,
     "activities": {
       "dnd5eactivity000": {
         "_id": "dnd5eactivity000",
@@ -157,14 +150,16 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -181,7 +176,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "0",
@@ -216,17 +212,113 @@
           "includeBase": true,
           "parts": []
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackMode": "oneHanded",
+        "ammunition": "",
+        "otherActivityUuid": "",
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       }
     },
     "identifier": "rakdos-riteknife",
     "attuned": false,
-    "ammunition": {}
+    "ammunition": {},
+    "rarities": [
+      "legendary"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1691398244114,
     "modifiedTime": 1757871311912,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

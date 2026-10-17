@@ -24,23 +24,13 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Nature_Purge.png",
+  "img": "icons/magic/air/air-smoke-casting.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你获得以意念移动操纵生物或物件的能力。施展该法术时，你可以对施法距离内一个你能看见的生物或物件以你的意念造成下列详述的效应。你也可以在随后法术持续时间内的自己的任一回合里以一个动作实现该行为。你可以一轮接一轮地影响同一个目标，也可以在任何时候选择一个新的目标。如果你改变了目标，则之前的目标将不再受该法术影响。\n<br /><strong>生物Creature。</strong>你可以尝试移动一个巨型或更小的生物。以你的施法关键属性进行一次属性检定，并与目标生物的力量检定进行对抗。如果你在对抗中胜出，则你可以使该生物朝任何方向（包括竖直向上）移动30尺，但不能让它离开施法距离。在你的下一回合结束前，该生物将被你的遥控抓握束缚。而被朝正上方抬起的生物会在半空中悬停。\n<br />在随后的回合中，你可以再次进行前面进行过的对抗来尝试继续抓住该生物（消耗一个动作）。\n<br /><strong>物件Object。</strong>你可以尝试移动一个重量不超过1000磅的物件。如果该物品没有被任何生物所着装或携带，则你可以自动使它朝任何方向移动30尺，但不能让它离开施法距离。\n<br />如果该物件已被着装或携带，则你必须以你的施法关键属性进行一次属性检定，并与该生物的力量检定进行对抗。如果你在对抗中胜出，则你可以把目标物件从该生物身上拿走，并且使该物体朝任意方向移动30尺（但不能让它离开施法距离）。\n<br />你可以使用心灵遥控来对物体进行精密操作，例如操纵一件简单的工具，打开一扇门或一个容器，把东西放进或拿出一个打开的容器中，或是把一个小瓶子里的东西倒出来。\n<br /></div>",
+      "value": "<p>你获得以意念移动操纵生物或物件的能力。施展该法术时，你可以对施法距离内一个你能看见的生物或物件以你的意念造成下列详述的效应。你也可以在随后法术持续时间内的自己的任一回合里以一个动作实现该行为。你可以一轮接一轮地影响同一个目标，也可以在任何时候选择一个新的目标。如果你改变了目标，则之前的目标将不再受该法术影响。</p><p><strong>生物Creature。</strong>你可以尝试移动一个巨型或更小的生物。以你的施法属性进行一次属性检定，并与目标生物的力量检定进行对抗。如果你在对抗中胜出，则你可以使该生物朝任何方向（包括竖直向上）移动 30 尺，但不能让它离开施法距离。在你的下一回合结束前，该生物将被你的遥控抓握束缚。而被朝正上方抬起的生物会在半空中悬停。</p><p>在随后的回合中，你可以再次进行前面进行过的对抗来尝试继续抓住该生物（消耗一个动作）。</p><p><strong>物件Object。</strong>你可以尝试移动一个重量不超过 1000 磅的物件。如果该物品没有被任何生物所着装或携带，则你可以自动使它朝任何方向移动 30 尺，但不能让它离开施法距离。</p><p>如果该物件已被着装或携带，则你必须以你的施法属性进行一次属性检定，并与该生物的力量检定进行对抗。如果你在对抗中胜出，则你可以把目标物件从该生物身上拿走，并且使该物体朝任意方向移动 30 尺（但不能让它离开施法距离）。</p><p>你可以使用心灵遥控来对物体进行精密操作，例如操纵一件简单的工具，打开一扇门或一个容器，把东西放进或拿出一个打开的容器中，或是把一个小瓶子里的东西倒出来。</p>",
       "chat": ""
     },
     "source": {
@@ -56,7 +46,8 @@
     },
     "duration": {
       "value": "10",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -66,9 +57,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -89,10 +81,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -118,22 +106,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -163,7 +155,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -171,7 +164,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -182,18 +174,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "telekinesis"
+    "identifier": "telekinesis",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -202,8 +242,8 @@
   "sort": 30200000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

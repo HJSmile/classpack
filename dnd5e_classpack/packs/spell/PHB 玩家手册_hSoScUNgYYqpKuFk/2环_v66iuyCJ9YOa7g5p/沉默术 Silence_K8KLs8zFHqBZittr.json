@@ -31,102 +31,13 @@
       "idv": false,
       "ida": false
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "ritual",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_Silence.png",
-  "effects": [
-    {
-      "changes": [],
-      "description": "<p>- A deafened creature can't hear and automatically fails any ability check that requires hearing.</p>",
-      "disabled": false,
-      "duration": {
-        "rounds": null,
-        "seconds": null,
-        "turns": null,
-        "startTime": null,
-        "combat": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "flags": {
-        "dfreds-convenient-effects": {
-          "isConvenient": true,
-          "isDynamic": false,
-          "isViewable": true,
-          "nestedEffects": [],
-          "subEffects": []
-        },
-        "dae": {
-          "disableIncapacitated": false,
-          "selfTarget": false,
-          "selfTargetAlways": false,
-          "dontApply": false,
-          "stackable": "noneName",
-          "showIcon": false,
-          "durationExpression": "",
-          "macroRepeat": "none",
-          "specialDuration": []
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system"
-        },
-        "core": {}
-      },
-      "name": "Silence",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.K8KLs8zFHqBZittr",
-      "tint": "#ffffff",
-      "transfer": false,
-      "statuses": [
-        "Convenient Effect: Silence",
-        "deafened"
-      ],
-      "_id": "FoYq5rKL3p9fzj8b",
-      "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null,
-        "compendiumSource": "ActiveEffect.FrKBX253f8D6Bfw2",
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "img": "modules/dfreds-convenient-effects/images/magic-palm.svg",
-      "type": "base",
-      "system": {},
-      "sort": 0,
-      "_key": "!items.effects!K8KLs8zFHqBZittr.FoYq5rKL3p9fzj8b"
-    }
-  ],
+  "img": "icons/magic/unholy/orb-glowing-purple.webp",
+  "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你指定施法距离内一点，以该点为中心半径20尺的球状区域在法术持续时间内将无法产生任何声音，且外界的声音也无法进入该区域内。任何完全位于该区域内的生物和物件都将免疫雷鸣伤害，而任何生物在完全位于该区域内时都将陷入耳聋。此外，该区域内无法施展需要言语成分的法术。</div>",
+      "value": "<p>你指定施法距离内一点，以该点为中心半径 20 尺的球状区域在法术持续时间内将无法产生任何声音，且外界的声音也无法进入该区域内。任何完全位于该区域内的生物和物件都将免疫雷鸣伤害，而任何生物在完全位于该区域内时都将陷入&amp;Reference[condition=deafened apply=false]{耳聋}。此外，该区域内无法施展包含言语成分的法术。</p>",
       "chat": ""
     },
     "source": {
@@ -142,19 +53,21 @@
     },
     "duration": {
       "value": "10",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
         "choice": false,
-        "type": ""
+        "type": "creatureOrObject"
       },
       "template": {
         "units": "ft",
         "type": "sphere",
         "size": "20",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -176,16 +89,11 @@
       "cost": 0,
       "supply": 0
     },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
-    },
     "properties": [
       "vocal",
       "somatic",
       "concentration",
-      "ritual",
-      "mgc"
+      "ritual"
     ],
     "activities": {
       "dnd5eactivity000": {
@@ -205,26 +113,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
-        "effects": [
-          {
-            "_id": "FoYq5rKL3p9fzj8b"
-          }
-        ],
+        "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -254,7 +162,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -262,7 +171,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -273,18 +181,87 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": "",
+        "behaviors": [
+          {
+            "name": "",
+            "_id": "pMLdcm2M6y8pxolw",
+            "type": "applyActiveEffect",
+            "config": {
+              "effects": [
+                "Compendium.world.ActiveEffect-fM5uH0Xqkz6dqFdB.ActiveEffect.FoYq5rKL3p9fzj8b"
+              ],
+              "sizes": [],
+              "types": []
+            },
+            "level": {
+              "min": null,
+              "max": null
+            }
+          }
+        ],
+        "flags": {},
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "name": ""
       }
     },
-    "identifier": "silence"
+    "identifier": "silence",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -293,8 +270,8 @@
   "sort": 600000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711688227323,
     "modifiedTime": 1757419719404,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

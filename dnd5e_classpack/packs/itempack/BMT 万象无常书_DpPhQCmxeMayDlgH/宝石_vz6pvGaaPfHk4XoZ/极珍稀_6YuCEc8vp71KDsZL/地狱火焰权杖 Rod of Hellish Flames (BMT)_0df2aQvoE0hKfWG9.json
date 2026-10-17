@@ -12,7 +12,7 @@
       "revision": 1
     },
     "description": {
-      "value": "<div><p><em>权杖，极珍稀（需施法者同调）</em><br />发光的余烬绕着这根黑色权杖的凸缘头部旋转。这把权杖可以用作奥术法器。持握这根权杖期间，你获得以下增益：<br /><em><strong>炼狱抗性Hellish Resistance。</strong></em>你获得对火焰和暗蚀伤害的抗性。<br /><em><strong>灼热叱喝Searing Rebuke。 </strong></em>你可以用权杖施展 <em>@UUID[Compendium.dnd5e_classpack.spell.Item.Qh8PTvCxR44isqVO]{炼狱叱喝 hellish rebuke}</em> （4环版本）（豁免DC16）。此法术一经权杖施放，直到下次黎明前不能再次以此法施放该法术。<br /><em><strong>硫磺浪涌Surge of Brimstone。</strong> </em>当你施放造成火焰或暗蚀伤害的法术时，你可以使用权杖来使其伤害掷骰直接取最高值而无需掷骰。此项属性一经使用，直到下次黎明前不能再次使用。</p><p><em>(requires attunement by a spellcaster)</em></p></div><div class=\"rd__b  rd__b--2\"><p>Glowing cinders orbit the flanged head of this black iron rod.</p><p>This rod can be used as an arcane focus. While holding this rod, you gain the following benefits:</p><ul class=\"rd__list rd__list-hang-notitle\"><li class=\"rd__li \"><p class=\"rd__p-list-item\" data-roll-name-ancestor=\"Hellish Resistance\"><span class=\"bold rd__list-item-name\">Hellish Resistance.</span> You have resistance to fire and necrotic damage.</p></li><li class=\"rd__li \"><p class=\"rd__p-list-item\" data-roll-name-ancestor=\"Searing Rebuke\"><span class=\"bold rd__list-item-name\">Searing Rebuke.</span> You can cast the @spell[Hellish Rebuke] spell as a 4th-level spell (save DC <span class=\"rd__dc\">16</span>) from the rod. Once you use the rod to cast the spell, the rod can't cast the spell again until the next dawn.</p></li><li class=\"rd__li \"><p class=\"rd__p-list-item\" data-roll-name-ancestor=\"Surge of Brimstone\"><span class=\"bold rd__list-item-name\">Surge of Brimstone.</span> Whenever you cast a spell that deals fire or necrotic damage, you can use the rod to deal the maximum damage instead of rolling. Once this property is used, it can't be used again until the next dawn.</p></li></ul></div>",
+      "value": "<p><em>权杖，极珍稀（需施法者同调）</em></p><p>发光的余烬绕着这根黑色权杖的凸缘头部旋转。这把权杖可以用作奥术法器。持握这根权杖期间，你获得以下增益：</p><p><em><strong>炼狱抗性Hellish Resistance。</strong></em>你获得对火焰和暗蚀伤害的抗性。</p><p><em><strong>灼热叱喝Searing Rebuke。 </strong></em>你可以用权杖施展 <em>@UUID[Compendium.dnd5e_classpack.spell.Item.Qh8PTvCxR44isqVO]{炼狱叱喝 hellish rebuke}</em> （4环版本）（豁免DC16）。此法术一经权杖施放，直到下次黎明前不能再次以此法施放该法术。</p><p><em><strong>硫磺浪涌Surge of Brimstone。</strong></em>当你施放造成火焰或暗蚀伤害的法术时，你可以使用权杖来使其伤害掷骰直接取最高值而无需掷骰。此项属性一经使用，直到下次黎明前不能再次使用。</p><p><em>(requires attunement by a spellcaster)</em></p><p>Glowing cinders orbit the flanged head of this black iron rod.</p><p>This rod can be used as an arcane focus. While holding this rod, you gain the following benefits:</p><ul><li><p data-roll-name-ancestor=\"Hellish Resistance\"><span class=\"bold\">Hellish Resistance.</span> You have resistance to fire and necrotic damage.</p></li><li><p data-roll-name-ancestor=\"Searing Rebuke\"><span class=\"bold\">Searing Rebuke.</span> You can cast the @spell[Hellish Rebuke] spell as a 4th-level spell (save DC 16) from the rod. Once you use the rod to cast the spell, the rod can't cast the spell again until the next dawn.</p></li><li><p data-roll-name-ancestor=\"Surge of Brimstone\"><span class=\"bold\">Surge of Brimstone.</span> Whenever you cast a spell that deals fire or necrotic damage, you can use the rod to deal the maximum damage instead of rolling. Once this property is used, it can't be used again until the next dawn.</p></li></ul>",
       "chat": ""
     },
     "proficient": null,
@@ -28,7 +28,6 @@
     "attuned": true,
     "identified": true,
     "equipped": true,
-    "rarity": "veryRare",
     "type": {
       "value": "rod",
       "baseItem": ""
@@ -45,7 +44,7 @@
     "armor": {
       "value": null,
       "dex": null,
-      "magicalBonus": 0
+      "magicalBonus": "0"
     },
     "strength": null,
     "activities": {
@@ -65,19 +64,24 @@
           "spellSlot": true,
           "targets": []
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -97,8 +101,6 @@
         },
         "spell": {
           "challenge": {
-            "attack": null,
-            "save": null,
             "override": false
           },
           "level": null,
@@ -122,7 +124,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -130,7 +133,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -141,13 +143,58 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
         }
       }
     },
@@ -157,7 +204,12 @@
     },
     "container": null,
     "cover": null,
-    "crewed": false
+    "rarities": [
+      "veryRare"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "img": "systems/dnd5e/icons/svg/items/equipment.svg",
   "ownership": {
@@ -187,7 +239,8 @@
       "noConcentrationCheck": false,
       "toggleEffect": false,
       "ignoreTotalCover": false
-    }
+    },
+    "dnd5e": {}
   },
   "effects": [
     {
@@ -195,23 +248,12 @@
       "name": "Damage Resistance",
       "img": "systems/dnd5e/icons/svg/items/equipment.svg",
       "description": "",
-      "changes": [
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "fire",
-          "priority": 7
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null,
-        "combat": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": null,
       "transfer": true,
@@ -221,21 +263,49 @@
         }
       },
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.dr.value",
+            "value": "fire",
+            "priority": 7,
+            "type": "add",
+            "phase": "initial",
+            "_id": "Vo6t2XHYWf0SVKmT",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "tint": "#ffffff",
       "statuses": [],
       "sort": 0,
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!0df2aQvoE0hKfWG9.vTJWE3cAPvHIVHCB"
     },
     {
@@ -243,23 +313,12 @@
       "name": "Damage Resistance",
       "img": "systems/dnd5e/icons/svg/items/equipment.svg",
       "description": "",
-      "changes": [
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "necrotic",
-          "priority": 7
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null,
-        "combat": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": null,
       "transfer": true,
@@ -269,21 +328,49 @@
         }
       },
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.dr.value",
+            "value": "necrotic",
+            "priority": 7,
+            "type": "add",
+            "phase": "initial",
+            "_id": "uiTLZTuv9b2hjXvp",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "tint": "#ffffff",
       "statuses": [],
       "sort": 0,
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!0df2aQvoE0hKfWG9.dyRKje1kAEKjfyEk"
     }
   ],
@@ -291,9 +378,9 @@
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1751738836954,
     "modifiedTime": 1751738836954,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

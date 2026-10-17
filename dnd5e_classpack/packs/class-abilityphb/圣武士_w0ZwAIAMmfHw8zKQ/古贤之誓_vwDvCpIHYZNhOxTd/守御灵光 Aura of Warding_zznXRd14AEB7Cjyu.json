@@ -2,7 +2,7 @@
   "_id": "zznXRd14AEB7Cjyu",
   "name": "守御灵光 Aura of Warding",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_PowerWordShield.png",
+  "img": "icons/magic/defensive/barrier-shield-dome-deflect-teal.webp",
   "system": {
     "description": {
       "value": "<p>第7级起，强大的远古魔法眷顾着你，以至于在你身边形成了一道神秘的结界。你和距离你10尺以内的友善生物获得对法术伤害的抗性。</p>\n<p>第18级起，灵光的范围增加至30尺。</p>",
@@ -27,47 +27,33 @@
     "requirements": "古贤之誓等级 7",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 7,
+      "repeatable": false,
+      "items": [
+        "subclass:oath-of-the-ancients"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "_id": "nw3ImLyoMz5AlhRP",
-      "changes": [
-        {
-          "key": "system.traits.dr.midi.msak",
-          "mode": 2,
-          "value": "+1",
-          "priority": 20
-        },
-        {
-          "key": "system.traits.dr.midi.spell",
-          "mode": 2,
-          "value": "+1",
-          "priority": 20
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.zznXRd14AEB7Cjyu",
+      "origin": null,
       "transfer": true,
       "flags": {
         "dae": {
           "disableCondition": "",
-          "disableIncapacitated": false,
+          "disableIncapacitated": true,
           "stackable": "noneName",
           "showIcon": false,
           "durationExpression": "",
@@ -75,36 +61,20 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
         },
-        "ActiveAuras": {
-          "isAura": true,
-          "aura": "Allies",
-          "nameOverride": "10",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": true,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
+        "auraeffects": {
+          "originalType": "base"
         }
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1757160491979,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
@@ -113,12 +83,55 @@
         "exportSource": null
       },
       "name": "获得法术伤害抗性",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_PowerWordShield.png",
-      "type": "base",
-      "system": {},
+      "img": "icons/magic/defensive/barrier-shield-dome-deflect-teal.webp",
+      "type": "auraeffects.aura",
+      "system": {
+        "showRadius": true,
+        "applyToSelf": true,
+        "bestFormula": "",
+        "canStack": false,
+        "color": null,
+        "combatOnly": true,
+        "disableOnHidden": true,
+        "distanceFormula": "@scale.paladin.aura-radius",
+        "disposition": 1,
+        "evaluatePreApply": false,
+        "overrideName": "",
+        "script": "",
+        "stashedChanges": [],
+        "stashedStatuses": [],
+        "changes": [
+          {
+            "key": "system.traits.dr.midi.spell",
+            "value": "+1",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "nZFwzyyTRbgVqNc9",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "collisionType": "move",
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.zznXRd14AEB7Cjyu",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!zznXRd14AEB7Cjyu.nw3ImLyoMz5AlhRP"
     }
   ],
@@ -129,13 +142,7 @@
     "entityorder": {
       "order": 167
     },
-    "dnd5e": {
-      "migratedUses": 0,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -166,8 +173,8 @@
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757160553752,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

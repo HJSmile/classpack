@@ -2,14 +2,14 @@
   "_id": "loa1FeErjePHZ0VG",
   "name": "顽强精神 Unyielding Spirit",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/1ability_toughness%20.png",
+  "img": "icons/magic/life/heart-glowing-red.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>从15级起，你在避免陷入震慑或者麻痹状态的豁免骰中得到优势。</p>",
+      "value": "<p>从15级起，你在避免陷入震慑或者&amp;Reference[condition=paralyzed apply=false]{麻痹}状态的豁免骰中得到优势。</p>",
       "chat": ""
     },
     "source": {
@@ -25,34 +25,45 @@
     "requirements": "王冠之誓等级 15",
     "activities": {},
     "identifier": "-unyielding-spirit",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 15,
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
   "effects": [
     {
       "name": "顽强精神 Unyielding Spirit",
-      "img": "modules/dnd5e_classpack/Nicons/1ability_toughness%20.png",
-      "origin": "Compendium.dnd5e_classpack.extra-ability.Item.loa1FeErjePHZ0VG",
+      "img": "icons/magic/life/heart-glowing-red.webp",
+      "origin": null,
       "_id": "yMYrwm1gBheSeemN",
       "type": "base",
-      "system": {},
-      "changes": [],
+      "system": {
+        "changes": [],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.extra-ability.Item.loa1FeErjePHZ0VG",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -63,26 +74,24 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": 1749972221348,
         "modifiedTime": 1749972221348,
         "lastModifiedBy": "sPF2dtZDreDpJaW6",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!loa1FeErjePHZ0VG.yMYrwm1gBheSeemN"
     }
   ],
   "folder": "QNzSCgI7LCzbLMfY",
   "sort": 41500000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -102,9 +111,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757416392040,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

@@ -2,7 +2,7 @@
   "_id": "Cnzcy1Tu7gt6xYHm",
   "name": "迷踪步 Misty Step",
   "type": "spell",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Rogue_Shadowstep.png",
+  "img": "icons/magic/lightning/orb-ball-blue.webp",
   "effects": [],
   "folder": "v66iuyCJ9YOa7g5p",
   "sort": 18600000,
@@ -33,25 +33,15 @@
       "otherCondition": "",
       "onUseMacroName": "[preActiveEffects]ItemMacro"
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
-      "migratedProperties": [
-        "vocal"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "dae": {
       "macro": {
         "name": "迷踪步 Misty Step",
-        "img": "modules/dnd5e_classpack/Nicons/Ability_Rogue_Shadowstep.png",
+        "img": "icons/magic/lightning/orb-ball-blue.webp",
         "type": "script",
         "scope": "global",
-        "command": "/**\n * Teleport。\n */\n\n(async () => {\n  const RANGE_FT = 30;      // 传送范围（英尺）\n  const TIMEOUT  = 20000;   // 单次点击超时时间（毫秒）\n  const COLOR    = 0x66ccff;\n\n  // 取得单一目标（优先 game.user.targets，其次 canvas.tokens.controlled）\n  const pickTarget = () => {\n    const tarr = Array.from(game.user.targets ?? []);\n    if (tarr.length === 1) return tarr[0];\n    const ctrl = canvas.tokens.controlled;\n    if (ctrl && ctrl.length === 1) return ctrl[0];\n    return null;\n  };\n  const token = pickTarget();\n  if (!token) {\n    ui.notifications.warn(\"请先 target（或控制）一个 Token，然后运行宏。\");\n    return;\n  }\n\n  const gridSize = canvas.grid.size;\n  const feetPerSquare = canvas.scene.grid?.distance ?? 5;\n  const maxSquares = Math.max(1, Math.floor(RANGE_FT / feetPerSquare));\n  const radiusPx = maxSquares * gridSize;\n\n  // 计算 token 当前视觉中心（避免使用已弃用的 API）\n  const originCenter = { x: (token.center?.x ?? (token.x + token.w / 2)), y: (token.center?.y ?? (token.y + token.h / 2)) };\n\n  // 绘制高亮圆\n  const g = new PIXI.Graphics();\n  g.lineStyle(2, COLOR, 0.9);\n  g.beginFill(COLOR, 0.08);\n  g.drawCircle(originCenter.x, originCenter.y, radiusPx);\n  g.endFill();\n  g.zIndex = 9999;\n  canvas.app.stage.addChild(g);\n\n  ui.notifications.info(`请在高亮圆内点击传送落点（最多 ${RANGE_FT} 英尺）；超出或占用会提示并要求重选。）`);\n\n  // 等待点击并返回 snapped center（格子中心点）\n  const waitClickAndSnapCenter = (ms) => new Promise(resolve => {\n    const handler = (event) => {\n      try { canvas.app.stage.off(\"pointerdown\", handler); } catch(e){}\n      let pos = null;\n      try { pos = event.data.getLocalPosition(canvas.app.stage); } catch(e){ pos = null; }\n      if (!pos) return resolve(null);\n      // 使用 BaseGrid#getSnappedPoint 获取格子中心（CENTER 模式）\n      try {\n        const snappedCenter = canvas.grid.getSnappedPoint({ x: pos.x, y: pos.y }, { mode: CONST.GRID_SNAPPING_MODES.CENTER });\n        return resolve(snappedCenter);\n      } catch (err) {\n        // fallback：四舍五入到网格中心\n        const sx = Math.round(pos.x / gridSize) * gridSize;\n        const sy = Math.round(pos.y / gridSize) * gridSize;\n        return resolve({ x: sx, y: sy });\n      }\n    };\n    canvas.app.stage.on(\"pointerdown\", handler);\n    setTimeout(() => {\n      try { canvas.app.stage.off(\"pointerdown\", handler); } catch(e){}\n      resolve(null);\n    }, ms);\n  });\n\n  // token 在 Scene 中以 grid 单位的宽高（整数）\n  const tokenGridW = Number(token.document.width ?? token.document._source?.width ?? 1);\n  const tokenGridH = Number(token.document.height ?? token.document._source?.height ?? tokenGridW);\n\n  // 主循环：直到选出合法落点\n  while (true) {\n    // 确保高亮仍在舞台\n    if (!canvas.app.stage.children.includes(g)) canvas.app.stage.addChild(g);\n\n    const snappedCenter = await waitClickAndSnapCenter(TIMEOUT);\n    if (!snappedCenter) {\n      ui.notifications.warn(\"未检测到点击，请再试一次。\");\n      continue;\n    }\n\n    // 由 snapped center 推断所在格索引（左上格索引 = floor(center / gridSize)）\n    const clickedCol = Math.floor(snappedCenter.x / gridSize);\n    const clickedRow = Math.floor(snappedCenter.y / gridSize);\n\n    // 计算 token 的左上格列/行：保证 clicked cell 在 token 占据区域中心附近\n    const topLeftCol = clickedCol - Math.floor(tokenGridW / 2);\n    const topLeftRow = clickedRow - Math.floor(tokenGridH / 2);\n\n    // 计算 token 的目标中心（舞台坐标）\n    const centerX = (topLeftCol + tokenGridW / 2) * gridSize;\n    const centerY = (topLeftRow + tokenGridH / 2) * gridSize;\n\n    // 计算距离（以英尺）\n    const distFt = Math.hypot(centerX - originCenter.x, centerY - originCenter.y) / gridSize * feetPerSquare;\n    if (distFt > RANGE_FT + 0.001) {\n      ui.notifications.warn(`选择超出 ${RANGE_FT} 英尺（距离 ${Math.round(distFt)}ft），请重新选择。`);\n      continue;\n    }\n\n    // 目标左上角像素（用于碰撞检测）\n    const destTopLeftX = Math.round(topLeftCol * gridSize);\n    const destTopLeftY = Math.round(topLeftRow * gridSize);\n    const destRect = new PIXI.Rectangle(destTopLeftX, destTopLeftY, tokenGridW * gridSize, tokenGridH * gridSize);\n\n    // 碰撞检测：若任一现有 token 与该矩形重叠，视为被占用\n    const occupied = canvas.tokens.placeables.some(t => {\n      if (t.id === token.id) return false;\n      const r = new PIXI.Rectangle(t.x, t.y, t.w, t.h);\n      return destRect.right  > r.left &&\n             destRect.left   < r.right &&\n             destRect.bottom > r.top &&\n             destRect.top    < r.bottom;\n    });\n    if (occupied) {\n      ui.notifications.warn(\"该位置被占用，请选择其它位置。\");\n      continue;\n    }\n\n    // 清理高亮\n    try { canvas.app.stage.removeChild(g); } catch(e){}\n\n    // 使用 MidiQOL.moveToken，传入 center 坐标，第三参数 false（无动画）\n    if (typeof MidiQOL?.moveToken === \"function\") {\n      try {\n        await MidiQOL.moveToken(token, { x: Math.round(centerX), y: Math.round(centerY) }, false);\n        ui.notifications.info(`${token.name} 已被传送（无动画）。`);\n        console.log(`RealityCollapse: teleported ${token.name} -> center=(${Math.round(centerX)},${Math.round(centerY)}), topLeft=(${destTopLeftX},${destTopLeftY}), grid=${tokenGridW}x${tokenGridH}`);\n        return;\n      } catch (e) {\n        console.error(\"RealityCollapse: MidiQOL.moveToken failed\", e);\n        ui.notifications.error(\"传送失败（查看控制台）\");\n        return;\n      }\n    } else {\n      ui.notifications.error(\"MidiQOL.moveToken 不可用——宏配置为仅使用 MidiQOL.moveToken 进行传送。\");\n      return;\n    }\n  }\n})();",
-        "author": "WqWGW8MuBm7BNHxt",
+        "command": "",
+        "author": "TEhQZHmGMOcY5c4a",
         "ownership": {
           "default": 3
         },
@@ -60,14 +50,15 @@
         "sort": 0,
         "flags": {},
         "_stats": {
-          "coreVersion": "12.343",
+          "coreVersion": "13.351",
           "systemId": "dnd5e",
-          "systemVersion": "4.4.4",
+          "systemVersion": "5.3.3",
           "createdTime": null,
           "modifiedTime": null,
           "lastModifiedBy": null,
           "compendiumSource": null,
-          "duplicateSource": null
+          "duplicateSource": null,
+          "exportSource": null
         }
       }
     },
@@ -81,7 +72,7 @@
   },
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你短暂地被银白的雾气所笼罩，传送到至多30尺内一个你能看见且未被占据的位置。</div>",
+      "value": "<p>你短暂地被银白的雾气所笼罩，传送到至多 30 尺内一个你能看见且未被占据的位置。</p>",
       "chat": ""
     },
     "source": {
@@ -96,7 +87,8 @@
       "value": 1
     },
     "duration": {
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -108,7 +100,8 @@
       "template": {
         "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -128,10 +121,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -155,22 +144,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -200,7 +193,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -208,7 +202,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -219,26 +212,78 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": "",
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "name": ""
       }
     },
-    "identifier": "misty-step"
+    "identifier": "misty-step",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757419719404,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

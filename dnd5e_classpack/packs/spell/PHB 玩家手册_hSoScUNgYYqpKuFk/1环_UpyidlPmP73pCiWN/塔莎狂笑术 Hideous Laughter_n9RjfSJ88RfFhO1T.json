@@ -24,43 +24,103 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
+    "dnd5e": {},
+    "dae": {
+      "macro": {
+        "name": "塔莎狂笑术 Hideous Laughter",
+        "img": "icons/magic/control/mouth-smile-deception-purple.webp",
+        "type": "script",
+        "scope": "global",
+        "command": "const activity = macroItem.system.activities.find(a => a.name === 'SaveOnDamage');\nif (!activity) return;\nconst actor = args[0].actor;\nconst actorUuid = actor.uuid\nconst effectsToRemove = actor.appliedEffects.filter(e => e.name == macroItem.name).map(e => e.id);\nconst target = new Set([args[0].options.token]);\nconst usage = {\n  midiOptions: {\n    workflowOptions: {\n      targetsToUse: target,\n      isDamageSave: true,\n      autoConsumeResource: \"both\"\n    }\n  }\n};\nconst dialog = {create : false};\nconst DamageSaveWorkflow = await MidiQOL.completeActivityUse(activity,usage,dialog);\nif (DamageSaveWorkflow.saves.has(args[0].options.token)){\n  await MidiQOL.removeEffects({\n    actorUuid: actor.uuid,\n    effects: effectsToRemove\n  });\n}",
+        "author": "TEhQZHmGMOcY5c4a",
+        "ownership": {
+          "default": 3
+        },
+        "_id": null,
+        "folder": null,
+        "sort": 0,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3",
+          "lastModifiedBy": null,
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null
+        }
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/httpsvignettewikianocookienetwowimages999Spellmiscemotionhappypngrevisionlatestcb20090317211041pathprefixru.png",
+  "img": "icons/magic/control/mouth-smile-deception-purple.webp",
   "effects": [
     {
       "name": "塔莎狂笑术 Hideous Laughter",
-      "img": "modules/dnd5e_classpack/Nicons/httpsvignettewikianocookienetwowimages999Spellmiscemotionhappypngrevisionlatestcb20090317211041pathprefixru.png",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.n9RjfSJ88RfFhO1T",
+      "img": "icons/magic/control/mouth-smile-deception-purple.webp",
+      "origin": null,
       "transfer": false,
       "_id": "GaW3obmPEzhahVJq",
       "type": "base",
-      "system": {},
-      "changes": [],
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.OverTime",
+            "value": "turn=end, label=塔莎狂笑术 Hideous Laughter, saveAbility=wis, saveDC=@activity.save.dc.value, saveMagic=true, saveCount=1-, allowIncapacitated=true",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "leMHxoPpHWhF4gmk",
+            "conditions": "{}",
+            "replacement": "origin"
+          },
+          {
+            "key": "flags.midi-qol.onUseMacroName",
+            "value": "ItemMacro,isDamaged",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "TQKLnS5MqbcywWkK",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.advantage.save.all",
+            "value": "workflow.workflowOptions.isDamageSave && workflow.activity.item.system.identifier == 'hideous-laughter'",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "E3IXKeQQxGaj1CpK",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": [
+            "prone"
+          ]
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.n9RjfSJ88RfFhO1T",
+          "message": null
+        },
+        "conditions": "[{\"k\":\"abilities.int.value\",\"o\":\"gte\",\"v\":5}]",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": 10,
-        "startRound": null,
-        "startTurn": null
+        "value": 60,
+        "units": "seconds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
-      "statuses": [],
+      "statuses": [
+        "incapacitated"
+      ],
       "sort": 0,
       "flags": {
         "dae": {
@@ -74,13 +134,14 @@
           "showIcon": false,
           "durationExpression": "",
           "specialDuration": [
-            ""
-          ]
+            "None"
+          ],
+          "macroRepeat": "none",
+          "applicationMode": "dnd5e",
+          "expiryMode": "default"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
@@ -89,20 +150,23 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": 1753012326783,
         "modifiedTime": 1753012341144,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!n9RjfSJ88RfFhO1T.GaW3obmPEzhahVJq"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 指定施法距离内一个你能看见的生物，如果该生物可受法术影响，则一切事物在该生物眼中都变得滑稽可笑，使它开始狂笑起来。目标必须进行一次感知豁免，豁免失败则俯身倒地，并在法术持续时间内陷入失能状态且无法起立。该效应对智力为4或更低的生物无效。\n<br />目标在其每回合结束或受到伤害时，可以再进行一次感知豁免。豁免成功则法术终止。再进行豁免时，如果是因受到伤害所致则该次豁免具有优势。\n<br /></div>",
+      "value": "<p>指定施法距离内一个你能看见的生物，如果该生物可受法术影响，则一切事物在该生物眼中都变得滑稽可笑，使它开始狂笑起来。目标必须进行一次感知豁免，豁免失败则俯身倒地，并在法术持续时间内陷入失能状态且无法起立。该效应对智力为 4 或更低的生物无效。</p><p>目标在其每回合结束或受到伤害时，可以再进行一次感知豁免。豁免成功则法术终止。再进行豁免时，如果是因受到伤害所致则该次豁免具有优势。</p>",
       "chat": ""
     },
     "source": {
@@ -120,7 +184,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -130,9 +195,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -153,10 +219,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -182,34 +244,44 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "j9T1W77fJiWdKl0X",
-            "onSave": false
-          },
-          {
-            "_id": "AF8c5CCcPSt2QoSO",
-            "onSave": false
-          },
-          {
-            "_id": "GaW3obmPEzhahVJq"
+            "_id": "GaW3obmPEzhahVJq",
+            "uuid": null,
+            "level": {},
+            "onSave": false,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1753012326783,
+              "modifiedTime": 1753012341144,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -235,7 +307,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -249,7 +322,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -257,7 +331,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -268,24 +341,227 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": true,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "name": "",
         "img": "",
-        "appliedEffects": [
-          "j9T1W77fJiWdKl0X",
-          "AF8c5CCcPSt2QoSO"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
+      },
+      "InkJw7hXnL6lYuPw": {
+        "type": "save",
+        "_id": "InkJw7hXnL6lYuPw",
+        "img": "",
+        "sort": 100000,
+        "activation": {
+          "type": "action",
+          "override": true,
+          "condition": ""
+        },
+        "consumption": {
+          "scaling": {
+            "allowed": false
+          },
+          "spellSlot": false,
+          "targets": []
+        },
+        "description": {
+          "chatFlavor": "",
+          "value": ""
+        },
+        "duration": {
+          "units": "inst",
+          "concentration": false,
+          "override": true,
+          "expiry": null
+        },
+        "effects": [],
+        "flags": {},
+        "range": {
+          "units": "self",
+          "override": true,
+          "special": ""
+        },
+        "target": {
+          "template": {
+            "contiguous": false,
+            "stationary": false,
+            "units": "ft",
+            "type": ""
+          },
+          "affects": {
+            "choice": false,
+            "type": ""
+          },
+          "override": true,
+          "prompt": true
+        },
+        "uses": {
+          "spent": 0,
+          "recovery": [],
+          "max": ""
+        },
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "damage": {
+          "onSave": "half",
+          "critical": {
+            "allow": false
+          },
+          "parts": []
+        },
+        "save": {
+          "ability": [
+            "wis"
+          ],
+          "dc": {
+            "calculation": "spellcasting",
+            "formula": ""
+          },
+          "visible": true
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": true,
+          "otherActivityCompatible": false,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": true,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "otherActivityId": "none",
+        "otherActivityAsParentType": true,
+        "friendlySave": "default",
+        "name": "SaveOnDamage",
+        "behaviors": [],
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
-    "identifier": "hideous-laughter"
+    "identifier": "hideous-laughter",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -294,8 +570,8 @@
   "sort": 27200000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711704831246,
     "modifiedTime": 1757351481243,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

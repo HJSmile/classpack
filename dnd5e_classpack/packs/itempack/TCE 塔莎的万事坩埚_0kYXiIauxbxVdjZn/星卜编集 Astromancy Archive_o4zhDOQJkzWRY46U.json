@@ -4,7 +4,7 @@
   "img": "icons/sundries/books/book-embossed-blue.webp",
   "system": {
     "description": {
-      "value": "<p><em>（需法师同调）</em><br />这个以铜圆盘为铰接件的同心环能够展开为一只浑天仪。以一个附赠动作，你可以将其展开为浑天仪或使其收回成一个圆盘。<br />这本书在被找到时，包含了以下法术，且在你与其同调后对你视为法师法术：<span class=\"bbc_color\" style=\"COLOR:purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.umqpL5B9ccbkpJtJ]{卜筮术Augury}</em></span>、<span class=\"bbc_color\" style=\"COLOR:purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.0An7Gb3wSSffcHhV]{预言术Divination}</em></span>、<span class=\"bbc_color\" style=\"COLOR:purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.psqF5vrCUEKlJvwj]{寻路术Find the Path}</em></span>、<span class=\"bbc_color\" style=\"COLOR:purple\">@UUID[Compendium.dnd5e_classpack.spell.Item.W3JAUTQ0DetaeRts]{预警术Foresight}</span>、<span class=\"bbc_color\" style=\"COLOR:purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.s9CC5wvKMHq42hPY]{生物定位术Locate Creature }</em></span>与<span class=\"bbc_color\" style=\"COLOR:purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.Fw3U8sQwWSPVoisW]{物件定位术Locate Object}</em></span>。你可以将其作为法术书，法术被编刻在其圆环上。<br />当你持握编集时，你可以将其作为你法师法术的法器。<br />编集具有3发充能，且每天黎明时恢复1d3发已消耗的充能。你持握它时，可以通过以下方式消耗充能：<br /></p><ul class=\"bbc_list\"><li>如果你花费1分钟时间研究此编集，你可以消耗1发充能来将你的一道已准备法术替换为编集中的另一道法术。新法术必须是预言学派的法术。</li><li>当一个30内你可见的生物进行一次攻击检定、属性检定或豁免检定时，你可以使用你的反应并消耗1发充能使那个生物骰一个[[/r 1d4]]并将其数值作为原掷骰的加值或减值（由你选择）。你可以在看见掷骰结束，但在宣布结果之前使用该反应。</li></ul>",
+      "value": "<p><em>（需法师同调）</em></p><p>这个以铜圆盘为铰接件的同心环能够展开为一只浑天仪。以一个附赠动作，你可以将其展开为浑天仪或使其收回成一个圆盘。</p><p>这本书在被找到时，包含了以下法术，且在你与其同调后对你视为法师法术：<span style=\"color: purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.umqpL5B9ccbkpJtJ]{卜筮术Augury}</em></span>、<span style=\"color: purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.0An7Gb3wSSffcHhV]{预言术Divination}</em></span>、<span style=\"color: purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.psqF5vrCUEKlJvwj]{寻路术Find the Path}</em></span>、<span style=\"color: purple\">@UUID[Compendium.dnd5e_classpack.spell.Item.W3JAUTQ0DetaeRts]{预警术Foresight}</span>、<span style=\"color: purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.s9CC5wvKMHq42hPY]{生物定位术Locate Creature }</em></span>与<span style=\"color: purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.Fw3U8sQwWSPVoisW]{物件定位术Locate Object}</em></span>。你可以将其作为法术书，法术被编刻在其圆环上。</p><p>当你持握编集时，你可以将其作为你法师法术的法器。</p><p>编集具有3发充能，且每天黎明时恢复1d3发已消耗的充能。你持握它时，可以通过以下方式消耗充能：</p><ul><li>如果你花费1分钟时间研究此编集，你可以消耗1发充能来将你的一道已准备法术替换为编集中的另一道法术。新法术必须是预言学派的法术。</li><li>当一个30内你可见的生物进行一次攻击检定、属性检定或豁免检定时，你可以使用你的反应并消耗1发充能使那个生物骰一个[[/r 1d4]]并将其数值作为原掷骰的加值或减值（由你选择）。你可以在看见掷骰结束，但在宣布结果之前使用该反应。</li></ul>",
       "chat": ""
     },
     "source": {
@@ -24,10 +24,8 @@
     },
     "attunement": "required",
     "equipped": false,
-    "rarity": "rare",
     "identified": true,
     "cover": null,
-    "crewed": false,
     "uses": {
       "max": "3",
       "recovery": [
@@ -41,8 +39,7 @@
     },
     "armor": {
       "value": null,
-      "dex": null,
-      "magicalBonus": null
+      "dex": null
     },
     "hp": {
       "value": null,
@@ -52,7 +49,8 @@
     },
     "speed": {
       "value": null,
-      "conditions": ""
+      "conditions": "",
+      "units": "ft"
     },
     "strength": null,
     "proficient": 1,
@@ -96,18 +94,20 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -119,7 +119,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -141,11 +142,102 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-astromancy-archive",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "rare"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "effects": [],
   "flags": {
@@ -172,19 +264,12 @@
       "reactionCondition": "",
       "effectCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 3,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1686059964887,
     "modifiedTime": 1757871353512,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

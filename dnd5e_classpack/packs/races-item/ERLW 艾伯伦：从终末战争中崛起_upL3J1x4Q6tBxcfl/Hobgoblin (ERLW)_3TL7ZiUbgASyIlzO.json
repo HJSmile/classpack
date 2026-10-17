@@ -3,7 +3,7 @@
   "type": "race",
   "system": {
     "description": {
-      "value": "<div>\n\t\t\t\t<table class=\"w-100 summary stripe-even\">\n\t\t\t\t<tbody><tr>\n\t\t\t\t\t<th class=\"ve-col-4 ve-text-center\">Ability Scores</th>\n\t\t\t\t\t<th class=\"ve-col-4 ve-text-center\">Size</th>\n\t\t\t\t\t<th class=\"ve-col-4 ve-text-center\">Speed</th>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td class=\"ve-text-center\">Constitution +2; Intelligence +1</td>\n\t\t\t\t\t<td class=\"ve-text-center\">Medium</td>\n\t\t\t\t\t<td class=\"ve-text-center\">30 ft. </td>\n\t\t\t\t</tr>\n\t\t\t</tbody></table>\n\t\t\t\t<div class=\"rd__b  rd__b--2\"><div data-roll-name-ancestor=\"Age\" class=\"rd__b  rd__b--3\"><p><span class=\"rd__h rd__h--3\" data-title-index=\"1\"> <span class=\"entry-title-inner\">Age.</span></span> Hobgoblins mature at the same rate as humans and have lifespans similar in length to theirs.</p></div><div data-roll-name-ancestor=\"Size\" class=\"rd__b  rd__b--3\"><p><span class=\"rd__h rd__h--3\" data-title-index=\"2\"> <span class=\"entry-title-inner\">Size.</span></span> Your size is Medium.</p></div><div data-roll-name-ancestor=\"Darkvision\" class=\"rd__b  rd__b--3\"><p><span class=\"rd__h rd__h--3\" data-title-index=\"3\"> <span class=\"entry-title-inner\">Darkvision.</span></span> You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</p></div><div data-roll-name-ancestor=\"Martial Training\" class=\"rd__b  rd__b--3\"><p><span class=\"rd__h rd__h--3\" data-title-index=\"4\"> <span class=\"entry-title-inner\">Martial Training.</span></span> You are proficient with two <span class=\"bold\">martial weapons</span> of your choice and with light armor.</p></div><div data-roll-name-ancestor=\"Saving Face\" class=\"rd__b  rd__b--3\"><p><span class=\"rd__h rd__h--3\" data-title-index=\"5\"> <span class=\"entry-title-inner\">Saving Face.</span></span> Hobgoblins are careful not to show weakness in front of their allies, for fear of losing status. If you miss with an attack roll or fail an ability check or a saving throw, you can gain a bonus to the roll equal to the number of allies you can see within 30 feet of you (maximum bonus of +5). Once you use this trait, you can't use it again until you finish a short or long rest.</p></div><div data-roll-name-ancestor=\"Languages\" class=\"rd__b  rd__b--3\"><p><span class=\"rd__h rd__h--3\" data-title-index=\"6\"> <span class=\"entry-title-inner\">Languages.</span></span> You can speak, read, and write Common and Goblin.</p></div><div data-roll-name-ancestor=\"Alignment\" class=\"rd__b  rd__b--3\"><p><span class=\"rd__h rd__h--3\" data-title-index=\"7\"> <span class=\"entry-title-inner\">Alignment.</span></span> Hobgoblin society in Eberron is shaped by the ideal of a strict code of honor and rigid martial discipline. Most hobgoblins are lawful, tending toward harsh enforcement of their laws.</p></div></div>\n\t\t\t\t<hr class=\"hr-1\" />\n\t\t\t</div>",
+      "value": "<table class=\"w-100 summary stripe-even\"><tbody><tr><th class=\"ve-col-4 ve-text-center\">Ability Scores</th><th class=\"ve-col-4 ve-text-center\">Size</th><th class=\"ve-col-4 ve-text-center\">Speed</th></tr><tr><td class=\"ve-text-center\">Constitution +2; Intelligence +1</td><td class=\"ve-text-center\">Medium</td><td class=\"ve-text-center\">30 ft. </td></tr></tbody></table><div data-roll-name-ancestor=\"Age\"><p><span data-title-index=\"1\"><span class=\"entry-title-inner\">Age.</span></span> Hobgoblins mature at the same rate as humans and have lifespans similar in length to theirs.</p></div><div data-roll-name-ancestor=\"Size\"><p><span data-title-index=\"2\"><span class=\"entry-title-inner\">Size.</span></span> Your size is Medium.</p></div><div data-roll-name-ancestor=\"Darkvision\"><p><span data-title-index=\"3\"><span class=\"entry-title-inner\">Darkvision.</span></span> You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</p></div><div data-roll-name-ancestor=\"Martial Training\"><p><span data-title-index=\"4\"><span class=\"entry-title-inner\">Martial Training.</span></span> You are proficient with two <span class=\"bold\">martial weapons</span> of your choice and with light armor.</p></div><div data-roll-name-ancestor=\"Saving Face\"><p><span data-title-index=\"5\"><span class=\"entry-title-inner\">Saving Face.</span></span> Hobgoblins are careful not to show weakness in front of their allies, for fear of losing status. If you miss with an attack roll or fail an ability check or a saving throw, you can gain a bonus to the roll equal to the number of allies you can see within 30 feet of you (maximum bonus of +5). Once you use this trait, you can't use it again until you finish a short or long rest.</p></div><div data-roll-name-ancestor=\"Languages\"><p><span data-title-index=\"6\"><span class=\"entry-title-inner\">Languages.</span></span> You can speak, read, and write Common and Goblin.</p></div><div data-roll-name-ancestor=\"Alignment\"><p><span data-title-index=\"7\"><span class=\"entry-title-inner\">Alignment.</span></span> Hobgoblin society in Eberron is shaped by the ideal of a strict code of honor and rigid martial discipline. Most hobgoblins are lawful, tending toward harsh enforcement of their laws.</p></div>",
       "chat": ""
     },
     "source": {
@@ -15,13 +15,12 @@
       "revision": 1
     },
     "movement": {
-      "burrow": null,
-      "climb": null,
-      "fly": null,
-      "swim": null,
-      "walk": 30,
       "units": "ft",
-      "hover": false
+      "hover": false,
+      "speeds": {
+        "walk": "30"
+      },
+      "ignoredDifficultTerrain": []
     },
     "type": {
       "value": "humanoid",
@@ -29,19 +28,21 @@
       "custom": ""
     },
     "senses": {
-      "darkvision": 60,
-      "blindsight": null,
-      "truesight": null,
-      "tremorsense": null,
       "units": "ft",
-      "special": ""
+      "special": "",
+      "ranges": {
+        "darkvision": 60,
+        "blindsight": null,
+        "tremorsense": null,
+        "truesight": null
+      }
     },
-    "advancement": [
-      {
+    "advancement": {
+      "hqGIiKtMrsz5tAnu": {
         "_id": "hqGIiKtMrsz5tAnu",
         "type": "AbilityScoreImprovement",
         "configuration": {
-          "points": 1,
+          "points": 0,
           "fixed": {
             "str": 0,
             "dex": 0,
@@ -50,16 +51,26 @@
             "wis": 0,
             "cha": 0
           },
-          "cap": 1,
-          "locked": []
+          "cap": null,
+          "locked": [
+            "str",
+            "dex",
+            "con",
+            "int",
+            "wis",
+            "cha"
+          ],
+          "recommendation": null
         },
         "value": {
           "type": "asi"
         },
         "level": 0,
-        "title": ""
+        "name": "",
+        "flags": {},
+        "hint": ""
       },
-      {
+      "VC9pFnsDZo4K7m8O": {
         "_id": "VC9pFnsDZo4K7m8O",
         "type": "Size",
         "configuration": {
@@ -71,9 +82,95 @@
           "size": "med"
         },
         "level": 0,
-        "title": ""
+        "name": "",
+        "flags": {},
+        "hint": ""
+      },
+      "f6ea75df112623a4": {
+        "_id": "f6ea75df112623a4",
+        "type": "ItemGrant",
+        "configuration": {
+          "items": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.uUzBgh9QjvMEanIr",
+              "optional": false,
+              "sort": 0
+            }
+          ],
+          "optional": false,
+          "spell": null,
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "hint": "",
+        "name": "特质",
+        "flags": {}
+      },
+      "0c7722a049f4419c": {
+        "_id": "0c7722a049f4419c",
+        "type": "Trait",
+        "configuration": {
+          "allowReplacements": false,
+          "choices": [],
+          "grants": [
+            "languages:standard:goblin",
+            "languages:standard:common"
+          ],
+          "mode": "default"
+        },
+        "value": {
+          "chosen": []
+        },
+        "level": 0,
+        "hint": "",
+        "name": "语言",
+        "flags": {}
+      },
+      "794391a1979e437f": {
+        "type": "Trait",
+        "_id": "794391a1979e437f",
+        "configuration": {
+          "allowReplacements": true,
+          "choices": [
+            {
+              "count": 2,
+              "pool": [
+                "weapon:mar:*"
+              ]
+            }
+          ],
+          "grants": [],
+          "mode": "default"
+        },
+        "value": {
+          "chosen": []
+        },
+        "level": 0,
+        "hint": "",
+        "name": "军事训练",
+        "flags": {}
+      },
+      "30df5a7241fc68c3": {
+        "type": "Trait",
+        "_id": "30df5a7241fc68c3",
+        "configuration": {
+          "allowReplacements": false,
+          "choices": [],
+          "grants": [
+            "armor:lgt"
+          ],
+          "mode": "default"
+        },
+        "value": {
+          "chosen": []
+        },
+        "level": 0,
+        "hint": "",
+        "name": "军事训练护甲",
+        "flags": {}
       }
-    ],
+    },
     "identifier": "hobgoblin-erlw"
   },
   "effects": [],
@@ -85,14 +182,14 @@
       "propDroppable": "race"
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/img/races/ERLW/Goblinoids.webp",
+  "img": "icons/equipment/head/helm-barbute-horned.webp",
   "folder": "upL3J1x4Q6tBxcfl",
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1751822727671,
     "modifiedTime": 1751822727741,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

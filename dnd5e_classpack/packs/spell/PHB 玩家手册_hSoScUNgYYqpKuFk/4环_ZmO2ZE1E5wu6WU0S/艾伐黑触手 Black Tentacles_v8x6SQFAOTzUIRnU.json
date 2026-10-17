@@ -12,11 +12,11 @@
       "effectCondition": "",
       "reactionCondition": "",
       "otherCondition": "",
-      "onUseMacroName": "[preActiveEffects]ItemMacro"
+      "onUseMacroName": "[templatePlaced]ActivityMacro-iuv8KM0qfRsY5Enz,[preItemRoll]ActivityMacro-4CYjU31cL7Wza92j,[postActiveEffects]ActivityMacro-4CYjU31cL7Wza92j"
     },
     "midiProperties": {
       "confirmTargets": "always",
-      "saveDamage": "fulldam",
+      "saveDamage": "nodam",
       "bonusSaveDamage": "fulldam",
       "autoFailFriendly": false,
       "autoSaveFriendly": false,
@@ -29,26 +29,15 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "dae": {
       "macro": {
         "name": "艾伐黑触手 Black Tentacles",
-        "img": "modules/dnd5e_classpack/Nicons/spell_priest_voidtendrils.jpg",
+        "img": "icons/creatures/tentacles/tentacles-suctioncups-pink.webp",
         "type": "script",
         "scope": "global",
-        "command": "if (args[0].macroPass === \"preActiveEffects\" || args[0].tag === \"OnUse\") {\n  return await game.modules.get(\"ActiveAuras\").api.AAHelpers.applyTemplate(args);\n}",
-        "author": "WqWGW8MuBm7BNHxt",
+        "command": "",
+        "author": "dvg25zW2MvzsvMOU",
         "ownership": {
           "default": 3
         },
@@ -57,133 +46,69 @@
         "sort": 0,
         "flags": {},
         "_stats": {
-          "coreVersion": "12.343",
+          "coreVersion": "14.369",
           "systemId": "dnd5e",
-          "systemVersion": "4.3.9",
+          "systemVersion": "6.0.6",
           "createdTime": null,
           "modifiedTime": null,
           "lastModifiedBy": null,
           "compendiumSource": null,
-          "duplicateSource": null
+          "duplicateSource": null,
+          "exportSource": null
         }
+      }
+    },
+    "dnd5e_classpack": {
+      "regionAutomation": {
+        "key": "blackTentacles",
+        "main": "iuv8KM0qfRsY5Enz",
+        "repeated": "4CYjU31cL7Wza92j",
+        "schemaVersion": 2,
+        "terrain": true
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/spell_priest_voidtendrils.jpg",
+  "img": "icons/creatures/tentacles/tentacles-suctioncups-pink.webp",
   "effects": [
     {
-      "name": "艾伐黑触手 Black Tentacles",
-      "img": "modules/dnd5e_classpack/Nicons/spell_priest_voidtendrils.jpg",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.JMAmXdzvxTU27pP2",
-      "transfer": false,
-      "_id": "46qS6lWyqqCkSFj8",
-      "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "macro.execute",
-          "mode": 0,
-          "value": "applyTentacleEffect",
-          "priority": 20
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "tint": "#ffffff",
-      "statuses": [],
-      "sort": 0,
-      "flags": {
-        "dae": {
-          "enableCondition": "",
-          "disableCondition": "",
-          "disableIncapacitated": false,
-          "selfTarget": false,
-          "selfTargetAlways": false,
-          "dontApply": false,
-          "stackable": "noneName",
-          "showIcon": false,
-          "durationExpression": "",
-          "specialDuration": []
-        },
-        "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
-        },
-        "core": {
-          "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": true,
-          "aura": "All",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": true,
-          "hostile": true,
-          "onlyOnce": true,
-          "wallsBlock": "system",
-          "statuses": []
-        }
-      },
-      "_stats": {
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "coreVersion": "13.351",
-        "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null,
-        "exportSource": null
-      },
-      "_key": "!items.effects!v8x6SQFAOTzUIRnU.46qS6lWyqqCkSFj8"
-    },
-    {
       "name": "艾伐黑触手—束缚",
-      "img": "modules/dnd5e_classpack/Nicons/spell_priest_voidtendrils.jpg",
-      "origin": "Item.DaFw5hy4Jm917XYy",
+      "img": "icons/creatures/tentacles/tentacles-suctioncups-pink.webp",
+      "origin": null,
       "transfer": false,
       "_id": "BGrMxlhDntW2tPxW",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.OverTime",
-          "mode": 0,
-          "value": "turn=start, label=艾伐黑触手—束缚, rollType=check, saveAbility=str, saveDC=@attributes.spell.dc, saveMagic=true, damageRoll=3d6, damageType=bludgeoning, damageBeforeSave=true, saveDamage=fulldamage, saveCount=1-, actionSave=dialog, rollMode=publicroll, allowIncapacitated=true",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.OverTime",
+            "value": "turn=start, label=艾伐黑触手—束缚, rollType=check, saveAbility=str|dex, saveDC=@attributes.spell.dc, saveMagic=true, damageRoll=3d6, damageType=bludgeoning, damageBeforeSave=true, saveDamage=fulldamage, saveCount=1-, actionSave=dialog, rollMode=public",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "NZFHyIhY6fNqRStB",
+            "conditions": "{}",
+            "replacement": "origin"
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "macro.execute",
-          "mode": 0,
-          "value": "DeleteAuraEffect",
-          "priority": 20
-        }
-      ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Item.DaFw5hy4Jm917XYy",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 60,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -203,51 +128,40 @@
           "showIcon": false,
           "durationExpression": "",
           "specialDuration": [],
-          "macroRepeat": "none"
+          "macroRepeat": "none",
+          "applicationMode": "default",
+          "expiryMode": "default"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
         },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
+        "dnd5e_classpack": {
+          "regionEffect": "blackTentacles-binding"
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1786656160533,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
         "exportSource": null
       },
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!v8x6SQFAOTzUIRnU.BGrMxlhDntW2tPxW"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"><p>你指定一处施法距离内你能看见的20尺方形区域，使其内布满蠕动的乌黑触须，进而使该区域成为困难地形。 <br />任何生物在一个回合内第一次进入该区域，或者在区域内开始其回合时，必须进行一次敏捷豁免。豁免失败者将受到3d6点钝击伤害，并且被触须束缚直至法术终止。生物在区域内开始其回合时，如果已受触须束缚则受到3d6点钝击伤害。 <br />受触须束缚的生物可以使用动作进行一次对抗法术豁免DC的力量检定或敏捷检定（自选其一），检定成功则挣脱束缚。 <br /></p><p>使用本法术时请从合集包的宏文件夹中导入艾伐黑触手中的所有宏</p></div>",
+      "value": "<p>你指定一处施法距离内你能看见的 20 尺方形区域，使其内布满蠕动的乌黑触须，进而使该区域成为困难地形。</p><p>任何生物在一个回合内第一次进入该区域，或者在区域内开始其回合时，必须进行一次敏捷豁免。豁免失败者将受到 3d6 点钝击伤害，并且被触须束缚直至法术终止。生物在区域内开始其回合时，如果已受触须束缚则受到 3d6 点钝击伤害。</p><p>受触须束缚的生物可以使用动作进行一次对抗法术豁免 DC 的力量检定或敏捷检定（自选其一），检定成功则挣脱束缚。</p>",
       "chat": ""
     },
     "source": {
@@ -265,7 +179,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -277,7 +192,8 @@
         "type": "square",
         "size": "20",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -299,10 +215,6 @@
       "cost": 0,
       "supply": 0
     },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
-    },
     "properties": [
       "vocal",
       "somatic",
@@ -311,73 +223,80 @@
       "mgc"
     ],
     "activities": {
-      "dnd5eactivity000": {
-        "_id": "dnd5eactivity000",
+      "iuv8KM0qfRsY5Enz": {
         "type": "utility",
+        "name": "施法与区域放置",
+        "_id": "iuv8KM0qfRsY5Enz",
+        "img": "",
+        "sort": 0,
         "activation": {
           "type": "action",
-          "value": null,
           "override": false
         },
+        "behaviors": [],
         "consumption": {
-          "targets": [],
           "scaling": {
-            "allowed": false,
-            "max": ""
+            "allowed": false
           },
-          "spellSlot": true
+          "spellSlot": true,
+          "targets": []
         },
         "description": {
+          "value": "",
           "chatFlavor": ""
         },
         "duration": {
           "units": "inst",
+          "expiry": null,
           "concentration": false,
           "override": false
         },
-        "effects": [
-          {
-            "_id": "46qS6lWyqqCkSFj8"
-          }
-        ],
+        "effects": [],
+        "flags": {},
         "range": {
+          "units": "self",
           "override": false
         },
         "target": {
-          "prompt": true,
           "template": {
             "contiguous": false,
+            "stationary": false,
             "units": "ft"
           },
           "affects": {
             "choice": false
           },
-          "override": false
+          "override": false,
+          "prompt": true
         },
         "uses": {
           "spent": 0,
-          "max": "",
-          "recovery": []
+          "recovery": [],
+          "max": ""
         },
-        "roll": {
-          "formula": "",
-          "name": "",
-          "prompt": false,
-          "visible": false
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
         },
-        "sort": 0,
         "useConditionText": "",
         "useConditionReason": "",
         "effectConditionText": "",
+        "otherActivityId": "none",
         "macroData": {
-          "name": "",
-          "command": ""
+          "name": "区域：放置后补 Entry",
+          "command": "const cfg = workflow.item.flags.dnd5e_classpack.regionAutomation;\nconst pass = args[0]?.macroPass;\nfunction ownEffect(effect, role) {\n  if (effect.flags?.dnd5e_classpack?.regionEffect !== role) return false;\n  const itemUuid = workflow.item.uuid;\n  return [effect.origin, ...Object.values(effect.system?.origin ?? {}),\n    effect._stats?.duplicateSource, effect.flags?.dnd5e_classpack?.sourceItemUuid]\n    .some(uuid => typeof uuid === \"string\" &&\n      (uuid === itemUuid || uuid.startsWith(itemUuid + \".\")));\n}\nfunction concentration() {\n  return MidiQOL.getConcentrationEffect(workflow.actor, workflow.item)\n    ?? MidiQOL.getConcentrationEffect(workflow.actor);\n}\nif (pass === \"templatePlaced\") {\n  const repeated = workflow.item.system.activities.get(cfg.repeated);\n  if (!repeated) throw new Error(\"区域重复活动不存在\");\n  for (const uuid of workflow.templateUuids ?? []) {\n    const region = await fromUuid(uuid);\n    if (region?.documentName !== \"Region\") continue;\n    const behavior = region.behaviors.find(b => b.type === \"midi-qol.regionActivity\" &&\n      b.system.sourceItemUuid === workflow.item.uuid && !b.flags?.dnd5e_classpack?.regionPassive);\n    if (!behavior) throw new Error(\"Midi 区域行为不存在\");\n    const rules = foundry.utils.deepClone(behavior.system.rules);\n    if (!rules.some(r => r.trigger === \"entry\" && r.action === \"useActivity\" && r.targetUuid === repeated.uuid)) {\n      rules.push({ trigger: \"entry\", action: \"useActivity\", targetUuid: repeated.uuid });\n    }\n    const extra = [];\n    if (cfg.terrain && !region.behaviors.some(b => b.type === \"dnd5e.difficultTerrain\")) {\n      extra.push({ name: workflow.item.name + \"：困难地形\", type: \"dnd5e.difficultTerrain\",\n        system: { magical: true, types: [], ignoredDispositions: [] } });\n    }\n    if (cfg.key === \"spiritGuardians\" && !region.behaviors.some(b =>\n      b.flags?.dnd5e_classpack?.regionPassive === \"spirit-slow\")) {\n      const enter = workflow.item.system.activities.get(cfg.slowEnter);\n      const exit = workflow.item.system.activities.get(cfg.slowExit);\n      if (!enter || !exit) throw new Error(\"灵体卫士减速活动不存在\");\n      extra.push({ name: \"灵体卫士：减速进出\", type: \"midi-qol.regionActivity\",\n        flags: { dnd5e_classpack: { regionPassive: \"spirit-slow\" } },\n        system: { sourceItemUuid: workflow.item.uuid, sourceActorUuid: workflow.actor.uuid,\n          castLevel: workflow.spellLevel ?? workflow.item.system.level,\n          dispositionFilter: 0, excludeSource: false, oncePerTurn: false, wallRestriction: \"none\",\n          rules: [{ trigger: \"entry\", action: \"useActivity\", targetUuid: enter.uuid },\n            { trigger: \"exit\", action: \"useActivity\", targetUuid: exit.uuid }] }\n      });\n    }\n    await MidiQOL.socket().executeAsGM(\"setupRegion\", {\n      regionUuid: region.uuid,\n      update: {\n        \"flags.dnd5e_classpack.regionAutomation\": { key: cfg.key, sourceItemUuid: workflow.item.uuid,\n          exemptActorUuids: workflow._spiritExemptActorUuids ?? [] },\n        behaviors: [{ _id: behavior.id, system: { rules } }]\n      }, behaviors: extra\n    });\n  }\n}\n"
         },
         "ignoreTraits": {
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -385,37 +304,272 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
           "automationOnly": false,
           "otherActivityCompatible": true,
-          "identifier": "",
+          "otherActivityAsParentType": true,
+          "identifier": "blackTentacles-cast",
           "displayActivityName": false,
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": true,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
+          "rollAs": "target",
           "preRemoveConditionText": "",
           "postRemoveConditionText": ""
         },
-        "otherActivityId": "none"
+        "regionBehavior": {
+          "enabled": true,
+          "dispositionFilter": 0,
+          "excludeSource": false,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": [
+            {
+              "trigger": "turnStart",
+              "action": "useActivity",
+              "targetId": "blackTentacles-repeat"
+            }
+          ]
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
+      },
+      "4CYjU31cL7Wza92j": {
+        "type": "save",
+        "name": "区域重复豁免",
+        "_id": "4CYjU31cL7Wza92j",
+        "img": "",
+        "sort": 100000,
+        "activation": {
+          "type": "",
+          "value": null,
+          "override": true,
+          "condition": ""
+        },
+        "behaviors": [],
+        "consumption": {
+          "targets": [],
+          "spellSlot": false,
+          "scaling": {
+            "allowed": false,
+            "max": ""
+          }
+        },
+        "description": {
+          "value": "",
+          "chatFlavor": ""
+        },
+        "duration": {
+          "override": true,
+          "units": "inst",
+          "concentration": false,
+          "expiry": null
+        },
+        "effects": [
+          {
+            "_id": "BGrMxlhDntW2tPxW",
+            "uuid": null,
+            "onSave": false,
+            "level": {
+              "min": null,
+              "max": null
+            }
+          }
+        ],
+        "flags": {},
+        "range": {
+          "override": true,
+          "units": "self",
+          "special": ""
+        },
+        "target": {
+          "override": true,
+          "prompt": false,
+          "template": {
+            "type": "",
+            "units": "ft",
+            "contiguous": false,
+            "stationary": false
+          },
+          "affects": {
+            "type": "creature",
+            "count": "1",
+            "choice": false
+          }
+        },
+        "uses": {
+          "spent": 0,
+          "recovery": [],
+          "max": ""
+        },
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "damage": {
+          "onSave": "none",
+          "critical": {
+            "allow": false
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              },
+              "number": 3,
+              "denomination": 6,
+              "bonus": "",
+              "modifiers": [],
+              "types": [
+                "bludgeoning"
+              ],
+              "scaling": {
+                "mode": "",
+                "number": 1
+              }
+            }
+          ]
+        },
+        "save": {
+          "ability": [
+            "dex"
+          ],
+          "dc": {
+            "calculation": "spellcasting",
+            "formula": ""
+          },
+          "visible": true,
+          "bonus": ""
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": "none",
+        "macroData": {
+          "name": "区域豁免与束缚来源",
+          "command": "const cfg = workflow.item.flags.dnd5e_classpack.regionAutomation;\nconst pass = args[0]?.macroPass;\nfunction ownEffect(effect, role) {\n  if (effect.flags?.dnd5e_classpack?.regionEffect !== role) return false;\n  const itemUuid = workflow.item.uuid;\n  return [effect.origin, ...Object.values(effect.system?.origin ?? {}),\n    effect._stats?.duplicateSource, effect.flags?.dnd5e_classpack?.sourceItemUuid]\n    .some(uuid => typeof uuid === \"string\" &&\n      (uuid === itemUuid || uuid.startsWith(itemUuid + \".\")));\n}\nfunction concentration() {\n  return MidiQOL.getConcentrationEffect(workflow.actor, workflow.item)\n    ?? MidiQOL.getConcentrationEffect(workflow.actor);\n}\nconst role = cfg.key + \"-binding\";\nif (pass === \"preItemRoll\") {\n  const target = Array.from(workflow.targets ?? [])[0];\n  if (!target?.actor) return false;\n  if (cfg.key === \"web\" && game.combat?.active &&\n    game.combat.combatant?.token?.uuid !== (target.document ?? target).uuid) return false;\n  if (cfg.key === \"blackTentacles\" && Array.from(target.actor.appliedEffects ?? target.actor.effects)\n    .some(effect => !effect.disabled && !effect.isSuppressed && ownEffect(effect, role))) return false;\n}\nif (pass === \"postActiveEffects\") {\n  const dependentOn = concentration()?.uuid;\n  for (const target of workflow.targets ?? []) {\n    const updates = Array.from(target.actor?.appliedEffects ?? target.actor?.effects ?? [])\n      .filter(effect => ownEffect(effect, role)).map(effect => ({ _id: effect.id,\n        \"flags.dnd5e_classpack.sourceItemUuid\": workflow.item.uuid,\n        ...(dependentOn ? { \"flags.dnd5e.dependentOn\": dependentOn } : {})\n      }));\n    if (updates.length) await MidiQOL.socket().executeAsGM(\"updateEffects\", {\n      actorUuid: target.actor.uuid, updates\n    });\n  }\n}\n"
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "never",
+          "autoTargetType": "any",
+          "autoTargetAction": "none",
+          "automationOnly": true,
+          "otherActivityCompatible": false,
+          "otherActivityAsParentType": true,
+          "identifier": "blackTentacles-repeat",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": true,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "black-tentacles"
+    "identifier": "black-tentacles",
+    "method": "spell",
+    "prepared": 0
   },
   "folder": "ZmO2ZE1E5wu6WU0S",
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1753358091998,
     "modifiedTime": 1757256808586,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -9,7 +9,7 @@
       "subtype": ""
     },
     "description": {
-      "value": "<p>第7级时，你的直觉变的异常敏锐，而你的先攻检定则因此具有优势。</p><p>此外，如果你在战斗开始时被突袭但并未陷入失能，则你仍可以在你的第一回合正常行动。不过你必须在进行任何其它行动前进入狂暴。</p>",
+      "value": "<p>第7级时，你的直觉变的异常敏锐，而你的先攻检定则因此具有优势。</p><p>此外，如果你在战斗开始时被突袭但并未陷入&amp;Reference[condition=incapacitated apply=false]{失能}，则你仍可以在你的第一回合正常行动。不过你必须在进行任何其它行动前进入狂暴。</p>",
       "chat": ""
     },
     "source": {
@@ -25,50 +25,42 @@
     "requirements": "野蛮人等级 7",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 7,
+      "repeatable": false,
+      "items": [
+        "class:barbarian"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "name": "野性直觉",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.f85D3abl2j34fKxB",
+      "origin": null,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "disabled": false,
       "flags": {
         "dnd5e": {}
       },
       "_id": "hnKoD7R19GbqxsbQ",
-      "changes": [
-        {
-          "key": "flags.dnd5e.initiativeAdv",
-          "mode": 5,
-          "value": "true",
-          "priority": null
-        }
-      ],
       "description": "",
       "transfer": true,
       "statuses": [],
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -78,20 +70,43 @@
       },
       "img": "icons/creatures/mammals/wolf-howl-moon-forest-blue.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "flags.dnd5e.initiativeAdv",
+            "value": true,
+            "priority": null,
+            "type": "override",
+            "phase": "initial",
+            "_id": "jbZ6x2aiUNgBPase",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.f85D3abl2j34fKxB",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!f85D3abl2j34fKxB.hnKoD7R19GbqxsbQ"
     }
   ],
   "folder": "yHRuDCK2hvnV9bfU",
   "sort": 30400000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -111,9 +126,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1724127466048,
     "modifiedTime": 1757264269320,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

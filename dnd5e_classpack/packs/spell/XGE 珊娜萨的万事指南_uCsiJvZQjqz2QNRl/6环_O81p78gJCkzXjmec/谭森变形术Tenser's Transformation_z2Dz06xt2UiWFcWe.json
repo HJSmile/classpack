@@ -23,18 +23,7 @@
       "effectCondition": "",
       "reactionCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/skills/social/intimidation-impressing.webp",
   "_id": "z2Dz06xt2UiWFcWe",
@@ -42,78 +31,124 @@
     {
       "name": "谭森变形术Tenser's Transformation",
       "img": "icons/skills/social/intimidation-impressing.webp",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.z2Dz06xt2UiWFcWe",
+      "origin": null,
       "transfer": false,
       "_id": "46srB3qK6Vml4y4Z",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "macro.actorUpdate",
-          "mode": 0,
-          "value": "@targetUuid number 50 system.attributes.hp.temp remove",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "macro.actorUpdate",
+            "value": "@targetUuid number 50 system.attributes.hp.temp remove",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "rHapuJUGGUuYdkAN",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.advantage.attack.mwak",
+            "value": "item.itemType === \"weapon\" && [\"simpleM\", \"simpleR\", \"martialM\", \"martialR\"].includes(item.type?.value)",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "xsYkGrhj03JYWKN2",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.weaponProf.all",
+            "value": 1,
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "Ks6hAu3g0NH4oG92",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.armorProf.all",
+            "value": 1,
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "ZpcjoaS6mosMEpub",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.abilities.str.proficient",
+            "value": 1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "FvXrDYEZvXKheCsQ",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.abilities.con.proficient",
+            "value": 1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "ZD1D4Lik5Oh90SVR",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.rolls.damage.mwak.bonus",
+            "value": "+2d12[force]",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "6qMNoV9c3B9HoWz5",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.advantage.attack.rwak",
+            "value": "item.itemType === \"weapon\" && [\"simpleM\", \"simpleR\", \"martialM\", \"martialR\"].includes(item.type?.value)",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "XUBf2QIykTP18Cfz",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.rolls.damage.rwak.bonus",
+            "value": "+2d12[force]",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "gY4Q7vqQdjpziXPq",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.advantage.attack.mwak",
-          "mode": 2,
-          "value": "1",
-          "priority": 20
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.z2Dz06xt2UiWFcWe",
+          "message": null
         },
-        {
-          "key": "system.traits.weaponProf.all",
-          "mode": 0,
-          "value": "1",
-          "priority": 20
-        },
-        {
-          "key": "system.traits.armorProf.all",
-          "mode": 0,
-          "value": "1",
-          "priority": 20
-        },
-        {
-          "key": "system.abilities.str.proficient",
-          "mode": 2,
-          "value": "1",
-          "priority": 20
-        },
-        {
-          "key": "system.abilities.con.proficient",
-          "mode": 2,
-          "value": "1",
-          "priority": 20
-        },
-        {
-          "key": "system.bonuses.mwak.damage",
-          "mode": 2,
-          "value": "+2d12[force]",
-          "priority": 20
-        },
-        {
-          "key": "flags.midi-qol.advantage.attack.rwak",
-          "mode": 2,
-          "value": "+1",
-          "priority": 20
-        },
-        {
-          "key": "system.bonuses.rwak.damage",
-          "mode": 2,
-          "value": "+2d12[force]",
-          "priority": 20
-        }
-      ],
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 10,
+        "units": "minutes",
+        "expiry": null,
+        "expired": false
       },
-      "description": "<p><span style=\"font-family:'Roboto Condensed', sans-serif\">·你得到50点临时生命。如果这些临时生命保持到了法术结束，它们会失去。<br style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:rgb(93, 20, 43) rgba(0, 0, 0, 0);color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgb(248, 244, 241);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\" />·你在使用简易或军用武器时，攻击检定具有优势。<br style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:rgb(93, 20, 43) rgba(0, 0, 0, 0);color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgb(248, 244, 241);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\" />·当你用武器攻击击中一个目标，它将受到额外2d12力场伤害。<br style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:rgb(93, 20, 43) rgba(0, 0, 0, 0);color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgb(248, 244, 241);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\" />·你熟练于所有盔甲，盾牌，简易武器和军用武器。<br style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:rgb(93, 20, 43) rgba(0, 0, 0, 0);color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgb(248, 244, 241);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\" />·你熟练于力量豁免和体质豁免。<br style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:rgb(93, 20, 43) rgba(0, 0, 0, 0);color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgb(248, 244, 241);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\" />·当你在自己的回合采取攻击动作时，你可以攻击两次而非一次。如果已经有类似的能力给予你额外攻击，例如额外攻击Extra Attack，你无视这项增益。</span></p>",
+      "description": "<p><span style=\"font-family:'Roboto Condensed, sans-serif'\">·你得到50点临时生命。如果这些临时生命保持到了法术结束，它们会失去。·你在使用简易或军用武器时，攻击检定具有优势。·当你用武器攻击击中一个目标，它将受到额外2d12力场伤害。·你熟练于所有盔甲，盾牌，简易武器和军用武器。·你熟练于力量豁免和体质豁免。·当你在自己的回合采取攻击动作时，你可以攻击两次而非一次。如果已经有类似的能力给予你额外攻击，例如额外攻击Extra Attack，你无视这项增益。</span></p>",
       "tint": "#ffffff",
       "statuses": [],
       "sort": 0,
@@ -129,51 +164,37 @@
           "showIcon": false,
           "durationExpression": "",
           "specialDuration": [],
-          "macroRepeat": "none"
+          "macroRepeat": "none",
+          "applicationMode": "dnd5e",
+          "expiryMode": "default"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": 1756452617310,
         "modifiedTime": 1757000400114,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!z2Dz06xt2UiWFcWe.46srB3qK6Vml4y4Z"
     }
   ],
   "system": {
     "description": {
-      "value": "<p>你以魔法为燃料赋予自己耐久和武艺。直到法术结束之前，你不能施展法术，并且得到如下增益：<br />·你得到50点临时生命。如果这些临时生命保持到了法术结束，它们会失去。<br />·你在使用简易或军用武器时，攻击检定具有优势。<br />·当你用武器攻击击中一个目标，它将受到额外2d12力场伤害。<br />·你熟练于所有盔甲，盾牌，简易武器和军用武器。<br />·你熟练于力量豁免和体质豁免。<br />·当你在自己的回合采取攻击动作时，你可以攻击两次而非一次。如果已经有类似的能力给予你额外攻击，例如额外攻击Extra Attack，你无视这项增益。<br />在法术结束时你需要立即成功通过一次DC15的体质豁免检定，否则将承受1级力竭。</p>",
+      "value": "<p>你以魔法为燃料赋予自己耐久和武艺。直到法术结束之前，你不能施展法术，并且得到如下增益：</p><ul><li>你得到 50 点临时生命。如果这些临时生命保持到了法术结束，它们会失去。</li><li>你在使用简易或军用武器时，攻击检定具有优势。</li><li>当你用武器攻击击中一个目标，它将受到额外 [[/damage 2d12 type=force]]{2d12} 力场伤害。</li><li>你熟练于所有盔甲、盾牌、简易武器、以及军用武器。</li><li>你熟练于力量豁免和体质豁免。</li><li>当你在自己的回合采取攻击动作时，你可以攻击两次而非一次。如果已经有类似的能力给予你额外攻击能力，例如额外攻击特性，你无视这项增益。</li></ul><p>在法术结束时你需要立即成功通过一次 [[/save ability=con dc=15]]{DC15的体质豁免检定}，否则将承受一级力竭。</p>",
       "chat": ""
     },
     "source": {
@@ -189,7 +210,8 @@
     },
     "duration": {
       "value": "10",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -199,9 +221,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -221,10 +244,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -249,24 +268,42 @@
           "spellSlot": true,
           "targets": []
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "46srB3qK6Vml4y4Z"
+            "_id": "46srB3qK6Vml4y4Z",
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1756452617310,
+              "modifiedTime": 1757000400114,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -293,7 +330,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -301,7 +339,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -312,18 +349,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "tensers-transformation"
+    "identifier": "tensers-transformation",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -332,8 +417,8 @@
   "sort": 14000000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

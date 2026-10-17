@@ -28,24 +28,13 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Mage_NetherWindPresence.png",
+  "img": "icons/equipment/neck/amulet-carved-stone-spiral-blue.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你在触及的一个生物或一个物件身上设置一个幻术，使得预言法术会揭示出关于该目标的错误信息。目标可以是一个自愿的生物，或者是一个未被其他生物着装或携带的物件。\n<br />施展此法术时，你选择下列效应中的一个或两个。效应在持续时间内一直存在。如果你每天都对同一个生物或物件施展此法术且每次都选择相同的效应，持续30天，幻术就会一直存在直到被解除。\n<br /><strong>虚假灵光False Aura。</strong>针对目标的灵光侦测法术和魔法效应（例如法术侦测魔法）将显示不同的信息。你可以使一个非魔法物件显示出魔法，一个魔法物件显示出非魔法；或者改变物件的魔法灵光，使其显示出由你选择的特定魔法学派的灵光。当你对物件设置该效应时，你可以使这种虚假的魔法向任何使用此物品的生物显示出来。\n<br /><strong>伪装Mask。</strong>针对目标生物类别的侦测法术和魔法效应（例如圣武士的“神圣感知”，或法术徽记术的触发条件）将显示不同的信息。你选择一种生物类别，其他法术和魔法效应将会认为目标生物属于该类别或者属于该类别所属阵营。\n<br /></div>",
+      "value": "<p>你触碰一个生物或一个物件，在其身上设置一个幻术，使得预言法术在此目标身上只能揭示出错误的信息。此目标可以是一个自愿的生物，或者是一个未被其他生物着装或携带的物件。施展此法术时，你可以选择下列幻术效应中的一个，或是两个效应一并生效。幻术效应在持续时间内将一直存在。如果你连续30天每天都对同一个生物或物件施展此法术且每次都施加了相同的效应，相应的幻术效应就会一直存在直到被解除。</p><blockquote><p><strong>虚假灵光｜False Aura。</strong>任何可以侦测目标身上的魔法灵光的法术/魔法效应（例如法术<em>侦测魔法Detect Magic</em>）都将得出由你篡改过的信息。你可以使一个非魔法的物件显示为魔法的，使一个魔法的物件显示为非魔法的；或者改变物件的魔法灵光，使其显示出由你选择的特定学派的灵光。若你以物件为目标，你还可以使物品的操作者感觉得到这种虚假的魔法是真实的。</p><p><strong>伪装｜Mask。</strong>任何可以侦测目标生物类型的法术/魔法效应（例如圣武士的<strong>神圣感知Divine Sense</strong>，或法术<em>徽记术Symbol</em>的触发条件）都将得出由你篡改过的信息。你选择一种生物类型，对于其他法术和魔法效应而言，该目标生物将被视为属于所选类型或属于所选阵营来对待。</p><p>（译注：原文并未提及任何有关选取阵营的事）</p></blockquote>",
       "chat": ""
     },
     "source": {
@@ -63,7 +52,8 @@
     },
     "duration": {
       "value": "24",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -73,9 +63,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -95,10 +86,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -124,22 +111,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -169,7 +160,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -177,7 +169,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -188,18 +179,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "arcanists-magic-aura"
+    "identifier": "arcanists-magic-aura",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -208,8 +247,8 @@
   "sort": 20600000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757419719404,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

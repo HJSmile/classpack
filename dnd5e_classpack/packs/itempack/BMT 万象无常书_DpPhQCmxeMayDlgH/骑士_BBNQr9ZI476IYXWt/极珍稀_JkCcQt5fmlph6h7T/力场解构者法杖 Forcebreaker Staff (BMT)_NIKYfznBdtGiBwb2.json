@@ -12,7 +12,7 @@
       "revision": 1
     },
     "description": {
-      "value": "<div class=\"rd__b  rd__b--2\"><p><em>武器（法杖），极珍稀</em><br />你用这把魔法武器发动的攻击检定与其伤害掷骰具有+2加值。这把武器专门设计为解构魔法力场结构所用，例如<em>@UUID[Compendium.dnd5e_classpack.spell.Item.juLb5PHooXitZDWI]{力场监牢 Forcecage}</em>或<em>@UUID[Compendium.dnd5e_classpack.spell.Item.31jKHMGJ0vlqdvQU]{力场墙 Wall of Force}</em> 创造的那些。这把武器会自动击碎其打击的任何至大大型的魔法力场结构。如果目标是巨型或更大体型的力场结构，这把武器会击碎其20尺立方的部分。</p><p>奥术法器是为引导奥术法术能量而设计的特殊物品，@UUID[Compendium.dnd5e_classpack.classes-new.Item.dLA1lQ2nRUUWFwZU]{术士sorcerer}、@UUID[Compendium.dnd5e_classpack.classes-new.Item.1bisexH4xwv2Mz5T]{魔契师warlock}、以及@UUID[Compendium.dnd5e_classpack.classes-new.Item.nPAjnlZywUaKTfol]{法师wizard}可以将这样的物品当做法器使用。</p><p>You gain a +2 bonus to attack and damage rolls made with this magic weapon.</p><p>This weapon was crafted to destroy structures made of force, such as those created by @spell[Forcecage] or @spell[Wall of Force]. Striking a Large or smaller structure of magical force with this weapon automatically shatters that structure. If the target is a Huge or larger structure of force, this weapon shatters a 20-foot-cube portion of it.</p><p>An arcane focus is a special item designed to channel the power of arcane spells. A @class[sorcerer], @class[warlock], or @class[wizard] can use such an item as a spellcasting focus.</p></div>",
+      "value": "<p><em>武器（法杖），极珍稀</em></p><p>你用这把魔法武器发动的攻击检定与其伤害掷骰具有+2加值。这把武器专门设计为解构魔法力场结构所用，例如<em>@UUID[Compendium.dnd5e_classpack.spell.Item.juLb5PHooXitZDWI]{力场监牢 Forcecage}</em>或<em>@UUID[Compendium.dnd5e_classpack.spell.Item.31jKHMGJ0vlqdvQU]{力场墙 Wall of Force}</em> 创造的那些。这把武器会自动击碎其打击的任何至大大型的魔法力场结构。如果目标是巨型或更大体型的力场结构，这把武器会击碎其20尺立方的部分。</p><p>奥术法器是为引导奥术法术能量而设计的特殊物品，@UUID[Compendium.dnd5e_classpack.classes-new.Item.dLA1lQ2nRUUWFwZU]{术士sorcerer}、@UUID[Compendium.dnd5e_classpack.classes-new.Item.1bisexH4xwv2Mz5T]{魔契师warlock}、以及@UUID[Compendium.dnd5e_classpack.classes-new.Item.nPAjnlZywUaKTfol]{法师wizard}可以将这样的物品当做法器使用。</p><p>You gain a +2 bonus to attack and damage rolls made with this magic weapon.</p><p>This weapon was crafted to destroy structures made of force, such as those created by @spell[Forcecage] or @spell[Wall of Force]. Striking a Large or smaller structure of magical force with this weapon automatically shatters that structure. If the target is a Huge or larger structure of force, this weapon shatters a 20-foot-cube portion of it.</p><p>An arcane focus is a special item designed to channel the power of arcane spells. A @class[sorcerer], @class[warlock], or @class[wizard] can use such an item as a spellcasting focus.</p>",
       "chat": ""
     },
     "proficient": null,
@@ -28,7 +28,6 @@
     "attuned": false,
     "identified": true,
     "equipped": true,
-    "rarity": "veryRare",
     "type": {
       "value": "improv",
       "baseItem": ""
@@ -49,7 +48,7 @@
       "spent": 0,
       "recovery": []
     },
-    "magicalBonus": 2,
+    "magicalBonus": "2",
     "damage": {
       "base": {
         "types": [
@@ -64,7 +63,8 @@
         },
         "custom": {
           "enabled": false
-        }
+        },
+        "modifiers": []
       },
       "versatile": {
         "types": [
@@ -79,7 +79,8 @@
         },
         "custom": {
           "enabled": false
-        }
+        },
+        "modifiers": []
       }
     },
     "ammunition": {
@@ -103,20 +104,25 @@
           "spellSlot": true,
           "targets": []
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -158,7 +164,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -166,7 +173,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -177,18 +183,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "attackMode": "oneHanded",
         "ammunition": "",
-        "otherActivityUuid": ""
+        "otherActivityUuid": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       }
     },
     "identifier": "forcebreaker-staff-bmt",
@@ -197,9 +251,14 @@
     },
     "container": null,
     "cover": null,
-    "crewed": false,
     "armor": {
       "value": null
+    },
+    "rarities": [
+      "veryRare"
+    ],
+    "crew": {
+      "value": []
     }
   },
   "img": "icons/weapons/staves/staff-simple-spiral-grey.webp",
@@ -231,16 +290,17 @@
       "noConcentrationCheck": false,
       "toggleEffect": false,
       "ignoreTotalCover": false
-    }
+    },
+    "dnd5e": {}
   },
   "effects": [],
   "folder": "JkCcQt5fmlph6h7T",
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1751738888053,
     "modifiedTime": 1751738888053,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

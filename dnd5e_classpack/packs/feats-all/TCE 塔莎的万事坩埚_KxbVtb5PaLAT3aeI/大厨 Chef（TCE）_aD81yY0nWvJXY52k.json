@@ -5,10 +5,10 @@
   "system": {
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "description": {
-      "value": "<p>花费在专研厨艺上的工夫已然有了回报，使你获得了以下增益：<br />·你的体质或感知增加1，上限为20。<br />·你获得厨师工具的熟练项，如果你还没有的话。<br />·作为短休的一部分，只要你手上有原料和厨师工具，你便可以烹饪特制料理。你可以为特定数量的生物准备这种食物，其数量等同于4+你的熟练加值。在本次短休结束时，任何食用了料理并且花费了一个或更多生命骰来恢复生命值的生物恢复额外1d8点生命值。<br />·在花费一小时精心制作后，或者在完成一次长休时，你可以制作等同于你熟练加值个数的餐点。这些餐点在制作完成后持续八小时。任何食用餐点的生物都能获得等同于你熟练加值的临时生命值。</p>",
+      "value": "<p>花费在专研厨艺上的工夫已然有了回报，使你获得了以下增益：</p><p>·你的体质或感知增加1，上限为20。</p><p>·你获得厨师工具的熟练项，如果你还没有的话。</p><p>·作为短休的一部分，只要你手上有原料和厨师工具，你便可以烹饪特制料理。你可以为特定数量的生物准备这种食物，其数量等同于4+你的熟练加值。在本次短休结束时，任何食用了料理并且花费了一个或更多生命骰来恢复生命值的生物恢复额外1d8点生命值。</p><p>·在花费一小时精心制作后，或者在完成一次长休时，你可以制作等同于你熟练加值个数的餐点。这些餐点在制作完成后持续八小时。任何食用餐点的生物都能获得等同于你熟练加值的临时生命值。</p>",
       "chat": ""
     },
     "source": {
@@ -30,13 +30,63 @@
     "requirements": "",
     "activities": {},
     "identifier": "-cheftce",
-    "advancement": [],
+    "advancement": {
+      "8d20cdd777419015": {
+        "_id": "8d20cdd777419015",
+        "type": "AbilityScoreImprovement",
+        "name": "属性值提升",
+        "configuration": {
+          "cap": 1,
+          "fixed": {
+            "str": 0,
+            "dex": 0,
+            "con": 0,
+            "int": 0,
+            "wis": 0,
+            "cha": 0
+          },
+          "locked": [
+            "str",
+            "dex",
+            "int",
+            "cha"
+          ],
+          "points": 1,
+          "max": 20,
+          "recommendation": null
+        },
+        "value": {
+          "type": "asi"
+        },
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      },
+      "39441fbd91cd0d59": {
+        "_id": "39441fbd91cd0d59",
+        "type": "Trait",
+        "name": "熟练项与语言",
+        "configuration": {
+          "mode": "default",
+          "allowReplacements": false,
+          "grants": [
+            "tool:art:cook"
+          ],
+          "choices": []
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -45,18 +95,13 @@
   "sort": 100391,
   "flags": {
     "core": {},
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_id": "aD81yY0nWvJXY52k",
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757275287302,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

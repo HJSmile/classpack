@@ -4,7 +4,7 @@
   "img": "icons/magic/control/hypnosis-mesmerism-watch.webp",
   "system": {
     "description": {
-      "value": "<p>　　如果你想要确保某件事情完成，你不能依赖于含糊不清的承诺、宣誓或雇佣合同。当你施展此法术时，选择一个能看见、能听见、并且能理解你的，在施法距离内的类人生物。这个生物必须通过一次感知豁免，否则将会在持续期间内被你魅惑。当生物因为这种方式被魅惑时，它将承诺尽其所能地以友好的方式履行你所要求的任何服务或者是活动。</p><p>　　在这个生物之前的任务完成时，或者你决定中止它的当前任务时，你可以为它布置一个新任务。如果这项活动或任务可能伤害这个生物，或者与这个生物的正常活动和欲望相违背时，生物可以进行另一次感知豁免来尝试中止这个效果。如果你或者你的同伴正在与这个生物交战，他对此豁免具有优势。如果你要求的活动在结果上会确实地导致这个生物死亡，法术将会结束。</p><p>　　当法术结束时，这个生物知道他曾经被你所魅惑。</p><p>　　<strong>升环施法效应</strong>：当你使用四环或更高的法术位施放该法术时，使用的法术位每高一环，你就可以多指定一个额外的目标。</p>",
+      "value": "<p>如果你想要确保某件事情完成，你不能依赖于含糊不清的承诺、宣誓或雇佣合同。当你施展此法术时，选择一个能看见、能听见、并且能理解你的，在施法距离内的类人生物。这个生物必须通过一次感知豁免，否则将会在持续期间内被你魅惑。当生物因为这种方式被魅惑时，它将承诺尽其所能地以友好的方式履行你所要求的任何服务或者是活动。</p><p>在这个生物之前的任务完成时，或者你决定中止它的当前任务时，你可以为它布置一个新任务。如果这项活动或任务可能伤害这个生物，或者与这个生物的正常活动和欲望相违背时，生物可以进行另一次感知豁免来尝试中止这个效果。如果你或者你的同伴正在与这个生物交战，他对此豁免具有优势。如果你要求的活动在结果上会确实地导致这个生物死亡，法术将会结束。</p><p>当法术结束时，这个生物知道他曾经被你所魅惑。</p><p><strong>升环施法效应。</strong>当你使用四环或更高的法术位施放该法术时，使用的法术位每高一环，你就可以多指定一个额外的目标。</p>",
       "chat": ""
     },
     "source": {
@@ -20,7 +20,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -30,9 +31,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -53,10 +55,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -81,27 +79,33 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "AaIAvrThtbi2GIRT",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -127,7 +131,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -141,7 +146,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -149,7 +155,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -160,32 +165,77 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "fast-friends"
+    "identifier": "fast-friends",
+    "method": "spell",
+    "prepared": 0
   },
   "effects": [
     {
-      "changes": [],
-      "description": "- A charmed creature can't attack the charmer or target the charmer with harmful abilities or magical effects.<br />- The charmer has advantage on any ability check to interact socially with the creature.",
+      "description": "- A charmed creature can't attack the charmer or target the charmer with harmful abilities or magical effects.<br>- The charmer has advantage on any ability check to interact socially with the creature.",
       "disabled": false,
       "duration": {
-        "rounds": null,
-        "seconds": null,
-        "turns": null,
-        "startTime": null,
-        "combat": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "hours",
+        "expiry": null,
+        "expired": false
       },
       "flags": {
         "dfreds-convenient-effects": {
@@ -197,7 +247,7 @@
         }
       },
       "name": "Charmed",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.wsJiWBorqcjxBFq2",
+      "origin": null,
       "tint": "#ffffff",
       "transfer": false,
       "statuses": [
@@ -206,9 +256,9 @@
       ],
       "_id": "AaIAvrThtbi2GIRT",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -216,10 +266,27 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dfreds-convenient-effects/images/charmed.svg",
+      "img": "systems/dnd5e/icons/svg/statuses/charmed.svg",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.wsJiWBorqcjxBFq2",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!wsJiWBorqcjxBFq2.AaIAvrThtbi2GIRT"
     }
   ],
@@ -245,16 +312,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_id": "wsJiWBorqcjxBFq2",
   "folder": "jcrHia8F20uQSQUr",
@@ -264,8 +322,8 @@
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711698107767,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -3,15 +3,7 @@
   "name": "操水术 Shape Water",
   "type": "spell",
   "flags": {
-    "dnd5e": {
-      "migratedProperties": [
-        "somatic"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -34,7 +26,7 @@
   "effects": [],
   "system": {
     "description": {
-      "value": "<p>你选定距离之内，你能看见的一处占据5立方英尺的水体。你能以下述方式之一来对其进行操控：<br />·你立即在你选定的方向上，造成或改变水的流动，至多在任意方向上改变5英尺。此种运动的力量不足以造成伤害。<br />·你令水体呈现出简单的形状，随你的意愿而运动。这种变化持续1个小时。<br />·你改变了水体的颜色或透明度。水体必须被整体性的改变。此种变化持续1个小时。<br />·你冻结了水，只要其中没有生物。水会在1小时内解冻。<br />若你多次施放此法术，你可以同时维持至多两个非立即的效果生效，你也可以以一个动作解消上述效应之一。</p>",
+      "value": "<p>你选定距离之内，你能看见的一处占据 5 立方尺的水体。你能以下述方式之一来对其进行操控：</p><ul><li>你立即在你选定的方向上，造成或改变水的流动，至多在任意方向上改变 5 尺。此种运动的力量不足以造成伤害。</li><li>你令水体呈现出简单的形状，随你的意愿而运动。这种变化持续 1 个小时。</li><li>你改变了水体的颜色或透明度。水体必须被整体性的改变。此种变化持续 1 个小时。</li><li>你冻结了水（水中有生物时不行）。水会在 1 小时内解冻。</li></ul><p>若你多次施放此法术，你可以同时维持至多两个非立即的效果生效，你也可以以一个动作解消上述效应之一。</p>",
       "chat": ""
     },
     "source": {
@@ -50,7 +42,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -62,7 +55,8 @@
         "type": "cube",
         "size": "5",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -82,10 +76,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "somatic"
@@ -108,22 +98,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -153,7 +147,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -161,7 +156,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -172,18 +166,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "shape-water"
+    "identifier": "shape-water",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -192,8 +234,8 @@
   "sort": 6100000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

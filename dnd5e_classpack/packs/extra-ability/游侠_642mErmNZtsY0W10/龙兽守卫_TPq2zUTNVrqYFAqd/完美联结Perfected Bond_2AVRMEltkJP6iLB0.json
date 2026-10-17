@@ -1,10 +1,10 @@
 {
   "name": "完美联结Perfected Bond",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/ability_racial_visage.png",
+  "img": "icons/magic/defensive/shield-barrier-flaming-diamond-orange.webp",
   "system": {
     "description": {
-      "value": "<p>你与龙兽的联结抵达其力量的巅峰。当召唤的龙兽在场时，你和龙兽获得以下增益:</p><ul><li><p><strong>增强啃咬Empowered Bite。</strong>龙兽的啃咬攻击额外造成与龙族精粹属性相同的[[/r d6]]伤害。（总共[[/r 2d6]]额外伤害。）</p></li><li><p><strong>大型龙兽Large Drake。</strong>你的龙兽成长为大型。当你骑乘龙兽时，使用飞行速度不再受限于牙鳞之联。</p></li><li><p><strong>反射抗性Reflexive Resistance。</strong>当你与龙兽相距30尺内，你或你的龙兽受到伤害时，你能使用你的反应为你或你的龙兽对这次伤害提供抗性。你能使用本反应的次数与你的熟练值相等，当你完成一次长休后恢复所有的使用次数。</p></li></ul>",
+      "value": "<p>你与龙兽的联结抵达其力量的巅峰。当召唤的龙兽在场时，你和龙兽获得以下增益:</p><ul><li><h3>增强啃咬Empowered Bite。</h3><p>龙兽的啃咬攻击额外造成与龙族精粹属性相同的[[/r d6]]伤害。（总共[[/r 2d6]]额外伤害。）</p></li><li><h3>大型龙兽Large Drake。</h3><p>你的龙兽成长为大型。当你骑乘龙兽时，使用飞行速度不再受限于牙鳞之联。</p></li><li><h3>反射抗性Reflexive Resistance。</h3><p>当你与龙兽相距30尺内，你或你的龙兽受到伤害时，你能使用你的反应为你或你的龙兽对这次伤害提供抗性。你能使用本反应的次数与你的熟练值相等，当你完成一次长休后恢复所有的使用次数。</p></li></ul>",
       "chat": ""
     },
     "source": {
@@ -58,18 +58,20 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -81,7 +83,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -103,15 +106,101 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "perfected-bond",
-    "advancement": [],
+    "advancement": {},
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 15,
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -122,19 +211,12 @@
       "equipActive": false,
       "alwaysActive": false
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1749883542518,
     "lastModifiedBy": "uXKCmWFprrvnSIDm",

@@ -2,17 +2,7 @@
   "name": "操控风力Control Wind",
   "type": "spell",
   "flags": {
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -36,7 +26,7 @@
   "effects": [],
   "system": {
     "description": {
-      "value": "<p>你获得对距离内，你可以看见的，100立方英尺的空气的操控能力。当施放此法术时，选择下述效果之一。该效果将在法术的持续时间内始终生效，除非你在稍后的回合中使用一个动作来调整为其他的效果。你也可以使用你的动作来暂停效应或重启一个被暂停的效应。<br />·<strong>狂风Gusts</strong>：你操控的空气中产生了一阵狂风，持续的向一个由你选择的水平方向吹去。你选择风力的强度：微风calm，大风moderate和强风strong。若风力为大风或强风，进入或者离开区域，或者是穿过其中的远程武器攻击在其攻击检定中得到劣势。若风力为强风，逆风而行的生物每移动1英尺需要额外消耗1英尺的移动力。<br />·<strong>下沉气流Downdraft</strong>：你操控的空气产生了向下的气流，从空间的顶部开始下沉。穿过其中的远程武器攻击，或是对于处于其中的生物进行的远程武器攻击在其攻击检定中得到劣势。生物每回合第一次飞进受影响的空间，或是在飞行状态下于受影响的空间开始其回合，其必须进行一次力量豁免检定。若检定失败，该生物摔落倒地。<br />·<strong>上升气流Updraf</strong>t：你操控的空气产生了向上的气流，从空间的底部开始上升。在该空间内结束摔落的生物只会因为该摔落受到一半的伤害。处于该空间内的生物垂直跳跃时，其能比正常情况下跳跃的高度高出10英尺。</p>",
+      "value": "<p>你获得对距离内，你可以看见的，100尺立方区域内的空气的操控能力。当施放此法术时，选择下述效果之一。该效果将在法术的持续时间内始终生效，除非你在稍后的回合中使用一个动作来调整为其他的效果。你也可以使用你的动作来暂停效应或重启一个被暂停的效应。</p><blockquote><p><strong>狂风Gusts。</strong>你操控的空气中产生了一阵狂风，持续的向一个由你选择的水平方向吹去。你选择风力的强度：微风 calm，大风 moderate和强风 strong。若风力为大风或强风，进入或者离开区域，或者是穿过其中的远程武器攻击在其攻击检定中得到劣势。若风力为强风，逆风而行的生物每移动 1 尺需要额外消耗 1 尺的移动力。</p><p><strong>下沉气流Downdraft。</strong>你操控的空气产生了向下的气流，从空间的顶部开始下沉。穿过其中的远程武器攻击，或是对于处于其中的生物进行的远程武器攻击在其攻击检定中得到劣势。生物每回合第一次飞进受影响的空间，或是在飞行状态下于受影响的空间开始其回合，其必须进行一次力量豁免检定。若检定失败，该生物摔落倒地。</p><p><strong>上升气流Updraft。</strong>你操控的空气产生了向上的气流，从空间的底部开始上升。在该空间内结束摔落的生物只会因为该摔落受到一半的伤害。处于该空间内的生物垂直跳跃时，其能比正常情况下跳跃的高度高出 10 尺。</p></blockquote>",
       "chat": ""
     },
     "source": {
@@ -52,7 +42,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -64,7 +55,8 @@
         "type": "cube",
         "size": "100",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -84,10 +76,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -112,22 +100,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -157,7 +149,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -165,7 +158,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -176,18 +168,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "control-wind"
+    "identifier": "control-wind",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -196,8 +236,8 @@
   "sort": 6000000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

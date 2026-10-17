@@ -12,7 +12,8 @@
       "itemCondition": "",
       "otherCondition": "",
       "effectCondition": "",
-      "reactionCondition": ""
+      "reactionCondition": "",
+      "onUseMacroName": "[postActiveEffects]ItemMacro"
     },
     "midiProperties": {
       "confirmTargets": "always",
@@ -27,97 +28,53 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
+    "dnd5e": {},
+    "dae": {
+      "macro": {
+        "name": "七彩喷射 Color Spray",
+        "img": "icons/magic/light/projectile-beams-salvo-yellow.webp",
+        "type": "script",
+        "scope": "global",
+        "command": "const workflow = args[0]?.workflow;\nif (!workflow) {\n  console.warn(\"七彩喷射宏：无法获取 workflow\");\n  return;\n}\n\n// 1. 获取 6d10 掷骰总值\nconst totalHP = workflow.utilityRoll?.total || 0;\nif (totalHP <= 0) {\n  ui.notifications.warn(\"七彩喷射掷骰为 0，没有生物受到影响。\");\n  return;\n}\n\n// 2. 获取所有目标（模板已选取区域内的生物）\nconst tokens = Array.from(workflow.targets).filter(t => t.actor);\nif (tokens.length === 0) {\n  ui.notifications.warn(\"七彩喷射没有可用目标。\");\n  return;\n}\n\n// 3. 过滤掉昏迷和不能视物的生物\nconst validTokens = tokens.filter(t => {\n  const actor = t.actor;\n  // 昏迷：unconscious 或 paralyzed? 通常用 unconscious\n  if (actor.statuses.has('unconscious')) return false;\n  // 不能视物：blinded 或 petrified? 我们检查 blinded\n  if (actor.statuses.has('blinded')) return false;\n  return true;\n});\n\nif (validTokens.length === 0) {\n  ui.notifications.info(\"七彩喷射范围内没有可影响的生物（昏迷或目盲）。\");\n  return;\n}\n\n// 4. 按剩余 HP 升序排序\nvalidTokens.sort((a, b) => (a.actor.system.attributes.hp.value || 0) - (b.actor.system.attributes.hp.value || 0));\n\n// 5. 依次消耗 HP，决定哪些生物被施加目盲\nlet remaining = totalHP;\nconst affectedActors = [];\n\nfor (const token of validTokens) {\n  const hp = token.actor.system.attributes.hp.value || 0;\n  if (hp <= remaining) {\n    affectedActors.push(token.actor);\n    remaining -= hp;\n  } else {\n    break;\n  }\n}\n\nif (affectedActors.length === 0) {\n  ui.notifications.info(\"七彩喷射未能影响任何生物（总 HP 不足）。\");\n  return;\n}\n\nconst currentCombat = game.combat;\nlet durationRounds = 1;\nlet startRound = currentCombat?.round || 0;\nlet startTurn = currentCombat?.turn || 0;\n\nconst effectData = {\n  label: \"目盲\",\n  name: \"目盲\",\n  img: \"systems/dnd5e/icons/svg/statuses/blinded.svg\", // 可选更合适的图标?\n  origin: workflow.item?.uuid,\n  disabled: false,\n  duration: {\n    rounds: durationRounds,\n    startRound: startRound,\n    startTime: game.time.worldTime\n  },\n  flags: {\n    dae: {\n      specialDuration: [\"turnEndSource\"]\n    }\n  },\n  statuses: [\"blinded\"],\n  changes: []\n};\n\nconst promises = affectedActors.map(actor =>\n  MidiQOL.createEffects({\n    actorUuid: actor.uuid,\n    effects: [effectData],\n    options: { keepId: true }\n  })\n);\nawait Promise.all(promises);\n\nconst infoHTML = `\n  <div class=\"midi-qol-color-spray-info\" style=\"\n    margin-top: 0.75rem;\n    padding: 0.75rem 1rem;\n    background: #f0f8ff;\n    border-radius: 10px;\n    border-left: 6px solid #ff8c00;\n    box-shadow: 0 2px 4px rgba(0,0,0,0.06);\n  \">\n    <!-- 头部 -->\n    <div style=\"display: flex; align-items: center; gap: 8px; margin-bottom: 10px;\">\n      <i class=\"fas fa-rainbow\" style=\"color: #ff8c00; font-size: 1.2em;\"></i>\n      <span style=\"font-weight: bold; font-size: 1.1em;\">七彩喷射</span>\n      <span style=\"margin-left: auto; font-size: 0.9em; color: #5a5a5a; background: #fff3e0; padding: 2px 12px; border-radius: 12px;\">\n        🎲 ${totalHP}\n      </span>\n    </div>\n\n    <!-- 受影响生物列表 -->\n    <div style=\"display: flex; flex-wrap: wrap; gap: 8px;\">\n      ${affectedActors.map(a => `\n        <div style=\"\n          display: flex;\n          align-items: center;\n          gap: 6px;\n          background: white;\n          padding: 4px 12px 4px 4px;\n          border-radius: 30px;\n          box-shadow: 0 1px 3px rgba(0,0,0,0.08);\n          border: 1px solid #ffe0b0;\n        \">\n          <img src=\"${a.img}\" style=\"\n            width: 28px;\n            height: 28px;\n            border-radius: 50%;\n            object-fit: cover;\n            border: 2px solid #ffcc80;\n          \" />\n          <span style=\"font-weight: 500;\">${a.name}</span>\n          <span style=\"font-size: 0.8em; color: #777;\">HP ${a.system.attributes.hp.value}</span>\n          <i class=\"fas fa-eye-slash\" style=\"color: #ff8c00; font-size: 0.9em;\" title=\"目盲中\"></i>\n        </div>\n      `).join('')}\n    </div>\n\n    <!-- 脚注 -->\n    <div style=\"margin-top: 10px; font-size: 0.8em; color: #888; border-top: 1px dashed #ddd; padding-top: 6px;\">\n      <i class=\"fas fa-clock\"></i> 持续 1 轮（至你的下一回合结束） &nbsp;|&nbsp; \n      <i class=\"fas fa-eye\"></i> 目盲\n    </div>\n  </div>\n`;\n\nlet content = workflow.chatCard.content;\ncontent = content + infoHTML;\nawait workflow.chatCard.update({ content });",
+        "author": "TEhQZHmGMOcY5c4a",
+        "ownership": {
+          "default": 3
+        },
+        "_id": null,
+        "folder": null,
+        "sort": 0,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3",
+          "lastModifiedBy": null,
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null
+        }
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/000466.png",
+  "img": "icons/magic/light/projectile-beams-salvo-yellow.webp",
   "effects": [
     {
-      "changes": [
-        {
-          "key": "flags.midi-qol.disadvantage.attack.all",
-          "mode": 0,
-          "value": "1",
-          "priority": 0
-        },
-        {
-          "key": "flags.midi-qol.grants.advantage.attack.all",
-          "mode": 0,
-          "value": "1",
-          "priority": 0
-        }
-      ],
-      "description": "<p>- A blinded creature can't see and automatically fails any ability check that requires sight.<br />- Attack rolls against the creature have advantage, and the creature's attack rolls have disadvantage.</p>",
+      "_id": "UH2PUxoRHzEpd0h3",
       "disabled": false,
       "duration": {
-        "rounds": null,
-        "seconds": null,
-        "turns": null,
-        "startTime": null,
-        "combat": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": "sourceEnd",
+        "expired": false
       },
-      "flags": {
-        "dfreds-convenient-effects": {
-          "isConvenient": true,
-          "isDynamic": false,
-          "isViewable": true,
-          "nestedEffects": [],
-          "subEffects": []
-        },
-        "dae": {
-          "disableIncapacitated": false,
-          "selfTarget": false,
-          "selfTargetAlways": false,
-          "dontApply": false,
-          "stackable": "noneName",
-          "showIcon": false,
-          "durationExpression": "",
-          "macroRepeat": "none",
-          "specialDuration": [
-            "turnEndSource"
-          ]
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system"
-        }
-      },
-      "name": "Blinded",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.f9cAcIAOPQ46mkf6",
-      "tint": "#ffffff",
+      "origin": null,
       "transfer": false,
-      "statuses": [
-        "Convenient Effect: Blinded",
-        "blinded"
-      ],
-      "_id": "UH2PUxoRHzEpd0h3",
+      "flags": {},
+      "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -125,97 +82,38 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dfreds-convenient-effects/images/blinded.svg",
+      "name": "七彩喷射：目盲",
+      "img": "icons/magic/light/projectile-beams-salvo-yellow.webp",
       "type": "base",
-      "system": {},
-      "sort": 0,
-      "_key": "!items.effects!f9cAcIAOPQ46mkf6.UH2PUxoRHzEpd0h3"
-    },
-    {
-      "changes": [],
-      "disabled": false,
-      "duration": {
-        "rounds": null,
-        "seconds": null,
-        "startRound": null,
-        "startTime": null,
-        "startTurn": null,
-        "turns": null,
-        "combat": null
-      },
-      "flags": {
-        "core": {},
-        "dfreds-convenient-effects": {
-          "description": "缓慢 Slowed 如同缓慢术的效果，如果在缓慢状态下再次受到缓慢影响将会陷入失能",
-          "isConvenient": true,
-          "isDynamic": false,
-          "isViewable": true,
-          "nestedEffects": [],
-          "subEffects": []
+      "system": {
+        "changes": [],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.f9cAcIAOPQ46mkf6",
+          "message": null
         },
-        "times-up": {
-          "isPassive": false
-        },
-        "dae": {
-          "selfTarget": false,
-          "selfTargetAlways": false,
-          "stackable": "count",
-          "durationExpression": "",
-          "macroRepeat": "none",
-          "specialDuration": [
-            "turnEndSource"
-          ],
-          "disableIncapacitated": false,
-          "dontApply": false,
-          "showIcon": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "nameOverride": "",
-          "customCheck": "",
-          "wallsBlock": "system"
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
         }
       },
-      "origin": "Compendium.dnd5e_classpack.spell.Item.f9cAcIAOPQ46mkf6",
-      "tint": "#ffffff",
-      "transfer": false,
-      "_id": "9utQMZrCrTZmNKJ8",
-      "name": "恍惚",
-      "description": "<div class=\"Section0\" style=\"LAYOUT-GRID:15.6pt none\"><h4 style=\"MARGIN:2pt 0pt;mso-pagination:widow-orphan\"><strong>恍惚</strong></h4><p class=\"26\" style=\"MARGIN-BOTTOM:0pt;MARGIN-TOP:0pt;LINE-HEIGHT:13pt;MARGIN-RIGHT:0pt;TEXT-INDENT:12pt;mso-pagination:widow-orphan;mso-char-indent-count:1.0000;mso-add-space:auto;mso-line-height-rule:exactly\">·恍惚的生物不能执行反应。</p><p class=\"26\" style=\"MARGIN-BOTTOM:0pt;MARGIN-TOP:0pt;LINE-HEIGHT:13pt;MARGIN-RIGHT:0pt;TEXT-INDENT:12pt;mso-pagination:widow-orphan;mso-char-indent-count:1.0000;mso-add-space:auto;mso-line-height-rule:exactly\">·恍惚的生物在自己的回合内，只能从动作、附赠动作、消耗移动力三种行为中选择一项执行。</p></div>",
+      "description": "<p>目盲，直到施法者的下一回合结束。按6d10生命值总量选择受影响目标。</p>",
       "statuses": [
-        "Convenient Effect: 恍惚"
+        "blinded"
       ],
-      "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null,
-        "compendiumSource": "ActiveEffect.SDrUwzuaGgY9Zvev",
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "img": "icons/svg/daze.svg",
-      "type": "base",
-      "system": {},
       "sort": 0,
-      "_key": "!items.effects!f9cAcIAOPQ46mkf6.9utQMZrCrTZmNKJ8"
+      "start": null,
+      "showIcon": 2,
+      "folder": null,
+      "_key": "!items.effects!f9cAcIAOPQ46mkf6.UH2PUxoRHzEpd0h3"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"><p>炫目的彩光从你指间散射而出。掷一次6d10；其结果为受该法术影响生物的生命值总数。在以你为源点的15尺锥状区域内的生物以剩余生命值由小至大的顺序受法术影响（生效时忽略昏迷生物和不能视物的生物）。 <br />计算受法术影响生物时，从剩余生命值最低的生物开始逐个计算。每个受术生物均陷入目盲以及恍惚，直至法术终止。法术掷骰的生命值总数减去一个受术生物的生命值后，余数再用以计算生命值稍高者是否受法术影响。生物剩余生命值，必须小于等于该余数法术才能成功影响该生物。 <br /><strong>升环施法效应。</strong>使用2环或更高法术位施展该法术时，你使用的法术位每比1环高一环，法术的掷骰时就增加2d10。<br /></p></div>",
+      "value": "<p>炫目的彩光从你指间散射而出。掷一次 6d10；其结果为受该法术影响生物的生命值总数。在以你为源点的 15 尺锥状区域内的生物以剩余生命值由小至大的顺序受法术影响（生效时忽略昏迷生物和不能视物的生物）。</p><p>计算受法术影响生物时，从剩余生命值最低的生物开始逐个计算。每个受术生物均陷入&amp;Reference[condition=blinded apply=false]{目盲}，直至你的下一回合结束。法术掷骰的生命值总数减去一个受术生物的生命值后，余数再用以计算生命值稍高者是否受法术影响。生物剩余生命值，必须小于等于该余数法术才能成功影响该生物。</p><p><strong>升环施法效应。</strong>使用二环或更高法术位施展该法术时，你使用的法术位每比一环高一环，法术的掷骰时就增加 2d10。</p>",
       "chat": ""
     },
     "source": {
@@ -231,7 +129,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "round"
+      "units": "round",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -243,7 +142,8 @@
         "type": "cone",
         "size": "15",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -263,10 +163,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -291,29 +187,32 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "UH2PUxoRHzEpd0h3"
-          },
-          {
-            "_id": "9utQMZrCrTZmNKJ8"
+            "_id": "UH2PUxoRHzEpd0h3",
+            "level": {},
+            "uuid": null
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -343,7 +242,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -351,7 +251,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -362,128 +261,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
-      },
-      "xUeY9oQ1lkHhHnST": {
-        "type": "damage",
-        "_id": "xUeY9oQ1lkHhHnST",
-        "sort": 100000,
-        "activation": {
-          "type": "action",
-          "value": null,
-          "override": false
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
         },
-        "consumption": {
-          "scaling": {
-            "allowed": false
-          },
-          "spellSlot": true,
-          "targets": []
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
         },
-        "description": {
-          "chatFlavor": ""
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
         },
-        "duration": {
-          "units": "inst",
-          "concentration": false,
-          "override": false
-        },
-        "effects": [],
-        "range": {
-          "override": false
-        },
-        "target": {
-          "template": {
-            "contiguous": false,
-            "units": "ft"
-          },
-          "affects": {
-            "choice": false
-          },
-          "override": false,
-          "prompt": true
-        },
-        "uses": {
-          "spent": 0,
-          "recovery": [],
-          "max": ""
-        },
-        "damage": {
-          "critical": {
-            "allow": false
-          },
-          "parts": [
-            {
-              "custom": {
-                "enabled": false,
-                "formula": ""
-              },
-              "number": 6,
-              "denomination": "10",
-              "bonus": "",
-              "types": [
-                "midi-none"
-              ],
-              "scaling": {
-                "mode": "whole",
-                "number": 2,
-                "formula": ""
-              }
-            }
-          ]
-        },
-        "useConditionText": "",
-        "useConditionReason": "",
-        "effectConditionText": "",
-        "macroData": {
-          "name": "",
-          "command": ""
-        },
-        "ignoreTraits": {
-          "idi": false,
-          "idr": false,
-          "idv": false,
-          "ida": false
-        },
-        "midiProperties": {
-          "ignoreTraits": [],
-          "triggeredActivityId": "none",
-          "triggeredActivityConditionText": "",
-          "triggeredActivityTargets": "targets",
-          "triggeredActivityRollAs": "self",
-          "forceDialog": false,
-          "confirmTargets": "default",
-          "autoTargetType": "any",
-          "autoTargetAction": "default",
-          "automationOnly": false,
-          "otherActivityCompatible": true,
-          "identifier": "",
-          "displayActivityName": false,
-          "rollMode": "default",
-          "chooseEffects": false,
-          "toggleEffect": false,
-          "ignoreFullCover": false
-        },
-        "isOverTimeFlag": false,
-        "overTimeProperties": {
-          "saveRemoves": true,
-          "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
-        },
-        "name": "",
-        "img": "",
-        "appliedEffects": []
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "color-spray"
+    "identifier": "color-spray",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -492,8 +329,8 @@
   "sort": 20900000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711703635615,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

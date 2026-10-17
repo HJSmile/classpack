@@ -7,19 +7,12 @@
   "folder": null,
   "sort": 0,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1749710928408,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",
@@ -32,7 +25,7 @@
   },
   "system": {
     "description": {
-      "value": "<p><em>（需要一位非邪恶阵营生物同调）</em></p>\n<p>在幽暗地域中失落多年的黎明使者其本体是一把镶金的剑柄。抓握剑柄时，你可以用一个附赠动作从中展开或收起一道由光芒形成的剑刃。黎明使者具有@UUID[Compendium.dnd5e_classpack.itempack.152FDAA04D28AF9E]{阳炎剑 Sun Blade} 的所有属性。</p>\n<p>持握这把武器时，你可以用一个动作以光刃触碰一个生物，以此对该生物施展一道@UUID[Compendium.dnd5e_classpack.spell.I1C2EQxwynPd7dOC]{次级复原术 Lesser Restoration}。该能力使用过后必须等到下次黎明才能再用。</p>\n<p><strong>智能Sentience</strong>。黎明使者是一把中立善良的智能武器，它拥有12 智力，15 感知和14 魅力，具有听觉和120 尺黑暗视觉。<br />这把剑可以听、说、读通用语，能够使用心灵感应交流。它的声音是一把和蔼的女声，且能够理解与之同调者知晓的所有语言。</p>\n<p><strong>个性Personality</strong>。由远古太阳崇拜者铸造的黎明使者，其存在是为了在黑暗中带来光明，以及与黑暗中的敌人作战。它对自己人和蔼可亲，对敌人却凶猛而残酷。<br />由于被遗落在黑暗中太久，黎明使者 现在有点惧怕黑暗和被遗弃。它希望自己的光刃一直展开以持续向黑暗区域散发光亮，并且强烈抗拒跟自己的持用者分开太远。</p>",
+      "value": "<p><em>（需要一位非邪恶阵营生物同调）</em></p><p>在幽暗地域中失落多年的黎明使者其本体是一把镶金的剑柄。抓握剑柄时，你可以用一个附赠动作从中展开或收起一道由光芒形成的剑刃。黎明使者具有@UUID[Compendium.dnd5e_classpack.itempack.152FDAA04D28AF9E]{阳炎剑 Sun Blade} 的所有属性。</p><p>持握这把武器时，你可以用一个动作以光刃触碰一个生物，以此对该生物施展一道@UUID[Compendium.dnd5e_classpack.spell.I1C2EQxwynPd7dOC]{次级复原术 Lesser Restoration}。该能力使用过后必须等到下次黎明才能再用。</p><p><strong>智能Sentience</strong>。黎明使者是一把中立善良的智能武器，它拥有12 智力，15 感知和14 魅力，具有听觉和120 尺黑暗视觉。</p><p>这把剑可以听、说、读通用语，能够使用心灵感应交流。它的声音是一把和蔼的女声，且能够理解与之同调者知晓的所有语言。</p><p><strong>个性Personality</strong>。由远古太阳崇拜者铸造的黎明使者，其存在是为了在黑暗中带来光明，以及与黑暗中的敌人作战。它对自己人和蔼可亲，对敌人却凶猛而残酷。</p><p>由于被遗落在黑暗中太久，黎明使者 现在有点惧怕黑暗和被遗弃。它希望自己的光刃一直展开以持续向黑暗区域散发光亮，并且强烈抗拒跟自己的持用者分开太远。</p>",
       "chat": ""
     },
     "source": {
@@ -51,7 +44,6 @@
     },
     "attunement": "required",
     "equipped": false,
-    "rarity": "legendary",
     "identified": true,
     "range": {
       "value": null,
@@ -78,7 +70,8 @@
           "mode": "",
           "number": null,
           "formula": ""
-        }
+        },
+        "modifiers": []
       },
       "base": {
         "number": null,
@@ -95,7 +88,8 @@
           "mode": "",
           "number": null,
           "formula": ""
-        }
+        },
+        "modifiers": []
       }
     },
     "armor": {
@@ -149,13 +143,15 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -171,7 +167,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -206,7 +203,97 @@
           "includeBase": true,
           "parts": []
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackMode": "oneHanded",
+        "ammunition": "",
+        "otherActivityUuid": "",
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       },
       "dnd5eactivity300": {
         "_id": "dnd5eactivity300",
@@ -236,13 +323,15 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -258,7 +347,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -280,16 +370,105 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-dawnbringer",
     "container": null,
     "attuned": false,
     "cover": null,
-    "crewed": false,
     "ammunition": {},
-    "magicalBonus": null
+    "rarities": [
+      "legendary"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "_key": "!items!OLBkG6gF7FVZ5xdS"
 }

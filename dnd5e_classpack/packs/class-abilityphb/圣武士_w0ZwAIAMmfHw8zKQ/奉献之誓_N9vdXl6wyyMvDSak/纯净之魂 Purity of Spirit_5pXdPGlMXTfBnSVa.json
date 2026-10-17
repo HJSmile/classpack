@@ -23,116 +23,76 @@
       "recovery": []
     },
     "requirements": "奉献之誓等级 15",
-    "activities": {
-      "ekNAt9YjWdv7Nm6i": {
-        "type": "cast",
-        "spell": {
-          "uuid": "Compendium.dnd5e_classpack.spell.Item.hTv2Q5cwR93erqN7",
-          "challenge": {
-            "attack": null,
-            "save": null,
-            "override": false
-          },
-          "level": null,
-          "properties": [
-            "vocal",
-            "somatic",
-            "material"
-          ],
-          "spellbook": true
-        },
-        "_id": "ekNAt9YjWdv7Nm6i",
-        "sort": 0,
-        "activation": {
-          "type": "action",
-          "value": null,
-          "override": false
-        },
-        "consumption": {
-          "scaling": {
-            "allowed": false
-          },
-          "spellSlot": true,
-          "targets": []
-        },
-        "description": {},
-        "duration": {
-          "units": "inst",
-          "concentration": false,
-          "override": false
-        },
-        "range": {
-          "override": false
-        },
-        "target": {
-          "template": {
-            "contiguous": false,
-            "units": "ft"
-          },
-          "affects": {
-            "choice": false
-          },
-          "override": false,
-          "prompt": true
-        },
-        "uses": {
-          "spent": 0,
-          "recovery": []
-        },
-        "useConditionText": "",
-        "useConditionReason": "",
-        "effectConditionText": "",
-        "macroData": {
-          "name": "",
-          "command": ""
-        },
-        "ignoreTraits": {
-          "idi": false,
-          "idr": false,
-          "idv": false,
-          "ida": false
-        },
-        "midiProperties": {
-          "ignoreTraits": [],
-          "triggeredActivityId": "none",
-          "triggeredActivityConditionText": "",
-          "triggeredActivityTargets": "targets",
-          "triggeredActivityRollAs": "self",
-          "forceDialog": false,
-          "confirmTargets": "default",
-          "autoTargetType": "any",
-          "autoTargetAction": "default",
-          "automationOnly": false,
-          "otherActivityCompatible": true,
-          "identifier": "",
-          "displayActivityName": false,
-          "rollMode": "default",
-          "chooseEffects": false,
-          "toggleEffect": false,
-          "ignoreFullCover": false
-        },
-        "isOverTimeFlag": false,
-        "overTimeProperties": {
-          "saveRemoves": true,
-          "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
-        }
-      }
-    },
+    "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 15,
+      "repeatable": false,
+      "items": [
+        "subclass:oath-of-devotion"
+      ]
     },
     "properties": [
-      "trait"
+      "trait",
+      "mgc"
     ]
   },
-  "effects": [],
+  "effects": [
+    {
+      "_id": "c8d42337aac08141",
+      "_key": "!items.effects!5pXdPGlMXTfBnSVa.c8d42337aac08141",
+      "name": "纯净之魂 Purity of Spirit",
+      "img": "icons/skills/toxins/poison-bottle-corked-fire-green.webp",
+      "type": "base",
+      "origin": null,
+      "transfer": true,
+      "disabled": false,
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "start": null,
+      "statuses": [],
+      "showIcon": 1,
+      "sort": 0,
+      "flags": {},
+      "description": "<p>此特性始终生效，无需动作、法术位或专注。受指定生物类型的攻击劣势由常驻效应处理；魅惑、恐慌和附身的来源条件依照规则判定。</p>",
+      "tint": "#ffffff",
+      "folder": null,
+      "system": {
+        "changes": [
+          {
+            "_id": "67ebe97f363b9602",
+            "key": "flags.midi-qol.grants.disadvantage.attack.all",
+            "value": "[\"aberration\",\"celestial\",\"elemental\",\"fey\",\"fiend\",\"undead\"].includes(target.typeOrRace)",
+            "type": "custom",
+            "phase": "initial",
+            "priority": 20,
+            "replacement": "",
+            "conditions": "{}"
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.5pXdPGlMXTfBnSVa",
+          "effect": null,
+          "behavior": null,
+          "message": null
+        },
+        "magical": true,
+        "conditions": "{}",
+        "rider": {
+          "statuses": []
+        }
+      }
+    }
+  ],
   "folder": "N9vdXl6wyyMvDSak",
   "sort": 8500000,
   "flags": {
@@ -140,12 +100,7 @@
     "entityorder": {
       "order": 112
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -172,9 +127,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757064305903,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -2,7 +2,7 @@
   "_id": "JTNL68CjsZelE8b5",
   "name": "动物咒唤术 Conjure Animals",
   "type": "spell",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Hunter_FerociousInspiration.png",
+  "img": "icons/magic/nature/wolf-paw-glow-large-orange.webp",
   "effects": [],
   "folder": "VSQWpB0Mj8S5uRII",
   "sort": 3700000,
@@ -28,17 +28,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "conjureAnimals",
@@ -49,7 +39,7 @@
   },
   "system": {
     "description": {
-      "value": "<p>你召唤以野兽形态存在的精魂，并使其显现在施法范围内一处你能看见但未被占据的空间。选择以下选项之一作为显现的生物：</p>\n<ul>\n<li>一只挑战等级2或者更低的野兽</li>\n<li>两只挑战等级1或者更低的野兽</li>\n<li>四只挑战等级1/2或更低的野兽</li>\n<li>八只挑战等级1/4或更低的野兽</li>\n</ul>\n<p>每只野兽同时视为精类生物，并且在生命值降至0时，或者法术终止时消失不见。 <br />被召唤的生物对你和你的伙伴保持友善关系。每次召唤出来的所有生物视为一个团体来掷先攻权，并依此获得其自己的行动回合。他们服从你发出的所有语言命令（不需要你作动作）。如果你不发出任何命令，这些生物会在敌对生物前保护自己，如果没有敌对生物则不执行任何动作。 <br />这些生物的具体数值由DM 掌控。 <br /><strong>升环施法效应。</strong>使用更高法术位施展该法术时，选择上文所述召唤选项之一，并显现更多生物：5环法术位显现两倍生物，7环法术位显现三倍生物，9环法术位显现四倍生物。</p>",
+      "value": "<p>你召唤野兽形态的精魄，并使其显现在施法范围内一处你能看见但未占据空间。选择以下选项之一作为显现的生物：</p><ul><li>一只挑战等级 2 或者更低的野兽</li><li>两只挑战等级 1 或者更低的野兽</li><li>四只挑战等级 1/2 或更低的野兽</li><li>八只挑战等级 1/4 或更低的野兽</li></ul><p>每只野兽同时视为妖精，并且在生命值降至 0 时，或者法术终止时消失不见。</p><p>被召唤的生物对你和你的伙伴保持友善关系。每次召唤出来的所有生物视为一个团体来骰先攻，并依此获得其自己的行动回合。他们服从你发出的所有语言命令（不需要你作动作）。如果你不发出任何命令，这些生物会在敌对生物前保护自己，如果没有敌对生物则不执行任何动作。</p><p>这些生物的具体数值由 DM 掌控。</p><p><strong>升环施法效应。</strong>使用更高法术位施展该法术时，选择上文所述召唤选项之一，并显现更多生物：五环法术位显现两倍生物，七环法术位显现三倍生物，九环法术位显现四倍生物。</p>",
       "chat": ""
     },
     "source": {
@@ -65,7 +55,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -77,7 +68,8 @@
       "template": {
         "units": "any",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -98,10 +90,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -127,22 +115,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -172,7 +164,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -180,7 +173,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -191,26 +183,74 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "conjure-animals"
+    "identifier": "conjure-animals",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

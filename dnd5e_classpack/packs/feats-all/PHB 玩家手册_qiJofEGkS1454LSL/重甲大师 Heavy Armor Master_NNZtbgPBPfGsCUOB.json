@@ -7,12 +7,7 @@
   "folder": "qiJofEGkS1454LSL",
   "sort": 2200000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -40,7 +35,7 @@
   },
   "system": {
     "description": {
-      "value": "<p>你可以用护甲偏斜大多数致命的攻击。你获得下列增益：</p><ul><li><p>你的力量加1，上限为20。</p></li><li><p>你着装重甲时，非魔法武器对你造成的钝击、穿刺、挥砍伤害每次减少３点。</p></li></ul>",
+      "value": "<p>你可以用护甲偏斜大多数致命的攻击。你获得下列增益：</p><ul><li><p>你的力量加1，上限为20。</p></li><li><p>你着装重甲时，非魔法攻击对你造成的钝击、穿刺、挥砍伤害每次减少３点。</p></li></ul>",
       "chat": ""
     },
     "source": {
@@ -51,23 +46,57 @@
     },
     "cover": null,
     "uses": {
-      "max": "0",
+      "max": "",
       "spent": 0,
       "recovery": []
     },
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "requirements": "重甲熟练项",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {
+      "bd2678d9c0f99eda": {
+        "_id": "bd2678d9c0f99eda",
+        "type": "AbilityScoreImprovement",
+        "name": "属性值提升",
+        "configuration": {
+          "cap": 1,
+          "fixed": {
+            "str": 1,
+            "dex": 0,
+            "con": 0,
+            "int": 0,
+            "wis": 0,
+            "cha": 0
+          },
+          "locked": [
+            "dex",
+            "con",
+            "int",
+            "wis",
+            "cha"
+          ],
+          "points": 0,
+          "max": 20,
+          "recommendation": null
+        },
+        "value": {
+          "type": "asi"
+        },
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -75,9 +104,9 @@
     "default": 0
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757864829814,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

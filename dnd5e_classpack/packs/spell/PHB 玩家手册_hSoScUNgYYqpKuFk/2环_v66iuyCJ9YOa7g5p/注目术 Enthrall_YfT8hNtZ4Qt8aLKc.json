@@ -28,38 +28,38 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedProperties": [
-        "vocal",
-        "somatic"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Hunter_MasterMarksman.png",
+  "img": "icons/magic/control/hypnosis-mesmerism-watch.webp",
   "effects": [
     {
       "name": "注目术 Enthrall",
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Hunter_MasterMarksman.png",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.YfT8hNtZ4Qt8aLKc",
+      "img": "icons/magic/control/hypnosis-mesmerism-watch.webp",
+      "origin": null,
       "transfer": false,
       "_id": "l9E6BvJQepsCh1Lk",
       "type": "base",
-      "system": {},
-      "changes": [],
+      "system": {
+        "changes": [],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.YfT8hNtZ4Qt8aLKc",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "minutes",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -69,20 +69,23 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!YfT8hNtZ4Qt8aLKc.l9E6BvJQepsCh1Lk"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你编排了一段使人分心的话语，并指定施法距离内一个你能看见且可以听到你声音的生物作为法术目标。目标生物必须进行一次感知豁免并成功通过。任何不能被魅惑的生物进行该豁免时直接判定为豁免成功。如果你或你的同伴正在和该生物战斗，则其进行该豁免时具有优势。豁免失败时，目标对除你以外其他生物进行的感知（察觉）检定具有劣势，直到法术终止或目标听不到你为止。如果你陷入失能状态或不能再说话，则该法术终止。</div>",
+      "value": "<p>你编排了一段使人分心的话语，并指定施法距离内任何你能看见且可以听到你声音的生物作为法术目标。目标生物必须进行一次[[/save activity=dnd5eactivity000]]{感知豁免}并成功通过。任何不能被魅惑的生物进行该豁免时直接判定为豁免成功。如果你或你的同伴正在和该生物战斗，则其进行该豁免时具有优势。豁免失败时，目标对除你以外其他生物进行的[[/check ability=wis skill=prc]]{感知（察觉）检定}具有劣势，直到法术终止或目标听不到你为止。如果你陷入&amp;Reference[condition=incapacitated apply=false]{失能}状态或不能再说话，则该法术终止。</p>",
       "chat": ""
     },
     "source": {
@@ -98,7 +101,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -110,7 +114,8 @@
       "template": {
         "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -131,10 +136,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -159,18 +160,22 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "minute",
           "concentration": false,
           "override": true,
-          "value": "1"
+          "value": "1",
+          "expiry": null
         },
         "effects": [
           {
             "_id": "l9E6BvJQepsCh1Lk",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
@@ -183,7 +188,8 @@
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -209,7 +215,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "name": "",
@@ -224,7 +231,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -232,7 +240,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -243,18 +250,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "enthrall"
+    "identifier": "enthrall",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -263,8 +319,8 @@
   "sort": 38700000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757419719404,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

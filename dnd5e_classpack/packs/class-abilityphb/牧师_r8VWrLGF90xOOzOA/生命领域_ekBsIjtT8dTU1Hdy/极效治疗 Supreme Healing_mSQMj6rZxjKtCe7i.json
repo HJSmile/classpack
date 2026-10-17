@@ -2,7 +2,7 @@
   "_id": "mSQMj6rZxjKtCe7i",
   "name": "极效治疗 Supreme Healing",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_CircleOfRenewal.png",
+  "img": "icons/magic/life/cross-worn-green.webp",
   "system": {
     "type": {
       "value": "class",
@@ -25,53 +25,78 @@
     "requirements": "生命领域等级 17",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 17,
+      "repeatable": false,
+      "items": [
+        "subclass:life-domain"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "name": "极效治疗",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_CircleOfRenewal.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.mSQMj6rZxjKtCe7i",
+      "img": "icons/magic/life/cross-worn-green.webp",
+      "origin": null,
       "_id": "B8p6YBtK5LV3umy5",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.optional.极效治疗.force",
-          "mode": 2,
-          "value": "item.itenType === \"spell\"",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.optional.极效治疗.force",
+            "value": "item.itenType === \"spell\"",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "aHIsu2sBEIwyeHkD",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.极效治疗.damage.heal",
+            "value": "reroll-max",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "83Z0Kn4KnGyeuWeH",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.极效治疗.count",
+            "value": "every",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "heWl7uwoaOJXkBAt",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.optional.极效治疗.damage.heal",
-          "mode": 2,
-          "value": "reroll-max",
-          "priority": 20
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.mSQMj6rZxjKtCe7i",
+          "message": null
         },
-        {
-          "key": "flags.midi-qol.optional.极效治疗.count",
-          "mode": 2,
-          "value": "every",
-          "priority": 20
-        }
-      ],
+        "conditions": "{}",
+        "magical": false
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -89,42 +114,26 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757100964956,
         "modifiedTime": 1757101275950,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!mSQMj6rZxjKtCe7i.B8p6YBtK5LV3umy5"
     }
   ],
@@ -155,12 +164,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "supremeHealing",
@@ -170,9 +174,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757407855900,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

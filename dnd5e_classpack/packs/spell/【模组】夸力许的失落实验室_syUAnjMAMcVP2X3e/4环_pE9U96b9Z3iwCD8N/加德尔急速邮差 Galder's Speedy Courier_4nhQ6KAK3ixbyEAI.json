@@ -4,7 +4,7 @@
   "img": "icons/containers/boxes/box-gift-white.webp",
   "system": {
     "description": {
-      "value": "<p>    你在施法距离内的一点召唤出一名小型@UUID[Compendium.dnd5e_classpack.monsterspack.banHjKDMCegbUwYE]{气元素}。气元素没有形体且近乎透明，它对所有伤害免疫且无法与其他生物或物件互动。它携带着一件内部尺寸为每边3尺的打开的空箱子。当法术持续时，你可以在箱子内存放尽可能多的物品。随后你可以指定一名你曾见过至少一次，或拥有其一件身体部位，头发，指甲或类似物件的生物。</p><p>    一旦箱子的盖子被合上，气元素与箱子将会消失，并随后在目标生物的旁边重新出现。如果目标生物处在另一个位面，或是不受魔法侦测和定位的影响，箱子里的物件将在你脚下的地面上重新出现。</p><p>    目标生物在选择是否打开箱子前会知道其中内容，并知道在法术结束前它还有多少时间取得其中物品。其他任何生物都无法打开箱子和取得其中的内容。当法术结束或箱子内部所装物品皆被移出之后，气元素与箱子都会消失。如果目标生物命令气元素将物品返还与你，则它也会消失，而箱子内未被取出的物品将在你脚下的地面上重新出现。</p><p><strong>升环施法效应。</strong>使用8环法术位施展该法术时，你可以将箱子送往与你处在不同存在位面的生物。</p>",
+      "value": "<p>你在施法距离内的一点召唤出一名小型@UUID[Compendium.dnd5e_classpack.monsterspack.banHjKDMCegbUwYE]{气元素}。气元素没有形体且近乎透明，它对所有伤害免疫且无法与其他生物或物件互动。它携带着一件内部尺寸为每边3尺的打开的空箱子。当法术持续时，你可以在箱子内存放尽可能多的物品。随后你可以指定一名你曾见过至少一次，或拥有其一件身体部位，头发，指甲或类似物件的生物。</p><p>一旦箱子的盖子被合上，气元素与箱子将会消失，并随后在目标生物的旁边重新出现。如果目标生物处在另一个位面，或是不受魔法侦测和定位的影响，箱子里的物件将在你脚下的地面上重新出现。</p><p>目标生物在选择是否打开箱子前会知道其中内容，并知道在法术结束前它还有多少时间取得其中物品。其他任何生物都无法打开箱子和取得其中的内容。当法术结束或箱子内部所装物品皆被移出之后，气元素与箱子都会消失。如果目标生物命令气元素将物品返还与你，则它也会消失，而箱子内未被取出的物品将在你脚下的地面上重新出现。</p><p><strong>升环施法效应。</strong>当你使用八环法术位施放本法术时，你可以将箱子送往与你处在不同存在位面的生物。</p>",
       "chat": ""
     },
     "source": {
@@ -19,15 +19,17 @@
     },
     "duration": {
       "value": "10",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
         "choice": false
       },
       "template": {
-        "units": "",
-        "contiguous": false
+        "units": "ft",
+        "contiguous": false,
+        "stationary": false
       }
     },
     "range": {
@@ -46,10 +48,6 @@
       "consumed": true,
       "cost": 25,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -75,22 +73,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -120,7 +122,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -128,7 +131,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -139,18 +141,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "galders-speedy-courier"
+    "identifier": "galders-speedy-courier",
+    "method": "spell",
+    "prepared": 0
   },
   "effects": [],
   "flags": {
@@ -175,17 +225,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_id": "4nhQ6KAK3ixbyEAI",
   "folder": "pE9U96b9Z3iwCD8N",
@@ -195,8 +235,8 @@
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757235114937,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

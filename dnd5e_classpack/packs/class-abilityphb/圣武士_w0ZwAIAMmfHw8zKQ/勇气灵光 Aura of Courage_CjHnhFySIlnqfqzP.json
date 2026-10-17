@@ -9,7 +9,7 @@
       "subtype": ""
     },
     "description": {
-      "value": "<p>第10级起，你与友方生物在你身边10尺内不会陷入恐慌。提供该增益时你必须保持意识清醒。</p><p>第18级起，该灵光的作用范围扩展至30尺。</p>",
+      "value": "<p>第10级起，你与友方生物在你身边10尺内不会陷入&amp;Reference[condition=frightened apply=false]{恐慌}。提供该增益时你必须保持意识清醒。</p><p>第18级起，该灵光的作用范围扩展至30尺。</p>",
       "chat": ""
     },
     "source": {
@@ -25,13 +25,16 @@
     "requirements": "圣武士等级 10",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 10,
+      "repeatable": false,
+      "items": [
+        "class:paladin"
+      ]
     },
     "properties": [
       "mgc"
@@ -40,30 +43,19 @@
   "effects": [
     {
       "_id": "EXiTN2oLyFXnA8Aj",
-      "changes": [
-        {
-          "key": "system.traits.ci.value",
-          "mode": 2,
-          "value": "frightened",
-          "priority": 20
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.CjHnhFySIlnqfqzP",
+      "origin": null,
       "transfer": true,
       "flags": {
         "dae": {
           "disableCondition": "",
-          "disableIncapacitated": false,
+          "disableIncapacitated": true,
           "stackable": "none",
           "showIcon": false,
           "durationExpression": "",
@@ -71,36 +63,20 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
         },
-        "ActiveAuras": {
-          "isAura": true,
-          "aura": "Allies",
-          "nameOverride": "",
-          "radius": "10",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
+        "auraeffects": {
+          "originalType": "base"
         }
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1757272749331,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
@@ -110,11 +86,54 @@
       },
       "name": "获得恐慌免疫",
       "img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
-      "type": "base",
-      "system": {},
+      "type": "auraeffects.aura",
+      "system": {
+        "showRadius": true,
+        "applyToSelf": true,
+        "bestFormula": "",
+        "canStack": false,
+        "color": null,
+        "combatOnly": true,
+        "disableOnHidden": true,
+        "distanceFormula": "@scale.paladin.aura-radius",
+        "disposition": 1,
+        "evaluatePreApply": false,
+        "overrideName": "",
+        "script": "",
+        "stashedChanges": [],
+        "stashedStatuses": [],
+        "changes": [
+          {
+            "key": "system.traits.ci.value",
+            "value": "frightened",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "fh2gicCa1Xta0F1m",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "collisionType": "move",
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.CjHnhFySIlnqfqzP",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!CjHnhFySIlnqfqzP.EXiTN2oLyFXnA8Aj"
     }
   ],
@@ -125,14 +144,7 @@
     "entityorder": {
       "order": 168
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -159,9 +171,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757272506712,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

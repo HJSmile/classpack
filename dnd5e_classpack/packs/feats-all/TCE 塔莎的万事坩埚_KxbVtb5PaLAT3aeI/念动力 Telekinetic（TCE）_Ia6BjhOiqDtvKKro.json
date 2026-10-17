@@ -6,10 +6,10 @@
   "system": {
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "description": {
-      "value": "<p>你习得用你的意念移动物体的能力。你获得以下好处：<br />·你的智力，感知或魅力提升1，上限为20。<br />·你习得法师之手戏法，你施展它无需语言构材或材料构材，并且你可以让该幽灵手隐形。如果你已经习得该戏法，你施展该戏法时其施法距离提升30尺。该戏法的施法关键属性是你由此专长提升的属性。<br />·以一个附赠动作，你可以尝试以念动力推撞30尺内的一个你可见的生物。当你这样做时，目标必须成功通过一次力量豁免（DC为8+你的熟练加值+你由此专长提升的属性的属性调整值）否则将被你拉近或推离五尺。目标生物可以自愿放弃豁免。</p>",
+      "value": "<p>你习得用你的意念移动物体的能力。你获得以下好处：</p><p>·你的智力，感知或魅力提升1，上限为20。</p><p>·你习得法师之手戏法，你施展它无需语言构材或材料构材，并且你可以让该幽灵手隐形。如果你已经习得该戏法，你施展该戏法时其施法距离提升30尺。该戏法的施法属性是你由此专长提升的属性。</p><p>·以一个附赠动作，你可以尝试以念动力推撞30尺内的一个你可见的生物。当你这样做时，目标必须成功通过一次力量豁免（DC为8+你的熟练加值+你由此专长提升的属性的属性调整值）否则将被你拉近或推离五尺。目标生物可以自愿放弃豁免。</p>",
       "chat": ""
     },
     "source": {
@@ -26,13 +26,57 @@
     "requirements": "",
     "activities": {},
     "identifier": "-telekinetictce",
-    "advancement": [],
+    "advancement": {
+      "8b2cb4b5b92a13a3": {
+        "_id": "8b2cb4b5b92a13a3",
+        "type": "ItemChoice",
+        "name": "选择施法属性",
+        "configuration": {
+          "choices": {
+            "0": {
+              "count": 1,
+              "replacement": false
+            }
+          },
+          "allowDrops": false,
+          "type": "feat",
+          "pool": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.44b7e0e9452f938b",
+              "sort": 0
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.a8e715b7f0091963",
+              "sort": 1
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.aa8bb2490d20f984",
+              "sort": 2
+            }
+          ],
+          "spell": null,
+          "restriction": {
+            "type": "feat",
+            "subtype": "",
+            "level": "",
+            "list": [],
+            "school": []
+          },
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -41,17 +85,12 @@
   "sort": 112500,
   "flags": {
     "core": {},
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757275287302,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

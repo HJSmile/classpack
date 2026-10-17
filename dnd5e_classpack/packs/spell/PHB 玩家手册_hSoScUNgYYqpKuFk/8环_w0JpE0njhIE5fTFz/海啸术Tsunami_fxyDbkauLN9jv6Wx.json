@@ -29,23 +29,13 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Shaman_TidalWaves.png",
+  "img": "icons/magic/water/wave-water-blue.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \">\n<div class=\"description \">你指定施法距离内一点并从中升起一面水墙。水墙长不过300 尺，高不过300 尺，厚不过50 尺，且持续存在至法术终止。水墙出现时，所有位于水墙内的生物都要进行一次力量豁免。</div>\n<div class=\"description \">豁免失败者将受到6d10 点钝击伤害，豁免成功则伤害减半。水墙出现后，将在你每一回合开始时带着其内的所有生物一起向远离你的方向移动50 尺。当水墙进入一个巨型或更小体型生物所占据空间，或他们原本就处于墙内时，该生物必须进行一次力量豁免，豁免失败则受到5d10 点钝击伤害。该伤害一轮里对同一个生物只生效一次。在你的回合结束时，水墙的高度减少50 尺，且其随后每轮对生物造成的伤害也减少1d10。当水墙高度变为0 尺时法术终止。</div>\n<div class=\"description \">淹没在水墙中的生物可以用游泳的方式移动，由于波涛阻力影响，该生物必须要进行一次对抗该法术DC 的力量（运动）检定以决定起能否成功移动，而检定失败者则无法移动。通过移动离开水墙区域的生物会直接掉到地上。</div>\n</div>",
+      "value": "<p>你指定施法距离内一点并从中升起一面水墙。水墙长不过 300 尺，高不过 300 尺，厚不过 50 尺，且持续存在至法术终止。</p><p>水墙出现时，所有位于水墙内的生物都要进行一次[[/save activity=dnd5eactivity000]]{力量豁免}。豁免失败者将受到 [[/damage 6d10 type=bludgeoning]]{6d10} 点钝击伤害，豁免成功则伤害减半。</p><p>水墙出现后，将在你每一回合开始时带着其内的所有生物一起向远离你的方向移动 50 尺。当水墙进入一个巨型或更小体型生物所占据空间，或他们原本就处于墙内时，该生物必须进行一次力量豁免，豁免失败则受到 [[/damage 5d10 type=bludgeoning]]{5d10} 点钝击伤害。该伤害一轮里对同一个生物只生效一次。在你的回合结束时，水墙的高度减少 50 尺，且其随后每轮对生物造成的伤害也减少 1d10。当水墙高度变为 0 尺时法术终止。</p><p>淹没在水墙中的生物可以用游泳的方式移动，由于波涛阻力影响，该生物必须要进行一次对抗该法术 DC 的[[/check ability=str skill=ath]]{力量（运动）检定}以决定起能否成功移动，而检定失败者则无法移动。通过移动离开水墙区域的生物会直接掉到地上。</p>",
       "chat": ""
     },
     "source": {
@@ -61,7 +51,8 @@
     },
     "duration": {
       "value": "6",
-      "units": "round"
+      "units": "round",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -75,7 +66,8 @@
         "contiguous": false,
         "width": "",
         "height": "",
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -95,10 +87,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -124,22 +112,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -169,7 +161,8 @@
                 "mode": "",
                 "number": null,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -183,7 +176,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -197,7 +191,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -205,7 +200,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -216,18 +210,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "tsunami"
+    "identifier": "tsunami",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -236,8 +279,8 @@
   "sort": 8900000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

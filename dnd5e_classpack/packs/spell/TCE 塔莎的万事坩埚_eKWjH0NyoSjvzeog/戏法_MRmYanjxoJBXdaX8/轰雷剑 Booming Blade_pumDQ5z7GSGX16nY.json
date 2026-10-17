@@ -2,7 +2,7 @@
   "_id": "pumDQ5z7GSGX16nY",
   "name": "轰雷剑 Booming Blade",
   "type": "spell",
-  "img": "modules/dnd5e_classpack/Nicons/ability_demonhunter_soulcleave4.jpg",
+  "img": "icons/skills/melee/strike-sword-slashing-red.webp",
   "effects": [],
   "folder": "MRmYanjxoJBXdaX8",
   "sort": 600000,
@@ -31,16 +31,7 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "boomingBlade",
@@ -51,7 +42,7 @@
   },
   "system": {
     "description": {
-      "value": "<p>         作为施展这个法术的一部分，你必须用你的武器对 5 尺内的一个生物进行一次近战攻击。如果攻击命中，目标受到这次攻击的正常影响，并且被包复在爆发性的能量之中直到你的下回合开始。如果目标在这之前自愿移动了 5 尺或更多，其立即受到 1d8 雷鸣伤害，法术结束。</p>\n<p>　　这道法术的伤害随着你的等级提升而增加。你到达 5 级时，这次近战攻击将造成额外 1d8 雷鸣伤害，并且目标进行移动时受到的伤害提升为 2d8。两个伤害骰都会在 11 级时增加 1d8（2d8 和 3d8），17 级时再加 1d8（3d8 和 4d8）。</p>",
+      "value": "<p><em>塑能戏法（奇械师、术士、魔契师、法师）</em></p><p>施法时间：1 动作</p><p>施法距离：自身（半径5尺）</p><p>法术成分：S, M（一把至少价值 1sp 的近战武器）</p><p>持续时间：1 轮</p><p>你挥舞作为法术成分的那把武器，对你周围 5 尺范围内的一个生物发动一次近战武器攻击。如果攻击成功命中，目标会受到这次攻击的正常影响，并被包覆在爆发性的能量之中，直到你的下回合开始。如果目标在这之前主动移动了 5 尺或更多，法术效应将立刻结束并使其受到 [[/damage 1d8 type=thunder]]{1d8} 雷鸣伤害。</p><p>此法术的伤害会随你的等级一同提升：到达 5 级后，这次近战攻击将造成额外 1d8 点雷鸣伤害，且目标进行移动时受到的伤害提升为 2d8。两个伤害都会在 11 级后再增加 1d8（2d8 和 3d8），17 级后再加 1d8（3d8 和 4d8）。</p>",
       "chat": ""
     },
     "source": {
@@ -67,7 +58,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "round"
+      "units": "round",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -75,11 +67,12 @@
         "type": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "type": "radius",
         "size": "",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -100,10 +93,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "somatic",
@@ -127,22 +116,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -175,7 +168,8 @@
                 "mode": "whole",
                 "number": 1,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ]
         },
@@ -191,7 +185,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -199,7 +194,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -210,25 +204,73 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
         }
       }
     },
-    "identifier": "booming-bladetce"
+    "identifier": "booming-bladetce",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

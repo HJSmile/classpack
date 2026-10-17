@@ -29,18 +29,11 @@
       "itemCondition": "",
       "effectCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
-      "value": "<p><em>奇物</em></p>\n<p>这本手册记载了制造某种魔像所必须的知识和符咒，魔像的类型由DM选择或随机决定。只有拥有至少2个5环法术位的施法者才能解读并使用这本书。无法解读这本书的生物在阅读它时将受到[[/r 6d6]]精神伤害。</p>\n<p>制造魔像时，你需要花费表格中所标注的时间，每天休息不超过8小时。工作时你必须把魔像手册放在手边随时参考，并且不能受到打扰。另外，你还要付出表格中标注的金钱用以购买材料。</p>\n<p>魔像完工后，魔像手册将被魔焰吞噬。当你把手册的灰烬洒在魔像上时，它将获得生命。它服从你的控制，理解并听从你的口头命令。魔像的数据见怪物图鉴。</p>\n<table border=\"1\">\n<tbody>\n<tr>\n<td><strong>[[/r d20]]</strong></td>\n<td><strong>魔像</strong></td>\n<td><strong>时间</strong></td>\n<td><strong>花费</strong></td>\n</tr>\n<tr>\n<td>1-5</td>\n<td>粘土魔像</td>\n<td>30天</td>\n<td>65,000金币</td>\n</tr>\n<tr>\n<td>6-17</td>\n<td>肉魔像</td>\n<td>60天</td>\n<td>50,000金币</td>\n</tr>\n<tr>\n<td>18</td>\n<td>铁魔像</td>\n<td>120天</td>\n<td>100,000金币</td>\n</tr>\n<tr>\n<td>19-20</td>\n<td>石魔像</td>\n<td>90天</td>\n<td>80,000金币</td>\n</tr>\n</tbody>\n</table>",
+      "value": "<p><em>奇物</em></p><p>这本手册记载了制造某种魔像所必须的知识和符咒，魔像的类型由DM选择或随机决定。只有拥有至少2个5环法术位的施法者才能解读并使用这本书。无法解读这本书的生物在阅读它时将受到[[/r 6d6]]精神伤害。</p><p>制造魔像时，你需要花费表格中所标注的时间，每天休息不超过8小时。工作时你必须把魔像手册放在手边随时参考，并且不能受到打扰。另外，你还要付出表格中标注的金钱用以购买材料。</p><p>魔像完工后，魔像手册将被魔焰吞噬。当你把手册的灰烬洒在魔像上时，它将获得生命。它服从你的控制，理解并听从你的口头命令。魔像的数据见怪物图鉴。</p><table><tbody><tr><td><strong>[[/r d20]]</strong></td><td><strong>魔像</strong></td><td><strong>时间</strong></td><td><strong>花费</strong></td></tr><tr><td>1-5</td><td>粘土魔像</td><td>30天</td><td>65,000金币</td></tr><tr><td>6-17</td><td>肉魔像</td><td>60天</td><td>50,000金币</td></tr><tr><td>18</td><td>铁魔像</td><td>120天</td><td>100,000金币</td></tr><tr><td>19-20</td><td>石魔像</td><td>90天</td><td>80,000金币</td></tr></tbody></table>",
       "chat": ""
     },
     "source": {
@@ -60,7 +53,6 @@
     },
     "attunement": "",
     "equipped": false,
-    "rarity": "veryRare",
     "identified": true,
     "uses": {
       "max": "1",
@@ -84,7 +76,8 @@
           "mode": "",
           "number": null,
           "formula": ""
-        }
+        },
+        "modifiers": []
       },
       "replace": false
     },
@@ -96,7 +89,6 @@
       "subtype": ""
     },
     "container": null,
-    "magicalBonus": null,
     "properties": [
       "mgc"
     ],
@@ -129,18 +121,20 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -152,7 +146,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "0",
@@ -174,16 +169,104 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-manual-of-golems",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "veryRare"
+    ]
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1713010438952,
     "modifiedTime": 1757871129202,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

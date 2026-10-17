@@ -5,7 +5,7 @@
   "img": "icons/magic/perception/silhouette-stealth-shadow.webp",
   "system": {
     "description": {
-      "value": "<p><span style=\"font-family:'Roboto Condensed', sans-serif\">你拥有以下一项自选技能的熟练项：奥秘，调查，医药，巧手，或求生。</span></p>",
+      "value": "<p>你拥有以下一项自选技能的熟练项：奥秘，调查，医药，巧手，或求生。</p>",
       "chat": ""
     },
     "source": {
@@ -31,11 +31,39 @@
     "requirements": "狗头人",
     "activities": {},
     "identifier": "-mpmm",
-    "advancement": [],
+    "advancement": {
+      "296398400a646ef5": {
+        "_id": "296398400a646ef5",
+        "type": "Trait",
+        "name": "熟练项",
+        "configuration": {
+          "mode": "default",
+          "allowReplacements": false,
+          "grants": [],
+          "choices": [
+            {
+              "count": 1,
+              "pool": [
+                "skills:arc",
+                "skills:inv",
+                "skills:med",
+                "skills:slt",
+                "skills:sur"
+              ]
+            }
+          ]
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     }
   },
   "effects": [],
@@ -64,17 +92,12 @@
       "itemCondition": "",
       "effectCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1712120466551,
     "modifiedTime": 1756544420586,
     "lastModifiedBy": "sPF2dtZDreDpJaW6",

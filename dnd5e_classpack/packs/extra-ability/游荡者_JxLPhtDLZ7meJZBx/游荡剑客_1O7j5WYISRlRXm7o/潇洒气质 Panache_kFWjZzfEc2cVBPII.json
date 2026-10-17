@@ -2,14 +2,14 @@
   "_id": "kFWjZzfEc2cVBPII",
   "name": "潇洒气质 Panache",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/003132.png",
+  "img": "icons/magic/control/mouth-smile-deception-purple.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>         第9 级起，你变得更具魅力。你可以用一个动作进行一次魅力（游说）检定，以此对抗一个生物的感知（洞悉）检定。目标生物必须能听到你的声音，并且你们两个必须懂得同一门语言。</p>\n<p>         如果该生物对你敌对且你胜出对抗，则该生物对除你外其他目标发动攻击检定时具有劣势，且不能对除你外的目标发动借机攻击。该效应持续1分钟，你的队友对该目标发动攻击或以法术影响该目标，又或者你移动到远离目标 60 尺外时，该效应也将提前终止。</p>\n<p>         如果该生物对你非敌对且你胜出对抗，则该生物被你魅惑1 分钟。该生物被魅惑时会将你认作一个友好的熟人。该效应会在你或你的队友做出任何对目标的伤害后立即终止。</p>",
+      "value": "<p>         第9 级起，你变得更具魅力。你可以用一个动作进行一次魅力（游说）检定，以此对抗一个生物的感知（洞悉）检定。目标生物必须能听到你的声音，并且你们两个必须懂得同一门语言。</p>\n<p>         如果该生物对你敌对且你胜出对抗，则该生物对除你外其他目标发动攻击检定时具有劣势，且不能对除你外的目标发动借机攻击。该效应持续1分钟，你的队友对该目标发动攻击或以法术影响该目标，又或者你移动到远离目标 60 尺外时，该效应也将提前终止。</p>\n<p>         如果该生物对你非敌对且你胜出对抗，则该生物被你魅惑1 分钟。该生物被魅惑时会将你认作一个友好的熟人。该效应会在你或你的队友对目标采取任何有害行为后立即终止。</p>",
       "chat": ""
     },
     "source": {
@@ -42,12 +42,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -59,7 +61,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -83,7 +86,8 @@
             "calculation": "",
             "formula": ""
           },
-          "ability": ""
+          "ability": "",
+          "visible": true
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -96,7 +100,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -104,7 +109,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -115,32 +119,81 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "damage": {
           "onSave": "half",
-          "parts": []
+          "parts": [],
+          "critical": {
+            "allow": false
+          }
         },
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
     "identifier": "-panache",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 9,
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -148,14 +201,7 @@
   "folder": "1O7j5WYISRlRXm7o",
   "sort": 39200000,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -175,9 +221,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1749883542518,
     "lastModifiedBy": "uXKCmWFprrvnSIDm",

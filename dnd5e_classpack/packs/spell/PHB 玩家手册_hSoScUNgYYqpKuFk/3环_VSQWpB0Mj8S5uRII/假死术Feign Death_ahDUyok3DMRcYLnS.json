@@ -24,33 +24,18 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "ritual"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Rogue_FeignDeath.png",
+  "img": "icons/magic/death/grave-tombstone-glow-teal.webp",
   "effects": [
     {
-      "changes": [],
       "description": "No active effects",
       "disabled": false,
       "duration": {
-        "rounds": null,
-        "seconds": null,
-        "turns": null,
-        "startTime": null,
-        "combat": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "hours",
+        "expiry": null,
+        "expired": false
       },
       "flags": {
         "dfreds-convenient-effects": {
@@ -62,7 +47,7 @@
         }
       },
       "name": "Dead",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.ahDUyok3DMRcYLnS",
+      "origin": null,
       "tint": "#ffffff",
       "transfer": false,
       "statuses": [
@@ -71,9 +56,9 @@
       ],
       "_id": "ctz5psmEgsIUlvvk",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -83,14 +68,31 @@
       },
       "img": "icons/svg/skull.svg",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.ahDUyok3DMRcYLnS",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!ahDUyok3DMRcYLnS.ctz5psmEgsIUlvvk"
     }
   ],
   "system": {
     "description": {
-      "value": "<p>你触碰一自愿生物并将其变得如死去一样的僵直状态。</p>\n<p>你可以用一个动作再次触碰该目标以终止该法术。在法术持续时间内，对目标进行的任何肉体检查和法术检测都显示目标已处于死亡状态。该状态下的目标陷入目盲以及失能状态，且其移动速度降低为0。目标对除了心灵伤害外的所有伤害类型具有抗性。如果目标在受术时正陷入疾病或中毒状态，或者在法术生效时陷入疾病或中毒状态，则这些状态在该法术持续时间内受抑制而无效，直至法术终止时再回复生效。</p>",
+      "value": "<p>你触碰一自愿生物并将其变得如死去一样的僵直状态。</p><p>你可以用一个动作再次触碰该目标以终止该法术。在法术持续时间内，对目标进行的任何肉体检查和法术检测都显示目标已处于死亡状态。该状态下的目标陷入&amp;Reference[condition=blinded apply=false]{目盲}以及&amp;Reference[condition=incapacitated apply=false]{失能}状态，且其移动速度降低为 0。目标对除了心灵伤害外的所有伤害类型具有抗性。如果目标在受术时正陷入疾病或&amp;Reference[condition=poisoned apply=false]{中毒}状态，或者在法术生效时陷入疾病或中毒状态，则这些状态在该法术持续时间内受抑制而无效，直至法术终止时再恢复生效。</p>",
       "chat": ""
     },
     "source": {
@@ -108,7 +110,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -118,9 +121,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -140,10 +144,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -170,26 +170,32 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "ctz5psmEgsIUlvvk"
+            "_id": "ctz5psmEgsIUlvvk",
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -219,7 +225,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -227,7 +234,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -238,18 +244,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "feign-death"
+    "identifier": "feign-death",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -258,8 +312,8 @@
   "sort": 12400000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711696310148,
     "modifiedTime": 1752921449880,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

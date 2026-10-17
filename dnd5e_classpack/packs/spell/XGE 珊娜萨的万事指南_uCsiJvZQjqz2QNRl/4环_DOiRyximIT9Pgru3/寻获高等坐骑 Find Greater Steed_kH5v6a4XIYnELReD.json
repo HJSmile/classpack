@@ -23,16 +23,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "findGreaterSteed",
@@ -46,7 +37,7 @@
   "effects": [],
   "system": {
     "description": {
-      "value": "<p>你召唤一个圣魂并呈现出忠诚的、雄伟的坐骑外观。坐骑出现在施法范围内未被占据的空间内，坐骑的外形由你从以下形态中选择：狮鹫Griffon、飞马Pegasus、鹿鹰兽Peryton、恐狼Dire Wolf、犀牛Rhinoceros或者剑齿虎Saber-toothed Tiger。坐骑拥有你选择的形态数据如同怪物手册，但它实际上是天界、精类或炼狱生物（由你选择）而不是通常类型。另外，如果你的坐骑智力为5或以下，它的智力变为6，同时能听懂一种你所说的语言。<br />你在战斗中控制坐骑。当坐骑在你周围1英里内，你可以通过心灵感应和它沟通。当骑乘在你的魔法坐骑上时，所有你施展的只以你为目标法术同时也影响你的魔法坐骑。<br />当魔法坐骑的hp降为0时，它会暂时消失。你也可以以一个动作解散你的魔法坐骑使得它消失。再次施放这个法术可以重新召唤绑定的坐骑，此时它的生命值全部恢复，并且任何状态都被移除。<br />你不能通过这个法术或获得坐骑法术同时拥有与1个以上的魔法坐骑的联系，以一个动作，你可以在任何时候将你的坐骑从你们的联系中解放，使得它消失。<br />每当坐骑消失，它会留下所有它穿戴或者携带的物品。</p>",
+      "value": "<p>你召唤一个圣魂并呈现出忠诚的、雄伟的坐骑外观。坐骑出现在施法范围内未占据空间内，坐骑的外形由你从以下形态中选择：<strong>狮鹫Griffon</strong>、<strong>天马Pegasus</strong>、<strong>鹿鹰Peryton</strong>、<strong>恐狼Dire Wolf</strong>、<strong>犀牛Rhinoceros</strong>或者<strong>剑齿虎Saber-toothed Tiger</strong>。坐骑拥有你选择的形态的数据（见《怪物图鉴》），不过它的生物类型实际上是天族、妖精、或邪魔（由你选择）而非这些生物的通常类型。此外，你的坐骑还能听懂一门你习得的语言（由你选择），且如果你的坐骑智力为 5 或更低，它的智力变为 6。</p><p>你在战斗中控制坐骑。当坐骑在你周围 1 里内，你可以通过心灵感应和它沟通。当骑乘在你的魔法坐骑上时，所有你施展的只以你为目标法术同时也影响你的魔法坐骑。</p><p>当魔法坐骑的 HP 降为 0 时，它会暂时消失。你也可以以一个动作解散你的魔法坐骑使得它消失。再次施放这个法术可以重新召唤绑定的坐骑，此时它的生命值全部恢复，并且任何状态都被移除。</p><p>你不能通过这个法术或获得坐骑法术同时拥有与 1 个以上的魔法坐骑的联系，以一个动作，你可以在任何时候将你的坐骑从你们的联系中解放，使得它消失。</p><p>每当坐骑消失，它会留下所有它穿戴或者携带的物品。</p>",
       "chat": ""
     },
     "source": {
@@ -62,7 +53,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -70,9 +62,10 @@
         "type": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -92,10 +85,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -119,20 +108,25 @@
           "spellSlot": true,
           "targets": []
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -150,7 +144,8 @@
         "match": {
           "attacks": false,
           "proficiency": false,
-          "saves": false
+          "saves": false,
+          "disposition": false
         },
         "profiles": [
           {
@@ -213,7 +208,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -221,7 +217,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -232,17 +227,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
-        }
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "friendlySummon": false
       }
     },
-    "identifier": "find-greater-steed"
+    "identifier": "find-greater-steed",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -251,8 +295,8 @@
   "sort": 15300000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

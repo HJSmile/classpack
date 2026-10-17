@@ -2,7 +2,7 @@
   "_id": "UyTtD6D91W6EZLQt",
   "name": "巫咒战士 Hex Warrior",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Priest_ShadowyApparition.png",
+  "img": "icons/skills/melee/sword-engraved-glow-purple.webp",
   "system": {
     "type": {
       "value": "class",
@@ -25,57 +25,35 @@
     "requirements": "咒剑士等级 1",
     "activities": {},
     "identifier": "-hex-warrior",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 1,
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
   "effects": [
     {
       "_id": "zucCzkJArfZFbnhb",
-      "changes": [
-        {
-          "key": "system.traits.armorProf.value",
-          "mode": 2,
-          "value": "med",
-          "priority": null
-        },
-        {
-          "key": "system.traits.armorProf.value",
-          "mode": 2,
-          "value": "shl",
-          "priority": null
-        },
-        {
-          "key": "system.traits.weaponProf.value",
-          "mode": 2,
-          "value": "mar",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": "Compendium.dnd5e_classpack.extra-ability.UyTtD6D91W6EZLQt",
       "transfer": true,
       "flags": {},
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -84,24 +62,67 @@
         "exportSource": null
       },
       "name": "获得中甲、盾牌、军用武器熟练",
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Priest_ShadowyApparition.png",
+      "img": "icons/skills/melee/sword-engraved-glow-purple.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.armorProf.value",
+            "value": "med",
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "kbJzRl9c0FiEvVkB",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.armorProf.value",
+            "value": "shl",
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "jNOQ8dll0l8P9HSm",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.weaponProf.value",
+            "value": "mar",
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "2tv1C8MOOPxhusBy",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!UyTtD6D91W6EZLQt.zucCzkJArfZFbnhb"
     }
   ],
   "folder": "yvueHfXd1jVmcime",
   "sort": 26900000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -128,9 +149,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757410303793,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

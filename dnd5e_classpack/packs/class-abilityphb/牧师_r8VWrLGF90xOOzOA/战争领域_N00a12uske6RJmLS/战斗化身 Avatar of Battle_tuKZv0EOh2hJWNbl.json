@@ -2,10 +2,10 @@
   "name": "战斗化身 Avatar of Battle",
   "type": "feat",
   "_id": "tuKZv0EOh2hJWNbl",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Racial_Avatar.png",
+  "img": "icons/magic/defensive/armor-shield-barrier-steel.webp",
   "system": {
     "description": {
-      "value": "<p>        第17级时，你对非魔法武器造成的钝击、穿刺、挥砍伤害具有抗性。</p>",
+      "value": "<p>        第17级时，你对非魔法攻击造成的钝击、穿刺、挥砍伤害具有抗性。</p>",
       "chat": ""
     },
     "source": {
@@ -21,60 +21,34 @@
       "recovery": []
     },
     "type": {
-      "value": "",
+      "value": "class",
       "subtype": ""
     },
     "requirements": "战争领域等级 17",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 17,
+      "repeatable": false,
+      "items": [
+        "subclass:war-domain"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "_id": "bU8jgVNB5luSASo9",
-      "changes": [
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "bludgeoning",
-          "priority": 20
-        },
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "slashing",
-          "priority": 20
-        },
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "piercing",
-          "priority": 20
-        },
-        {
-          "key": "system.traits.dr.bypasses",
-          "mode": 0,
-          "value": "mgc",
-          "priority": 20
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.tuKZv0EOh2hJWNbl",
+      "origin": null,
       "transfer": true,
       "flags": {
         "dae": {
@@ -94,9 +68,9 @@
       "description": "",
       "statuses": [],
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -104,10 +78,68 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Racial_Avatar.png",
+      "img": "icons/magic/defensive/armor-shield-barrier-steel.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.dr.value",
+            "value": "bludgeoning",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "pQaf1IcMc0r2SicK",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.dr.value",
+            "value": "slashing",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "tPep3Puyx5xagnIg",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.dr.value",
+            "value": "piercing",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "MDfmrDPxDby0CzC6",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.dr.bypasses",
+            "value": "mgc",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "9oTO2ilsm2crtiQJ",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.tuKZv0EOh2hJWNbl",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!tuKZv0EOh2hJWNbl.bU8jgVNB5luSASo9"
     }
   ],
@@ -145,17 +177,12 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1685806942012,
     "modifiedTime": 1757273448486,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

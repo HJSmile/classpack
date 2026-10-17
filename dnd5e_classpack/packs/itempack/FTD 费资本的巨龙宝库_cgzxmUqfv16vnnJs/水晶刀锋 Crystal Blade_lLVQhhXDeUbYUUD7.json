@@ -24,12 +24,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -40,7 +42,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -78,11 +81,15 @@
                 "formula": ""
               },
               "number": 1,
-              "denomination": "8",
+              "denomination": 8,
               "bonus": "",
               "types": [
                 "radiant"
-              ]
+              ],
+              "modifiers": [],
+              "scaling": {
+                "number": 1
+              }
             }
           ]
         },
@@ -97,7 +104,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -105,7 +113,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": true,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -116,13 +123,27 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": true,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "attackMode": "oneHanded",
@@ -130,7 +151,39 @@
         "otherActivityUuid": "",
         "name": "水晶锋刃攻击",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       },
       "xl8NhErunnGSGR0X": {
         "type": "heal",
@@ -150,12 +203,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -166,7 +221,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -187,7 +243,7 @@
         },
         "healing": {
           "number": null,
-          "denomination": "",
+          "denomination": null,
           "types": [],
           "custom": {
             "enabled": false
@@ -195,7 +251,8 @@
           "scaling": {
             "number": 1
           },
-          "bonus": ""
+          "bonus": "",
+          "modifiers": []
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -208,7 +265,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -216,7 +274,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -227,17 +284,61 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "光耀治疗",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       },
       "V6lvH5TMidyenhii": {
         "type": "utility",
@@ -257,18 +358,16 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
-        "effects": [
-          {
-            "_id": "D9kmzyAjzx9GMxRy"
-          }
-        ],
+        "effects": [],
         "range": {
           "units": "self",
           "override": false
@@ -277,7 +376,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -308,7 +408,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -316,7 +417,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -327,20 +427,62 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "name": "发光",
         "img": "",
-        "appliedEffects": [
-          "D9kmzyAjzx9GMxRy"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       },
       "d5MJR3xACfNCtsbN": {
         "type": "enchant",
@@ -360,12 +502,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
@@ -382,7 +526,8 @@
               ],
               "effect": [],
               "item": []
-            }
+            },
+            "uuid": null
           }
         ],
         "range": {
@@ -393,7 +538,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -408,7 +554,7 @@
           "max": ""
         },
         "enchant": {
-          "identifier": ""
+          "self": false
         },
         "restrictions": {
           "allowMagical": false,
@@ -427,7 +573,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -435,7 +582,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -446,19 +592,61 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "水晶刀锋 Crystal Blade",
         "img": "",
-        "appliedEffects": [
-          "xX5Bdwa1N5ACbkkZ"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
     "uses": {
@@ -473,7 +661,7 @@
       "max": "3"
     },
     "description": {
-      "value": "<p>武器（任意剑），稀有（需要同调）</p><p>这把剑的剑刃由一只水晶龙的角或者脊骨制成。当你用这把剑进行的攻击检定命中时，目标受到额外 1d8光耀伤害。</p><p>这把剑有 3发充能，并在每日黎明时恢复1d3发充能。当你用这把剑击中一个生物时，你可以消耗1发充能恢复自己等同于这把剑造成的额外光耀伤害数值的HP。</p><p>当你握着这把剑的时候，你可以用一个附赠动作使其发出 30尺明亮光照和30尺微弱光照，发出10尺微弱光照，或者熄灭光照.</p><p></p><p><span style=\"font-family:'Roboto Condensed', sans-serif\">这是一件模板物品，请使用该武器的附魔功能将需要使用的符合要求的武器模板（如长剑等）完成附魔即可。</span></p>",
+      "value": "<p>武器（任意剑），稀有（需要同调）</p><p>这把剑的剑刃由一只水晶龙的角或者脊骨制成。当你用这把剑进行的攻击检定命中时，目标受到额外 1d8光耀伤害。</p><p>这把剑有 3发充能，并在每日黎明时恢复1d3发充能。当你用这把剑击中一个生物时，你可以消耗1发充能恢复自己等同于这把剑造成的额外光耀伤害数值的HP。</p><p>当你握着这把剑的时候，你可以用一个附赠动作使其发出 30尺明亮光照和30尺微弱光照，发出10尺微弱光照，或者熄灭光照.</p><p>这是一件模板物品，请使用该武器的附魔功能将需要使用的符合要求的武器模板（如长剑等）完成附魔即可。</p>",
       "chat": ""
     },
     "identifier": "-",
@@ -496,12 +684,10 @@
       "value": 0,
       "denomination": "gp"
     },
-    "rarity": "rare",
     "attunement": "required",
     "attuned": false,
     "equipped": false,
     "cover": null,
-    "crewed": false,
     "ammunition": {},
     "armor": {
       "value": null
@@ -517,7 +703,8 @@
         "scaling": {
           "number": 1
         },
-        "bonus": ""
+        "bonus": "",
+        "modifiers": []
       },
       "versatile": {
         "number": null,
@@ -528,10 +715,11 @@
         },
         "scaling": {
           "number": 1
-        }
+        },
+        "modifiers": []
       }
     },
-    "magicalBonus": 1,
+    "magicalBonus": "1",
     "properties": [
       "mgc"
     ],
@@ -540,13 +728,19 @@
       "value": null,
       "long": null,
       "reach": null,
-      "units": ""
+      "units": "ft"
     },
     "type": {
       "value": "simpleM",
       "baseItem": ""
     },
-    "mastery": ""
+    "mastery": "",
+    "rarities": [
+      "rare"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "effects": [
     {
@@ -555,65 +749,103 @@
       "img": "icons/weapons/swords/sword-runed-glowing.webp",
       "disabled": true,
       "_id": "xX5Bdwa1N5ACbkkZ",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.rarity",
-          "mode": 5,
-          "value": "rare",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "system.rarity",
+            "value": "rare",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "rzVW8m9q7MqsbZOz",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.attunement",
+            "value": "required",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "WImXWYq7wNIsp3m4",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.description.value",
+            "value": "{}\n稀有（需要同调）\n\n这把剑的剑刃由一只水晶龙的角或者脊骨制成。当你用这把剑进行的攻击检定命中时，目标受到额外 1d8光耀伤害。\n\n这把剑有 3发充能，并在每日黎明时恢复1d3发充能。当你用这把剑击中一个生物时，你可以消耗1发充能恢复自己等同于这把剑造成的额外光耀伤害数值的HP。\n\n当你握着这把剑的时候，你可以用一个附赠动作使其发出 30尺明亮光照和30尺微弱光照，发出10尺微弱光照，或者熄灭光照.",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "cj6EqEkFxO2Vcfes",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "img",
+            "value": "icons/weapons/swords/sword-runed-glowing.webp",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "4GOZM9XlkjHiC8SB",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.price.value",
+            "value": 5000,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "mX3Ffl4VMpkjG9He",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.price.denomination",
+            "value": "gp",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "BVjiGxPcfucrUukH",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.properties",
+            "value": "mgc",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "qNUYGCyxCwWS33ot",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "name",
+            "value": "水晶 {}",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "GHlL4TqBTmf6mDIH",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
         },
-        {
-          "key": "system.attunement",
-          "mode": 5,
-          "value": "required",
-          "priority": 20
-        },
-        {
-          "key": "system.description.value",
-          "mode": 5,
-          "value": "{}\n稀有（需要同调）\n\n这把剑的剑刃由一只水晶龙的角或者脊骨制成。当你用这把剑进行的攻击检定命中时，目标受到额外 1d8光耀伤害。\n\n这把剑有 3发充能，并在每日黎明时恢复1d3发充能。当你用这把剑击中一个生物时，你可以消耗1发充能恢复自己等同于这把剑造成的额外光耀伤害数值的HP。\n\n当你握着这把剑的时候，你可以用一个附赠动作使其发出 30尺明亮光照和30尺微弱光照，发出10尺微弱光照，或者熄灭光照.",
-          "priority": 20
-        },
-        {
-          "key": "img",
-          "mode": 5,
-          "value": "icons/weapons/swords/sword-runed-glowing.webp",
-          "priority": 20
-        },
-        {
-          "key": "system.price.value",
-          "mode": 2,
-          "value": "5000",
-          "priority": 20
-        },
-        {
-          "key": "system.price.denomination",
-          "mode": 5,
-          "value": "gp",
-          "priority": 20
-        },
-        {
-          "key": "system.properties",
-          "mode": 2,
-          "value": "mgc",
-          "priority": 20
-        },
-        {
-          "key": "name",
-          "mode": 5,
-          "value": "水晶 {}",
-          "priority": 20
-        }
-      ],
+        "magical": true
+      },
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "origin": null,
@@ -632,42 +864,26 @@
           "macroRepeat": "none"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1756776897067,
         "modifiedTime": 1756813215177,
         "lastModifiedBy": "WlyFYC2sYFseAvyj",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!lLVQhhXDeUbYUUD7.xX5Bdwa1N5ACbkkZ"
     }
   ],
@@ -697,8 +913,11 @@
     },
     "dnd5e": {
       "riders": {
-        "activity": [],
-        "effect": []
+        "activity": [
+          "JJM5Q5UqtwOipF0a",
+          "xl8NhErunnGSGR0X",
+          "V6lvH5TMidyenhii"
+        ]
       }
     },
     "chris-premades": {
@@ -712,9 +931,9 @@
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1756724124297,
     "modifiedTime": 1757350424661,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

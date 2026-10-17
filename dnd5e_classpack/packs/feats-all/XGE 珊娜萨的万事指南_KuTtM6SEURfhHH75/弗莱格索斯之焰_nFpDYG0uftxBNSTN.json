@@ -6,10 +6,10 @@
   "system": {
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "description": {
-      "value": "<p>你学会了召唤地狱火来听从你的指挥，你获得以下好处：</p>\n<ul>\n<li>智力或者魅力+1，最大20</li>\n<li>当你施展法术扔火焰伤害的伤害骰时，你可以重扔任何被扔到1的骰子，你必须接受新结果哪怕那也只是个1。</li>\n<li>当你施展造成火焰伤害的法术时，你可以让火焰环绕于你，直到你的下个回合结束。那些火焰不会对你或者你的物品造成伤害。他们提供30尺明亮照明和额外30尺昏暗照明，只要处于火焰现形之时，任何在你五尺内对你近战攻击的生物都会受到1d4火焰伤害。</li>\n</ul>\n<p> </p>\n<p> </p>",
+      "value": "<p>你学会了召唤地狱火来听从你的指挥，你获得以下好处：</p><ul><li>智力或者魅力+1，最大20</li><li>当你施展法术扔火焰伤害的伤害骰时，你可以重扔任何被扔到1的骰子，你必须接受新结果哪怕那也只是个1。</li><li>当你施展造成火焰伤害的法术时，你可以让火焰环绕于你，直到你的下个回合结束。那些火焰不会对你或者你的物品造成伤害。他们提供30尺明亮照明和额外30尺昏暗照明，只要处于火焰现形之时，任何在你5尺内以近战攻击命中你的生物都会受到[[/damage 1d4 type=fire]]{1d4}火焰伤害。</li></ul>",
       "chat": ""
     },
     "source": {
@@ -19,20 +19,53 @@
       "book": "XGE"
     },
     "uses": {
-      "max": "0",
+      "max": "",
       "spent": 0,
       "recovery": []
     },
     "requirements": "提夫林",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {
+      "886a6088ef0f929d": {
+        "_id": "886a6088ef0f929d",
+        "type": "AbilityScoreImprovement",
+        "name": "属性值提升",
+        "configuration": {
+          "cap": 1,
+          "fixed": {
+            "str": 0,
+            "dex": 0,
+            "con": 0,
+            "int": 0,
+            "wis": 0,
+            "cha": 0
+          },
+          "locked": [
+            "str",
+            "dex",
+            "con",
+            "wis"
+          ],
+          "points": 1,
+          "max": 20,
+          "recommendation": null
+        },
+        "value": {
+          "type": "asi"
+        },
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -40,17 +73,12 @@
   "folder": "KuTtM6SEURfhHH75",
   "sort": 100391,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757275287302,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

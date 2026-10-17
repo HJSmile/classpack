@@ -5,33 +5,16 @@
   "effects": [
     {
       "name": "调律者之鼓+1 Rhythm-Maker’s Drum",
-      "origin": "Item.WlASI8Q2epMRjhh1",
+      "origin": null,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "transfer": true,
       "disabled": false,
       "_id": "obycbgreoJXUwAxR",
-      "changes": [
-        {
-          "key": "system.bonuses.spell.attack",
-          "mode": 0,
-          "value": "1",
-          "priority": 20
-        },
-        {
-          "key": "system.bonuses.spell.dc",
-          "mode": 0,
-          "value": "1",
-          "priority": 20
-        }
-      ],
       "description": "",
       "statuses": [],
       "flags": {
@@ -47,9 +30,9 @@
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -59,8 +42,46 @@
       },
       "img": "icons/tools/instruments/drum-brown-red.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.rolls.attack.spell.bonus",
+            "value": 1,
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "7bDMBgYX8wxKmkxm",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.bonuses.spell.dc",
+            "value": 1,
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "jScBlUmQClHSDKec",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Item.WlASI8Q2epMRjhh1",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!zIkJbnhYGG5OBdbi.obycbgreoJXUwAxR"
     }
   ],
@@ -88,16 +109,11 @@
       "itemCondition": "",
       "effectCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
-      "value": "<p class=\"MsoNormal\" style=\"MARGIN-BOTTOM:12pt;TEXT-ALIGN:left;mso-pagination:widow-orphan\"><em style=\"mso-bidi-font-style:normal\">（需吟游诗人同调）</em><br />当持握这张鼓时，你在你吟游诗人法术的法术攻击骰和法术豁免DC上获得加值。加值取决于鼓的稀有度。<br />作为一个动作，你可以演奏这张鼓以恢复一次你诗人激励特性的使用次数。鼓的此项属性，直到下次黎明前，不能再次使用。</p>",
+      "value": "<p style=\"TEXT-ALIGN:left\"><em style=\"mso-bidi-font-style:normal\">（需吟游诗人同调）</em></p><p style=\"TEXT-ALIGN:left\">当持握这张鼓时，你在你吟游诗人法术的法术攻击骰和法术豁免DC上获得加值。加值取决于鼓的稀有度。</p><p style=\"TEXT-ALIGN:left\">作为一个动作，你可以演奏这张鼓以恢复一次你诗人激励特性的使用次数。鼓的此项属性，直到下次黎明前，不能再次使用。</p>",
       "chat": ""
     },
     "source": {
@@ -117,10 +133,8 @@
     },
     "attunement": "required",
     "equipped": false,
-    "rarity": "uncommon",
     "identified": true,
     "cover": null,
-    "crewed": false,
     "uses": {
       "max": "",
       "spent": null,
@@ -128,8 +142,7 @@
     },
     "armor": {
       "value": 0,
-      "dex": 0,
-      "magicalBonus": null
+      "dex": 0
     },
     "hp": {
       "value": 0,
@@ -139,7 +152,8 @@
     },
     "speed": {
       "value": null,
-      "conditions": ""
+      "conditions": "",
+      "units": "ft"
     },
     "strength": 0,
     "proficient": null,
@@ -156,12 +170,18 @@
     ],
     "activities": {},
     "identifier": "1-rhythm-makers-drum",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "uncommon"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1692348996712,
     "modifiedTime": 1757871369067,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

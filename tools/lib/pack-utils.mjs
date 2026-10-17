@@ -151,52 +151,111 @@ export function isFileLocked(filepath) {
 }
 
 /**
- * Collect each document's `_stats` block from an existing JSON tree, keyed by
- * `_id`. A document with no `_stats` is stored as `undefined` so callers can
- * distinguish "no prior `_stats`" from "`_stats` was null".
+ * Collect every document's `_stats` block from an existing JSON tree, scoped
+ * per top-level document to avoid `_id` collisions across files.
+ *
+ * A flat `Map<_id, _stats>` is unsafe: embedded documents (e.g. a shared effect
+ * in dnd5e 5.x) reuse the same `_id` in multiple compendium entries, with
+ * different `_stats`. So the result is two-level:
+ *
+ *   Map<topLevelId, Map<embeddedId, _stats>>
+ *
+ * where `embeddedId` keys both the top-level document itself and every nested
+ * object that carries its own `_stats` (effects, activities, etc.). Objects
+ * that only hold a lightweight `_id` reference (an activity's `effects` entry)
+ * have no `_stats` and are intentionally skipped.
+ *
  * @param {string} root  Directory tree of JSON files.
- * @returns {Promise<Map<string, object|undefined>>}
+ * @returns {Promise<Map<string, Map<string, object|undefined>>>}
  */
 export async function collectStatsById(root) {
-  const map = new Map();
-  if ( !fs.existsSync(root) ) return map;
+  const byTop = new Map();
+  if ( !fs.existsSync(root) ) return byTop;
   const walk = async dir => {
     for ( const e of await fsp.readdir(dir, { withFileTypes: true }) ) {
       const p = path.join(dir, e.name);
       if ( e.isDirectory() ) await walk(p);
       else if ( e.name.endsWith(".json") ) {
         const data = JSON.parse(await fsp.readFile(p, "utf8"));
-        if ( data._id ) map.set(data._id, data._stats);
+        const nested = new Map();
+        collectStatsDeep(data, nested);
+        byTop.set(data._id, nested);
       }
     }
   };
   await walk(root);
-  return map;
+  return byTop;
 }
 
 /**
- * Replace each document's `_stats` with the previously-stored value, matched by
- * `_id`. Documents without a prior entry (new documents) are left untouched.
- * Used to ignore Foundry's volatile `_stats` metadata churn when pulling edits
- * back into the repository.
- * @param {string} root                       Directory tree of freshly extracted JSON.
- * @param {Map<string, object|undefined>} statsById  Existing `_stats` keyed by `_id`.
+ * Recursively walk a single parsed top-level document and record `_id -> _stats`
+ * for itself and every nested object that carries its own `_stats`.
+ * @param {*} node  Any JSON value.
+ * @param {Map<string, object|undefined>} map  Nested map for one top-level document.
  */
-export async function applyStats(root, statsById) {
+function collectStatsDeep(node, map) {
+  if ( Array.isArray(node) ) {
+    for ( const item of node ) collectStatsDeep(item, map);
+    return;
+  }
+  if ( node && typeof node === "object" ) {
+    if ( node._id != null && node._stats !== undefined ) map.set(node._id, node._stats);
+    for ( const [key, value] of Object.entries(node) ) {
+      if ( key === "_stats" ) continue;
+      if ( value && typeof value === "object" ) collectStatsDeep(value, map);
+    }
+  }
+}
+
+/**
+ * Restore `_stats` for each document, scoped per top-level document so shared
+ * embedded `_id`s in other files never leak in. For every JSON file the
+ * top-level `_id` selects its own nested map, then `_stats` is restored for
+ * itself and every embedded object carrying a `_stats` whose `_id` is known.
+ *
+ * @param {string} root                       Directory tree of freshly extracted JSON.
+ * @param {Map<string, Map<string, object|undefined>>} statsByTop  Existing `_stats`.
+ */
+export async function applyStats(root, statsByTop) {
   const walk = async dir => {
     for ( const e of await fsp.readdir(dir, { withFileTypes: true }) ) {
       const p = path.join(dir, e.name);
       if ( e.isDirectory() ) await walk(p);
       else if ( e.name.endsWith(".json") ) {
         const data = JSON.parse(await fsp.readFile(p, "utf8"));
-        if ( data._id && statsById.has(data._id) ) {
-          const stats = statsById.get(data._id);
-          if ( stats === undefined ) delete data._stats;
-          else data._stats = stats;
+        const nested = statsByTop.get(data._id);
+        if ( nested && applyStatsDeep(data, nested) ) {
           await fsp.writeFile(p, JSON.stringify(data, null, 2) + "\n");
         }
       }
     }
   };
   await walk(root);
+}
+
+/**
+ * Recursively restore `_stats` within one top-level document using its nested
+ * map. Returns true if any `_stats` value actually changed.
+ * @param {*} node  Any JSON value.
+ * @param {Map<string, object|undefined>} nested  Nested map for this document.
+ * @returns {boolean}
+ */
+function applyStatsDeep(node, nested) {
+  let changed = false;
+  if ( Array.isArray(node) ) {
+    for ( const item of node ) changed = applyStatsDeep(item, nested) || changed;
+    return changed;
+  }
+  if ( node && typeof node === "object" ) {
+    if ( node._id != null && node._stats !== undefined && nested.has(node._id) ) {
+      const before = JSON.stringify(node._stats);
+      node._stats = nested.get(node._id);
+      if ( before !== JSON.stringify(node._stats) ) changed = true;
+    }
+    for ( const [key, value] of Object.entries(node) ) {
+      if ( key === "_stats" ) continue;
+      if ( value && typeof value === "object" ) changed = applyStatsDeep(value, nested) || changed;
+    }
+  }
+  return changed;
 }

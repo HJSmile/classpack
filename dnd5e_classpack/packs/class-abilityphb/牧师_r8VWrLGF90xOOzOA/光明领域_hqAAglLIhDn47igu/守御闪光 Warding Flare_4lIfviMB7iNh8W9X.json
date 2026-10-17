@@ -2,14 +2,14 @@
   "_id": "4lIfviMB7iNh8W9X",
   "name": "守御闪光 Warding Flare",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Paladin_BlindingLight2.png",
+  "img": "icons/magic/light/beam-impact-deflect-teal.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>第1级起，你可以在自己与正发动攻击的敌人之间建起一道神圣之光。当你身边30尺内一个你能看见的生物向你发动攻击时，你可以用你的反应在攻击完成前对攻击者闪出一道光亮， 以此迫使该攻击检定具有劣势。不受目盲状态影响的攻击者同样对该特性免疫。</p>\n<p>        你可以使用该特性的次数等于你的<strong>感知</strong>调整值(至少为一次)。而你将在完成一次长休后重新恢复所有的使用次数。</p>",
+      "value": "<p>第1级起，你可以在自己与正发动攻击的敌人之间建起一道神圣之光。当你身边30尺内一个你能看见的生物向你发动攻击时，你可以用你的反应在攻击完成前对攻击者闪出一道光亮， 以此迫使该攻击检定具有劣势。不受&amp;Reference[condition=blinded apply=false]{目盲}状态影响的攻击者同样对该特性免疫。</p>\n<p>        你可以使用该特性的次数等于你的<strong>感知</strong>调整值(至少为一次)。而你将在完成一次长休后重新恢复所有的使用次数。</p>",
       "chat": ""
     },
     "source": {
@@ -33,7 +33,7 @@
         "_id": "dnd5eactivity000",
         "type": "utility",
         "activation": {
-          "type": "reaction",
+          "type": "reactionpreattack",
           "value": 1,
           "condition": "一个你能看见的生物向你发动攻击时",
           "override": false
@@ -43,7 +43,8 @@
             {
               "type": "itemUses",
               "value": "1",
-              "target": ""
+              "target": "",
+              "scaling": {}
             }
           ],
           "scaling": {
@@ -53,23 +54,39 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "J4kEbZJoqP6vELoK"
+            "_id": "J4kEbZJoqP6vELoK",
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1757160587268,
+              "modifiedTime": 1757160679877,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           }
         ],
         "range": {
-          "units": "",
+          "units": "ft",
           "special": "",
-          "override": false
+          "override": true,
+          "value": 30
         },
         "target": {
           "template": {
@@ -79,10 +96,11 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
-            "count": "30",
+            "count": "1",
             "type": "creature",
             "choice": false,
             "special": ""
@@ -104,20 +122,103 @@
         "sort": 0,
         "name": "",
         "img": "",
-        "appliedEffects": [
-          "J4kEbZJoqP6vELoK"
-        ],
-        "useConditionText": "reaction === 'preAttack''"
+        "useConditionText": "reaction === 'preAttack''",
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 1,
+      "repeatable": false,
+      "items": [
+        "subclass:light-domain"
+      ]
     },
     "properties": [
       "mgc"
@@ -126,29 +227,43 @@
   "effects": [
     {
       "name": "守御闪光 Warding Flare",
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Paladin_BlindingLight2.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.4lIfviMB7iNh8W9X",
+      "img": "icons/magic/light/beam-impact-deflect-teal.webp",
+      "origin": null,
       "transfer": false,
       "_id": "J4kEbZJoqP6vELoK",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.disadvantage.attack.all",
-          "mode": 2,
-          "value": "+1",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.disadvantage.attack.all",
+            "value": "targetActorUuid === \"@actorUuid\"",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "KCQsOlsJMDi74XCl",
+            "conditions": "{}",
+            "replacement": "origin"
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.4lIfviMB7iNh8W9X",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": "turnEnd",
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -167,46 +282,31 @@
           "durationExpression": "",
           "macroRepeat": "none",
           "specialDuration": [
-            "1Attack:mwak"
-          ]
+            "1Attack"
+          ],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757160587268,
         "modifiedTime": 1757160679877,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!4lIfviMB7iNh8W9X.J4kEbZJoqP6vELoK"
     }
   ],
@@ -237,19 +337,12 @@
       "removeAttackDamageButtons": "default",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757160744157,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -6,25 +6,14 @@
   "effects": [
     {
       "_id": "c6otr3AUoLkyhHHX",
-      "changes": [
-        {
-          "key": "system.skills.slt.bonuses.check",
-          "mode": 2,
-          "value": "5",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
-      "origin": "Item.hvVrMvlxuS7szfNA",
+      "origin": null,
       "transfer": true,
       "flags": {},
       "tint": "#ffffff",
@@ -32,9 +21,9 @@
       "description": "",
       "statuses": [],
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -44,8 +33,36 @@
       },
       "img": "icons/equipment/hand/glove-simple-leather-brown-blue.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.skills.slt.roll.bonus",
+            "value": 5,
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "on5zoe3fHBzgpMe5",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Item.hvVrMvlxuS7szfNA",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!hvVrMvlxuS7szfNA.c6otr3AUoLkyhHHX"
     }
   ],
@@ -73,12 +90,7 @@
       "itemCondition": "",
       "effectCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
@@ -102,10 +114,8 @@
     },
     "attunement": "",
     "equipped": false,
-    "rarity": "uncommon",
     "identified": true,
     "cover": null,
-    "crewed": false,
     "uses": {
       "max": "",
       "spent": null,
@@ -113,8 +123,7 @@
     },
     "armor": {
       "value": null,
-      "dex": null,
-      "magicalBonus": null
+      "dex": null
     },
     "hp": {
       "value": 0,
@@ -124,7 +133,8 @@
     },
     "speed": {
       "value": null,
-      "conditions": ""
+      "conditions": "",
+      "units": "ft"
     },
     "strength": 0,
     "proficient": 1,
@@ -141,12 +151,18 @@
     ],
     "activities": {},
     "identifier": "gloves-of-thievery",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "uncommon"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1713010445086,
     "modifiedTime": 1757871342776,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

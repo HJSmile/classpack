@@ -23,13 +23,14 @@
     "requirements": "",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -55,38 +56,22 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/svg/mystery-man.svg",
   "_id": "sYKwdoi7FNqrUIQV",
   "effects": [
     {
       "name": "双重灵魂(离梦人)",
-      "origin": "Compendium.dnd5e_classpack.racial-traits.Item.sYKwdoi7FNqrUIQV",
+      "origin": null,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "disabled": false,
       "_id": "eLPw1Tbe6Yp4rzKx",
-      "changes": [
-        {
-          "key": "flags.midi-qol.advantage.save.wis",
-          "value": "true",
-          "mode": 2,
-          "priority": 20
-        }
-      ],
       "description": "<div class=\"WordSection1\" style=\"LAYOUT-GRID:15.6pt none\"><p class=\"MsoNormal\">你对所有感知豁免具有优势</p></div>",
       "transfer": true,
       "statuses": [],
@@ -104,9 +89,9 @@
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1786693490017,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
@@ -114,10 +99,38 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "icons/svg/mystery-man.svg",
+      "img": "icons/magic/death/undead-ghosts-trio-blue.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.abilities.wis.save.roll.mode",
+            "value": 1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "pbhGgjliEt9VGYSv",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.racial-traits.Item.sYKwdoi7FNqrUIQV",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!sYKwdoi7FNqrUIQV.eLPw1Tbe6Yp4rzKx"
     }
   ],
@@ -128,8 +141,8 @@
   "sort": 35200000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711687025491,
     "modifiedTime": 1757945155404,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -28,17 +28,7 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "dae": {
       "macro": {
         "name": "旋风术 Whirlwind",
@@ -73,28 +63,42 @@
     {
       "name": "旋风术 Whirlwind",
       "img": "icons/magic/air/wind-tornado-cyclone-white.webp",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.oVNlsoJvJriiUm1U",
+      "origin": null,
       "transfer": false,
       "_id": "6DdazXa85blLr045",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "macro.itemMacro",
-          "mode": 0,
-          "value": "",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "macro.itemMacro",
+            "value": "",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "PRmjHuPl38A556Tk",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.oVNlsoJvJriiUm1U",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "minutes",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -114,9 +118,7 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
@@ -142,20 +144,23 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1756537696017,
         "modifiedTime": 1756537723760,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!oVNlsoJvJriiUm1U.6DdazXa85blLr045"
     }
   ],
   "system": {
     "description": {
-      "value": "<p>一阵呼啸的旋风出现在你指定的地表上可见的一点。旋风半径为10英尺，高度为30英尺，是一个以指定点为中心的柱状体。直到此法术终结，你可以使用你的动作来在水平的任何方向上移动至多30英尺。旋风会吸入所有固定或未被穿戴或持握的，不大于中型Medium的物体。<br />在回合中第一次进入旋风的生物，或所在空间被旋风进入的生物（包括旋风第一次出现时的）必须进行一次敏捷豁免检定。豁免失败的生物受到10d6点钝击伤害，豁免成功者只受到上述伤害的一半。此外，体型不超过大型Large的生物若未通过豁免则必须通过一次力量豁免检定，否则会被旋风束缚，直到法术终结。当一个生物在被旋风束缚的条件下开始其回合时，除非其达到了顶点，其将被向上方推动5英尺。被束缚的生物会随着旋风移动，而法术终结时其会摔落，除非其具有其他方法保持悬浮。<br />被束缚的生物可以使用一个动作来进行一次力量或敏捷检定，对抗你的法术豁免DC。若成功，该生物不再被旋风束缚，并被向随机方向抛离3d6×10英尺远。</p>",
+      "value": "<p>一阵呼啸的旋风出现在你指定的地表上可见的一点。旋风半径为 10 尺，高度为 30 尺，是一个以指定点为中心的柱状体。直到此法术终结，你可以使用你的动作来在水平的任何方向上移动至多30尺。旋风会吸入所有固定或未被穿戴或持握的至大中型 Medium 的物体。</p><p>在回合中第一次进入旋风的生物，或所在空间被旋风进入的生物（包括旋风第一次出现时的）必须进行一次[[/save activity=1D2ts83LW3M4pdDe]]{敏捷豁免检定}。豁免失败的生物受到 [[/damage 10d6 type=bludgeoning]]{10d6} 钝击伤害，豁免成功者只受到上述伤害的一半。此外，体型不超过大型 Large 的生物若未通过豁免则必须通过一次力量豁免检定，否则会被旋风束缚，直到法术终结。当一个生物在被旋风束缚的条件下开始其回合时，除非其达到了顶点，其将被向上方推动 5 尺。被束缚的生物会随着旋风移动，而法术终结时其会摔落，除非其具有其他方法保持悬浮。</p><p>被束缚的生物可以使用一个动作来进行一次力量或敏捷检定，对抗你的法术豁免 DC。若成功，该生物不再被旋风束缚，并被向随机方向抛离 3d6×10 尺远。</p>",
       "chat": ""
     },
     "source": {
@@ -171,7 +176,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -183,11 +189,12 @@
         "type": "radius",
         "size": "10",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
-      "value": "120",
+      "value": "300",
       "units": "ft",
       "special": ""
     },
@@ -204,10 +211,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -233,12 +236,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -248,7 +253,8 @@
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -269,14 +275,16 @@
                 "formula": ""
               },
               "number": 10,
-              "denomination": "6",
+              "denomination": 6,
               "bonus": "",
               "types": [
                 "bludgeoning"
               ],
               "scaling": {
-                "mode": ""
-              }
+                "mode": "",
+                "number": 1
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -291,7 +299,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -304,7 +313,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -312,7 +322,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -323,21 +332,68 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "whirlwind"
+    "identifier": "whirlwind",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -346,8 +402,8 @@
   "sort": 15200000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

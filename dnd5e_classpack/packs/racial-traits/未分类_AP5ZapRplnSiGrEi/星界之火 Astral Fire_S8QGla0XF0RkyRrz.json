@@ -12,7 +12,7 @@
       "revision": 1
     },
     "description": {
-      "value": "<div class=\"rd__b  rd__b--3\"><div><div class=\"rd__b  rd__b--2\"><div data-roll-name-ancestor=\"Creature Type\" class=\"rd__b  rd__b--3\"><p><span style=\"font-family:Arial, Helvetica, sans-serif\">你习得下列一项你选择的戏法：<em style=\"color:rgb(0, 0, 0);font-family:Arial, Helvetica, sans-serif;font-size:medium;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\">舞光术Dacing Lights</em> 、 <em style=\"color:rgb(0, 0, 0);font-family:Arial, Helvetica, sans-serif;font-size:medium;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\">光亮术Light</em> 、或 <em style=\"color:rgb(0, 0, 0);font-family:Arial, Helvetica, sans-serif;font-size:medium;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\">圣火术Sacred Flame</em> 。你施展该戏法的施法属性为智力、感知、或魅力。（选择此种族的时候决定）。</span></p></div></div></div><p>You know one of the following cantrips of your choice: @UUID[.UoaAvBDsbOg3WKHT], @spell[light], or @spell[sacred flame]. Intelligence, Wisdom, or Charisma is your spellcasting ability for it (choose when you select this race).</p></div>",
+      "value": "<div data-roll-name-ancestor=\"Creature Type\"><p>你习得下列一项你选择的戏法：<em style=\"color:rgb(0, 0, 0);font-family:Arial, Helvetica, sans-serif;font-size:medium;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\">舞光术Dacing Lights</em> 、 <em style=\"color:rgb(0, 0, 0);font-family:Arial, Helvetica, sans-serif;font-size:medium;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\">光亮术Light</em> 、或 <em style=\"color:rgb(0, 0, 0);font-family:Arial, Helvetica, sans-serif;font-size:medium;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\">圣火术Sacred Flame</em> 。你施展该戏法的施法属性为智力、感知、或魅力。（选择此种族的时候决定）。</p></div><p>You know one of the following cantrips of your choice: @UUID[.UoaAvBDsbOg3WKHT], @spell[light], or @spell[sacred flame]. Intelligence, Wisdom, or Charisma is your spellcasting ability for it (choose when you select this race).</p>",
       "chat": ""
     },
     "requirements": "Astral Elf",
@@ -26,7 +26,50 @@
       "subtype": ""
     },
     "properties": [],
-    "advancement": [],
+    "advancement": {
+      "a6d1715f5ab0de5f": {
+        "_id": "a6d1715f5ab0de5f",
+        "type": "ItemChoice",
+        "name": "选择施法属性",
+        "configuration": {
+          "choices": {
+            "0": {
+              "count": 1,
+              "replacement": false
+            }
+          },
+          "allowDrops": false,
+          "type": "feat",
+          "pool": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.732406d25350a141",
+              "sort": 0
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.aaca6365b375a082",
+              "sort": 1
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.racial-traits.Item.e158b2c68d2834ac",
+              "sort": 2
+            }
+          ],
+          "spell": null,
+          "restriction": {
+            "type": "race",
+            "subtype": "",
+            "level": "",
+            "list": [],
+            "school": []
+          },
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "activities": {},
     "identifier": "astral-fire",
     "cover": null,
@@ -34,14 +77,15 @@
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     }
   },
   "ownership": {
     "default": 0,
     "qKmljmeCDhGDkX2L": 3
   },
-  "img": "modules/plutonium/media/icon/family-tree.svg",
+  "img": "icons/magic/light/projectile-stars-blue.webp",
   "flags": {
     "plutonium": {
       "page": "raceFeature",
@@ -50,10 +94,7 @@
     },
     "dnd5e": {
       "sourceId": ".ZehL4Yf33uURqHuP",
-      "advancementOrigin": "GoNX6eiWb1XwILpc.Vf5NSPemIyG3gTCx",
-      "riders": {
-        "activity": []
-      }
+      "advancementOrigin": "GoNX6eiWb1XwILpc.Vf5NSPemIyG3gTCx"
     },
     "midi-qol": {
       "rollAttackPerTarget": "default",
@@ -77,9 +118,9 @@
   "_stats": {
     "compendiumSource": "Actor.aYAJq5f5bQ2rhZ8V.Item.ZehL4Yf33uURqHuP",
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1754657825894,
     "modifiedTime": 1754657825894,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

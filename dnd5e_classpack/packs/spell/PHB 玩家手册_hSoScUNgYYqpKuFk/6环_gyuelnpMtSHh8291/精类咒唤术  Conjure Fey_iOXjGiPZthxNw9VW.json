@@ -24,17 +24,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "conjureFey",
@@ -43,10 +33,10 @@
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/spell_animaardenweald_groundstate.jpg",
+  "img": "icons/magic/nature/plant-glowing-white-purple.webp",
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你召唤一个挑战等级6或更低的精类生物，或者一个挑战等级6或更低的野兽形态精魂。被召唤生物显现在施法距离内一处你能看见且未被占据的空间。该精类生物在生命值降至0时，或者法术终止时消失不见。\n<br />被召唤的精类生物对你和你的伙伴保持友善关系。你为每次召唤出来的精类生物掷先攻权，并依此获得其自己的行动回合。该精类生物服从你发出的所有语言命令（不需要你作动作），前提是该命令必须不违反其所属阵营。如果你不发出任何命令，该生物会在敌对生物前保护自己，如果没有敌对生物则不执行任何动作。\n<br />如果你的专注被打断，该精类生物并不会因此消失不见，但你会因此失去该生物的控制权。失去控制的精类生物对你和你的伙伴变为敌对，并随时准备发动攻击。不受控的精类生物无法被你解散，并在你的召唤开始算起1小时后消失不见。\n<br />该精类生物的具体数值由DM 掌控。\n<br /><strong>升环施法效应。</strong>使用7环或更高法术位施展该法术时，你使用的法术位每比6环高一环，召唤生物挑战等级就增加1。\n<br /></div>",
+      "value": "<p>你召唤一个挑战等级 6 或更低的妖精，或者一个挑战等级 6 或更低的野兽形态精魄。被召唤生物显现在施法距离内一处你能看见且未占据空间。该妖精在生命值降至 0 时，或者法术终止时消失不见。</p><p>被召唤的妖精对你和你的伙伴保持友善关系。你为召唤出来的妖精骰先攻，它也依此获得其自己的行动回合。该妖精服从你发出的所有语言命令（不需要你作动作），前提是该命令必须不违反其所属阵营。如果你不发出任何命令，该生物会在敌对生物前保护自己，如果没有敌对生物则不执行任何动作。</p><p>如果你的专注被打断，该妖精并不会因此消失不见，但你会因此失去该生物的控制权。失去控制的妖精对你和你的伙伴变为敌对，并随时准备发动攻击。不受控的妖精无法被你解散，并在你的召唤开始算起 1 小时后消失不见。</p><p>该妖精的具体数值由 DM 掌控。</p><p><strong>升环施法效应。</strong>使用七环或更高法术位施展该法术时，你使用的法术位每比六环高一环，召唤生物挑战等级就增加 1。</p>",
       "chat": ""
     },
     "source": {
@@ -62,7 +52,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -74,7 +65,8 @@
       "template": {
         "units": "any",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -95,10 +87,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -124,21 +112,25 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -167,7 +159,8 @@
           "attacks": false,
           "proficiency": false,
           "saves": false,
-          "ability": ""
+          "ability": "",
+          "disposition": false
         },
         "profiles": [
           {
@@ -175,7 +168,7 @@
             "cr": "9",
             "name": "",
             "_id": "uHeA6x7kU4BMxZY0",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "fey",
               "beast"
@@ -201,7 +194,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -209,7 +203,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -220,20 +213,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "friendlySummon": false
       }
     },
-    "identifier": "conjure-fey"
+    "identifier": "conjure-fey",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -243,8 +283,8 @@
   "sort": 14000000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -12,7 +12,7 @@
       "revision": 1
     },
     "description": {
-      "value": "<div class=\"rd__b  rd__b--2\"><p><span style=\"font-family:Arial, Helvetica, sans-serif\">以一个动作，你可以触摸这张卡片并说出命令语，使你在随后的1分钟内变成一只似狼的双足生物。在此期间，你获得对钝击、穿刺和挥砍伤害的抗性，且当你用武器或徒手打击命中目标时，目标会额外受到1d6点力场伤害。这一特性一经使用，直到次日黎明之前无法再次使用。</span></p><p>As an action, you can speak a command word while touching this card and transform into a wolflike biped for 1 minute. For that duration, you have resistance to bludgeoning, piercing, and slashing damage, and when you hit a target with a weapon or an unarmed strike, the target takes an extra [[/damage 1d6 type=force]] damage. Once this property is used, it can't be used again until the next dawn.</p></div>",
+      "value": "<p>以一个动作，你可以触摸这张卡片并说出命令语，使你在随后的1分钟内变成一只似狼的双足生物。在此期间，你获得对钝击、穿刺和挥砍伤害的抗性，且当你用武器或徒手打击命中目标时，目标会额外受到1d6点力场伤害。这一特性一经使用，直到次日黎明之前无法再次使用。</p><p>As an action, you can speak a command word while touching this card and transform into a wolflike biped for 1 minute. For that duration, you have resistance to bludgeoning, piercing, and slashing damage, and when you hit a target with a weapon or an unarmed strike, the target takes an extra [[/damage 1d6 type=force]] damage. Once this property is used, it can't be used again until the next dawn.</p>",
       "chat": ""
     },
     "proficient": null,
@@ -28,7 +28,6 @@
     "attuned": false,
     "identified": true,
     "equipped": true,
-    "rarity": "legendary",
     "type": {
       "value": "wondrous",
       "baseItem": ""
@@ -45,7 +44,7 @@
     "armor": {
       "value": null,
       "dex": null,
-      "magicalBonus": 0
+      "magicalBonus": "0"
     },
     "strength": null,
     "activities": {
@@ -66,20 +65,25 @@
           "spellSlot": true,
           "targets": []
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -109,7 +113,8 @@
               },
               "custom": {
                 "enabled": false
-              }
+              },
+              "modifiers": []
             }
           ]
         },
@@ -125,7 +130,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -133,7 +139,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -144,13 +149,59 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
         }
       }
     },
@@ -160,9 +211,14 @@
     },
     "container": null,
     "cover": null,
-    "crewed": false
+    "rarities": [
+      "legendary"
+    ],
+    "crew": {
+      "value": []
+    }
   },
-  "img": "modules/dnd5e_classpack/Nicons/img/decks/BMT/Deck of Many Things/11-moon.webp",
+  "img": "icons/magic/nature/moon-crescent.webp",
   "ownership": {
     "default": 0,
     "qKmljmeCDhGDkX2L": 3
@@ -190,31 +246,21 @@
       "noConcentrationCheck": false,
       "toggleEffect": false,
       "ignoreTotalCover": false
-    }
+    },
+    "dnd5e": {}
   },
   "effects": [
     {
       "_id": "XFs47xr3LbuahiTw",
       "name": "Damage Resistance",
-      "img": "modules/dnd5e_classpack/Nicons/img/decks/BMT/Deck of Many Things/11-moon.webp",
+      "img": "icons/magic/nature/moon-crescent.webp",
       "description": "",
-      "changes": [
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "bludgeoning",
-          "priority": 7
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null,
-        "combat": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": null,
       "transfer": true,
@@ -224,45 +270,62 @@
         }
       },
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.dr.value",
+            "value": "bludgeoning",
+            "priority": 7,
+            "type": "add",
+            "phase": "initial",
+            "_id": "RuVBlcYY2W0FuRwL",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "tint": "#ffffff",
       "statuses": [],
       "sort": 0,
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!TEcuIfMlRivy2aj6.XFs47xr3LbuahiTw"
     },
     {
       "_id": "pUHATgKZQGQxit7q",
       "name": "Damage Resistance",
-      "img": "modules/dnd5e_classpack/Nicons/img/decks/BMT/Deck of Many Things/11-moon.webp",
+      "img": "icons/magic/nature/moon-crescent.webp",
       "description": "",
-      "changes": [
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "force",
-          "priority": 7
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null,
-        "combat": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": null,
       "transfer": true,
@@ -272,45 +335,62 @@
         }
       },
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.dr.value",
+            "value": "force",
+            "priority": 7,
+            "type": "add",
+            "phase": "initial",
+            "_id": "JtfS00n0aPU9ZVUO",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "tint": "#ffffff",
       "statuses": [],
       "sort": 0,
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!TEcuIfMlRivy2aj6.pUHATgKZQGQxit7q"
     },
     {
       "_id": "HEfsVN32X9VVx0Hl",
       "name": "Damage Resistance",
-      "img": "modules/dnd5e_classpack/Nicons/img/decks/BMT/Deck of Many Things/11-moon.webp",
+      "img": "icons/magic/nature/moon-crescent.webp",
       "description": "",
-      "changes": [
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "piercing",
-          "priority": 7
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null,
-        "combat": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": null,
       "transfer": true,
@@ -320,45 +400,62 @@
         }
       },
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.dr.value",
+            "value": "piercing",
+            "priority": 7,
+            "type": "add",
+            "phase": "initial",
+            "_id": "qzOfj8hqFhslFEkt",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "tint": "#ffffff",
       "statuses": [],
       "sort": 0,
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!TEcuIfMlRivy2aj6.HEfsVN32X9VVx0Hl"
     },
     {
       "_id": "fxTw8ZGTt1FQNpOz",
       "name": "Damage Resistance",
-      "img": "modules/dnd5e_classpack/Nicons/img/decks/BMT/Deck of Many Things/11-moon.webp",
+      "img": "icons/magic/nature/moon-crescent.webp",
       "description": "",
-      "changes": [
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "slashing",
-          "priority": 7
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null,
-        "combat": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": null,
       "transfer": true,
@@ -368,21 +465,49 @@
         }
       },
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.dr.value",
+            "value": "slashing",
+            "priority": 7,
+            "type": "add",
+            "phase": "initial",
+            "_id": "De9WdfsvaM1K0dKd",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "tint": "#ffffff",
       "statuses": [],
       "sort": 0,
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!TEcuIfMlRivy2aj6.fxTw8ZGTt1FQNpOz"
     }
   ],
@@ -390,9 +515,9 @@
   "_stats": {
     "compendiumSource": "Item.TEcuIfMlRivy2aj6",
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1751788372301,
     "modifiedTime": 1751788372301,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

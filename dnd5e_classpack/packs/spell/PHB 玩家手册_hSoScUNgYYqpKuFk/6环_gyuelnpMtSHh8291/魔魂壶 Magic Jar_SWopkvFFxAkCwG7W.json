@@ -24,23 +24,13 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/inv_alchemy_90_combat1_green.jpg",
+  "img": "icons/containers/kitchenware/jug-bottle-clay-brown-gold-blue.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你的灵魂离开身体进入作为法术材料成分的容器中，而你的身体则陷入失神的状况。灵魂处于容器中时，你可以如同身处容器所在位置一样察觉周边。你不能移动，也不能使用反应，而此时你唯一能做的动作就是将你的灵魂投射出容器至多100尺的距离，或者回到你仍活着的身体中去（并终止该法术），或者尝试占据另一个类人生物的身体。\n<br />你可以附身于任何距你100尺内你能看见的人形生物（受法术防护善恶 或防护法阵 所保护的生物无法被附身）。该目标必须进行一次魅力豁免。豁免失败，则你的灵魂进入目标的身体，而目标的灵魂被困在容器中；豁免成功，则目标抵抗了你的附身，而随后的24小时内你将无法再次尝试附身该生物。\n<br />附身成功后，目标生物的身体将由你控制。你的游戏资料将替换为该生物的属性数据，不过你将保留自己的阵营以及智力、感知、魅力属性值。你的职业特性增益也会在附身时维持，但你无法使用目标可能具有的任何职业特性。\n<br />此外，被附身生物的灵魂可以用它自己的感官从容器内部观察外部，但它既不能移动也不能使用动作。\n<br />附身于一具躯体时，如果容器处在你身边100尺内，则你可以用一个动作从宿主的身体回到容器中，并让宿主的灵魂回到它自己的身体里。在你处于宿主的身体中时，如果宿主的身体死亡，则你必须进行一次对抗该法术豁免DC 的魅力豁免。豁免成功且容器距你不超过100尺时，你回归容器内。豁免失败则即时死亡。\n<br />如果容器被毁或者法术终止，则你的灵魂会立即回到你自己身体里。如果你在尝试回到自己身体时，身体距你超过100尺或者你的身体已死，则你也随之死亡。如果容器被毁时另一生物的灵魂在容器内，且该生物的身体仍然活着并距它不超过100尺，则其灵魂会回到身体里。否则该生物死亡。\n<br />该法术终止时，其容器将随之被摧毁。\n<br /></div>",
+      "value": "<p>你的灵魂离开身体进入作为法术材料成分的容器中，而你的身体则陷入失神的状况。灵魂处于容器中时，你可以如同身处容器所在位置一样察觉周边。你不能移动，也不能使用反应，而此时你唯一能做的动作就是将你的灵魂投射出容器至多 100 尺的距离，或者回到你仍活着的身体中去（并终止该法术），或者尝试占据另一个类人生物的身体。</p><p>你可以附身于任何距你 100 尺内你能看见的类人生物（受法术防护善恶或防护法阵所保护的生物无法被附身）。该目标必须进行一次[[/save activity=dnd5eactivity100]]{魅力豁免}。豁免失败，则你的灵魂进入目标的身体，而目标的灵魂被困在容器中；豁免成功，则目标抵抗了你的附身，而随后的 24 小时内你将无法再次尝试附身该生物。</p><p>附身成功后，目标生物的身体将由你控制。你的游戏资料将替换为该生物的属性数据，不过你将保留自己的阵营以及智力、感知、魅力属性值。你的职业特性增益也会在附身时维持，但你无法使用目标可能具有的任何职业特性。</p><p>此外，被附身生物的灵魂可以用它自己的感官从容器内部观察外部，但它既不能移动也不能使用动作。</p><p>附身于一具躯体时，如果容器处在你身边 100 尺内，则你可以用一个动作从宿主的身体回到容器中，并让宿主的灵魂回到它自己的身体里。在你处于宿主的身体中时，如果宿主的身体死亡，则你必须进行一次对抗该法术豁免 DC 的魅力豁免。豁免成功且容器距你不超过 100 尺时，你回归容器内。豁免失败则即时死亡。</p><p>如果容器被毁或者法术终止，则你的灵魂会立即回到你自己身体里。如果你在尝试回到自己身体时，身体距你超过 100 尺或者你的身体已死，则你也随之死亡。如果容器被毁时另一生物的灵魂在容器内，且该生物的身体仍然活着并距它不超过 100 尺，则其灵魂会回到身体里。否则该生物死亡。</p><p>该法术终止时，其容器将随之被摧毁。</p>",
       "chat": ""
     },
     "source": {
@@ -56,7 +46,8 @@
     },
     "duration": {
       "value": "",
-      "units": "perm"
+      "units": "perm",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -66,9 +57,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -88,10 +80,6 @@
       "consumed": false,
       "cost": 500,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -117,22 +105,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -162,7 +154,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -170,7 +163,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -181,15 +173,61 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       },
       "dnd5eactivity100": {
         "_id": "dnd5eactivity100",
@@ -208,22 +246,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -249,7 +291,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -263,7 +306,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -271,7 +315,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -282,18 +325,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "magic-jar"
+    "identifier": "magic-jar",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -302,8 +394,8 @@
   "sort": 20000000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

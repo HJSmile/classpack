@@ -6,10 +6,10 @@
   "system": {
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "description": {
-      "value": "<p>你体现了蜥蜴之王和王后的邪恶魔力。你得到如下增益：<br /></p>\n<ul>\n<li>你的体质或感知上升1点，上限20。<br /></li>\n<li>你可以说，读，写深渊语。<br /></li>\n<li>你免疫于恐惧状态。</li>\n</ul>",
+      "value": "<p>你体现了蜥蜴之王和王后的邪恶魔力。你得到如下增益：</p><ul><li>你的体质或感知上升1点，上限20。<br></li><li>你可以说，读，写深渊语。<br></li><li>你免疫于恐惧状态。</li></ul>",
       "chat": ""
     },
     "source": {
@@ -18,20 +18,71 @@
       "rules": "2014"
     },
     "uses": {
-      "max": "0",
+      "max": "",
       "spent": 0,
       "recovery": []
     },
     "requirements": "蜥蜴人",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {
+      "b38af4485e71ee74": {
+        "_id": "b38af4485e71ee74",
+        "type": "AbilityScoreImprovement",
+        "name": "属性值提升",
+        "configuration": {
+          "cap": 1,
+          "fixed": {
+            "str": 0,
+            "dex": 0,
+            "con": 0,
+            "int": 0,
+            "wis": 0,
+            "cha": 0
+          },
+          "locked": [
+            "str",
+            "dex",
+            "int",
+            "cha"
+          ],
+          "points": 1,
+          "max": 20,
+          "recommendation": null
+        },
+        "value": {
+          "type": "asi"
+        },
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      },
+      "eb63e5b5a98dce90": {
+        "_id": "eb63e5b5a98dce90",
+        "type": "Trait",
+        "name": "熟练项与语言",
+        "configuration": {
+          "mode": "default",
+          "allowReplacements": false,
+          "grants": [
+            "languages:exotic:abyssal",
+            "ci:frightened"
+          ],
+          "choices": []
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -39,17 +90,12 @@
   "folder": "OYHrEqHEtHlf8vRM",
   "sort": 100391,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1749711029989,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

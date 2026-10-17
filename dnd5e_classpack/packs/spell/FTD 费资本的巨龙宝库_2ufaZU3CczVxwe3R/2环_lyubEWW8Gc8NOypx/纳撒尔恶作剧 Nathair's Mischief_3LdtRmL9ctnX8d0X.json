@@ -1,10 +1,10 @@
 {
   "name": "纳撒尔恶作剧 Nathair's Mischief",
   "type": "spell",
-  "img": "modules/dnd5e_classpack/Nicons/ability_evoker_fontofmagic.png",
+  "img": "icons/magic/symbols/mask-yellow-orange.webp",
   "system": {
     "description": {
-      "value": "<p><span><br />       </span>你选择一个以施法范围内一点为原点，<span>20</span>尺矩形的范围。你在该范围内填满精类<span class=\"GramE\">与龙族的</span>魔法。在<span class=\"GramE\">恶作剧之涌表格</span>里掷<span class=\"GramE\">骰</span>以决定产生的魔法效应。法术持续时间内、在你的每个回合开始时，你都重<span class=\"GramE\">骰</span>这个表格。在你重<span class=\"GramE\">骰</span>之前，你可以把这个矩形范围移动最多<span>10</span>尺。<span><br /></span></p>\n<p><span class=\"GramE\"><strong><span style=\"font-family:宋体;mso-bidi-font-family:宋体\">恶作剧之涌</span></strong></span><span><br /></span></p>\n<table border=\"1\">\n<tbody>\n<tr>\n<td>[[/r D4]]</td>\n<td>效应</td>\n</tr>\n<tr>\n<td>1</td>\n<td>空气中弥漫着苹果派的味道，范围内的生物必须成功通过一次感知豁免，否则将被你魅惑，直至你的下回合开始。<span><br /></span></td>\n</tr>\n<tr>\n<td>2</td>\n<td>一束<span class=\"GramE\">束</span>鲜花出现在四周，范围内的生物必须成功通过一次敏捷豁免，否则鲜花将往他们脸上喷水，使他们陷入目盲，直至你的下回合开始。<span><br /></span></td>\n</tr>\n<tr>\n<td>3</td>\n<td>范围内的每个生物必须成功通过一次感知豁免，否则将开始咯咯笑，直至你的下回合开始。一个正在咯咯笑的生物陷入失能，并使用他的所有移动力向一个随机方向移动。<span><br /></span></td>\n</tr>\n<tr>\n<td>4</td>\n<td>一滴滴蜜糖出现并在矩形内悬停，将其内变成困难地形，直至你的下回合开始。</td>\n</tr>\n</tbody>\n</table>\n<p><span> </span></p>\n<p> </p>",
+      "value": "<p>你选择一个以施法范围内一点为原点，20尺矩形的范围。你在该范围内填满妖精与龙族的魔法。在恶作剧之涌表格里掷骰以决定产生的魔法效应。法术持续时间内、在你的每个回合开始时，你都重骰这个表格。在你重骰之前，你可以把这个矩形范围移动最多10尺。</p><blockquote><p><strong>恶作剧之涌</strong></p><table><thead><tr><th><strong>[[/r D4]]</strong></th><th><strong>效应</strong></th></tr></thead><tbody><tr><td>1</td><td>空气中弥漫着苹果派的味道，范围内的生物必须成功通过一次感知豁免，否则将被你魅惑，直至你的下回合开始。</td></tr><tr><td>2</td><td>一束束鲜花出现在四周，范围内的生物必须成功通过一次敏捷豁免，否则鲜花将往他们脸上喷水，使他们陷入目盲，直至你的下回合开始。</td></tr><tr><td>3</td><td>范围内的每个生物必须成功通过一次感知豁免，否则将开始咯咯笑，直至你的下回合开始。一个正在咯咯笑的生物陷入失能，并使用他的所有移动力向一个随机方向移动。</td></tr><tr><td>4</td><td>一滴滴蜜糖出现并在矩形内悬停，将其内变成困难地形，直至你的下回合开始。</td></tr></tbody></table></blockquote>",
       "chat": ""
     },
     "source": {
@@ -20,7 +20,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -33,7 +34,8 @@
         "type": "line",
         "size": "20",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -53,10 +55,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "somatic",
@@ -82,22 +80,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -127,7 +129,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -135,7 +138,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -146,18 +148,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "nathairs-mischief"
+    "identifier": "nathairs-mischief",
+    "method": "spell",
+    "prepared": 0
   },
   "effects": [],
   "flags": {
@@ -190,17 +240,7 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_id": "3LdtRmL9ctnX8d0X",
   "folder": "lyubEWW8Gc8NOypx",
@@ -210,8 +250,8 @@
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

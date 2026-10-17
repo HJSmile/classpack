@@ -7,27 +7,41 @@
     {
       "name": "艾恩石（洞悉）Ioun Stone of Insight",
       "img": "icons/commodities/stone/ore-pile-teal.webp",
-      "origin": "Compendium.dnd5e_classpack.itempack.Item.B7218823A8037C4E",
+      "origin": null,
       "_id": "OHaCV6WjdKfddh69",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.abilities.wis.value",
-          "mode": 5,
-          "value": "min(@@abilities.wis.value+2,20)",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "system.abilities.wis.value",
+            "value": "min(@@abilities.wis.value+2,20)",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "hzhZsSz08kqfz7bc",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.itempack.Item.B7218823A8037C4E",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -45,55 +59,33 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757080523542,
         "modifiedTime": 1757081381150,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!B7218823A8037C4E.OHaCV6WjdKfddh69"
     }
   ],
   "folder": "tBltNHvQID4vNcLI",
   "flags": {
     "core": {},
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -114,7 +106,7 @@
   },
   "system": {
     "description": {
-      "value": "<p><em>奇物（需同调）</em></p>\n<p>艾恩Ioun在许多世界被尊为知识和预言之神，而其名字则被用来命名这种石头。艾恩石 有许多种，每一种都有与众不同的形状和颜色。</p>\n<p>如果你用一个动作将一块艾恩石抛到空中，则它将环绕你的头部，与你的头部距离[[/r 1d3]]尺移动，并为你带来一些增益。另一名生物必须用一个动作抓住或用网网住艾恩石，才能将它与你分开。上述方法需要成功通过一次对抗AC 24的攻击检定，或一次对抗DC 24的敏捷（体操）检定。你自己则可以用一个动作抓住并收起石头，终止它的效应。</p>\n<p>每颗石头拥有AC 24，生命值为10，具有所有伤害类型的抗性。即使只是环绕你的头部移动，它依然视为由你着装。</p>\n<p><strong>@UUID[Compendium.dnd5e_classpack.itempack.B7218823A8037C4E]{洞悉 Insight}（极珍稀）。</strong>该荧蓝球形艾恩石环绕你时，你的感知属性提升2，但无法超过20。</p>",
+      "value": "<p><em>奇物（需同调）</em></p><p>艾恩Ioun在许多世界被尊为知识和预言之神，而其名字则被用来命名这种石头。艾恩石 有许多种，每一种都有与众不同的形状和颜色。</p><p>如果你用一个动作将一块艾恩石抛到空中，则它将环绕你的头部，与你的头部距离[[/r 1d3]]尺移动，并为你带来一些增益。另一名生物必须用一个动作抓住或用网网住艾恩石，才能将它与你分开。上述方法需要成功通过一次对抗AC 24的攻击检定，或一次对抗DC 24的敏捷（体操）检定。你自己则可以用一个动作抓住并收起石头，终止它的效应。</p><p>每颗石头拥有AC 24，生命值为10，具有所有伤害类型的抗性。即使只是环绕你的头部移动，它依然视为由你着装。</p><h3>@UUID[Compendium.dnd5e_classpack.itempack.B7218823A8037C4E]{洞悉 Insight}（极珍稀）。</h3><p>该荧蓝球形艾恩石环绕你时，你的感知属性提升2，但无法超过20。</p>",
       "chat": ""
     },
     "source": {
@@ -134,10 +126,8 @@
     },
     "attunement": "required",
     "equipped": false,
-    "rarity": "veryRare",
     "identified": true,
     "cover": null,
-    "crewed": false,
     "uses": {
       "max": "",
       "spent": null,
@@ -145,8 +135,7 @@
     },
     "armor": {
       "value": 0,
-      "dex": 0,
-      "magicalBonus": null
+      "dex": 0
     },
     "hp": {
       "value": 0,
@@ -156,7 +145,8 @@
     },
     "speed": {
       "value": null,
-      "conditions": ""
+      "conditions": "",
+      "units": "ft"
     },
     "strength": 0,
     "proficient": null,
@@ -173,12 +163,18 @@
     ],
     "activities": {},
     "identifier": "ioun-stone-of-insight",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "veryRare"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1713010441154,
     "modifiedTime": 1757275698084,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

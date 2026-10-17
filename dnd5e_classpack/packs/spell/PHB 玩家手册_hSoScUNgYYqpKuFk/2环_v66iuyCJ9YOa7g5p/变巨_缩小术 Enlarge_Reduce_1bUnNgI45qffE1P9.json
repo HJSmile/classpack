@@ -7,45 +7,71 @@
     {
       "name": "变巨",
       "img": "icons/magic/control/energy-stream-link-large-blue.webp",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.1bUnNgI45qffE1P9",
+      "origin": null,
       "_id": "3xbm72Zgxw42254G",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.traits.size",
-          "value": "lg",
-          "mode": 5,
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.size",
+            "value": "lg",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "lhKRP3oxtscjiBjI",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.abilities.str.check.roll.mode",
+            "value": 1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "lK7k5H2NCZ7GgWW1",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.abilities.str.save.roll.mode",
+            "value": 1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "FU3i3RzllF4FbLnZ",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.rolls.damage.weapon.bonus",
+            "value": "1d4",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "YIGdyxgwbfmYXzbo",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.advantage.check.str",
-          "value": "1",
-          "mode": 2,
-          "priority": 20
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.1bUnNgI45qffE1P9",
+          "message": null
         },
-        {
-          "key": "flags.midi-qol.advantage.save.str",
-          "value": "1",
-          "mode": 2,
-          "priority": 20
-        },
-        {
-          "key": "system.bonuses.weapon.damage",
-          "value": "1d4",
-          "mode": 2,
-          "priority": 20
-        }
-      ],
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": 10,
-        "startRound": null,
-        "startTurn": null
+        "value": 60,
+        "units": "seconds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -63,12 +89,13 @@
           "enableCondition": "",
           "selfTarget": false,
           "selfTargetAlways": false,
-          "dontApply": false
+          "dontApply": false,
+          "applicationMode": "default",
+          "expiryMode": "default",
+          "macroRepeat": "none"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
@@ -77,58 +104,87 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1786693328300,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!1bUnNgI45qffE1P9.3xbm72Zgxw42254G"
     },
     {
       "name": "缩小",
       "img": "icons/magic/control/energy-stream-link-large-blue.webp",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.1bUnNgI45qffE1P9",
+      "origin": null,
       "_id": "WtwTtpXNuYEfrTRJ",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.traits.size",
-          "value": "sm",
-          "mode": 5,
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.size",
+            "value": "sm",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "BdYKmX1I4J18AJaH",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.abilities.str.check.roll.mode",
+            "value": -1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "taLB7cUEhzPE8rIw",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.abilities.str.save.roll.mode",
+            "value": -1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "jekEpVdhAPG2btCp",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.rolls.damage.weapon.bonus",
+            "value": "-1d4",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "yrubYpOumPekQxuT",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.disadvantage.check.str",
-          "value": "1",
-          "mode": 2,
-          "priority": 20
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.1bUnNgI45qffE1P9",
+          "message": null
         },
-        {
-          "key": "flags.midi-qol.disadvantage.save.str",
-          "value": "1",
-          "mode": 2,
-          "priority": 20
-        },
-        {
-          "key": "system.bonuses.weapon.damage",
-          "value": "-1d4",
-          "mode": 2,
-          "priority": 20
-        }
-      ],
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": 10,
-        "startRound": null,
-        "startTurn": null
+        "value": 60,
+        "units": "seconds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -149,9 +205,7 @@
           "dontApply": false
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
@@ -160,14 +214,17 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1786693328318,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!1bUnNgI45qffE1P9.WtwTtpXNuYEfrTRJ"
     }
   ],
@@ -199,23 +256,10 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
-        "identifier": "reduce",
+        "identifier": "enlargeReduce",
         "source": "chris-premades",
         "version": "0.0.0"
       }
@@ -223,7 +267,7 @@
   },
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你使施法距离内一个你能看见的生物或物件的大小发生改变，并在法术持续时间内维持其效应。指定一个生物或一件没有被着装携带的物品，如果目标并非自愿，则其可以进行一次体质豁免，豁免成功则法术无效。\n<br />如果目标是生物，则其着装物和携带物的尺寸也随之变化。\n<br />随后任何从该生物身上脱离的物品都会恢复其正常大小。\n<br /><strong>变巨Enlarge。</strong>目标身形尺寸变为两倍，重量变为八倍。其体型也因此提高一级，比如中型变为大型。如果目标所处空间不够容纳其变巨后的身形，则该生物或物品在有限空间下会尽可能地达到最大尺寸。在法术终止前，目标进行力量检定和力量豁免时具有优势。目标的武器也会随之变大，而使用这变大的武器发动攻击时，将造成额外1d4的伤害。\n<br /><strong>缩小Reduce。</strong>目标身形尺寸变为一半，重量变为八分之一。\n<br />其体型也因此降低一级，比如中型变为小型。在法术终止前，目标进行力量检定和力量豁免时具有劣势。目标的武器也会随之变小，而使用这变小的武器攻击时，将减少1d4的伤害（不会使伤害值低于1）。\n<br /></div>",
+      "value": "<p>你使施法距离内一个你能看见的生物或物件的大小发生改变，并在法术持续时间内维持其效应。指定一个生物或一件没有被着装携带的物品，如果目标并非自愿，则其可以进行一次[[/save activity=dnd5eactivity000]]{体质豁免}，豁免成功则法术无效。</p><p>如果目标是生物，则其着装物和携带物的尺寸也随之变化。随后任何从该生物身上脱离的物品都会恢复其正常大小。</p><blockquote><p><strong>变巨Enlarge。</strong>目标身形尺寸变为两倍，重量变为八倍。其体型也因此提高一级，比如中型变为大型。如果目标所处空间不够容纳其变巨后的身形，则该生物或物品在有限空间下会尽可能地达到最大尺寸。在法术终止前，目标进行力量检定和力量豁免时具有优势。目标的武器也会随之变大，而使用这变大的武器发动攻击时，将造成额外 1d4 的伤害。</p><p><strong>缩小Reduce。</strong>目标身形尺寸变为一半，重量变为八分之一。其体型也因此降低一级，比如中型变为小型。在法术终止前，目标进行力量检定和力量豁免时具有劣势。目标的武器也会随之变小，而使用这变小的武器攻击时，将减少 1d4 的伤害（不会使伤害值低于1）。</p></blockquote>",
       "chat": ""
     },
     "source": {
@@ -239,7 +283,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -249,9 +294,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -272,10 +318,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -302,31 +344,39 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "3xbm72Zgxw42254G",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {}
           },
           {
             "_id": "WtwTtpXNuYEfrTRJ",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -352,7 +402,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "name": "非自愿变形",
@@ -363,7 +414,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -373,7 +423,20 @@
           "displayActivityName": false,
           "rollMode": "default",
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -386,15 +449,50 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       },
       "ql79rR3hWkkDgl46": {
         "type": "utility",
@@ -413,28 +511,36 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "3xbm72Zgxw42254G"
+            "_id": "3xbm72Zgxw42254G",
+            "uuid": null,
+            "level": {}
           },
           {
-            "_id": "WtwTtpXNuYEfrTRJ"
+            "_id": "WtwTtpXNuYEfrTRJ",
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -464,7 +570,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -472,7 +579,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -483,27 +589,75 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
-        "name": "自愿变形"
+        "name": "自愿变形",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "enlargereduce"
+    "identifier": "enlargereduce",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757419104667,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

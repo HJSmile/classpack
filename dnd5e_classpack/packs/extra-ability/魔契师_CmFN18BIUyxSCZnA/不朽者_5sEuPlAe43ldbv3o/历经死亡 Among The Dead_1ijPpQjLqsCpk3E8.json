@@ -2,14 +2,14 @@
   "_id": "1ijPpQjLqsCpk3E8",
   "name": "历经死亡 Among The Dead",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/ability_deathwing_bloodcorruption_death.png",
+  "img": "icons/magic/death/grave-tombstone-glow-teal.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>        从1级起，你学会戏法@UUID[Compendium.dnd5e_classpack.spell.EslxcnZE2B9JYgF1]{维生术}，并将它视作一个邪术士戏法。你同时在对任何疾病的豁免上具有优势。<br />        此外，不死生物将更难伤害你。若有不死生物直接指定你为攻击或者有害法术的目标，这个生物必须进行一次感知豁免来对抗你的施法DC（但他不需要在使用包括你在内的区域能力时进行豁免，比如@UUID[Compendium.dnd5e_classpack.spell.Uh3zcz4PO4DXP3Dj]{火球术}）。若失败，这个生物必须选择一个新的目标，如果他没有除你以外的目标可以选择则他失去这次法术或者攻击。若他成功通过了豁免，或者你以他为目标进行攻击或者施放有害法术，那么这个不死生物在接下来24小时里对这个效果免疫。</p>",
+      "value": "<p>        从1级起，你学会戏法@UUID[Compendium.dnd5e_classpack.spell.EslxcnZE2B9JYgF1]{维生术}，并将它视作一个魔契师戏法。你同时在对任何疾病的豁免上具有优势。</p><p>        此外，亡灵将更难伤害你。若有亡灵直接指定你为攻击或者有害法术的目标，这个生物必须进行一次感知豁免来对抗你的施法DC（但他不需要在使用包括你在内的区域能力时进行豁免，比如@UUID[Compendium.dnd5e_classpack.spell.Uh3zcz4PO4DXP3Dj]{火球术}）。若失败，这个生物必须选择一个新的目标，如果他没有除你以外的目标可以选择则他失去这次法术或者攻击。若他成功通过了豁免，或者你以他为目标进行攻击或者施放有害法术，那么这个亡灵在接下来24小时里对这个效果免疫。</p>",
       "chat": ""
     },
     "source": {
@@ -42,17 +42,19 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -64,7 +66,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -82,7 +85,10 @@
         },
         "damage": {
           "onSave": "half",
-          "parts": []
+          "parts": [],
+          "critical": {
+            "allow": false
+          }
         },
         "save": {
           "ability": [
@@ -91,19 +97,107 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
     "identifier": "-among-the-dead",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 1,
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -111,13 +205,7 @@
   "folder": "5sEuPlAe43ldbv3o",
   "sort": 6200000,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -137,9 +225,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757407267796,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

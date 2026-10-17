@@ -1,8 +1,8 @@
 {
   "_id": "bDYWBvMmi2yL8YEa",
-  "name": "灵界漫步 Ethereal Step",
+  "name": "以太漫步 Ethereal Step",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/000111.png",
+  "img": "icons/magic/movement/portal-vortex-orange.webp",
   "system": {
     "type": {
       "value": "class",
@@ -20,7 +20,12 @@
     "uses": {
       "max": "1",
       "spent": 0,
-      "recovery": []
+      "recovery": [
+        {
+          "period": "sr",
+          "type": "recoverAll"
+        }
+      ]
     },
     "requirements": "边界行者等级 7",
     "activities": {
@@ -30,10 +35,11 @@
         "activation": {
           "type": "bonus",
           "value": 1,
-          "condition": "",
-          "override": false
+          "override": true,
+          "condition": ""
         },
         "consumption": {
+          "spellSlot": false,
           "targets": [
             {
               "type": "itemUses",
@@ -48,85 +54,211 @@
           "scaling": {
             "allowed": false,
             "max": ""
-          },
-          "spellSlot": true
+          }
         },
         "description": {
+          "value": "",
           "chatFlavor": ""
         },
         "duration": {
+          "value": "0",
+          "units": "turn",
           "concentration": false,
-          "units": "",
-          "special": "",
-          "override": false
+          "override": true,
+          "expiry": "turnEnd"
         },
-        "effects": [],
+        "effects": [
+          {
+            "_id": "0b5a78263ddcb6fe",
+            "level": {}
+          }
+        ],
         "range": {
-          "units": "",
-          "special": "",
-          "override": false
+          "value": "",
+          "units": "self",
+          "override": true,
+          "special": ""
         },
         "target": {
           "template": {
-            "count": "",
-            "contiguous": false,
             "type": "",
-            "size": "",
-            "width": "",
-            "height": "",
-            "units": ""
+            "contiguous": false,
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
+            "type": "self",
             "count": "",
-            "type": "",
             "choice": false,
             "special": ""
           },
-          "prompt": true,
-          "override": false
+          "override": true,
+          "prompt": false
         },
         "uses": {
           "spent": 0,
           "max": "",
           "recovery": []
         },
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "name": "以太漫步",
         "roll": {
           "formula": "",
           "name": "",
           "prompt": false,
           "visible": false
-        },
-        "sort": 0
+        }
       }
     },
     "identifier": "-ethereal-step",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 7,
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
-  "effects": [],
+  "effects": [
+    {
+      "_id": "0b5a78263ddcb6fe",
+      "_key": "!items.effects!bDYWBvMmi2yL8YEa.0b5a78263ddcb6fe",
+      "name": "以太漫步 Ethereal Step",
+      "img": "icons/magic/movement/portal-vortex-orange.webp",
+      "type": "base",
+      "origin": null,
+      "transfer": false,
+      "disabled": false,
+      "duration": {
+        "value": 0,
+        "units": "turns",
+        "expiry": "turnEnd",
+        "expired": false
+      },
+      "start": null,
+      "statuses": [
+        "ethereal"
+      ],
+      "showIcon": 1,
+      "sort": 0,
+      "flags": {},
+      "description": "以太化状态持续至当前回合结束；无需专注。",
+      "tint": "#ffffff",
+      "folder": null,
+      "system": {
+        "changes": [],
+        "origin": {
+          "actor": null,
+          "item": "Compendium.dnd5e_classpack.extra-ability.Item.bDYWBvMmi2yL8YEa",
+          "effect": null,
+          "behavior": null,
+          "message": null
+        },
+        "magical": true,
+        "conditions": "{}",
+        "rider": {
+          "statuses": []
+        }
+      }
+    }
+  ],
   "folder": "F7LXtx9L0TUvBDY9",
   "sort": 32100000,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1749883542518,
     "lastModifiedBy": "uXKCmWFprrvnSIDm",

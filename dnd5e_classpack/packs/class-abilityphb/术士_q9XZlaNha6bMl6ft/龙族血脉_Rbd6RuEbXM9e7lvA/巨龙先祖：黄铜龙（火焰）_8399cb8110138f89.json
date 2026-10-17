@@ -1,0 +1,169 @@
+{
+  "_id": "8399cb8110138f89",
+  "name": "巨龙先祖：黄铜龙（火焰）",
+  "type": "feat",
+  "img": "icons/creatures/abilities/dragon-fire-breath-orange.webp",
+  "system": {
+    "type": {
+      "value": "class",
+      "subtype": ""
+    },
+    "description": {
+      "value": "<p>你选择黄铜龙作为你的巨龙先祖，对应的伤害类型为<strong>火焰</strong>。6级获得的元素亲和使用此伤害类型。</p>",
+      "chat": ""
+    },
+    "source": {
+      "custom": "PHB pg. 102",
+      "revision": 1,
+      "rules": "2014",
+      "book": "PHB"
+    },
+    "cover": null,
+    "uses": {
+      "max": "",
+      "spent": 0,
+      "recovery": []
+    },
+    "requirements": "龙族血脉等级 1",
+    "activities": {},
+    "identifier": "draconic-ancestry",
+    "advancement": {
+      "28fa3214a9b7d6bd": {
+        "_id": "28fa3214a9b7d6bd",
+        "type": "ScaleValue",
+        "name": "先祖龙种",
+        "configuration": {
+          "identifier": "dragon-type",
+          "type": "string",
+          "scale": {
+            "1": {
+              "value": "brass"
+            }
+          }
+        },
+        "value": {},
+        "flags": {}
+      },
+      "95c2afcc9902bfd4": {
+        "_id": "95c2afcc9902bfd4",
+        "type": "ScaleValue",
+        "name": "先祖伤害类型",
+        "configuration": {
+          "identifier": "damage-type",
+          "type": "string",
+          "scale": {
+            "1": {
+              "value": "fire"
+            }
+          }
+        },
+        "value": {},
+        "flags": {}
+      },
+      "09e77b4dfdd91e9e": {
+        "_id": "09e77b4dfdd91e9e",
+        "type": "ModifyItem",
+        "name": "元素亲和伤害类型",
+        "level": 6,
+        "configuration": {
+          "changes": [
+            {
+              "_id": "4340ee001a8b13df",
+              "uuid": null,
+              "identifiers": [
+                "feat:elemental-affinity"
+              ]
+            }
+          ]
+        },
+        "value": {
+          "modified": []
+        },
+        "flags": {},
+        "hint": "元素亲和的伤害类型为火焰。"
+      }
+    },
+    "crewed": false,
+    "enchant": {},
+    "prerequisites": {
+      "level": 1,
+      "repeatable": false,
+      "items": [
+        "subclass:draconic-bloodline"
+      ]
+    },
+    "properties": []
+  },
+  "effects": [
+    {
+      "_id": "4340ee001a8b13df",
+      "_key": "!items.effects!8399cb8110138f89.4340ee001a8b13df",
+      "name": "元素亲和：火焰",
+      "img": "icons/magic/symbols/elements-air-earth-fire-water.webp",
+      "type": "enchantment",
+      "transfer": false,
+      "disabled": false,
+      "showIcon": 0,
+      "statuses": [],
+      "flags": {},
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "system": {
+        "magical": false,
+        "changes": [
+          {
+            "_id": "5b706d9de3eb437b",
+            "key": "activities[damage].damage.parts",
+            "value": [
+              {
+                "number": null,
+                "denomination": null,
+                "bonus": "",
+                "types": [
+                  "fire"
+                ],
+                "custom": {
+                  "enabled": true,
+                  "formula": "@abilities.cha.mod"
+                },
+                "scaling": {
+                  "mode": "whole",
+                  "number": null,
+                  "formula": ""
+                },
+                "modifiers": []
+              }
+            ],
+            "type": "override",
+            "phase": "initial",
+            "priority": 20,
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ]
+      }
+    }
+  ],
+  "folder": "Rbd6RuEbXM9e7lvA",
+  "sort": 4300000,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "14.368",
+    "systemId": "dnd5e",
+    "systemVersion": "6.0.5",
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!8399cb8110138f89"
+}

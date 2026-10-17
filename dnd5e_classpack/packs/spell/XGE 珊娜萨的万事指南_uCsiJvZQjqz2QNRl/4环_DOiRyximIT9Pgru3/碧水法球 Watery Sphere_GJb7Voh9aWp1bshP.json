@@ -26,64 +26,18 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/magic/water/orb-water-transparent.webp",
   "_id": "GJb7Voh9aWp1bshP",
   "effects": [
     {
-      "changes": [
-        {
-          "key": "flags.midi-qol.disadvantage.save.dex",
-          "value": "1",
-          "mode": 0,
-          "priority": 0
-        },
-        {
-          "key": "flags.midi-qol.disadvantage.attack.all",
-          "value": "1",
-          "mode": 0,
-          "priority": 0
-        },
-        {
-          "key": "flags.midi-qol.grants.advantage.attack.all",
-          "value": "1",
-          "mode": 0,
-          "priority": 0
-        },
-        {
-          "key": "system.attributes.movement.all",
-          "value": "0",
-          "mode": 0,
-          "priority": 25
-        },
-        {
-          "key": "flags.midi-qol.OverTime",
-          "value": "turn=end, label=Restrained, saveDC=@attributes.spell.dc, saveMagic=true, saveCount=1-, rollMode=publicroll, allowIncapacitated=true",
-          "mode": 2,
-          "priority": 20
-        }
-      ],
       "disabled": false,
       "duration": {
-        "rounds": null,
-        "seconds": 60,
-        "startRound": null,
-        "startTime": 5243702910,
-        "startTurn": null,
-        "turns": 10,
-        "combat": null
+        "value": 60,
+        "units": "seconds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "flags": {
         "core": {
@@ -111,42 +65,26 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
+          "riders": {}
         }
       },
-      "origin": "Compendium.dnd5e_classpack.spell.Item.GJb7Voh9aWp1bshP",
+      "origin": null,
       "tint": "#ffffff",
       "transfer": false,
       "_id": "N4RlJJUBgSixbwNT",
       "name": "Restrained",
       "description": "",
-      "statuses": [],
+      "statuses": [
+        "restrained"
+      ],
       "_stats": {
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1786693328356,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
@@ -156,14 +94,89 @@
       },
       "img": "icons/magic/water/orb-water-transparent.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.abilities.dex.save.roll.mode",
+            "value": -1,
+            "priority": 0,
+            "type": "add",
+            "phase": "initial",
+            "_id": "rLRo4SymtBOyZ8eS",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.disadvantage.attack.all",
+            "value": 1,
+            "priority": 0,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "iQkTZjHzRrhPu68T",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.grants.advantage.attack.all",
+            "value": 1,
+            "priority": 0,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "jlElLNhEKIAIqwes",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.attributes.movement.all",
+            "value": 0,
+            "priority": 25,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "hO6I4nuWQ9SXca3k",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.OverTime",
+            "value": "turn=end, label=Restrained, saveDC=@activity.save.dc.value, saveMagic=true, saveCount=1-, rollMode=publicroll, allowIncapacitated=true, saveAbility=str",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "UTikolEOsuz5P7Wx",
+            "conditions": "{}",
+            "replacement": "origin"
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.GJb7Voh9aWp1bshP",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "sort": 0,
+      "start": {
+        "combat": null,
+        "round": null,
+        "time": 5243702910,
+        "turn": null,
+        "combatant": null,
+        "initiative": null
+      },
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!GJb7Voh9aWp1bshP.N4RlJJUBgSixbwNT"
     }
   ],
   "system": {
     "description": {
-      "value": "<p>你在距离之内，你能看见的一点上召唤出一个半径5英尺的水球。水球可以悬浮于空气中，但其离地高度不能超过10英尺。水球将在法术的持续时间内持续存在。<br />处于水球空间内的任何生物必须进行一次力量豁免检定。若豁免成功，该生物将被排出到水球周围最近的未被占据的空间中。巨型Huge或更大的生物将自动于此豁免检定中成功，并且一个大型Large或更小的生物可以选择在豁免中失败。若豁免失败，生物会被水球束缚，被水淹没。在其每个回合的结束，被束缚的生物可以重试此豁免检定，若成功则结束法术对自己的效果。<br />水球可以容纳至多4个中型（或更小的）生物，或是1个大型生物。若水球束缚了一个超过上限的生物，一个已经被束缚的随机生物将被排除，在水球周围5英尺范围内摔倒。<br />以一个动作，你可以在直线方向上移动水球，至多移动30英尺。若其移动时经过了一个坑，悬崖或类似地形，它会安全的落下，直到悬浮在地表10英尺为止。水球束缚的所有生物也会随之移动。你可以用水球撞击生物来迫使其进行豁免检定。<br />当此法术终结时，水球会掉落在地，熄灭其周围30英尺内的所有普通火焰。任何被水球束缚的生物会在摔落点成为摔倒状态。随后水流会消失。</p>",
+      "value": "<p>你在距离之内，你能看见的一点上召唤出一个半径 5 尺的水球。水球可以悬浮于空气中，但其离地高度不能超过 10 尺。水球将在法术的持续时间内持续存在。</p><p>处于水球空间内的任何生物必须进行一次[[/save activity=dnd5eactivity000]]{力量豁免检定}。若豁免成功，该生物将被排出到水球周围最近的未占据空间中。巨型 Huge 或更大体型的生物将自动于此豁免检定中成功，而一个大型Large 或更小体型的生物可以主动在豁免中失败。若豁免失败，生物会被水球束缚，被水淹没。在其每个回合的结束，被束缚的生物可以重复此豁免，若成功则结束法术对自己的效果。</p><p>水球可以容纳至多 4 个中型（或更小的）生物，或是1个大型生物。若水球束缚了一个超过上限的生物，一个已经被束缚的随机生物将被排除，以倒地的状态出现在水球周围 5 尺范围内。</p><p>以一个动作，你可以在直线方向上移动水球，至多移动 30 尺。若其移动时经过了一个坑，悬崖或类似地形，它会安全的落下，直到悬浮在地表 10 尺为止。水球束缚的所有生物也会随之移动。你可以用水球撞击生物来迫使其进行豁免检定。</p><p>当此法术终结时，水球会掉落在地，并熄灭其周围 30 尺范围内的所有非魔法火焰。任何被水球束缚的生物会在水球的落地点周围以倒地的状态出现。随后，这些水会消失。</p>",
       "chat": ""
     },
     "source": {
@@ -179,7 +192,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -191,7 +205,8 @@
         "type": "sphere",
         "size": "5",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -212,10 +227,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -242,27 +253,44 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "N4RlJJUBgSixbwNT",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": 1786693328356,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "compendiumSource": "ActiveEffect.8fYkPnOf7pMU05N0",
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -288,7 +316,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -302,7 +331,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -310,7 +340,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -321,18 +350,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "watery-sphere"
+    "identifier": "watery-sphere",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -341,8 +419,8 @@
   "sort": 5800000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711685874077,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

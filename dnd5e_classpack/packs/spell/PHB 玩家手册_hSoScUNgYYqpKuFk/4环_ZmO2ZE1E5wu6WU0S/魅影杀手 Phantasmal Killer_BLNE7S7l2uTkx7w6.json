@@ -26,42 +26,21 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Rogue_ShadowDance.png",
+  "img": "icons/magic/control/fear-fright-mask-yellow.webp",
   "effects": [
     {
       "name": "魅影杀手 Phantasmal Killer",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.BLNE7S7l2uTkx7w6",
+      "origin": null,
       "duration": {
-        "rounds": 10,
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 60,
+        "units": "seconds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "disabled": false,
       "_id": "4KZKXFErm8UCSLKC",
-      "changes": [
-        {
-          "key": "flags.midi-qol.OverTime",
-          "mode": 0,
-          "value": "turn=end, label=魅影杀手 Phantasmal Killer, saveAbility=str, saveDC=@attributes.spell.dc, saveMagic=true, damageRoll=(@flags.dnd5e.spellLevel)d10, damageType=psychic, damageBeforeSave=true, saveCount=1-, rollMode=publicroll, allowIncapacitated=true",
-          "priority": 20
-        }
-      ],
       "description": "",
       "transfer": false,
       "statuses": [
@@ -74,34 +53,15 @@
           "selfTargetAlways": false,
           "dontApply": false,
           "stackable": "noneName",
-          "showIcon": true,
           "durationExpression": "",
           "macroRepeat": "none",
           "specialDuration": [],
           "enableCondition": "",
-          "disableCondition": ""
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
+          "disableCondition": "",
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
@@ -109,9 +69,9 @@
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1786654942538,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
@@ -119,16 +79,44 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Rogue_ShadowDance.png",
+      "img": "icons/magic/control/fear-fright-mask-yellow.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.OverTime",
+            "value": "turn=end, label=魅影杀手 Phantasmal Killer, saveAbility=wis, saveDC=@activity.save.dc.value, saveMagic=true, damageRoll=(4 + @scaling.increase)d10, damageType=psychic, damageBeforeSave=false, saveCount=1-, rollMode=publicroll, allowIncapacitated=true",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "HU0ANP9IVLXyLLtn",
+            "conditions": "{}",
+            "replacement": "origin"
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.BLNE7S7l2uTkx7w6",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "sort": 0,
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!BLNE7S7l2uTkx7w6.4KZKXFErm8UCSLKC"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"><p>你指定施法距离内一个你能看见的生物，并窥探其噩梦以具象其最深的恐惧，依此创造一个只有目标能看见的幻象化身。目标生物必须进行一次感知豁免。豁免失败时，目标将在法术持续时间内陷入恐慌。在法术终止前，目标必须在其每回合结束时进行一次感知豁免，豁免失败则受4d10的心灵伤害。豁免成功则法术终止。 <br />[房规]:4d10→6d10<br /><strong>升环施法效应。</strong>使用5环或更高的法术位施展该法术时，你使用的法术位每比4环高一环，伤害就增加1d10。 <br /></p></div>",
+      "value": "<p>你指定施法距离内一个你能看见的生物，并窥探其噩梦以具象其最深的恐惧，依此创造一个只有目标能看见的幻象化身。目标生物必须进行一次[[/save activity=dnd5eactivity000]]{感知豁免}。豁免失败时，目标将在法术持续时间内陷入&amp;Reference[condition=frightened apply=false]{恐慌}。在法术终止前，目标必须在其每回合结束时进行一次感知豁免，豁免失败则受 [[/damage 4d10 type=psychic]]{4d10} 的心灵伤害。豁免成功则法术终止。</p><p><strong>升环施法效应。</strong>使用五环或更高的法术位施展该法术时，你使用的法术位每比四环高一环，伤害就增加 1d10。</p>",
       "chat": ""
     },
     "source": {
@@ -144,7 +132,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -154,9 +143,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -177,10 +167,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -206,31 +192,44 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "v8cuEK0bosji0UZf",
-            "onSave": false
-          },
-          {
             "_id": "4KZKXFErm8UCSLKC",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": 1786654942538,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -256,7 +255,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -270,7 +270,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -278,7 +279,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -289,18 +289,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "phantasmal-killer"
+    "identifier": "phantasmal-killer",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -309,8 +358,8 @@
   "sort": 18100000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711701349071,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -2,7 +2,7 @@
   "folder": null,
   "name": "盛极必衰 Tales of Hubris",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Misc_EmotionHappy.png",
+  "img": "icons/magic/control/control-influence-puppet.webp",
   "system": {
     "activities": {
       "DS4KSVbeMnfyJ5L7": {
@@ -30,13 +30,15 @@
           ]
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "minute",
           "concentration": false,
           "override": false,
-          "value": "1"
+          "value": "1",
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -48,7 +50,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -65,7 +68,7 @@
           "max": ""
         },
         "enchant": {
-          "identifier": ""
+          "self": false
         },
         "restrictions": {
           "allowMagical": false,
@@ -84,7 +87,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -92,7 +96,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -103,15 +106,61 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "name": ""
+        "name": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
     "uses": {
@@ -120,7 +169,7 @@
       "max": ""
     },
     "description": {
-      "value": "<p>自6级起，你学会以魔法编织叙述，从敌人身上引出它们那致命的傲慢。当一个生物对你或你周围60尺范围内可见的盟友发起攻击，并掷出一次重击时，你可以立刻用反应，消耗一枚吟游诗人激励骰，开始讲述一段攻击者因骄傲自大而疏忽大意的故事。接下来的一分钟内，任何以那个生物为目标的武器攻击在骰出18-20时即形成重击。期间若该生物成功被重击，这一效果就将提前结束。<br />当你达到14级后，这一特性的重击范围将增加到17-20。</p>",
+      "value": "<p>自6级起，你学会以魔法编织叙述，从敌人身上引出它们那致命的傲慢。当一个生物对你或你周围60尺范围内可见的盟友发起攻击，并掷出一次重击时，你可以立刻用反应，消耗一枚吟游诗人激励骰，开始讲述一段攻击者因骄傲自大而疏忽大意的故事。接下来的一分钟内，任何以那个生物为目标的武器攻击在骰出18-20时即形成重击。期间若该生物成功被重击，这一效果就将提前结束。</p><p>当你达到14级后，这一特性的重击范围将增加到17-20。</p>",
       "chat": ""
     },
     "identifier": "-",
@@ -128,13 +177,14 @@
       "revision": 1,
       "rules": "2024"
     },
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": [],
     "requirements": "",
@@ -162,19 +212,14 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1756716239856,
     "modifiedTime": 1756716240063,
     "lastModifiedBy": "aV0bUYaBrKQMbD8k",

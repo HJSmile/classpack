@@ -24,17 +24,7 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "conjureCelestial",
@@ -43,11 +33,11 @@
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/httpcloud3steamusercontentcomugc842585136115869684C9C9F90108B8E18485A3B668FBF0DE79280B0176.jpg",
+  "img": "icons/magic/holy/angel-wings-gray.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你召唤一个挑战等级4或更低的天界生物，并使其显现在施法范围内一处你能看见且未被占据的空间。该天界生物在生命值降至0时，或者法术终止时消失不见。\n<br />被召唤的天界生物对你和你的伙伴保持友善关系。你为召唤出来的天界生物掷先攻权，并依此获得其自己的行动回合。该天界生物服从你发出的所有语言命令（不需要你作动作），前提是该命令必须不违反其所属阵营。如果你不发出任何命令，该生物会在敌对生物前保护自己，如果没有敌对生物则不执行任何动作。\n<br />该天界生物的具体数值由DM 掌控。\n<br /><strong>升环施法效应。</strong>使用9环法术位施展该法术时，你将召唤一个挑战等级5或者更低的天界生物。\n<br /></div>",
+      "value": "<p>你召唤一个挑战等级 4 或更低的天族，并使其显现在施法范围内一处你能看见且未占据空间。该天族在生命值降至 0 时，或者法术终止时消失不见。</p><p>被召唤的天族对你和你的伙伴保持友善关系。你为召唤出来的天族骰先攻，它也依此获得其自己的行动回合。该天族服从你发出的所有语言命令（不需要你作动作），前提是该命令必须不违反其所属阵营。如果你不发出任何命令，该生物会在敌对生物前保护自己，如果没有敌对生物则不执行任何动作。</p><p>该天族的具体数值由 DM 掌控。</p><p><strong>升环施法效应。</strong>使用九环法术位施展该法术时，你将召唤一个挑战等级 5 或者更低的天族。</p>",
       "chat": ""
     },
     "source": {
@@ -63,7 +53,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -75,7 +66,8 @@
       "template": {
         "units": "any",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -96,10 +88,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -125,12 +113,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -140,7 +130,8 @@
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -167,7 +158,8 @@
           "attacks": false,
           "proficiency": false,
           "saves": false,
-          "ability": ""
+          "ability": "",
+          "disposition": false
         },
         "profiles": [
           {
@@ -175,7 +167,7 @@
             "cr": "4",
             "name": "",
             "_id": "vE57kIQpv5x44T0a",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "celestial"
             ],
@@ -189,7 +181,7 @@
             "cr": "5",
             "name": "",
             "_id": "4qy1wkosfG2WbUK9",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "celestial"
             ],
@@ -214,7 +206,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -222,7 +215,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -233,20 +225,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "friendlySummon": false
       }
     },
-    "identifier": "conjure-celestial"
+    "identifier": "conjure-celestial",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -255,8 +294,8 @@
   "sort": 27600000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

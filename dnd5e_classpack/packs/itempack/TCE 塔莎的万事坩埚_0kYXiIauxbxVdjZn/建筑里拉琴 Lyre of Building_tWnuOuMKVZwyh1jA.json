@@ -14,17 +14,11 @@
       "itemCondition": "",
       "effectCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
-      "value": "<p><em>（需吟游诗人同调）</em></p><p>当持握这把里拉琴时，你可以用一个动作施展<span class=\"bbc_color\" style=\"COLOR:purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.2LREP2D10afC4Y3V]{修复术Mending}</em></span>。当一个距离你300尺内的物件或建筑受到伤害时，你也可以用一个反应弹奏这把里拉琴，使其免疫该此次伤害以及其他同类型伤害，直到你的下个回合开始。<br />此外，你可以用一个动作弹奏这把里拉琴，施展<span class=\"bbc_color\" style=\"COLOR:purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.u7JAeqMO5fYhTnMy]{鬼斧神工Fabricate}</em></span>、<span class=\"bbc_color\" style=\"COLOR:purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.dFZbU4lhcBhzb9p4]{地动术Move Earth}</em></span>、<span class=\"bbc_color\" style=\"COLOR:purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.EoIuyVnLAF4DyTO7]{穿墙术Passwall}</em></span>或<span class=\"bbc_color\" style=\"COLOR:purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.46SldCNyO92qIwfQ]{构装体召唤术Summon Construct}</em></span>，直到下次黎明前，该法术不能再以此法施展。<br /></p>",
+      "value": "<p><em>（需吟游诗人同调）</em></p><p>当持握这把里拉琴时，你可以用一个动作施展<span style=\"color: purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.2LREP2D10afC4Y3V]{修复术Mending}</em></span>。当一个距离你300尺内的物件或建筑受到伤害时，你也可以用一个反应弹奏这把里拉琴，使其免疫该此次伤害以及其他同类型伤害，直到你的下个回合开始。</p><p>此外，你可以用一个动作弹奏这把里拉琴，施展<span style=\"color: purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.u7JAeqMO5fYhTnMy]{鬼斧神工Fabricate}</em></span>、<span style=\"color: purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.dFZbU4lhcBhzb9p4]{地动术Move Earth}</em></span>、<span style=\"color: purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.EoIuyVnLAF4DyTO7]{穿墙术Passwall}</em></span>或<span style=\"color: purple\"><em>@UUID[Compendium.dnd5e_classpack.spell.Item.46SldCNyO92qIwfQ]{构装体召唤术Summon Construct}</em></span>，直到下次黎明前，该法术不能再以此法施展。</p>",
       "chat": ""
     },
     "source": {
@@ -44,7 +38,6 @@
     },
     "attunement": "required",
     "equipped": false,
-    "rarity": "rare",
     "identified": true,
     "ability": "cha",
     "chatFlavor": "",
@@ -80,17 +73,19 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -102,7 +97,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -121,9 +117,103 @@
         "check": {
           "ability": "cha",
           "associated": [],
-          "dc": {}
+          "dc": {},
+          "visible": true
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "damage": {
+          "onSave": "half",
+          "parts": [],
+          "critical": {
+            "allow": false
+          }
+        },
+        "friendlySave": "default"
       }
     },
     "uses": {
@@ -131,12 +221,15 @@
       "recovery": []
     },
     "identifier": "-lyre-of-building",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "rare"
+    ]
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1692351801457,
     "modifiedTime": 1757871362965,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

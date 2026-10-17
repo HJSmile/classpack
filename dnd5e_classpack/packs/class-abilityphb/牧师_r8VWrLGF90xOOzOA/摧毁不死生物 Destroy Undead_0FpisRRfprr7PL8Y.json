@@ -1,15 +1,15 @@
 {
   "_id": "0FpisRRfprr7PL8Y",
-  "name": "摧毁不死生物 Destroy Undead",
+  "name": "摧毁亡灵 Destroy Undead",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_Excorcism.png",
+  "img": "icons/magic/death/skull-horned-worn-fire-blue.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>第5级起，当不死生物进行对抗你@UUID[Compendium.dnd5e_classpack.class-abilityphb.IYuxMvRIO9feIxSe]{驱散}特性的豁免失败时，如果其挑战等级等于或低于一个既定的下限，则该不死生物将被即时摧毁。相应的数值列举在以下表格中。</p>\n<table>\n<tbody>\n<tr>\n<th>牧师等级</th>\n<th>摧毁不死生物的挑战等级</th>\n</tr>\n<tr>\n<td>5th</td>\n<td>1/2或更低</td>\n</tr>\n<tr>\n<td>8th</td>\n<td>1或更低</td>\n</tr>\n<tr>\n<td>11th</td>\n<td>2或更低</td>\n</tr>\n<tr>\n<td>14th</td>\n<td>3或更低</td>\n</tr>\n<tr>\n<td>17th</td>\n<td>4或更低</td>\n</tr>\n</tbody>\n</table>",
+      "value": "<p>第5级起，当亡灵进行对抗你@UUID[Compendium.dnd5e_classpack.class-abilityphb.IYuxMvRIO9feIxSe]{驱散}特性的豁免失败时，如果其挑战等级等于或低于一个既定的下限，则该亡灵将被即时摧毁。相应的数值列举在以下表格中。</p>\n<table>\n<tbody>\n<tr>\n<th>牧师等级</th>\n<th>摧毁亡灵的挑战等级</th>\n</tr>\n<tr>\n<td>5th</td>\n<td>1/2或更低</td>\n</tr>\n<tr>\n<td>8th</td>\n<td>1或更低</td>\n</tr>\n<tr>\n<td>11th</td>\n<td>2或更低</td>\n</tr>\n<tr>\n<td>14th</td>\n<td>3或更低</td>\n</tr>\n<tr>\n<td>17th</td>\n<td>4或更低</td>\n</tr>\n</tbody>\n</table>",
       "chat": ""
     },
     "source": {
@@ -25,17 +25,67 @@
     "requirements": "牧师等级 5、8、11、14、17",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 5,
+      "repeatable": false,
+      "items": [
+        "class:cleric"
+      ]
     },
     "properties": []
   },
-  "effects": [],
+  "effects": [
+    {
+      "name": "摧毁亡灵 Destroy Undead",
+      "img": "icons/magic/death/skull-horned-worn-fire-blue.webp",
+      "type": "enchantment",
+      "transfer": false,
+      "_id": "JT1ylHkpuHeYFd5Z",
+      "system": {
+        "changes": [],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "magical": true
+      },
+      "disabled": false,
+      "start": null,
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "description": "",
+      "origin": null,
+      "tint": "#ffffff",
+      "statuses": [],
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1791915678095,
+        "modifiedTime": 1791915678095,
+        "lastModifiedBy": "dvg25zW2MvzsvMOU",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!items.effects!0FpisRRfprr7PL8Y.JT1ylHkpuHeYFd5Z"
+    }
+  ],
   "folder": "r8VWrLGF90xOOzOA",
   "sort": 4400000,
   "flags": {
@@ -63,17 +113,12 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757093189410,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

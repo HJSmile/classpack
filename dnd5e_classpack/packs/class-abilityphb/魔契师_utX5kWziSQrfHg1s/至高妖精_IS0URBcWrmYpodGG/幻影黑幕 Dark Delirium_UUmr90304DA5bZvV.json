@@ -2,14 +2,14 @@
   "_id": "UUmr90304DA5bZvV",
   "name": "幻影黑幕 Dark Delirium",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Shadow_Shadesofdarkness%20-%201.png",
+  "img": "icons/magic/control/sleep-bubble-purple.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>        第14级时，你可以使一个生物陷入虚幻领域中。作为一个动作，你可以指定你周边60尺范围内一个你能看见的生物。目标生物必须进行一次对抗你法术豁免DC的感知豁免。豁免失败者将受你魅感或因你而陷入恐慌(由你选择)，并持续1分钟，或直至你的专注被打断(等同于你专注-一个法术)。 如果该生物受到伤害，那么该效应提前终止。</p>\n<p>        直至幻象结束前，该生物都会以为自己迷失在了一个迷雾区域中，而区域的形象则由你选择。该生物只看见和听到其自身、你和幻象三者。</p>\n<p>        你必须完成一次长体或短休才能再次使用此特性。</p>",
+      "value": "<p>        第14级时，你可以使一个生物陷入虚幻领域中。作为一个动作，你可以指定你周边60尺范围内一个你能看见的生物。目标生物必须进行一次对抗你法术豁免DC的[[/save activity=dnd5eactivity000]]{感知豁免}。豁免失败者将受你魅惑或因你而陷入&amp;Reference[condition=frightened apply=false]{恐慌}(由你选择)，并持续1分钟，或直至你的专注被打断(等同于你专注-一个法术)。 如果该生物受到伤害，那么该效应提前终止。</p>\n<p>        直至幻象结束前，该生物都会以为自己迷失在了一个迷雾区域中，而区域的形象则由你选择。该生物只看见和听到其自身、你和幻象三者。</p>\n<p>        你必须完成一次长休或短休才能再次使用此特性。</p>",
       "chat": ""
     },
     "source": {
@@ -47,7 +47,8 @@
             {
               "type": "itemUses",
               "value": "1",
-              "target": ""
+              "target": "",
+              "scaling": {}
             }
           ],
           "scaling": {
@@ -57,22 +58,29 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": true,
           "value": "1",
           "units": "minute",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "BT4VAN1nHnt9NjzZ",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {}
           },
           {
-            "_id": "tZMySfFP4JNBbdGM"
+            "_id": "tZMySfFP4JNBbdGM",
+            "uuid": null,
+            "level": {},
+            "onSave": false
           }
         ],
         "range": {
@@ -89,7 +97,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": "any"
+            "units": "any",
+            "stationary": false
           },
           "affects": {
             "count": "1",
@@ -107,7 +116,10 @@
         },
         "damage": {
           "onSave": "half",
-          "parts": []
+          "parts": [],
+          "critical": {
+            "allow": false
+          }
         },
         "save": {
           "ability": [
@@ -116,22 +128,110 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 14,
+      "repeatable": false,
+      "items": [
+        "subclass:the-archfey"
+      ]
     },
     "properties": [
       "mgc"
@@ -140,22 +240,32 @@
   "effects": [
     {
       "name": "幻影黑幕:恐慌",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Shadow_Shadesofdarkness%20-%201.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.UUmr90304DA5bZvV",
+      "img": "icons/magic/control/sleep-bubble-purple.webp",
+      "origin": null,
       "transfer": false,
       "_id": "BT4VAN1nHnt9NjzZ",
       "type": "base",
-      "system": {},
-      "changes": [],
+      "system": {
+        "changes": [],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.UUmr90304DA5bZvV",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -178,62 +288,56 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757099769755,
         "modifiedTime": 1757099812332,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!UUmr90304DA5bZvV.BT4VAN1nHnt9NjzZ"
     },
     {
       "name": "幻影黑幕:魅惑",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Shadow_Shadesofdarkness%20-%201.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.UUmr90304DA5bZvV",
+      "img": "icons/magic/control/sleep-bubble-purple.webp",
+      "origin": null,
       "transfer": false,
       "_id": "tZMySfFP4JNBbdGM",
       "type": "base",
-      "system": {},
-      "changes": [],
+      "system": {
+        "changes": [],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.UUmr90304DA5bZvV",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -256,42 +360,26 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757099814035,
         "modifiedTime": 1757099827560,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!UUmr90304DA5bZvV.tZMySfFP4JNBbdGM"
     }
   ],
@@ -307,14 +395,7 @@
       "alwaysActive": false,
       "effects": []
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -334,9 +415,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757099845136,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

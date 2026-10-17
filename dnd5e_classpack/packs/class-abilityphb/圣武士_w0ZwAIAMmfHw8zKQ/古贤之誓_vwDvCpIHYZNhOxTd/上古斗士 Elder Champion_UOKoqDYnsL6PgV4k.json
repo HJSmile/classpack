@@ -2,10 +2,10 @@
   "_id": "UOKoqDYnsL6PgV4k",
   "name": "上古斗士 Elder Champion",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Druid_EarthandSky.png",
+  "img": "icons/magic/nature/elemental-plant-humanoid.webp",
   "system": {
     "description": {
-      "value": "<p>第20级起，你可以化作远古自然力量的化身，并获得一项你自已决定的外貌特征。例如，你的皮肤可能变成绿色，或者长出树皮般的纹理。你的头发也许会变得像树叶或青苔一般， 又或者你长出了鹿角或者狮鬃。.</p><p>你使用一个动作以经历该变化，并在接下来 1 分钟内获得以下增益:</p><ul><li>你在每个自己的回合开始时，回复10点生命值。</li><li>你施展施法时间为1动作的圣武士法术时，可以用一个附赠动作而不是一个动作来施展它。</li><li>距离你10尺以内的敌人对抗你圣武士法术和引导神力特性进行豁免检定时具有劣势。</li></ul><p>你必须完成一次长休后才能再次使用该特性。</p>",
+      "value": "<p>第20级起，你可以化作远古自然力量的化身，并获得一项你自己决定的外貌特征。例如，你的皮肤可能变成绿色，或者长出树皮般的纹理。你的头发也许会变得像树叶或青苔一般， 又或者你长出了鹿角或者狮鬃。.</p><p>你使用一个动作以经历该变化，并在接下来 1 分钟内获得以下增益:</p><ul><li>你在每个自己的回合开始时，回复10点生命值。</li><li>你施展施法时间为1动作的圣武士法术时，可以用一个附赠动作而不是一个动作来施展它。</li><li>距离你10尺以内的敌人对抗你圣武士法术和引导神力特性进行豁免检定时具有劣势。</li></ul><p>你必须完成一次长休后才能再次使用该特性。</p>",
       "chat": ""
     },
     "source": {
@@ -47,15 +47,32 @@
           "spellSlot": true,
           "targets": []
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
-          "units": "inst",
+          "units": "minute",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null,
+          "value": "1"
         },
         "effects": [
           {
-            "_id": "HcvBCoY3X7dZ9gEr"
+            "_id": "HcvBCoY3X7dZ9gEr",
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1757145298970,
+              "modifiedTime": 1757145394609,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           }
         ],
         "range": {
@@ -65,7 +82,8 @@
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -92,7 +110,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -100,7 +119,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -111,23 +129,72 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 20,
+      "repeatable": false,
+      "items": [
+        "subclass:oath-of-the-ancients"
+      ]
     },
     "properties": [
       "mgc"
@@ -136,29 +203,53 @@
   "effects": [
     {
       "name": "上古斗士 Elder Champion",
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Druid_EarthandSky.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.UOKoqDYnsL6PgV4k",
+      "img": "icons/magic/nature/elemental-plant-humanoid.webp",
+      "origin": null,
       "transfer": false,
       "_id": "HcvBCoY3X7dZ9gEr",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.OverTime",
-          "mode": 2,
-          "value": "turn=start,allowIncapacitated=true,saveDamage=nodamage,saveRemove=true,saveMagic=true,damageRoll=10,damageType=healing,rollMode=publicroll,",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.OverTime",
+            "value": "turn=start,allowIncapacitated=true,saveDamage=nodamage,saveRemove=true,saveMagic=true,damageRoll=10,damageType=healing,rollMode=publicroll,",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "UvWyboqR0P52LsWm",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.grants.disadvantage.save.all",
+            "value": "(checkDistance(tokenUuid, targetUuid, 10) &&\nfromUuidSync(tokenUuid)?.disposition !== 0 &&\nfromUuidSync(targetUuid)?.disposition === -fromUuidSync(tokenUuid)?.disposition) && ((item.itemType === \"spell\" && item.classIdentifier === \"paladin\") || item.type?.subtype === \"channelDivinity\")",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "xgyXv0mI6t401k2K",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.UOKoqDYnsL6PgV4k",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "minutes",
+        "expiry": "turnStart",
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -176,45 +267,30 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757145298970,
         "modifiedTime": 1757145394609,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!UOKoqDYnsL6PgV4k.HcvBCoY3X7dZ9gEr"
     }
   ],
@@ -230,14 +306,7 @@
       "alwaysActive": false,
       "effects": []
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -261,8 +330,8 @@
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757145408236,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

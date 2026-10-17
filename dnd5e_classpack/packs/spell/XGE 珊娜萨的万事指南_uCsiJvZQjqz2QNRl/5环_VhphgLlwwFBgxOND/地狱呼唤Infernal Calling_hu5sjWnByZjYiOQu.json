@@ -23,25 +23,14 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/magic/fire/explosion-embers-evade-silhouette.webp",
   "_id": "hu5sjWnByZjYiOQu",
   "effects": [],
   "system": {
     "description": {
-      "value": "<p>说出黑暗的咒语，你从九狱之中召唤来魔鬼。你选择挑战等级在6或更低的一种魔鬼的类型，例如猬魔Barbed Devils或须魔Bearded Devils。魔鬼出现在施法距离内你可以看见的一处未被占据的空间。魔鬼在生命值降低至0或法术结束时消失。<br />魔鬼对你和你的同伴是不友好的。为魔鬼投掷先攻，并且它拥有自己的回合。它处于DM的控制之下并在它的每个回合依据本性来进行行动。如果它认为自己能取胜它有可能会攻击你，或者它会诱惑你承诺一个邪恶行为来交换它的有限服务。DM掌握这个生物的数据。<br />在你的每个回合中，你都可以尝试向魔鬼发出口头命令（不需要任何动作）。如果命令可能产生的结果与它的愿望一致，尤其是可能会让你走向邪恶，魔鬼会遵从命令。否则，你必须进行魅力（欺瞒、威吓或说服）检定对抗它的感知（洞察）检定。如果你说出这个魔鬼的真名，你在这次检定中具有优势。如果你的检定失败，在法术余下的持续时间中魔鬼将免疫你的口头命令，虽然它仍旧可以选择执行。如果你的检定成功，魔鬼会执行你的命令直到完成，例如“攻击我的敌人”，“探索前面的房间”，或者是“将这个信息带给女王”。在那之后它返回向你报告自己已经完成。<br />如果你的专注在法术到达完整的持续时间之前中断，且魔鬼已经免疫了你的口头命令，那么它不会立即消失，而是在消失之前以它选择任何方式活动3d6分钟。<br />如果你拥有某个特定的魔鬼邪符，并且它的挑战等级在法术允许的适当范围+1里，你可以召唤那个魔鬼，它会遵从你的命令而你无需魅力检定。</p>\n<p><strong>升环效果：</strong>当你使用6环或更高的法术位施放该法术时，使用的法术位每高一环，允许召唤的魔鬼挑战等级就+1。</p>",
+      "value": "<p>说出黑暗的咒语，你从九狱之中召唤来魔鬼。你选择挑战等级在 6 或更低的一种魔鬼的类型，例如猬魔Barbed Devils 或须魔Bearded Devils 。魔鬼出现在施法距离内你可以看见的一处未占据空间。魔鬼在生命值降低至 0 或法术结束时消失。</p><p>魔鬼对你和你的同伴是不友好的。为魔鬼投掷先攻，并且它拥有自己的回合。它处于 DM 的控制之下并在它的每个回合依据本性来进行行动。如果它认为自己能取胜它有可能会攻击你，或者它会诱惑你承诺一个邪恶行为来交换它的有限服务。DM 掌握这个生物的数据。</p><p>在你的每个回合中，你都可以尝试向魔鬼发出口头命令（不需要任何动作）。如果命令可能产生的结果与它的愿望一致，尤其是可能会让你走向邪恶，魔鬼会遵从命令。否则，你必须进行魅力（欺瞒、威吓或游说）检定对抗它的感知（洞悉）检定。如果你说出这个魔鬼的真名，你在这次检定中具有优势。如果你的检定失败，在法术余下的持续时间中魔鬼将免疫你的口头命令，虽然它仍旧可以选择执行。如果你的检定成功，魔鬼会执行你的命令直到完成，例如“攻击我的敌人”，“探索前面的房间”，或者是“将这个信息带给女王”。在那之后它返回向你报告自己已经完成。</p><p>如果你的专注在法术到达完整的持续时间之前中断，且魔鬼已经免疫了你的口头命令，那么它不会立即消失，而是在消失之前以它选择任何方式活动 3d6 分钟。</p><p>如果你拥有某个特定的魔鬼邪符，并且它的挑战等级在法术允许的适当范围+1 里，你可以召唤那个魔鬼，它会遵从你的命令而你无需魅力检定。</p><p><strong>升环施法效应。</strong>当你使用六环或更高的法术位施放该法术时，使用的法术位每高一环，允许召唤的魔鬼挑战等级就+1。</p>",
       "chat": ""
     },
     "source": {
@@ -57,7 +46,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -65,9 +55,10 @@
         "type": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -87,10 +78,6 @@
       "consumed": false,
       "cost": 999,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -117,12 +104,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -132,7 +121,8 @@
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -159,7 +149,8 @@
           "attacks": false,
           "proficiency": false,
           "saves": false,
-          "ability": ""
+          "ability": "",
+          "disposition": false
         },
         "profiles": [
           {
@@ -167,7 +158,7 @@
             "cr": "@item.level+1",
             "name": "",
             "_id": "lvJB5jfImNjEa2fr",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "fiend"
             ],
@@ -192,7 +183,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -200,7 +192,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -211,20 +202,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "friendlySummon": false
       }
     },
-    "identifier": "infernal-calling"
+    "identifier": "infernal-calling",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -233,8 +271,8 @@
   "sort": 7300000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

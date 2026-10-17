@@ -5,7 +5,7 @@
   "img": "icons/magic/perception/third-eye-blue-red.webp",
   "system": {
     "description": {
-      "value": "<p><strong>        </strong>你获得10尺盲视。在10尺范围内，你可以看见除了处于全遮掩后的任何东西，哪怕你正在被目盲或是在黑暗之中。另外，你可以看见该范围内的未对你成功躲藏的隐形生物。   </p>",
+      "value": "<p>        你获得10尺盲视。在10尺范围内，你可以看见除了处于全遮掩后的任何东西，哪怕你正在被目盲或是在黑暗之中。另外，你可以看见该范围内的未对你成功躲藏的隐形生物。   </p>",
       "chat": ""
     },
     "source": {
@@ -23,40 +23,33 @@
       "value": "class",
       "subtype": "fightingStyle"
     },
-    "requirements": "战士等级 1，勇士等级 10，圣武士等级 2，游侠等级 2",
+    "requirements": "战士等级 1，勇士等级 10，圣武士等级 2，游侠等级 2；或战斗学徒专长",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": [
+        "feat:fighting-style",
+        "feat:-fighting-initiatetce"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "_id": "wa874yOJTDAQmPEy",
-      "changes": [
-        {
-          "key": "system.attributes.senses.blindsight",
-          "mode": 2,
-          "value": "10",
-          "priority": 20
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
-      "origin": "Compendium.dnd5e_classpack.extra-ability.Item.5M9eFqLMIbkwKy0b",
+      "origin": null,
       "transfer": true,
       "flags": {
         "dae": {
@@ -68,9 +61,7 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
@@ -78,9 +69,9 @@
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1749734560119,
         "lastModifiedBy": "00Hmaouu4SsMyc7n",
@@ -91,10 +82,38 @@
       "name": "获得 10 尺盲视",
       "img": "icons/magic/perception/third-eye-blue-red.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.senses.ranges.blindsight",
+            "value": 10,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "Xn1hPOmO3uXvCvgv",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.extra-ability.Item.5M9eFqLMIbkwKy0b",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!5M9eFqLMIbkwKy0b.wa874yOJTDAQmPEy"
     }
   ],
@@ -125,20 +144,15 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757864940428,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

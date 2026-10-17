@@ -4,7 +4,7 @@
   "img": "icons/magic/holy/barrier-shield-winged-cross.webp",
   "system": {
     "description": {
-      "value": "<p>一位神明选中了你，让你携带其力量的火花。</p><p>你从牧师法术列表中选择并习得一个@UUID[Compendium.dnd5e_classpack.spell-table.JournalEntry.RKaer4UuaANHQ9pI.JournalEntryPage.Lu1nZLg80ere5Lf5]{戏法}，并且根据你角色的阵营习得一个一环法术，如下方阵营法术表所示。你还习得法术@UUID[Compendium.dnd5e_classpack.spell.Item.umqpL5B9ccbkpJtJ]{卜筮术Augury}。</p><table><caption><strong>阵营法术 Alignment Spells</strong></caption><thead><tr><th><p>阵营</p></th><th><p>一环法术</p></th></tr></thead><tbody><tr><td><p>邪恶</p></td><td><p>选择一个@UUID[Compendium.dnd5e_classpack.spell-table.JournalEntry.YyMwDyBTAhKSA6Ci.JournalEntryPage.lwThJCll6fRX9SIx]{一环邪术师法术}</p></td></tr><tr><td><p>善良</p></td><td><p>选择一个@UUID[Compendium.dnd5e_classpack.spell-table.JournalEntry.RKaer4UuaANHQ9pI.JournalEntryPage.lwThJCll6fRX9SIx]{一环牧师法术}</p></td></tr><tr><td><p>中立</p></td><td><p>选择一个@UUID[Compendium.dnd5e_classpack.spell-table.JournalEntry.VkCAjMpSgvgRIEDA.JournalEntryPage.9derRmPlaqHlfpFA]{一环德鲁伊法术}</p></td></tr></tbody></table><p>你可以不消耗法术位地施放选择的一环法术和卜筮术，但必须完成一次长休才能再次以此方式施放这两个法术。你也可以用符合环阶的法术位来施放这些法术。</p><p>你施放本专长法术的施法关键属性为智力、感知或魅力（在你选择本专长时选择）。</p><p>此外，当你施放使用本专长的施法关键属性的任意法术时，可以将@UUID[Compendium.dnd5e_classpack.itempack.Item.TJi1q6Bm8IGoJJVL]{圣徽}作为法器。</p>",
+      "value": "<p>一位神明选中了你，让你携带其力量的火花。</p><p>你从牧师法术列表中选择并习得一个@UUID[Compendium.dnd5e_classpack.spell-table.JournalEntry.RKaer4UuaANHQ9pI.JournalEntryPage.Lu1nZLg80ere5Lf5]{戏法}，并且根据你角色的阵营习得一个一环法术，如下方阵营法术表所示。你还习得法术@UUID[Compendium.dnd5e_classpack.spell.Item.umqpL5B9ccbkpJtJ]{卜筮术Augury}。</p><table><caption><strong>阵营法术 Alignment Spells</strong></caption><thead><tr><th><p>阵营</p></th><th><p>一环法术</p></th></tr></thead><tbody><tr><td><p>邪恶</p></td><td><p>选择一个@UUID[Compendium.dnd5e_classpack.spell-table.JournalEntry.YyMwDyBTAhKSA6Ci.JournalEntryPage.lwThJCll6fRX9SIx]{一环魔契师法术}</p></td></tr><tr><td><p>善良</p></td><td><p>选择一个@UUID[Compendium.dnd5e_classpack.spell-table.JournalEntry.RKaer4UuaANHQ9pI.JournalEntryPage.lwThJCll6fRX9SIx]{一环牧师法术}</p></td></tr><tr><td><p>中立</p></td><td><p>选择一个@UUID[Compendium.dnd5e_classpack.spell-table.JournalEntry.VkCAjMpSgvgRIEDA.JournalEntryPage.9derRmPlaqHlfpFA]{一环德鲁伊法术}</p></td></tr></tbody></table><p>你可以不消耗法术位地施放选择的一环法术和卜筮术，但必须完成一次长休才能再次以此方式施放这两个法术。你也可以用符合环阶的法术位来施放这些法术。</p><p>你施放本专长法术的施法属性为智力、感知或魅力（在你选择本专长时选择）。</p><p>此外，当你施放使用本专长的施法属性的任意法术时，可以将@UUID[Compendium.dnd5e_classpack.itempack.Item.TJi1q6Bm8IGoJJVL]{圣徽}作为法器。</p>",
       "chat": ""
     },
     "source": {
@@ -26,9 +26,9 @@
     },
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
-    "requirements": "等级 4，龙枪战役",
+    "requirements": "等级4+，龙枪战役",
     "activities": {
       "dnd5eactivity000": {
         "_id": "dnd5eactivity000",
@@ -58,18 +58,20 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -81,7 +83,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -103,33 +106,155 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-divinely-favored",
-    "advancement": [],
+    "advancement": {
+      "29ff582990f93708": {
+        "_id": "29ff582990f93708",
+        "type": "ItemChoice",
+        "name": "选择施法属性",
+        "configuration": {
+          "choices": {
+            "0": {
+              "count": 1,
+              "replacement": false
+            }
+          },
+          "allowDrops": false,
+          "type": "feat",
+          "pool": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.a3084afa4d0cbb7f",
+              "sort": 0
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.807547d466fc2efa",
+              "sort": 1
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.5e2257077a81aab6",
+              "sort": 2
+            }
+          ],
+          "spell": null,
+          "restriction": {
+            "type": "feat",
+            "subtype": "",
+            "level": "",
+            "list": [],
+            "school": []
+          },
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 4,
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
   "effects": [],
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1686470910996,
     "modifiedTime": 1749711029989,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

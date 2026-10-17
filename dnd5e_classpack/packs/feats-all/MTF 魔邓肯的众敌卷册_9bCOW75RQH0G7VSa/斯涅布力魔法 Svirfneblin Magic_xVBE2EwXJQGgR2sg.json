@@ -6,10 +6,10 @@
   "system": {
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "description": {
-      "value": "<p class=\"1\" style=\"layout-grid-mode:char;text-align:justify;text-justify:inter-ideograph;line-height:13pt;margin-right:0.55pt;mso-line-height-rule:exactly\"><span>你继承了你祖先的天生施法能力。这项能力允许你随意对自己施放 </span><em><span>回避侦测nondetection</span></em><span>，而不需要物质成分。</span></p>\n<p class=\"1\" style=\"layout-grid-mode:char;text-align:justify;text-justify:inter-ideograph;line-height:13pt;margin-right:0.55pt;mso-line-height-rule:exactly\"><span>你也可以每日一次施展下列每项法术：</span><em><span>目盲</span></em><em><span style=\"mso-hansi-font-family:宋体\">/</span></em><em><span>耳聋术</span></em><em><span style=\"mso-hansi-font-family:宋体\"> Blindness/Deafness</span></em><span>、</span><em><span>朦胧术</span></em><em><span style=\"mso-hansi-font-family:宋体\">Blur</span></em><span>和</span><em><span>易容术disguise self</span></em><span>。</span></p>\n<p class=\"1\" style=\"layout-grid-mode:char;text-align:justify;text-justify:inter-ideograph;line-height:13pt;margin-right:0.55pt;mso-line-height-rule:exactly\"><span>当你完成一次长休息后，你会重新获得施展这些法术的能力。你的施法关键属性为智力。</span></p>",
+      "value": "<p style=\"text-align:justify\" class=\"1\">你继承了你祖先的天生施法能力。这项能力允许你随意对自己施放 <em>回避侦测nondetection</em>，而不需要物质成分。</p><p style=\"text-align:justify\" class=\"1\">你也可以每日一次施展下列每项法术：<em>目盲</em><em>/</em><em>耳聋术</em><em> Blindness/Deafness</em>、<em>朦胧术</em><em>Blur</em>和<em>易容术disguise self</em>。</p><p style=\"text-align:justify\" class=\"1\">当你完成一次长休息后，你会重新获得施展这些法术的能力。你的施法关键属性为智力。</p>",
       "chat": ""
     },
     "source": {
@@ -31,26 +31,153 @@
     "requirements": "地底侏儒",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {
+      "aba7709e0687421b": {
+        "_id": "aba7709e0687421b",
+        "type": "ItemGrant",
+        "name": "Nondetection",
+        "configuration": {
+          "items": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.spell.Item.VT60UFGIZOZhPgMi",
+              "optional": false,
+              "sort": 0
+            }
+          ],
+          "optional": false,
+          "spell": {
+            "ability": [
+              "int"
+            ],
+            "method": "innate",
+            "prepared": 0,
+            "uses": {
+              "max": "",
+              "per": "",
+              "requireSlot": false
+            }
+          },
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      },
+      "b17cf1bb0b26ee2e": {
+        "_id": "b17cf1bb0b26ee2e",
+        "type": "ItemGrant",
+        "name": "Blindness/Deafness",
+        "configuration": {
+          "items": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.spell.Item.5GWYJBfc1aZ6415M",
+              "optional": false,
+              "sort": 0
+            }
+          ],
+          "optional": false,
+          "spell": {
+            "ability": [
+              "int"
+            ],
+            "method": "innate",
+            "prepared": 0,
+            "uses": {
+              "max": "1",
+              "per": "lr",
+              "requireSlot": false
+            }
+          },
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      },
+      "4d79754b2095e04a": {
+        "_id": "4d79754b2095e04a",
+        "type": "ItemGrant",
+        "name": "Blur",
+        "configuration": {
+          "items": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.spell.Item.2XwLnziQi0Iv7GQT",
+              "optional": false,
+              "sort": 0
+            }
+          ],
+          "optional": false,
+          "spell": {
+            "ability": [
+              "int"
+            ],
+            "method": "innate",
+            "prepared": 0,
+            "uses": {
+              "max": "1",
+              "per": "lr",
+              "requireSlot": false
+            }
+          },
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      },
+      "5598050b3f02df9d": {
+        "_id": "5598050b3f02df9d",
+        "type": "ItemGrant",
+        "name": "Disguise Self",
+        "configuration": {
+          "items": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.spell.Item.ju3LXSi72l6vso3l",
+              "optional": false,
+              "sort": 0
+            }
+          ],
+          "optional": false,
+          "spell": {
+            "ability": [
+              "int"
+            ],
+            "method": "innate",
+            "prepared": 0,
+            "uses": {
+              "max": "1",
+              "per": "lr",
+              "requireSlot": false
+            }
+          },
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
-    "properties": []
+    "properties": [
+      "mgc"
+    ]
   },
   "effects": [],
   "folder": "9bCOW75RQH0G7VSa",
   "sort": 100000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -70,9 +197,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757864580050,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

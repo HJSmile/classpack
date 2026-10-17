@@ -2,7 +2,7 @@
   "_id": "ky0dMTWSMVEztfGF",
   "name": "救赎使节 Emissary of Redemption",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_DevineAegis.png",
+  "img": "icons/magic/holy/angel-winged-humanoid-blue.webp",
   "system": {
     "type": {
       "value": "class",
@@ -30,41 +30,56 @@
     "requirements": "救赎之誓等级 20",
     "activities": {},
     "identifier": "-emissary-of-redemption",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 20,
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
   "effects": [
     {
       "name": "伤害抗性",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_DevineAegis.png",
-      "origin": "Compendium.dnd5e_classpack.extra-ability.Item.ky0dMTWSMVEztfGF",
+      "img": "icons/magic/holy/angel-winged-humanoid-blue.webp",
+      "origin": null,
       "_id": "m0Tnx1GE59ulaECt",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.traits.dr.all",
-          "mode": 0,
-          "value": "",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.dr.all",
+            "value": "",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "XOsKMx6CWtl7CofF",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.extra-ability.Item.ky0dMTWSMVEztfGF",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -81,9 +96,7 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
@@ -92,26 +105,24 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": 1751429796482,
         "modifiedTime": 1751429832187,
         "lastModifiedBy": "sPF2dtZDreDpJaW6",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!ky0dMTWSMVEztfGF.m0Tnx1GE59ulaECt"
     }
   ],
   "folder": "4nZW4d4YESN1sUmh",
   "sort": 40200000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -131,9 +142,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1751429739568,
     "lastModifiedBy": "sPF2dtZDreDpJaW6",

@@ -28,25 +28,13 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "ritual"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Druid_TravelForm.png",
+  "img": "icons/creatures/birds/songbird-yellow-flying.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 该法术令你可以利用动物传递信息。在施法距离内指定一只你能看见的微型野兽（比如松鼠squirrel，蓝松鸦blue jay，或是蝙蝠bat）。再选择一个你曾造访过的地点，然后描述收信人的基本信息，如“一个穿着城镇守卫制服的男人或女人”或“一个戴着尖顶帽子的红发矮人”。最后再说出一段不超过二十五个单词的信息。目标野兽将会在法术持续时间内前往你选定的地点。会飞的信使24小时内可移动50里，不会飞的信使只能移动25里。信使抵达目的地后，会模仿你的声音把信息传递给你描述的人。信使只会把信息传递给符合你描述的人。如果法术持续时间内信使未能抵达目的地则信息将遗失，而曾作为信使的野兽将自行寻路返回你施法的地点。\n<br /><strong>升环施法效应。</strong>使用3环或更高法术位施展该法术时，你使用的法术位每比2环高一环，其法术持续时间就增加48小时。\n<br /></div>",
+      "value": "<p>该法术令你可以利用动物传递信息。在施法距离内指定一只你能看见的微型野兽（比如松鼠squirrel，蓝松鸦blue jay，或是蝙蝠bat）。再选择一个你曾造访过的地点，然后描述收信人的基本信息，如“一个穿着城镇守卫制服的男人或女人”或“一个戴着尖顶帽子的红发矮人”。最后再说出一段不超过二十五个单词的信息。目标野兽将会在法术持续时间内前往你选定的地点。会飞的信使 24 小时内可移动 50 里，不会飞的信使只能移动 25 里。</p><p>信使抵达目的地后，会模仿你的声音把信息传递给你描述的人。信使只会把信息传递给符合你描述的人。如果法术持续时间内信使未能抵达目的地则信息将遗失，而曾作为信使的野兽将自行寻路返回你施法的地点。</p><p><strong>升环施法效应。</strong>使用三环或更高法术位施展该法术时，你使用的法术位每比二环高一环，其法术持续时间就增加 48 小时。</p>",
       "chat": ""
     },
     "source": {
@@ -62,7 +50,8 @@
     },
     "duration": {
       "value": "24",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -72,9 +61,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -95,10 +85,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -125,22 +111,26 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "hour",
           "concentration": false,
           "override": true,
-          "value": "24"
+          "value": "24",
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -167,7 +157,8 @@
           "attacks": false,
           "proficiency": false,
           "saves": false,
-          "ability": ""
+          "ability": "",
+          "disposition": false
         },
         "profiles": [
           {
@@ -208,7 +199,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -216,7 +208,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -227,18 +218,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "name": ""
+        "name": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "friendlySummon": false
       }
     },
-    "identifier": "animal-messenger"
+    "identifier": "animal-messenger",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -247,8 +287,8 @@
   "sort": 3500000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

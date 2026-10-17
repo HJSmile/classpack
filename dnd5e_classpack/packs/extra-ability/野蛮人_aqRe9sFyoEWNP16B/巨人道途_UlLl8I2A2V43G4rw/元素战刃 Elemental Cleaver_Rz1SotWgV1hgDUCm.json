@@ -4,7 +4,7 @@
   "img": "icons/magic/fire/dagger-rune-enchant-flame-orange.webp",
   "system": {
     "description": {
-      "value": "<p>你和巨人的元素力量的链接成长了，并且，你习得了将原初能量注入武器之中的方式。<br />当你进入狂暴时，你可以选择一件你正持握的武器中，并为它选择并注入以下伤害类型之一：强酸、冷冻、火焰、雷鸣、或闪电。当你在狂暴中挥舞注能的武器时，武器的伤害类型将转变为你选择的伤害类型，并在命中时额外造成1d6点所选类型的伤害。此外它还将获得 投掷Thrown 属性，具有通常射程20尺与最大射程60尺。如果你投掷这把武器，它不论是否击中目标，它都将在那之后立刻重新出现在你的手中。注能武器的增益将在除你以外的其他生物持握它时将被暂时压制。<br />在狂暴期间，若你持握着注能武器，你就可以用一个附赠动作改变其伤害类型为另一项，从前文提到的伤害类型中选择。</p>",
+      "value": "<p>你和巨人的元素力量的链接成长了，并且，你习得了将原初能量注入武器之中的方式。</p><p>当你进入狂暴时，你可以选择一件你正持握的武器中，并为它选择并注入以下伤害类型之一：强酸、冷冻、火焰、雷鸣、或闪电。当你在狂暴中挥舞注能的武器时，武器的伤害类型将转变为你选择的伤害类型，并在命中时额外造成1d6点所选类型的伤害。此外它还将获得 投掷Thrown 属性，具有通常射程20尺与最大射程60尺。如果你投掷这把武器，它不论是否击中目标，它都将在那之后立刻重新出现在你的手中。注能武器的增益将在除你以外的其他生物持握它时将被暂时压制。</p><p>在狂暴期间，若你持握着注能武器，你就可以用一个附赠动作改变其伤害类型为另一项，从前文提到的伤害类型中选择。</p>",
       "chat": ""
     },
     "source": {
@@ -23,12 +23,13 @@
       "recovery": []
     },
     "type": {
-      "value": "",
+      "value": "class",
       "subtype": ""
     },
     "prerequisites": {
       "level": 6,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": [],
     "requirements": "第6级巨人道途特性",
@@ -51,18 +52,20 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -74,7 +77,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -96,11 +100,96 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "yuan",
-    "advancement": [],
+    "advancement": {},
     "enchant": {}
   },
   "effects": [],
@@ -135,13 +224,7 @@
       "otherCondition": ""
     },
     "core": {},
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "elementalCleaver",
@@ -152,8 +235,8 @@
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1724868989438,
     "modifiedTime": 1757865075739,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

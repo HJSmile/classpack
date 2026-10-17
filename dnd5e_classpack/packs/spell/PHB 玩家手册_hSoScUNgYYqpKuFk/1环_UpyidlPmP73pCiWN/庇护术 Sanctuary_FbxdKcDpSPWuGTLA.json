@@ -2,33 +2,57 @@
   "_id": "FbxdKcDpSPWuGTLA",
   "name": "庇护术 Sanctuary",
   "type": "spell",
-  "img": "modules/dnd5e_classpack/Nicons/ability_racial_holyresistance.jpg",
+  "img": "icons/magic/holy/barrier-shield-winged-blue.webp",
   "effects": [
     {
       "name": "庇护术 Sanctuary",
-      "img": "modules/dnd5e_classpack/Nicons/ability_racial_holyresistance.jpg",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.FbxdKcDpSPWuGTLA",
+      "img": "icons/magic/holy/barrier-shield-winged-blue.webp",
+      "origin": null,
       "transfer": false,
       "_id": "yrOey4y3ziyhKk8a",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "",
-          "mode": 2,
-          "value": "",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "_id": "e07v4BtJEp67BXxG",
+            "key": "flags.midi-qol.onUseMacroName",
+            "value": "ItemMacro,isTargeted",
+            "type": "custom",
+            "phase": "initial",
+            "priority": 20,
+            "replacement": "",
+            "conditions": "{}"
+          },
+          {
+            "_id": "32db1f67f769571b",
+            "key": "flags.midi-qol.onUseMacroName",
+            "value": "ItemMacro,postActiveEffects",
+            "type": "custom",
+            "phase": "initial",
+            "priority": 20,
+            "replacement": "",
+            "conditions": "{}"
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.FbxdKcDpSPWuGTLA",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 60,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -45,52 +69,53 @@
           "stackable": "noneName",
           "showIcon": false,
           "durationExpression": "",
-          "specialDuration": []
+          "specialDuration": [
+            "1Attack",
+            "DamageDealt"
+          ],
+          "applicationMode": "default",
+          "expiryMode": "default",
+          "macroRepeat": "none"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
+        },
+        "dnd5e_classpack": {
+          "automation": "sanctuary"
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": 1753015993966,
         "modifiedTime": 1753016000247,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!FbxdKcDpSPWuGTLA.yrOey4y3ziyhKk8a"
     }
   ],
   "folder": "UpyidlPmP73pCiWN",
   "sort": -68750,
   "flags": {
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
       "itemCondition": "",
       "reactionCondition": "",
       "otherCondition": "",
-      "effectCondition": ""
+      "effectCondition": "",
+      "onUseMacroName": "[preSave]ItemMacro,[postActiveEffects]ItemMacro"
     },
     "midiProperties": {
       "autoFailFriendly": false,
@@ -107,11 +132,18 @@
         "source": "chris-premades",
         "version": "0.0.0"
       }
+    },
+    "dae": {
+      "macro": {
+        "name": "庇护术 Sanctuary",
+        "type": "script",
+        "command": "// 物品：preSave、postActiveEffects；庇护 AE：isTargeted、postActiveEffects。\n// 发动攻击、造成伤害由 DAE 1Attack / DamageDealt 处理。\nconst pass = args[0]?.macroPass;\nif (![\"preSave\", \"postActiveEffects\", \"isTargeted\"].includes(pass)) return;\nconst cast = workflow;\nconst saveActivityFor = spell => spell?.system?.activities?.find(a =>\n  a.type === \"save\" && a.flags?.dnd5e_classpack?.sanctuarySave);\n// Midi 为每次使用复制物品；只修改本次豁免工作流中的 DC，不写回物品。\nif (cast.activity.flags?.dnd5e_classpack?.sanctuarySave) {\n  if (pass === \"preSave\") {\n    const dc = Number(cast.workflowOptions.classpackSanctuaryDC);\n    if (Number.isFinite(dc)) cast.activity.save.dc.value = dc;\n  }\n  return;\n}\nif (pass === \"preSave\") return;\nconst marker = \"sanctuary\";\nconst effects = actor => Array.from(actor?.appliedEffects ?? actor?.effects ?? [])\n  .filter(e => e.active && e.flags?.dnd5e_classpack?.automation === marker);\nconst remove = async (actor, list) => {\n  if (list.length) await MidiQOL.socket().executeAsGM(\"removeEffects\", {\n    actorUuid: actor.uuid, effects: list.map(e => e.id)\n  });\n};\n\n// 记录本次施法的 DC，避免以后施法者的属性或施法属性变化影响现有效果。\nif (pass === \"postActiveEffects\" && cast.item.uuid === macroItem.uuid) {\n  const dc = Number(saveActivityFor(macroItem)?.save.dc.value);\n  if (!Number.isFinite(dc)) {\n    ui.notifications.warn(\"庇护术：无法确定本次施法的豁免 DC，请检查施法属性。\");\n    return;\n  }\n  for (const target of cast.targets) {\n    const list = effects(target.actor).filter(e =>\n      e.system?.origin?.message === cast.itemCardUuid);\n    if (list.length) await MidiQOL.socket().executeAsGM(\"updateEffects\", {\n      actorUuid: target.actor.uuid,\n      updates: list.map(e => ({ _id: e.id,\n        \"flags.dnd5e_classpack.sanctuaryDC\": dc,\n        \"flags.dnd5e_classpack.sanctuaryItem\": cast.item.uuid }))\n    });\n  }\n  return;\n}\n\nif (pass !== \"isTargeted\") {\n  const list = effects(cast.actor);\n  if (!list.length) return;\n  if (pass !== \"postActiveEffects\") return;\n  let enemyTargeted = cast.item.type === \"spell\" && Array.from(cast.targets).some(t =>\n    t.actor?.uuid !== cast.actor.uuid && cast.token\n      && t.document.disposition * cast.token.document.disposition < 0);\n  const unclearTargets = cast.item.type === \"spell\" && !enemyTargeted && Array.from(cast.targets).some(t =>\n    t.actor?.uuid !== cast.actor.uuid && (!cast.token\n      || t.document.disposition * cast.token.document.disposition === 0));\n  if (unclearTargets) enemyTargeted = await foundry.applications.api.DialogV2.confirm({\n    window: { title: \"庇护术：是否影响敌人\" },\n    content: \"<p>这次法术是否影响了你的敌人？目标阵营为中立，无法自动判断。</p>\",\n    rejectClose: false\n  });\n  if (enemyTargeted) await remove(cast.actor, list);\n  return;\n}\n\n// TargetOnUse 的 actor/token 是受保护者，workflow.actor 是攻击者。\nconst target = args[0].options?.token;\nif (!target || !cast.targets.has(target) || cast.actor.uuid === target.actor?.uuid) return;\nif (cast.activity.target?.template?.type) return; // 范围效应不受庇护术限制。\nconst attack = !!cast.activity.attack;\nlet harmful = cast.item.type === \"spell\" && (cast.activity.type === \"save\"\n  || (cast.activity.damage?.parts?.length ?? 0) > 0);\nif (!attack && !harmful && cast.item.type === \"spell\") {\n  harmful = await foundry.applications.api.DialogV2.confirm({\n    window: { title: \"庇护术\" },\n    content: \"<p>这次是否对受保护者施放了伤害性法术？有益法术无需豁免。</p>\",\n    rejectClose: false\n  });\n}\nif (!attack && !harmful) return;\n\ncast.classpackSanctuary ??= { checked: new Set(), failed: new Set() };\nconst state = cast.classpackSanctuary;\nlet current = target;\nwhile (current) {\n  const ward = effects(current.actor)[0];\n  if (!ward || state.checked.has(current.document.uuid)) break;\n  const dc = Number(ward.flags.dnd5e_classpack.sanctuaryDC);\n  if (!Number.isFinite(dc)) {\n    ui.notifications.warn(\"庇护术缺少施法 DC，请重新施放庇护术后再试。\");\n    cast.aborted = true;\n    return;\n  }\n  state.checked.add(current.document.uuid);\n  const originUuid = ward.flags.dnd5e_classpack.sanctuaryItem\n    ?? ward.system?.origin?.item ?? ward.origin;\n  const origin = originUuid ? await fromUuid(originUuid) : macroItem;\n  const sourceSpell = origin?.item ?? (origin?.documentName === \"Item\" ? origin : null);\n  const saveActivity = saveActivityFor(sourceSpell);\n  if (!saveActivity || !cast.token || MidiQOL.configSettings().autoCheckSaves === \"none\") {\n    ui.notifications.warn(\"庇护术：请确认来源法术包含庇护术豁免 Activity，并启用 Midi 自动检查豁免。\");\n    cast.aborted = true;\n    return;\n  }\n  const saveWorkflow = await MidiQOL.completeActivityUse(saveActivity, {\n    consume: false,\n    midiOptions: {\n      targetUuids: [cast.token.document.uuid],\n      ignoreUserTargets: true,\n      checkGMstatus: !sourceSpell.isOwner,\n      asUser: sourceSpell.isOwner ? undefined : dnd5eClasspack.firstOwner(sourceSpell.actor, true),\n      workflowData: true,\n      proceedChecks: { checkComponents: false },\n      workflowOptions: {\n        targetConfirmation: \"none\", allowIncapacitated: true,\n        classpackSanctuaryDC: dc\n      }\n    }\n  }, { configure: false });\n  if (!saveWorkflow || saveWorkflow.aborted || !(saveWorkflow.saves instanceof Set)) {\n    ui.notifications.warn(\"庇护术：豁免流程未完成，本次攻击已停止。\");\n    cast.aborted = true;\n    return;\n  }\n  if (Array.from(saveWorkflow.saves).some(t =>\n    (t.document?.uuid ?? t.uuid) === cast.token.document.uuid)) break;\n  state.failed.add(current.document.uuid);\n  const remaining = new Set(cast.targets);\n  remaining.delete(current);\n  const candidates = canvas.tokens.placeables.filter(t => t.actor && t.visible\n    && !state.failed.has(t.document.uuid) && !remaining.has(t)\n    && (!cast.token || MidiQOL.checkActivityRange(cast.activity, cast.token, new Set([t]), false).result !== \"fail\"));\n  const [replacement] = candidates.length\n    ? await dnd5eClasspack.dialogUtils.selectTargetDialog(\"庇护术：改选目标\",\n      \"豁免未通过。选择另一个合法目标，或取消并失去对该目标的攻击／法术。\",\n      candidates, { skipDeadAndUnconscious: false }) : [];\n  if (replacement) remaining.add(replacement);\n  cast.setTargets(remaining);\n  MidiQOL.updateUserTargets(Array.from(remaining, t => t.id));\n  if (!remaining.size) {\n    // 已使用的资源保留；只终止本次后续攻击、伤害和效果。\n    cast.aborted = true;\n    ui.notifications.info(\"庇护术：未改选目标，本次攻击／法术失去目标。\");\n    return;\n  }\n  current = replacement;\n}\n"
+      }
     }
   },
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你的法术保护一个施法距离内的生物不受攻击。在法术终止前，任何试图对受保护者进行攻击或对受保护者施放伤害性法术的生物都必须进行一次感知豁免。豁免失败则该生物必须选定一个新目标，否则将失去本次的攻击或法术。该法术不能保护受术者免受范围效应（如爆炸或火球）的影响。\n<br />受保护者进行攻击或施放任何影响敌对生物的法术时，该法术随之终止。\n<br /></div>",
+      "value": "<p>你的法术保护一个施法距离内的生物不受攻击。在法术终止前，任何试图对受保护者进行攻击或对受保护者施放伤害性法术的生物都必须进行一次感知豁免。豁免失败则该生物必须选定一个新目标，否则将失去本次的攻击或法术。该法术不能保护受术者免受范围效应（如爆炸或火球）的影响。</p><p>若受保护生物发动一次攻击，施展一道影响敌人的法术，或是对任何其他生物造成伤害，则该法术随之终止。</p>",
       "chat": ""
     },
     "source": {
@@ -127,7 +159,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -137,9 +170,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -160,10 +194,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -187,24 +217,42 @@
           "spellSlot": true,
           "targets": []
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "yrOey4y3ziyhKk8a"
+            "_id": "yrOey4y3ziyhKk8a",
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1753015993966,
+              "modifiedTime": 1753016000247,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -231,7 +279,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -239,7 +288,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -250,26 +298,231 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
+      },
+      "4114fff4d35d6d1c": {
+        "type": "save",
+        "_id": "4114fff4d35d6d1c",
+        "sort": 1,
+        "activation": {
+          "type": "",
+          "value": null,
+          "override": true,
+          "condition": ""
+        },
+        "consumption": {
+          "spellSlot": false,
+          "targets": [],
+          "scaling": {
+            "allowed": false
+          }
+        },
+        "description": {
+          "value": ""
+        },
+        "duration": {
+          "units": "inst",
+          "concentration": false,
+          "override": true,
+          "expiry": null
+        },
+        "effects": [],
+        "range": {
+          "units": "any",
+          "override": true
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "contiguous": false,
+            "units": "ft",
+            "stationary": false
+          },
+          "affects": {
+            "type": "creature",
+            "count": "1",
+            "choice": false,
+            "special": ""
+          },
+          "override": true,
+          "prompt": false
+        },
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "confirmTargets": "never",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": true,
+          "otherActivityCompatible": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": true,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {
+          "dnd5e_classpack": {
+            "sanctuarySave": true
+          }
+        },
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "name": "庇护术豁免",
+        "damage": {
+          "onSave": "none",
+          "parts": []
+        },
+        "save": {
+          "ability": [
+            "wis"
+          ],
+          "dc": {
+            "calculation": "spellcasting",
+            "formula": ""
+          },
+          "visible": true,
+          "bonus": ""
+        }
       }
     },
-    "identifier": "sanctuary"
+    "identifier": "sanctuary",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

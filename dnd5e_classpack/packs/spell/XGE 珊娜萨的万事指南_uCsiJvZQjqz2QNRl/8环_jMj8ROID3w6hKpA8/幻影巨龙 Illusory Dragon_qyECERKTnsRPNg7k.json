@@ -29,22 +29,13 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/spell_monk_revival.jpg",
+  "img": "icons/creatures/magical/spirit-undead-winged-ghost.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<p>你汇聚、编织从堕影冥界收集的阴影物质，随后在施法距离内你可见的未占据空间创造出巨型Huge阴影龙。这个幻象会占据所在空间并持续到法术结束，就好像是一个真实生物。<br />当幻象出现时，任何可以看见幻象的你的敌人必须成功进行感知豁免检定，否则将在1分钟内陷入恐惧。如果被恐惧的生物在与幻象没有视觉线相连的位置并结束回合，它可以重新进行豁免检定，成功将终止对自己的恐惧效果。<br />在你的回合中以一个附赠动作，你可以移动幻象最多60英尺。选择它进行移动的任意一点，你可以使它以那个位置作为起源点并喷吐出60尺锥形的爆发性能量。在你创造巨龙时选择一种伤害类型：强酸，寒冷，火焰，闪电，暗蚀或者毒素。处于锥形范围内的每个生物必须进行智力豁免检定，若豁免失败会受到7d6点对应类型的伤害，成功只承受一半。<br />幻象是有形的因为它由阴影物质创造而成，不过对它的攻击会自动失手。它会通过所有豁免检定，并且免疫所有的伤害和异常状态。一个生物可以用动作来进行智力（调查）检定对抗你的法术豁免DC来判断巨龙是否为幻影。如果生物识别了幻象的真相，生物可以看穿它并在对抗它的吐息时获得优势。</p>",
+      "value": "<p>你汇聚、编织从堕影冥界收集的阴影物质，随后在施法距离内你可见的未占据空间创造出巨型 Huge阴影龙。这个幻象会占据所在空间并持续到法术结束，就好像是一个真实生物。</p><p>当幻象出现时，任何可以看见幻象的你的敌人必须成功进行感知豁免检定，否则将在 1 分钟内陷入恐惧。如果被恐惧的生物在与幻象没有视觉线相连的位置并结束回合，它可以重新进行豁免检定，成功将终止对自己的恐惧效果。</p><p>在你的回合中以一个附赠动作，你可以移动幻象最多 60 尺。选择它进行移动的任意一点，你可以使它以那个位置作为起源点并喷吐出60尺锥形的爆发性能量。在你创造巨龙时选择一种伤害类型：强酸，寒冷，火焰，闪电，暗蚀或者毒素。处于锥形范围内的每个生物必须进行[[/save activity=dnd5eactivity000]]{智力豁免检定}，若豁免失败会受到 7d6 点对应类型的伤害，成功只承受一半。</p><p>幻象是有形的因为它由阴影物质创造而成，不过对它的攻击会自动失手。它会通过所有豁免检定，并且免疫所有的伤害和异常状态。一个生物可以用动作来进行[[/check ability=int skill=inv]]{智力（调查）检定}对抗你的法术豁免DC来判断巨龙是否为幻影。如果生物识别了幻象的真相，生物可以看穿它并在对抗它的吐息时获得优势。</p>",
       "chat": ""
     },
     "source": {
@@ -60,7 +51,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -72,7 +64,8 @@
         "type": "cone",
         "size": "60",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -93,10 +86,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "somatic",
@@ -121,22 +110,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -164,7 +157,8 @@
                 "mode": "",
                 "number": null,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -178,7 +172,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -192,7 +187,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -200,7 +196,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -211,18 +206,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "illusory-dragon"
+    "identifier": "illusory-dragon",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -231,8 +275,8 @@
   "sort": 9000000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

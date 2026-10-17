@@ -5,7 +5,7 @@
   "img": "icons/skills/ranged/bomb-grenade-thrown-purple.webp",
   "system": {
     "description": {
-      "value": "<p><strong>        </strong>你可以在使用一件带有投掷属性武器进行进攻时，将那件武器作为攻击的一部分而拔出。另外，在你以一件投掷武器于远程攻击中命中对手时，你的伤害掷骰+2。</p>",
+      "value": "<p>        你可以在使用一件带有投掷属性武器进行进攻时，将那件武器作为攻击的一部分而拔出。另外，在你以一件投掷武器于远程攻击中命中对手时，你的伤害掷骰+2。</p>",
       "chat": ""
     },
     "source": {
@@ -23,15 +23,19 @@
       "value": "class",
       "subtype": "fightingStyle"
     },
-    "requirements": "战士等级 1，勇士等级 10，游侠等级 2",
+    "requirements": "战士等级 1，勇士等级 10，游侠等级 2；或战斗学徒专长",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": [
+        "feat:fighting-style",
+        "feat:-fighting-initiatetce"
+      ]
     },
     "properties": []
   },
@@ -39,12 +43,7 @@
   "folder": "TVv24pNCtOeWM8On",
   "sort": 43100000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -67,9 +66,9 @@
     "default": 0
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757864970788,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

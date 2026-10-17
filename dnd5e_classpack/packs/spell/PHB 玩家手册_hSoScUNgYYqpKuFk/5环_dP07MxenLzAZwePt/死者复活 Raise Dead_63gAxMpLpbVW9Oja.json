@@ -24,23 +24,13 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_DeathKnight_IceBoundFortitude.png",
+  "img": "icons/environment/settlement/graveyard-tombstone-night.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你触碰一个已死的生物，使其复活。该生物的死亡时间必须不超过10日。如果该生物的灵魂愿意并且能够回到其身体中，则它将以1点生命值重生。该法术同样会中和该生物生前体内的毒素以及罹患的非魔法疾病，但对于魔法造成的疾病、诅咒和类似的效应则无能为力；如果没有在复活前治愈这些效应，则它们在该生物重获生命的时候继续生效。该法术不能复活不死生物。\n<br />该法术能治愈所有致命伤，但无法恢复失去的身体部位。如果该生物缺失了它生存所必要的身体部位或器官（比如头），则该法术自动失败。\n<br />死而复生是一个痛苦的体验。复活的目标在随后进行攻击检定、豁免检定和属性检定时具有－4减值。该目标每完成一次长休，其减值就减少1，依次叠加直至减值完全消失。\n<br /></div>",
+      "value": "<p>你触碰一个已死的生物，使其复活。该生物的死亡时间必须不超过 10 日。如果该生物的灵魂愿意并且能够回到其身体中，则它将以1点生命值重生。该法术同样会中和该生物生前体内的毒素以及罹患的非魔法疾病，但对于魔法造成的疾病、诅咒和类似的效应则无能为力；如果没有在复活前治愈这些效应，则它们在该生物重获生命的时候继续生效。该法术不能复活亡灵。</p><p>该法术能治愈所有致命伤，但无法恢复失去的身体部位。如果该生物缺失了它生存所必要的身体部位或器官（比如头），则该法术自动失败。</p><p>死而复生是一个痛苦的体验。复活的目标在随后进行攻击检定、豁免检定和属性检定时具有-4 减值。该目标每完成一次长休，其减值就减少 1，依次叠加直至减值完全消失。</p>",
       "chat": ""
     },
     "source": {
@@ -56,7 +46,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -65,8 +56,9 @@
         "choice": false
       },
       "template": {
-        "units": "",
-        "contiguous": false
+        "units": "ft",
+        "contiguous": false,
+        "stationary": false
       }
     },
     "range": {
@@ -85,10 +77,6 @@
       "consumed": true,
       "cost": 500,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -114,22 +102,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -156,7 +148,8 @@
             "mode": "",
             "number": null,
             "formula": ""
-          }
+          },
+          "modifiers": []
         },
         "sort": 0,
         "useConditionText": "",
@@ -170,7 +163,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -178,7 +172,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -189,17 +182,65 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
         }
       }
     },
-    "identifier": "raise-dead"
+    "identifier": "raise-dead",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -208,8 +249,8 @@
   "sort": 26800000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

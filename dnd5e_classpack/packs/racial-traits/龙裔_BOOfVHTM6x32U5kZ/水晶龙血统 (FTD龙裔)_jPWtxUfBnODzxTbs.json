@@ -7,7 +7,7 @@
       "subtype": ""
     },
     "description": {
-      "value": "<p><em><strong>吐息武器Breath Weapon</strong></em>。</p><p><span style=\"font-family:'Roboto Condensed', sans-serif\">当你使用攻击动作时，你可以将其中一次攻击替换为呼出一种15尺锥形的魔法能量。锥形范围内的每个生物都必须成功通过一次DC为（8+你的体质调整值+你的熟练加值）的敏捷豁免，否则将受到1d10的对应宝石龙血脉的伤害，成功则伤害减半。该伤害在你达到5级时增至2d10，11级时增至3d10，17级时增至4d10。</span></p><p><span style=\"font-family:'Roboto Condensed', sans-serif\">你可以使用该特性的次数等同于你的熟练加值，你在完成一次长休后重获所有已使用的次数。</span></p><p><em><strong>伤害抗性Damage Resistance</strong></em>。</p><p>你获得<span style=\"font-family:'Roboto Condensed', sans-serif\">光耀</span>抗性。</p>",
+      "value": "<p><em><strong>吐息武器Breath Weapon</strong></em>。</p><p>当你使用攻击动作时，你可以将其中一次攻击替换为呼出一种15尺锥形的魔法能量。锥形范围内的每个生物都必须成功通过一次DC为（8+你的体质调整值+你的熟练加值）的敏捷豁免，否则将受到1d10的对应宝石龙血脉的伤害，成功则伤害减半。该伤害在你达到5级时增至2d10，11级时增至3d10，17级时增至4d10。</p><p>你可以使用该特性的次数等同于你的熟练加值，你在完成一次长休后重获所有已使用的次数。</p><p><em><strong>伤害抗性Damage Resistance</strong></em>。</p><p>你获得光耀抗性。</p>",
       "chat": ""
     },
     "source": {
@@ -31,11 +31,30 @@
     "properties": [],
     "activities": {},
     "identifier": "-ftd",
-    "advancement": [],
+    "advancement": {
+      "cb054e572941bf5a": {
+        "_id": "cb054e572941bf5a",
+        "type": "Trait",
+        "name": "龙族抗性",
+        "configuration": {
+          "mode": "default",
+          "allowReplacements": false,
+          "grants": [
+            "dr:radiant"
+          ],
+          "choices": []
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     }
   },
   "flags": {
@@ -58,12 +77,7 @@
       "itemCondition": "",
       "effectCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/skills/wounds/blood-spurt-spray-red.webp",
   "effects": [],
@@ -74,8 +88,8 @@
   "folder": "BOOfVHTM6x32U5kZ",
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711712116824,
     "modifiedTime": 1756544420586,
     "lastModifiedBy": "sPF2dtZDreDpJaW6",

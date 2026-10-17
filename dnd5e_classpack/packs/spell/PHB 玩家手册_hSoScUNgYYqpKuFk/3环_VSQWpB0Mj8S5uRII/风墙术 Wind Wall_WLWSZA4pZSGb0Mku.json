@@ -29,24 +29,13 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Nature_Cyclone.png",
+  "img": "icons/magic/air/wind-tornado-wall-blue.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 指定施法距离内地面上一点并从中升起了一道烈风形成的墙壁。你可以造出长度至多50尺、高度至多15尺、厚度至多1尺的风墙。你可以自由塑造该墙的形状，不过它必须沿着地面形成一条连续的轨道。风墙持续存在至法术终止。\n<br />风墙出现时，所有位于风墙区域内的生物必须进行一次力量豁免。豁免失败者，将受到3d8点钝击伤害，豁免成功则伤害减半。\n<br />烈风可以阻隔浓雾、烟尘和其他气体。体型为小型或更小的飞行生物或物件无法飞过风墙。重量轻的物质带进风墙中时将被向上吹飞。对墙后目标射出的箭、矢和其他普通飞行物会被朝上吹走而直接判为未命中（巨人或攻城器械投出的巨石和类似的飞行物不受影响）。处于气化形态的生物无法穿过风墙。\n<br /></div>",
+      "value": "<p>你指定施法距离内地面上一点并从中升起了一道烈风形成的墙壁。你可以造出长度至多 50 尺、高度至多 15 尺、厚度至多 1 尺的风墙。你可以自由塑造该墙的形状，不过它必须沿着地面形成一条连续的轨道。风墙持续存在至法术终止。</p><p>风墙出现时，所有位于风墙区域内的生物必须进行一次[[/save activity=dnd5eactivity000]]{力量豁免}。豁免失败者，将受到 [[/damage 3d8 type=bludgeoning]]{3d8} 点钝击伤害，豁免成功则伤害减半。</p><p>烈风可以阻隔浓雾、烟尘和其他气体。体型为小型或更小的飞行生物或物件无法飞过风墙。重量轻的物质带进风墙中时将被向上吹飞。对墙后目标射出的箭、矢和其他普通飞行物会被朝上吹走而直接判为未命中（巨人或攻城器械投出的巨石和类似的飞行物不受影响）。处于气化形态的生物无法穿过风墙。</p>",
       "chat": ""
     },
     "source": {
@@ -62,7 +51,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -76,7 +66,8 @@
         "contiguous": false,
         "width": "",
         "height": "",
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -97,10 +88,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -127,22 +114,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -172,7 +163,8 @@
                 "mode": "",
                 "number": null,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -186,7 +178,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -200,7 +193,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -208,7 +202,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -219,18 +212,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "wind-wall"
+    "identifier": "wind-wall",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -239,8 +281,8 @@
   "sort": 6700000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

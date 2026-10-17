@@ -27,18 +27,7 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "dustDevil",
@@ -51,7 +40,7 @@
   "effects": [],
   "system": {
     "description": {
-      "value": "<p>选择距离之内，你能看见的一个5英尺立方的，未被占据的空气。一股元素，外观如同尘卷风，出现在那里，并在法术的持续时间内持续存在。<br />任何在尘卷风周围5英尺范围内结束其回合的生物必须进行一次力量豁免检定。若检定失败，该生物受到1d8点钝击伤害并被推离10英尺。若检定成功，该生物只受到上述伤害的一半，并不会被推离。<br />以一个附赠动作，你可以让尘卷风向任意方向移动至多30英尺。若尘卷风移动时经过了沙子，尘土，松软的土壤或小砂砾，它将会卷起这些物质，在自身周围形成10英尺半径的残骸云，持续到你下个回合的开始。残骸云重度遮蔽了所在区域。</p>\n<p><strong>升环效果：</strong>当你使用3环或更高的法术位施放该法术时，使用的法术位每高一环，伤害便增加1d8。</p>",
+      "value": "<p>选择距离之内，你能看见的一个 5 尺立方的，未被占据的空气。一股元素，外观如同尘卷风，出现在那里，并在法术的持续时间内持续存在。</p><p>任何在尘卷风周围 5 尺范围内结束其回合的生物必须进行一次力量豁免检定。若检定失败，该生物受到 [[/damage 1d8 type=bludgeoning]]{1d8} 点钝击伤害并被推离 10 尺。若检定成功，该生物只受到上述伤害的一半，并不会被推离。</p><p>以一个附赠动作，你可以让尘卷风向任意方向移动至多 30 尺。若尘卷风移动时经过了沙子，尘土，松软的土壤或小砂砾，它将会卷起这些物质，在自身周围形成 10 尺半径的残骸云，持续到你下个回合的开始。残骸云重度遮蔽了所在区域。</p><p><strong>升环施法效应。</strong>当你使用三环或更高的法术位施放该法术时，使用的法术位每高一环，伤害便增加 1d8。</p>",
       "chat": ""
     },
     "source": {
@@ -67,7 +56,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -75,9 +65,10 @@
         "type": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -98,10 +89,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -128,22 +115,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -168,7 +159,8 @@
           "proficiency": true,
           "attacks": false,
           "saves": true,
-          "ability": ""
+          "ability": "",
+          "disposition": false
         },
         "profiles": [
           {
@@ -183,7 +175,6 @@
           }
         ],
         "summon": {
-          "identifier": "",
           "mode": "",
           "prompt": true
         },
@@ -199,7 +190,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -207,7 +199,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -218,17 +209,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
-        }
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "friendlySummon": false
       }
     },
-    "identifier": "dust-devil"
+    "identifier": "dust-devil",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -237,8 +277,8 @@
   "sort": 10500000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -2,14 +2,14 @@
   "_id": "l17hcUnMwg8jKByw",
   "name": "崇高卫士 Exalted Champion",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Paladin_Conviction.png",
+  "img": "icons/magic/light/explosion-star-glow-silhouette.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>从20级起，对于那些献身于你所遵从的事业的人而言，你已经成为了一个鼓舞人心的完美典范。你可以用一个动作在接下来1个小时里得到如下好处：</p>\n<ul>\n<li>你对非魔法武器所造成的钝击、穿刺、挥砍伤害具有抗性。</li>\n<li>在你30尺距离内的盟友在进行死亡豁免时具有优势。</li>\n<li>你和你30尺距离内的盟友在感知豁免上具有优势。</li>\n</ul>\n<p>如果你死亡或者进入失能状态，这个效果将提前结束。一旦你使用了这个能力，在你完成一次长休之前你不能再次使用。</p>",
+      "value": "<p>从20级起，对于那些献身于你所遵从的事业的人而言，你已经成为了一个鼓舞人心的完美典范。你可以用一个动作在接下来1个小时里得到如下好处：</p>\n<ul>\n<li>你对非魔法武器所造成的钝击、穿刺、挥砍伤害具有抗性。</li>\n<li>在你30尺距离内的盟友在进行死亡豁免时具有优势。</li>\n<li>你和你30尺距离内的盟友在感知豁免上具有优势。</li>\n</ul>\n<p>如果你死亡或者进入&amp;Reference[condition=incapacitated apply=false]{失能}状态，这个效果将提前结束。一旦你使用了这个能力，在你完成一次长休之前你不能再次使用。</p>",
       "chat": ""
     },
     "source": {
@@ -57,18 +57,37 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "1",
           "units": "hour",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
-        "effects": [],
+        "effects": [
+          {
+            "_id": "Qt0n5FAwhS7O9Esf",
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": 1786693489959,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
+          }
+        ],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -80,11 +99,12 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
-            "type": "",
+            "type": "self",
             "choice": false,
             "special": ""
           },
@@ -102,61 +122,118 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-exalted-champion",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 20,
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
   "effects": [
     {
       "_id": "Qt0n5FAwhS7O9Esf",
-      "changes": [
-        {
-          "key": "system.traits.dr.value",
-          "value": "piercing",
-          "mode": 0,
-          "priority": 20
-        },
-        {
-          "key": "system.traits.dr.value",
-          "value": "bludgeoning",
-          "mode": 0,
-          "priority": 20
-        },
-        {
-          "key": "system.traits.dr.value",
-          "value": "slashing",
-          "mode": 0,
-          "priority": 20
-        },
-        {
-          "key": "flags.midi-qol.advantage.save.wis",
-          "value": "",
-          "mode": 0,
-          "priority": 20
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "hours",
+        "expiry": "turnStart",
+        "expired": false
       },
-      "origin": "Compendium.dnd5e_classpack.extra-ability.Item.l17hcUnMwg8jKByw",
-      "transfer": true,
+      "origin": null,
+      "transfer": false,
       "flags": {
         "dae": {
           "disableCondition": "",
@@ -164,12 +241,11 @@
           "stackable": "multi",
           "showIcon": false,
           "durationExpression": "",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
@@ -177,9 +253,9 @@
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1786693489959,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
@@ -188,26 +264,77 @@
         "exportSource": null
       },
       "name": "获得非魔法的钝击、刺穿、挥砍抗性",
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Paladin_Conviction.png",
+      "img": "icons/magic/light/explosion-star-glow-silhouette.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.dr.value",
+            "value": "piercing",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "OnD87K9VOoj5LYXt",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.dr.value",
+            "value": "bludgeoning",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "zjlTJO1mPKeLVkws",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.dr.value",
+            "value": "slashing",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "SMe9CflmfeER40ZE",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.advantage.save.wis",
+            "value": "true",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "gomn7h1S1JZFh0qn",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.extra-ability.Item.l17hcUnMwg8jKByw",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!l17hcUnMwg8jKByw.Qt0n5FAwhS7O9Esf"
     }
   ],
   "folder": "QNzSCgI7LCzbLMfY",
   "sort": 40300000,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -227,9 +354,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1749972269057,
     "lastModifiedBy": "sPF2dtZDreDpJaW6",

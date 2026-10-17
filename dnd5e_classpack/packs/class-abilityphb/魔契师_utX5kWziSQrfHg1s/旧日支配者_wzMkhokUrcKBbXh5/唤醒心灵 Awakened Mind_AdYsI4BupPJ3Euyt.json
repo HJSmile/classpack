@@ -2,7 +2,7 @@
   "_id": "AdYsI4BupPJ3Euyt",
   "name": "唤醒心灵 Awakened Mind",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Sha_ability_rogue_sturdyrecuperate.png",
+  "img": "icons/magic/perception/third-eye-blue-red.webp",
   "system": {
     "type": {
       "value": "class",
@@ -25,13 +25,16 @@
     "requirements": "旧日支配者等级 1",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 1,
+      "repeatable": false,
+      "items": [
+        "subclass:the-great-old-one"
+      ]
     },
     "properties": [
       "mgc"
@@ -40,32 +43,21 @@
   "effects": [
     {
       "_id": "9rVGmHn2HYhss5Gt",
-      "changes": [
-        {
-          "key": "system.attributes.senses.special",
-          "mode": 2,
-          "value": ";心灵感应 120 尺",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": "Compendium.dnd5e_classpack.class-abilityphb.AdYsI4BupPJ3Euyt",
       "transfer": true,
       "flags": {},
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -74,12 +66,40 @@
         "exportSource": null
       },
       "name": "获得 120 尺心灵感应",
-      "img": "modules/dnd5e_classpack/Nicons/Sha_ability_rogue_sturdyrecuperate.png",
+      "img": "icons/magic/perception/third-eye-blue-red.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.senses.special",
+            "value": ";心灵感应 120 尺",
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "S4IGrtx5iNnLDPZH",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!AdYsI4BupPJ3Euyt.9rVGmHn2HYhss5Gt"
     }
   ],
@@ -95,12 +115,7 @@
       "alwaysActive": false,
       "effects": []
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -120,9 +135,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757100090496,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

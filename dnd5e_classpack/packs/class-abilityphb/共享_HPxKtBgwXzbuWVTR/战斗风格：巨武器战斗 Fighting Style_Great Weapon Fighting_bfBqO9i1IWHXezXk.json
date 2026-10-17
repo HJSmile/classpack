@@ -23,19 +23,110 @@
       "value": "class",
       "subtype": "fightingStyle"
     },
-    "requirements": "战士等级 1，勇士等级 10，圣武士等级 2",
+    "requirements": "战士等级 1，勇士等级 10，圣武士等级 2；或战斗学徒专长",
     "activities": {},
     "identifier": "-great-weapon-fighting",
-    "advancement": [],
+    "advancement": {},
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": [
+        "feat:fighting-style",
+        "feat:-fighting-style",
+        "feat:-fighting-initiatetce"
+      ]
     },
     "properties": []
   },
-  "effects": [],
+  "effects": [
+    {
+      "name": "战斗风格：巨武器战斗 Fighting Style:Great Weapon Fighting",
+      "img": "icons/skills/melee/strike-sword-steel-yellow.webp",
+      "system": {
+        "magical": false,
+        "origin": {
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.bfBqO9i1IWHXezXk",
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "message": null
+        },
+        "changes": [
+          {
+            "key": "flags.midi-qol.onUseMacroName",
+            "type": "custom",
+            "value": "ItemMacro,postDamageRoll",
+            "phase": "initial",
+            "_id": "d5UoiJTz4hLtJOoz",
+            "conditions": "{}",
+            "replacement": "",
+            "priority": null
+          },
+          {
+            "key": "flags.dnd5e_classpack.greatWeaponFighting",
+            "value": "true",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "replacement": "",
+            "conditions": "{}",
+            "_id": "d2c9efe81dfca952"
+          }
+        ],
+        "conditions": "{}",
+        "rider": {
+          "statuses": []
+        }
+      },
+      "type": "base",
+      "_id": "nOZZNqomZohGMkWd",
+      "disabled": false,
+      "start": null,
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "description": "",
+      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.bfBqO9i1IWHXezXk",
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {
+        "dae": {
+          "disableCondition": "",
+          "stackable": "noneName",
+          "expiryMode": "default",
+          "durationExpression": "",
+          "macroRepeat": "none",
+          "disableIncapacitated": false,
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
+        },
+        "core": {
+          "overlay": false
+        }
+      },
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1791914796581,
+        "modifiedTime": 1791914813504,
+        "lastModifiedBy": "dvg25zW2MvzsvMOU",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!items.effects!bfBqO9i1IWHXezXk.nOZZNqomZohGMkWd"
+    }
+  ],
   "folder": "HPxKtBgwXzbuWVTR",
   "sort": 28400000,
   "flags": {
@@ -63,10 +154,12 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
+    "dnd5e": {},
+    "dae": {
+      "macro": {
+        "name": "战斗风格：巨武器战斗 Fighting Style:Great Weapon Fighting",
+        "type": "script",
+        "command": "function copyRoll(roll) {\n  return roll.constructor.fromData(foundry.utils.deepClone(roll.toJSON()));\n}\nfunction refreshRoll(roll) {\n  for (const term of roll.terms) {\n    if (term.roll) refreshRoll(term.roll);\n    for (const inner of term.rolls ?? []) refreshRoll(inner);\n    for (const inner of term.terms ?? []) if (inner?.terms) refreshRoll(inner);\n  }\n  roll._total = roll._evaluateTotal();\n  return roll;\n}\nfunction weaponDice(roll, workflow) {\n  if (workflow.item?.type !== \"weapon\" || !workflow.activity?.damage?.includeBase) return [];\n  const part = workflow.activity.damage.parts[0];\n  if (!part) return [];\n  const formula = part.formula ?? part.custom?.formula;\n  if (!formula) return [];\n  const base = foundry.dice.Roll.create(formula, workflow.activity.getRollData());\n  return roll.dice.slice(0, base.dice.length);\n}\nasync function rerollLowWeaponDice(roll, workflow) {\n  const properties = workflow.item?.system?.properties;\n  if (workflow.activity?.actionType !== \"mwak\" || workflow.attackMode !== \"twoHanded\"\n    || ![\"two\", \"ver\"].some(key => properties?.has(key))) return false;\n  let changed = false;\n  for (const die of weaponDice(roll, workflow)) {\n    if (die.options.dnd5e_classpackGreatWeaponFighting) continue;\n    die.options.dnd5e_classpackGreatWeaponFighting = true;\n    changed = true;\n    for (const result of [...die.results]) {\n      if (!result.active || result.result > 2) continue;\n      const replacement = new die.constructor({ number: 1, faces: die.faces });\n      await replacement.evaluate();\n      result.active = false;\n      result.rerolled = true;\n      die.results.push(...replacement.results);\n    }\n  }\n  if (changed) refreshRoll(roll);\n  return changed;\n}\n\nif (args[0]?.macroPass !== \"postDamageRoll\" || !workflow.damageRolls?.length) return;\nif (workflow._classpackGreatWeaponDone) return;\nworkflow._classpackGreatWeaponDone = true;\nconst rolls = [...workflow.damageRolls];\nconst revised = copyRoll(rolls[0]);\nif (await rerollLowWeaponDice(revised, workflow)) {\n  rolls[0] = revised;\n  await workflow.setDamageRolls(rolls);\n}\n"
       }
     }
   },
@@ -75,8 +168,8 @@
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757273510139,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -24,59 +24,21 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/ability_racial_rocketjump.jpg",
+  "img": "icons/magic/control/encase-creature-humanoid-hold.webp",
   "effects": [
     {
       "name": "奥图迷舞 Irresistible Dance",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.dfWSzxeojttvQ2J9",
+      "origin": null,
       "duration": {
-        "rounds": 10,
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 10,
+        "units": "rounds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "disabled": false,
       "_id": "9SPN1RXSRf5fTPU0",
-      "changes": [
-        {
-          "key": "flags.midi-qol.disadvantage.attack.all",
-          "value": "1",
-          "mode": 2,
-          "priority": 20
-        },
-        {
-          "key": "flags.midi-qol.disadvantage.save.dex",
-          "value": "1",
-          "mode": 2,
-          "priority": 20
-        },
-        {
-          "key": "system.attributes.movement.walk",
-          "value": "0",
-          "mode": 5,
-          "priority": 20
-        },
-        {
-          "key": "flags.midi-qol.grants.advantage.attack.all",
-          "value": "1",
-          "mode": 2,
-          "priority": 20
-        }
-      ],
       "description": "",
       "transfer": false,
       "statuses": [],
@@ -87,34 +49,16 @@
           "selfTargetAlways": false,
           "dontApply": false,
           "stackable": "noneName",
-          "showIcon": true,
           "durationExpression": "",
           "macroRepeat": "none",
           "specialDuration": [],
           "enableCondition": "",
-          "disableCondition": ""
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
+          "disableCondition": "",
+          "applicationMode": "dnd5e",
+          "expiryMode": "default"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
@@ -122,9 +66,9 @@
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": 1786693328533,
         "lastModifiedBy": "TEhQZHmGMOcY5c4a",
@@ -132,16 +76,84 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/ability_racial_rocketjump.jpg",
+      "img": "icons/magic/control/encase-creature-humanoid-hold.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.disadvantage.attack.all",
+            "value": 1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "Mw83hySl6crvHnQq",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.abilities.dex.save.roll.mode",
+            "value": -1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "IiLYWOto1sm3srC2",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.attributes.movement.all",
+            "value": "*0",
+            "priority": 20,
+            "type": "custom",
+            "phase": "initial",
+            "_id": "J92wV3wcfqDz7WTo",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.grants.advantage.attack.all",
+            "value": 1,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "uSzlAKSUq7ugJWK1",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.OverTime",
+            "type": "add",
+            "value": "turn=start, label=奥图迷舞 Irresistible Dance, saveAbility=wis, saveDC=@attributes.spell.dc, saveMagic=true, saveCount=1-, actionSave=dialog",
+            "phase": "initial",
+            "_id": "XUz1iuKinV5OJU30",
+            "conditions": "{}",
+            "replacement": "origin",
+            "priority": null
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.dfWSzxeojttvQ2J9",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 2,
+      "folder": null,
       "_key": "!items.effects!dfWSzxeojttvQ2J9.9SPN1RXSRf5fTPU0"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 指定施法距离内一个你能看见的生物，并使目标生物会在原地跳起滑稽的舞蹈：它将在持续时间内不住的曳步、踏脚和蹦跳。\n<br />不会被魅惑的生物将免疫该法术。\n<br />正在跳舞的生物必须用掉它全部的移动力在原地跳舞，其进行敏捷豁免和攻击检定时具有劣势。目标受该法术影响时，其它生物对其进行的攻击检定具有优势。正在跳舞的生物可以使用一个动作来进行一次感知豁免，豁免成功则法术终止。\n<br /></div>",
+      "value": "<p>指定施法距离内一个你能看见的生物，并使目标生物会在原地跳起滑稽的舞蹈：它将在持续时间内不住的曳步、踏脚和蹦跳。不会被魅惑的生物将免疫该法术。</p><p>正在跳舞的生物必须用掉它全部的移动力在原地跳舞，其进行敏捷豁免和攻击检定时具有劣势。目标受该法术影响时，其他生物对其进行的攻击检定具有优势。正在跳舞的生物可以使用一个动作来进行一次感知豁免，豁免成功则法术终止。</p>",
       "chat": ""
     },
     "source": {
@@ -159,7 +171,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -169,9 +182,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -193,85 +207,99 @@
       "cost": 0,
       "supply": 0
     },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
-    },
     "properties": [
       "vocal",
       "concentration",
       "mgc"
     ],
     "activities": {
-      "dnd5eactivity000": {
-        "_id": "dnd5eactivity000",
-        "type": "save",
+      "vd1btnYb0M0eYwTx": {
+        "type": "utility",
+        "name": "",
+        "_id": "vd1btnYb0M0eYwTx",
+        "img": "",
+        "sort": 0,
         "activation": {
           "type": "action",
-          "value": null,
           "override": false
         },
+        "behaviors": [],
         "consumption": {
-          "targets": [],
           "scaling": {
-            "allowed": false,
-            "max": ""
+            "allowed": false
           },
-          "spellSlot": true
+          "spellSlot": true,
+          "targets": []
         },
         "description": {
+          "value": "",
           "chatFlavor": ""
         },
         "duration": {
           "units": "inst",
+          "expiry": null,
           "concentration": false,
           "override": false
         },
         "effects": [
           {
             "_id": "9SPN1RXSRf5fTPU0",
-            "onSave": false
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": null,
+              "modifiedTime": 1786693328533,
+              "lastModifiedBy": "TEhQZHmGMOcY5c4a",
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null
+            }
           }
         ],
+        "flags": {},
         "range": {
+          "units": "self",
           "override": false
         },
         "target": {
-          "prompt": true,
           "template": {
             "contiguous": false,
+            "stationary": false,
             "units": "ft"
           },
           "affects": {
             "choice": false
           },
-          "override": false
+          "override": false,
+          "prompt": true
         },
         "uses": {
           "spent": 0,
-          "max": "",
-          "recovery": []
+          "recovery": [],
+          "max": ""
         },
-        "damage": {
-          "onSave": "half",
-          "parts": [],
-          "critical": {
-            "allow": false
-          }
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
         },
-        "save": {
-          "ability": [
-            "wis"
-          ],
-          "dc": {
-            "calculation": "spellcasting",
-            "formula": ""
-          }
+        "roll": {
+          "prompt": false,
+          "visible": false,
+          "name": "",
+          "formula": ""
         },
-        "sort": 0,
         "useConditionText": "",
         "useConditionReason": "",
         "effectConditionText": "",
+        "otherActivityId": "none",
         "macroData": {
           "name": "",
           "command": ""
@@ -280,7 +308,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -288,29 +317,66 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
           "automationOnly": false,
           "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
           "identifier": "",
           "displayActivityName": false,
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
+          "rollAs": "target",
           "preRemoveConditionText": "",
           "postRemoveConditionText": ""
         },
-        "otherActivityId": ""
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "irresistible-dance"
+    "identifier": "irresistible-dance",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -319,8 +385,8 @@
   "sort": 12500,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711684656219,
     "modifiedTime": 1757260904002,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

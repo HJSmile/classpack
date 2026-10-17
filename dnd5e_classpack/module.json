@@ -1,7 +1,7 @@
 {
   "title": "DND5E不全包",
-  "description": "<p>包含了职业表和按环分类的法术包，方便车卡，包含部分UA规则，DM可以根据需要进行修改。BUG反馈与建议：Q群942329050</p><p><b>注意：需要搭配 FVTT v11 与 DND5e v3.0.0以上版本使用</b></p>",
-  "version": "4.4.0",
+  "description": "<p>包含了职业表和按环分类的法术包，方便车卡，包含部分UA规则，DM可以根据需要进行修改。BUG反馈与建议：Q群942329050</p>",
+  "version": "6.0.0-beta.8",
   "authors": [
     {
       "name": "classpack社区",
@@ -10,7 +10,19 @@
     }
   ],
   "esmodules": [
-    "scripts/migrate-new-icon-to-spell.mjs"
+    "scripts/migrate-new-icon-to-spell.mjs",
+    "scripts/api.mjs",
+    "scripts/background-languages.mjs"
+  ],
+  "styles": [
+    "styles/module.css"
+  ],
+  "languages": [
+    {
+      "lang": "cn",
+      "name": "中文（简体）",
+      "path": "lang/cn.json"
+    }
   ],
   "packs": [
     {
@@ -301,14 +313,13 @@
       ]
     }
   ],
-  "url": "https://github.com/HJSmile/classpack",
+  "url": "https://github.com/observer1236/classpack",
   "compatibility": {
-    "minimum": "13",
-    "verified": "13",
-    "maximum": "13"
+    "minimum": "14.368",
+    "verified": "14.368",
+    "maximum": "14"
   },
-  "manifest": "https://github.com/HJSmile/classpack/releases/latest/download/module.json",
-  "download": "https://github.com/HJSmile/classpack/releases/latest/download/dnd5e_classpack.zip",
+  "manifest": "https://raw.githubusercontent.com/observer1236/classpack/fvtt14-dnd6/dnd5e_classpack/module.json",
   "id": "dnd5e_classpack",
   "flags": {
     "dnd5e": {
@@ -327,7 +338,7 @@
         "XGE": "XGE.珊娜萨的万事指南",
         "VGM": "VGM.瓦罗的怪物指南",
         "MTF": "MTF.魔邓肯的众敌卷册",
-        "ERLW":"ERLW.艾伯伦.从终末战争中崛起",
+        "ERLW": "ERLW.艾伯伦.从终末战争中崛起",
         "MOT": "MOT.塞洛斯之神话奥德赛",
         "VRGR": "VRGR.范·里希腾的鸦阁魔域指南",
         "MPMM": "MPMM.魔邓肯巨献：多元宇宙的怪物",
@@ -366,17 +377,56 @@
       {
         "id": "dnd5e",
         "type": "system",
-        "compatibility": {}
+        "compatibility": {
+          "minimum": "6.0.0",
+          "verified": "6.0.5",
+          "maximum": "6.0.999"
+        }
       }
     ],
     "recommends": [
       {
         "id": "midi-qol",
         "type": "module",
+        "manifest": "https://gitlab.com/tposney/midi-qol/raw/dnd6/package/module.json",
         "compatibility": {
-          "minimum": "13.0.59"
+          "minimum": "14.6.0",
+          "verified": "14.6.0",
+          "maximum": "14.6.999"
+        }
+      },
+      {
+        "id": "dae",
+        "type": "module",
+        "manifest": "https://gitlab.com/tposney/dae/raw/dnd6/package/module.json",
+        "compatibility": {
+          "minimum": "14.6.0",
+          "verified": "14.6.0",
+          "maximum": "14.6.999"
+        }
+      }
+    ],
+    "requires": [
+      {
+        "id": "socketlib",
+        "type": "module",
+        "manifest": "https://github.com/farling42/foundryvtt-socketlib/releases/latest/download/module.json",
+        "compatibility": {
+          "minimum": "1.1.3",
+          "verified": "1.1.3"
+        }
+      },
+      {
+        "id": "auraeffects",
+        "type": "module",
+        "manifest": "https://git.gay/roth-michael/Aura-Effects/releases/download/2.2.3/module.json",
+        "compatibility": {
+          "minimum": "2.0.0",
+          "verified": "2.2.3",
+          "maximum": "2.999"
         }
       }
     ]
-  }
+  },
+  "socket": true
 }

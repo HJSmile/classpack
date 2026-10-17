@@ -5,10 +5,10 @@
   "system": {
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "description": {
-      "value": "<p>暴露在堕影冥界的魔法之下的经历已经改变了你，使你获得了以下增益：<br />·你的智力，感知或魅力提升1，上限为20。<br />·你习得隐身术以及一个由你选择的一环法术。该一环法术必须是幻术系或死灵系法术。你可以在不消耗法术位的情况下施展这些法术各一次。当你以此法施展某个法术后，你不能再次以此法施展该法术，直至你完成一次长休。你也可以消耗合适的法术位来施展这些法术。这些法术的施法关键属性是你由此专长提升的属性。</p>",
+      "value": "<p>暴露在堕影冥界的魔法之下的经历已经改变了你，使你获得了以下增益：</p><p>·你的智力，感知或魅力提升1，上限为20。</p><p>·你习得隐身术以及一个由你选择的一环法术。该一环法术必须是幻术系或死灵系法术。你可以在不消耗法术位的情况下施展这些法术各一次。当你以此法施展某个法术后，你不能再次以此法施展该法术，直至你完成一次长休。你也可以消耗合适的法术位来施展这些法术。这些法术的施法属性是你由此专长提升的属性。</p>",
       "chat": ""
     },
     "source": {
@@ -30,13 +30,57 @@
     "requirements": "",
     "activities": {},
     "identifier": "-shadow-touchedtce",
-    "advancement": [],
+    "advancement": {
+      "ad0659fb17c10d00": {
+        "_id": "ad0659fb17c10d00",
+        "type": "ItemChoice",
+        "name": "选择施法属性",
+        "configuration": {
+          "choices": {
+            "0": {
+              "count": 1,
+              "replacement": false
+            }
+          },
+          "allowDrops": false,
+          "type": "feat",
+          "pool": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.4e7c2e01c8da2d0f",
+              "sort": 0
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.f5b37c651149d480",
+              "sort": 1
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.4faeeb5efc8eae79",
+              "sort": 2
+            }
+          ],
+          "spell": null,
+          "restriction": {
+            "type": "feat",
+            "subtype": "",
+            "level": "",
+            "list": [],
+            "school": []
+          },
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -45,18 +89,13 @@
   "sort": 100000,
   "flags": {
     "core": {},
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_id": "4hmb5xEjKL1iXEB3",
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757275287302,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

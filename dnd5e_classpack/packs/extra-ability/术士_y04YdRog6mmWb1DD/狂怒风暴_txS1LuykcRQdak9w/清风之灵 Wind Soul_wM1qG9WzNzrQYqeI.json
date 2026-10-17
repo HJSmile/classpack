@@ -2,14 +2,14 @@
   "_id": "wM1qG9WzNzrQYqeI",
   "name": "清风之灵 Wind Soul",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Mage_IceFlows.png",
+  "img": "icons/magic/air/weather-wind-gust.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>18级时，你获得60尺飞行速度，且免疫闪电与雷鸣伤害。</p>\n<p>以一个动作，你可以将你的飞行速度降低到30尺，持续一小时。当你这么做时，你可以指定在你身边30尺内的，3+你的魅力调整值个生物。这些被选定的生物获得30尺飞行速度，持续1小时。你不能在一次短休或者长休前再一次使用此能力。</p>",
+      "value": "<p>18级时，你获得60尺的魔法飞行速度，且免疫闪电与雷鸣伤害。</p>\n<p>以一个动作，你可以将你的飞行速度降低到30尺，持续一小时。当你这么做时，你可以指定在你身边30尺内的，3+你的魅力调整值个生物。这些被选定的生物获得30尺飞行速度，持续1小时。你不能在一次短休或者长休前再一次使用此能力。</p>",
       "chat": ""
     },
     "source": {
@@ -52,14 +52,16 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "1",
           "units": "hour",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -76,10 +78,11 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": "any"
+            "units": "any",
+            "stationary": false
           },
           "affects": {
-            "count": "3",
+            "count": "3 + @abilities.cha.mod",
             "type": "creature",
             "choice": false,
             "special": ""
@@ -98,49 +101,126 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-wind-soul",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 18,
+      "repeatable": false,
+      "items": []
     },
-    "properties": []
+    "properties": [
+      "mgc"
+    ]
   },
   "effects": [
     {
       "_id": "IodPunRrjTFHMqae",
-      "changes": [
-        {
-          "key": "system.attributes.movement.fly",
-          "mode": 4,
-          "value": "60",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": "Compendium.dnd5e_classpack.extra-ability.wM1qG9WzNzrQYqeI",
       "transfer": true,
       "flags": {},
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -149,48 +229,59 @@
         "exportSource": null
       },
       "name": "获得 60 尺飞行速度",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Mage_IceFlows.png",
+      "img": "icons/magic/air/weather-wind-gust.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.movement.speeds.fly",
+            "value": 60,
+            "priority": null,
+            "type": "upgrade",
+            "phase": "initial",
+            "_id": "NZz3voulvj9JgFax",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!wM1qG9WzNzrQYqeI.IodPunRrjTFHMqae"
     },
     {
       "_id": "WL4jceyYGTNxwFSI",
-      "changes": [
-        {
-          "key": "system.traits.di.value",
-          "mode": 2,
-          "value": "lightning",
-          "priority": null
-        },
-        {
-          "key": "system.traits.di.value",
-          "mode": 2,
-          "value": "thunder",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": "Compendium.dnd5e_classpack.extra-ability.wM1qG9WzNzrQYqeI",
       "transfer": true,
       "flags": {},
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -199,31 +290,62 @@
         "exportSource": null
       },
       "name": "获得闪电、雷鸣免疫",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Mage_IceFlows.png",
+      "img": "icons/magic/air/weather-wind-gust.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.di.value",
+            "value": "lightning",
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "YVW92qDjf8HMXZEs",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.di.value",
+            "value": "thunder",
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "zrs8iViKWA5EYBqS",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!wM1qG9WzNzrQYqeI.WL4jceyYGTNxwFSI"
     }
   ],
   "folder": "txS1LuykcRQdak9w",
   "sort": 49700000,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1749883542518,
     "lastModifiedBy": "uXKCmWFprrvnSIDm",

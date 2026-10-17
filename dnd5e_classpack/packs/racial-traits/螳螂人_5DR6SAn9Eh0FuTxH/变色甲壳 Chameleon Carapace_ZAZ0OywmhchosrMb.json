@@ -12,7 +12,7 @@
       "revision": 1
     },
     "description": {
-      "value": "<div class=\"rd__b  rd__b--3\"><div><div class=\"rd__b  rd__b--2\"><div data-roll-name-ancestor=\"Creature Type\" class=\"rd__b  rd__b--3\"><p><span style=\"font-family:Arial, Helvetica, sans-serif\">若你不穿着护甲时，你的甲壳让你的基础护甲等级变为 13+敏捷调整值。<br style=\"color:rgb(0, 0, 0);font-family:Arial, Helvetica, sans-serif;font-size:medium;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\" />以一个动作，你能改变你甲壳的颜色来与你身边环境的颜色与纹理相匹配，这让你在这些环境中躲藏时，所进行的敏捷（隐匿）检定具有优势。</span></p></div></div></div><p>While you aren't wearing armor, your carapace gives you a base Armor Class of 13 + your Dexterity modifier.</p><p>As an action, you can change the color of your carapace to match the color and texture of your surroundings, giving you advantage on Dexterity (&amp;Reference[skill=Stealth]) checks made to @action[hide] in those surroundings.</p></div>",
+      "value": "<div data-roll-name-ancestor=\"Creature Type\"><p>若你不穿着护甲时，你的甲壳让你的基础护甲等级变为 13+敏捷调整值。<br style=\"color:rgb(0, 0, 0);font-family:Arial, Helvetica, sans-serif;font-size:medium;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\">以一个动作，你能改变你甲壳的颜色来与你身边环境的颜色与纹理相匹配，这让你在这些环境中躲藏时，所进行的敏捷（隐匿）检定具有优势。</p></div><p>While you aren't wearing armor, your carapace gives you a base Armor Class of 13 + your Dexterity modifier.</p><p>As an action, you can change the color of your carapace to match the color and texture of your surroundings, giving you advantage on Dexterity (&amp;Reference[skill=Stealth]) checks made to @action[hide] in those surroundings.</p>",
       "chat": ""
     },
     "requirements": "Thri-kreen",
@@ -26,7 +26,7 @@
       "subtype": ""
     },
     "properties": [],
-    "advancement": [],
+    "advancement": {},
     "activities": {
       "65LPmMqrh39sZK2z": {
         "_id": "65LPmMqrh39sZK2z",
@@ -43,20 +43,25 @@
           "spellSlot": true,
           "targets": []
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -84,7 +89,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -92,7 +98,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -103,15 +108,61 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "chameleon-carapace",
@@ -120,14 +171,15 @@
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     }
   },
   "ownership": {
     "default": 0,
     "qKmljmeCDhGDkX2L": 3
   },
-  "img": "modules/plutonium/media/icon/family-tree.svg",
+  "img": "icons/magic/nature/stealth-hide-eyes-green.webp",
   "flags": {
     "plutonium": {
       "page": "raceFeature",
@@ -136,10 +188,7 @@
     },
     "dnd5e": {
       "sourceId": ".wZHmrnwudi4L4vSG",
-      "advancementOrigin": "zqN7gpilH1jyjgiN.WGU7tNFZhznvqJVI",
-      "riders": {
-        "activity": []
-      }
+      "advancementOrigin": "zqN7gpilH1jyjgiN.WGU7tNFZhznvqJVI"
     },
     "midi-qol": {
       "rollAttackPerTarget": "default",
@@ -163,9 +212,9 @@
   "_stats": {
     "compendiumSource": "Actor.aYAJq5f5bQ2rhZ8V.Item.wZHmrnwudi4L4vSG",
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1754667123847,
     "modifiedTime": 1754667123847,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

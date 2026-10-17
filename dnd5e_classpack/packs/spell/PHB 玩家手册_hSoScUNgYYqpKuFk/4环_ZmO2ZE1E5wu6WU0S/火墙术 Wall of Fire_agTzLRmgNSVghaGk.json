@@ -29,18 +29,7 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "wallOfFire",
@@ -49,11 +38,11 @@
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/inv_fabric_spellfire.jpg",
+  "img": "icons/magic/fire/projectile-wave-yellow.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你在施法距离内一块实体地面上创造出一面火墙。你可以选择创造长不过60尺、高不过20尺、厚不过1尺的直线型火墙；或是直径不过20尺、高不过20尺、厚不过1尺的环形火墙。火墙不透明，且将持续存在至法术终止。\n<br />火墙出现时，所有位于火墙区域内的生物必须进行一次敏捷豁免。豁免失败者将受到5d8点火焰伤害。豁免成功则伤害减半。\n<br />施展该法术时，你要必须选择火墙的哪一侧会造成伤害。生物在火墙伤害侧10尺内或在火墙区域内结束其回合时，将受到5d8点火焰伤害。生物在一个回合内第一次进入火墙或在火墙内结束其回合时也会受到同样的伤害。火墙的另一侧则不造成任何伤害。\n<br /><strong>升环施法效应。</strong>使用5环或更高法术位施展该法术时，你使用的法术位每比4环高一环，法术的伤害就增加1d8。\n<br /></div>",
+      "value": "<p>你在施法距离内一块实体地面上创造出一面火墙。你可以选择创造长不过 60 尺、高不过 20 尺、厚不过 1 尺的直线型火墙；或是直径不过 20 尺、高不过 20 尺、厚不过 1 尺的环形火墙。火墙不透明，且将持续存在至法术终止。</p><p>火墙出现时，所有位于火墙区域内的生物必须进行一次[[/save activity=dnd5eactivity000]]{敏捷豁免}。豁免失败者将受到 [[/damage 5d8 type=fire]]{5d8} 点火焰伤害。豁免成功则伤害减半。</p><p>施展该法术时，你要必须选择火墙的哪一侧会造成伤害。生物在火墙伤害侧 10 尺内或在火墙区域内结束其回合时，将受到 5d8 点火焰伤害。生物在一个回合内第一次进入火墙或在火墙内结束其回合时也会受到同样的伤害。火墙的另一侧则不造成任何伤害。</p><p><strong>升环施法效应。</strong>使用五环或更高法术位施展该法术时，你使用的法术位每比四环高一环，法术的伤害就增加 1d8。</p>",
       "chat": ""
     },
     "source": {
@@ -69,7 +58,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -83,7 +73,8 @@
         "contiguous": false,
         "width": "",
         "height": "",
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -104,10 +95,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -134,22 +121,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -179,7 +170,8 @@
                 "mode": "whole",
                 "number": 1,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -193,7 +185,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -207,7 +200,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -215,7 +209,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -226,18 +219,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "wall-of-fire"
+    "identifier": "wall-of-fire",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -246,8 +288,8 @@
   "sort": 11000000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -24,23 +24,13 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/SPELL_ARCANE_TELEPORTMOONGLADE.png",
+  "img": "icons/magic/movement/portal-vortex-orange.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \">\n<div class=\"description \">你创造两个相连的传送门。指定地面上你能看见的两点，一点在你身边10 尺内，另一点则在500 尺内。随后，10 尺直径的圆形传送门将分别在两点打开。如果你选择的点被生物占据，则法术失败且被消耗。</div>\n<div class=\"description \">传送门边缘为闪烁的二维环形，其内布满迷雾，且整个垂直的悬浮在离地几尺处。环形只有一面可见（由你选择），那一面即是传送门生效的一面。</div>\n<div class=\"description \">任何进入其中一个传送门的生物将从另一个传送门走出，如同两个传送门邻接一样。从传送门不生效的那一面走过则不会有任何效果。门中满布的迷雾阻挡了视线因此无法看到任何影像。</div>\n<div class=\"description \">你可以在自己的回合里使用一个附赠动作改变传送门的朝向。</div>\n</div>",
+      "value": "<p>你创造两个相连的传送门。指定地面上你能看见的两点，一点在你身边 10 尺内，另一点则在 500 尺内。随后，10 尺直径的圆形传送门将分别在两点打开。如果你选择的点被生物占据，则法术失败且被消耗。</p><p>传送门边缘为闪烁的二维环形，其内布满迷雾，且整个垂直的悬浮在离地几尺处。环形只有一面可见（由你选择），那一面即是传送门生效的一面。</p><p>任何进入其中一个传送门的生物将从另一个传送门走出，如同两个传送门邻接一样。从传送门不生效的那一面走过则不会有任何效果。门中满布的迷雾阻挡了视线因此无法看到任何影像。你可以在自己的回合里使用一个附赠动作改变传送门的朝向。</p>",
       "chat": ""
     },
     "source": {
@@ -56,7 +46,8 @@
     },
     "duration": {
       "value": "10",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -66,9 +57,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -89,10 +81,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -118,16 +106,19 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": "一点在你身边10 尺内，另一点则在500 尺内，叙述朝向"
+          "chatFlavor": "一点在你身边10 尺内，另一点则在500 尺内，叙述朝向",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
@@ -137,7 +128,8 @@
             "size": "5",
             "count": "2",
             "width": "1",
-            "height": "10"
+            "height": "10",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -170,7 +162,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -178,7 +171,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -189,21 +181,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "name": "放置传送门",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "arcane-gate"
+    "identifier": "arcane-gate",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -212,8 +250,8 @@
   "sort": 18800000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

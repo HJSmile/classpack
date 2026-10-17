@@ -27,18 +27,11 @@
       "itemCondition": "",
       "effectCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
-      "value": "<div class=\"WordSection1\"><p class=\"MsoNormal\"><span style=\"FONT-SIZE:10pt;COLOR:black\">药水</span><span class=\"1\"> </span><span style=\"FONT-SIZE:10pt;COLOR:black\">极珍稀</span><br style=\"WORD-SPACING:0px;ORPHANS:2;WIDOWS:2;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;text-decoration-style:initial;text-decoration-color:initial\" /><span style=\"FONT-SIZE:10pt;COLOR:black\">喝下这瓶清澈的药水后，你得到两个概率碎片。它们看起来像是一小团灰色的能量球，跟随着你前进，始终与你保持</span><span class=\"1\">1</span><span style=\"FONT-SIZE:10pt;COLOR:black\">尺内的距离。碎片持续存在</span><span class=\"1\">8</span><span style=\"FONT-SIZE:10pt;COLOR:black\">小时，直到你使用它们。</span><br style=\"WORD-SPACING:0px;ORPHANS:2;WIDOWS:2;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;text-decoration-style:initial;text-decoration-color:initial\" /><span style=\"FONT-SIZE:10pt;COLOR:black\">每当你进行攻击，属性或豁免检定时，你可以花费一个概率碎片来骰一个额外的</span><span class=\"1\">d20</span><span style=\"FONT-SIZE:10pt;COLOR:black\">。然后，你自行选择此次检定要使用哪粒</span><span class=\"1\">d20</span><span style=\"FONT-SIZE:10pt;COLOR:black\">的结果。</span><br style=\"WORD-SPACING:0px;ORPHANS:2;WIDOWS:2;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;text-decoration-style:initial;text-decoration-color:initial\" /><span style=\"FONT-SIZE:10pt;COLOR:black\">你也可以在被攻击时花费一个概率碎片骰一个额外的</span><span class=\"1\">d20</span><span style=\"FONT-SIZE:10pt;COLOR:black\">。随后由你决定攻击者的掷骰结果将使用哪粒</span><span class=\"1\">d20</span><span style=\"FONT-SIZE:10pt;COLOR:black\">。</span><br style=\"WORD-SPACING:0px;ORPHANS:2;WIDOWS:2;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;text-decoration-style:initial;text-decoration-color:initial\" /><span style=\"FONT-SIZE:10pt;COLOR:black\">如果原本的检定具有优势或劣势，则在优势</span><span class=\"1\">/</span><span style=\"FONT-SIZE:10pt;COLOR:black\">劣势掷骰完毕后，再决定是否消耗概率碎片</span><br style=\"WORD-SPACING:0px;ORPHANS:2;WIDOWS:2;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;text-decoration-style:initial;text-decoration-color:initial\" /><span style=\"FONT-SIZE:10pt;COLOR:black\">当你身边拥有一个或以上通过饮用药水获得的概率碎片时，你无法通过任何途径增加你的概率碎片数量。</span></p></div>",
+      "value": "<p>药水 极珍稀</p><p>喝下这瓶清澈的药水后，你得到两个概率碎片。它们看起来像是一小团灰色的能量球，跟随着你前进，始终与你保持<span class=\"1\">1</span>尺内的距离。碎片持续存在<span class=\"1\">8</span>小时，直到你使用它们。</p><p>每当你进行攻击，属性或豁免检定时，你可以花费一个概率碎片来骰一个额外的<span class=\"1\">d20</span>。然后，你自行选择此次检定要使用哪粒<span class=\"1\">d20</span>的结果。</p><p>你也可以在被攻击时花费一个概率碎片骰一个额外的<span class=\"1\">d20</span>。随后由你决定攻击者的掷骰结果将使用哪粒<span class=\"1\">d20</span>。</p><p>如果原本的检定具有优势或劣势，则在优势<span class=\"1\">/</span>劣势掷骰完毕后，再决定是否消耗概率碎片</p><p>当你身边拥有一个或以上通过饮用药水获得的概率碎片时，你无法通过任何途径增加你的概率碎片数量。</p>",
       "chat": ""
     },
     "source": {
@@ -58,7 +51,6 @@
     },
     "attunement": "",
     "equipped": false,
-    "rarity": "veryRare",
     "identified": true,
     "uses": {
       "max": "1",
@@ -76,7 +68,8 @@
         },
         "scaling": {
           "number": 1
-        }
+        },
+        "modifiers": []
       },
       "replace": false
     },
@@ -91,7 +84,6 @@
       "subtype": ""
     },
     "container": null,
-    "magicalBonus": null,
     "activities": {
       "dnd5eactivity000": {
         "_id": "dnd5eactivity000",
@@ -121,14 +113,16 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "1",
           "units": "minute",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -144,7 +138,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "1",
@@ -166,16 +161,104 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-potion-of-possibility",
-    "attuned": false
+    "attuned": false,
+    "rarities": [
+      "veryRare"
+    ]
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1692164901768,
     "modifiedTime": 1757871359826,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

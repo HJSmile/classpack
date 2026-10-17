@@ -4,7 +4,7 @@
   "img": "icons/skills/melee/hand-grip-sword-orange.webp",
   "system": {
     "description": {
-      "value": "<blockquote><p>前置专长：@UUID[Compendium.dnd5e_classpack.feats-all.Item.K514K3cwFSluLevE]{索兰尼亚扈从 Squire of Solamnia}</p></blockquote><p>你是一名隶属于圣剑骑士团的索兰尼亚骑士，该骑士团献身与于英勇和气概。勇气使你的精神如同钢铁，并使你获得下列增益：</p><ul><li><p><strong>属性值提升Ability Score Increase.</strong>你的智力、感知或魅力提升1，最高不能超过20。</p></li><li><p><strong>丧志打击Demoralizing Strike.</strong>每回合一次，当你以武器攻击检定命中一个生物时，你可以试图令该目标恐慌。目标必须进行一次感知豁免检定（DC为8+你的熟练加值+本专长提升属性的调整值）。若失败，目标陷入对你的恐慌直到你的下一回合结束。若成功，目标在其下一回合结束前进行的下一次攻击检定具有劣势。你可使用此特性的次数等同于你的熟练加值，并且在完成一次长休后会恢复所有已消耗的使用次数。</p></li></ul><p><em>*classpack提示：豁免骰的DC所需要的属性加值需要玩家自行指定并设置。</em></p>",
+      "value": "<blockquote></blockquote><p>你是一名隶属于圣剑骑士团的索兰尼亚骑士，该骑士团献身与于英勇和气概。勇气使你的精神如同钢铁，并使你获得下列增益：</p><ul><li><h3>属性值提升Ability Score Increase.</h3><p>你的智力、感知或魅力提升1，最高不能超过20。</p></li><li><h3>丧志打击Demoralizing Strike.</h3><p>每回合一次，当你以武器攻击检定命中一个生物时，你可以试图令该目标恐慌。目标必须进行一次[[/save activity=dnd5eactivity000]]{感知豁免检定}（DC为8+你的熟练加值+本专长提升属性的调整值）。若失败，目标陷入对你的恐慌直到你的下一回合结束。若成功，目标在其下一回合结束前进行的下一次攻击检定具有劣势。你可使用此特性的次数等同于你的熟练加值，并且在完成一次长休后会恢复所有已消耗的使用次数。</p></li></ul><p><em>*classpack提示：豁免骰的DC所需要的属性加值需要玩家自行指定并设置。</em></p>",
       "chat": ""
     },
     "source": {
@@ -26,9 +26,9 @@
     },
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
-    "requirements": "等级 4，索兰尼亚扈从专长",
+    "requirements": "等级4+，索兰尼亚扈从专长",
     "activities": {
       "dnd5eactivity000": {
         "_id": "dnd5eactivity000",
@@ -58,18 +58,20 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "1",
           "units": "round",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -81,7 +83,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "1",
@@ -99,7 +102,10 @@
         },
         "damage": {
           "onSave": "half",
-          "parts": []
+          "parts": [],
+          "critical": {
+            "allow": false
+          }
         },
         "save": {
           "ability": [
@@ -108,35 +114,149 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
     "identifier": "-knight-of-the-sword",
-    "advancement": [],
+    "advancement": {
+      "99b2d717cf93cf03": {
+        "_id": "99b2d717cf93cf03",
+        "type": "AbilityScoreImprovement",
+        "name": "属性值提升",
+        "configuration": {
+          "cap": 1,
+          "fixed": {
+            "str": 0,
+            "dex": 0,
+            "con": 0,
+            "int": 0,
+            "wis": 0,
+            "cha": 0
+          },
+          "locked": [
+            "str",
+            "dex",
+            "con"
+          ],
+          "points": 1,
+          "max": 20,
+          "recommendation": null
+        },
+        "value": {
+          "type": "asi"
+        },
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 4,
+      "repeatable": false,
+      "items": [
+        "feat:-squire-of-solamnia"
+      ]
     },
     "properties": []
   },
   "effects": [],
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 2,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1686470174680,
     "modifiedTime": 1749711029989,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

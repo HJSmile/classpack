@@ -25,13 +25,16 @@
     "requirements": "龙族血脉等级 1",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 1,
+      "repeatable": false,
+      "items": [
+        "subclass:draconic-bloodline"
+      ]
     },
     "properties": []
   },
@@ -39,33 +42,51 @@
     {
       "name": "龙族体魄",
       "img": "icons/creatures/claws/claw-scaled-red.webp",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.R9xt1utJwk61sJmR",
+      "origin": null,
       "_id": "oJx5N4CNZ1Ox0AXW",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.attributes.hp.bonuses.overall",
-          "mode": 2,
-          "value": "+@classes.sorcerer.levels",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.hp.bonuses.overall",
+            "value": "+@classes.sorcerer.levels",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "afiwNTlOH4f2i72S",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.attributes.ac.calc",
+            "value": "draconic",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "KsPEVSICMR2wqjCV",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "system.attributes.ac.calc",
-          "mode": 2,
-          "value": "draconic",
-          "priority": 20
-        }
-      ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.R9xt1utJwk61sJmR",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -83,42 +104,26 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757135501174,
         "modifiedTime": 1757135950134,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!R9xt1utJwk61sJmR.oJx5N4CNZ1Ox0AXW"
     }
   ],
@@ -129,12 +134,7 @@
     "entityorder": {
       "order": 70
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -154,9 +154,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757135985649,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

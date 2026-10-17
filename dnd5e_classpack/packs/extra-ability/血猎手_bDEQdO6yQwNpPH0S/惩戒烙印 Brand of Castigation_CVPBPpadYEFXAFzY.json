@@ -12,7 +12,7 @@
       "revision": 1
     },
     "description": {
-      "value": "<p>第 6 级起，当你以猩红仪式特性伤害一个生物时，你可以引导鲜血秘法，将奥术烙印在那个生物上（无需动作）。你始终知道烙印生物相对于你的方向。并且，每次烙印生物对你或距你 5 尺内你能看见的生物造成伤害时，烙印生物受到你的智力调整值点心灵伤害（至少1 点）。<br />你的烙印持续至你解除它，或者直到你对另一个生物打上烙印。你的烙印对解除魔法而言是一个法术，并具有等同于你鲜血猎人等级一半的环位（至多 9 环）。<br />使用此特性后，你必须完成一次短休或长休才能再次使用。</p>",
+      "value": "<p>第 6 级起，当你以猩红仪式特性伤害一个生物时，你可以引导鲜血秘法，将奥术烙印在那个生物上（无需动作）。你始终知道烙印生物相对于你的方向。并且，每次烙印生物对你或距你 5 尺内你能看见的生物造成伤害时，烙印生物受到你的智力调整值点心灵伤害（至少1 点）。</p><p>你的烙印持续至你解除它，或者直到你对另一个生物打上烙印。你的烙印对解除魔法而言是一个法术，并具有等同于你鲜血猎人等级一半的环位（至多 9 环）。</p><p>使用此特性后，你必须完成一次短休或长休才能再次使用。</p>",
       "chat": ""
     },
     "requirements": "血猎手等级 6",
@@ -33,7 +33,7 @@
     "properties": [
       "mgc"
     ],
-    "advancement": [],
+    "advancement": {},
     "activities": {
       "UOWAVjkhbLxmDRra": {
         "_id": "UOWAVjkhbLxmDRra",
@@ -57,11 +57,14 @@
             }
           ]
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -71,7 +74,8 @@
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -99,7 +103,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -107,7 +112,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -118,15 +122,61 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "brand-of-castigation",
@@ -135,7 +185,8 @@
     "enchant": {},
     "prerequisites": {
       "level": 6,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     }
   },
   "img": "icons/magic/life/heart-shadow-red.webp",
@@ -163,11 +214,7 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "riders": {
-        "activity": []
-      }
-    },
+    "dnd5e": {},
     "chris-premades": {
       "info": {
         "identifier": "brandOfCastigation",
@@ -181,9 +228,9 @@
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1757153159764,
     "modifiedTime": 1757174013481,
     "lastModifiedBy": "hzd8mTtpA2xMcmGp",

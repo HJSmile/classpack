@@ -2,16 +2,7 @@
   "name": "翠炎剑 Green-Flame Blade",
   "type": "spell",
   "flags": {
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -41,7 +32,7 @@
   "_id": "E7iT0s1aQdjdOVdg",
   "system": {
     "description": {
-      "value": "<p>作为施展这个法术的一部分，你必须用你的武器对施法距离内的一个生物进行一次近战攻击，否则法术失败。如果攻击命中，目标受到这次攻击的正常影响，并且翠绿色的火焰将从目标身上跳转至另一个生物。这个生物必须在第一个目标周围5尺之内，并且你可以看见；它将受到等于你施法主属性的调整值的火焰伤害。<br />戏法的伤害随着你的等级提升而增加。在你5级的时候，这次近战攻击将造成额外1d8火焰伤害，且第二个目标将受到的伤害提升至1d8+你的施法主属性的调整值。所有伤害骰都会在11级和17级的时候增长1d8。</p>",
+      "value": "<p><em>塑能戏法（奇械师、术士、魔契师、法师）</em></p><p>施法时间：1 动作</p><p>施法距离：自身（半径5尺）</p><p>法术成分：S, M（一把价值至少 1sp 的近战武器）</p><p>持续时间：立即</p><p>你挥舞作为法术成分的那把武器，对你周围 5 尺范围内的一个生物发动一次近战武器攻击。如果攻击成功命中，目标会受到这次攻击的正常影响，且你可以让那翠绿色火焰从目标身上飞跃至目标周围 5 尺范围内的另一个你可见的生物。第二个生物受到等同于你施法属性调整值点的火焰伤害。</p><p>此法术的伤害会随你的等级一同提升：到达 5 级后，这次近战攻击将造成额外 1d8 点火焰伤害，且第二个目标将受到的伤害提升至 1d8+你的施法主属性调整值。两个伤害都会在 11 级后再增加 1d8（2d8 和 2d8），17 级后再加 1d8（3d8 和 3d8）。</p>",
       "chat": ""
     },
     "source": {
@@ -57,7 +48,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -67,9 +59,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -90,10 +83,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -118,22 +107,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -166,7 +159,8 @@
                 "mode": "whole",
                 "number": 1,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ]
         },
@@ -182,7 +176,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -190,7 +185,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -201,26 +195,74 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
         }
       }
     },
-    "identifier": "green-flame-blade"
+    "identifier": "green-flame-blade",
+    "method": "spell",
+    "prepared": 0
   },
   "effects": [],
   "folder": "yq70wdvciyw47W5Y",
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1752917751736,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

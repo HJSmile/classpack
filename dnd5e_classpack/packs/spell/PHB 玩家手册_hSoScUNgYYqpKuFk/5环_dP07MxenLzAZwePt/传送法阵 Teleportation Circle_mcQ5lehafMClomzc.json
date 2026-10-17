@@ -3,16 +3,7 @@
   "name": "传送法阵 Teleportation Circle",
   "type": "spell",
   "flags": {
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -31,11 +22,11 @@
       "ignoreTotalCover": false
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Arcane_Blast.png",
+  "img": "icons/magic/symbols/star-yellow.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 施展该法术时，你在地上画出一个直径十尺的圆圈，并在其周围画出符文。这个圆形法阵将你所处的位置与你选择的一个与你处在同个位面上的永久传送法阵相连（你必须知道该法阵的符文序列）。圆圈中将打开一个发光的传送门，并一直维持到你的下一回合结束。任何进入传送门的生物将立即出现在目标法阵附近5尺内（如果该空间已被占据，则出现在最靠近目标法阵的未被占据空间）。\n<br />许多神殿、公会和其他重要的场所都在其中某处设有永久的传送法阵。这种法阵各有自己的符文序列——按特定顺序排列的一串魔法符文。当你最初获得施放该法术的能力时，你会知道物质位面上两个永久法阵的符文序列（由DM 决定），随后你还可以在旅途中习得更多的符文序列。你只要花一分钟仔细研究一个新的符文序列就能够将其记录下来。\n<br />当你在一年里对同一地点每日连续施展该法术后，将创造出一个永久的传送法阵。而你在如此创造法阵时并不需要使用该法阵进行传送。\n<br /></div>",
+      "value": "<p>施展该法术时，你在地上画出一个直径十尺的圆圈，并在其周围画出符文。这个圆形法阵将你所处的位置与你选择的一个与你处在同个位面上的永久传送法阵相连（你必须知道该法阵的符文序列）。圆圈中将打开一个发光的传送门，并一直维持到你的下一回合结束。任何进入传送门的生物将立即出现在目标法阵附近 5 尺内（如果该空间已被占据，则出现在最靠近目标法阵的未占据空间）。</p><p>许多神殿、公会和其他重要的场所都在其中某处设有永久的传送法阵。这种法阵各有自己的符文序列按特定顺序排列的一串魔法符文。当你最初获得施放该法术的能力时，你会知道物质位面上两个永久法阵的符文序列（由 DM 决定），随后你还可以在旅途中习得更多的符文序列。你只要花一分钟仔细研究一个新的符文序列就能够将其记录下来。</p><p>当你在一年里对同一地点每日连续施展该法术后，将创造出一个永久的传送法阵。而你在如此创造法阵时并不需要使用该法阵进行传送。</p>",
       "chat": ""
     },
     "source": {
@@ -51,7 +42,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "round"
+      "units": "round",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -63,7 +55,8 @@
         "type": "radius",
         "size": "5",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -84,10 +77,6 @@
       "consumed": true,
       "cost": 50,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -111,22 +100,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -156,7 +149,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -164,7 +158,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -175,18 +168,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "teleportation-circle"
+    "identifier": "teleportation-circle",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -195,8 +236,8 @@
   "sort": 1600000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

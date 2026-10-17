@@ -2,7 +2,7 @@
   "name": "雷鸣猛推 Thunderous Blows",
   "type": "feat",
   "_id": "2aL7IVkH7DSEWlOi",
-  "img": "modules/dnd5e_classpack/Nicons/images/D2752FC1FAD9D180B639F195EEC3FE5A.png",
+  "img": "icons/magic/sonic/explosion-impact-shock-wave.webp",
   "system": {
     "activities": {
       "HjmA23tvdC6a2ZL2": {
@@ -23,12 +23,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -40,7 +42,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -68,7 +71,8 @@
           "dc": {
             "calculation": "str",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -81,7 +85,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -89,7 +94,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -100,18 +104,63 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
     "uses": {
@@ -120,7 +169,7 @@
       "max": ""
     },
     "description": {
-      "value": "<p>当你3级选择此原初道途时，你的愤怒为你注入冲破一切敌人的力量，令战场成为你的领地。在你狂暴期间，当你的近战攻击命中一个生物时，你能迫使该生物推动至多5尺距离，其方向由你选择。若被推动的生物体型为巨型或更大，它们就可以进行一次DC为 8+你的熟练加值+你的力量调整值 的力量豁免。若豁免成功，则该生物将不会被推动。<br />当你达到10级后，击中后你能将其推动至多10尺，而非5尺。</p>",
+      "value": "<p>当你3级选择此原初道途时，你的愤怒为你注入冲破一切敌人的力量，令战场成为你的领地。在你狂暴期间，当你的近战攻击命中一个生物时，你能迫使该生物推动至多5尺距离，其方向由你选择。若被推动的生物体型为巨型或更大，它们就可以进行一次DC为 8+你的熟练加值+你的力量调整值 的力量豁免。若豁免成功，则该生物将不会被推动。</p><p>当你达到10级后，击中后你能将其推动至多10尺，而非5尺。</p>",
       "chat": ""
     },
     "identifier": "-",
@@ -128,18 +177,19 @@
       "revision": 1,
       "rules": "2024"
     },
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 3,
+      "repeatable": false,
+      "items": []
     },
     "properties": [],
     "requirements": "巨像道途等级 3",
     "type": {
-      "value": "",
+      "value": "class",
       "subtype": ""
     }
   },
@@ -168,19 +218,14 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1756616682534,
     "modifiedTime": 1756616900342,
     "lastModifiedBy": "vFLRCDyc5l72uRlV",

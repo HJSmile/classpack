@@ -4,7 +4,7 @@
   "img": "icons/magic/light/beam-rays-blue-large.webp",
   "system": {
     "description": {
-      "value": "<p>你@UUID[Compendium.dnd5e_classpack.extra-ability.Item.93SWuqQa3gbWs70m]{月之化身}的月相能够影响你的超魔法特性。每个月之化身月相都与特定的魔法学派相关联，如下所示：</p><ul><li><p><strong>满月Full Moon.</strong>防护与预言法术</p></li><li><p><strong>朔月New Moon.</strong>附魔与死灵法术</p></li><li><p><strong>新月Crescent Moon.</strong>幻术与变化法术</p></li></ul><p>当你对你所处月相相关联的魔法学派的法术使用@UUID[Compendium.dnd5e_classpack.class-abilityphb.Item.uy9spzWLUgflbPtk]{超魔法}时，你可以将消耗的术法点降低1点（最低为0）。你可以用此方法降低超魔法术法点的次数等同于你的熟练加值，且会在完成一次长休后恢复所有已消耗的使用次数。</p>",
+      "value": "<p>你@UUID[Compendium.dnd5e_classpack.extra-ability.Item.93SWuqQa3gbWs70m]{月之化身}的月相能够影响你的超魔法特性。每个月之化身月相都与特定的魔法学派相关联，如下所示：</p><ul><li><h3>满月Full Moon.</h3><p>防护与预言法术</p></li><li><h3>朔月New Moon.</h3><p>附魔与死灵法术</p></li><li><h3>新月Crescent Moon.</h3><p>幻术与变化法术</p></li></ul><p>当你对你所处月相相关联的魔法学派的法术使用@UUID[Compendium.dnd5e_classpack.class-abilityphb.Item.uy9spzWLUgflbPtk]{超魔法}时，你可以将消耗的术法点降低1点（最低为0）。你可以用此方法降低超魔法术法点的次数等同于你的熟练加值，且会在完成一次长休后恢复所有已消耗的使用次数。</p>",
       "chat": ""
     },
     "source": {
@@ -58,18 +58,20 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -81,7 +83,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -103,33 +106,112 @@
           "prompt": false,
           "visible": false
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
     "identifier": "-lunar-boons",
-    "advancement": [],
+    "advancement": {},
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 6,
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
   "effects": [],
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 3,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1686483221417,
     "modifiedTime": 1749883542518,
     "lastModifiedBy": "uXKCmWFprrvnSIDm",

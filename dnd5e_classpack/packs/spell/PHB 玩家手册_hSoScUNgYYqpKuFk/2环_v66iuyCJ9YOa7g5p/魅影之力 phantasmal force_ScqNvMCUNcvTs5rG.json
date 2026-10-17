@@ -2,7 +2,7 @@
   "_id": "ScqNvMCUNcvTs5rG",
   "name": "魅影之力 phantasmal force",
   "type": "spell",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Arcane_Arcane02.png",
+  "img": "icons/creatures/magical/spirit-undead-winged-ghost.webp",
   "effects": [],
   "folder": "v66iuyCJ9YOa7g5p",
   "sort": 18200000,
@@ -34,24 +34,11 @@
       "removeAttackDamageButtons": "default",
       "reactionCondition": ""
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
-      "value": "<div class=\"description \">\n<div class=\"description \">你指定施法距离内一个你能够看见的生物，并创造一个根植于其意识的幻像。该目标必须进行一次智力豁免。豁免失败时，你创造出一个不大于10 尺立方且只能被目标感知到的幻影物件，生物或其他你指定的可见现象。该创造将持续存在直至法术终止。且该法术对不死生物和构装生物无效。</div>\n<div class=\"description \">该幻像包括声音、温度和其他反应因素，同样只对目标显现。目标可以用其动作进行一次对抗该法术豁免DC 的智力（调查）检定来检查这个幻像。检定成功则目标意识到该幻像是一个幻术，法术随即终止。</div>\n<div class=\"description \">目标受法术影响时会认定幻像是真实的，并且会合理化任何与幻像产生的不合逻辑的互动结果。例如，某个受术生物试图走过一座跨越峡谷的幻影桥时踏出第一步就从桥上坠落。如果目标在坠落中幸存，它会仍然相信该桥是真实存在的，并且会提出自己坠落的一些其他解释——比如被推了一把，自己滑倒了，或者可能有一阵强风把他吹了下来。</div>\n<div class=\"description \">受法术影响的目标对幻像的真实性深信不疑，甚至还会受到幻象的直接伤害。一个生物模样的幻像可以攻击目标。比如，显现为火焰，酸池或岩浆的幻象能够烧伤目标。在你的每一回合，如果目标在幻象的伤害区域内或在其显现的生物周边5 尺攻击范围内，则幻象可以对目标造成1d6 点心灵伤害。而此时目标则会感觉该伤害与幻像所显现的类型相符。</div>\n</div>",
+      "value": "<p>你指定施法距离内一个你能够看见的生物，并创造一个根植于其意识的幻象。该目标必须进行一次[[/save activity=dnd5eactivity100]]{智力豁免}。豁免失败时，你创造出一个不大于 10 尺立方且只能被目标感知到的幻影物件，生物或其他你指定的可见现象。该创造将持续存在直至法术终止。且该法术对亡灵和构装生物无效。</p><p>该幻象包括声音、温度和其他反应因素，同样只对目标显现。</p><p>目标可以用其动作进行一次对抗该法术豁免 DC 的[[/check ability=int skill=inv]]{智力（调查）检定}来检查这个幻象。检定成功则目标意识到该幻象是一个幻术，法术随即终止。</p><p>目标受法术影响时会认定幻象是真实的，并且会合理化任何与幻象产生的不合逻辑的互动结果。例如，某个受术生物试图走过一座跨越峡谷的幻影桥时踏出第一步就从桥上坠落。如果目标在坠落中幸存，它会仍然相信该桥是真实存在的，并且会提出自己坠落的一些其他解释比如被推了一把，自己滑倒了，或者可能有一阵强风把他吹了下来。</p><p>受法术影响的目标对幻象的真实性深信不疑，甚至还会受到幻象的直接伤害。一个生物模样的幻象可以攻击目标。类似的，显现为火焰，酸池或岩浆的幻象能够烧伤目标。在每一轮的你的回合中，如果目标在幻象的伤害区域内或在其显现的生物周边 5 尺攻击范围内，则幻象可以对目标造成 [[/damage 1d6 type=psychic]]{1d6} 点心灵伤害，前提是该幻象是在逻辑上是能会目标造成伤害的危险或生物（例如通过发动攻击来造成伤害）。而此时目标则会感觉该伤害与幻象所显现的类型相符。</p>",
       "chat": ""
     },
     "source": {
@@ -67,7 +54,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -77,9 +65,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -100,10 +89,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -130,22 +115,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -170,7 +159,8 @@
           "proficiency": false,
           "attacks": false,
           "saves": false,
-          "ability": "int"
+          "ability": "int",
+          "disposition": false
         },
         "profiles": [
           {
@@ -184,7 +174,6 @@
           }
         ],
         "summon": {
-          "identifier": "",
           "mode": "",
           "prompt": true
         },
@@ -200,7 +189,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -208,7 +198,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -219,14 +208,61 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
-        }
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "friendlySummon": false
       },
       "dnd5eactivity100": {
         "_id": "dnd5eactivity100",
@@ -245,22 +281,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -286,7 +326,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -300,7 +341,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -308,7 +350,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -319,26 +360,75 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "phantasmal-force"
+    "identifier": "phantasmal-force",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757419719404,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

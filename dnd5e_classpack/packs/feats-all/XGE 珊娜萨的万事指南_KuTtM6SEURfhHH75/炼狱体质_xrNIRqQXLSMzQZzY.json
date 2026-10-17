@@ -6,10 +6,10 @@
   "system": {
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "description": {
-      "value": "<p>恶魔之血支撑着你，解锁一些类似恶魔领主拥有的韧性。你获得以下好处：</p>\n<ul>\n<li>体质+1，不能超过20</li>\n<li>你获得寒冷与毒性抗力</li>\n<li>你在对抗毒素时取优势。</li>\n</ul>",
+      "value": "<p>邪魔之血令你更加强韧，解锁一些邪魔拥有的韧性。你获得以下好处：</p>\n<ul>\n<li>体质+1，不能超过20</li>\n<li>你获得寒冷伤害和毒素伤害的抗性</li>\n<li>你在对抗 &Reference[condition=poisoned apply=false]{中毒} 的豁免检定中具有优势。</li>\n</ul>",
       "chat": ""
     },
     "source": {
@@ -19,63 +19,114 @@
       "book": "XGE"
     },
     "uses": {
-      "max": "0",
+      "max": "",
       "spent": 0,
       "recovery": []
     },
     "requirements": "提夫林",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {
+      "563cacc675a7bcf8": {
+        "_id": "563cacc675a7bcf8",
+        "type": "AbilityScoreImprovement",
+        "name": "属性值提升",
+        "configuration": {
+          "cap": 1,
+          "fixed": {
+            "str": 0,
+            "dex": 0,
+            "con": 1,
+            "int": 0,
+            "wis": 0,
+            "cha": 0
+          },
+          "locked": [
+            "str",
+            "dex",
+            "int",
+            "wis",
+            "cha"
+          ],
+          "points": 0,
+          "max": 20,
+          "recommendation": null
+        },
+        "value": {
+          "type": "asi"
+        },
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      },
+      "224f681410ba455d": {
+        "_id": "224f681410ba455d",
+        "type": "Trait",
+        "name": "伤害抗性",
+        "configuration": {
+          "mode": "default",
+          "allowReplacements": false,
+          "grants": [
+            "dr:cold"
+          ],
+          "choices": []
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      },
+      "964451af6b661fa4": {
+        "_id": "964451af6b661fa4",
+        "type": "Trait",
+        "name": "毒素抗性",
+        "configuration": {
+          "mode": "default",
+          "allowReplacements": false,
+          "grants": [
+            "dr:poison"
+          ],
+          "choices": []
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
   "effects": [
     {
       "name": "炼狱体质",
-      "origin": "Compendium.dnd5e_classpack.feats-all.Item.xrNIRqQXLSMzQZzY",
+      "origin": null,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "disabled": false,
       "flags": {
         "dnd5e": {}
       },
       "_id": "sItmZW1Zs4SJHlRv",
-      "changes": [
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "cold",
-          "priority": null
-        },
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "poison",
-          "priority": null
-        }
-      ],
       "description": "",
       "transfer": true,
       "statuses": [],
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -85,25 +136,58 @@
       },
       "img": "icons/creatures/magical/construct-iron-stomping-yellow.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.dr.value",
+            "value": "cold",
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "hcdGzGKrkiVMu20U",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.dr.value",
+            "value": "poison",
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "afvzjtRIGh9fB8rG",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.feats-all.Item.xrNIRqQXLSMzQZzY",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!xrNIRqQXLSMzQZzY.sItmZW1Zs4SJHlRv"
     }
   ],
   "folder": "KuTtM6SEURfhHH75",
   "sort": 100025,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1724511333912,
     "modifiedTime": 1757275287302,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -27,23 +27,13 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Druid_LunarGuidance.png",
+  "img": "icons/environment/settlement/watchtower-moonlit-blue.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你对施法距离内一片区域施以魔法防护。该区域为一立方区域，其边长至小5尺，大至100尺。该法术一直持续至持续时间结束或施法者以一个动作主动解除。\n<br />施展该法术时，其生效的保护内容由你决定。在以下几项属性中作选择，你可以选择若干项或者全部选择：\n<br />声音不能穿透被保护区域边缘的障壁\n<br />被保护区域的障壁变得黑暗而模糊，无法通过视觉（包括黑暗视觉）看穿。\n<br />预言法术创造的传感器无法出现在被保护区域内，也无法穿过区域边界处的障壁。\n<br />区域内的生物不能成为预言法术的目标。\n<br />任何事物无法通过传送进出被保护区域。\n<br />在被保护区域内，位面旅行被封锁。\n<br />每日在同一个位置施展此法术，持续一年，会使这些效果成为永久性效果。\n<br /><strong>升环施法效应。</strong>使用5环或更高法术位施展此法术时，你使用的法术位每比4环高一环，你就可以将被保护的立方区域边长增加100尺。比如使用5环法术位时，你就能保护边长至多200尺的立方区域。\n<br /></div>",
+      "value": "<p>你对施法距离内一片区域施以魔法防护。该区域为一立方区域，其边长至小 5 尺，大至 100 尺。该法术一直持续至持续时间结束或施法者以一个动作主动解除。</p><p>施展该法术时，其生效的保护内容由你决定。在以下几项属性中作选择，你可以选择若干项或者全部选择：</p><ul><li>声音不能穿透被保护区域边缘的障壁</li><li>被保护区域的障壁变得黑暗而模糊，无法通过视觉（包括黑暗视觉）看穿。</li><li>预言法术创造的传感器无法出现在被保护区域内，也无法穿过区域边界处的障壁。</li><li>区域内的生物不能成为预言法术的目标。</li><li>任何事物无法通过传送进出被保护区域。</li><li>在被保护区域内，位面旅行被封锁。</li></ul><p>每日在同一个位置施展此法术，持续一年，会使这些效果成为永久性效果。</p><p><strong>升环施法效应。</strong>使用五环或更高法术位施展此法术时，你使用的法术位每比四环高一环，你就可以将被保护的立方区域边长增加 100 尺。比如使用五环法术位时，你就能保护边长至多 200 尺的立方区域。</p>",
       "chat": ""
     },
     "source": {
@@ -61,7 +51,8 @@
     },
     "duration": {
       "value": "24",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -73,7 +64,8 @@
         "type": "cube",
         "size": "100",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -94,10 +86,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -123,22 +111,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -168,7 +160,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -176,7 +169,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -187,18 +179,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "mordenkainens-private-sanctum"
+    "identifier": "mordenkainens-private-sanctum",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -207,8 +247,8 @@
   "sort": 19300000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757235114937,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

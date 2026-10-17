@@ -1,14 +1,14 @@
 {
   "_id": "xoJECCVMGBEnEg9a",
-  "name": "奇才",
+  "name": "天赋异禀",
   "type": "feat",
   "system": {
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "description": {
-      "value": "<p>先决条件：人类或半精灵或者半兽人</p>\n<p>你拥有学习新鲜事物的本领，你获得以下好处：</p>\n<ul>\n<li>你获得一种自选技能的熟练，一种自选工具的熟练，且娴熟于一种自选的语言。</li>\n<li>选择一种你已经熟练于其的技能。你获得这种技能的专精，这意味着你在以其进行的任何技能检定上获得双倍熟练值。你选择的这个技能必须未在任何特性上获得双倍熟练的好处，例如专精。</li>\n</ul>",
+      "value": "<p>你拥有学习新鲜事物的本领，你获得以下好处：</p>\n<ul>\n<li>你获得一种自选技能的熟练，一种自选工具的熟练，且娴熟于一种自选的语言。</li>\n<li>选择一种你已经熟练于其的技能。你获得这种技能的专精，这意味着你在以其进行的任何技能检定上获得双倍熟练值。你选择的这个技能必须未在任何特性上获得双倍熟练的好处，例如专精。</li>\n</ul>",
       "chat": ""
     },
     "source": {
@@ -18,37 +18,90 @@
       "book": "XGE"
     },
     "uses": {
-      "max": "0",
+      "max": "",
       "spent": 0,
       "recovery": []
     },
-    "requirements": "人类or半精灵or半兽人",
+    "requirements": "半精灵、半兽人、或人类",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {
+      "05d7ad40629ecbe7": {
+        "_id": "05d7ad40629ecbe7",
+        "type": "Trait",
+        "name": "熟练项与语言",
+        "configuration": {
+          "mode": "default",
+          "allowReplacements": false,
+          "grants": [],
+          "choices": [
+            {
+              "count": 1,
+              "pool": [
+                "skills:*"
+              ]
+            },
+            {
+              "count": 1,
+              "pool": [
+                "tool:*"
+              ]
+            },
+            {
+              "count": 1,
+              "pool": [
+                "languages:*"
+              ]
+            }
+          ]
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      },
+      "c1ba74ba76c27417": {
+        "_id": "c1ba74ba76c27417",
+        "type": "Trait",
+        "name": "技能专精",
+        "configuration": {
+          "mode": "expertise",
+          "allowReplacements": false,
+          "grants": [],
+          "choices": [
+            {
+              "count": 1,
+              "pool": [
+                "skills:*"
+              ]
+            }
+          ]
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/magic/defensive/shield-barrier-blades-teal.webp",
   "effects": [],
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757275287302,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

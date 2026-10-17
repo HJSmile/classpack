@@ -1,11 +1,11 @@
 {
   "_id": "q2SQbn4u0jqlGtNY",
-  "name": "龙族皮肤",
+  "name": "龙之鳞爪",
   "type": "feat",
   "system": {
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "description": {
       "value": "<p>你显出自你龙族先祖的利爪与鳞片，你获得以下好处：</p>\n<ul>\n<li>你的力量，体质或者魅力+1，不能超过20。</li>\n<li>你的皮肤硬化，如果你没穿盔甲则你的AC变为13+敏捷调整值。你可以在持握盾牌时仍获得此好处。</li>\n<li>你的指尖长出可伸缩的利爪，伸出或缩回爪子不消耗动作，爪子是可以用来徒手打击的天生武器，如果你用他们发动攻击，你造成1d4+你的力量调整值的挥砍伤害，以代替正常徒手打击造成的钝击伤害。</li>\n</ul>",
@@ -18,37 +18,64 @@
       "book": "XGE"
     },
     "uses": {
-      "max": "0",
+      "max": "",
       "spent": 0,
       "recovery": []
     },
     "requirements": "龙裔",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {
+      "98b05d096263ed69": {
+        "_id": "98b05d096263ed69",
+        "type": "AbilityScoreImprovement",
+        "name": "属性值提升",
+        "configuration": {
+          "cap": 1,
+          "fixed": {
+            "str": 0,
+            "dex": 0,
+            "con": 0,
+            "int": 0,
+            "wis": 0,
+            "cha": 0
+          },
+          "locked": [
+            "dex",
+            "int",
+            "wis"
+          ],
+          "points": 1,
+          "max": 20,
+          "recommendation": null
+        },
+        "value": {
+          "type": "asi"
+        },
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/magic/defensive/armor-stone-skin.webp",
   "effects": [],
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757275287302,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

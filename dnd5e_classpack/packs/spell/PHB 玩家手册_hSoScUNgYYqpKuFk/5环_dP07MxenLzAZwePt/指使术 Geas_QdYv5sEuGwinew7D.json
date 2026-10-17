@@ -26,21 +26,13 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_PainSupression.png",
+  "img": "icons/magic/control/control-influence-puppet.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你对施法距离内你能看见的一个生物置入一条魔法命令，并强迫其执行相应的某种服务或克制某种行为，甚至遵照你的要求行动。如果该生物可以理解你的意思，则它必须成功通过一次感知豁免，否则将在法术持续时间内被你魅惑。被魅惑生物每次作出与你的命令相悖的行为时，即受到5d10点心灵伤害。该伤害一日至多生效一次。且不能理解你意思的生物不受该法术影响。\n<br />除了涉及导致必死结果的行为外，你向目标下达的任何命令都会生效。如果你发布自杀指令则法术即时终止。\n<br />你可以用一个动作解除命令并终止法术。法术如移除诅咒remove curse，高等复原术greater restoration 或祈愿术wish 同样可以终止该法术。\n<br /><strong>升环施法效应。</strong>使用7环或8环法术位施展该法术时，持续时间变为1年。使用9环法术位施展该法术时，法术将一直持续至被上文提及的法术所终止。\n<br /></div>",
+      "value": "<p>你对施法距离内你能看见的一个生物置入一条魔法命令，并强迫其执行相应的某种服务或克制某种行为，甚至遵照你的要求行动。如果该生物可以理解你的意思，则它必须成功通过一次[[/save activity=dnd5eactivity000]]{感知豁免}，否则将在法术持续时间内被你魅惑。被魅惑生物每次作出与你的命令相悖的行为时，即受到 [[/damage 5d10 type=psychic]]{5d10} 点心灵伤害。该伤害一日至多生效一次。且不能理解你意思的生物不受该法术影响。</p><p>除了涉及导致必死结果的行为外，你向目标下达的任何命令都会生效。如果你发布自杀指令则法术即时终止。</p><p>你可以用一个动作解除命令并终止法术。法术如<em>移除诅咒 remove curse</em>，<em>高等复原术 greater restoration</em>或<em>祈愿术 wish</em>同样可以终止该法术。</p><p><strong>升环施法效应。</strong>使用七环或八环法术位施展该法术时，持续时间变为 1 年。使用九环法术位施展该法术时，法术将一直持续至被上文提及的法术所终止。</p>",
       "chat": ""
     },
     "source": {
@@ -56,7 +48,8 @@
     },
     "duration": {
       "value": "30",
-      "units": "day"
+      "units": "day",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -66,9 +59,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -89,10 +83,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -116,22 +106,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -152,7 +146,7 @@
                 "formula": ""
               },
               "number": 5,
-              "denomination": "10",
+              "denomination": 10,
               "bonus": "",
               "types": [
                 "psychic"
@@ -161,7 +155,8 @@
                 "mode": "whole",
                 "number": null,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -175,7 +170,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -189,7 +185,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -197,7 +194,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -208,21 +204,68 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "geas"
+    "identifier": "geas",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -231,8 +274,8 @@
   "sort": 37700000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

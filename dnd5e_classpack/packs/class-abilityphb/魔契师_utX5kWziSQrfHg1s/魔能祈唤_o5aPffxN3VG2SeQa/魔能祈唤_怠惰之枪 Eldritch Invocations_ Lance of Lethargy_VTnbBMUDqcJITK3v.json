@@ -5,7 +5,7 @@
   "img": "icons/magic/water/bubbles-air-water-light.webp",
   "system": {
     "description": {
-      "value": "<p>    每回合一次，当你以@UUID[Compendium.dnd5e_classpack.spell.DREvt1bRjuglegTh]{魔能爆}击中一个生物时，你可以降低目标10尺的速度，直到你的下个回合结束。</p>",
+      "value": "<p>    在你的每个回合中一次，当你以@UUID[Compendium.dnd5e_classpack.spell.DREvt1bRjuglegTh]{魔能爆}击中一个生物时，你可以降低目标10尺的速度，直到你的下个回合结束。</p>",
       "chat": ""
     },
     "source": {
@@ -23,15 +23,18 @@
       "value": "class",
       "subtype": "eldritchInvocation"
     },
-    "requirements": "邪术师等级 2，魔能爆",
+    "requirements": "习得戏法魔能爆eldritch blast",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": 2,
-      "repeatable": false
+      "level": null,
+      "repeatable": false,
+      "items": [
+        "spell:eldritch-blast"
+      ]
     },
     "properties": [
       "mgc"
@@ -41,12 +44,7 @@
   "folder": "o5aPffxN3VG2SeQa",
   "sort": 3100000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -76,9 +74,9 @@
     "default": 0
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757263932110,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

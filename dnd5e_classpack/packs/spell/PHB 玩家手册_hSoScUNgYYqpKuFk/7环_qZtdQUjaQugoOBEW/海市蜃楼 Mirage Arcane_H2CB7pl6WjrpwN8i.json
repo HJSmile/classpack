@@ -27,22 +27,13 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Shadow_Twilight.png",
+  "img": "icons/environment/wilderness/island-palm-white.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你使至多1里方形区域内的地形在视觉、听觉、嗅觉、甚至触觉上都像是某种其它的地形，不过其地形的大致形状仍保持不变。你可以让开阔的平原或者一条路可能变得像一片湿地，一座小山，一个裂谷或是其它困难或无法通行的地形。你还可以让一个池塘变得像一片茂盛的草地，一个悬崖变得像一个缓坡，或者让一个乱石沟变得像一条宽阔平坦的大路。\n<br />另外，你还可以改变建筑物的外观，或者在本来没有建筑物的地方添上建筑物。该法术不可以伪装、隐藏或增添生物。\n<br />该幻术是听觉、视觉、触觉和嗅觉的综合体，因而其可以把空旷的地面变成困难地形（或者反过来），甚至使之变成无法通行的区域。幻象地形的任何一小部分（例如一块石头或者一根树枝）被移动到法术区域外时都会立刻消失不见。\n<br />拥有真实视觉的生物可以看穿幻术，洞悉地形的真实形态；然而幻象的所有其它元素仍会得以保留，所以一个意识到这是幻象的生物仍然可以与该幻象进行物理互动。\n<br /></div>",
+      "value": "<p>你使至多 1 里方形区域内的地形在视觉、听觉、嗅觉、甚至触觉上都像是某种其他的地形，不过其地形的大致形状仍保持不变。你可以让开阔的平原或者一条路可能变得像一片湿地，一座小山，一个裂谷或是其他困难或无法通行的地形。你还可以让一个池塘变得像一片茂盛的草地，一个悬崖变得像一个缓坡，或者让一个乱石沟变得像一条宽阔平坦的大路。</p><p>另外，你还可以改变建筑物的外观，或者在本来没有建筑物的地方添上建筑物。该法术不可以伪装、隐藏或增添生物。</p><p>该幻术是听觉、视觉、触觉和嗅觉的综合体，因而其可以把空旷的地面变成困难地形（或者反过来），甚至使之变成无法通行的区域。幻象地形的任何一小部分（例如一块石头或者一根树枝）被移动到法术区域外时都会立刻消失不见。</p><p>拥有真实视觉的生物可以看穿幻术，洞悉地形的真实形态；然而幻象的所有其他元素仍会得以保留，所以一个意识到这是幻象的生物仍然可以与该幻象进行物理互动。</p>",
       "chat": ""
     },
     "source": {
@@ -58,7 +49,8 @@
     },
     "duration": {
       "value": "10",
-      "units": "day"
+      "units": "day",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -70,7 +62,8 @@
         "type": "square",
         "size": "1",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -90,10 +83,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -118,22 +107,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -163,7 +156,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -171,7 +165,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -182,18 +175,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "mirage-arcane"
+    "identifier": "mirage-arcane",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -202,8 +243,8 @@
   "sort": 8800000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

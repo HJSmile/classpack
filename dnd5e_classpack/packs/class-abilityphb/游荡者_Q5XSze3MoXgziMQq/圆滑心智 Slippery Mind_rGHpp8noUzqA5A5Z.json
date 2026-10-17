@@ -2,7 +2,7 @@
   "_id": "rGHpp8noUzqA5A5Z",
   "name": "圆滑心智 Slippery Mind",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Shadow_Charm.png",
+  "img": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
   "system": {
     "type": {
       "value": "class",
@@ -25,41 +25,58 @@
     "requirements": "游荡者等级 15",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 15,
+      "repeatable": false,
+      "items": [
+        "class:rogue"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "name": "圆滑心智",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Shadow_Charm.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.rGHpp8noUzqA5A5Z",
+      "img": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
+      "origin": null,
       "_id": "JMx2smTDc7GDivgO",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.abilities.wis.bonuses.save",
-          "mode": 2,
-          "value": "+@prof",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "system.abilities.wis.save.roll.bonus",
+            "value": "+@prof",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "esBjuLG4tuRZkA1d",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.rGHpp8noUzqA5A5Z",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -77,42 +94,26 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757273071942,
         "modifiedTime": 1757273326240,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!rGHpp8noUzqA5A5Z.JMx2smTDc7GDivgO"
     }
   ],
@@ -123,12 +124,7 @@
     "entityorder": {
       "order": 143
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -148,9 +144,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": 1724329817952,
     "modifiedTime": 1757273102093,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

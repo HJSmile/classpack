@@ -12,7 +12,7 @@
       "revision": 1
     },
     "description": {
-      "value": "<div class=\"rd__b  rd__b--2\"><p><em>护甲（重甲），珍稀（需同调）</em><br />这套色彩鲜艳、花团锦簇的护甲铸成于 <strong>妖精荒野Feywild</strong> 之中，它充满着那个奇幻位面的诱人能量。<br />穿着这套护甲期间，你为防止陷入或结束 <strong>魅惑&amp;Reference[condition=charmed]</strong> 状态所做的豁免具有优势。<br />这套护甲具有3发充能。你可以消耗一发充能以用其施展法术<em>@UUID[Compendium.dnd5e_classpack.spell.Item.RpBbOYseLZCFXaFY]{强迫术 Compulsion}</em>（豁免DC15）。这套护甲在每日黎明时分恢复[[/r 1d3]]发已消耗的充能数。</p><div class=\"WordSection1\"><div><p class=\"MsoNormal\" style=\"LAYOUT-GRID-MODE:char;MARGIN:2pt 0cm\"><span class=\"GramE\">该护甲</span>是将重金属<span class=\"GramE\">环扣缝进</span>内层的特殊皮甲。金属环可以加强护甲<span class=\"GramE\">对剑斧挥击</span>的抵抗力。环甲<span class=\"GramE\">比链甲</span>低一级，而通常只被那些无力支付更好护甲的人所使用。</p></div></div><p>This colorful, flowery armor was forged in the Feywild and is infused with that plane's captivating magic.</p><p>While wearing this armor, you have advantage on saving throws you make to avoid or end the &amp;Reference[condition=charmed] condition on yourself.</p><p>This armor has 3 charges. You can use an action to expend a charge to cast the @spell[Compulsion] spell (save DC <span class=\"rd__dc\">15</span>) from this armor. The armor regains [[/r 1d3]] expended charges daily at dawn.</p><p>This armor is leather armor with heavy rings sewn into it. The rings help reinforce the armor against blows from swords and axes. Ring mail is inferior to chain mail, and it's usually worn only by those who can't afford better armor.</p></div>",
+      "value": "<p><em>护甲（重甲），珍稀（需同调）</em></p><p>这套色彩鲜艳、花团锦簇的护甲铸成于 <strong>妖精荒野Feywild</strong> 之中，它充满着那个奇幻位面的诱人能量。</p><p>穿着这套护甲期间，你为防止陷入或结束 <strong>魅惑&amp;Reference[condition=charmed]</strong> 状态所做的豁免具有优势。</p><p>这套护甲具有3发充能。你可以消耗一发充能以用其施展法术<em>@UUID[Compendium.dnd5e_classpack.spell.Item.RpBbOYseLZCFXaFY]{强迫术 Compulsion}</em>（豁免DC15）。这套护甲在每日黎明时分恢复[[/r 1d3]]发已消耗的充能数。</p><p>该护甲是将重金属环扣缝进内层的特殊皮甲。金属环可以加强护甲对剑斧挥击的抵抗力。环甲比链甲低一级，而通常只被那些无力支付更好护甲的人所使用。</p><p>This colorful, flowery armor was forged in the Feywild and is infused with that plane's captivating magic.</p><p>While wearing this armor, you have advantage on saving throws you make to avoid or end the &amp;Reference[condition=charmed] condition on yourself.</p><p>This armor has 3 charges. You can use an action to expend a charge to cast the @spell[Compulsion] spell (save DC 15) from this armor. The armor regains [[/r 1d3]] expended charges daily at dawn.</p><p>This armor is leather armor with heavy rings sewn into it. The rings help reinforce the armor against blows from swords and axes. Ring mail is inferior to chain mail, and it's usually worn only by those who can't afford better armor.</p>",
       "chat": ""
     },
     "proficient": null,
@@ -28,7 +28,6 @@
     "attuned": true,
     "identified": true,
     "equipped": true,
-    "rarity": "rare",
     "type": {
       "value": "heavy",
       "baseItem": "ringmail"
@@ -52,7 +51,7 @@
     "armor": {
       "value": 14,
       "dex": 0,
-      "magicalBonus": 0
+      "magicalBonus": "0"
     },
     "strength": null,
     "activities": {
@@ -78,19 +77,24 @@
             }
           ]
         },
-        "description": {},
+        "description": {
+          "value": ""
+        },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -104,8 +108,6 @@
         },
         "spell": {
           "challenge": {
-            "attack": null,
-            "save": null,
             "override": false
           },
           "level": null,
@@ -129,7 +131,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -137,7 +140,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -148,13 +150,58 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
         }
       }
     },
@@ -164,7 +211,12 @@
     },
     "container": null,
     "cover": null,
-    "crewed": false
+    "rarities": [
+      "rare"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "img": "icons/equipment/chest/breastplate-banded-simple-leather-brown.webp",
   "ownership": {
@@ -194,16 +246,17 @@
       "noConcentrationCheck": false,
       "toggleEffect": false,
       "ignoreTotalCover": false
-    }
+    },
+    "dnd5e": {}
   },
   "effects": [],
   "folder": "UkU3u1aaCqVQbSa1",
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1751738888053,
     "modifiedTime": 1757350590002,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

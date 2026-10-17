@@ -23,12 +23,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -39,7 +41,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -77,7 +80,7 @@
                 "formula": ""
               },
               "number": 2,
-              "denomination": "6",
+              "denomination": 6,
               "bonus": "",
               "types": [
                 "necrotic",
@@ -88,7 +91,11 @@
                 "force",
                 "acid",
                 "lightning"
-              ]
+              ],
+              "modifiers": [],
+              "scaling": {
+                "number": 1
+              }
             }
           ]
         },
@@ -103,7 +110,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -111,7 +119,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -122,13 +129,27 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "attackMode": "oneHanded",
@@ -137,7 +158,39 @@
         "name": "龙怒武器攻击",
         "_id": "a4GJjfoNeHWkWVYb",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       },
       "bKzfunlvEzWP7yNe": {
         "type": "save",
@@ -156,17 +209,21 @@
           "spellSlot": true,
           "targets": [
             {
-              "type": "activityUses"
+              "type": "activityUses",
+              "value": "1",
+              "scaling": {}
             }
           ]
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -179,7 +236,8 @@
             "units": "ft",
             "type": "cone",
             "size": "30",
-            "count": "1"
+            "count": "1",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -206,7 +264,7 @@
                 "formula": ""
               },
               "number": 8,
-              "denomination": "6",
+              "denomination": 6,
               "bonus": "",
               "types": [
                 "necrotic",
@@ -217,7 +275,11 @@
                 "force",
                 "acid",
                 "lightning"
-              ]
+              ],
+              "modifiers": [],
+              "scaling": {
+                "number": 1
+              }
             }
           ],
           "critical": {
@@ -232,7 +294,8 @@
           "dc": {
             "calculation": "",
             "formula": "16"
-          }
+          },
+          "visible": true
         },
         "useConditionText": "",
         "useConditionReason": "",
@@ -245,7 +308,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -253,7 +317,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -264,18 +327,63 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "name": "毁灭吐息",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       },
       "nhaQmUd7DPzbd1ao": {
         "type": "enchant",
@@ -295,12 +403,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
@@ -316,7 +426,8 @@
               ],
               "effect": [],
               "item": []
-            }
+            },
+            "uuid": null
           }
         ],
         "range": {
@@ -327,7 +438,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -342,7 +454,7 @@
           "max": ""
         },
         "enchant": {
-          "identifier": ""
+          "self": false
         },
         "restrictions": {
           "allowMagical": true,
@@ -361,7 +473,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -369,7 +482,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -380,19 +492,61 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "",
         "img": "",
-        "appliedEffects": [
-          "DJ7uUQrDoTACScTJ"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
     "uses": {
@@ -401,7 +555,7 @@
       "max": ""
     },
     "description": {
-      "value": "<p><span style=\"font-family:'Roboto Condensed', sans-serif\">武器(任意)，极珍惜(需要同调)</span></p><p style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);margin:0.5em 0px;color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;background-color:rgb(248, 244, 241);text-align:start\"><span style=\"font-family:'Roboto Condensed', sans-serif\">这种武器装饰有龙头，爪子，翅膀，鳞片，或龙语文字。它进入巨龙宝库后会吸收龙的吐息武器的能量，并用它的特性造成这种类型的伤害。</span></p><p style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);margin:0.5em 0px;min-height:1rem;color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgb(248, 244, 241);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;text-align:start\"></p><p style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);margin:0.5em 0px;color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;background-color:rgb(248, 244, 241);text-align:start\"><span style=\"font-family:'Roboto Condensed', sans-serif\">当你使用此武器进行攻击检定掷出20时，目标5英尺内每个你选择的生物都受到和龙的吐息武器相同类型的5伤害。</span></p><p style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);margin:0.5em 0px;min-height:1rem;color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgb(248, 244, 241);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;text-align:start\"></p><p style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);margin:0.5em 0px;color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;min-height:1rem;background-color:rgb(248, 244, 241);text-align:start\"><span style=\"font-family:'Roboto Condensed', sans-serif\">你使用该武器的攻击检定和伤害掷骰获得+2，每次攻击命中时该武器造成与龙息武器相同类型的额外2d6伤害。</span></p><p></p><p>以一个动作，你可以从武器中释放出 30尺锥形的毁灭性能量。该区域内的每个生物必须进行一次DC 16的敏捷豁免，豁免失败时受到龙息武器造成的8d6伤害，豁免成功时受到的伤害减半。一旦这个动作被使用，直到下一个黎明前它不能再次使用。</p><p style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);margin:0.5em 0px;min-height:1rem;color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgb(248, 244, 241);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;text-align:start\"></p><p style=\"box-sizing:border-box;user-select:text;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);margin:0.5em 0px;color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;background-color:rgb(248, 244, 241);text-align:start\"><span style=\"font-family:'Roboto Condensed', sans-serif\">这是一件模板物品，请使用该武器的附魔功能将需要使用的符合要求的武器模板（如长剑，长弓等）完成附魔即可。</span></p>",
+      "value": "<p>武器(任意)，极珍惜(需要同调)</p><p style=\"color:rgb(25, 24, 19); font-style:normal; font-weight:400; text-align:start\">这种武器装饰有龙头，爪子，翅膀，鳞片，或龙语文字。它进入巨龙宝库后会吸收龙的吐息武器的能量，并用它的特性造成这种类型的伤害。</p><p style=\"color:rgb(25, 24, 19); font-style:normal; font-weight:400; text-align:start\">当你使用此武器进行攻击检定掷出20时，目标5英尺内每个你选择的生物都受到和龙的吐息武器相同类型的5伤害。</p><p style=\"color:rgb(25, 24, 19); font-style:normal; font-weight:400; text-align:start\">你使用该武器的攻击检定和伤害掷骰获得+2，每次攻击命中时该武器造成与龙息武器相同类型的额外2d6伤害。</p><p>以一个动作，你可以从武器中释放出 30尺锥形的毁灭性能量。该区域内的每个生物必须进行一次DC 16的敏捷豁免，豁免失败时受到龙息武器造成的8d6伤害，豁免成功时受到的伤害减半。一旦这个动作被使用，直到下一个黎明前它不能再次使用。</p><p style=\"color:rgb(25, 24, 19); font-style:normal; font-weight:400; text-align:start\">这是一件模板物品，请使用该武器的附魔功能将需要使用的符合要求的武器模板（如长剑，长弓等）完成附魔即可。</p>",
       "chat": ""
     },
     "identifier": "-",
@@ -424,12 +578,10 @@
       "value": 0,
       "denomination": "gp"
     },
-    "rarity": "veryRare",
     "attunement": "required",
     "attuned": false,
     "equipped": false,
     "cover": null,
-    "crewed": false,
     "ammunition": {},
     "armor": {
       "value": null
@@ -445,7 +597,8 @@
         "scaling": {
           "number": 1
         },
-        "bonus": ""
+        "bonus": "",
+        "modifiers": []
       },
       "versatile": {
         "number": null,
@@ -456,10 +609,10 @@
         },
         "scaling": {
           "number": 1
-        }
+        },
+        "modifiers": []
       }
     },
-    "magicalBonus": null,
     "properties": [
       "mgc"
     ],
@@ -468,13 +621,19 @@
       "value": null,
       "long": null,
       "reach": null,
-      "units": ""
+      "units": "ft"
     },
     "type": {
       "value": "simpleM",
       "baseItem": ""
     },
-    "mastery": ""
+    "mastery": "",
+    "rarities": [
+      "veryRare"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "effects": [
     {
@@ -483,65 +642,103 @@
       "img": "icons/weapons/swords/sword-guard-serrated.webp",
       "disabled": true,
       "_id": "DJ7uUQrDoTACScTJ",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.damage.base.bonus",
-          "mode": 5,
-          "value": "2",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "system.damage.base.bonus",
+            "value": 2,
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "ILraiegym7bo4SbQ",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.attunement",
+            "value": "required",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "JcFEHt39oYbIuQaa",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.description.value",
+            "value": "{}\n武器(任意)，极珍惜(需要同调)\n\n这种武器装饰有龙头，爪子，翅膀，鳞片，或龙语文字。它进入巨龙宝库后会吸收龙的吐息武器的能量，并用它的特性造成这种类型的伤害。\n\n当你使用此武器进行攻击检定掷出20时，目标5英尺内每个你选择的生物都受到和龙的吐息武器相同类型的5伤害。\n\n你使用该武器的攻击检定和伤害掷骰获得+2，每次攻击命中时该武器造成与龙息武器相同类型的额外2d6伤害。\n\n以一个动作，你可以从武器中释放出 30尺锥形的毁灭性能量。该区域内的每个生物必须进行一次DC 16的敏捷豁免，豁免失败时受到龙息武器造成的8d6伤害，豁免成功时受到的伤害减半。一旦这个动作被使用，直到下一个黎明前它不能再次使用。",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "dMvDD8BH6MvTqG65",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.price.value",
+            "value": 5000,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "iccAVp53YixdrkWC",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.price.denomination",
+            "value": "gp",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "7sWVkehlCukYkTzt",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.properties",
+            "value": "mgc",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "VIv2L06ARvS87Q30",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "name",
+            "value": "觉醒龙怒 {}",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "d9614bx304xFdlJh",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.rarity",
+            "value": "veryRare",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "sfKFjUZKj4PLCxRE",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
         },
-        {
-          "key": "system.attunement",
-          "mode": 5,
-          "value": "required",
-          "priority": 20
-        },
-        {
-          "key": "system.description.value",
-          "mode": 5,
-          "value": "{}\n武器(任意)，极珍惜(需要同调)\n\n这种武器装饰有龙头，爪子，翅膀，鳞片，或龙语文字。它进入巨龙宝库后会吸收龙的吐息武器的能量，并用它的特性造成这种类型的伤害。\n\n当你使用此武器进行攻击检定掷出20时，目标5英尺内每个你选择的生物都受到和龙的吐息武器相同类型的5伤害。\n\n你使用该武器的攻击检定和伤害掷骰获得+2，每次攻击命中时该武器造成与龙息武器相同类型的额外2d6伤害。\n\n以一个动作，你可以从武器中释放出 30尺锥形的毁灭性能量。该区域内的每个生物必须进行一次DC 16的敏捷豁免，豁免失败时受到龙息武器造成的8d6伤害，豁免成功时受到的伤害减半。一旦这个动作被使用，直到下一个黎明前它不能再次使用。",
-          "priority": 20
-        },
-        {
-          "key": "system.price.value",
-          "mode": 2,
-          "value": "5000",
-          "priority": 20
-        },
-        {
-          "key": "system.price.denomination",
-          "mode": 5,
-          "value": "gp",
-          "priority": 20
-        },
-        {
-          "key": "system.properties",
-          "mode": 2,
-          "value": "mgc",
-          "priority": 20
-        },
-        {
-          "key": "name",
-          "mode": 5,
-          "value": "觉醒龙怒 {}",
-          "priority": 20
-        },
-        {
-          "key": "system.rarity",
-          "mode": 5,
-          "value": "veryRare",
-          "priority": 20
-        }
-      ],
+        "magical": true
+      },
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "origin": null,
@@ -560,42 +757,26 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1756812103793,
         "modifiedTime": 1756813255030,
         "lastModifiedBy": "WlyFYC2sYFseAvyj",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!1JsCHa1RNnONy6gy.DJ7uUQrDoTACScTJ"
     }
   ],
@@ -625,8 +806,10 @@
     },
     "dnd5e": {
       "riders": {
-        "activity": [],
-        "effect": []
+        "activity": [
+          "a4GJjfoNeHWkWVYb",
+          "bKzfunlvEzWP7yNe"
+        ]
       }
     },
     "chris-premades": {
@@ -640,9 +823,9 @@
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1756811932031,
     "modifiedTime": 1757871109238,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -7,7 +7,7 @@
       "subtype": ""
     },
     "description": {
-      "value": "<p><em><strong>吐息武器Breath Weapon</strong></em>。</p><p><span style=\"font-family:'Roboto Condensed', sans-serif\">当你使用攻击动作时，你可以将其中一次攻击替换为呼出一种30尺长，5尺宽的魔法能量。矩形范围内的每个生物都必须成功通过一次DC为（8+你的体质调整值+你的熟练加值）的敏捷豁免，否则将受到1d10的对应色彩龙血脉的伤害，成功则伤害减半。该伤害在你达到5级时增至2d10，11级时增至3d10，17级时增至4d10。<br style=\"box-sizing:border-box;user-select:text;color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;background-color:rgb(241, 235, 232);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\" />你可以使用该特性的次数等同于你的熟练加值，你在完成一次长休后重获所有已使用的次数。</span></p><p><em><strong>伤害抗性Damage Resistance</strong></em>。</p><p>你获得<span style=\"font-family:'Roboto Condensed', sans-serif\">寒冷</span>抗性。</p>",
+      "value": "<p><em><strong>吐息武器Breath Weapon</strong></em>。</p><p>当你使用攻击动作时，你可以将其中一次攻击替换为呼出一种30尺长，5尺宽的魔法能量。矩形范围内的每个生物都必须成功通过一次DC为（8+你的体质调整值+你的熟练加值）的敏捷豁免，否则将受到1d10的对应色彩龙血脉的伤害，成功则伤害减半。该伤害在你达到5级时增至2d10，11级时增至3d10，17级时增至4d10。<br style=\"box-sizing:border-box;user-select:text;color:rgb(25, 24, 19);font-family:'Roboto Condensed', sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;background-color:rgb(241, 235, 232);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\">你可以使用该特性的次数等同于你的熟练加值，你在完成一次长休后重获所有已使用的次数。</p><p><em><strong>伤害抗性Damage Resistance</strong></em>。</p><p>你获得寒冷抗性。</p>",
       "chat": ""
     },
     "source": {
@@ -58,18 +58,20 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -81,7 +83,8 @@
             "size": "30",
             "width": "5",
             "height": "",
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -115,9 +118,13 @@
                 "mode": "whole",
                 "number": null,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
-          ]
+          ],
+          "critical": {
+            "allow": false
+          }
         },
         "save": {
           "ability": [
@@ -126,17 +133,123 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
     "identifier": "-ftd",
-    "advancement": [],
+    "advancement": {
+      "efc6551b680a0f3b": {
+        "_id": "efc6551b680a0f3b",
+        "type": "Trait",
+        "name": "龙族抗性",
+        "configuration": {
+          "mode": "default",
+          "allowReplacements": false,
+          "grants": [
+            "dr:cold"
+          ],
+          "choices": []
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     }
   },
   "flags": {
@@ -169,14 +282,7 @@
       "autoTarget": "default",
       "removeAttackDamageButtons": "default"
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/skills/wounds/blood-spurt-spray-red.webp",
   "effects": [],
@@ -187,8 +293,8 @@
   "folder": "BOOfVHTM6x32U5kZ",
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711712116824,
     "modifiedTime": 1756544420586,
     "lastModifiedBy": "sPF2dtZDreDpJaW6",

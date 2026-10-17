@@ -2,14 +2,14 @@
   "_id": "k9ZuqdU0HaH6PjDm",
   "name": "精通至圣斩 Improved Divine Smite",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/ABILITY_PALADIN_DIVINESTORM.png",
+  "img": "icons/magic/symbols/cog-shield-white-blue.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>第11级起，你体内充盈的公正之力使你的近战武器打击中携带着神圣的力量。当你使用近战武器命中一个生物时，该生物将额外受到[[/r 1d8]]点光耀伤害。如果你同时发动了@UUID[Compendium.dnd5e_classpack.class-abilityphb.qV59DzEZQ58IAzfm]{至圣斩}，则至圣斩的额外伤害和此额外伤害进行叠加。</p>",
+      "value": "<p>第11级起，你体内充盈的公正之力使你的近战武器打击中携带着神圣的力量。当你使用近战武器命中一个生物时，该生物将额外受到[[/damage 1d8 type=radiant]]{1d8}点光耀伤害。如果你同时发动了@UUID[Compendium.dnd5e_classpack.class-abilityphb.Item.xEqX4KGWWY5W1bRE]{至圣斩}，则至圣斩的额外伤害和此额外伤害进行叠加。</p>",
       "chat": ""
     },
     "source": {
@@ -25,13 +25,16 @@
     "requirements": "圣武士等级 11",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 11,
+      "repeatable": false,
+      "items": [
+        "class:paladin"
+      ]
     },
     "properties": [
       "mgc"
@@ -40,37 +43,26 @@
   "effects": [
     {
       "name": "精通至圣斩",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.k9ZuqdU0HaH6PjDm",
+      "origin": null,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "disabled": false,
       "flags": {
         "dnd5e": {}
       },
       "_id": "q369LHWjxK3UafRi",
-      "changes": [
-        {
-          "key": "system.bonuses.mwak.damage",
-          "mode": 2,
-          "value": "+1d8[Radiant]",
-          "priority": null
-        }
-      ],
       "description": "",
       "transfer": true,
       "statuses": [],
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -78,10 +70,38 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/ABILITY_PALADIN_DIVINESTORM.png",
+      "img": "icons/magic/symbols/cog-shield-white-blue.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.rolls.damage.mwak.bonus",
+            "value": "+1d8[Radiant]",
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "WPqMgJx3wuW9DKeN",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.k9ZuqdU0HaH6PjDm",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!k9ZuqdU0HaH6PjDm.q369LHWjxK3UafRi"
     }
   ],
@@ -92,13 +112,7 @@
     "entityorder": {
       "order": 162
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -118,9 +132,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1724326320859,
     "modifiedTime": 1757101639657,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

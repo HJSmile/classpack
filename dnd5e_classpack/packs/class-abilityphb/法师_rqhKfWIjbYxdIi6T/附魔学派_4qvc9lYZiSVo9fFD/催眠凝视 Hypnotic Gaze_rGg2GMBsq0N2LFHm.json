@@ -2,14 +2,14 @@
   "_id": "rGg2GMBsq0N2LFHm",
   "name": "催眠凝视 Hypnotic Gaze",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Shadow_UnholyFrenzy.png",
+  "img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>        从第2级你选择该学派起，你可以用轻柔的语言和魅惑的目光来施展魔法奴役其他生物。作为一个动作，你指定身边5尺范围内一个你能看见的生物。如果该生物能看见你或者能听到你的声音，则其必须进行一次对抗你法师法术豁免DC的感知豁免，豁免失败则受你魅惑，其状态持续至你下一回合结束。该被魅惑生物的速度将下降至0，并陷入失能状态。外表上看该生物会是一副头晕目眩的样子。</p>\n<p>        在接下来的回合中，你可以用另一个动作来延续该效应，以将其持续时间再延续至你的下一回合结束。然而，如果你移动到目标生物5尺以外,或者该生物变得不能看见你也不能听到你的声音，又或者目标生物受到伤害时，该效应将提前终止。</p>\n<p>        如果该效应终止，或者该生物在最初的豁免中成功，则你将无法对这个生物再使用该特性，直至你完成一次长休。</p>",
+      "value": "<p>        从第2级你选择该学派起，你可以用轻柔的语言和魅惑的目光来施展魔法奴役其他生物。作为一个动作，你指定身边5尺范围内一个你能看见的生物。如果该生物能看见你或者能听到你的声音，则其必须进行一次对抗你法师法术豁免DC的[[/save activity=dnd5eactivity000]]{感知豁免}，豁免失败则受你魅惑，其状态持续至你下一回合结束。该被魅惑生物的速度将下降至0，并陷入&amp;Reference[condition=incapacitated apply=false]{失能}状态。外表上看该生物会是一副头晕目眩的样子。</p>\n<p>        在接下来的回合中，你可以用另一个动作来延续该效应，以将其持续时间再延续至你的下一回合结束。然而，如果你移动到目标生物5尺以外,或者该生物变得不能看见你也不能听到你的声音，又或者目标生物受到伤害时，该效应将提前终止。</p>\n<p>        如果该效应终止，或者该生物在最初的豁免中成功，则你将无法对这个生物再使用该特性，直至你完成一次长休。</p>",
       "chat": ""
     },
     "source": {
@@ -47,17 +47,22 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "KF7SJiz6n8uAdTGn"
+            "_id": "KF7SJiz6n8uAdTGn",
+            "uuid": null,
+            "level": {},
+            "onSave": false
           }
         ],
         "range": {
@@ -74,7 +79,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "1",
@@ -92,7 +98,10 @@
         },
         "damage": {
           "onSave": "half",
-          "parts": []
+          "parts": [],
+          "critical": {
+            "allow": false
+          }
         },
         "save": {
           "ability": [
@@ -101,44 +110,140 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 2,
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
   "effects": [
     {
       "name": "催眠凝视",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Shadow_UnholyFrenzy.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.rGg2GMBsq0N2LFHm",
+      "img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+      "origin": null,
       "transfer": false,
       "_id": "KF7SJiz6n8uAdTGn",
       "type": "base",
-      "system": {},
-      "changes": [],
+      "system": {
+        "changes": [],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.rGg2GMBsq0N2LFHm",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": 1,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "rounds",
+        "expiry": "sourceEnd",
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -159,47 +264,29 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": [
-            "turnEndSource"
-          ]
+          "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757064447517,
         "modifiedTime": 1757064516815,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "showIcon": 2,
+      "start": null,
+      "folder": null,
       "_key": "!items.effects!rGg2GMBsq0N2LFHm.KF7SJiz6n8uAdTGn"
     }
   ],
@@ -215,14 +302,7 @@
       "alwaysActive": false,
       "effects": []
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -242,9 +322,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757064539190,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

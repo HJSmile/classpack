@@ -7,12 +7,7 @@
   "folder": "qiJofEGkS1454LSL",
   "sort": 1300000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -33,7 +28,7 @@
   },
   "system": {
     "description": {
-      "value": "<p>选择1种属性，并获得下列增益：</p><ul><li><p>所选属性加1，上限为20。</p></li><li><p>你进行所选属性的豁免检定时可以加上你的熟练加值。</p></li></ul>",
+      "value": "<p>选择1种属性，并获得下列增益：</p><ul><li><p>所选属性加1，上限为20。</p></li><li><p>你获得所选属性豁免的熟练项。</p></li></ul>",
       "chat": ""
     },
     "source": {
@@ -44,23 +39,79 @@
     },
     "cover": null,
     "uses": {
-      "max": "0",
+      "max": "",
       "spent": 0,
       "recovery": []
     },
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "requirements": "",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {
+      "X70FbpWIflVvI5ON": {
+        "_id": "X70FbpWIflVvI5ON",
+        "type": "ItemChoice",
+        "name": "强健身心属性",
+        "configuration": {
+          "choices": {
+            "0": {
+              "count": 1,
+              "replacement": false
+            }
+          },
+          "allowDrops": false,
+          "type": "feat",
+          "pool": [
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.730f086c2bac6459",
+              "sort": 0
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.331b3ad5c450f7a1",
+              "sort": 1
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.5d89f2e3e4f56904",
+              "sort": 2
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.3c298305710a7b7b",
+              "sort": 3
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.78de69d2e46239ae",
+              "sort": 4
+            },
+            {
+              "uuid": "Compendium.dnd5e_classpack.feats-all.Item.0f31037ad7f76e7a",
+              "sort": 5
+            }
+          ],
+          "spell": null,
+          "restriction": {
+            "type": "feat",
+            "subtype": "",
+            "level": "",
+            "list": [],
+            "school": []
+          },
+          "sorting": "m"
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -68,9 +119,9 @@
     "default": 0
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757865429408,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

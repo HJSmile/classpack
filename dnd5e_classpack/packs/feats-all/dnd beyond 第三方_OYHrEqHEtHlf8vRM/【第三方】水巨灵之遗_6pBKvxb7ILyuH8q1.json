@@ -6,10 +6,10 @@
   "system": {
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "description": {
-      "value": "<p>你从水巨灵中继承了更多的魔法力量。你得到如下增益：<br /></p>\n<ul>\n<li>你的感知或体质上升1点，上限20。<br /></li>\n<li>你学会侦测魔法法术，并且可以随意施展它而无需消耗法术位。<br /></li>\n<li>你对寒冷伤害具有抗力。</li>\n</ul>",
+      "value": "<p>你从水巨灵中继承了更多的魔法力量。你得到如下增益：</p><ul><li>你的感知或体质上升1点，上限20。<br></li><li>你学会侦测魔法法术，并且可以随意施展它而无需消耗法术位。<br></li><li>你对寒冷伤害具有抗力。</li></ul>",
       "chat": ""
     },
     "source": {
@@ -18,20 +18,70 @@
       "rules": "2014"
     },
     "uses": {
-      "max": "0",
+      "max": "",
       "spent": 0,
       "recovery": []
     },
     "requirements": "水元素裔",
     "activities": {},
     "identifier": "",
-    "advancement": [],
+    "advancement": {
+      "7a50912ad842b882": {
+        "_id": "7a50912ad842b882",
+        "type": "AbilityScoreImprovement",
+        "name": "属性值提升",
+        "configuration": {
+          "cap": 1,
+          "fixed": {
+            "str": 0,
+            "dex": 0,
+            "con": 0,
+            "int": 0,
+            "wis": 0,
+            "cha": 0
+          },
+          "locked": [
+            "str",
+            "dex",
+            "int",
+            "cha"
+          ],
+          "points": 1,
+          "max": 20,
+          "recommendation": null
+        },
+        "value": {
+          "type": "asi"
+        },
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      },
+      "83214a56e5cb9dd1": {
+        "_id": "83214a56e5cb9dd1",
+        "type": "Trait",
+        "name": "伤害抗性",
+        "configuration": {
+          "mode": "default",
+          "allowReplacements": false,
+          "grants": [
+            "dr:cold"
+          ],
+          "choices": []
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -39,17 +89,12 @@
   "folder": "OYHrEqHEtHlf8vRM",
   "sort": 100049,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1749711029989,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

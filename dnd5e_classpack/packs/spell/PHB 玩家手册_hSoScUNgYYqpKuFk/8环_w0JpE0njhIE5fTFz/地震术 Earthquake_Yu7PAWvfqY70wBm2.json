@@ -27,24 +27,13 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Nature_Earthquake.png",
+  "img": "icons/magic/earth/explosion-lava-stone-red.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你在施法距离内一处能看见的地面上指定一点，并在其上制造地震扰动。在法术持续时间内，一阵强烈的震颤在震源周边半径100尺的圆形范围内传递，并使区域内地上的生物和建筑都受到震动影响。\n<br />受影响区域内的地面变为困难地形。而区域地面上的每个正在进行专注的生物都必须进行一次体质豁免，豁免失败则其专注被打断。\n<br />在你施展此法术以及随后保持专注的每回合结束时，区域地面上的每个生物都必须进行一次敏捷豁免，豁免失败则生物应击倒地。\n<br />根据施法区域的地形，DM 可以决定是否应用额外的效应。\n<br /><strong>裂缝Fissures。</strong>在施展此法术的下一个回合开始时，法术影响区域会撕开一道道裂缝。1d6条裂缝在DM 安排的位置出现。每条裂缝深1d10×10尺，宽10尺，并由影响区域的一边向另一边延伸。裂缝撕开时，将处于其位置上的生物必须成功通过一次敏捷豁免，否则将坠落其中。豁免成功则该生物移动到裂缝旁边。裂缝上的建筑会直接崩塌，详情如下。\n<br /><strong>建筑Structures。</strong>在你施展此法术及法术终止前你的每个回合开始时，地震对影响区域内的所有建筑都造成50点钝击伤害。建筑生命值降为0时立即崩塌，且可能对附近生物造成伤害。与该建筑距离不大于该建筑高度一半的生物，都必须进行一次敏捷豁免。豁免失败则受5d6的钝击伤害并应击倒地且埋于废墟之下。该生物可用一个动作来进行一次DC 20的力量（运动）检定来尝试逃离废墟。DM 可根据废墟的情况调整DC 高低。豁免成功时伤害减半，且不会倒地或被掩埋。\n<br /></div>",
+      "value": "<p>你在施法距离内一处能看见的地面上指定一点，并在其上制造地震扰动。在法术持续时间内，一阵强烈的震颤在震源周边半径 100 尺的圆形范围内传递，并使区域内地上的生物和建筑都受到震动影响。</p><p>受影响区域内的地面变为困难地形。而区域地面上的每个正在进行专注的生物都必须进行一次体质豁免，豁免失败则其专注被打断。</p><p>在你施展此法术以及随后保持专注的每回合结束时，区域地面上的每个生物都必须进行一次[[/save activity=dnd5eactivity000]]{敏捷豁免}，豁免失败则生物应击倒地。</p><p>根据施法区域的地形，DM 可以决定是否应用额外的效应。</p><blockquote><p><strong>裂缝Fissures。</strong>在施展此法术的下一个回合开始时，法术影响区域会撕开一道道裂缝。1d6 条裂缝在 DM 安排的位置出现。每条裂缝深 1d10×10 尺，宽 10 尺，并由影响区域的一边向另一边延伸。裂缝撕开时，将处于其位置上的生物必须成功通过一次敏捷豁免，否则将坠落其中。豁免成功则该生物移动到裂缝旁边。</p><p>任何处在裂缝上的建筑会直接崩塌（如下所示）。</p><p><strong>建筑Structures。</strong>在你施展此法术时及法术终止前你的每个回合开始时，地震对影响区域内的所有建筑都造成 50 点钝击伤害。建筑生命值降为 0 时立即崩塌，且可能对附近生物造成伤害。与该建筑距离不大于该建筑高度一半的生物，都必须进行一次敏捷豁免。豁免失败则受 [[/damage 5d6 type=bludgeoning]]{5d6} 的钝击伤害并应击倒地且埋于废墟之下。该生物可用一个动作来进行一次 DC20 的[[/check ability=str skill=ath]]{力量（运动）检定}来尝试逃离废墟。DM 可根据废墟的情况调整 DC 高低。豁免成功时伤害减半，且不会倒地或被掩埋。</p></blockquote>",
       "chat": ""
     },
     "source": {
@@ -60,7 +49,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -72,7 +62,8 @@
         "type": "radius",
         "size": "100",
         "contiguous": false,
-        "count": ""
+        "count": "",
+        "stationary": false
       }
     },
     "range": {
@@ -93,10 +84,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -123,22 +110,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -164,7 +155,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -178,7 +170,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -186,7 +179,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -197,18 +189,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "earthquake"
+    "identifier": "earthquake",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -217,8 +258,8 @@
   "sort": 3200000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -24,63 +24,96 @@
       "removeAttackDamageButtons": "default",
       "reactionCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
+    "dnd5e": {},
+    "dae": {
+      "macro": {
+        "name": "命运宠儿Fortune’s Favor",
+        "type": "script",
+        "command": "function copyRoll(roll) {\n  return roll.constructor.fromData(foundry.utils.deepClone(roll.toJSON()));\n}\nfunction refreshRoll(roll) {\n  for (const term of roll.terms) {\n    if (term.roll) refreshRoll(term.roll);\n    for (const inner of term.rolls ?? []) refreshRoll(inner);\n    for (const inner of term.terms ?? []) if (inner?.terms) refreshRoll(inner);\n  }\n  roll._total = roll._evaluateTotal();\n  return roll;\n}\nfunction weaponDice(roll, workflow) {\n  if (workflow.item?.type !== \"weapon\" || !workflow.activity?.damage?.includeBase) return [];\n  const part = workflow.activity.damage.parts[0];\n  if (!part) return [];\n  const formula = part.formula ?? part.custom?.formula;\n  if (!formula) return [];\n  const base = foundry.dice.Roll.create(formula, workflow.activity.getRollData());\n  return roll.dice.slice(0, base.dice.length);\n}\nasync function rerollLowWeaponDice(roll, workflow) {\n  const properties = workflow.item?.system?.properties;\n  if (workflow.activity?.actionType !== \"mwak\" || workflow.attackMode !== \"twoHanded\"\n    || ![\"two\", \"ver\"].some(key => properties?.has(key))) return false;\n  let changed = false;\n  for (const die of weaponDice(roll, workflow)) {\n    if (die.options.dnd5e_classpackGreatWeaponFighting) continue;\n    die.options.dnd5e_classpackGreatWeaponFighting = true;\n    changed = true;\n    for (const result of [...die.results]) {\n      if (!result.active || result.result > 2) continue;\n      const replacement = new die.constructor({ number: 1, faces: die.faces });\n      await replacement.evaluate();\n      result.active = false;\n      result.rerolled = true;\n      die.results.push(...replacement.results);\n    }\n  }\n  if (changed) refreshRoll(roll);\n  return changed;\n}\n\nconst original = args[0]?.roll;\nif (args[0]?.tag !== \"optional\" || !original) return;\nconst revised = copyRoll(original);\nconst d20 = revised.dice.find(die => die.faces === 20);\nconst kept = d20?.results.find(result => result.active);\nif (!kept) return original;\nconst extra = new d20.constructor({ number: 1, faces: 20 });\nawait extra.evaluate();\nconst value = extra.results.find(result => result.active)?.result;\nif (!(value > (kept.count ?? kept.result))) return original;\nkept.result = value;\ndelete kept.count;\nreturn refreshRoll(revised);\n"
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/ability_rogue_rollthebones.jpg",
+  "img": "icons/magic/control/buff-luck-fortune-clover-green.webp",
   "effects": [
     {
       "name": "命运宠儿Fortune’s Favor",
-      "img": "modules/dnd5e_classpack/Nicons/ability_rogue_rollthebones.jpg",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.QD0hMadacCVoJGkn",
+      "img": "icons/magic/control/buff-luck-fortune-clover-green.webp",
+      "origin": null,
       "transfer": false,
       "_id": "AM8ee2iV9vYDFgWj",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.optional.NAME.attack.fail.all",
-          "mode": 5,
-          "value": "reroll-kh",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "flags.midi-qol.optional.命运宠儿.attack.all",
+            "value": "ItemMacro",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "FoNneILbzzDFA6sL",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.命运宠儿.save.all",
+            "value": "ItemMacro",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "a9wxVFb4ne0oWCw0",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.命运宠儿.check.all",
+            "value": "ItemMacro",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "2M7Ibl9dmlryeYhd",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "flags.midi-qol.optional.命运宠儿.label",
+            "value": "命运宠儿",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "zkfsyK9TYr2i1iRq",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "_id": "a650d8eaee8f78cf",
+            "key": "flags.midi-qol.optional.命运宠儿.skill.all",
+            "value": "ItemMacro",
+            "type": "custom",
+            "priority": 20,
+            "phase": "initial",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "flags.midi-qol.optional.NAME.save.fail.all",
-          "mode": 5,
-          "value": "reroll-kh",
-          "priority": 20
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.QD0hMadacCVoJGkn",
+          "message": null
         },
-        {
-          "key": "flags.midi-qol.optional.NAME.check.fail.all",
-          "mode": 5,
-          "value": "reroll-kh",
-          "priority": 20
-        },
-        {
-          "key": "flags.midi-qol.optional.NAME.label",
-          "mode": 2,
-          "value": "命运宠儿",
-          "priority": 20
-        }
-      ],
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "hours",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -98,51 +131,36 @@
           "showIcon": false,
           "durationExpression": "",
           "macroRepeat": "none",
-          "specialDuration": []
+          "specialDuration": [],
+          "applicationMode": "dnd5e"
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1756826550407,
         "modifiedTime": 1756826640233,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!QD0hMadacCVoJGkn.AM8ee2iV9vYDFgWj"
     }
   ],
   "system": {
     "description": {
-      "value": "<p>你给予你自己或施法距离内你可见的一个自愿生物以潜藏的幸运。在法术结束之前，当被选中的生物进行一次攻击检定，属性检定或者豁免检定时，他能够使这个法术结束并扔一颗额外的D20骰，并决定使用哪一颗D20。或者，当这个生物成为一个攻击检定的目标时，他能够使这个法术结束并扔一颗额外的D20骰，并决定使用哪一颗D20:攻击者所掷骰的或通过该法术所掷骰。</p>\n<p>若原D20骰有优势或劣势，那么通过该法术掷出的D20在原D20的优势或劣势生效后生效。</p>\n<p><strong>升环施法效应:</strong>使用三环或更高法术位施展该法术时，每比二环高一环的法术位可以令你指定一个额外的生物。</p>",
+      "value": "<p>你给予你自己或施法距离内你可见的一个自愿生物以潜藏的幸运。在法术结束之前，当被选中的生物进行一次攻击检定，属性检定或者豁免检定时，他能够使这个法术结束并扔一颗额外的D20骰，并决定使用哪一颗D20。或者，当这个生物成为一个攻击检定的目标时，他能够使这个法术结束并扔一颗额外的D20骰，并决定使用哪一颗D20：攻击者所掷骰的或通过该法术所掷骰。</p><p>若原D20骰有优势或劣势，那么通过该法术掷出的D20在原D20的优势或劣势生效后生效。</p><p><strong>升环施法效应。</strong>使用三环或更高法术位施展该法术时，使用的法术位每比二环高一环，你就可以额外再指定一名生物作为法术目标。</p>",
       "chat": ""
     },
     "source": {
@@ -160,7 +178,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -170,9 +189,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -193,10 +213,6 @@
       "consumed": true,
       "cost": 100,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -222,26 +238,43 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "AM8ee2iV9vYDFgWj"
+            "_id": "AM8ee2iV9vYDFgWj",
+            "uuid": null,
+            "level": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "coreVersion": "14.368",
+              "systemId": "dnd5e",
+              "systemVersion": "6.0.5",
+              "createdTime": 1756826550407,
+              "modifiedTime": 1756826640233,
+              "lastModifiedBy": "WqWGW8MuBm7BNHxt",
+              "exportSource": null
+            }
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -271,7 +304,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -279,7 +313,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -290,18 +323,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "fortunes-favor"
+    "identifier": "fortunes-favor",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -310,8 +391,8 @@
   "sort": 700000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757260552648,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

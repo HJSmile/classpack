@@ -27,21 +27,11 @@
       "otherCondition": "",
       "onUseMacroName": "[postDamageRoll]ItemMacro"
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "dae": {
       "macro": {
         "name": "汲能术Enervation",
-        "img": "modules/dnd5e_classpack/Nicons/spell_priest_voidsear.png",
+        "img": "icons/magic/unholy/strike-body-life-soul-purple.webp",
         "type": "script",
         "scope": "global",
         "command": "const workflow = args[0]?.workflow;\nif (!workflow) return console.log(\"宏触发但 workflow 不存在\");\nconsole.log(\"【调试】damageDetail:\", workflow.damageDetail);\n\nlet necroticTotal = 0;\n// 遍历 damageDetail（数组，每项包含 damageType & damage）\nif (Array.isArray(workflow.damageDetail)) {\n  workflow.damageDetail.forEach(entry => {\n    if (entry.type === \"necrotic\") necroticTotal += (entry.damage || 0);\n  });\n}\n\nif (necroticTotal === 0) {\n  return console.log(\"未造成黯蚀伤害，跳过治疗\");\n}\n\nconst healAmount = Math.floor(necroticTotal / 2);\nconsole.log(`黯蚀伤害总计 ${necroticTotal} → 回复 ${healAmount}`);\n\nlet casterToken = null;\nif (workflow.tokenUuid) {\n  const doc = await fromUuid(workflow.tokenUuid);\n  casterToken = doc?.object ?? null;\n} else if (workflow.tokenId) {\n  casterToken = canvas.tokens.get(workflow.tokenId);\n} else {\n  casterToken = canvas.tokens.controlled[0];\n}\nif (!casterToken) return console.log(\"无法找到施法者 token\");\n\nawait MidiQOL.applyTokenDamage(\n  [{ type: \"healing\", damage: healAmount }],\n  healAmount,\n  new Set([casterToken]),\n  workflow,\n  null\n);\n\nChatMessage.create({\n  content: `${casterToken.name} 从黯蚀伤害 ${necroticTotal} 中回复了 ${healAmount} 点生命（只针对黯蚀伤害）`\n});\n\nconsole.log(\"治疗已应用，仅针对黯蚀伤害\");",
@@ -66,23 +56,19 @@
       }
     }
   },
-  "img": "modules/dnd5e_classpack/Nicons/spell_priest_voidsear.png",
+  "img": "icons/magic/unholy/strike-body-life-soul-purple.webp",
   "effects": [
     {
       "name": "汲能术Enervation",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.ZtxJ6pZJvMhCH0kX",
+      "origin": null,
       "duration": {
-        "rounds": 10,
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 10,
+        "units": "rounds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "disabled": false,
       "_id": "g3BL9EqiAeBO2lIB",
-      "changes": [],
       "description": "",
       "transfer": false,
       "statuses": [],
@@ -93,33 +79,16 @@
           "selfTargetAlways": false,
           "dontApply": false,
           "stackable": "noneName",
-          "showIcon": true,
           "durationExpression": "",
           "macroRepeat": "none",
           "specialDuration": []
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system"
         }
       },
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -127,16 +96,33 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/spell_priest_voidsear.png",
+      "img": "icons/magic/unholy/strike-body-life-soul-purple.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.ZtxJ6pZJvMhCH0kX",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 2,
+      "folder": null,
       "_key": "!items.effects!ZtxJ6pZJvMhCH0kX.g3BL9EqiAeBO2lIB"
     }
   ],
   "system": {
     "description": {
-      "value": "<p>墨色的黑暗触须从你身上延伸，触碰法术距离内你可见的一个生物并汲取它的生命。目标必须进行敏捷豁免检定。若豁免成功，目标将受到2d8暗蚀伤害，随后法术结束。若豁免失败，目标受到4d8暗蚀伤害，并且直到法术结束之前，你在每个自己的回合都可以用你的动作对目标自动造成4d8暗蚀伤害。如果你使用你的动作来做其他任何事情，则法术即刻结束。此外，如果目标位于法术射程外或对你有全掩蔽，法术同样会结束。<br />每次法术对目标造成伤害，你都可以恢复目标受到的暗蚀伤害量的一半生命值。</p>\n<p><strong>升环效果：</strong>当你使用6环或更高的法术位施放该法术时，使用的法术位每高一环，伤害便增加1d8。</p>",
+      "value": "<p>墨色的黑暗触须从你身上延伸，触碰法术距离内你可见的一个生物并汲取它的生命。目标必须进行[[/save activity=dnd5eactivity000]]{敏捷豁免检定}。若豁免成功，目标将受到 [[/damage 2d8 type=necrotic]]{2d8} 暗蚀伤害，随后法术结束。若豁免失败，目标受到 [[/damage 4d8 type=necrotic]]{4d8} 暗蚀伤害，并且直到法术结束之前，你在每个自己的回合都可以用你的动作对目标自动造成 4d8 暗蚀伤害。如果你使用你的动作来做其他任何事情，则法术即刻结束。此外，如果目标位于施法距离外或对你处于全身掩护，法术同样会结束。</p><p>每次法术对目标造成伤害，你都可以恢复目标受到的暗蚀伤害量的一半生命值。</p><p><strong>升环施法效应。</strong>当你使用六环或更高的法术位施放该法术时，使用的法术位每高一环，伤害便增加 1d8。</p>",
       "chat": ""
     },
     "source": {
@@ -152,7 +138,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -162,9 +149,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -185,10 +173,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -214,27 +198,33 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
             "_id": "g3BL9EqiAeBO2lIB",
-            "onSave": false
+            "onSave": false,
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -255,7 +245,7 @@
                 "formula": ""
               },
               "number": 4,
-              "denomination": "8",
+              "denomination": 8,
               "bonus": "",
               "types": [
                 "necrotic"
@@ -264,7 +254,8 @@
                 "mode": "whole",
                 "number": 1,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ],
           "critical": {
@@ -278,7 +269,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -292,7 +284,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -300,7 +293,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -311,20 +303,63 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
         "name": "",
         "img": "",
-        "appliedEffects": [
-          "g3BL9EqiAeBO2lIB"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       },
       "tQNWZvNjROa3NT5n": {
         "type": "damage",
@@ -343,12 +378,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -358,7 +395,8 @@
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -382,7 +420,7 @@
                 "formula": ""
               },
               "number": 4,
-              "denomination": "8",
+              "denomination": 8,
               "bonus": "",
               "types": [
                 "necrotic"
@@ -391,7 +429,8 @@
                 "mode": "whole",
                 "number": 1,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ]
         },
@@ -406,7 +445,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -414,7 +454,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -425,20 +464,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "持续伤害",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
-    "identifier": "enervation"
+    "identifier": "enervation",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -447,8 +532,8 @@
   "sort": 9300000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1711695978534,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

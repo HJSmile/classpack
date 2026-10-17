@@ -23,25 +23,14 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "img": "icons/creatures/magical/construct-iron-stomping-yellow.webp",
   "_id": "Xh5cdHfYtKXl5Izi",
   "effects": [],
   "system": {
     "description": {
-      "value": "<p>你吐出污秽的词语，从无底深渊的无尽混沌中召唤来一只恶魔。你选择挑战等级为5或更低的一种恶魔类型，例如影魔Shadow Demon或者是巴古拉魔Barlgura。恶魔出现在法术距离内你可见的一处未被占据的空间，当它的生命值降低至0点或是法术结束时，恶魔将会消失。<br />恶魔拥有自己的回合，为他投掷先攻。当你在召唤它以及在之后你的每一个回合，你都可以向它发布口头命令（无需你的动作），告诉它在下个回合它必须做什么。如果你没有发布命令，它会花费自己的回合用来攻击任何在触及内攻击它的生物。<br />在恶魔的每个回合结束时，它都会进行一次魅力豁免检定。如果你说出它的真名，恶魔会在这次豁免检定中具有劣势。如果豁免失败，恶魔继续服从你。如果豁免成功，在法术剩下的时间中你失去对恶魔的控制，并且恶魔会花费它的回合用于追逐和攻击最近的非恶魔生物，尽其所能。即使你在到达完整的持续时间之前中断这个法术的专注，一个失去控制的恶魔在1d6轮内仍然不会消失，只要它还留有生命值。<br />作为施放此法术的一部分，你可以使用作为施法材料的血液在地上绘制一个法阵。法阵大到可以包括你在的空间。在法术的持续时间内，被召唤来的恶魔无法穿过或伤害法阵，也无法以其中的任何人作为目标。用这种方式使用的施法材料会在法术结束时被消耗。</p>\n<p><strong>升环效果：</strong>当你使用5环或更高的法术位施放该法术时，使用的法术位每高一环，允许召唤的恶魔挑战等级就+1。</p>",
+      "value": "<p>你吐出污秽的词语，从无底深渊的无尽混沌中召唤来一只恶魔。你选择挑战等级为 5 或更低的一种恶魔类型，例如<strong>幽影恶魔Shadow Demon</strong>或者是<strong>恶猿魔Barlgura</strong>。恶魔出现在法术距离内你可见的一处未占据空间，当它的生命值降低至 0 点或是法术结束时，恶魔将会消失。</p><p>恶魔拥有自己的回合，为他投掷先攻。当你在召唤它以及在之后你的每一个回合，你都可以向它发布口头命令（无需你的动作），告诉它在下个回合它必须做什么。如果你没有发布命令，它会花费自己的回合用来攻击任何在触及内攻击它的生物。</p><p>在恶魔的每个回合结束时，它都会进行一次魅力豁免检定。如果你说出它的真名，恶魔会在这次豁免检定中具有劣势。如果豁免失败，恶魔继续服从你。如果豁免成功，在法术剩下的时间中你失去对恶魔的控制，并且恶魔会花费它的回合用于追逐和攻击最近的非恶魔生物，尽其所能。即使你在到达完整的持续时间之前中断这个法术的专注，一个失去控制的恶魔在 1d6 轮内仍然不会消失，只要它还留有生命值。</p><p>作为施放此法术的一部分，你可以使用作为施法材料的血液在地上绘制一个法阵。法阵大到可以包括你在的空间。在法术的持续时间内，被召唤来的恶魔无法穿过或伤害法阵，也无法以其中的任何人作为目标。用这种方式使用的施法材料会在法术结束时被消耗。</p><p><strong>升环施法效应。</strong>当你使用五环或更高的法术位施放该法术时，使用的法术位每高一环，允许召唤的恶魔挑战等级就+1。</p>",
       "chat": ""
     },
     "source": {
@@ -57,7 +46,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -65,9 +55,10 @@
         "type": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -87,10 +78,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -117,12 +104,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -132,7 +121,8 @@
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -159,7 +149,8 @@
           "attacks": false,
           "proficiency": false,
           "saves": false,
-          "ability": ""
+          "ability": "",
+          "disposition": false
         },
         "profiles": [
           {
@@ -167,7 +158,7 @@
             "cr": "@item.level+1",
             "name": "",
             "_id": "9SSlaXgar0Ni7k9u",
-            "uuid": "",
+            "uuid": null,
             "types": [
               "fiend"
             ],
@@ -192,7 +183,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -200,7 +192,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -211,20 +202,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "friendlySummon": false
       }
     },
-    "identifier": "summon-greater-demon"
+    "identifier": "summon-greater-demon",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -233,8 +271,8 @@
   "sort": 8500000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

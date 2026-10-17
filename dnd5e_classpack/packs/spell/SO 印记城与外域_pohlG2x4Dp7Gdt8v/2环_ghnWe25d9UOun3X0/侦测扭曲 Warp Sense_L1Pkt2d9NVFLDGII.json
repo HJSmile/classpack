@@ -3,7 +3,7 @@
   "name": "侦测扭曲 Warp Sense",
   "type": "spell",
   "_id": "L1Pkt2d9NVFLDGII",
-  "img": "systems/dnd5e/icons/svg/items/spell.svg",
+  "img": "icons/magic/perception/orb-eye-scrying.webp",
   "system": {
     "activities": {},
     "uses": {
@@ -12,7 +12,7 @@
       "max": ""
     },
     "description": {
-      "value": "",
+      "value": "<p>持续时间内，你能够感知到你周围30尺范围内的传送门，且不论那些传送门是否开启。</p><p>如果你以此侦测到了传送门，你可以再用一个动作对其进行分析。为此，你需要用施法属性进行一次DC15的属性检定。检定成功时，你将会得知这个传送门背后的目的地是哪个位面，以及他需要什么样的传送门钥匙，那之后本法术结束。检定失败时，你将不会得知该传送门的任何情报，且直到你下次施展本法术前你都无法再次对该传送门进行分析。</p><p>本法术的侦测能力可以穿透大部分的障碍，但3尺厚的木材或泥土、1尺厚的岩石、1寸厚的常见金属、或薄薄一层铅片都能阻挡本法术的侦测。</p>",
       "chat": ""
     },
     "identifier": "warp-sense",
@@ -31,7 +31,8 @@
     },
     "duration": {
       "units": "minute",
-      "value": "1"
+      "value": "1",
+      "expiry": null
     },
     "level": 2,
     "materials": {
@@ -39,10 +40,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -61,7 +58,8 @@
         "units": "ft",
         "type": "circle",
         "size": "15",
-        "count": ""
+        "count": "",
+        "stationary": false
       },
       "affects": {
         "choice": false,
@@ -69,7 +67,9 @@
         "count": "",
         "special": ""
       }
-    }
+    },
+    "method": "spell",
+    "prepared": 0
   },
   "effects": [],
   "sort": 100000,
@@ -95,18 +95,14 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "riders": {
-        "activity": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1750036047337,
     "modifiedTime": 1757260054923,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -24,23 +24,13 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_DeathKnight_ArmyOfTheDead.png",
+  "img": "icons/magic/death/undead-skeleton-lich-armor.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 在施法距离内指定至多三具中型或小型类人生物遗体，并使每具受术尸体变成一只受你控制的食尸鬼ghoul（这些生物的具体游戏资料由DM 掌控）。该法术只能在夜晚施展。\n<br />在你的任一回合内，你可以使用一个附赠动作并以精神命令操纵120尺内任何你用此法术唤起的生物（如果你操纵多个生物，则你的命令可以同时传达给它们全部或是其中的某几个，不过只能使用同一种命令）。你决定被操纵的生物下回合的动作和移动。或者，你也可以选择下达宽泛的命令，例如守护某个房间或走廊。没有接受到你命令的生物则只会对敌对生物作出自卫的行为。一旦被下达命令，该生物会持续执行命令直到任务完成。被操纵的生物只会在24小时内服从你的命令。如果你在当前的24小时时间段终止前再次施展此法术，则你对该生物的操纵时间再延长24小时。法术的此种用法只能延长你对至多三个你使用此法术所创造生物的控制时间，而不会创造新的生物。\n<br /><strong>升环施法效应。</strong>使用7环法术位施展该法术时，你可以唤起或者维持四只食尸鬼。使用8环法术位施展该法术时，你可以唤起或维持五只食尸鬼，或者两只妖鬼，或者两个尸妖。当你使用9环法术位施展该法术时，你可以唤起或维持六只食尸鬼，或者三只妖鬼，或者三个尸妖，或者两个木乃伊。\n<br /></div>",
+      "value": "<p>在施法距离内指定至多三具中型或小型类人遗体，并使每具受术尸体变成一只受你控制的<strong>食尸鬼ghoul</strong>（这些生物的具体游戏资料由 DM 掌控）。该法术只能在夜晚施展。</p><p>在你的任一回合内，你可以使用一个附赠动作并以精神命令操纵 120 尺内任何你用此法术唤起的生物（如果你操纵多个生物，则你的命令可以同时传达给它们全部或是其中的某几个，不过只能使用同一种命令）。你决定被操纵的生物下回合的动作和移动。或者，你也可以选择下达宽泛的命令，例如守护某个房间或走廊。没有接受到你命令的生物则只会对敌对生物作出自卫的行为。一旦被下达命令，该生物会持续执行命令直到任务完成。</p><p>被操纵的生物只会在 24 小时内服从你的命令。若你在当前的 24 小时时间段终止前再次施展此法术，则你对该生物的操纵时间再延长 24 小时。法术的此种用法只能延长你对至多三个你使用此法术所创造生物的控制时间，不会造出新的生物。</p><p><strong>升环施法效应。</strong>使用七环法术位施展该法术时，你可以唤起并维持四只<strong>食尸鬼ghoul</strong>。使用八环法术位施展该法术时，你可以唤起并维持五只<strong>食尸鬼ghoul</strong>，也可以改为唤起并维持两只<strong>妖鬼ghast</strong>，或两个<strong>尸妖wight</strong>。当你使用九环法术位施展该法术时，你可以唤起并维持六只<strong>食尸鬼ghoul</strong>，也可以改为唤起并维持三只<strong>妖鬼ghast</strong>，或三个<strong>尸妖wight</strong>，或两个<strong>木乃伊mummy</strong>。</p>",
       "chat": ""
     },
     "source": {
@@ -56,7 +46,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -66,9 +57,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -89,10 +81,6 @@
       "consumed": false,
       "cost": 150,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -118,22 +106,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -158,7 +150,8 @@
           "proficiency": false,
           "attacks": false,
           "saves": false,
-          "ability": ""
+          "ability": "",
+          "disposition": false
         },
         "profiles": [
           {
@@ -193,7 +186,6 @@
           }
         ],
         "summon": {
-          "identifier": "",
           "mode": "",
           "prompt": true
         },
@@ -209,7 +201,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -217,7 +210,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -228,17 +220,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
-        }
+          "postRemoveConditionText": "",
+          "rollAs": "target"
+        },
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "friendlySummon": false
       }
     },
-    "identifier": "create-undead"
+    "identifier": "create-undead",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -247,8 +288,8 @@
   "sort": 10100000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

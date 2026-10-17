@@ -2,7 +2,7 @@
   "_id": "Px6U4uzpuITF8G2V",
   "name": "迅捷灵光 Aura of Alacrity",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/httpcloud3steamusercontentcomugc842585136115869684C9C9F90108B8E18485A3B668FBF0DE79280B0176.jpg",
+  "img": "icons/skills/movement/feet-winged-boots-blue.webp",
   "system": {
     "type": {
       "value": "class",
@@ -25,45 +25,35 @@
     "requirements": "荣耀之誓等级 7",
     "activities": {},
     "identifier": "-aura-of-alacrity",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 7,
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
   "effects": [
     {
       "_id": "wmdHPpBIckys52qT",
-      "changes": [
-        {
-          "key": "system.attributes.movement.walk",
-          "mode": 2,
-          "value": "10",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": "Compendium.dnd5e_classpack.extra-ability.Px6U4uzpuITF8G2V",
       "transfer": true,
       "flags": {},
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -72,24 +62,47 @@
         "exportSource": null
       },
       "name": "增加10尺步行速度",
-      "img": "modules/dnd5e_classpack/Nicons/httpcloud3steamusercontentcomugc842585136115869684C9C9F90108B8E18485A3B668FBF0DE79280B0176.jpg",
+      "img": "icons/skills/movement/feet-winged-boots-blue.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.movement.speeds.walk",
+            "value": 10,
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "KDTen4AZc8qaPwoW",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!Px6U4uzpuITF8G2V.wmdHPpBIckys52qT"
     }
   ],
   "folder": "qwBvXP2uIA1n4EBE",
   "sort": 23700000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -116,9 +129,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1751430067245,
     "lastModifiedBy": "sPF2dtZDreDpJaW6",

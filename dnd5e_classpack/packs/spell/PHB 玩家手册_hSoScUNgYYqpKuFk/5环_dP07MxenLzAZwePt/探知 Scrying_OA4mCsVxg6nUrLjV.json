@@ -24,24 +24,13 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Shaman_BlessingOfTheEternals.png",
+  "img": "icons/commodities/treasure/crystal-ball-blue-purple.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<p>你能看见和听见一个和你处于同一存在位面上的生物。目标生物必须进行一次感知豁免；该豁免的调整值与你对目标的了解程度有关，也与你和目标之间的物理联系程度有关。如果目标知道你在施展该法术，而它又愿意被你观察，则它可以自愿放弃该豁免。</p><table><thead><tr><th>了解程度</th><th>豁免调整值</th></tr></thead><tbody><tr><td>二手信息（你曾经听说过受术者）</td><td>+5</td></tr><tr><td>直接信息（你曾经见过受术者）</td><td>+0</td></tr><tr><td>熟悉（你对受术者很了解）</td><td>-5</td></tr></tbody></table><table><thead><tr><th>联系程度</th><th>豁免调整值</th></tr></thead><tbody><tr><td>肖像或图像</td><td>-2</td></tr><tr><td>所有物或衣物</td><td>-4</td></tr><tr><td>身体部位，头发，指甲或类似物件</td><td>-10</td></tr></tbody></table><p>如果对方豁免成功，则目标不受该法术影响，并且在24小时内你不能尝试探知同一个目标。</p><p>如果对方豁免失败，则你在目标身边10尺内创造出一个隐形的传感器。通过传感器，你可以身临其境地看见和听见周围的环境。传感器会跟随目标移动，并在法术持续时间内始终保持在目标10尺之内。在能够看破隐形的生物眼中，你的探传感器是一个拳头大小的光球。</p><p>除生物之外，你也可以选择一个你以前见过的地点作为该法术的目标。这时，传感器会出现在目标地点且不会移动。</p>",
+      "value": "<p>你能看见和听见一个和你处于同一存在位面上的生物。目标生物必须进行一次[[/save activity=dnd5eactivity000]]{感知豁免}；该豁免的调整值与你对目标的了解程度有关，也与你和目标之间的物理联系程度有关。如果目标知道你在施展该法术，而它又愿意被你观察，则它可以自愿放弃该豁免。</p><table><thead><tr><th><strong>了解程度</strong></th><th><strong>豁免调整值</strong></th><th></th><th><strong>联系程度</strong></th><th><strong>豁免调整值</strong></th></tr></thead><tbody><tr><td>二手信息（你曾经听说过受术者）</td><td>+5</td><td></td><td>肖像或图像</td><td>-2</td></tr><tr><td>直接信息（你曾经见过受术者）</td><td>+0</td><td></td><td>所有物或衣物</td><td>-4</td></tr><tr><td>熟悉（你对受术者很了解）</td><td>-5</td><td></td><td>身体部位，头发，指甲或类似物件</td><td>-10</td></tr></tbody></table><p>如果对方豁免成功，则目标不受该法术影响，并且在 24 小时内你不能尝试探知同一个目标。</p><p>如果对方豁免失败，则你在目标身边 10 尺内创造出一个隐形的传感器。通过传感器，你可以身临其境地看见和听见周围的环境。传感器会跟随目标移动，并在法术持续时间内始终保持在目标 10 尺之内。在能够看破隐形的生物眼中，你的探传感器是一个拳头大小的光球。</p><p>除生物之外，你也可以选择一个你以前见过的地点作为该法术的目标。这时，传感器会出现在目标地点且不会移动。</p>",
       "chat": ""
     },
     "source": {
@@ -57,7 +46,8 @@
     },
     "duration": {
       "value": "10",
-      "units": "minute"
+      "units": "minute",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -67,9 +57,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -89,10 +80,6 @@
       "consumed": false,
       "cost": 1000,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -119,22 +106,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -160,7 +151,8 @@
           "dc": {
             "calculation": "spellcasting",
             "formula": ""
-          }
+          },
+          "visible": true
         },
         "sort": 0,
         "useConditionText": "",
@@ -174,7 +166,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -182,7 +175,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -193,18 +185,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": ""
+        "otherActivityId": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "friendlySave": "default"
       }
     },
-    "identifier": "scrying"
+    "identifier": "scrying",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -213,8 +254,8 @@
   "sort": 27400000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

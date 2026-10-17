@@ -3,14 +3,7 @@
   "name": "幸运 Lucky",
   "type": "feat",
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 3,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -33,6 +26,14 @@
         "identifier": "lucky",
         "source": "chris-premades",
         "version": "0.0.0"
+      }
+    },
+    "dnd5e_classpack": {
+      "automations": {
+        "lucky2014": {
+          "enabled": true,
+          "version": "2.0.0"
+        }
       }
     }
   },
@@ -61,134 +62,31 @@
     },
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "requirements": "",
     "activities": {},
-    "identifier": "",
-    "advancement": [],
+    "identifier": "lucky",
+    "advancement": {},
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
   "ownership": {
     "default": 0
   },
-  "effects": [
-    {
-      "name": "幸运",
-      "img": "icons/skills/trades/academics-investigation-puzzles.webp",
-      "origin": "Compendium.dnd5e_classpack.feats-all.Item.Zxh8VEiQwezfcnvk",
-      "_id": "Ayad46HPMTSkWNvw",
-      "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "flags.midi-qol.optional.幸运.attack.fail.all",
-          "mode": 2,
-          "value": "reroll-kh",
-          "priority": 20
-        },
-        {
-          "key": "flags.midi-qol.optional.幸运.save.fail.all",
-          "mode": 2,
-          "value": "reroll-kh",
-          "priority": 20
-        },
-        {
-          "key": "flags.midi-qol.optional.幸运.label",
-          "mode": 2,
-          "value": "幸运",
-          "priority": 20
-        },
-        {
-          "key": "flags.midi-qol.optional.幸运.count",
-          "mode": 2,
-          "value": "itemUses.幸运",
-          "priority": 20
-        },
-        {
-          "key": "flags.midi-qol.optional.NAME.check.fail.all",
-          "mode": 2,
-          "value": "",
-          "priority": 20
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "tint": "#ffffff",
-      "transfer": true,
-      "statuses": [],
-      "sort": 0,
-      "flags": {
-        "dae": {
-          "disableCondition": "",
-          "disableIncapacitated": false,
-          "stackable": "noneName",
-          "showIcon": false,
-          "durationExpression": "",
-          "macroRepeat": "none",
-          "specialDuration": []
-        },
-        "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
-        },
-        "core": {
-          "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
-        }
-      },
-      "_stats": {
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "coreVersion": "13.351",
-        "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
-        "createdTime": 1756991299214,
-        "modifiedTime": 1756991430292,
-        "lastModifiedBy": "WqWGW8MuBm7BNHxt",
-        "exportSource": null
-      },
-      "_key": "!items.effects!Zxh8VEiQwezfcnvk.Ayad46HPMTSkWNvw"
-    }
-  ],
+  "effects": [],
   "folder": "qiJofEGkS1454LSL",
   "sort": 1600000,
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757865323475,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

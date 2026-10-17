@@ -5,32 +5,21 @@
   "img": "icons/commodities/gems/gem-faceted-rough-red.webp",
   "effects": [
     {
-      "changes": [
-        {
-          "key": "system.bonuses.abilities.save",
-          "mode": 2,
-          "value": "‒2",
-          "priority": 7
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "tint": "#ffffff",
       "transfer": true,
       "flags": {},
       "_id": "ok1wlf610trok5mm",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -39,42 +28,59 @@
         "exportSource": null
       },
       "name": "Saving Throw Bonus",
-      "img": "modules/plutonium/media/icon/crossed-swords.svg",
+      "img": "icons/commodities/gems/gem-faceted-rough-purple.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.rolls.ability.save.bonus",
+            "value": "‒2",
+            "priority": 7,
+            "type": "add",
+            "phase": "initial",
+            "_id": "rVoqI3FeK7pNYp3x",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "description": "",
       "origin": null,
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!D2QvBcY8voHBOSDU.ok1wlf610trok5mm"
     },
     {
-      "changes": [
-        {
-          "key": "system.bonuses.abilities.check",
-          "mode": 2,
-          "value": "‒2",
-          "priority": 7
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "tint": "#ffffff",
       "transfer": true,
       "flags": {},
       "_id": "r2xsn9ds1jh7lkfj",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -83,30 +89,53 @@
         "exportSource": null
       },
       "name": "Ability Check Bonus",
-      "img": "modules/plutonium/media/icon/crossed-swords.svg",
+      "img": "icons/commodities/gems/gem-faceted-rough-purple.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.rolls.ability.check.bonus",
+            "value": "‒2",
+            "priority": 7,
+            "type": "add",
+            "phase": "initial",
+            "_id": "jq8ADEooHdUyfqyq",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "description": "",
       "origin": null,
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!D2QvBcY8voHBOSDU.r2xsn9ds1jh7lkfj"
     }
   ],
   "folder": null,
   "sort": 0,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1749710928408,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",
@@ -138,7 +167,6 @@
     },
     "attunement": "required",
     "equipped": true,
-    "rarity": "uncommon",
     "identified": true,
     "uses": {
       "spent": 0,
@@ -146,8 +174,7 @@
     },
     "armor": {
       "value": null,
-      "dex": null,
-      "magicalBonus": null
+      "dex": null
     },
     "hp": {
       "value": 0,
@@ -157,7 +184,8 @@
     },
     "speed": {
       "value": null,
-      "conditions": ""
+      "conditions": "",
+      "units": "ft"
     },
     "strength": null,
     "proficient": 1,
@@ -173,8 +201,13 @@
     "identifier": "-stone-of-ill-luck",
     "container": null,
     "cover": null,
-    "crewed": false,
-    "properties": []
+    "properties": [],
+    "rarities": [
+      "uncommon"
+    ],
+    "crew": {
+      "value": []
+    }
   },
   "_key": "!items!D2QvBcY8voHBOSDU"
 }

@@ -4,7 +4,7 @@
   "img": "icons/skills/melee/hand-grip-staff-yellow-brown.webp",
   "system": {
     "description": {
-      "value": "<p>索兰尼亚骑士式的训练使你获得了下列增益：</p><ul><li><p><strong>快速骑乘Mount Up.</strong>你在开始和终止骑乘时只需要花费5尺移动力。</p></li><li><p><strong>精准打击Precise Strike.</strong>每回合一次，当你对一个生物进行武器攻击检定时，你可以使这次检定具有优势。若此次攻击命中，你投掷一粒d8并将骰出的数值加入到攻击的伤害掷骰中。你可使用此特性的次数等同于你的熟练加值，但仅会在该攻击命中时消耗次数。你在完成一次长休后会恢复所有已消耗的使用次数。</p></li></ul>",
+      "value": "<p>索兰尼亚骑士式的训练使你获得了下列增益：</p><ul><li><h3>快速骑乘Mount Up.</h3><p>你在开始和终止骑乘时只需要花费5尺移动力。</p></li><li><h3>精准打击Precise Strike.</h3><p>每回合一次，当你对一个生物进行武器攻击检定时，你可以使这次检定具有优势。若此次攻击命中，你投掷一粒d8并将骰出的数值加入到攻击的伤害掷骰中。你可使用此特性的次数等同于你的熟练加值，但仅会在该攻击命中时消耗次数。你在完成一次长休后会恢复所有已消耗的使用次数。</p></li></ul>",
       "chat": ""
     },
     "source": {
@@ -26,9 +26,9 @@
     },
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
-    "requirements": "龙枪战役，战士、圣武士或索兰尼亚骑士Knight of Solamnia",
+    "requirements": "龙枪战役，并且是战士、圣武士或索兰尼亚骑士背景",
     "activities": {
       "dnd5eactivity000": {
         "_id": "dnd5eactivity000",
@@ -58,18 +58,20 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "concentration": false,
           "value": "",
-          "units": "",
+          "units": "inst",
           "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "units": "",
+          "units": "self",
           "special": "",
           "override": false
         },
@@ -81,7 +83,8 @@
             "size": "",
             "width": "",
             "height": "",
-            "units": ""
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "count": "",
@@ -116,37 +119,116 @@
                 "mode": "whole",
                 "number": null,
                 "formula": ""
-              }
+              },
+              "modifiers": []
             }
           ]
         },
-        "sort": 0
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
     "identifier": "-squire-of-solamnia",
-    "advancement": [],
+    "advancement": {},
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
   "effects": [],
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 2,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": 1686470004436,
     "modifiedTime": 1749711029989,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

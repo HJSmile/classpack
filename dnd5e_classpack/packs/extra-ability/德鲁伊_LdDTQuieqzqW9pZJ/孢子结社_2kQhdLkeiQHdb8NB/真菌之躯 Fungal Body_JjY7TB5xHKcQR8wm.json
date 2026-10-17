@@ -2,14 +2,14 @@
   "_id": "JjY7TB5xHKcQR8wm",
   "name": "真菌之躯 Fungal Body",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Hunter_OneWithNature.png",
+  "img": "icons/magic/nature/tree-animated-stump-mushrooms-teal.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>         在14级，你体内的真菌改变了你：你不再会被目盲，耳聋，恐慌，或中毒；若一次攻击对你造成重击，它不会对你造成额外伤害除非你处于失能状态。</p>",
+      "value": "<p>         在14级，你体内的真菌改变了你：你不再会被目盲，耳聋，恐慌，或中毒；若一次攻击对你造成重击，它不会对你造成额外伤害除非你处于&amp;Reference[condition=incapacitated apply=false]{失能}状态。</p>",
       "chat": ""
     },
     "source": {
@@ -25,56 +25,30 @@
     "requirements": "孢子结社等级 14",
     "activities": {},
     "identifier": "-fungal-body",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 14,
+      "repeatable": false,
+      "items": [
+        "subclass:circle-of-spores"
+      ]
     },
     "properties": []
   },
   "effects": [
     {
       "_id": "rWYJzYICyz6fWpll",
-      "changes": [
-        {
-          "key": "system.traits.ci.value",
-          "mode": 2,
-          "value": "poisoned",
-          "priority": 20
-        },
-        {
-          "key": "system.traits.ci.value",
-          "mode": 2,
-          "value": "blinded",
-          "priority": 20
-        },
-        {
-          "key": "system.traits.ci.value",
-          "mode": 2,
-          "value": "deafened",
-          "priority": 20
-        },
-        {
-          "key": "system.traits.ci.value",
-          "mode": 2,
-          "value": "frightened",
-          "priority": 20
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
-      "origin": "Compendium.dnd5e_classpack.extra-ability.Item.JjY7TB5xHKcQR8wm",
+      "origin": null,
       "transfer": true,
       "flags": {
         "dae": {
@@ -94,9 +68,9 @@
       "description": "",
       "statuses": [],
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -104,10 +78,68 @@
         "duplicateSource": null,
         "exportSource": null
       },
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Hunter_OneWithNature.png",
+      "img": "icons/magic/nature/tree-animated-stump-mushrooms-teal.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.ci.value",
+            "value": "poisoned",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "JZLklp0EcYw2HID6",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.ci.value",
+            "value": "blinded",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "5y5LAjHmvvZdn8ws",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.ci.value",
+            "value": "deafened",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "Upq6V30etAaNM5k3",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.ci.value",
+            "value": "frightened",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "d2pVPQ2eYUArTLhP",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.extra-ability.Item.JjY7TB5xHKcQR8wm",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!JjY7TB5xHKcQR8wm.rWYJzYICyz6fWpll"
     }
   ],
@@ -138,17 +170,12 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1725699151876,
     "modifiedTime": 1757408704647,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

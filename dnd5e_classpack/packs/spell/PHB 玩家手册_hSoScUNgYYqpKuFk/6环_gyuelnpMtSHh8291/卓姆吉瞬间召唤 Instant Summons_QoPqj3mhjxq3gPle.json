@@ -24,39 +24,38 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material",
-        "ritual"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Arcane_ArcanePotency.png",
+  "img": "icons/commodities/gems/gem-faceted-teardrop-blue.webp",
   "effects": [
     {
       "name": "召唤标记 Instant Summons",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Arcane_ArcanePotency.png",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.QoPqj3mhjxq3gPle",
+      "img": "icons/commodities/gems/gem-faceted-teardrop-blue.webp",
+      "origin": null,
       "transfer": false,
       "_id": "sX0D9uIhKSpG9jkh",
       "type": "base",
-      "system": {},
-      "changes": [],
+      "system": {
+        "changes": [],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.QoPqj3mhjxq3gPle",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "description": "<p><span style=\"font-family:'Roboto Condensed', sans-serif\">你可以使用动作唤出该物件的名称并粉碎这颗蓝宝石，该物件将无视任何距离和位面的限制立即出现在你的手上。物件出现后该随即法术终止。</span></p>",
       "tint": "#ffffff",
@@ -76,48 +75,32 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": 1756432560465,
         "modifiedTime": 1756432593318,
         "lastModifiedBy": "vFLRCDyc5l72uRlV",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!QoPqj3mhjxq3gPle.sX0D9uIhKSpG9jkh"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你触碰一个重量至多10磅，长度至多6尺的物件。该法术将在该物品表面留下一个隐形的印记，并在你用以施法的蓝宝石上留下该物件的名称。你每次施展该法术时都必须使用不同的蓝宝石作为其材料成分。\n<br />在随后的时间里，你可以使用动作唤出该物件的名称并粉碎这颗蓝宝石，该物件将无视任何距离和位面的限制立即出现在你的手上。物件出现后该随即法术终止。\n<br />如果另一个生物正持握或携带着该物件，则粉碎蓝宝石的动作无法将该物品传送过来。不过你会知晓是谁占有了该物品，以及其此刻身处的何处。\n<br />解除魔法dispel magic 或成功生效的类似效应作用于这颗蓝宝石时，将提前终止该法术。\n<br /></div>",
+      "value": "<p>你触碰一个重量至多 10 磅，长度至多 6 尺的物件。该法术将在该物品表面留下一个隐形的印记，并在你用以施法的蓝宝石上留下该物件的名称。你每次施展该法术时都必须使用不同的蓝宝石作为其材料成分。</p><p>在随后的时间里，你可以使用动作唤出该物件的名称并粉碎这颗蓝宝石，该物件将无视任何距离和位面的限制立即出现在你的手上。物件出现后该随即法术终止。</p><p>如果另一个生物正持握或携带着该物件，则粉碎蓝宝石的动作无法将该物品传送过来。不过你会知晓是谁占有了该物品，以及其此刻身处的何处。</p><p>当<em>解除魔法 dispel magic</em>或成功生效的类似效应作用于这颗蓝宝石时，将提前终止该法术。</p>",
       "chat": ""
     },
     "source": {
@@ -135,7 +118,8 @@
     },
     "duration": {
       "value": "",
-      "units": "perm"
+      "units": "perm",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -145,9 +129,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -167,10 +152,6 @@
       "consumed": false,
       "cost": 1000,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -196,26 +177,32 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "sX0D9uIhKSpG9jkh"
+            "_id": "sX0D9uIhKSpG9jkh",
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -245,7 +232,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -253,7 +241,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -264,18 +251,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "instant-summons"
+    "identifier": "instant-summons",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -284,8 +319,8 @@
   "sort": 39000000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757235114937,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -28,47 +28,49 @@
       "otherCondition": "",
       "fumbleThreshold": null
     },
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "concentration"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/inv_helm_mask_fittedalpha_b_01_nightborne_02.jpg",
+  "img": "icons/commodities/claws/claw-brown-black.webp",
   "effects": [
     {
       "name": "水生适应",
-      "img": "modules/dnd5e_classpack/Nicons/inv_helm_mask_fittedalpha_b_01_nightborne_02.jpg",
-      "origin": "Compendium.dnd5e_classpack.spell.Item.RzU9orr1mmUeZOcl",
+      "img": "icons/commodities/claws/claw-brown-black.webp",
+      "origin": null,
       "transfer": false,
       "_id": "95KvjWuVp88N0uJo",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "system.attributes.movement.swim",
-          "mode": 5,
-          "value": "@attributes.movement.walk",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "system.attributes.movement.speeds.swim",
+            "value": "@attributes.movement.walk",
+            "priority": 20,
+            "type": "override",
+            "phase": "initial",
+            "_id": "6wfd47lp684368H8",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
+        },
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.spell.Item.RzU9orr1mmUeZOcl",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "hours",
+        "expiry": null,
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -88,9 +90,7 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
@@ -99,20 +99,23 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.3.9",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!eTtyu3Vpu1sZupC8.95KvjWuVp88N0uJo"
     }
   ],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你变换了自身形态。施法时，从以下选项中选择其一生效，并维持至其持续时间结束。你还可以在持续时间内以一个动作在选项间切换。\n<br /><strong>水生适应Aquaatic Adaptation。</strong>你长出鳃和蹼以适应水中行动。你可以在水下呼吸，并且获得等同于步行速度的游泳速度。\n<br /><strong>改变外貌Change Appearance。</strong>你改变了自己的外貌。你可以自行设定自己的外观：包括身高、体重、面部细节、声线、头发长短、肤色以及（可能具有的）独特外貌特征。你可以让自己看起来像是其他种族，但你的角色数值不会改变。你无法改变体型或是基础身体轮廓。例如，如果你两足行动，就不能变为四足生物。你可以在持续时间内以一个动作改变这些外貌细节。\n<br /><strong>天生武器Natural Weapons。</strong>你长出尖牙锐爪、棘刺长角，或是其他类型的一种自选的天生武器。所选的天生武器可以使你的徒手打击造成1d6的钝击、挥砍或穿刺伤害，且你视为具有徒手打击的熟练项。另外，该天生武器视为魔法武器，且你在使用它进行的攻击检定和伤害掷骰均具有+1加值。\n<br /></div>",
+      "value": "<p>你变换了自身形态。施法时，从以下选项中选择其一生效，并维持至其持续时间结束。你还可以在持续时间内以一个动作在选项间切换。</p><p><strong>水生适应Aquaatic Adaptation。</strong>你长出鳃和蹼以适应水中行动。你可以在水下呼吸，并且获得等同于步行速度的游泳速度。</p><p><strong>改变外貌Change Appearance。</strong>你改变了自己的外貌。你可以自行设定自己的外观：包括身高、体重、面部细节、声线、头发长短、肤色以及（可能具有的）独特外貌特征。你可以让自己看起来像是其他种族，但你的角色数值不会改变。你无法改变体型或是基础身体轮廓。例如，如果你两足行动，就不能变为四足生物。你可以在持续时间内以一个动作改变这些外貌细节。</p><p><strong>天生武器Natural Weapons。</strong>你长出尖牙锐爪、棘刺长角，或是其他类型的一种自选的天生武器。所选的天生武器可以使你的徒手打击造成 1d6 的钝击、挥砍或穿刺伤害，且你视为具有徒手打击的熟练项。另外，该天生武器视为魔法武器，且你在使用它进行的攻击检定和伤害掷骰均具有+1 加值。</p>",
       "chat": ""
     },
     "source": {
@@ -128,7 +131,8 @@
     },
     "duration": {
       "value": "1",
-      "units": "hour"
+      "units": "hour",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -137,9 +141,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -159,10 +164,6 @@
       "consumed": false,
       "cost": 0,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -188,12 +189,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": "长出尖牙锐爪、棘刺长角，或是其他类型的一种自选的天生武器。所选的天生武器可以使你的徒手打击造成 1d6 的钝击、挥砍或穿刺伤害，且你视为具有徒手打击的熟练项。另外，该天生武器视为魔法武器，且你在使用它进行的攻击检定和伤害掷骰均具有+1 加值。"
+          "chatFlavor": "长出尖牙锐爪、棘刺长角，或是其他类型的一种自选的天生武器。所选的天生武器可以使你的徒手打击造成 1d6 的钝击、挥砍或穿刺伤害，且你视为具有徒手打击的熟练项。另外，该天生武器视为魔法武器，且你在使用它进行的攻击检定和伤害掷骰均具有+1 加值。",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -204,7 +207,8 @@
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -247,7 +251,8 @@
               "scaling": {
                 "mode": "",
                 "number": 1
-              }
+              },
+              "modifiers": []
             }
           ]
         },
@@ -262,7 +267,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -270,7 +276,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -281,19 +286,67 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "attackMode": "",
         "ammunition": "",
         "otherActivityUuid": "",
-        "name": "天生武器"
+        "name": "天生武器",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       },
       "HqnKOJ5VL6mvBwc3": {
         "type": "utility",
@@ -312,25 +365,31 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [
           {
-            "_id": "95KvjWuVp88N0uJo"
+            "_id": "95KvjWuVp88N0uJo",
+            "uuid": null,
+            "level": {}
           }
         ],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -360,7 +419,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -368,7 +428,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -379,16 +438,62 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "none",
-        "name": "水生适应"
+        "name": "水生适应",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       },
       "HwddqFazoBoknmI2": {
         "type": "cast",
@@ -407,20 +512,24 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": "你改变了自己的外貌。你可以自行设定自己的外观：包括身高、体重、面部细节、声线、头发长短、肤色以及（可能具有的）独特外貌特征。你可以让自己看起来像是其他种族，但你的角色数值不会改变。你无法改变体型或是基础身体轮廓。例如，如果你两足行动，就不能变为四足生物。你可以在持续时间内以一个动作改变这些外貌细节。"
+          "chatFlavor": "你改变了自己的外貌。你可以自行设定自己的外观：包括身高、体重、面部细节、声线、头发长短、肤色以及（可能具有的）独特外貌特征。你可以让自己看起来像是其他种族，但你的角色数值不会改变。你无法改变体型或是基础身体轮廓。例如，如果你两足行动，就不能变为四足生物。你可以在持续时间内以一个动作改变这些外貌细节。",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -435,8 +544,6 @@
         },
         "spell": {
           "challenge": {
-            "attack": null,
-            "save": null,
             "override": false
           },
           "level": null,
@@ -460,7 +567,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -468,7 +576,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "never",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -479,26 +586,74 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "name": "改变外貌"
+        "name": "改变外貌",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
-    "identifier": "alter-self"
+    "identifier": "alter-self",
+    "method": "spell",
+    "prepared": 0
   },
   "folder": "v66iuyCJ9YOa7g5p",
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1755110655523,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

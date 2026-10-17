@@ -2,14 +2,14 @@
   "_id": "FRsOak029n5r5Gi2",
   "name": "化学专家 Chemical Mastery",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Druid_EarthandSky.png",
+  "img": "icons/consumables/potions/flask-measuring-green.webp",
   "system": {
     "type": {
       "value": "class",
       "subtype": ""
     },
     "description": {
-      "value": "<p>         在第15级，你已经接触了太多的化学物质，并解开了它们的秘密，它们对你的危害很小，你可以使用它们来迅速治愈某些疾病。</p>\n<ul>\n<li>你获得了对强酸伤害和毒素伤害的抗性，同时对中毒状态免疫。</li>\n<li>只要你使用@UUID[Compendium.dnd5e_classpack.itempack.EFBBAE8B63126638]{炼金工具}作为法器，就能够在不消费法术位和材料成分的情况下施展@UUID[Compendium.dnd5e_classpack.spell.7dqplcsKNYQgRh2S]{高等复原术}或@UUID[Compendium.dnd5e_classpack.spell.nCLJRsp7CWAACqGE]{医疗术}。一旦你通过此特性施法，必须完成一次长休才能再次使用此特性。</li>\n</ul>",
+      "value": "<p>         在第15级，你已经接触了太多的化学物质，并解开了它们的秘密，它们对你的危害很小，你可以使用它们来迅速治愈某些疾病。</p>\n<ul>\n<li>你获得了对强酸伤害和毒素伤害的抗性，同时对中毒状态免疫。</li>\n<li>只要你使用@UUID[Compendium.dnd5e_classpack.itempack.EFBBAE8B63126638]{炼金工具}作为法器，就能够在不消费法术位和材料成分的情况下施展@UUID[Compendium.dnd5e_classpack.spell.7dqplcsKNYQgRh2S]{高等复原术}或@UUID[Compendium.dnd5e_classpack.spell.nCLJRsp7CWAACqGE]{医疗术}。你可以通过此特性分别施展这两个法术各一次，并在完成一次长休后恢复各自的使用次数。</li>\n</ul>",
       "chat": ""
     },
     "source": {
@@ -18,30 +18,26 @@
       "rules": "2014"
     },
     "uses": {
-      "max": "1",
+      "max": "",
       "spent": 0,
-      "recovery": [
-        {
-          "period": "lr",
-          "type": "recoverAll"
-        }
-      ]
+      "recovery": []
     },
     "requirements": "炼金师等级 15",
     "activities": {
       "dnd5eactivity000": {
         "_id": "dnd5eactivity000",
-        "type": "utility",
+        "type": "cast",
         "activation": {
-          "type": "special",
-          "value": null,
-          "condition": "",
-          "override": false
+          "type": "action",
+          "value": 1,
+          "override": true,
+          "condition": "使用炼金工具作为施法法器"
         },
         "consumption": {
+          "spellSlot": false,
           "targets": [
             {
-              "type": "itemUses",
+              "type": "activityUses",
               "target": "",
               "value": "1",
               "scaling": {
@@ -53,103 +49,356 @@
           "scaling": {
             "allowed": false,
             "max": ""
-          },
-          "spellSlot": true
+          }
         },
         "description": {
+          "value": "<p>使用炼金工具作为法器，无需准备，不消耗法术位或材料。此法术每次长休后可免费施展一次，与另一个法术分别计数。</p>",
           "chatFlavor": ""
         },
         "duration": {
+          "value": "",
+          "units": "inst",
           "concentration": false,
-          "units": "",
-          "special": "",
-          "override": false
+          "override": false,
+          "expiry": null
         },
-        "effects": [],
         "range": {
-          "units": "",
-          "special": "",
-          "override": false
+          "value": "",
+          "units": "self",
+          "override": false,
+          "special": ""
         },
         "target": {
           "template": {
-            "count": "",
-            "contiguous": false,
             "type": "",
-            "size": "",
-            "width": "",
-            "height": "",
-            "units": ""
+            "contiguous": false,
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
+            "type": "self",
             "count": "",
-            "type": "",
             "choice": false,
             "special": ""
           },
-          "prompt": true,
-          "override": false
+          "override": false,
+          "prompt": true
         },
         "uses": {
           "spent": 0,
-          "max": "",
-          "recovery": []
+          "max": "1",
+          "recovery": [
+            {
+              "period": "lr",
+              "type": "recoverAll"
+            }
+          ]
         },
-        "roll": {
-          "formula": "",
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
           "name": "",
-          "prompt": false,
-          "visible": false
+          "command": ""
         },
-        "sort": 0
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "name": "高等复原术（化学专家）",
+        "spell": {
+          "uuid": "Compendium.dnd5e_classpack.spell.Item.7dqplcsKNYQgRh2S",
+          "ability": "int",
+          "level": 5,
+          "properties": [
+            "material"
+          ],
+          "spellbook": true,
+          "challenge": {
+            "override": false,
+            "attack": "",
+            "save": ""
+          }
+        }
+      },
+      "6599e7ce2874d951": {
+        "_id": "6599e7ce2874d951",
+        "type": "cast",
+        "activation": {
+          "type": "action",
+          "value": 1,
+          "override": true,
+          "condition": "使用炼金工具作为施法法器"
+        },
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "type": "activityUses",
+              "target": "",
+              "value": "1",
+              "scaling": {
+                "mode": "",
+                "formula": ""
+              }
+            }
+          ],
+          "scaling": {
+            "allowed": false,
+            "max": ""
+          }
+        },
+        "description": {
+          "value": "<p>使用炼金工具作为法器，无需准备，不消耗法术位或材料。此法术每次长休后可免费施展一次，与另一个法术分别计数。</p>",
+          "chatFlavor": ""
+        },
+        "duration": {
+          "value": "",
+          "units": "inst",
+          "concentration": false,
+          "override": false,
+          "expiry": null
+        },
+        "range": {
+          "value": "",
+          "units": "self",
+          "override": false,
+          "special": ""
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "contiguous": false,
+            "units": "ft",
+            "stationary": false
+          },
+          "affects": {
+            "type": "self",
+            "count": "",
+            "choice": false,
+            "special": ""
+          },
+          "override": false,
+          "prompt": true
+        },
+        "uses": {
+          "spent": 0,
+          "max": "1",
+          "recovery": [
+            {
+              "period": "lr",
+              "type": "recoverAll"
+            }
+          ]
+        },
+        "sort": 0,
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "otherActivityId": null,
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "rollAs": "target",
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "name": "医疗术（化学专家）",
+        "spell": {
+          "uuid": "Compendium.dnd5e_classpack.spell.Item.nCLJRsp7CWAACqGE",
+          "ability": "int",
+          "level": 6,
+          "properties": [
+            "material"
+          ],
+          "spellbook": true,
+          "challenge": {
+            "override": false,
+            "attack": "",
+            "save": ""
+          }
+        }
       }
     },
     "identifier": "-chemical-mastery",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 15,
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
   "effects": [
     {
       "_id": "Nt4ZjbWjzFXLkRCv",
-      "changes": [
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "poison",
-          "priority": null
-        },
-        {
-          "key": "system.traits.dr.value",
-          "mode": 2,
-          "value": "acid",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": "Compendium.dnd5e_classpack.extra-ability.FRsOak029n5r5Gi2",
       "transfer": true,
       "flags": {},
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -158,42 +407,69 @@
         "exportSource": null
       },
       "name": "获得强酸、毒素抗性",
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Druid_EarthandSky.png",
+      "img": "icons/consumables/potions/flask-measuring-green.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.dr.value",
+            "value": "poison",
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "h6feJ5B6oCTyQWMg",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "system.traits.dr.value",
+            "value": "acid",
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "LZo3VhCbonSDR5x8",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!FRsOak029n5r5Gi2.Nt4ZjbWjzFXLkRCv"
     },
     {
       "_id": "ozCKPzxa8jDCYCcB",
-      "changes": [
-        {
-          "key": "system.traits.ci.value",
-          "mode": 2,
-          "value": "poisoned",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": "Compendium.dnd5e_classpack.extra-ability.FRsOak029n5r5Gi2",
       "transfer": true,
       "flags": {},
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -202,31 +478,52 @@
         "exportSource": null
       },
       "name": "获得中毒免疫",
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Druid_EarthandSky.png",
+      "img": "icons/consumables/potions/flask-measuring-green.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.ci.value",
+            "value": "poisoned",
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "1qXD2h2sk719BICj",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!FRsOak029n5r5Gi2.ozCKPzxa8jDCYCcB"
     }
   ],
   "folder": "64pspKbMUx8IMoty",
   "sort": 16500000,
   "flags": {
-    "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 1,
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.3.9",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1749883542518,
     "lastModifiedBy": "uXKCmWFprrvnSIDm",

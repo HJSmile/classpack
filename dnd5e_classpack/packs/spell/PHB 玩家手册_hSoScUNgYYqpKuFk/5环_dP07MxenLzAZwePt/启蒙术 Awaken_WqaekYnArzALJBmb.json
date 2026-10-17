@@ -24,23 +24,13 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
-  "img": "modules/dnd5e_classpack/Nicons/spell_animaardenweald_debuff.jpg",
+  "img": "icons/magic/nature/tree-animated-squint.webp",
   "effects": [],
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 利用施法的8小时引导一块昂贵宝石中的魔法回路后，你触碰一个巨型或更小的野兽或植物作为法术目标。目标必须没有智力值或智力小于等于3。受术后其智力变为10，且学会说一门你所掌握的语言。如果目标是植物，则他获得使用枝、根、藤、蔓或类似部位移动的能力，并获得类似于人类的感官。DM 为启蒙植物决定属性数据，例子可参考怪物图鉴的启蒙灌木和启蒙树。\n<br />被启蒙的植物或野兽在30日内处于被你魅惑的状态，或是直到你或你的盟友做出任何伤害它的举动。魅惑终止后，启蒙生物将根据你对待他的方式决定是否对你保持友善。\n<br /></div>",
+      "value": "<p>利用施法的 8 小时引导一块昂贵宝石中的魔法回路后，你触碰一个巨型或更小的野兽或植物作为法术目标。目标必须没有智力值或智力小于等于 3。受术后其智力变为 10，且学会说一门你所掌握的语言。如果目标是植物，则他获得使用枝、根、藤、蔓或类似部位移动的能力，并获得类似于人类的感官。DM 为启蒙植物决定属性数据，例子可参考《怪物图鉴》中的<strong>启蒙灌木Awakened Shrub</strong>与<strong>启蒙树木Awakened Tree</strong>。</p><p>被启蒙的植物或野兽在 30 日内处于被你魅惑的状态，或是直到你或你的盟友做出任何伤害它的举动。魅惑终止后，启蒙生物将根据你对待他的方式决定是否对你保持友善。</p>",
       "chat": ""
     },
     "source": {
@@ -56,7 +46,8 @@
     },
     "duration": {
       "value": "",
-      "units": "inst"
+      "units": "inst",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -66,9 +57,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -88,10 +80,6 @@
       "consumed": true,
       "cost": 1000,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -117,22 +105,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -162,7 +154,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -170,7 +163,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -181,18 +173,66 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "awaken"
+    "identifier": "awaken",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
@@ -201,8 +241,8 @@
   "sort": 21200000,
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

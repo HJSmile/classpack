@@ -2,7 +2,7 @@
   "_id": "VJDt6aGJebxE7rhl",
   "name": "引导神力：神圣武器 Channel Divinity: Sacred Weapon",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_HolySmite.png",
+  "img": "icons/skills/melee/weapons-crossed-swords-yellow-teal.webp",
   "system": {
     "description": {
       "value": "<p>以一个动作，你可以用@UUID[Compendium.dnd5e_classpack.class-abilityphb.3eyfqXMTJMG9AxYH]{引导神力}特性向你正持握的一把武器注入正能量。随后1分钟内，你使用该武器进行攻击检定时可以加上你的魅力调整值（至少为 +1）。该武器同时提供20尺半径的明亮光照，该范围外再延伸出20尺微光光照。如果该武器之前不是魔法武器，则在效应持续其间该武器将视为魔法武器。</p>\n<p>你可以在自己回合内执行任何其他动作时终止该效应，而终止效应的行为视为该动作的一部分。当你不再持握或携带这把武器，或者当你陷入昏迷时，该效应终止。</p>",
@@ -49,17 +49,21 @@
             {
               "type": "itemUses",
               "value": "1",
-              "target": "Compendium.dnd5e_classpack.class-abilityphb.Item.v8z4Z2NuBAbYnjxk"
+              "target": "Compendium.dnd5e_classpack.class-abilityphb.Item.v8z4Z2NuBAbYnjxk",
+              "scaling": {}
             }
           ]
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
-          "units": "inst",
+          "units": "minute",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null,
+          "value": "1"
         },
         "effects": [
           {
@@ -74,7 +78,8 @@
                 "tIMDtcmnPw7IUlj9"
               ],
               "item": []
-            }
+            },
+            "uuid": null
           }
         ],
         "range": {
@@ -86,7 +91,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -101,7 +107,7 @@
           "max": ""
         },
         "enchant": {
-          "identifier": ""
+          "self": false
         },
         "restrictions": {
           "allowMagical": false,
@@ -120,7 +126,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -128,7 +135,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -139,28 +145,71 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "name": "",
         "img": "",
-        "appliedEffects": [
-          "Ib7QxkPL1tjJ3Fn5"
-        ]
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": true
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
     "identifier": "",
-    "advancement": [],
+    "advancement": {},
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 3,
+      "repeatable": false,
+      "items": []
     },
     "properties": [
       "mgc"
@@ -169,34 +218,52 @@
   "effects": [
     {
       "name": "引导神力：神圣武器 Channel Divinity",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_HolySmite.png",
-      "origin": "Compendium.dnd5e_classpack.class-abilityphb.Item.VJDt6aGJebxE7rhl",
+      "img": "icons/skills/melee/weapons-crossed-swords-yellow-teal.webp",
+      "origin": null,
       "_id": "tIMDtcmnPw7IUlj9",
       "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "ATL.light.bright",
-          "mode": 2,
-          "value": "20",
-          "priority": 20
+      "system": {
+        "changes": [
+          {
+            "key": "token.light.bright",
+            "value": 20,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "PdP8Pbli5fWv9aYm",
+            "conditions": "{}",
+            "replacement": ""
+          },
+          {
+            "key": "token.light.dim",
+            "value": 40,
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "seHXhMOcTfhIyDfM",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "rider": {
+          "statuses": []
         },
-        {
-          "key": "ATL.light.dim",
-          "mode": 2,
-          "value": "40",
-          "priority": 20
-        }
-      ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": "Compendium.dnd5e_classpack.class-abilityphb.Item.VJDt6aGJebxE7rhl",
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": true
+      },
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 1,
+        "units": "minutes",
+        "expiry": "turnStart",
+        "expired": false
       },
       "description": "",
       "tint": "#ffffff",
@@ -218,67 +285,61 @@
           "dontApply": false
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757271653582,
         "modifiedTime": 1757271697691,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!VJDt6aGJebxE7rhl.tIMDtcmnPw7IUlj9"
     },
     {
       "type": "enchantment",
       "name": "引导神力：神圣武器",
-      "img": "modules/dnd5e_classpack/Nicons/Spell_Holy_HolySmite.png",
+      "img": "icons/skills/melee/weapons-crossed-swords-yellow-teal.webp",
       "disabled": true,
       "_id": "Ib7QxkPL1tjJ3Fn5",
-      "system": {},
-      "changes": [
-        {
-          "key": "activities[attack].attack.bonus",
-          "mode": 2,
-          "value": "+@abilities.cha.mod",
-          "priority": 20
-        }
-      ],
+      "system": {
+        "changes": [
+          {
+            "key": "activities[attack].attack.bonus",
+            "value": "+@abilities.cha.mod",
+            "priority": 20,
+            "type": "add",
+            "phase": "initial",
+            "_id": "81wpR0sc6cI1p8ZT",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "magical": true
+      },
       "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": 10,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": 60,
+        "units": "seconds",
+        "expiry": "turnStart",
+        "expired": false
       },
       "description": "",
       "origin": null,
@@ -297,42 +358,26 @@
           "specialDuration": []
         },
         "dnd5e": {
-          "riders": {
-            "statuses": []
-          }
+          "riders": {}
         },
         "core": {
           "overlay": false
-        },
-        "ActiveAuras": {
-          "isAura": false,
-          "aura": "None",
-          "nameOverride": "",
-          "radius": "",
-          "alignment": "",
-          "type": "",
-          "customCheck": "",
-          "ignoreSelf": false,
-          "height": false,
-          "hidden": false,
-          "displayTemp": false,
-          "hostile": false,
-          "onlyOnce": false,
-          "wallsBlock": "system",
-          "statuses": []
         }
       },
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "dnd5e",
-        "systemVersion": "4.4.4",
+        "systemVersion": "6.0.5",
         "createdTime": 1757271701791,
         "modifiedTime": 1757271811194,
         "lastModifiedBy": "WqWGW8MuBm7BNHxt",
         "exportSource": null
       },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!VJDt6aGJebxE7rhl.Ib7QxkPL1tjJ3Fn5"
     }
   ],
@@ -344,10 +389,7 @@
       "order": 109
     },
     "dnd5e": {
-      "persistSourceMigration": true,
-      "migratedUses": 0,
       "riders": {
-        "activity": [],
         "effect": [
           "tIMDtcmnPw7IUlj9"
         ]
@@ -382,9 +424,9 @@
     "default": 0
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757271876703,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

@@ -2,7 +2,7 @@
   "folder": null,
   "name": "临头厄运 Impending Misfortune",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Spell_Shadow_UnholyFrenzy.png",
+  "img": "icons/magic/control/modfiy-luck-fortune-red.webp",
   "system": {
     "activities": {
       "ty7Zn4YtnzAzukyA": {
@@ -29,12 +29,14 @@
           ]
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "dstr",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -46,7 +48,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -61,7 +64,7 @@
           "max": ""
         },
         "enchant": {
-          "identifier": ""
+          "self": false
         },
         "restrictions": {
           "allowMagical": false,
@@ -80,7 +83,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -88,7 +92,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -99,15 +102,61 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "name": ""
+        "name": "",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "otherActivityId": null,
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        }
       }
     },
     "uses": {
@@ -125,7 +174,7 @@
       "max": "1"
     },
     "description": {
-      "value": "<p>同样自6级起，你的言语能扭曲命运的力量，以未来失败的承诺来创造胜利。当你进行一次攻击检定或豁免检定时，你能在这次掷骰中获得+10加值，但下一次你所进行的攻击或豁免检定将会承受-10的减值。如果你之后没有再进行这两种检定，该减值就会在你完成一次短休或长休后消失。<br />使用后，直到你完成一次短休或长休前，你都无法再次使用该特性。若你生命值被降低至0，你将重获使用此特性的机会。</p>",
+      "value": "<p>同样自6级起，你的言语能扭曲命运的力量，以未来失败的承诺来创造胜利。当你进行一次攻击检定或豁免检定时，你能在这次掷骰中获得+10加值，但下一次你所进行的攻击或豁免检定将会承受-10的减值。如果你之后没有再进行这两种检定，该减值就会在你完成一次短休或长休后消失。</p><p>使用后，直到你完成一次短休或长休前，你都无法再次使用该特性。若你生命值被降低至0，你将重获使用此特性的机会。</p>",
       "chat": ""
     },
     "identifier": "-",
@@ -133,13 +182,14 @@
       "revision": 1,
       "rules": "2024"
     },
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": [],
     "requirements": "",
@@ -167,19 +217,14 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1756716238486,
     "modifiedTime": 1756716238793,
     "lastModifiedBy": "aV0bUYaBrKQMbD8k",

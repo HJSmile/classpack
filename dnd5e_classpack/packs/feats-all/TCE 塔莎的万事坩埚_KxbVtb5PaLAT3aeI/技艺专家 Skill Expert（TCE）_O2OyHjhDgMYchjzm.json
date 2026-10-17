@@ -5,10 +5,10 @@
   "system": {
     "type": {
       "value": "feat",
-      "subtype": ""
+      "subtype": "general"
     },
     "description": {
-      "value": "<p>你已磨练了自身的特定技艺，并获得了以下好处：<br />·你选择一项属性提升1，上限为20.<br />·你选择并获得一项技能的熟练项。<br />·选择一项你熟练的技能，你获得该技能的专精，可以将两倍的熟练加值加到使用该技能进行的属性检定上。你选择的技能必须未受益于其他使熟练加值翻倍的特性，例如专精特性。</p>",
+      "value": "<p>你已磨练了自身的特定技艺，并获得了以下好处：</p><p>·你选择一项属性提升1，上限为20.</p><p>·你选择并获得一项技能的熟练项。</p><p>·选择一项你熟练的技能，你获得该技能的专精，可以将两倍的熟练加值加到使用该技能进行的属性检定上。你选择的技能必须未受益于其他使熟练加值翻倍的特性，例如专精特性。</p>",
       "chat": ""
     },
     "source": {
@@ -25,13 +25,85 @@
     "requirements": "",
     "activities": {},
     "identifier": "-skill-experttce",
-    "advancement": [],
+    "advancement": {
+      "77cc3b37e1c064e9": {
+        "_id": "77cc3b37e1c064e9",
+        "type": "AbilityScoreImprovement",
+        "name": "属性值提升",
+        "configuration": {
+          "cap": 1,
+          "fixed": {
+            "str": 0,
+            "dex": 0,
+            "con": 0,
+            "int": 0,
+            "wis": 0,
+            "cha": 0
+          },
+          "locked": [],
+          "points": 1,
+          "max": 20,
+          "recommendation": null
+        },
+        "value": {
+          "type": "asi"
+        },
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      },
+      "4541fa83f81f1df0": {
+        "_id": "4541fa83f81f1df0",
+        "type": "Trait",
+        "name": "熟练项与语言",
+        "configuration": {
+          "mode": "default",
+          "allowReplacements": false,
+          "grants": [],
+          "choices": [
+            {
+              "count": 1,
+              "pool": [
+                "skills:*"
+              ]
+            }
+          ]
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      },
+      "121efb300464f00a": {
+        "_id": "121efb300464f00a",
+        "type": "Trait",
+        "name": "技能专精",
+        "configuration": {
+          "mode": "expertise",
+          "allowReplacements": false,
+          "grants": [],
+          "choices": [
+            {
+              "count": 1,
+              "pool": [
+                "skills:*"
+              ]
+            }
+          ]
+        },
+        "value": {},
+        "level": 0,
+        "flags": {},
+        "hint": ""
+      }
+    },
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
       "level": null,
-      "repeatable": false
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
@@ -40,18 +112,13 @@
   "sort": 106250,
   "flags": {
     "core": {},
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_id": "O2OyHjhDgMYchjzm",
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757275287302,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

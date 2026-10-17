@@ -2,7 +2,7 @@
   "_id": "iiNpYFVFDEWiGigt",
   "name": "战斗准备 Battle Ready",
   "type": "feat",
-  "img": "modules/dnd5e_classpack/Nicons/Ability_Hunter_ImprovedSteadyShot.png",
+  "img": "icons/skills/melee/hand-grip-sword-white-brown.webp",
   "system": {
     "type": {
       "value": "class",
@@ -25,45 +25,35 @@
     "requirements": "战地匠师等级 3",
     "activities": {},
     "identifier": "-battle-ready",
-    "advancement": [],
+    "advancement": {},
     "cover": null,
     "crewed": false,
     "enchant": {},
     "prerequisites": {
-      "level": null,
-      "repeatable": false
+      "level": 3,
+      "repeatable": false,
+      "items": []
     },
     "properties": []
   },
   "effects": [
     {
       "_id": "C8LVcbvJ81HZ0fdG",
-      "changes": [
-        {
-          "key": "system.traits.weaponProf.value",
-          "mode": 2,
-          "value": "mar",
-          "priority": null
-        }
-      ],
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
       },
       "origin": "Compendium.dnd5e_classpack.extra-ability.iiNpYFVFDEWiGigt",
       "transfer": true,
       "flags": {},
       "tint": "#ffffff",
       "_stats": {
-        "coreVersion": "13.351",
-        "systemId": null,
-        "systemVersion": null,
+        "coreVersion": "14.368",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.5",
         "createdTime": null,
         "modifiedTime": null,
         "lastModifiedBy": null,
@@ -72,24 +62,47 @@
         "exportSource": null
       },
       "name": "获得军用武器熟练",
-      "img": "modules/dnd5e_classpack/Nicons/Ability_Hunter_ImprovedSteadyShot.png",
+      "img": "icons/skills/melee/hand-grip-sword-white-brown.webp",
       "type": "base",
-      "system": {},
+      "system": {
+        "changes": [
+          {
+            "key": "system.traits.weaponProf.value",
+            "value": "mar",
+            "priority": null,
+            "type": "add",
+            "phase": "initial",
+            "_id": "BOxozirDxSuqFd4C",
+            "conditions": "{}",
+            "replacement": ""
+          }
+        ],
+        "origin": {
+          "actor": null,
+          "behavior": null,
+          "effect": null,
+          "item": null,
+          "message": null
+        },
+        "conditions": "{}",
+        "magical": false,
+        "rider": {
+          "statuses": []
+        }
+      },
       "description": "",
       "statuses": [],
       "sort": 0,
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
       "_key": "!items.effects!iiNpYFVFDEWiGigt.C8LVcbvJ81HZ0fdG"
     }
   ],
   "folder": "mMtqLX641A7Iu98d",
   "sort": 37800000,
   "flags": {
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    },
+    "dnd5e": {},
     "midi-qol": {
       "rollAttackPerTarget": "default",
       "removeAttackDamageButtons": "default",
@@ -116,9 +129,9 @@
     }
   },
   "_stats": {
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": null,
     "modifiedTime": 1757415357543,
     "lastModifiedBy": "qKmljmeCDhGDkX2L",

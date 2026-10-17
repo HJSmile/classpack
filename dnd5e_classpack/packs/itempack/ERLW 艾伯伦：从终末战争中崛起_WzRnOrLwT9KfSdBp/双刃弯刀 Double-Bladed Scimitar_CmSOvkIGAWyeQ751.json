@@ -24,12 +24,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -42,7 +44,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -88,7 +91,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -96,7 +100,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -107,13 +110,27 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "attackMode": "twoHanded",
@@ -121,7 +138,39 @@
         "otherActivityUuid": "",
         "name": "动作攻击",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       },
       "etBgGXwsW2JaKKjf": {
         "type": "attack",
@@ -141,12 +190,14 @@
           "targets": []
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
@@ -159,7 +210,8 @@
           "template": {
             "contiguous": false,
             "units": "ft",
-            "type": ""
+            "type": "",
+            "stationary": false
           },
           "affects": {
             "choice": false,
@@ -199,11 +251,15 @@
                 "formula": ""
               },
               "number": 1,
-              "denomination": "4",
+              "denomination": 4,
               "bonus": "",
               "types": [
                 "slashing"
-              ]
+              ],
+              "modifiers": [],
+              "scaling": {
+                "number": 1
+              }
             }
           ]
         },
@@ -218,7 +274,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -226,7 +283,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -237,13 +293,27 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
         "otherActivityId": "",
         "attackMode": "twoHanded",
@@ -251,7 +321,39 @@
         "otherActivityUuid": "",
         "name": "动作攻击命中后的附赠攻击",
         "img": "",
-        "appliedEffects": []
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true,
+        "attackRollPerTarget": "default",
+        "fumbleThreshold": 1
       }
     },
     "uses": {
@@ -260,7 +362,7 @@
       "max": ""
     },
     "description": {
-      "value": "<p>双刃弯刀是维伦那精灵的标志性武器。一根细木棒支撑著两端弯曲的长刃。经过几个世纪的技术打磨，这些刀刃坚固、锋利、非常轻。每一把弯刀都是一件杰作，因此双刃弯刀是一件昂贵的武器（100gp）——尽管很少有人有机会买一把。非精灵手中的维伦那之刃通常被认为是从倒下的敌人那里偷来或掠夺来的，而维伦那之刃的持有者可能会觉得自己有权要求归还或挑战持刃者，以证明自己有能力使用它。</p><p></p><p>双刃弯刀是一种军用武器，重 6 磅，攻击命中造成 2d4 挥砍伤害。 具有双手属性与以下特殊属性:</p><p></p><ul><li><p>如果你在你的回合的攻击动作中使用了双刃弯刀发动攻击，你可以紧接着使用一个附赠动作来再发动一次近战攻击。此攻击命中时造成1d4挥砍伤害，而非2d4。</p></li></ul>",
+      "value": "<p>双刃弯刀是维伦那精灵的标志性武器。一根细木棒支撑著两端弯曲的长刃。经过几个世纪的技术打磨，这些刀刃坚固、锋利、非常轻。每一把弯刀都是一件杰作，因此双刃弯刀是一件昂贵的武器（100gp）——尽管很少有人有机会买一把。非精灵手中的维伦那之刃通常被认为是从倒下的敌人那里偷来或掠夺来的，而维伦那之刃的持有者可能会觉得自己有权要求归还或挑战持刃者，以证明自己有能力使用它。</p><p>双刃弯刀是一种军用武器，重 6 磅，攻击命中造成 2d4 挥砍伤害。 具有双手属性与以下特殊属性:</p><ul><li><p>如果你在你的回合的攻击动作中使用了双刃弯刀发动攻击，你可以紧接着使用一个附赠动作来再发动一次近战攻击。此攻击命中时造成1d4挥砍伤害，而非2d4。</p></li></ul>",
       "chat": ""
     },
     "identifier": "-",
@@ -283,12 +385,10 @@
       "value": 100,
       "denomination": "gp"
     },
-    "rarity": "",
     "attunement": "",
     "attuned": false,
     "equipped": false,
     "cover": null,
-    "crewed": false,
     "ammunition": {},
     "armor": {
       "value": null
@@ -306,7 +406,8 @@
         "scaling": {
           "number": 1
         },
-        "bonus": ""
+        "bonus": "",
+        "modifiers": []
       },
       "versatile": {
         "number": null,
@@ -317,10 +418,10 @@
         },
         "scaling": {
           "number": 1
-        }
+        },
+        "modifiers": []
       }
     },
-    "magicalBonus": null,
     "properties": [
       "two",
       "spc"
@@ -336,7 +437,11 @@
       "value": "martialM",
       "baseItem": ""
     },
-    "mastery": ""
+    "mastery": "",
+    "rarities": [],
+    "crew": {
+      "value": []
+    }
   },
   "effects": [],
   "sort": 0,
@@ -363,19 +468,14 @@
       "toggleEffect": false,
       "ignoreTotalCover": false
     },
-    "dnd5e": {
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
+    "systemVersion": "6.0.5",
     "createdTime": 1756716752470,
     "modifiedTime": 1757350424661,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",

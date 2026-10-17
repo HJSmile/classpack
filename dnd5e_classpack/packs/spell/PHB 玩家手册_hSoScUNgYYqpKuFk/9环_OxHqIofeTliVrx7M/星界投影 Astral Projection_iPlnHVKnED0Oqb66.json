@@ -2,7 +2,7 @@
   "_id": "iPlnHVKnED0Oqb66",
   "name": "星界投影 Astral Projection",
   "type": "spell",
-  "img": "modules/dnd5e_classpack/Nicons/003556.png",
+  "img": "icons/creatures/magical/spirit-undead-horned-blue.webp",
   "effects": [],
   "folder": "OxHqIofeTliVrx7M",
   "sort": 30400000,
@@ -28,21 +28,11 @@
       "reactionCondition": "",
       "otherCondition": ""
     },
-    "dnd5e": {
-      "migratedProperties": [
-        "vocal",
-        "somatic",
-        "material"
-      ],
-      "riders": {
-        "activity": [],
-        "effect": []
-      }
-    }
+    "dnd5e": {}
   },
   "system": {
     "description": {
-      "value": "<div class=\"description \"> 你和施法距离内至多八名自愿的生物将躯体投影到星界（如果你已经在星界，则法术失败且被消耗）。你原本的躯体昏迷并进入静止状态，即其不需要空气和食物也不会衰老。\n<br />你的星界躯体几乎完美的保持了原本的形态，并保留你本体的游戏资料和随身物。星界躯体和你本体的主要区别是从你肩胛骨间向后伸出的一条银线。这条可见长度仅有一尺的银线是你星界躯体和本体间的联系。只要银线保持完好，你总能找到回原本世界的路。只有明确注明可以切断这种银线的效应才可以将其切断。切断银线会将你的灵魂和躯体分离，并将你杀死。\n<br />你的星界躯体可以在星界任意旅行，并能穿过星界的传送门到达其他位面。如果你到达一个新位面，或是回到你施法时所在的位面，你的本体和物品将沿着银线被传送，使你以本体的形态到达新位面。你的星界躯体是单独的实体。星界躯体承受的伤害或效应不会反映在你的本体上，也不会在你回到本体时保持。\n<br />你可以使用一个动作来解散法术，并终止其对你与同伴产生的效应。法术终止时，受术的生物回到其原本的躯体并苏醒。你或你的某位同伴会存在提前终止法术效应的情况。对某生物的本体或星界躯体成功施展解除魔法将终止生物的投影效应。\n<br />如果某生物的本体或星界躯体的生命值降至0，则该生物自身的投影效应终止。如果法术终止时银线依然保持连接，则受术生物会被拉回原本的躯体，并脱离静止状态。\n<br />如果你在法术终止前被送回本体，你的同伴将被留在星界，只能自行返回（通常通过生命值降至0的方式）。\n<br /></div>",
+      "value": "<p>你和施法距离内至多八名自愿的生物将躯体投影到星界（如果你已经在星界，则法术失败且被消耗）。你原本的躯体昏迷并进入静止状态，即其不需要空气和食物也不会衰老。</p><p>你的星界躯体几乎完美的保持了原本的形态，并保留你本体的游戏资料和随身物。星界躯体和你本体的主要区别是从你肩胛骨间向后伸出的一条银线。这条可见长度仅有一尺的银线是你星界躯体和本体间的联系。只要银线保持完好，你总能找到回原本世界的路。只有明确注明可以切断这种银线的效应才可以将其切断。切断银线会将你的灵魂和躯体分离，并将你杀死。</p><p>你的星界躯体可以在星界任意旅行，并能穿过星界的传送门到达其他位面。如果你到达一个新位面，或是回到你施法时所在的位面，你的本体和物品将沿着银线被传送，使你以本体的形态到达新位面。你的星界躯体是单独的实体。星界躯体承受的伤害或效应不会反映在你的本体上，也不会在你回到本体时保持。</p><p>你可以使用一个动作来解散法术，并终止其对你与同伴产生的效应。法术终止时，受术的生物回到其原本的躯体并苏醒。</p><p>你或你的某位同伴会存在提前终止法术效应的情况。对某生物的本体或星界躯体成功施展解除魔法将终止生物的投影效应。如果某生物的本体或星界躯体的生命值降至 0，则该生物自身的投影效应终止。如果法术终止时银线依然保持连接，则受术生物会被拉回原本的躯体，并脱离静止状态。</p><p>如果你在法术终止前被送回本体，你的同伴将被留在星界，只能自行返回（通常通过生命值降至 0 的方式）。</p>",
       "chat": ""
     },
     "source": {
@@ -59,7 +49,8 @@
     "duration": {
       "value": "",
       "units": "spec",
-      "special": ""
+      "special": "",
+      "expiry": null
     },
     "target": {
       "affects": {
@@ -69,9 +60,10 @@
         "special": ""
       },
       "template": {
-        "units": "",
+        "units": "ft",
         "contiguous": false,
-        "type": ""
+        "type": "",
+        "stationary": false
       }
     },
     "range": {
@@ -92,10 +84,6 @@
       "consumed": true,
       "cost": 1100,
       "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
     },
     "properties": [
       "vocal",
@@ -121,22 +109,26 @@
           "spellSlot": true
         },
         "description": {
-          "chatFlavor": ""
+          "chatFlavor": "",
+          "value": ""
         },
         "duration": {
           "units": "inst",
           "concentration": false,
-          "override": false
+          "override": false,
+          "expiry": null
         },
         "effects": [],
         "range": {
-          "override": false
+          "override": false,
+          "units": "self"
         },
         "target": {
           "prompt": true,
           "template": {
             "contiguous": false,
-            "units": "ft"
+            "units": "ft",
+            "stationary": false
           },
           "affects": {
             "choice": false
@@ -166,7 +158,8 @@
           "idi": false,
           "idr": false,
           "idv": false,
-          "ida": false
+          "ida": false,
+          "idm": false
         },
         "midiProperties": {
           "ignoreTraits": [],
@@ -174,7 +167,6 @@
           "triggeredActivityConditionText": "",
           "triggeredActivityTargets": "targets",
           "triggeredActivityRollAs": "self",
-          "forceDialog": false,
           "confirmTargets": "default",
           "autoTargetType": "any",
           "autoTargetAction": "default",
@@ -185,26 +177,74 @@
           "rollMode": "default",
           "chooseEffects": false,
           "toggleEffect": false,
-          "ignoreFullCover": false
+          "ignoreFullCover": false,
+          "triggeredActivityConsume": true,
+          "triggeredActivityConfigure": true,
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "otherActivityAsParentType": true,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "skipConcentrationCheck": false,
+          "autoCEEffects": "default"
         },
         "isOverTimeFlag": false,
         "overTimeProperties": {
           "saveRemoves": true,
           "preRemoveConditionText": "",
-          "postRemoveConditionText": ""
+          "postRemoveConditionText": "",
+          "rollAs": "target"
         },
-        "otherActivityId": "none"
+        "otherActivityId": "none",
+        "img": null,
+        "behaviors": [],
+        "flags": {},
+        "visibility": {
+          "level": {},
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false
+        },
+        "regionBehavior": {
+          "enabled": false,
+          "dispositionFilter": -1,
+          "excludeSource": true,
+          "oncePerTurn": true,
+          "wallRestriction": "none",
+          "regionVisibility": 2,
+          "attachToken": "default",
+          "templateOrigin": "default",
+          "rules": []
+        },
+        "regionLight": {
+          "enabled": false,
+          "dim": 0,
+          "bright": 0,
+          "color": null,
+          "alpha": 0.5,
+          "luminosity": 0.5,
+          "animationType": "",
+          "animationSpeed": 5,
+          "animationIntensity": 5
+        },
+        "otherActivityAsParentType": true
       }
     },
-    "identifier": "astral-projection"
+    "identifier": "astral-projection",
+    "method": "spell",
+    "prepared": 0
   },
   "ownership": {
     "default": 0
   },
   "_stats": {
     "systemId": "dnd5e",
-    "systemVersion": "4.4.4",
-    "coreVersion": "13.351",
+    "systemVersion": "6.0.5",
+    "coreVersion": "14.368",
     "createdTime": null,
     "modifiedTime": 1757259979391,
     "lastModifiedBy": "WqWGW8MuBm7BNHxt",
